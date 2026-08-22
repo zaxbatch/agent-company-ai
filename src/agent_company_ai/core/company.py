@@ -880,6 +880,22 @@ class Company:
             raise ValueError(f"No agent named '{agent_name}'.")
         return await agent.chat(message)
 
+    async def chat_many(self, agent_names: list[str], message: str) -> list[dict]:
+        """Chat with several agents (group chat). Replies are collected in
+        order; one agent failing never blocks the others."""
+        results: list[dict] = []
+        for name in agent_names:
+            agent = self.agents.get(name)
+            if not agent:
+                results.append({"agent": name, "error": f"No agent named '{name}'."})
+                continue
+            try:
+                reply = await agent.chat(message)
+                results.append({"agent": name, "reply": reply})
+            except Exception as e:  # pragma: no cover - defensive
+                results.append({"agent": name, "error": str(e)})
+        return results
+
     async def broadcast(self, message: str) -> None:
         """Send a message to all agents."""
         await self.bus.send(

@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import logging
 import uuid
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 from agent_company_ai.core.role import Role
@@ -63,6 +64,21 @@ class Agent:
             team_members=team_members or [],
             profit_engine_dna=profit_engine_dna,
         )
+
+        # Company identity doc (SOUL.md at the workspace root) — brand, values
+        # and operating principles. Appended to the system prompt when present
+        # so agents are actually hooked into the company's identity.
+        try:
+            soul_path = Path("SOUL.md")
+            if soul_path.exists():
+                soul = soul_path.read_text(encoding="utf-8").strip()
+                if soul:
+                    self._system_prompt += (
+                        "\n\n===== COMPANY SOUL (identity & values) =====\n"
+                        f"{soul}"
+                    )
+        except Exception as e:  # pragma: no cover - never block agent startup
+            logger.warning(f"[{self.name}] could not load SOUL.md: {e}")
         self._tool_registry = ToolRegistry.get()
 
         # Register on message bus
@@ -222,9 +238,12 @@ class Agent:
             ))
 
             for tc in response.tool_calls:
-                tool_result = await self._execute_tool(
-                    tc.name, tc.arguments, task, best_assistant_text,
-                )
+                try:
+                    tool_result = await self._execute_tool(
+                        tc.name, tc.arguments, task, best_assistant_text,
+                    )
+                except Exception as e:  # never leave a tool call unanswered
+                    tool_result = f"Tool error: {e}"
 
                 # Check if task is now terminal (report_result was called)
                 if task.is_terminal:
@@ -404,28 +423,105 @@ class Agent:
         return "file"
 
     async def chat(self, message: str) -> str:
-        """Direct conversation with the human owner."""
+        """Direct conversation with the human owner.
+
+        Tools are actually EXECUTED here (same loop as ``think``), so the
+        agent can pull company data instead of only promising to. Task-only
+        tools (report_result / delegate_task) are excluded from chat.
+        """
         if self.provider is None:
             return "Error: LLM provider not configured. Set an API key in .agent-company-ai/config.yaml"
         if not self._conversation:
             self._conversation.append(
                 LLMMessage(role="system", content=self._system_prompt)
             )
+        self._repair_conversation()
 
         self._conversation.append(LLMMessage(role="user", content=message))
 
-        try:
-            response = await self.provider.complete(
-                messages=self._conversation,
-                tools=self.tool_definitions,
-            )
-        except Exception as e:
-            return f"Error: {e}"
+        # Attribute tool activity to this agent (wallet/email/stripe/contacts…).
+        set_current_agent(self.name)
+        set_email_agent(self.name)
+        set_stripe_agent(self.name)
+        set_contacts_agent(self.name)
+        set_landing_page_agent(self.name)
+        set_social_agent(self.name)
+        set_gumroad_agent(self.name)
+        set_invoice_agent(self.name)
+        set_stripe_subs_agent(self.name)
+        set_booking_agent(self.name)
+        set_revenue_agent(self.name)
+        set_prospect_agent(self.name)
+        set_content_agent(self.name)
+        set_browser_agent(self.name)
 
-        self._track_usage(response.usage)
-        reply = response.content or "(no response)"
-        self._conversation.append(LLMMessage(role="assistant", content=reply))
-        return reply
+        tools = [
+            t for t in self.tool_definitions
+            if t.name not in ("report_result", "delegate_task")
+        ]
+
+        # Bounded tool loop — mirrors think() so data tools actually run.
+        for _ in range(10):
+            self._repair_conversation()
+            try:
+                response = await self.provider.complete(
+                    messages=self._conversation,
+                    tools=tools,
+                )
+            except Exception as e:
+                return f"Error: {e}"
+
+            self._track_usage(response.usage)
+
+            if not response.tool_calls:
+                reply = response.content or "(no response)"
+                self._conversation.append(LLMMessage(role="assistant", content=reply))
+                return reply
+
+            # Assistant turn carrying the tool calls it wants to make.
+            self._conversation.append(LLMMessage(
+                role="assistant",
+                content=response.content or "",
+                tool_calls=[
+                    {"id": tc.id, "name": tc.name, "arguments": tc.arguments}
+                    for tc in response.tool_calls
+                ],
+            ))
+            for tc in response.tool_calls:
+                try:
+                    result = await self._execute_chat_tool(tc)
+                except Exception as e:  # never leave a tool call unanswered
+                    result = f"Tool error: {e}"
+                self._conversation.append(
+                    LLMMessage(role="tool", content=result, tool_call_id=tc.id)
+                )
+
+        return "(no response after tool loop)"
+
+    def _repair_conversation(self) -> None:
+        """Ensure the conversation never ends in a state providers reject.
+
+        A trailing assistant message with tool_calls has no tool responses
+        after it (they would follow it), which OpenAI-style APIs reject with
+        'insufficient tool messages following tool_calls'. Valid pairings
+        (assistant tool_calls -> tool messages) are left untouched.
+        """
+        while self._conversation:
+            last = self._conversation[-1]
+            if last.role == "assistant" and last.tool_calls:
+                self._conversation.pop()  # dangling tool_calls tail
+                continue
+            return
+
+    async def _execute_chat_tool(self, tc) -> str:
+        """Execute one tool call in chat mode (no task context needed)."""
+        tool = self._tool_registry.get_tool(tc.name)
+        if tool is None:
+            return f"Error: Unknown tool '{tc.name}'"
+        try:
+            return await tool.execute(**tc.arguments)
+        except Exception as e:
+            return f"Tool error: {e}"
 
     async def process_inbox(self) -> list[str]:
         """Process any pending messages in the agent's inbox."""

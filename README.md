@@ -10,6 +10,24 @@
 
 Agent Company AI lets a solo entrepreneur create a virtual company staffed entirely by AI agents. Each agent has a specific business role (CEO, CTO, Developer, Marketer, etc.), they collaborate on tasks, and you manage everything through a CLI or web dashboard. Agents can earn real money with built-in Stripe, Gumroad, invoicing, and booking integrations.
 
+> **This fork adds a working chat loop, task execution, and an authenticated
+> dashboard (Mission Control).** Chat messages actually run the agents' tools,
+> and the dashboard requires login (`admin` / `admin123` on first start —
+> change it on first login). No company identity is baked in — you name your
+> company at init time.
+
+### Fresh start (recommended, wipes all data)
+
+```bash
+./scripts/setup.sh     # one-time: venv + editable install + .env
+./scripts/reset.sh     # wipe EVERYTHING and create a fresh company + team
+./scripts/run.sh       # start the dashboard at http://127.0.0.1:8420
+```
+
+`reset.sh` destroys old company data (config, db, landing pages, dashboard
+logins, wallet keys) and initializes a brand-new company with a default team,
+so you can start fresh (data) every time.
+
 ### Key Features
 
 - **9 preset roles** — CEO, CTO, Developer, Marketer, Sales, Support, Finance, HR, Project Manager

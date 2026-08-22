@@ -7,3 +7,10 @@ __pycache__/
 dist/
 build/
 .eggs/
+venv/
+*.db
+*.db-shm
+*.db-wal
+.vault/
+dashboard_users.json
+.pytest_cache/
