@@ -414,6 +414,144 @@ class Agent:
 
         self._conversation.append(LLMMessage(role="user", content=message))
 
+        # Attribute tool activity to this agent (wallet/email/stripe/contacts…).
+        set_current_agent(self.name)
+        set_email_agent(self.name)
+        set_stripe_agent(self.name)
+        set_contacts_agent(self.name)
+        set_landing_page_agent(self.name)
+        set_social_agent(self.name)
+        set_gumroad_agent(self.name)
+        set_invoice_agent(self.name)
+        set_stripe_subs_agent(self.name)
+        set_booking_agent(self.name)
+        set_revenue_agent(self.name)
+        set_prospect_agent(self.name)
+        set_content_agent(self.name)
+        set_browser_agent(self.name)
+
+        tools = [
+            t for t in self.tool_definitions
+            if t.name not in ("report_result", "delegate_task")
+        ]
+
+        # Bounded tool loop — mirrors think() so data tools actually run.
+        for _ in range(10):
+            self._repair_conversation()
+            try:
+                response = await self.provider.complete(
+                    messages=self._conversation,
+                    tools=tools,
+                )
+            except Exception as e:
+                return f"Error: {e}"
+
+            self._track_usage(response.usage)
+
+            if not response.tool_calls:
+                reply = response.content or "(no response)"
+                self._conversation.append(LLMMessage(role="assistant", content=reply))
+                return reply
+
+            # Assistant turn carrying the tool calls it wants to make.
+            self._conversation.append(LLMMessage(
+                role="assistant",
+                content=response.content or "",
+                tool_calls=[
+                    {"id": tc.id, "name": tc.name, "arguments": tc.arguments}
+                    for tc in response.tool_calls
+                ],
+            ))
+            for tc in response.tool_calls:
+                try:
+                    result = await self._execute_chat_tool(tc)
+                except Exception as e:  # never leave a tool call unanswered
+                    result = f"Tool error: {e}"
+                self._conversation.append(
+                    LLMMessage(role="tool", content=result, tool_call_id=tc.id)
+                )
+
+        return "(no response after tool loop)"
+
+    def _repair_conversation(self) -> None:
+        """Ensure the conversation never contains orphaned tool_calls.
+
+        OpenAI-style APIs require every assistant message carrying tool_calls
+        to be IMMEDIATELY followed by a ``tool`` message per tool_call_id
+        (same order). A dangling tail at the end, an interruption mid-loop,
+        or a history trim can leave an assistant tool_calls message with no
+        (or partial) tool responses anywhere in the conversation, and the
+        API rejects the whole request with 'insufficient tool messages
+        following tool_calls'. Valid pairings are left untouched.
+
+        Repair strategy: scan every message. For each assistant message that
+        declares tool_calls, verify the immediately following messages are
+        tool responses covering every declared id in order. If not, strip the
+        tool_calls from that assistant message (its text content survives) so
+        the conversation remains valid and lossless. Orphaned tool messages
+        with no preceding assistant tool_calls are dropped.
+        """
+        if not self._conversation:
+            return
+
+        repaired: list[LLMMessage] = []
+        i = 0
+        n = len(self._conversation)
+        while i < n:
+            msg = self._conversation[i]
+
+            # Plain messages pass through unchanged.
+            if not (msg.role == "assistant" and msg.tool_calls):
+                # Drop orphaned tool messages (no assistant tool_calls before them).
+                if msg.role == "tool":
+                    i += 1
+                    continue
+                repaired.append(msg)
+                i += 1
+                continue
+
+            # Assistant message with tool_calls: expect tool responses next.
+            expected_ids = [tc["id"] for tc in msg.tool_calls]
+            j = i + 1
+            matched: list[str] = []
+            while j < n and len(matched) < len(expected_ids):
+                nxt = self._conversation[j]
+                if nxt.role != "tool":
+                    break
+                if nxt.tool_call_id in expected_ids and nxt.tool_call_id not in matched:
+                    matched.append(nxt.tool_call_id)
+                    j += 1
+                else:
+                    break
+
+            if matched == expected_ids:
+                # Valid pairing: keep assistant + its tool responses.
+                repaired.append(msg)
+                repaired.extend(self._conversation[i + 1:j])
+                i = j
+            else:
+                # Orphaned/partial: keep the assistant text, drop tool_calls.
+                # Empty orphaned messages are dropped entirely (no value, and
+                # some providers reject empty assistant content).
+                logger.warning(
+                    f"[{self.name}] repaired orphaned tool_calls "
+                    f"({len(expected_ids)} declared, {len(matched)} matched)"
+                )
+                if msg.content and msg.content.strip():
+                    repaired.append(LLMMessage(
+                        role="assistant",
+                        content=msg.content,
+                        tool_calls=None,
+                    ))
+                i += 1
+
+        self._conversation = repaired
+
+    async def _execute_chat_tool(self, tc) -> str:
+        """Execute one tool call in chat mode (no task context needed)."""
+        tool = self._tool_registry.get_tool(tc.name)
+        if tool is None:
+            return f"Error: Unknown tool '{tc.name}'"
         try:
             response = await self.provider.complete(
                 messages=self._conversation,
