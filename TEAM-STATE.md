@@ -11,11 +11,19 @@
 
 ---
 
-## 0. LATEST SESSION (2026-08-24g)
-- **LEGAL DONE:** zerric.xyz Privacy Policy + Terms of Service written (content/legal/*.md) + HTML versions deployed: https://spread-da-word.netlify.app/privacy.html + /terms.html. Footer legal links added to site pages. Copied to archive/zerric-xyz-main/legal/ for when we deploy to zerric.xyz proper.
-- **Cassette player v2 LIVE:** soundtracks.html — 5 themes (Retro/Icy/Lava/Gold/Violet) + Random mode, physical cassette swap per tape (each tape has own colors/label), download buttons, spinning reels. 8 tapes.
-- **CANON:** "THE SHELVES RAISED US!" = Hood's rallying cry (in ROSTER.md). "The cab-nets" = the cabinet (the projects).
-
+## 0. LATEST SESSION## 0. LATEST SESSION (2026-08-24h)
+- **NAME LOCKED (BossLady):** The SaaS/product is **SPREAD DA WORD** — NOT "Spread Da World", NOT "Bizzy Bee".
+  Bizzy Bee = separate future project. Snitch = an ONLINE BOARDGAME ("Snitch: Rats in the Grass"), hosted at zerric.xyz/snitch.
+- **OUTREACH SPRINT GREENLIT (BossLady).** CRM leg DONE: `scripts/hubspot_sync.py` built + ran — 28 contacts CREATED,
+  1 UPDATED, 0 errored into HubSpot (29 Louisville prospect leads from company.db). Verified GET-by-email / PATCH / POST / DELETE
+  all work with our token (batch upsert endpoint returns 400 VALIDATION_ERROR — use per-contact flow).
+  State: state/hubspot_sync.json. HubSpot contact total (search API): 28.
+- **Snitch online boardgame (v1 scope):** sign-in (name+email) = LEAD CAPTURE. Flow: invite link (zerric.xyz/snitch/?room=CODE)
+  -> sign-in screen -> POST /api/lead (Netlify function, token server-side) -> HubSpot upsert + Netlify Blobs log -> join live board.
+  No password in v1 (recommended: name+email only). P2P via PeerJS (host stays online) — we do NOT control the snowsnakes backend.
+- **Cassette player:** LIVE at snowsnakes.zerric.xyz/spread-da-word/audio/soundtracks-cassette-player.html (8 switchable tapes, HTTP 200).
+  Hub CASSETTE_LINK placeholder now wired to it (resources/zerric-xyz/spread-da-word/index.html). 4-player cap on player pages.
+- **Cleanup:** landing page draft renamed spread-da-world-v1.html -> spread-da-word-v1.html + content fixed. Zero "World" refs left.
 ## 1. TOP PRIORITIES (current)
 1. **SnowSnakes content runs in the background** — jokes + games, ~20 jokes/day, 1-3 games/day.
    Automated: `scripts/post_daily_jokes.py` (cron 09:00 daily). Do NOT post jokes in chat.

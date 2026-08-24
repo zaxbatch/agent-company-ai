@@ -1,4 +1,5 @@
-# Bizzy Bee Solutions — SaaS MVP Scope & Roadmap
+# SPREAD DA WORD — SaaS MVP Scope & Roadmap
+# (Product name: SPREAD DA WORD. "Bizzy Bee" is a separate future project — not this one.)
 Owner: NinjaNerd (CTO) · Draft: 2026-08-24 · Status: DELIVERED, pending BossLady sign-off on scope priorities
 
 ## 1. What we are building (positioning)
@@ -68,7 +69,7 @@ Exit: a paying customer (non-Z-Dot) runs on it for 30 days.
 - Referral/affiliate program (Mark)
 
 ## 5. Key risks / decisions
-1. NAME: package says "Bizzy-Bee-Solutions"; pyproject description says agent company. Naming affects every landing page — DECISION NEEDED (ties to t11 domain strategy).
+1. NAME: **RESOLVED — SPREAD DA WORD** (per BossLady 2026-08-24). "Bizzy Bee" is a separate project, not this one. Naming ties to t11 domain strategy; docs/pages use "Spread Da Word".
 2. Email provider: Resend (simple, good deliverability) vs SendGrid (feature-rich). CTO recommends Resend for MVP.
 3. Stripe keys (t5) and HubSpot token ownership: both are live credentials that gate revenue. Zerric must provide/enable.
 4. HubSpot token scope: currently contacts-only. Deals/owners scopes needed for sales pipeline — requires HubSpot settings change (Zerric's account).
@@ -77,5 +78,5 @@ Exit: a paying customer (non-Z-Dot) runs on it for 30 days.
 ## 6. What I need from BossLady (sign-off)
 1. Confirm MVP scope IN/OUT above (or trim).
 2. Confirm the money-loop priority: leads-first (prospect→CRM→email) vs payments-first (Stripe checkout).
-3. Confirm product name direction (Bizzy Bee vs rename) so landing pages can be finalized.
+3. ~~Confirm product name direction~~ **DONE — SPREAD DA WORD** per BossLady. Landing pages use it.
 4. Confirm email provider choice: Resend recommended.

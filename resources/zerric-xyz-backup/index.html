@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <title>Zerric.xyz // nexus // tech hub</title>
+    <style>
+        /* === RESET & BASE === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: radial-gradient(circle at 20% 30%, #0a0f1a, #03060c);
+            font-family: 'Fira Code', 'JetBrains Mono', 'SF Mono', 'Courier New', monospace;
+            color: #c3e8ff;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(0deg, rgba(0, 255, 255, 0.02) 0px, rgba(0, 255, 255, 0.02) 2px, transparent 2px, transparent 6px);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 5;
+        }
+
+        /* === HEADER === */
+        .hero {
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #2affb6;
+            display: inline-block;
+            width: 100%;
+            padding-bottom: 1.2rem;
+        }
+
+        .glitch-stack {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -2px;
+            position: relative;
+            display: inline-block;
+            color: #bbf0ff;
+            text-shadow: 3px 0 0 #0ff, -3px 0 0 #ff2ad0;
+        }
+
+        .slogan {
+            font-size: 1.4rem;
+            background: #0e1a2b80;
+            backdrop-filter: blur(4px);
+            display: inline-block;
+            padding: 0.3rem 1.5rem;
+            border-radius: 60px;
+            margin-top: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            border: 1px solid #2affb670;
+            box-shadow: 0 0 12px rgba(42, 255, 182, 0.3);
+        }
+        .slogan span {
+            color: #ffde7a;
+            font-weight: bold;
+        }
+
+        .cli-msg {
+            font-size: 0.85rem;
+            background: #0a101c;
+            padding: 10px 15px;
+            border-radius: 20px;
+            width: fit-content;
+            margin: 20px auto 0 auto;
+            border: 1px solid #2affb670;
+        }
+
+        .cursor-blink {
+            display: inline-block;
+            width: 8px;
+            height: 1.2rem;
+            background: #2affb6;
+            vertical-align: middle;
+            margin-left: 6px;
+            animation: blink 1s step-end infinite;
+            border-radius: 2px;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* === FEATURED APP – BIZZY-BEE CRM === */
+        .featured-app {
+            margin: 2rem 0 3rem 0;
+            background: radial-gradient(ellipse at 30% 40%, rgba(249, 168, 37, 0.12), rgba(255, 193, 7, 0.05), transparent 70%);
+            border: 1px solid rgba(249, 168, 37, 0.4);
+            border-radius: 60px;
+            padding: 2.5rem 2.8rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 60px rgba(249, 168, 37, 0.15), inset 0 0 60px rgba(255, 193, 7, 0.05);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(4px);
+        }
+        .featured-app::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(249, 168, 37, 0.06), transparent, rgba(255, 193, 7, 0.06), transparent);
+            animation: rotateGlow 20s linear infinite;
+            z-index: 0;
+        }
+        @keyframes rotateGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .featured-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+        .featured-text {
+            flex: 2 1 300px;
+        }
+        .featured-badge {
+            display: inline-block;
+            background: rgba(249, 168, 37, 0.15);
+            border: 1px solid #f9a825;
+            border-radius: 60px;
+            padding: 0.2rem 1.2rem;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #f9a825;
+            margin-bottom: 0.8rem;
+            box-shadow: 0 0 20px rgba(249, 168, 37, 0.2);
+        }
+        .featured-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffe082, #f9a825, #ffb300);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -1px;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 40px rgba(249, 168, 37, 0.3);
+        }
+        .featured-desc {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #c3e8ff;
+            max-width: 600px;
+            opacity: 0.9;
+            margin-bottom: 1.2rem;
+        }
+        .featured-desc strong {
+            color: #ffe082;
+            font-weight: 600;
+        }
+        .featured-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: linear-gradient(135deg, #f9a825, #ff6f00);
+            color: #0a0f1a;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 0.8rem 2.2rem;
+            border-radius: 60px;
+            border: none;
+            text-decoration: none;
+            font-family: inherit;
+            transition: all 0.25s ease;
+            box-shadow: 0 0 30px rgba(249, 168, 37, 0.4);
+            cursor: pointer;
+        }
+        .featured-cta:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 0 50px rgba(249, 168, 37, 0.7);
+            background: linear-gradient(135deg, #ffb300, #e65100);
+        }
+        .featured-cta span {
+            font-size: 1.4rem;
+        }
+
+        .featured-visual {
+            flex: 1 1 180px;
+            text-align: center;
+            font-size: 5rem;
+            line-height: 1;
+            filter: drop-shadow(0 0 30px rgba(249, 168, 37, 0.3));
+            animation: float 4s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(-2deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(-2deg); }
+        }
+
+        /* responsive tweaks */
+        @media (max-width: 700px) {
+            .featured-app {
+                padding: 1.8rem 1.5rem;
+                border-radius: 40px;
+            }
+            .featured-title {
+                font-size: 2rem;
+            }
+            .featured-desc {
+                font-size: 1rem;
+            }
+            .featured-visual {
+                font-size: 3.5rem;
+            }
+            .featured-cta {
+                font-size: 0.9rem;
+                padding: 0.6rem 1.6rem;
+            }
+        }
+
+        /* === SECTION TITLES === */
+        .section-title {
+            font-size: 1.8rem;
+            margin: 2.5rem 0 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-left: 6px solid #2affb6;
+            padding-left: 20px;
+        }
+        .section-title .badge {
+            background: #1f2a3e;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: normal;
+            color: #bbffdd;
+        }
+
+        /* === CARD GRID === */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.8rem;
+            margin-top: 1rem;
+        }
+
+        .card {
+            background: rgba(8, 18, 28, 0.65);
+            backdrop-filter: blur(4px);
+            border: 1px solid #2affb660;
+            border-radius: 32px;
+            padding: 1.5rem 1.2rem;
+            transition: all 0.25s ease-in-out;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: #2affb6;
+            background: rgba(10, 28, 40, 0.85);
+            box-shadow: 0 0 18px rgba(42, 255, 182, 0.4);
+        }
+        .card::after {
+            content: ">";
+            position: absolute;
+            bottom: 12px;
+            right: 20px;
+            font-size: 2.2rem;
+            opacity: 0.2;
+            font-weight: bold;
+            color: #2affb6;
+            font-family: monospace;
+        }
+        .card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .card h3 {
+            font-size: 1.7rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #e0f0ff, #9effcf);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+        .card .url {
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: #7eaccc;
+            margin-bottom: 1rem;
+            word-break: break-all;
+            border-bottom: 1px dashed #2affb640;
+            display: inline-block;
+        }
+        .card p {
+            margin-top: 0.6rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        .btn-link {
+            display: inline-block;
+            margin-top: 1rem;
+            background: #2affb620;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border: 1px solid #2affb6;
+            transition: 0.2s;
+            color: #ccfff0;
+        }
+        .btn-link:hover {
+            background: #2affb6;
+            color: #0a0f1a;
+            box-shadow: 0 0 8px #2affb6;
+        }
+
+        .beta-tag {
+            background: #ff9f4a20;
+            border-left: 4px solid #ffb347;
+            padding-left: 10px;
+            margin-top: 8px;
+            font-size: 0.7rem;
+            color: #ffcf9a;
+        }
+
+        /* === SPECIALTY CARD THEMES === */
+        .linux-ghost {
+            background: linear-gradient(145deg, #0c1725, #03070f);
+            border-color: #ba9eff;
+        }
+        .linux-ghost h3 {
+            background: linear-gradient(135deg, #e2d4ff, #b882ff);
+            background-clip: text;
+            -webkit-background-clip: text;
+        }
+
+        .pallets-card {
+            background: linear-gradient(145deg, #10221c, #03100c);
+            border-color: #9effcf;
+        }
+        .pallets-card h3 {
+            background: linear-gradient(135deg, #d4ffe6, #7affb0);
+            background-clip: text;
+            -webkit-background-clip: text;
+        }
+
+        .goalforge-card {
+            background: linear-gradient(145deg, #1e1710, #0f0a05);
+            border-color: #ffa25b;
+        }
+        .goalforge-card h3 {
+            background: linear-gradient(135deg, #ffcf9a, #ff9f4a);
+            background-clip: text;
+            -webkit-background-clip: text;
+        }
+        .goalforge-card .btn-link {
+            border-color: #ffa25b;
+            color: #ffcf9a;
+        }
+        .goalforge-card .btn-link:hover {
+            background: #ffa25b;
+            color: #0a0f1a;
+        }
+
+        .webbuilder-card {
+            background: linear-gradient(145deg, #0d1a2b, #060d17);
+            border-color: #7aa9ff;
+        }
+        .webbuilder-card h3 {
+            background: linear-gradient(135deg, #b8d6ff, #5a8cff);
+            background-clip: text;
+            -webkit-background-clip: text;
+        }
+        .webbuilder-card .btn-link {
+            border-color: #7aa9ff;
+            color: #b8d6ff;
+        }
+        .webbuilder-card .btn-link:hover {
+            background: #7aa9ff;
+            color: #0a0f1a;
+        }
+
+        .zax-card {
+            background: linear-gradient(145deg, #1a0d2b, #0a0515);
+            border-color: #c084ff;
+        }
+        .zax-card h3 {
+            background: linear-gradient(135deg, #e4b8ff, #b06aff);
+            background-clip: text;
+            -webkit-background-clip: text;
+        }
+        .zax-card .btn-link {
+            border-color: #c084ff;
+            color: #e4b8ff;
+        }
+        .zax-card .btn-link:hover {
+            background: #c084ff;
+            color: #0a0f1a;
+        }
+
+        .retrowave-card {
+            background: linear-gradient(145deg, #1a0e1a, #0d050d);
+            border-color: #ff6bcd;
+        }
+        .retrowave-card h3 {
+            background: linear-gradient(135deg, #ffb3e6, #ff3da0);
+            background-clip: text;
+            -webkit-background-clip: text;
+        }
+        .retrowave-card .btn-link {
+            border-color: #ff6bcd;
+            color: #ffb3e6;
+        }
+        .retrowave-card .btn-link:hover {
+            background: #ff6bcd;
+            color: #0a0f1a;
+        }
+        .retrowave-card .url {
+            color: #ff8ed0;
+        }
+
+        .command-card {
+            background: linear-gradient(145deg, #0d1a24, #060e14);
+            border-color: #4dd0e1;
+        }
+        .command-card h3 {
+            background: linear-gradient(135deg, #b0ecff, #26c6da);
+            background-clip: text;
+            -webkit-background-clip: text;
+        }
+        .command-card .btn-link {
+            border-color: #4dd0e1;
+            color: #b0ecff;
+        }
+        .command-card .btn-link:hover {
+            background: #4dd0e1;
+            color: #0a0f1a;
+        }
+        .command-card .url {
+            color: #80deea;
+        }
+
+        .socialsparx-card {
+            background: linear-gradient(145deg, #1e1030, #0f0818);
+            border-color: #ff6b6b;
+        }
+        .socialsparx-card h3 {
+            background: linear-gradient(135deg, #ffb3b3, #ff3d3d);
+            background-clip: text;
+            -webkit-background-clip: text;
+        }
+        .socialsparx-card .btn-link {
+            border-color: #ff6b6b;
+            color: #ffb3b3;
+        }
+        .socialsparx-card .btn-link:hover {
+            background: #ff6b6b;
+            color: #0a0f1a;
+        }
+        .socialsparx-card .url {
+            color: #ff8a8a;
+        }
+
+        .mockupforge-card {
+            background: linear-gradient(145deg, #0d1f26, #060e12);
+            border-color: #00e5ff;
+        }
+        .mockupforge-card h3 {
+            background: linear-gradient(135deg, #b0f0ff, #00b8d4);
+            background-clip: text;
+            -webkit-background-clip: text;
+        }
+        .mockupforge-card .btn-link {
+            border-color: #00e5ff;
+            color: #b0f0ff;
+        }
+        .mockupforge-card .btn-link:hover {
+            background: #00e5ff;
+            color: #0a0f1a;
+        }
+        .mockupforge-card .url {
+            color: #66d9ff;
+        }
+
+        .snowsnakes-card {
+            background: linear-gradient(145deg, #0e1f2b, #051016);
+            border-color: #80deea;
+        }
+        .snowsnakes-card h3 {
+            background: linear-gradient(135deg, #b3f0ff, #4dd0e1);
+            background-clip: text;
+            -webkit-background-clip: text;
+        }
+        .snowsnakes-card .btn-link {
+            border-color: #80deea;
+            color: #b3f0ff;
+        }
+        .snowsnakes-card .btn-link:hover {
+            background: #80deea;
+            color: #0a0f1a;
+        }
+        .snowsnakes-card .url {
+            color: #80deea;
+        }
+        .snowsnakes-card .beta-tag {
+            border-left-color: #80deea;
+            color: #b3f0ff;
+        }
+
+        .bizzybee-card {
+            background: linear-gradient(145deg, #2b1f0e, #1a1208);
+            border-color: #f9a825;
+        }
+        .bizzybee-card h3 {
+            background: linear-gradient(135deg, #ffe082, #f9a825);
+            background-clip: text;
+            -webkit-background-clip: text;
+        }
+        .bizzybee-card .btn-link {
+            border-color: #f9a825;
+            color: #ffe082;
+        }
+        .bizzybee-card .btn-link:hover {
+            background: #f9a825;
+            color: #0a0f1a;
+        }
+        .bizzybee-card .url {
+            color: #ffcc02;
+        }
+        .bizzybee-card .beta-tag {
+            border-left-color: #f9a825;
+            color: #ffe082;
+        }
+
+        /* === BEAT THREAD – vibrant music/beat theme === */
+        .beatthread-card {
+            background: linear-gradient(145deg, #1a0d1a, #0d050d);
+            border-color: #e040fb;
+        }
+        .beatthread-card h3 {
+            background: linear-gradient(135deg, #ea80fc, #d500f9);
+            background-clip: text;
+            -webkit-background-clip: text;
+        }
+        .beatthread-card .btn-link {
+            border-color: #e040fb;
+            color: #ea80fc;
+        }
+        .beatthread-card .btn-link:hover {
+            background: #e040fb;
+            color: #0a0f1a;
+        }
+        .beatthread-card .url {
+            color: #ce93d8;
+        }
+        .beatthread-card .beta-tag {
+            border-left-color: #e040fb;
+            color: #ea80fc;
+        }
+
+        /* === FOOTER === */
+        footer {
+            margin-top: 4rem;
+            text-align: center;
+            font-size: 0.8rem;
+            border-top: 1px solid #2affb630;
+            padding-top: 2rem;
+            color: #88bbdd;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 700px) {
+            body {
+                padding: 1rem;
+            }
+            .glitch-stack {
+                font-size: 2rem;
+            }
+            .slogan {
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 1.4rem;
+            }
+        }
+
+        /* === COOKIE BANNER === */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 15, 26, 0.92);
+            backdrop-filter: blur(12px);
+            border-top: 2px solid #2affb6;
+            padding: 1.2rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            z-index: 999;
+            box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.8);
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+        .cookie-banner.hidden {
+            transform: translateY(100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        .cookie-banner p {
+            font-size: 0.95rem;
+            margin: 0;
+            flex: 1 1 300px;
+            color: #c3e8ff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .cookie-banner .cookie-icon {
+            font-size: 1.8rem;
+            filter: drop-shadow(0 0 6px #ffb347);
+        }
+        .cookie-banner .cookie-text {
+            line-height: 1.5;
+        }
+        .cookie-banner .cookie-text strong {
+            color: #ffde7a;
+        }
+        .cookie-banner .cookie-text .emoji-bite {
+            display: inline-block;
+            animation: nomnom 1.2s infinite alternate ease-in-out;
+        }
+        @keyframes nomnom {
+            0% {
+                transform: scale(1) rotate(0deg);
+            }
+            100% {
+                transform: scale(1.2) rotate(8deg);
+            }
+        }
+        .cookie-banner .btn-cookie {
+            background: #2affb620;
+            border: 1px solid #2affb6;
+            color: #ccfff0;
+            padding: 0.5rem 1.8rem;
+            border-radius: 60px;
+            font-family: inherit;
+            font-weight: bold;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.25s;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .cookie-banner .btn-cookie:hover {
+            background: #2affb6;
+            color: #0a0f1a;
+            box-shadow: 0 0 20px rgba(42, 255, 182, 0.5);
+        }
+        @media (max-width: 600px) {
+            .cookie-banner {
+                padding: 1rem;
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+            .cookie-banner .btn-cookie {
+                align-self: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HERO -->
+        <div class="hero">
+            <div class="glitch-stack">
+                zerric.xyz<span class="cursor-blink"></span>
+            </div>
+            <div class="slogan">
+                🔧 <span>zerric xyz</span> easy as 123 🚀
+            </div>
+            <div class="cli-msg">
+                ⚡ $ nexus --init --profile=zerric ➜ links loaded | ready to explore
+            </div>
+        </div>
+
+        <!-- ===== FEATURED APP: BIZZY-BEE CRM ===== -->
+        <div class="featured-app">
+            <div class="featured-content">
+                <div class="featured-text">
+                    <div class="featured-badge">🌟 Featured App</div>
+                    <h2 class="featured-title">🐝 Bizzy-Bee CRM</h2>
+                    <p class="featured-desc">
+                        <strong>Streamline your customer relationships.</strong> Track leads, manage contacts, and automate your workflow — all in one buzzing dashboard. Take control of your business!
+                    </p>
+                    <a href="https://bizzy-bee.zdotllc.com" class="featured-cta" target="_blank">
+                        <span>🚀</span> Launch Bizzy-Bee
+                    </a>
+                </div>
+                <div class="featured-visual">
+                    🍯
+                </div>
+            </div>
+        </div>
+
+        <!-- CORE NODES -->
+        <div class="section-title">
+            <span>🖧 CORE NODES</span>
+            <div class="badge">enterprise • realty • dev • pallets</div>
+        </div>
+        <div class="card-grid">
+            <div class="card">
+                <a href="https://zdotllc.com" target="_blank" rel="noopener noreferrer">
+                    <h3>Z Dot LLC</h3>
+                    <div class="url">zdotllc.com</div>
+                    <p>🏢 Business holdings · strategic consulting · innovation lab</p>
+                    <span class="btn-link">⟶ launch portal</span>
+                </a>
+            </div>
+            <div class="card">
+                <a href="https://zerric.com" target="_blank" rel="noopener noreferrer">
+                    <h3>Zerric Dotcom</h3>
+                    <div class="url">zerric.com</div>
+                    <p>🏡 Premier real estate · LPT Realty · find your dream space</p>
+                    <span class="btn-link">⟶ explore listings</span>
+                </a>
+            </div>
+            <div class="card linux-ghost">
+                <a href="https://ghost.zerric.xyz" target="_blank" rel="noopener noreferrer">
+                    <h3>👻 Linux Ghost</h3>
+                    <div class="url">ghost.zerric.xyz</div>
+                    <p>🐧 Ubuntu‑based distro · lightweight · spectral speed & privacy</p>
+                    <span class="btn-link">⟶ get the iso</span>
+                </a>
+            </div>
+            <div class="card pallets-card">
+                <a href="https://pallets.zerric.xyz" target="_blank" rel="noopener noreferrer">
+                    <h3>📦 Pallets</h3>
+                    <div class="url">pallets.zerric.xyz</div>
+                    <p>🎨 Modular design system · drag & drop components · build fast</p>
+                    <span class="btn-link">⟶ stack pallets</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- BETA REALM -->
+        <div class="section-title">
+            <span>🧪 BETA REALM</span>
+            <div class="badge">experimental • bleeding edge</div>
+        </div>
+        <div class="card-grid">
+            <div class="card">
+                <a href="https://realty.zerric.xyz" target="_blank" rel="noopener noreferrer">
+                    <h3>🏠 Realty Nexus</h3>
+                    <div class="url">realty.zerric.xyz</div>
+                    <p>AI property matching · beta smart search & interactive maps</p>
+                    <div class="beta-tag">⚡ BETA — live iteration</div>
+                    <span class="btn-link">⟶ test drive</span>
+                </a>
+            </div>
+            <div class="card">
+                <a href="https://dropyourapp.zerric.xyz" target="_blank" rel="noopener noreferrer">
+                    <h3>📦 Drop Your App</h3>
+                    <div class="url">dropyourapp.zerric.xyz</div>
+                    <p>Instant deployment & share · drag & drop web utilities</p>
+                    <div class="beta-tag">🔨 early access</div>
+                    <span class="btn-link">⟶ drop now</span>
+                </a>
+            </div>
+            <div class="card">
+                <a href="https://dualcore.zerric.xyz" target="_blank" rel="noopener noreferrer">
+                    <h3>⚙️ DualCore Server</h3>
+                    <div class="url">dualcore.zerric.xyz/</div>
+                    <p>Cluster orchestration · high‑avail playground & devops sandbox</p>
+                    <div class="beta-tag">🔧 performance beta</div>
+                    <span class="btn-link">⟶ connect</span>
+                </a>
+            </div>
+            <div class="card">
+                <a href="https://trackstars.zerric.xyz" target="_blank" rel="noopener noreferrer">
+                    <h3>⭐ TrackStars</h3>
+                    <div class="url">trackstars.zerric.xyz</div>
+                    <p>Greatness · 1 Track at a Time</p>
+                    <div class="beta-tag">🏁 early season beta</div>
+                    <span class="btn-link">⟶ track stars</span>
+                </a>
+            </div>
+            <div class="card">
+                <a href="https://8trax.zerric.xyz" target="_blank" rel="noopener noreferrer">
+                    <h3>🎧 8Trax</h3>
+                    <div class="url">8trax.zerric.xyz</div>
+                    <p>Retro wave + social mixtapes · collaborative playlists</p>
+                    <div class="beta-tag">📼 alpha mix</div>
+                    <span class="btn-link">⟶ vibe check</span>
+                </a>
+            </div>
+            <div class="card goalforge-card">
+                <a href="https://zerric.xyz/apps/GoalForge/index.html" target="_blank" rel="noopener noreferrer">
+                    <h3>⚒️ GoalForge</h3>
+                    <div class="url">zerric.xyz/apps/GoalForge/</div>
+                    <p>🎯 Forge your destiny · goal tracking with XP & streaks · gamified productivity</p>
+                    <div class="beta-tag">🔥 beta — smith your ambitions</div>
+                    <span class="btn-link">⟶ enter forge</span>
+                </a>
+            </div>
+            <div class="card webbuilder-card">
+                <a href="https://zerric.xyz/apps/WebBuilder/index.html" target="_blank" rel="noopener noreferrer">
+                    <h3>🌐 WebBuilder</h3>
+                    <div class="url">zerric.xyz/apps/WebBuilder/</div>
+                    <p>🧩 Visual drag‑drop site builder · real‑time preview · no‑code freedom</p>
+                    <div class="beta-tag">🚀 beta — build the web</div>
+                    <span class="btn-link">⟶ start building</span>
+                </a>
+            </div>
+            <div class="card zax-card">
+                <a href="https://zerric.xyz/apps/ZaxAppBuilder/index.html" target="_blank" rel="noopener noreferrer">
+                    <h3>⚡ Zax App Builder</h3>
+                    <div class="url">zerric.xyz/apps/ZaxAppBuilder/</div>
+                    <p>🤖 AI‑powered app generator · describe · build · deploy · instant apps</p>
+                    <div class="beta-tag">⚡ beta — build with Zax</div>
+                    <span class="btn-link">⟶ build now</span>
+                </a>
+            </div>
+            <div class="card retrowave-card">
+                <a href="https://retrowave.zerric.xyz" target="_blank" rel="noopener noreferrer">
+                    <h3>📼 Retro-Wave</h3>
+                    <div class="url">retrowave.zerric.xyz</div>
+                    <p>🎶 Music server · playlist generator · share vibes · synthwave aesthetic</p>
+                    <div class="beta-tag">🌊 beta — ride the wave</div>
+                    <span class="btn-link">⟶ listen now</span>
+                </a>
+            </div>
+            <div class="card command-card">
+                <a href="https://zerric.xyz/apps/CommandCenter/index.html" target="_blank" rel="noopener noreferrer">
+                    <h3>⌨️ Command Center</h3>
+                    <div class="url">zerric.xyz/apps/CommandCenter/</div>
+                    <p>🎯 Your key to smarter browsing · unified dashboard · quick actions · productivity hub</p>
+                    <div class="beta-tag">🚀 beta — command your web</div>
+                    <span class="btn-link">⟶ take command</span>
+                </a>
+            </div>
+            <div class="card mockupforge-card">
+                <a href="https://zerric.xyz/apps/MockupForge/" target="_blank" rel="noopener noreferrer">
+                    <h3>📐 MockupForge</h3>
+                    <div class="url">zerric.xyz/apps/MockupForge/</div>
+                    <p>⚡ Quick website prototyper · drag‑drop wireframes · instant preview · design fast</p>
+                    <div class="beta-tag">🛠️ beta — forge your mockups</div>
+                    <span class="btn-link">⟶ start prototyping</span>
+                </a>
+            </div>
+            <div class="card bizzybee-card">
+                <a href="https://bizzy-bee.zdotllc.com" target="_blank" rel="noopener noreferrer">
+                    <h3>🐝 Bizzy-Bee CRM</h3>
+                    <div class="url">bizzy-bee.zdotllc.com</div>
+                    <p>📊 Streamline customer relationships · track leads · automate workflows · buzzy productivity</p>
+                    <div class="beta-tag">🚀 beta — manage your hive</div>
+                    <span class="btn-link">⟶ launch CRM</span>
+                </a>
+            </div>
+            <!-- ===== BEAT THREAD – NEW APP ===== -->
+            <div class="card beatthread-card">
+                <a href="https://beatthread.netlify.app/" target="_blank" rel="noopener noreferrer">
+                    <h3>🎵 Beat Thread</h3>
+                    <div class="url">beatthread.netlify.app</div>
+                    <p>🎧 Reddit for beats · producers upload · users download & remix · vote on the best versions</p>
+                    <div class="beta-tag">🔥 beta — drop a beat</div>
+                    <span class="btn-link">⟶ join the thread</span>
+                </a>
+            </div>
+            <div class="card snowsnakes-card">
+                <a href="https://snowsnakes.zerric.xyz" target="_blank" rel="noopener noreferrer">
+                    <h3>❄️ SnowSnakes</h3>
+                    <div class="url">snowsnakes.zerric.xyz</div>
+                    <p>🐍 Old-school social · dad jokes · doodles · condiment comics · pure chaos</p>
+                    <div class="beta-tag">😂 beta — silly zone</div>
+                    <span class="btn-link">⟶ unwind now</span>
+                </a>
+            </div>
+            <div class="card socialsparx-card">
+                <a href="https://sparx.zerric.xyz" target="_blank" rel="noopener noreferrer">
+                    <h3>✨ SocialSparx</h3>
+                    <div class="url">sparx.zerric.xyz</div>
+                    <p>🤖 Customizable social app · add bots · style your world · connect & create</p>
+                    <div class="beta-tag">🔥 beta — spark your social</div>
+                    <span class="btn-link">⟶ ignite now</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- NERDY FOOTER ZONE -->
+        <div style="margin-top: 2.5rem; text-align: center; font-size: 0.75rem; display: flex; justify-content: center; gap: 25px; flex-wrap: wrap;">
+            <div style="background: #0b111e80; padding: 0.4rem 1rem; border-radius: 30px;">🐚 $ echo "zerric/123" | lolcat</div>
+            <div style="background: #0b111e80; padding: 0.4rem 1rem; border-radius: 30px;">🖥️  sudo apt install ghost-os --future</div>
+            <div style="background: #0b111e80; padding: 0.4rem 1rem; border-radius: 30px;">✨ beatthread.netlify.app ➕ sparx</div>
+        </div>
+
+        <footer>
+            <span>© Zerric · Z Dot LLC · LPT Realty · software punk ethos</span><br />
+            <span style="font-size:0.7rem;">⚡ all systems online | pulse mode active ⚡</span>
+        </footer>
+    </div>
+
+    <!-- COOKIE BANNER -->
+    <div id="cookieBanner" class="cookie-banner">
+        <p>
+            <span class="cookie-icon">🍪</span>
+            <span class="cookie-text">
+                <strong>Experimental zone!</strong> We use cookies for … well, we're not entirely sure yet.
+                This site is a playground — we might track you, we might not.
+                <span class="emoji-bite">😋</span> We might even <strong>eat</strong> 'em.
+                By clicking “Accept”, you're cool with that.
+            </span>
+        </p>
+        <button id="acceptCookies" class="btn-cookie">Accept 🍪</button>
+    </div>
+
+    <script>
+        (function() {
+            // Cookie banner
+            const banner = document.getElementById('cookieBanner');
+            const acceptBtn = document.getElementById('acceptCookies');
+
+            if (localStorage.getItem('cookieConsent') === 'true') {
+                banner.classList.add('hidden');
+            }
+
+            acceptBtn.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'true');
+                banner.classList.add('hidden');
+            });
+
+            // Console greeting
+            const styles = [
+                "color: #2affb6; font-size: 14px; font-weight: bold; background: #0a1020; padding: 4px 8px; border-radius: 6px;",
+                "color: #ffb347; font-size: 12px;"
+            ];
+            console.log("%c🚀 ZERRIC.XYZ // nexus online // easy as 123", styles[0]);
+            console.log("%c> active domains: zdotllc.com | zerric.com | ghost.zerric.xyz | pallets.zerric.xyz | sparx.zerric.xyz", styles[1]);
+            console.log("%c> NEW: Beat Thread – Reddit for beats at beatthread.netlify.app 🎵", "color: #e040fb; font-weight: bold");
+            console.log("%c> enjoy the grid — pulse button on homepage leads here", "color: #8899cc");
+            console.log("%c🍪 Cookie consent: " + (localStorage.getItem('cookieConsent') === 'true' ? 'accepted' : 'pending'), "color: #ffde7a");
+        })();
+    </script>
+</body>
+</html>

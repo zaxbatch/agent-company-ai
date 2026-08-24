@@ -60,6 +60,529 @@ async def shutdown():
 
 
 # ------------------------------------------------------------------
+# Auth — multi-user dashboard access
+# ------------------------------------------------------------------
+# Users live in dashboard_users.json next to the package. On first start
+# the default admin account is created:  admin / admin123
+# (the password MUST be changed on first login). Admins can add/remove
+# users from /users. Sessions are HMAC-signed cookies (7 days).
+
+COOKIE_NAME = "mc_auth"
+SESSION_DAYS = 7
+DEFAULT_ADMIN = "admin"
+DEFAULT_ADMIN_PW = "admin123"
+_PBKDF2_ITERS = 200_000
+
+
+def _users_path() -> Path:
+    return Path(__file__).resolve().parents[3] / "dashboard_users.json"
+
+
+def _load_users() -> dict:
+    path = _users_path()
+    if path.exists():
+        try:
+            return json.loads(path.read_text())
+        except (OSError, ValueError):
+            logger.error("Could not read %s — starting with defaults", path)
+    return {}
+
+
+def _save_users(users: dict) -> None:
+    path = _users_path()
+    tmp = path.with_suffix(".json.tmp")
+    tmp.write_text(json.dumps(users, indent=2))
+    tmp.replace(path)
+
+
+def _hash_password(password: str, salt: str | None = None) -> tuple[str, str]:
+    salt = salt or secrets.token_hex(16)
+    h = hashlib.pbkdf2_hmac("sha256", password.encode("utf-8"), bytes.fromhex(salt), _PBKDF2_ITERS)
+    return h.hex(), salt
+
+
+def _verify_password(password: str, salt: str, expected_hash: str) -> bool:
+    h = hashlib.pbkdf2_hmac("sha256", password.encode("utf-8"), bytes.fromhex(salt), _PBKDF2_ITERS)
+    return hmac.compare_digest(h.hex(), expected_hash)
+
+
+def _get_users() -> dict:
+    users = _load_users()
+    if "secret" not in users:
+        users["secret"] = secrets.token_hex(32)
+    if not users.get("users"):
+        h, salt = _hash_password(DEFAULT_ADMIN_PW)
+        users["users"] = {
+            DEFAULT_ADMIN: {
+                "username": DEFAULT_ADMIN,
+                "hash": h,
+                "salt": salt,
+                "role": "admin",
+                "must_change_password": True,
+                "created_at": time.time(),
+            }
+        }
+        _save_users(users)
+        logger.warning(
+            "Dashboard: created default admin '%s' with password '%s' — change it on first login",
+            DEFAULT_ADMIN, DEFAULT_ADMIN_PW,
+        )
+    return users
+
+
+def _get_user(username: str) -> dict | None:
+    return _get_users()["users"].get(username)
+
+
+def _auth_secret() -> bytes:
+    return _get_users()["secret"].encode("ascii")
+
+
+def _make_token(username: str) -> str:
+    payload = base64.urlsafe_b64encode(json.dumps({
+        "u": username,
+        "exp": int(time.time()) + SESSION_DAYS * 86400,
+        "n": secrets.token_hex(8),
+    }).encode()).decode().rstrip("=")
+    sig = hmac.new(_auth_secret(), payload.encode("ascii"), hashlib.sha256).hexdigest()
+    return f"{payload}.{sig}"
+
+
+def _session_user(token: str) -> dict | None:
+    if not token or "." not in token:
+        return None
+    payload, sig = token.rsplit(".", 1)
+    try:
+        expected = hmac.new(_auth_secret(), payload.encode("ascii"), hashlib.sha256).hexdigest()
+        if not hmac.compare_digest(sig, expected):
+            return None
+        data = json.loads(base64.urlsafe_b64decode(payload + "=" * (-len(payload) % 4)))
+        if data.get("exp", 0) <= time.time():
+            return None
+        return _get_user(data.get("u", ""))
+    except Exception:
+        return None
+
+
+def _public_user(u: dict) -> dict:
+    return {
+        "username": u["username"],
+        "role": u.get("role", "viewer"),
+        "must_change_password": bool(u.get("must_change_password")),
+    }
+
+
+_AUTH_CSS = """
+  * { box-sizing:border-box; }
+  body { margin:0; min-height:100vh; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    background: radial-gradient(900px 500px at 75% -10%, #1c2433 0%, #0b0f17 60%); color:#e6ecf7; padding:30px 16px; }
+  .card { background:#121826; border:1px solid #232c40; border-radius:16px; padding:28px; max-width:520px; margin:0 auto; }
+  h1 { font-size:19px; margin:0 0 6px; text-align:center; }
+  p.sub { color:#8b97ad; font-size:13px; text-align:center; margin:0 0 20px; }
+  input, select { width:100%; padding:10px 12px; border-radius:9px; border:1px solid #232c40; background:#0b0f17;
+    color:#e6ecf7; font-size:14px; margin-bottom:10px; font-family:inherit; }
+  input:focus, select:focus { outline:2px solid #FACC0F; border-color:transparent; }
+  button { padding:11px; border:0; border-radius:9px; background:#FACC0F; color:#171204; font-weight:700;
+    font-size:14px; cursor:pointer; width:100%; }
+  button:hover { filter:brightness(1.1); }
+  .err { color:#ef4444; font-size:13px; margin-top:10px; text-align:center; }
+  .ok { color:#22c55e; font-size:13px; margin-top:10px; text-align:center; }
+  table { width:100%; border-collapse:collapse; font-size:14px; margin-top:6px; }
+  th, td { text-align:left; padding:8px 6px; border-bottom:1px solid #232c40; }
+  th { color:#8b97ad; font-size:12px; text-transform:uppercase; }
+  .actions button { width:auto; padding:6px 10px; font-size:12px; margin-right:6px; }
+  .actions button.danger { background:#ef4444; color:#fff; }
+  a { color:#FACC0F; text-decoration:none; }
+  .row { display:flex; gap:8px; }
+  .row input, .row select { flex:1; }
+"""
+
+
+def _page(title: str, body: str) -> str:
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{title}</title>
+<style>{_AUTH_CSS}</style>
+</head>
+<body>{body}</body>
+</html>"""
+
+
+def _login_body(error: bool = False) -> str:
+    err = '<div class="err">Invalid username or password</div>' if error else ""
+    return f"""<div class="card">
+  <h1>🤖 Mission Control</h1>
+  <p class="sub">Sign in to access your bots</p>
+  <form method="post" action="/login">
+    <input type="text" name="username" placeholder="Username" autofocus autocomplete="username" />
+    <input type="password" name="password" placeholder="Password" autocomplete="current-password" />
+    <button type="submit">Sign in</button>
+    {err}
+  </form>
+</div>"""
+
+
+@_app.get("/login")
+async def login_page(error: bool = False):
+    return HTMLResponse(_page("Mission Control — Sign in", _login_body(error)))
+
+
+@_app.post("/login")
+async def login_submit(request: Request):
+    from urllib.parse import parse_qs
+
+    raw = (await request.body()).decode("utf-8", "replace")
+    params = parse_qs(raw)
+    username = (params.get("username") or [""])[0].strip()
+    password = (params.get("password") or [""])[0]
+    user = _get_user(username)
+    if not user or not _verify_password(password, user["salt"], user["hash"]):
+        return HTMLResponse(_page("Mission Control — Sign in", _login_body(error=True)), status_code=401)
+    resp = RedirectResponse(url="/", status_code=303)
+    resp.set_cookie(
+        COOKIE_NAME, _make_token(username), httponly=True, samesite="lax",
+        max_age=SESSION_DAYS * 86400, path="/",
+    )
+    return resp
+
+
+@_app.post("/logout")
+async def logout():
+    resp = RedirectResponse(url="/login", status_code=303)
+    resp.delete_cookie(COOKIE_NAME, path="/")
+    return resp
+
+
+@_app.get("/change-password")
+async def change_password_page(request: Request):
+    user = _session_user(request.cookies.get(COOKIE_NAME, ""))
+    forced = bool(user and user.get("must_change_password"))
+    note = "You must change your password before continuing." if forced else "Update your password."
+    return HTMLResponse(_page("Mission Control — Change password", f"""<div class="card">
+  <h1>🔑 Change password</h1>
+  <p class="sub">{note}</p>
+  <form id="pwForm">
+    <input type="password" id="cur" placeholder="Current password" autocomplete="current-password" />
+    <input type="password" id="new1" placeholder="New password (min 8 chars)" autocomplete="new-password" />
+    <input type="password" id="new2" placeholder="Repeat new password" autocomplete="new-password" />
+    <button type="submit">Save password</button>
+    <div id="msg"></div>
+  </form>
+</div>
+<script>
+document.getElementById('pwForm').addEventListener('submit', async (e) => {{
+  e.preventDefault();
+  const msg = document.getElementById('msg');
+  const n1 = document.getElementById('new1').value;
+  const n2 = document.getElementById('new2').value;
+  if (n1 !== n2) {{ msg.className='err'; msg.textContent='Passwords do not match'; return; }}
+  const r = await fetch('/api/auth/change-password', {{
+    method:'POST', headers:{{'Content-Type':'application/json'}},
+    body: JSON.stringify({{ current: document.getElementById('cur').value, new_password: n1 }})
+  }});
+  const d = await r.json().catch(() => ({{}}));
+  if (r.ok) {{ msg.className='ok'; msg.textContent='Password updated'; setTimeout(() => location.href='/', 700); }}
+  else {{ msg.className='err'; msg.textContent = d.error || 'Failed'; }}
+}});
+</script>"""))
+
+
+@_app.post("/api/auth/change-password")
+async def api_change_password(request: Request):
+    user = _session_user(request.cookies.get(COOKIE_NAME, ""))
+    if not user:
+        return JSONResponse({"error": "Unauthorized"}, status_code=401)
+    body = await request.json()
+    current = str(body.get("current", ""))
+    newpw = str(body.get("new_password", ""))
+    if not _verify_password(current, user["salt"], user["hash"]):
+        return JSONResponse({"error": "Current password is incorrect"}, status_code=400)
+    if len(newpw) < 8:
+        return JSONResponse({"error": "New password must be at least 8 characters"}, status_code=400)
+    data = _get_users()
+    u = data["users"][user["username"]]
+    h, salt = _hash_password(newpw)
+    u["hash"] = h
+    u["salt"] = salt
+    u["must_change_password"] = False
+    _save_users(data)
+    return {"ok": True}
+
+
+@_app.get("/api/auth/me")
+async def api_me(request: Request):
+    user = _session_user(request.cookies.get(COOKIE_NAME, ""))
+    if not user:
+        return JSONResponse({"error": "Unauthorized"}, status_code=401)
+    return _public_user(user)
+
+
+def _require_admin(request: Request):
+    user = _session_user(request.cookies.get(COOKIE_NAME, ""))
+    if not user:
+        return None
+    return user if user.get("role") == "admin" else False
+
+
+@_app.post("/api/lead-trap")
+async def lead_trap(request: Request):
+    """Lead trap: accept email/name/site from content sites (snitch, spread-da-word, etc.),
+    create-or-update the contact in HubSpot, and set the 'tag' property to the source site.
+    Reads HUBSPOT_ACCESS_TOKEN from the environment (.env) - never exposed to browsers."""
+    try:
+        body = await request.json()
+    except Exception:
+        return JSONResponse({"ok": False, "error": "bad json"}, status_code=400)
+    email = (body.get("email") or "").strip().lower()
+    name = (body.get("name") or "").strip()
+    site = (body.get("site") or "unknown").strip()
+    if not email or "@" not in email:
+        return JSONResponse({"ok": False, "error": "email required"}, status_code=400)
+    token = os.getenv("HUBSPOT_ACCESS_TOKEN", "")
+    if not token:
+        return JSONResponse({"ok": False, "error": "hubspot not configured"}, status_code=500)
+    import urllib.request, urllib.error
+    # find existing contact by email
+    search = urllib.request.Request(
+        "https://api.hubapi.com/crm/v3/objects/contacts/search",
+        data=json.dumps({"filterGroups": [{"filters": [{"propertyName": "email", "operator": "EQ", "value": email}]}]}).encode(),
+        headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"}, method="POST")
+    try:
+        with urllib.request.urlopen(search, timeout=20) as r:
+            found = json.loads(r.read().decode()).get("results", [])
+    except Exception as e:
+        return JSONResponse({"ok": False, "error": f"hubspot search failed: {e}"}, status_code=502)
+    properties = {"email": email}
+    if name:
+        parts = name.split(" ", 1)
+        properties["firstname"] = parts[0]
+        if len(parts) > 1: properties["lastname"] = parts[1]
+    # read existing tag and append source
+    existing_tag = ""
+    if found:
+        existing_tag = (found[0].get("properties") or {}).get("tag", "") or ""
+        cid = found[0].get("id")
+    # merge tags (comma separated)
+    tags = [t.strip() for t in existing_tag.split(",") if t.strip()]
+    if site not in tags: tags.append(site)
+    properties["tag"] = ", ".join(tags)
+    url = f"https://api.hubapi.com/crm/v3/objects/contacts/{cid}" if found else "https://api.hubapi.com/crm/v3/objects/contacts"
+    method = "PATCH" if found else "POST"
+    req = urllib.request.Request(url, data=json.dumps({"properties": properties}).encode(),
+        headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"}, method=method)
+    try:
+        with urllib.request.urlopen(req, timeout=20) as r:
+            raw = r.read()
+            result = json.loads(raw) if raw.strip() else {}
+            return JSONResponse({"ok": True, "id": result.get("id"), "tag": properties.get("tag")})
+    except urllib.error.HTTPError as e:
+        raw = e.read().decode()
+        return JSONResponse({"ok": False, "error": f"hubspot write failed ({e.code}): {raw[:200]}"}, status_code=502)
+
+@_app.get("/api/users")
+async def api_users(request: Request):
+    admin = _require_admin(request)
+    if admin is None:
+        return JSONResponse({"error": "Unauthorized"}, status_code=401)
+    if admin is False:
+        return JSONResponse({"error": "Admin required"}, status_code=403)
+    data = _get_users()
+    return [_public_user(u) for u in data["users"].values()]
+
+
+@_app.post("/api/users")
+async def api_create_user(request: Request):
+    admin = _require_admin(request)
+    if admin is None:
+        return JSONResponse({"error": "Unauthorized"}, status_code=401)
+    if admin is False:
+        return JSONResponse({"error": "Admin required"}, status_code=403)
+    body = await request.json()
+    username = str(body.get("username", "")).strip()
+    password = str(body.get("password", ""))
+    role = body.get("role") if body.get("role") in ("admin", "viewer") else "viewer"
+    if not username or not password:
+        return JSONResponse({"error": "Username and password required"}, status_code=400)
+    if len(password) < 8:
+        return JSONResponse({"error": "Password must be at least 8 characters"}, status_code=400)
+    data = _get_users()
+    if username in data["users"]:
+        return JSONResponse({"error": "Username already exists"}, status_code=409)
+    h, salt = _hash_password(password)
+    data["users"][username] = {
+        "username": username, "hash": h, "salt": salt, "role": role,
+        "must_change_password": True, "created_at": time.time(),
+    }
+    _save_users(data)
+    return _public_user(data["users"][username])
+
+
+@_app.delete("/api/users/{username}")
+async def api_delete_user(username: str, request: Request):
+    admin = _require_admin(request)
+    if admin is None:
+        return JSONResponse({"error": "Unauthorized"}, status_code=401)
+    if admin is False:
+        return JSONResponse({"error": "Admin required"}, status_code=403)
+    data = _get_users()
+    if username not in data["users"]:
+        return JSONResponse({"error": "User not found"}, status_code=404)
+    if username == admin["username"]:
+        return JSONResponse({"error": "You cannot delete your own account"}, status_code=400)
+    if data["users"][username].get("role") == "admin" and sum(
+        1 for u in data["users"].values() if u.get("role") == "admin"
+    ) <= 1:
+        return JSONResponse({"error": "Cannot delete the last admin"}, status_code=400)
+    del data["users"][username]
+    _save_users(data)
+    return {"ok": True}
+
+
+@_app.post("/api/users/{username}/reset-password")
+async def api_reset_password(username: str, request: Request):
+    admin = _require_admin(request)
+    if admin is None:
+        return JSONResponse({"error": "Unauthorized"}, status_code=401)
+    if admin is False:
+        return JSONResponse({"error": "Admin required"}, status_code=403)
+    body = await request.json()
+    newpw = str(body.get("password", ""))
+    if len(newpw) < 8:
+        return JSONResponse({"error": "Password must be at least 8 characters"}, status_code=400)
+    data = _get_users()
+    if username not in data["users"]:
+        return JSONResponse({"error": "User not found"}, status_code=404)
+    h, salt = _hash_password(newpw)
+    u = data["users"][username]
+    u["hash"] = h
+    u["salt"] = salt
+    u["must_change_password"] = True
+    _save_users(data)
+    return {"ok": True}
+
+
+@_app.get("/users")
+async def users_page(request: Request):
+    admin = _require_admin(request)
+    if admin is None:
+        return RedirectResponse(url="/login", status_code=303)
+    if admin is False:
+        return RedirectResponse(url="/", status_code=303)
+    return HTMLResponse(_page("Mission Control — Users", """<div class="card">
+  <h1>👥 Dashboard Users</h1>
+  <p class="sub">Add or remove people who can access Mission Control.</p>
+  <h2 style="font-size:15px;margin:14px 0 8px;">Add user</h2>
+  <form id="addForm" class="row">
+    <input type="text" id="u" placeholder="Username" />
+    <input type="password" id="p" placeholder="Password (min 8)" />
+    <select id="r">
+      <option value="viewer">Viewer</option>
+      <option value="admin">Admin</option>
+    </select>
+    <button type="submit" style="width:auto;padding:10px 14px;">Add</button>
+  </form>
+  <div id="msg"></div>
+  <table>
+    <thead><tr><th>Username</th><th>Role</th><th>Status</th><th></th></tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+</div>
+<script>
+const api = (u, o) => fetch(u, o).then(r => r.json().then(d => ({ ok: r.ok, d })));
+async function load() {
+  const { ok, d } = await api('/api/users');
+  if (!ok) return;
+  const rows = document.getElementById('rows');
+  rows.innerHTML = '';
+  d.forEach(u => {
+    const tr = document.createElement('tr');
+    const status = u.must_change_password ? '<span style="color:#FACC0F">must change</span>' : 'ok';
+    const reset = '<button onclick="resetPw(\'' + u.username + '\')" style="width:auto;padding:5px 9px;font-size:12px;">Reset pw</button>';
+    const del = '<button class="danger" onclick="delUser(\'' + u.username + '\')" style="width:auto;padding:5px 9px;font-size:12px;">Delete</button>';
+    tr.innerHTML = '<td><b>' + u.username + '</b></td><td>' + u.role + '</td><td>' + status + '</td><td class="actions">' + reset + del + '</td>';
+    rows.appendChild(tr);
+  });
+}
+document.getElementById('addForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const msg = document.getElementById('msg');
+  const r = await api('/api/users', { method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ username: document.getElementById('u').value, password: document.getElementById('p').value, role: document.getElementById('r').value }) });
+  msg.className = r.ok ? 'ok' : 'err';
+  msg.textContent = r.ok ? ('Added ' + r.d.username) : (r.d.error || 'Failed');
+  if (r.ok) { document.getElementById('u').value=''; document.getElementById('p').value=''; load(); }
+});
+async function resetPw(username) {
+  const pw = prompt('New password for ' + username + ' (min 8 chars):');
+  if (!pw) return;
+  const r = await api('/api/users/' + encodeURIComponent(username) + '/reset-password', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ password: pw }) });
+  alert(r.ok ? 'Password reset — they must change it on next login' : (r.d.error || 'Failed'));
+}
+async function delUser(username) {
+  if (!confirm('Delete user ' + username + '?')) return;
+  const r = await api('/api/users/' + encodeURIComponent(username), { method:'DELETE' });
+  alert(r.ok ? 'Deleted' : (r.d.error || 'Failed'));
+  load();
+}
+load();
+</script>"""))
+
+
+# ─── Nav bar injected into dashboard pages ─────────────────────
+def _nav_html(request: Request) -> str:
+    user = _session_user(request.cookies.get(COOKIE_NAME, ""))
+    items = [
+        '<a href="/" style="font-size:12px;padding:6px 10px;border:1px solid #444;border-radius:8px;background:#222;">Mission Control</a>',
+        '<a href="/main" style="font-size:12px;padding:6px 10px;border:1px solid #444;border-radius:8px;background:#222;">Main dashboard</a>',
+        '<a href="/change-password" style="font-size:12px;padding:6px 10px;border:1px solid #444;border-radius:8px;background:#222;">Change password</a>',
+    ]
+    if user and user.get("role") == "admin":
+        items.append('<a href="/users" style="font-size:12px;padding:6px 10px;border:1px solid #444;border-radius:8px;background:#222;">Users</a>')
+    logout = ('<form action="/logout" method="post" style="display:inline">'
+              '<button type="submit" style="width:auto;padding:6px 10px;font-size:12px;background:transparent;border:1px solid #444;border-radius:8px;">Log out</button></form>')
+    return ('<div style="position:fixed;top:10px;right:14px;z-index:99999;display:flex;gap:8px;align-items:center;">'
+            + "".join(items) + logout + "</div>")
+
+
+def _serve_page(filename: str, request: Request) -> HTMLResponse:
+    html = (STATIC_DIR / filename).read_text()
+    if "</body>" in html:
+        html = html.replace("</body>", _nav_html(request) + "</body>")
+    return HTMLResponse(html)
+
+
+class _AuthMiddleware(BaseHTTPMiddleware):
+    async def dispatch(self, request: Request, call_next):
+        path = request.url.path
+        if path == "/login":
+            return await call_next(request)
+        user = _session_user(request.cookies.get(COOKIE_NAME, ""))
+        if not user:
+            if path.startswith("/api/"):
+                return JSONResponse({"error": "Unauthorized"}, status_code=401)
+            return RedirectResponse(url="/login", status_code=303)
+        # Force password change on first login.
+        if user.get("must_change_password") and path not in {
+            "/change-password", "/logout", "/login",
+            "/api/auth/change-password", "/api/auth/me",
+        }:
+            if path.startswith("/api/"):
+                return JSONResponse({"error": "Password change required"}, status_code=403)
+            return RedirectResponse(url="/change-password", status_code=303)
+        # User management requires an admin.
+        if (path == "/users" or path.startswith("/api/users")) and user.get("role") != "admin":
+            if path.startswith("/api/"):
+                return JSONResponse({"error": "Admin required"}, status_code=403)
+            return RedirectResponse(url="/", status_code=303)
+        return await call_next(request)
+
+
+_app.add_middleware(_AuthMiddleware)
+
+
+# ------------------------------------------------------------------
 # API routes
 # ------------------------------------------------------------------
 
