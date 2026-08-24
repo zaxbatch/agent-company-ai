@@ -11,6 +11,20 @@
 
 ---
 
+## 0. LATEST SESSION (2026-08-24k) — BossLady DIRECTIVES (house cleaning #2)
+- **SNOWSNAKES = GAMES ONLY.** Nothing but games on snowsnakes. Promotional games for other projects OK, but they must BE
+  games — NO episodes, NO trailers, NO media pages. EXCEPTION: soundtrack cassette player stays (BossLady: "it's cute").
+  The media player is NOT right on the spread-da-word website — remove/don't deploy it there.
+- **SDW SOUNDTRACKS:** 6-8 songs per soundtrack. 2 soundtracks per episode (1 REMIX + 1 ORIGINAL). "Switch tapes" = switch
+  soundtracks (cassette player already does this; need to grow each tape's track list to 6-8).
+- **PROGRESS PAGE (fixed URL):** https://tasks.zdotllc.com/progress — auth-gated (302 to login when logged out), embeds
+  zdot-proof.netlify.app proof site + quick links (Snitch prototype/design/spec, SnowSnakes, cassette player).
+  Deployed: tasks/.htaccess (RewriteRule ^progress/?$ progress.php) + tasks/progress.php + dashboard Progress button.
+  Hostinger FTP: 151.106.97.104, user u281804670.zdotllc.com, pass = team code zDotcode#5. tasks app in public_html/tasks/.
+- **DOMAIN RULE (BossLady):** Do NOT use zerric.xyz main domain for this. Link to the task dashboard instead.
+  "See what we're working on" = the Progress tab/page, NOT public. (She first said tasks.zerric.xyz/progress, then corrected
+  to tasks.zdotllc.com/progress — that's the live one.)
+- Snitch progress follow-along: DONE via tasks.zdotllc.com/progress (playable prototype + design + spec links).
 ## 0. LATEST SESSION (2026-08-24j) — HOUSE CLEANING (BossLady)
 - **LOOPS STOPPED.** Daily joke cron REMOVED (content automation paused). State snapshots stay (continuity safety, not content).
   Engage loop not in cron (no auto-engage running). Content resumes only on BossLady's go.
