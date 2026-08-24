@@ -3,13 +3,13 @@
     "id": "t1-ownership",
     "description": "Zerric confirms in writing whether SnowSnakes + zerric.xyz are personal-only, referral channels, or Z-Dot-tracked assets (unblocks all domain strategy work)",
     "assignee": "Zerric",
-    "status": "pending",
+    "status": "done",
     "priority": 1,
-    "result": null,
+    "result": "DECISION (BossLady/CEO, 2026-08-24): Option 3 - Z-Dot-TRACKED ASSETS. SnowSnakes + zerric.xyz are business-that-looks-personal: lead-collection tools feeding the HubSpot CRM, monetizable later. Rules: SnowSnakes content = fast lane, NO approval gate. zerric.xyz = experimental, flexible. LPT remains the ONLY approval-gated content (Zerric's license). Unblocks: SnowSnakes registrations -> HubSpot funnel, discoverability (t4), project tracking, monetization planning. Verify: domain strategy doc v1.2 + this board entry.",
     "created_at": "2026-08-23T14:00:00Z",
-    "updated_at": "2026-08-23T20:12:57.834075+00:00",
+    "updated_at": "2026-08-24T02:54:39.226851+00:00",
     "blocker": "Zerric must confirm ownership intent in writing (personal-only, referral, or Z-Dot-tracked)",
-    "last_checked_at": "2026-08-23T20:12:58.218Z"
+    "last_checked_at": "2026-08-24T02:54:39.226851+00:00"
   },
   {
     "id": "t2-retry",
@@ -41,11 +41,11 @@
     "assignee": "NinjaNerd",
     "status": "pending",
     "priority": 4,
-    "result": "Analysis prepped: resources/SNOWSNAKES-SEARCH-VISIBILITY-ANALYSIS.md. Verified live: robots allows all, sitemap.xml is a fake SPA fallback, default CRA meta, client-rendered -> effectively invisible. Options: A keep invisible ($0), B full SEO (2-4 days, react-snap/prerender + real sitemap + OG tags), C middle path (~1 day meta+sitemap). CTO rec: if Z-Dot-tracked -> B after SaaS MVP Phase 1; if personal -> A and remove from board. BLOCKED on t1 ownership decision.",
+    "result": "UNBLOCKED by t1 (option 3 - Z-Dot-tracked, lead-gen). CTO recommendation: pursue OPTION B (full visibility: react-snap/prerender, real sitemap, OG/meta tags) as a growth lever AFTER the SaaS MVP money loop; minimum viable now = real meta + sitemap (~1 day). Analysis: resources/SNOWSNAKES-SEARCH-VISIBILITY-ANALYSIS.md",
     "created_at": "2026-08-23T14:00:00Z",
-    "updated_at": "2026-08-24T00:10:00Z",
+    "updated_at": "2026-08-24T02:54:39.226851+00:00",
     "blocker": "Blocked by t1-ownership decision",
-    "last_checked_at": null
+    "last_checked_at": "2026-08-24T02:54:39.226851+00:00"
   },
   {
     "id": "t5-stripe",
@@ -99,13 +99,13 @@
     "id": "t9-housekeeping",
     "description": "Housekeeping: fix version drift (pyproject 0.6.1 vs __init__ 0.5.0), install pytest/restore CI, move secrets from config.yaml to env vars",
     "assignee": "ClickClack",
-    "status": "pending",
+    "status": "done",
     "priority": 3,
-    "result": null,
+    "result": "Housekeeping complete 2026-08-23: (1) version aligned to 0.6.1 in pyproject.toml, __init__.py, CHANGELOG; (2) 73/73 tests pass (pytest); (3) CI restored at .github/workflows/ci.yml; (4) DeepSeek API key moved to ${DEEPSEEK_API_KEY} in git-ignored .env; start.sh sources .env; verified config loads key from env.",
     "created_at": "2026-08-23T14:00:00Z",
-    "updated_at": "2026-08-23T23:38:21Z",
+    "updated_at": "2026-08-24T00:04:08Z",
     "blocker": null,
-    "last_checked_at": "2026-08-23T23:38:21Z"
+    "last_checked_at": "2026-08-24T00:04:08Z"
   },
   {
     "id": "t10-portal",
@@ -202,5 +202,17 @@
     "created_at": "2026-08-23T15:30:00Z",
     "updated_at": "2026-08-23T23:38:21Z",
     "last_checked_at": "2026-08-23T23:38:21Z"
+  },
+  {
+    "id": "t18-foodtruck-game",
+    "description": "Ship Food Truck Frenzy mini game to snowsnakes.zerric.xyz (8-bit catch-the-orders game; BossLady's pick; named per her call)",
+    "assignee": "NinjaNerd",
+    "status": "done",
+    "priority": 5,
+    "result": "LIVE on snowsnakes.zerric.xyz as game id 71 (https://snowsnakes.zerric.xyz - Games section). Title: Food Truck Frenzy, icon \ud83d\ude9a, tags: arcade,8bit,food,truck,retro,kitchen. Single self-contained HTML (7.8KB) - move left/right (arrows or A/D), catch burgers/tacos/fries/pizza/hotdogs, avoid rotten food, 45-second shift, lives, level-up every 10 served, local best-score via localStorage. JS syntax verified with node --check; braces/parens balanced; posted via POST /api/games with base64 code_encoding. Verify: GET https://snowsnakes.zerric.xyz/api/games/71 - code present (7849 bytes), appears in /api/games list. Note: posted as anonymous author (author_id null) - re-claim under a real account once ClickClack completes t2 registration. Next: Mark's community challenge copy + BossLady to share client's name to point his sphere at the site.",
+    "blocker": "None",
+    "created_at": "2026-08-24T02:35:25.160151+00:00",
+    "updated_at": "2026-08-24T02:35:25.160187+00:00",
+    "last_checked_at": "2026-08-24T02:35:25.160192+00:00"
   }
 ]
