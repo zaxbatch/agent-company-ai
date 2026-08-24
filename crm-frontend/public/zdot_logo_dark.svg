@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 120" role="img" aria-label="Zdot">
+  <rect width="500" height="120" fill="#111111"/>
+  <g transform="translate(40,10)">
+    <!-- inverted: white hexagon, indigo Z -->
+    <polygon points="50,8 88,30 88,74 50,96 12,74 12,30" fill="#FFFFFF"/>
+    <path d="M 28 32 L 60 32 L 34 68 L 66 68" stroke="#1E1B4B" stroke-width="11" fill="none" stroke-linejoin="miter" stroke-linecap="butt"/>
+    <polygon points="76,62 82,68 76,74 70,68" fill="#0EA5E9"/>
+  </g>
+  <text x="160" y="78" font-family="Inter, Geist, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="700" font-size="56" letter-spacing="-0.02em" fill="#FFFFFF">zdot</text>
+</svg>

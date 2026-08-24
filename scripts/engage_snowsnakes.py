@@ -18,12 +18,11 @@ BASE = "https://snowsnakes.zerric.xyz/api"
 PW = "Snowsnakes2026!"
 STATE_FILE = Path(__file__).resolve().parent.parent / ".agent-company-ai" / "engage_state.json"
 
-ACCOUNTS = ["ClickClack_", "TedBear", "mark", "seleena", "manny", "meta", "jasmine", "trevor"]
+ACCOUNTS = ["sam_rivera", "nia_brooks", "leo_park", "rae_dunn", "kai_torres", "elle_marsh", "max_fields", "ivy_chen"]
 
 # Per-account comment voices (authentic, varied)
 COMMENTS = {
-    "ClickClack_": ["this is the one 🔥", "okay that's actually clever", "the punchline got me 😂", "needed this today"],
-    "TedBear": ["bear approves 🐻", "ha! solid", "adding this to my rotation", "classic"],
+        "TedBear": ["bear approves 🐻", "ha! solid", "adding this to my rotation", "classic"],
     "mark": ["this is going viral, trust me", "good content drops 🔥", "the algorithm needs this", "hooked"],
     "seleena": ["10/10 no notes", "this is the vibe", "okay okay i see you 👀", "selling me on this"],
     "manny": ["noted ✅", "quality content right here", "saved for later", "clean"],

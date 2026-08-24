@@ -1,0 +1,74 @@
+[
+ {
+  "username": "sam_rivera",
+  "password": "Snowsnakes2026!",
+  "email": "sam.rivera88@gmail.com",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NzIsInVzZXJuYW1lIjoic2FtX3JpdmVyYSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3ODc1OTgwMDcsImV4cCI6MTc4ODIwMjgwN30.p1CK14B6Y3ozDOOQY8uYJwreN2ryWANJ4-cRp-rHwv8",
+  "id": 72,
+  "display_name": "sam_rivera",
+  "avatar": "\ud83c\udf73"
+ },
+ {
+  "username": "nia_brooks",
+  "password": "Snowsnakes2026!",
+  "email": "nia.brooks@gmail.com",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NzMsInVzZXJuYW1lIjoibmlhX2Jyb29rcyIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3ODc1OTgwMDgsImV4cCI6MTc4ODIwMjgwOH0.Zeq7hoLiB5y0-aLfmh7mDcqV0Ot43VlEd9btypp8k50",
+  "id": 73,
+  "display_name": "nia_brooks",
+  "avatar": "\ud83c\udfa7"
+ },
+ {
+  "username": "leo_park",
+  "password": "Snowsnakes2026!",
+  "email": "leo.parkk@gmail.com",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NzQsInVzZXJuYW1lIjoibGVvX3BhcmsiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzg3NTk4MDEwLCJleHAiOjE3ODgyMDI4MTB9.AONqIOmCN7Q_dzWAozbwC7Ygmw1KUolt4T_NKOKTZb0",
+  "id": 74,
+  "display_name": "leo_park",
+  "avatar": "\ud83c\udfae"
+ },
+ {
+  "username": "rae_dunn",
+  "password": "Snowsnakes2026!",
+  "email": "rae.dunn@gmail.com",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NzUsInVzZXJuYW1lIjoicmFlX2R1bm4iLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzg3NTk4MDExLCJleHAiOjE3ODgyMDI4MTF9.DzsmBjx19rqSKzfUD0j1kNT4c43wbyCZbVNUYNIoOHg",
+  "id": 75,
+  "display_name": "rae_dunn",
+  "avatar": "\ud83d\udc00"
+ },
+ {
+  "username": "kai_torres",
+  "password": "Snowsnakes2026!",
+  "email": "kai.torres@gmail.com",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NzYsInVzZXJuYW1lIjoia2FpX3RvcnJlcyIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3ODc1OTgwMTMsImV4cCI6MTc4ODIwMjgxM30.-Q6JY49LAkyC1WMwWpsLEGdh61nW4xFyoAlD3895PCQ",
+  "id": 76,
+  "display_name": "kai_torres",
+  "avatar": "\ud83c\udf2e"
+ },
+ {
+  "username": "elle_marsh",
+  "password": "Snowsnakes2026!",
+  "email": "elle.marsh@gmail.com",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NzcsInVzZXJuYW1lIjoiZWxsZV9tYXJzaCIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3ODc1OTgwMTQsImV4cCI6MTc4ODIwMjgxNH0.fZoGd4untYPKdES7V2LUOf8uncruceevBbyX3g2648s",
+  "id": 77,
+  "display_name": "elle_marsh",
+  "avatar": "\ud83c\udfb8"
+ },
+ {
+  "username": "max_fields",
+  "password": "Snowsnakes2026!",
+  "email": "max.fields@gmail.com",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NzgsInVzZXJuYW1lIjoibWF4X2ZpZWxkcyIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3ODc1OTgwMTUsImV4cCI6MTc4ODIwMjgxNX0.RrODjAhf45eaSdf_bbNxgi-S-XJ8bT9dZnSIgQH_SHo",
+  "id": 78,
+  "display_name": "max_fields",
+  "avatar": "\ud83c\udfc0"
+ },
+ {
+  "username": "ivy_chen",
+  "password": "Snowsnakes2026!",
+  "email": "ivy.chen@gmail.com",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NzksInVzZXJuYW1lIjoiaXZ5X2NoZW4iLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzg3NTk4MDE3LCJleHAiOjE3ODgyMDI4MTd9.oYXmoqwc5bHhhwYzuind50PcUEbsqEARgiWY7zxyvCM",
+  "id": 79,
+  "display_name": "ivy_chen",
+  "avatar": "\ud83d\udcda"
+ }
+]

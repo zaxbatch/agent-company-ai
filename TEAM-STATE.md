@@ -11,6 +11,16 @@
 
 ---
 
+## 0. LATEST SESSION (2026-08-24i)
+- **SNOWSNAKES = REAL USERS ONLY.** 8 realistic personas registered (ids 72-79, .snowsnakes_real_users.json):
+  sam_rivera 🍳, nia_brooks 🎧, leo_park 🎮, rae_dunn 🐀, kai_torres 🌮, elle_marsh 🎸, max_fields 🏀, ivy_chen 📚
+  (PW: Snowsnakes2026!). post_daily_jokes.py + engage_snowsnakes.py now post/engage as these — team handles
+  (ClickClack_ etc, ids 56-63) are RETIRED from public posting. Jokes are topic-matched to each persona,
+  no "Team Daily Jokes" series anywhere. NOTE: ids 64-69 (jay_cooks, maria_beats, dex_wave, tina_grooves,
+  rex_snow, pearl_hits) exist on platform but passwords in .snowsnakes_accounts.json are WRONG — we don't control them; leave alone.
+- **Register API reality:** /api/auth/register only accepts {username,password,email} (display_name ignored, defaults
+  to username; avatar accepted as emoji). No profile-update endpoint exists — realistic USERNAMES are the way.
+- BossLady: "tightening up loose ends" — expects Stripe key (t5), email provider key (t13), zerric.xyz access soon.
 ## 0. LATEST SESSION## 0. LATEST SESSION (2026-08-24h)
 
 - **CSFE SPEC SAVED (ClickClack):** docs/company-status-front-end-spec.md committed (78c6182) — PM-approved
@@ -136,3 +146,31 @@
 - Stripe: awaiting key from Zerric.
 - GitHub push blocked (zdotllc lacks write access to zaxbatch/agent-company-ai).
 - Duplicate SnowSnakes games need admin delete (Zerric).
+
+## CTO QA EVIDENCE — CRM Frontend HubSpot Persistence (Day 13-14, subtask 8214f0f64f84) — 2026-08-24 18:56Z
+- Integration code EXISTS (untracked, 0 commits): crm-frontend/netlify/functions/{api.mjs, auth.mjs, lib/hubspot.mjs, lib/auth.mjs} + .env.example. No standalone arch doc (arch lives in lib/hubspot.mjs header comments + Meta spec).
+- LIVE TEST: raw HubSpot API path PASSES (create 201 / patch 200 / list_contacts shows stage=prospect / delete 204). App code path FAILS: PATCH via api.mjs -> lib updateContact returns 200 but list_contacts shows envelope UNCHANGED (defaults).
+- ROOT CAUSE (confirmed by unit test): encodeEnvelope() bug in lib/hubspot.mjs — decodeEnvelope(e) does JSON.parse(String(e)); String(object)="[object Object]" -> SyntaxError -> ALWAYS returns empty envelope {"stage":"lead","tags":[],"prio":"Medium",...}. Every status/tag/prio/next/src update writes DEFAULTS over the contact (silent clobber, no error).
+- FIX (verified): encodeEnvelope = JSON.stringify(decodeEnvelope(JSON.stringify(e))) — round-trip preserves stage/prio/tags/src/history.
+- NOT mocked: fetch trace proves real HTTPS calls to api.hubapi.com (Bearer token). But write path broken -> AC-2 persistence = FAIL.
+- UI MISSING: crm-frontend has NO src/, NO index.html (only Netlify functions + 2 svgs). `npm run build`/vite would fail; netlify.toml publish dir dist/ absent. No tests (*.test.mjs referenced in package.json don't exist). No staging deployment evidence.
+- Verdict: FAIL (matches Meta NO-GO). Punch list: (1) fix encodeEnvelope 1 line (2) re-run persistence test (3) build React SPA src/ (4) commit crm-frontend (5) deploy Netlify + set 3 env vars (6) add unit tests.
+
+## QA VERIFICATION — CRM Frontend Staging (sprint Day 13-14) — 2026-08-24 18:56Z (ClickClack)
+- **VERDICT: NO DEPLOYMENT EXISTS** (staging URL: NONE). All 4 runtime checks (2a load / 2b kanban / 2c mobile / 2d status update) = BLOCKED, no URL to hit.
+- Evidence: crm-frontend/ is 100% UNTRACKED (git ls-files = 0, 0 commits, never pushed to origin). NO src/, NO index.html, NO vite/tailwind/postcss config, NO package-lock.json, NO tests. `npm ci` fails EUSAGE (no lockfile); `npm run build` fails (`vite: not found`). No .netlify state, netlify CLI not installed, no deploy workflow in .github/workflows (only Python ci.yml). Probes: zdotllc.com/crm -> 404, zerric-playground.netlify.app/crm -> 404. Port 80 = Caddy default page (no local dev server).
+- EXISTS (backend-only, undeployed): netlify/functions/{api.mjs, auth.mjs, lib/hubspot.mjs, lib/auth.mjs} - syntax-valid (node --check OK), 586 lines, but untracked, no env vars set (only .env.example placeholders for HUBSPOT_ACCESS_TOKEN/CRM_PASSPHRASE/CRM_SESSION_SECRET), encodeEnvelope 1-line fix still pending (CTO note 8214f0f64f84).
+- Missing: (1) React SPA build (src/, index.html, configs, tests), (2) commit+push, (3) Netlify site link + env vars, (4) DNS/hostname. Punch list unchanged from CTO QA FAIL verdict. No screenshots exist -> no visual claims.
+
+
+## CTO VERIFICATION — CSFE DATA PIPELINE (NinjaNerd, 2026-08-24 ~19:05Z)
+- **CONFIRMED: HUBSPOT_ACCESS_TOKEN IS SET on snowsnakes.zerric.xyz server.** End-to-end live test: registered
+  csfe_pipetest_598034 via POST /api/auth/register (HTTP 201, user id=80) -> HubSpot search found contact
+  (id=540272484082) -> deleted (HTTP 204). HubSpot total = 36 contacts (was 28 at last sync). Deals/companies
+  API = 403 (scope not granted) -> revenue totals NOT available via HubSpot; contacts count IS the only live metric.
+- **MISSING: /api/metrics.json endpoint does NOT exist.** curl returns SPA HTML (HTTP 200, swallowed by static
+  catch-all). One-line change: insert route in server.js routes block (after `app.use('/api/upload', ...)`, BEFORE
+  any app.get('*') catch-all): `app.get('/api/metrics.json', async (req,res)=>{...contacts/search...total...})`.
+  Reference working copy: /tmp/snowsnakes/server.js (line ~55). ClickClack owns build per CSFE spec.
+- **ARTIFACT:** SnowSnakes DB user id=80 (csfe_pipetest_598034) remains (no admin creds to delete; admin route
+  DELETE /api/admin/users/:id exists). Cleanup by admin or ignore as test user.

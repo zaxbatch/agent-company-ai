@@ -114,15 +114,17 @@ JOKE_BANK = [
 # ── Account profiles: make each account look like a real user ──
 # Preferred topics, tag style, and (rarely) a personal series. Most jokes have NO
 # series — real users don't label every post. Only a few accounts ever share one.
+# 8 REALISTIC personas (registered 2026-08-24, ids 72-79, .snowsnakes_real_users.json).
+# Team handles (ClickClack_ etc) are RETIRED from public posting — real users only.
 ACCOUNT_PROFILES = {
-    "ClickClack_": {"topics": ["tech", "work & office"], "tags": ["tech", "dev-life"],  "series": "The Code Review", "series_p": 0.25},
-    "TedBear":     {"topics": ["animals", "food"],        "tags": ["animals", "snacks"], "series": None, "series_p": 0},
-    "mark":        {"topics": ["music & movies", "sports & games"], "tags": ["movies", "sports"], "series": None, "series_p": 0},
-    "seleena":     {"topics": ["work & office", "travel & vehicles"], "tags": ["work", "travel"], "series": None, "series_p": 0},
-    "manny":       {"topics": ["school & books", "home & everyday"], "tags": ["school", "home"], "series": None, "series_p": 0},
-    "meta":        {"topics": ["tech", "weather & seasons"], "tags": ["tech", "weather"], "series": None, "series_p": 0},
-    "jasmine":     {"topics": ["food", "health & body"],  "tags": ["food", "health"],   "series": None, "series_p": 0},
-    "trevor":      {"topics": ["animals", "sports & games"], "tags": ["animals", "sports"], "series": None, "series_p": 0},
+    "sam_rivera":  {"topics": ["food", "home & everyday"],      "tags": ["food", "home"],     "series": None, "series_p": 0},
+    "nia_brooks":  {"topics": ["music & movies", "tech"],       "tags": ["music", "tech"],    "series": None, "series_p": 0},
+    "leo_park":    {"topics": ["sports & games", "tech"],       "tags": ["gaming", "tech"],   "series": None, "series_p": 0},
+    "rae_dunn":    {"topics": ["animals", "health & body"],     "tags": ["animals", "health"],"series": None, "series_p": 0},
+    "kai_torres":  {"topics": ["food", "travel & vehicles"],    "tags": ["food", "travel"],   "series": None, "series_p": 0},
+    "elle_marsh":  {"topics": ["music & movies", "weather & seasons"], "tags": ["music", "weather"], "series": None, "series_p": 0},
+    "max_fields":  {"topics": ["sports & games", "school & books"], "tags": ["sports", "school"], "series": None, "series_p": 0},
+    "ivy_chen":    {"topics": ["school & books", "work & office"],   "tags": ["books", "work"], "series": None, "series_p": 0},
 }
 ACCOUNTS = list(ACCOUNT_PROFILES.keys())
 

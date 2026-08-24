@@ -1,0 +1,29 @@
+# CRM Frontend — Netlify config
+[build]
+  command = "npm ci && npm run build"
+  publish = "dist"
+
+[functions]
+  directory = "netlify/functions"
+
+# SPA fallback: all non-API routes serve index.html (client routing)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# API routes go straight to functions (no SPA fallback)
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+  force = true
+
+[headers]
+  # Harden the app: no clickjacking, no MIME sniffing, tight referrer
+  for = "/*"
+    [headers.values]
+      X-Frame-Options = "DENY"
+      X-Content-Type-Options = "nosniff"
+      Referrer-Policy = "no-referrer"
+      Content-Security-Policy = "default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'"
