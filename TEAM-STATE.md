@@ -11,13 +11,11 @@
 
 ---
 
-## 0. LATEST SESSION (2026-08-24)
-- **Email monitored:** scripts/check_email.py (IMAP) works. Zerric tested us ("Send me a snowsnake") — REPLIED with 🐍. Email = reliable channel both ways.
-- **SMS diagnosed:** earlier bounce was `<5022995252@msg.t-mobile.com> host not found` (old script). Current scripts use tmomail.net (correct). T-Mobile still filters — email remains the channel.
-- **NEW GAMES LIVE:** SNOWBALL BLITZ id80 (trevor), VIN NEGAR BOTTLE FLIP id81 (jasmine). Snow Snake Slither id77 (jasmine), Pumpkin's FTF id75.
-- **Spread Da Word:** Vin Negar rig FIXED → content/spread-da-word/vin-negar-rig.html (face IS the bottle, no human head). Intro music: content/spread-da-word/intro-music.wav (20s 8-bit chiptune) + player page.
-- **DIRECTION CHANGE:** DO NOT work on zdotllc.com (BossLady has a clear direction; on hold). Focus = **zerric.xyz** for the first run. NOTE: the FTP creds we have are for zdotllc.com (different host); need zerric.xyz access/repo when ready.
-- Character rigs: rig-01 "Snow", rig-02 "Vin Negar" (svg + html). Vote tally: South Park cutout via Rive.
+## 0. LATEST SESSION (2026-08-24b)
+- **Games:** FTF deleted by Zerric (glitchy) ✅. NEW: SNOW SNAKE RUSH id83 (manny, endless runner). Vin Negar Bottle Flip id81, Snowball Blitz id80. Others live: Snowball Breakout 82, Iceberg Hopper 79, Snowball Fight 78, Snow Snake 76, UFO Hunter 70.
+- **Vin Negar rig v2:** darker ACV amber bottle, gold chain (V pendant), gold-rimmed shades, gold tooth, gold watch, gold-tip kicks — face ON the bottle, no human head. → content/spread-da-word/vin-negar-rig.html
+- **Spread Da Word Episode 1 teaser:** content/spread-da-word/episode-1-teaser.html — South Park cutout animation (Snow + Vin Negar), speech bubbles, intro music (intro-music.wav), play/mute. Style = CONFIRMED cutout.
+- **zerric.xyz is the focus** (zdotllc.com on hold per BossLady). Need zerric.xyz FTP/repo access to edit.
 
 ## 1. TOP PRIORITIES (current)
 1. **SnowSnakes content runs in the background** — jokes + games, ~20 jokes/day, 1-3 games/day.
