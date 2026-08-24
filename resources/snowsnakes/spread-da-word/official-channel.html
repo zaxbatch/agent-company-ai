@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spread Da Word — Official Channel</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#050a10; color:#cfeeff; font-family:'Courier New',monospace; }
+  .wrap { max-width:960px; margin:0 auto; padding:20px; }
+  header { text-align:center; padding:30px 0 10px; }
+  h1 { color:#ffd166; font-size:34px; letter-spacing:5px; text-shadow:0 0 25px #e94560aa; }
+  .tag { font-size:13px; letter-spacing:3px; opacity:.75; margin-top:8px; }
+  nav { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin:24px 0; }
+  nav a { color:#ffd166; text-decoration:none; font-size:14px; letter-spacing:1px; padding:8px 16px; border:2px solid #2f4a63; border-radius:20px; }
+  nav a:hover { border-color:#ffd166; background:#1a2a3a; }
+  section { margin:30px 0; padding:20px; background:#0f1a24; border:1px solid #2f4a63; border-radius:12px; }
+  h2 { color:#ffd166; font-size:18px; letter-spacing:2px; margin-bottom:14px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:12px; }
+  .card { background:#1a2a3a; border-radius:10px; padding:14px; text-align:center; }
+  .card .emoji { font-size:34px; }
+  .card .name { font-weight:bold; margin-top:6px; font-size:14px; }
+  .card .role { font-size:11px; opacity:.7; margin-top:4px; }
+  .card .line { font-size:11px; color:#ffd166; margin-top:6px; font-style:italic; }
+  .video { width:100%; border-radius:10px; border:2px solid #2f4a63; }
+  .btn { display:inline-block; background:#e94560; color:#fff; text-decoration:none; font-weight:bold; padding:12px 26px; border-radius:26px; margin-top:14px; letter-spacing:1px; }
+  .btn:hover { background:#ff5a75; }
+  .foot { text-align:center; font-size:12px; opacity:.5; padding:24px 0; letter-spacing:2px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>SPREAD DA WORD</h1>
+    <div class="tag">THE OFFICIAL CHANNEL · SNOWSNAKES ORIGINAL</div>
+  </header>
+
+  <nav>
+    <a href="#cast">Cast</a>
+    <a href="#episodes">Episodes</a>
+    <a href="#music">Music</a>
+    <a href="#behind">Behind the Scenes</a>
+    <a href="#snowsnakes">On SnowSnakes</a>
+  </nav>
+
+  <section id="cast">
+    <h2>🧊 THE CAST</h2>
+    <div class="grid">
+      <div class="card"><div class="emoji">🍶</div><div class="name">Vin Negar</div><div class="role">The Outlaw · Vinegar</div><div class="line">"You ain't ready for me, bro."</div></div>
+      <div class="card"><div class="emoji">🍖</div><div class="name">Que</div><div class="role">Vin's best friend · BBQ</div><div class="line">"Pass the sauce, pass the vibe."</div></div>
+      <div class="card"><div class="emoji">🥡</div><div class="name">Soy</div><div class="role">The Philosopher</div><div class="line">"I am not salt. I am experience."</div></div>
+      <div class="card"><div class="emoji">🐟</div><div class="name">Fi</div><div class="role">Secret Weapon · Fish</div><div class="line">"You ain't grown enough for me yet."</div></div>
+      <div class="card"><div class="emoji">🌶️</div><div class="name">Aji</div><div class="role">The Sparkplug · Hot</div><div class="line">"You ain't ready for me, bro." 🔥</div></div>
+      <div class="card"><div class="emoji">🥚</div><div class="name">Mayo White</div><div class="role">Fridge Diplomat</div><div class="line">"Let's keep it smooth."</div></div>
+      <div class="card"><div class="emoji">🥫</div><div class="name">Whip</div><div class="role">Mayo's estranged twin</div><div class="line">"I'm not Mayo. I'm me."</div></div>
+      <div class="card"><div class="emoji">🍅</div><div class="name">Red</div><div class="role">Ketchup · star complex</div><div class="line">"I go with everything."</div></div>
+      <div class="card"><div class="emoji">🌭</div><div class="name">Yellow</div><div class="role">Old Guard · Mustard</div><div class="line">"I was here first."</div></div>
+      <div class="card"><div class="emoji">🍋</div><div class="name">Zest</div><div class="role">The Cleaner · Lemon</div><div class="line">"A little goes a long way."</div></div>
+      <div class="card"><div class="emoji">🥛</div><div class="name">Crisp</div><div class="role">The Newcomer · Ranch</div><div class="line">"Hey guys! What's up?"</div></div>
+      <div class="card"><div class="emoji">🐍</div><div class="name">Snow Snake</div><div class="role">Always watching</div><div class="line">"..."</div></div>
+    </div>
+  </section>
+
+  <section id="episodes">
+    <h2>🎬 EPISODES & TEASERS</h2>
+    <video class="video" controls poster="">
+      <source src="" type="video/mp4">
+      (Episode 1 promo video placeholder — swap in the MP4)
+    </video>
+    <p style="font-size:12px;opacity:.7;margin-top:8px">Coming soon: full episodes, fridge drama, Vin &amp; Que adventures.</p>
+  </section>
+
+  <section id="music">
+    <h2>🎵 MUSIC</h2>
+    <p style="font-size:13px;margin-bottom:10px">The Spread Da Word sound — 8-bit chiptune + trap.</p>
+    <button class="btn" onclick="playAudio()">▶ PLAY INTRO (trap)</button>
+  </section>
+
+  <section id="behind">
+    <h2>🎨 BEHIND THE SCENES</h2>
+    <p style="font-size:13px;line-height:1.6">The Hood grew up in the cabinet — unopened, dreaming of the fridge. The Fridge is where the politics play out. The Snow Snake watches it all.<br><br>
+    <b>Character rigs:</b> Vin Negar (bottle, gold chain, shades) · Que (BBQ, party heart) · The Fridge shelf (Mayo, Whip, Red, Yellow, Zest, Crisp).<br>
+    <b>Style:</b> South Park cutout, 8-bit, web-native.<br>
+    <b>Production status:</b> Intro beat ✅ · Fridge teaser ✅ · Episode 1 script in progress · Que rig next.</p>
+  </section>
+
+  <section id="snowsnakes">
+    <h2>🐍 ON SNOWSNAKES</h2>
+    <p style="font-size:13px">Play the games, hear the music, catch the teasers on SnowSnakes.</p>
+    <a class="btn" href="https://snowsnakes.zerric.xyz" target="_blank">VISIT SNOWSNAKES</a>
+  </section>
+
+  <div class="foot">SPREAD DA WORD © 2026 · Z-Dot / SnowSnakes · Vin &amp; Que &amp; The Fridge</div>
+</div>
+<script>
+var audio = null;
+function playAudio(){
+  if(!audio){
+    var b64 = "AUDIO_B64";
+    audio = new Audio("data:audio/wav;base64," + b64);
+  }
+  if(audio.paused){ audio.currentTime=0; audio.play(); }
+  else audio.pause();
+}
+</script>
+</body>
+</html>
