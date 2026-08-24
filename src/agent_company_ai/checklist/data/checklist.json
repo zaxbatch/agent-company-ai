@@ -322,5 +322,17 @@
     "created_at": "2026-08-24T07:10:26.498394+00:00",
     "updated_at": "2026-08-24T08:00:58.267094+00:00",
     "last_checked_at": "2026-08-24T07:10:26.498394+00:00"
+  },
+  {
+    "id": "t28-trap-intro",
+    "description": "Spread Da Word trap intro beat + fridge teaser - LIVE",
+    "assignee": "NinjaNerd",
+    "status": "done",
+    "priority": 2,
+    "result": "TRAP BEAT (13.7s, 808 kicks, hi-hat rolls, dark bass): resources/snowsnakes/spread-da-word/audio/spread-da-word-intro-trap.wav. FRIDGE TEASER live on snowsnakes (id 88): The Fridge shelf (Mayo/Whip/Red/Yellow/Zest/Crisp + ??? slot, Snow Snake hint), trap intro plays in-page. BossLady direction: 'Tease the fridge. Intro: trap style video game beat.' DELIVERED. Verify: https://snowsnakes.zerric.xyz/api/games/88/launch",
+    "blocker": "None",
+    "created_at": "2026-08-24T08:13:00.209439+00:00",
+    "updated_at": "2026-08-24T08:13:00.209439+00:00",
+    "last_checked_at": "2026-08-24T08:13:00.209439+00:00"
   }
 ]
