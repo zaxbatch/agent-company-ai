@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#140a1a"/>
+  <g transform="translate(200,230)">
+    <rect x="-70" y="-110" width="140" height="190" rx="20" fill="#5c2a12" stroke="#b36a2a" stroke-width="4"/>
+    <rect x="-46" y="-96" width="92" height="150" rx="12" fill="#7a3a18"/>
+    <text x="0" y="10" font-size="58" text-anchor="middle" font-family="monospace" fill="#ffb347">Q</text>
+    <circle cx="-60" cy="-70" r="8" fill="#ffd166"/>
+    <circle cx="60" cy="-70" r="8" fill="#ffd166"/>
+  </g>
+  <text x="200" y="330" font-size="22" text-anchor="middle" font-family="monospace" fill="#ffd9a8">"Pass the sauce, pass the vibe."</text>
+</svg>
