@@ -20,12 +20,12 @@ Duration target: 30-45s · Music: intro-music.wav (12.5s chiptune)
 ## Scene 3 — Tag / Outro (30-42s)
 - VIN: "Spread the word. Tell your people."
 - Logo pops in: "SPREAD DA WORD" + snowflake. Chiptune sting.
-- Next-episode tease card: "NEXT: A new flavor enters the game..." (drops a rival hint)
+- Next-episode tease card: "NEXT: Aji enters the game..." 🌶️ (canon rival/sparkplug)
 
-## Cast (v1)
-- **Vin Negar** 🍶 — apple cider vinegar, from the hood, sour but keeps things fresh. RIG DONE.
-- **PROPOSED RIVAL: Sriracha** 🌶️ — hot sauce bottle, spicy rival, talks fast, loud red label. (Needs rig — 1 day.)
-- (Open slot for a third if Zerric wants a crew member.)
+## Cast (CANON per CHARACTER-BIBLE)
+- **Vin Negar** 🍶 — vinegar, The Outlaw. RIG DONE.
+- **Que** 🍖 — BBQ sauce, Vin's best friend, life of the party. NEEDS RIG (next build).
+- Cameo possibilities: Aji 🌶️ (hot sauce sparkplug), Soy 🍱 (philosopher), the Snow Snake 🐍 (ambient presence).
 
 ## Style notes (South Park cutout)
 - Flat shapes, bold outlines, simple 2-frame animations (lean, tilt, chain bounce, mouth flap).
