@@ -11,6 +11,16 @@
 
 ---
 
+## 0. LATEST SESSION (2026-08-24j) — HOUSE CLEANING (BossLady)
+- **LOOPS STOPPED.** Daily joke cron REMOVED (content automation paused). State snapshots stay (continuity safety, not content).
+  Engage loop not in cron (no auto-engage running). Content resumes only on BossLady's go.
+- **TEAM JOKES = MINIMAL (~15%).** post_daily_jokes.py now: 85% realistic personas, 15% team handles.
+- **PROOF-OF-WORK SITE LIVE: https://zdot-proof.netlify.app** (BossLady's tangible proof dashboard).
+  Organized: Live systems / Projects (SDW, Snitch, Outreach, SnowSnakes, Infra) / Personas / Recent commits / Blockers.
+  Includes playable Snitch prototype (snitch.html) + design (snitch-design.html) + spec (snitch-spec.html).
+  UPDATE FLOW after every progress: `python3 scripts/build_proof_site.py` then deploy:
+  `NETLIFY_AUTH_TOKEN=<from communication/credentials.txt> python3 scripts/deploy_netlify.py --dir progress --site-name zdot-proof`
+- Deploy quirk: netlify deploy script zips FLAT — no subdirs (snitch/ 404'd; fixed by flat snitch.html).
 ## 0. LATEST SESSION (2026-08-24i)
 - **SNOWSNAKES = REAL USERS ONLY.** 8 realistic personas registered (ids 72-79, .snowsnakes_real_users.json):
   sam_rivera 🍳, nia_brooks 🎧, leo_park 🎮, rae_dunn 🐀, kai_torres 🌮, elle_marsh 🎸, max_fields 🏀, ivy_chen 📚

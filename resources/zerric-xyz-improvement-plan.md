@@ -5,7 +5,7 @@ Owner: NinjaNerd (CTO) + Mark · Date: 2026-08-24 · Status: PLAN READY — Boss
 - Title: "Zerric.xyz // nexus // tech hub"
 - A LAUNCHPAD linking the whole ecosystem:
   - Apps: 8trax, dualcore, ghost, pallets, retrowave, sparx, trackstars, snowsnakes, dropyourapp
-  - Business: bizzy-bee.zdotllc.com, zdotllc.com, realty.zerric.xyz, zerric.com
+  - Business: bizzybee.zdotllc.com, zdotllc.com, realty.zerric.xyz, zerric.com
   - Web apps: CommandCenter, GoalForge, MockupForge, WebBuilder, ZaxAppBuilder
 - It's a clean link hub but essentially a list of links — no cards, no status, no descriptions.
 

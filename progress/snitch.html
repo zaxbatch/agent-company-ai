@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snitch: Rats in the Grass — Online Board Game</title>
+<meta name="description" content="Snitch: Rats in the Grass — the online board game. Play as a rat racing from the dumpster to the Rat King's lair. Snitch or stay loyal. 4 players max. Invite friends with a link.">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root {
+    --bg:#0b1a2a; --panel:#12395a; --accent:#7fd1ff; --text:#dff3ff;
+    --gold:#ffd166; --red:#ff6b6b; --green:#51cf66; --cheese:#ffd43b;
+  }
+  body {
+    font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+    background:var(--bg); color:var(--text); min-height:100vh;
+    display:flex; flex-direction:column; align-items:center;
+  }
+  .wrap { max-width:900px; width:100%; padding:12px; }
+  h1 { text-align:center; font-size:1.5rem; letter-spacing:1px; margin:10px 0 2px; }
+  h1 .sub { display:block; font-size:.8rem; opacity:.7; letter-spacing:2px; font-weight:400; margin-top:2px; }
+  .statusbar {
+    display:flex; justify-content:space-between; align-items:center; gap:8px;
+    background:var(--panel); border:1px solid #7fd1ff44; border-radius:10px;
+    padding:8px 12px; margin:10px 0; font-size:.85rem; flex-wrap:wrap;
+  }
+  .statusbar .turn { font-weight:700; color:var(--accent); }
+  .statusbar .mode { opacity:.75; }
+  .btn {
+    background:var(--accent); color:#0b1a2a; border:0; border-radius:8px;
+    padding:8px 14px; font-weight:700; cursor:pointer; font-size:.85rem;
+  }
+  .btn:hover { filter:brightness(1.1); }
+  .btn.ghost { background:transparent; color:var(--accent); border:1px solid var(--accent); }
+  .btn.gold { background:var(--gold); color:#1a1005; }
+  .btn.red { background:var(--red); color:#1a0505; }
+  .btn:disabled { opacity:.4; cursor:not-allowed; }
+  .btn.small { padding:5px 10px; font-size:.75rem; }
+
+  /* BOARD */
+  .board-wrap { background:var(--panel); border:1px solid #7fd1ff44; border-radius:12px; padding:8px; position:relative; }
+  svg.board { width:100%; height:auto; display:block; }
+  .space circle.spot { fill:#0e2a3f; stroke:var(--accent); stroke-width:1.5; }
+  .space circle.spot.special { fill:#1f3f2f; stroke:var(--green); }
+  .space text.lbl { font-size:8px; fill:#bcd; text-anchor:middle; pointer-events:none; }
+  .space text.num { font-size:7px; fill:#678; text-anchor:middle; pointer-events:none; }
+  .rat-token { font-size:15px; pointer-events:none; }
+  .snake-head { fill:#2f7f4f; }
+
+  /* TOKENS & DICE */
+  .dice-row { display:flex; justify-content:center; align-items:center; gap:14px; margin:14px 0 6px; }
+  .die {
+    width:54px; height:54px; background:#fff; color:#111; border-radius:10px;
+    display:flex; align-items:center; justify-content:center; font-size:1.6rem; font-weight:800;
+    box-shadow:0 4px 0 #889; transition:transform .15s;
+  }
+  .die.rolling { animation:shake .4s linear 3; }
+  @keyframes shake { 0%{transform:rotate(0)} 25%{transform:rotate(-12deg)} 75%{transform:rotate(12deg)} 100%{transform:rotate(0)} }
+
+  /* PANELS */
+  .panel {
+    background:var(--panel); border:1px solid #7fd1ff44; border-radius:12px;
+    padding:14px; margin-top:12px;
+  }
+  .panel h2 { font-size:1rem; margin-bottom:10px; color:var(--accent); letter-spacing:1px; }
+  .rat-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:8px; }
+  .rat-card {
+    background:#0e2a3f; border:1px solid #7fd1ff33; border-radius:10px; padding:10px; cursor:pointer;
+    text-align:center; transition:border .15s, transform .1s;
+  }
+  .rat-card:hover { border-color:var(--accent); transform:translateY(-2px); }
+  .rat-card.sel { border:2px solid var(--gold); }
+  .rat-card .emoji { font-size:2rem; display:block; }
+  .rat-card .name { font-weight:700; font-size:.85rem; margin:4px 0 2px; }
+  .rat-card .ab { font-size:.7rem; opacity:.85; line-height:1.3; }
+  .rat-card .quote { font-size:.68rem; font-style:italic; opacity:.7; margin-top:4px; }
+  .rat-card.disabled { opacity:.35; cursor:not-allowed; }
+
+  .players-bar { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+  .pchip {
+    background:#0e2a3f; border:1px solid #7fd1ff44; border-radius:20px; padding:5px 12px;
+    font-size:.8rem; display:flex; align-items:center; gap:6px;
+  }
+  .pchip.active { border-color:var(--gold); box-shadow:0 0 8px #ffd16655; }
+  .pchip .dot { width:10px; height:10px; border-radius:50%; }
+  .pchip .tcount { opacity:.7; font-size:.7rem; }
+
+  .log { background:#081722; border:1px solid #7fd1ff22; border-radius:10px; padding:10px; height:150px; overflow-y:auto; font-size:.78rem; line-height:1.5; }
+  .log .l { border-bottom:1px solid #ffffff0d; padding:2px 0; }
+  .log .l.sys { color:#8899aa; font-style:italic; }
+  .log .l.me { color:var(--accent); }
+
+  .modal-bg {
+    position:fixed; inset:0; background:#000a; display:none; align-items:center; justify-content:center; z-index:50; padding:16px;
+  }
+  .modal-bg.show { display:flex; }
+  .modal {
+    background:var(--panel); border:1px solid var(--accent); border-radius:14px; padding:20px;
+    max-width:440px; width:100%; max-height:86vh; overflow-y:auto;
+  }
+  .modal h2 { margin-bottom:10px; color:var(--accent); }
+  .modal p { font-size:.85rem; margin-bottom:10px; line-height:1.5; }
+  .modal input {
+    width:100%; padding:10px; border-radius:8px; border:1px solid #7fd1ff66;
+    background:#0e2a3f; color:var(--text); font-size:.9rem; margin:6px 0 10px;
+  }
+  .modal .row { display:flex; gap:8px; flex-wrap:wrap; }
+  .opt-grid { display:grid; gap:8px; margin:10px 0; }
+  .opt {
+    background:#0e2a3f; border:1px solid #7fd1ff44; border-radius:10px; padding:12px;
+    cursor:pointer; font-size:.85rem; line-height:1.4;
+  }
+  .opt:hover { border-color:var(--accent); }
+  .opt .plus { color:var(--green); font-weight:700; }
+  .opt .minus { color:var(--red); font-weight:700; }
+
+  .final-score { text-align:center; }
+  .final-score .big { font-size:2rem; font-weight:800; margin:8px 0; }
+  .share-card {
+    background:#0e2a3f; border:1px dashed var(--gold); border-radius:12px; padding:12px;
+    text-align:center; font-size:.85rem; margin:10px 0;
+  }
+  .hidden { display:none !important; }
+  .foot { text-align:center; font-size:.7rem; opacity:.55; margin:16px 0 8px; letter-spacing:2px; }
+  .tabs { display:flex; gap:6px; margin:10px 0 6px; }
+  .tab {
+    flex:1; text-align:center; padding:9px; border-radius:10px; background:var(--panel);
+    border:1px solid #7fd1ff33; cursor:pointer; font-size:.82rem; font-weight:600;
+  }
+  .tab.active { background:var(--accent); color:#0b1a2a; border-color:var(--accent); }
+  .trap-line { text-align:center; font-size:.72rem; opacity:.65; margin-top:8px; }
+  .tag { display:inline-block; background:#0e2a3f; border:1px solid #7fd1ff33; border-radius:6px; padding:2px 8px; font-size:.68rem; margin:2px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🐀 SNITCH: RATS IN THE GRASS <span class="sub">ONLINE BOARD GAME · THE SNAKE IS ALWAYS WATCHING</span></h1>
+
+  <!-- LOBBY -->
+  <div id="lobby">
+    <div class="statusbar">
+      <span class="mode">⚡ Pick a rat, roll the dice, snitch or survive.</span>
+    </div>
+    <div class="panel">
+      <h2>🎮 PLAY MODE</h2>
+      <div class="tabs">
+        <div class="tab active" data-mode="hotseat">🛋️ Hotseat (pass the phone)</div>
+        <div class="tab" data-mode="quick">⚡ Quick Play (vs random + bots)</div>
+        <div class="tab" data-mode="online">🔗 Online (invite link)</div>
+      </div>
+      <div id="modeDesc" class="trap-line">Hotseat: 1–4 players take turns on one device.</div>
+
+      <div class="panel" style="margin-top:12px">
+        <h2>🐀 PICK YOUR RAT</h2>
+        <div class="rat-grid" id="ratGrid"></div>
+      </div>
+
+      <div class="panel" style="margin-top:12px">
+        <h2>👥 PLAYERS</h2>
+        <div id="playerSetup"></div>
+        <div id="inviteBox" class="hidden" style="margin-top:10px">
+          <input type="text" id="inviteName" placeholder="Your name (required for online)">
+        </div>
+      </div>
+
+      <div style="margin-top:14px; display:flex; gap:8px; justify-content:center; flex-wrap:wrap">
+        <button class="btn gold" id="startBtn">🎲 Start Game</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- GAME -->
+  <div id="game" class="hidden">
+    <div class="statusbar">
+      <span class="turn" id="turnLabel">Loading…</span>
+      <span class="mode" id="modeLabel"></span>
+      <button class="btn small ghost" id="leaveBtn">✕ Leave</button>
+    </div>
+
+    <div class="board-wrap">
+      <svg class="board" id="boardSvg" viewBox="0 0 900 380" preserveAspectRatio="xMidYMid meet"></svg>
+    </div>
+
+    <div class="players-bar" id="playersBar"></div>
+
+    <div class="dice-row">
+      <div class="die" id="die1">—</div>
+      <button class="btn gold" id="rollBtn">🎲 ROLL</button>
+      <div class="die" id="die2" class="hidden">—</div>
+    </div>
+
+    <div class="panel">
+      <h2>📜 THE WORD ON THE STREET</h2>
+      <div class="log" id="log"></div>
+    </div>
+
+    <div class="panel">
+      <h2>🃏 DECISION</h2>
+      <div id="decisionArea"><p class="trap-line">Your turn: roll the dice.</p></div>
+    </div>
+
+    <div class="trap-line">🎧 Soundtrack: <span class="tag">Trap</span> <span class="tag">Slither</span> <span class="tag">Lo-Fi</span> — part of the SnowSnakes universe</div>
+  </div>
+
+  <!-- MODALS -->
+  <div class="modal-bg" id="modalBg">
+    <div class="modal" id="modalBody"></div>
+  </div>
+</div>
+<div class="foot">SNITCH: RATS IN THE GRASS · PART OF THE SNOWSNAKES UNIVERSE · © Z-DOT</div>
+<script>
+"use strict";
+/* ================= SNITCH: RATS IN THE GRASS — v1 =================
+   SnowSnakes universe · online board game
+   - Hotseat (1-4) / Quick Play (vs random + bots) / Online (invite link)
+   - Snake-in-the-grass board, 8 locations, 5 rats, snitch/trust/cheese
+   - Scenario cards, predators, jail, lake, Rat King's lair showdown
+   - Snow Snake easter egg · lead capture at join → HubSpot
+===================================================================== */
+
+var RELAY = "https://tasks.zdotllc.com/snitch/api.php"; // live relay (Hostinger)
+var GAME = null;      // current game state
+var LOCAL = null;     // { name, seat, email, profile }
+var MODE = "hotseat";
+var POLL = null;
+
+/* ---------- BOARD: the Snake in the Grass ----------
+   40 spaces, winding path. Zones:
+   0 Dumpster · 1-6 Sewer · 7 Sewer shortcut · 8-13 Alleys · 14 Alley decision
+   15-20 City · 21 City steal · 22-26 Woods · 27 Woods event · 28-31 Lake
+   32 Jail (side) · 33-38 Backstreets (mixed) · 39 Rat King's Lair
+*/
+var SPACES = [];
+(function(){
+  var zones = [
+    {n:0,  zone:"dumpster", lbl:"🐀"},
+    {n:1,  zone:"sewer"}, {n:2,  zone:"sewer"}, {n:3,  zone:"sewer"},
+    {n:4,  zone:"sewer"}, {n:5,  zone:"sewer"}, {n:6,  zone:"sewer"},
+    {n:7,  zone:"sewer", special:true, lbl:"?"},
+    {n:8,  zone:"alley"}, {n:9,  zone:"alley"}, {n:10, zone:"alley"},
+    {n:11, zone:"alley"}, {n:12, zone:"alley"}, {n:13, zone:"alley"},
+    {n:14, zone:"alley", special:true, lbl:"?"},
+    {n:15, zone:"city"}, {n:16, zone:"city"}, {n:17, zone:"city"},
+    {n:18, zone:"city"}, {n:19, zone:"city"}, {n:20, zone:"city"},
+    {n:21, zone:"city", special:true, lbl:"🍕"},
+    {n:22, zone:"woods"}, {n:23, zone:"woods"}, {n:24, zone:"woods"},
+    {n:25, zone:"woods"}, {n:26, zone:"woods"},
+    {n:27, zone:"woods", special:true, lbl:"🌲"},
+    {n:28, zone:"lake"}, {n:29, zone:"lake"}, {n:30, zone:"lake"}, {n:31, zone:"lake"},
+    {n:32, zone:"jail", special:true, lbl:"🚨"},
+    {n:33, zone:"back"}, {n:34, zone:"back"}, {n:35, zone:"back"},
+    {n:36, zone:"back"}, {n:37, zone:"back"}, {n:38, zone:"back"},
+    {n:39, zone:"lair", special:true, lbl:"👑"}
+  ];
+  zones.forEach(function(z){ SPACES.push(z); });
+})();
+var ZONE_NAMES = {
+  dumpster:"THE DUMPSTER", sewer:"THE SEWER", alley:"THE ALLEYS", city:"CITY LIFE",
+  woods:"THE WOODS", lake:"THE LAKE", jail:"JAIL", back:"THE BACKSTREETS", lair:"THE RAT KING'S LAIR"
+};
+
+/* ---------- RATS ---------- */
+var RATS = [
+  {id:"cheese",  name:"Cheese Chaser", emoji:"🧀", quote:"I'd snitch for a slice.",
+   ability:"Starts with +2 Cheese · double cheese gains.",
+   startCheese:2, cheeseMult:2, rerollSewer:false, alleyBonus:false, stealSafe:false, woodsSafe:0},
+  {id:"scout",   name:"Sewer Scout", emoji:"🔦", quote:"I know every pipe down here.",
+   ability:"Reroll dice once per Sewer space.",
+   startCheese:0, cheeseMult:1, rerollSewer:true, alleyBonus:false, stealSafe:false, woodsSafe:0},
+  {id:"alley",   name:"Alley Catcher", emoji:"🎩", quote:"Stay silent. Watch. Win.",
+   ability:"+1 Trust when you choose 'stay silent'.",
+   startCheese:0, cheeseMult:1, rerollSewer:false, alleyBonus:true, stealSafe:false, woodsSafe:0},
+  {id:"city",    name:"City Sneaker", emoji:"🎒", quote:"They never see me coming.",
+   ability:"Steal food without losing Trust (never caught).",
+   startCheese:0, cheeseMult:1, rerollSewer:false, alleyBonus:false, stealSafe:true, woodsSafe:0},
+  {id:"woods",   name:"Woodland Explorer", emoji:"🍂", quote:"The woods don't scare me.",
+   ability:"Ignore one Woods penalty per game.",
+   startCheese:0, cheeseMult:1, rerollSewer:false, alleyBonus:false, stealSafe:false, woodsSafe:1}
+];
+
+/* ---------- SCENARIO CARDS ---------- */
+var CARDS = {
+  sewer: [
+    {title:"SEWER — SHORTCUT", text:"You find a shortcut! Move ahead 2 — but another rat might follow.",
+     opts:[
+       {label:"Let them follow", effect:"trust+1,help+1", note:"+1 Trust · +1 Help"},
+       {label:"Block the path", effect:"pts+2,trust-1", note:"+2 pts, −1 Trust"}
+     ]},
+    {title:"SEWER — STUCK", text:"A grate slams shut behind you. You're stuck in the muck.",
+     opts:[
+       {label:"Squeeze through (spend 1 Trust)", effect:"trust-1", note:"Skip the penalty"},
+       {label:"Take the slow way", effect:"skipTurn", note:"Lose a turn"}
+     ]}
+  ],
+  alley: [
+    {title:"ALLEY — WITNESS", text:"You see another rat stealing food from a vendor. Do you snitch?",
+     opts:[
+       {label:"Snitch", effect:"pts+3,trust-1", note:"+3 pts, −1 Trust"},
+       {label:"Stay silent", effect:"trust+1", note:"+1 Trust"}
+     ]}
+  ],
+  city: [
+    {title:"CITY LIFE — STEAL", text:"A food stall, unguarded. Free food for the bold.",
+     opts:[
+       {label:"Steal the food", effect:"steal", note:"+2 Cheese · risk caught"},
+       {label:"Walk away", effect:"none", note:"Nothing gained, nothing lost"}
+     ]}
+  ],
+  woods: [
+    {title:"WOODS — TREASURE", text:"A hidden stash of cheese under a log!",
+     opts:[
+       {label:"Take it all", effect:"cheese+2", note:"+2 Cheese"},
+       {label:"Share with the crew", effect:"cheese+1,trust+1,help+1", note:"+1 Cheese · +1 Trust · +1 Help"}
+     ]},
+    {title:"WOODS — PREDATOR", text:"A shadow moves in the trees. An owl is hunting.",
+     opts:[
+       {label:"Hide (spend 1 Trust)", effect:"trust-1", note:"Safe"},
+       {label:"Run for it", effect:"woodsPenalty", note:"Roll 1-3: go back 2"}
+     ]}
+  ],
+  lake: [
+    {title:"LAKE — SLEEP WITH THE FISHES", text:"You fall in! Roll to escape.",
+     opts:[
+       {label:"Roll to swim to safety", effect:"lakeRoll", note:"1-3 lose turn · 4-6 safe"},
+       {label:"Spend 1 Trust to stay dry", effect:"trust-1", note:"Skip the roll"}
+     ]}
+  ],
+  jail: [
+    {title:"JAIL — THE TRAP", text:"Caught! Roll a 6 to escape, or lose a turn.",
+     opts:[
+       {label:"Roll to escape", effect:"jailRoll", note:"Roll 6 to get out"},
+       {label:"Spend 2 Trust to bribe the guard", effect:"trust-2", note:"Walk free"}
+     ]}
+  ]
+};
+
+/* ---------- PREDATORS ---------- */
+var PREDATORS = [
+  {name:"🐱 THE CAT", pos:18, step:3},
+  {name:"🦉 THE OWL", pos:27, step:2}
+];
+
+/* ---------- BOT PERSONALITIES ---------- */
+var BOT_NAMES = ["Snitchy Sam","Loyal Lou","Greedy Gus","Cautious Cleo","Rat King Ron","Shadow Sal"];
+var BOT_TYPES = ["snitchy","loyal","greedy","cautious"];
+
+function makeBot(seat, usedNames){
+  var n = BOT_NAMES.filter(function(x){ return usedNames.indexOf(x) === -1; })[0] || ("Bot " + (seat+1));
+  usedNames.push(n);
+  return {seat:seat, name:n, bot:true, type:BOT_TYPES[seat % BOT_TYPES.length],
+          email:null, joined:Date.now()};
+}
+
+"use strict";
+/* ===== SNITCH: RATS IN THE GRASS — v1 =====
+   SnowSnakes universe. 4-player cap. Hotseat / Quick Play (bots) / Online (invite link).
+   Lead capture: sign-in with email -> relay (HubSpot tag site=snitch).
+   ========================================== */
+var RELAY_BASE = "https://tasks.zdotllc.com/snitch/api.php";
+var SPACES = 40;
+var FINISH = 39;
+
+var ZONES = {
+  0:  {name:"The Dumpster", type:"start", icon:"🗑️"},
+  1:  {name:"Sewer", type:"sewer", icon:"🕳️"},
+  2:  {name:"Sewer", type:"sewer", icon:"🕳️"},
+  3:  {name:"Sewer", type:"sewer", icon:"🕳️"},
+  4:  {name:"Sewer", type:"sewer", icon:"🕳️"},
+  5:  {name:"Sewer", type:"sewer", icon:"🕳️"},
+  6:  {name:"Sewer", type:"sewer", icon:"🕳️"},
+  7:  {name:"Sewer Shortcut", type:"sewer", icon:"⚡"},
+  8:  {name:"Alleys", type:"alley", icon:"🏙️"},
+  9:  {name:"Alleys", type:"alley", icon:"🏙️"},
+  10: {name:"Alleys", type:"alley", icon:"🏙️"},
+  11: {name:"Alleys", type:"alley", icon:"🏙️"},
+  12: {name:"Alleys", type:"alley", icon:"🏙️"},
+  13: {name:"Alleys", type:"alley", icon:"🏙️"},
+  14: {name:"Alley Decision", type:"alley", icon:"🚮"},
+  15: {name:"City Life", type:"city", icon:"🌆"},
+  16: {name:"City Life", type:"city", icon:"🌆"},
+  17: {name:"City Life", type:"city", icon:"🌆"},
+  18: {name:"City Life", type:"city", icon:"🌆"},
+  19: {name:"City Life", type:"city", icon:"🌆"},
+  20: {name:"City Life", type:"city", icon:"🌆"},
+  21: {name:"Food Stall", type:"city", icon:"🍕"},
+  22: {name:"Woods", type:"woods", icon:"🌲"},
+  23: {name:"Woods", type:"woods", icon:"🌲"},
+  24: {name:"Woods", type:"woods", icon:"🌲"},
+  25: {name:"Woods", type:"woods", icon:"🌲"},
+  26: {name:"Woods", type:"woods", icon:"🌲"},
+  27: {name:"Hidden Stash", type:"woods", icon:"🧀"},
+  28: {name:"The Lake", type:"lake", icon:"🌊"},
+  29: {name:"The Lake", type:"lake", icon:"🌊"},
+  30: {name:"The Lake", type:"lake", icon:"🌊"},
+  31: {name:"The Lake", type:"lake", icon:"🌊"},
+  32: {name:"JAIL", type:"jail", icon:"⛓️"},
+  33: {name:"Backstreets", type:"alley", icon:"🌃"},
+  34: {name:"Backstreets", type:"alley", icon:"🌃"},
+  35: {name:"Backstreets", type:"alley", icon:"🌃"},
+  36: {name:"Backstreets", type:"alley", icon:"🌃"},
+  37: {name:"Backstreets", type:"alley", icon:"🌃"},
+  38: {name:"Backstreets", type:"alley", icon:"🌃"},
+  39: {name:"Rat King's Lair", type:"finish", icon:"👑"}
+};
+var RATS = [
+  {id:"cheese", name:"Cheese Chaser", emoji:"🧀", ability:"+2 Cheese tokens at start; double cheese gains",
+   catch:"\"I'd snitch for a slice.\"", startCheese:2, cheeseMult:2},
+  {id:"scout", name:"Sewer Scout", emoji:"🔦", ability:"Reroll dice once in the Sewer",
+   catch:"\"Every pipe leads somewhere.\"", rerollSewer:true},
+  {id:"alley", name:"Alley Catcher", emoji:"🎩", ability:"+1 Trust when choosing 'stay silent'",
+   catch:"\"Stay quiet, stay alive.\"", alleyTrust:true},
+  {id:"city", name:"City Sneaker", emoji:"🎒", ability:"Steal food without losing Trust",
+   catch:"\"They never see me coming.\"", stealSafe:true},
+  {id:"woods", name:"Woodland Explorer", emoji:"🍃", ability:"Ignores one Woods penalty per game",
+   catch:"\"The woods know my name.\"", woodsSafe:1}
+];
+var PLAYER_COLORS = ["#7fd1ff","#ffd166","#ff6b6b","#51cf66"];
+var PLAYER_ICONS = ["🐀","🐭","🐹","🐁"];
+var SCENARIOS = {
+  sewer: [
+    {title:"SEWER — SHORTCUT", text:"You find a shortcut! Move ahead 2 — but another rat might follow.",
+     opts:[
+       {label:"Let them follow", r:{trust:1}, note:"+1 Trust"},
+       {label:"Block the path", r:{points:2, trust:-1}, note:"+2 pts, −1 Trust"}
+     ]},
+    {title:"SEWER — STUCK", text:"A grate slams shut. You're wedged in the muck.",
+     opts:[
+       {label:"Squeeze free (spend 1 Trust)", r:{trust:-1}, note:"Skip the penalty"},
+       {label:"Take the slow way", r:{skip:true}, note:"Lose a turn"}
+     ]}
+  ],
+  alley: [
+    {title:"ALLEY — WITNESS", text:"You see another rat stealing food. Do you snitch?",
+     opts:[
+       {label:"Snitch", r:{points:3, trust:-1}, note:"+3 pts, −1 Trust"},
+       {label:"Stay silent", r:{trust:1}, note:"+1 Trust"}
+     ]}
+  ],
+  city: [
+    {title:"CITY — FOOD STALL", text:"A stall full of cheese. The vendor is looking away…",
+     opts:[
+       {label:"Steal the food", r:{steal:true}, note:"+2 Cheese · risk caught"},
+       {label:"Keep walking", r:{}, note:"Nothing gained"}
+     ]}
+  ],
+  woods: [
+    {title:"WOODS — TREASURE", text:"A hidden stash of cheese under a log!",
+     opts:[
+       {label:"Take it all", r:{cheese:2}, note:"+2 Cheese"},
+       {label:"Leave a note for the crew", r:{trust:1}, note:"+1 Trust"}
+     ]}
+  ],
+  lake: [
+    {title:"LAKE — SLEEP WITH THE FISHES", text:"You fall in the lake! Roll to escape.",
+     opts:[
+       {label:"Roll the dice", r:{lakeRoll:true}, note:"1–3 lose turn · 4–6 safe"},
+       {label:"Spend 1 Trust", r:{trust:-1}, note:"Swim out clean"}
+     ]}
+  ]
+};
+/* ---------- GAME STATE ---------- */
+function ratById(id){ return RATS.filter(function(r){return r.id===id;})[0]; }
+
+function nextSeat(g, seat){
+  return (seat + 1) % g.players.length;
+}
+/* ---------- UTIL ---------- */
+function $(id){ return document.getElementById(id); }
+function esc(s){ return String(s||"").replace(/[&<>"']/g, function(c){
+  return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+function fmtTime(){ return new Date().toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"}); }
+function shuffle(a){ var r=a.slice(); for(var i=r.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=r[i];r[i]=r[j];r[j]=t; } return r; }
+function randInt(n){ return Math.floor(Math.random()*n); }
+
+function addLog(g, txt, cls){
+  g.log.push({t:fmtTime(), txt:txt, cls:cls||""});
+  if(g.log.length > 80) g.log = g.log.slice(-80);
+  renderLog(g);
+}
+
+function renderLog(g){
+  var el = $("log");
+  if(!el) return;
+  el.innerHTML = g.log.map(function(l){
+    return '<div class="l ' + esc(l.cls) + '"><b>' + esc(l.t) + '</b> ' + esc(l.txt) + '</div>';
+  }).join("");
+  el.scrollTop = el.scrollHeight;
+}
+/* ================= CORE GAME ENGINE ================= */
+
+function newGame(){
+  var g = {
+    code:null, mode:MODE, hostSeat:null, started:false, over:false,
+    turn:0, round:1, turnCount:0,
+    players:[], rats:{}, // seat -> rat id
+    positions:{}, trust:{}, cheese:{}, pts:{}, helps:{}, jailTurns:{}, woodsUsed:{},
+    predatorStep:0,
+    log:[], pending:null, winner:null, finalScores:null,
+    snowEgg:false
+  };
+  return g;
+}
+
+function ratFor(seat){ return GAME.rats[seat]; }
+function ratObj(seat){ var id = ratFor(seat); return RATS.filter(function(r){return r.id===id;})[0]; }
+
+function addPlayer(seat, name, opts){
+  opts = opts || {};
+  var p = {seat:seat, name:name, bot:!!opts.bot, type:opts.type||null, email:opts.email||null};
+  GAME.players.push(p);
+  return p;
+}
+
+function logMsg(msg, cls){
+  GAME.log.push({t:Date.now(), msg:msg, cls:cls||""});
+  if(GAME.log.length > 60) GAME.log.shift();
+}
+
+function spaceOf(seat){ return GAME.positions[seat] || 0; }
+function zoneOf(seat){ var n = spaceOf(seat); return SPACES[n].zone; }
+function zoneNameOf(seat){ return ZONE_NAMES[zoneOf(seat)]; }
+
+function currentPlayer(){
+  return GAME.players[GAME.turn];
+}
+
+function nextTurn(){
+  // skip players in jail who still owe a turn
+  var guard = 0;
+  do {
+    GAME.turn = (GAME.turn + 1) % GAME.players.length;
+    guard++;
+    if(guard > GAME.players.length + 2) break;
+    var p = GAME.players[GAME.turn];
+    if((GAME.jailTurns[p.seat] || 0) > 0){
+      GAME.jailTurns[p.seat]--;
+      logMsg(p.name + " is locked up. Loses a turn.", "sys");
+      if(GAME.jailTurns[p.seat] <= 0) delete GAME.jailTurns[p.seat];
+      GAME.turnCount++;
+      if(GAME.turnCount % GAME.players.length === 0) { GAME.round++; movePredators(); }
+    } else {
+      break;
+    }
+  } while(true);
+  GAME.turnCount++;
+  if(GAME.turnCount % GAME.players.length === 0){
+    GAME.round++;
+    movePredators();
+    maybeSnowSnake();
+  }
+}
+
+function rollDie(){
+  return 1 + Math.floor(Math.random()*6);
+}
+
+function movePlayer(seat, steps){
+  var from = GAME.positions[seat] || 0;
+  var to = Math.min(from + steps, 39);
+  GAME.positions[seat] = to;
+  logMsg(GAME.players.filter(function(p){return p.seat===seat;})[0].name + " moved " + steps + " → space " + to + " (" + ZONE_NAMES[SPACES[to].zone] + ")", "me");
+  return to;
+}
+
+function gainPts(seat, n){ GAME.pts[seat] = (GAME.pts[seat]||0) + n; }
+function gainTrust(seat, n){ GAME.trust[seat] = Math.max(0, (GAME.trust[seat]||0) + n); }
+function gainCheese(seat, n){
+  var r = ratObj(seat);
+  var mult = (r && r.cheeseMult) || 1;
+  var amt = n * mult;
+  GAME.cheese[seat] = (GAME.cheese[seat]||0) + amt;
+  return amt;
+}
+function spendTrust(seat, n){
+  var t = GAME.trust[seat]||0;
+  if(t < n) return false;
+  GAME.trust[seat] = t - n;
+  return true;
+}
+
+/* ---------- SPACE MECHANICS ---------- */
+function landTrigger(seat){
+  var n = GAME.positions[seat];
+  var z = SPACES[n].zone;
+  var p = GAME.players.filter(function(x){return x.seat===seat;})[0];
+  if(n >= 39){ return lairShowdown(seat); }
+
+  switch(z){
+    case "sewer":
+      if(SPACES[n].special){ openCard(seat, "sewer"); }
+      else if(Math.random() < 0.35){ openCard(seat, "sewer"); }
+      else { logMsg(p.name + " wades through the sewer slime. Nothing happens.", "sys"); endTurn(); }
+      break;
+    case "alley":
+      if(SPACES[n].special){ openCard(seat, "alley"); }
+      else if(Math.random() < 0.30){ openCard(seat, "alley"); }
+      else { logMsg(p.name + " creeps through the alleys. Quiet.", "sys"); endTurn(); }
+      break;
+    case "city":
+      if(SPACES[n].special){ openCard(seat, "city"); }
+      else if(Math.random() < 0.30){ openCard(seat, "city"); }
+      else { logMsg(p.name + " dodges a broom in City Life. Close one.", "sys"); endTurn(); }
+      break;
+    case "woods":
+      if(SPACES[n].special){ openCard(seat, "woods"); }
+      else if(Math.random() < 0.30){ openCard(seat, "woods"); }
+      else { logMsg(p.name + " rustles through the woods. The trees whisper.", "sys"); endTurn(); }
+      break;
+    case "lake":
+      openCard(seat, "lake");
+      break;
+    case "jail":
+      openCard(seat, "jail");
+      break;
+    case "back":
+      if(Math.random() < 0.25){ openCard(seat, randomBackCard()); }
+      else { logMsg(p.name + " cuts through the backstreets.", "sys"); endTurn(); }
+      break;
+    default:
+      endTurn();
+  }
+}
+
+function randomBackCard(){
+  var c = ["alley","city","woods"];
+  return c[Math.floor(Math.random()*c.length)];
+}
+
+/* ---------- CARD RESOLUTION ---------- */
+function openCard(seat, kind){
+  var card = pickCard(kind, seat);
+  GAME.pending = {seat:seat, kind:kind, card:card};
+  renderDecision();
+}
+
+function pickCard(kind, seat){
+  var deck = CARDS[kind];
+  if(!deck) return null;
+  // sewer shortcut only before space 30; stuck cards after
+  var n = GAME.positions[seat];
+  if(kind === "sewer" && deck.length > 1){
+    return (n < 5) ? deck[0] : deck[Math.floor(Math.random()*deck.length)];
+  }
+  return deck[Math.floor(Math.random()*deck.length)];
+}
+
+function resolveOption(seat, opt){
+  var eff = opt.effect;
+  var parts = eff.split(",");
+  for(var i=0;i<parts.length;i++){
+    var e = parts[i].trim();
+    if(e === "trust+1"){ gainTrust(seat,1); logMsg("+1 Trust","me"); }
+    else if(e === "trust-1"){ gainTrust(seat,-1); logMsg("−1 Trust","sys"); }
+    else if(e === "trust-2"){ gainTrust(seat,-2); logMsg("−2 Trust","sys"); }
+    else if(e === "pts+2"){ gainPts(seat,2); logMsg("+2 points","me"); }
+    else if(e === "pts+3"){ gainPts(seat,3); logMsg("+3 points","me"); }
+    else if(e === "skipTurn"){
+      GAME.jailTurns[seat] = (GAME.jailTurns[seat]||0) + 1;
+      logMsg("Stuck! Loses a turn.","sys");
+    }
+    else if(e === "help+1"){ GAME.helps[seat] = (GAME.helps[seat]||0)+1; logMsg("+1 Help (you helped a rat in need)","me"); }
+    else if(e.indexOf("cheese+") === 0){ var cn = parseInt(e.split("+")[1],10); var got = gainCheese(seat, cn); logMsg("+" + got + " Cheese","me"); }
+    else if(e === "steal"){ resolveSteal(seat); }
+    else if(e === "woodsPenalty"){
+      var r = ratObj(seat);
+      if(r && r.woodsSafe > (GAME.woodsUsed[seat]||0)){
+        GAME.woodsUsed[seat] = (GAME.woodsUsed[seat]||0) + 1;
+        logMsg(r.name + " uses Woodland Explorer — penalty ignored!","me");
+      } else {
+        var d = rollDie();
+        if(d <= 3){ GAME.positions[seat] = Math.max(0, GAME.positions[seat]-2); logMsg("Rolled " + d + " — chased back 2 spaces!","sys"); }
+        else { logMsg("Rolled " + d + " — outran the owl!","me"); }
+      }
+    }
+    else if(e === "lakeRoll"){ resolveLake(seat); }
+    else if(e === "jailRoll"){ resolveJail(seat); }
+    else if(e === "none"){ logMsg("Nothing happens.","sys"); }
+  }
+  GAME.pending = null;
+  renderDecision();
+  endTurn();
+}
+
+function resolveSteal(seat){
+  var r = ratObj(seat);
+  if(r && r.stealSafe){
+    gainCheese(seat, 2);
+    logMsg(r.name + " steals clean — nobody saw. +" + (2*r.cheeseMult) + " Cheese!","me");
+  } else {
+    var d = rollDie();
+    if(d >= 4){
+      gainCheese(seat, 2);
+      logMsg("Rolled " + d + " — snagged the food! +" + (2*(r?r.cheeseMult:1)) + " Cheese!","me");
+    } else {
+      gainTrust(seat,-1);
+      logMsg("Rolled " + d + " — CAUGHT! −1 Trust.","sys");
+    }
+  }
+}
+
+function resolveLake(seat){
+  var d = rollDie();
+  if(d >= 4){ logMsg("Rolled " + d + " — swam to safety!","me"); }
+  else {
+    GAME.jailTurns[seat] = (GAME.jailTurns[seat]||0) + 1;
+    logMsg("Rolled " + d + " — sleep with the fishes. Loses a turn.","sys");
+  }
+}
+
+function resolveJail(seat){
+  var d = rollDie();
+  if(d === 6){ logMsg("Rolled 6 — busted out of jail!","me"); }
+  else {
+    GAME.jailTurns[seat] = (GAME.jailTurns[seat]||0) + 1;
+    logMsg("Rolled " + d + " — still locked up. Loses a turn.","sys");
+  }
+}
+
+/* ---------- LAIR SHOWDOWN ---------- */
+function lairShowdown(seat){
+  GAME.pending = {seat:seat, kind:"lair", card:{
+    title:"THE RAT KING'S LAIR",
+    text:"You made it to the throne of trash and cheese. Final choice: share the cheese, or take it all?",
+    opts:[
+      {label:"🍕 Share the cheese", effect:"share,help+1", note:"+3 Trust, +2 bonus pts, everyone +1 Trust, +1 Help"},
+      {label:"👑 Take it all", effect:"take", note:"+5 pts, −2 Trust"}
+    ]
+  }};
+  renderDecision();
+}
+
+function resolveLair(seat, opt){
+  if(opt.effect === "share"){
+    gainTrust(seat,3); gainPts(seat,2);
+    GAME.players.forEach(function(p){
+      if(p.seat !== seat) gainTrust(p.seat,1);
+    });
+    logMsg(seatName(seat) + " shared the cheese. Respect. +3 Trust +2 pts","me");
+  } else {
+    gainPts(seat,5); gainTrust(seat,-2);
+    logMsg(seatName(seat) + " took the cheese. All of it. +5 pts, −2 Trust","sys");
+  }
+  GAME.pending = null;
+  GAME.over = true;
+  finalize();
+}
+
+function seatName(seat){
+  var p = GAME.players.filter(function(x){return x.seat===seat;})[0];
+  return p ? p.name : ("Seat " + seat);
+}
+
+/* ---------- PREDATORS ---------- */
+function movePredators(){
+  PREDATORS.forEach(function(pred){
+    pred.pos = (pred.pos + pred.step) % 40;
+    GAME.players.forEach(function(p){
+      if(GAME.positions[p.seat] === pred.pos && !GAME.over){
+        logMsg(pred.name + " pounced on " + p.name + "! −1 Trust, back 2.","sys");
+        gainTrust(p.seat,-1);
+        GAME.positions[p.seat] = Math.max(0, GAME.positions[p.seat]-2);
+      }
+    });
+  });
+}
+
+/* ---------- SNOW SNAKE EASTER EGG ---------- */
+function maybeSnowSnake(){
+  if(GAME.over) return;
+  if(Math.random() < 0.07 && !GAME.snowEgg){
+    GAME.snowEgg = true;
+    var target = GAME.players[Math.floor(Math.random()*GAME.players.length)];
+    var mv = Math.floor(Math.random()*11) - 5; // -5..+5
+    var np = Math.max(0, Math.min(39, (GAME.positions[target.seat]||0) + mv));
+    GAME.positions[target.seat] = np;
+    logMsg("🐍 The SNOW SNAKE appears on the board. It watches " + target.name + ". Then it moves them " + mv + " spaces. Always watching. Never explained.","sys");
+    if(mv > 0) logMsg("(+" + mv + " → space " + np + ")","me");
+    else if(mv < 0) logMsg("(" + mv + " → space " + np + ")","sys");
+    showSnowSnake(target, mv);
+  }
+}
+
+function showSnowSnake(target, mv){
+  var el = document.getElementById("modalBody");
+  var bg = document.getElementById("modalBg");
+  el.innerHTML =
+    '<h2>🐍 THE SNOW SNAKE</h2>' +
+    '<p style="text-align:center; font-size:2.5rem">🐍</p>' +
+    '<p>The Snow Snake slithers onto the board. It watches <b>' + target.name + '</b>. Then it moves them <b>' + (mv>0?"+":"") + mv + '</b> spaces.</p>' +
+    '<p style="opacity:.7; font-style:italic">"Always watching. Never explained."</p>' +
+    '<div class="row"><button class="btn" onclick="closeModal()">Continue…</button></div>';
+  bg.classList.add("show");
+}
+
+/* ---------- FINAL SCORES ---------- */
+function finalize(){
+  var scores = GAME.players.map(function(p){
+    var s = p.seat;
+    var snitchPts = GAME.pts[s]||0;
+    var trustPts = GAME.trust[s]||0;
+    var cheesePts = GAME.cheese[s]||0;
+    var helpPts = (GAME.helps[s]||0) * 2;
+    var pts = snitchPts + trustPts + cheesePts + helpPts;
+    return {seat:s, name:p.name, pts:pts, trust:trustPts, cheese:cheesePts, snitchPts:snitchPts, helps:GAME.helps[s]||0, helpPts:helpPts};
+  });
+  scores.sort(function(a,b){ return b.pts - a.pts; });
+  GAME.finalScores = scores;
+  GAME.winner = scores[0];
+  logMsg("🏁 GAME OVER — " + scores[0].name + " wins with " + scores[0].pts + " pts (snitch " + scores[0].snitchPts + " + trust " + scores[0].trust + " + help " + scores[0].helpPts + " + cheese " + scores[0].cheese + ")","me");
+  renderFinal();
+  saveLocalScore(scores[0]);
+  if(GAME.mode === "online" || GAME.mode === "quick") pushState();
+}
+/* ---------- BOARD RENDER (SVG) ---------- */
+function boardPath(){
+  // Winding snake: start bottom-left, snake to top-right finish.
+  var pts = [];
+  var W = 900, H = 380;
+  // build a sine-wave path
+  var n = SPACES;
+  for(var i=0;i<n;i++){
+    var t = i/(n-1);
+    var x = 60 + t*(W-120);
+    var y = H/2 + Math.sin(t*Math.PI*5)* (H/2 - 55) * (1 - t*0.35);
+    // add a bit of coil near the end
+    if(t>0.78){ y = H/2 + Math.sin(t*Math.PI*9) * 40; }
+    pts.push({x:x, y:y});
+  }
+  return pts;
+}
+var BOARD_PTS = boardPath();
+
+function renderBoard(g){
+  var svg = $("boardSvg");
+  if(!svg) return;
+  var W = 900, H = 380;
+  var html = "";
+  // snake body
+  var d = "M " + BOARD_PTS.map(function(p,i){ return (i? "L ":"M ") + p.x.toFixed(1) + " " + p.y.toFixed(1); }).join(" ");
+  html += '<path d="'+d+'" fill="none" stroke="#2f7f4f" stroke-width="34" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>';
+  html += '<path d="'+d+'" fill="none" stroke="#4faf6f" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>';
+  // scales/spaces
+  for(var i=0;i<SPACES;i++){
+    var p = BOARD_PTS[i];
+    var z = ZONES[i];
+    var special = (z.type!=="sewer" && z.type!=="alley" && z.type!=="city" && z.type!=="woods" && z.type!=="back");
+    html += '<g class="space">';
+    html += '<circle class="spot'+(special?' special':'')+'" cx="'+p.x.toFixed(1)+'" cy="'+p.y.toFixed(1)+'" r="13"/>';
+    if(i===0) html += '<text class="num" x="'+p.x+'" y="'+(p.y-18)+'">START</text>';
+    else if(i===FINISH) html += '<text class="num" x="'+p.x+'" y="'+(p.y-18)+'">LAIR</text>';
+    else html += '<text class="num" x="'+p.x+'" y="'+(p.y-18)+'">'+i+'</text>';
+    if(z.icon && i%3===0) html += '<text x="'+p.x+'" y="'+(p.y+4)+'" text-anchor="middle" font-size="11">'+z.icon+'</text>';
+    html += '</g>';
+  }
+  // predator tokens
+  var cat = BOARD_PTS[g.predator.cat], owl = BOARD_PTS[g.predator.owl];
+  html += '<text class="rat-token" x="'+(cat.x+16)+'" y="'+(cat.y-6)+'" font-size="20">🐱</text>';
+  html += '<text class="rat-token" x="'+(owl.x-18)+'" y="'+(owl.y-10)+'" font-size="20">🦉</text>';
+  // players
+  g.players.forEach(function(p,idx){
+    if(p.pos===undefined) return;
+    var pt = BOARD_PTS[p.pos];
+    var off = (idx - (g.players.length-1)/2) * 8;
+    html += '<text class="rat-token" x="'+(pt.x+off).toFixed(1)+'" y="'+(pt.y+16)+'" font-size="16">'+PLAYER_ICONS[p.seat % 4]+'</text>';
+  });
+  svg.innerHTML = html;
+}
+/* ================= RENDER ================= */
+
+function renderBoard(){
+  var svg = $("boardSvg");
+  var W = 900, H = 380;
+  // snake path through 40 spaces
+  var pts = [];
+  var seg = 20;
+  for(var i=0;i<40;i++){
+    var x, y;
+    if(i < 20){ x = 40 + i*seg; y = 70 + Math.sin(i*0.55)*34; }
+    else { x = 860 - (i-20)*seg; y = 250 + Math.sin((i-20)*0.55)*34; }
+    pts.push({x:x, y:y});
+  }
+  var html = "";
+  // snake body (path behind spaces)
+  html += '<path d="' + pts.map(function(p,i){
+    return (i===0?"M":"L") + p.x.toFixed(1) + "," + p.y.toFixed(1);
+  }).join("") + '" stroke="#2f7f4f" stroke-width="26" fill="none" stroke-linecap="round" opacity="0.85"/>';
+  html += '<path d="' + pts.map(function(p,i){
+    return (i===0?"M":"L") + p.x.toFixed(1) + "," + p.y.toFixed(1);
+  }).join("") + '" stroke="#3faf6f" stroke-width="18" fill="none" stroke-linecap="round" opacity="0.6"/>';
+  // scales (spaces)
+  pts.forEach(function(p,i){
+    var z = ZONES[i] ? ZONES[i].type : "normal";
+    var cls = (z === "start" || z === "finish" || i === 7 || i === 14 || i === 21 || i === 27 || i === 32) ? "special" : "";
+    var icon = ZONES[i] ? ZONES[i].icon : "";
+    html += '<g class="space">';
+    html += '<circle class="spot ' + cls + '" cx="' + p.x.toFixed(1) + '" cy="' + p.y.toFixed(1) + '" r="13"/>';
+    if(icon) html += '<text class="lbl" x="' + p.x.toFixed(1) + '" y="' + (p.y+4).toFixed(1) + '">' + icon + '</text>';
+    else html += '<text class="num" x="' + p.x.toFixed(1) + '" y="' + (p.y+3).toFixed(1) + '">' + i + '</text>';
+    // player tokens
+    GAME.players.forEach(function(pl){
+      if(GAME.positions[pl.seat] === i){
+        html += '<text class="rat-token" x="' + (p.x + (pl.seat*6) - 9).toFixed(1) + '" y="' + (p.y - 16 + (pl.seat%2)*6).toFixed(1) + '" fill="' + pl.color + '" stroke="#000" stroke-width="0.5">' + pl.icon + '</text>';
+      }
+    });
+    html += '</g>';
+  });
+  // head (Rat King's Lair at 39)
+  var hp = pts[39];
+  html += '<text x="' + (hp.x).toFixed(1) + '" y="' + (hp.y-26).toFixed(1) + '" text-anchor="middle" font-size="12" fill="#ffd166">👑 RAT KING</text>';
+  // predators
+  PREDATORS.forEach(function(pred){
+    var pp = pts[pred.pos];
+    html += '<text x="' + (pp.x).toFixed(1) + '" y="' + (pp.y+26).toFixed(1) + '" text-anchor="middle" font-size="15">' + pred.name + '</text>';
+  });
+  svg.innerHTML = html;
+}
+
+function renderPlayersBar(){
+  var el = $("playersBar");
+  if(!el) return;
+  el.innerHTML = GAME.players.map(function(p){
+    var pos = GAME.positions[p.seat] || 0;
+    var isTurn = GAME.turn === p.seat && !GAME.over;
+    var z = ZONES[pos] ? ZONES[pos].name : "";
+    return '<div class="pchip ' + (isTurn ? "active" : "") + '">' +
+      '<span class="dot" style="background:' + p.color + '"></span>' +
+      '<b>' + esc(p.name) + (p.bot ? ' 🤖' : '') + '</b>' +
+      '<span class="tcount">' + pos + ' · 🧀' + (GAME.cheese[p.seat]||0) + ' · 🤝' + (GAME.trust[p.seat]||0) + ' · ⭐' + (GAME.pts[p.seat]||0) + '</span>' +
+      '</div>';
+  }).join("");
+}
+
+function renderDecision(){
+  var el = $("decisionArea");
+  if(!el) return;
+  var p = GAME.pending;
+  if(!p){
+    var cp = currentPlayer();
+    var z = zoneNameOf(cp.seat);
+    el.innerHTML = '<p class="trap-line">' + esc(cp.name) + "'s turn — on " + esc(z) + '. Roll the dice.</p>';
+    return;
+  }
+  var card = p.card;
+  el.innerHTML =
+    '<h2 style="font-size:.95rem; color:var(--accent)">🃏 ' + esc(card.title) + '</h2>' +
+    '<p style="font-size:.85rem; margin:8px 0">' + esc(card.text) + '</p>' +
+    '<div class="opt-grid">' +
+    card.opts.map(function(o, i){
+      return '<div class="opt" onclick="resolveOption(' + p.seat + ', ' + i + ')">' +
+        '<b>' + esc(o.label) + '</b><br><span class="' + (o.effect.indexOf('-')>=0?'minus':'plus') + '">' + esc(o.note) + '</span></div>';
+    }).join("") +
+    '</div>';
+}
+
+function renderStatus(){
+  var cp = currentPlayer();
+  var turnEl = $("turnLabel");
+  if(GAME.over){
+    turnEl.textContent = "🏁 GAME OVER — " + (GAME.winner ? GAME.winner.name : "") + " wins!";
+  } else {
+    turnEl.textContent = (cp.bot ? "🤖 " : "") + cp.name + " · Round " + GAME.round;
+  }
+  $("modeLabel").textContent = (GAME.mode === "hotseat" ? "🛋️ Hotseat" : GAME.mode === "quick" ? "⚡ Quick Play" : "🔗 Online " + (GAME.code||""));
+}
+
+function renderFinal(){
+  var bg = $("modalBg");
+  var el = $("modalBody");
+  var rows = GAME.finalScores.map(function(s, i){
+    var medal = i===0?"🏆":i===1?"🥈":i===2?"🥉":"";
+    return '<div style="display:flex; justify-content:space-between; padding:8px 6px; border-bottom:1px solid #ffffff14">' +
+      '<span>' + medal + ' <b>' + esc(s.name) + '</b></span>' +
+      '<span>⭐' + s.pts + '</span></div>' +
+      '<div style="font-size:.72rem; opacity:.8; padding:0 6px 6px 26px; border-bottom:1px solid #ffffff08">' +
+      'snitch ' + s.snitchPts + ' pts · trust bonus ' + s.trust + ' · help bonus ' + s.helpPts + ' (' + s.helps + ' helps) · cheese ' + s.cheese +
+      '</div>';
+  }).join("");
+  var shareTxt = "I snitched " + GAME.pts[GAME.winner.seat] + " times and still won " + GAME.winner.pts + " pts in Snitch: Rats in the Grass! 🐀👑";
+  el.innerHTML =
+    '<div class="final-score">' +
+    '<h2>🏁 GAME OVER</h2>' +
+    '<div class="big">🏆 ' + esc(GAME.winner.name) + '</div>' +
+    '<p>First to the lair — but Trust decided who took the cheese.</p>' +
+    '</div>' +
+    '<div class="share-card">📣 ' + esc(shareTxt) + '<br>' +
+    '<button class="btn gold small" style="margin-top:8px" onclick="copyShare()">📋 Copy result</button></div>' +
+    rows +
+    '<div style="margin-top:14px; display:flex; gap:8px; justify-content:center; flex-wrap:wrap">' +
+    '<button class="btn" onclick="closeModal(); playAgain()">🔁 Play again</button>' +
+    '<button class="btn ghost" onclick="closeModal(); toLobby()">🏠 Lobby</button>' +
+    '</div>';
+  bg.classList.add("show");
+}
+
+function copyShare(){
+  var txt = "I snitched and still won in Snitch: Rats in the Grass! 🐀👑 — play at zerric.xyz/snitch";
+  var ta = document.createElement("textarea");
+  ta.value = txt;
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand("copy"); } catch(e){}
+  document.body.removeChild(ta);
+  logMsg("Result copied to clipboard.","me");
+}
+
+/* ---------- LOCAL SCORES ---------- */
+function saveLocalScore(winner){
+  try {
+    var key = "snitch_scores";
+    var list = JSON.parse(localStorage.getItem(key) || "[]");
+    list.push({name:winner.name, pts:winner.pts, ts:Date.now()});
+    list.sort(function(a,b){ return b.pts - a.pts; });
+    list = list.slice(0,20);
+    localStorage.setItem(key, JSON.stringify(list));
+  } catch(e){}
+}
+/* ================= RELAY (ONLINE INVITE + LEAD CAPTURE) =================
+   Host: tasks.zdotllc.com/snitch/api.php  (Hostinger PHP, CORS open)
+   Actions:
+     POST create  {name, email?, rat}        -> {code, host, state}
+     GET  state?code=X&since=TS             -> {state, version}
+     POST join   {code, name, email?, rat}   -> {seat, state}  (cap 4)
+     POST move   {code, token, move:{...}}   -> {state, version}
+     POST lead   {name, email, source}       -> {ok} (HubSpot tag site=snitch)
+   Bots: the relay auto-fills empty seats with bots after host starts.
+   Polling: every 2.5s while in an online room.
+=========================================================================== */
+function relayUrl(action, params){
+  var q = "action=" + encodeURIComponent(action);
+  Object.keys(params||{}).forEach(function(k){
+    q += "&" + encodeURIComponent(k) + "=" + encodeURIComponent(params[k]);
+  });
+  return RELAY_BASE + "?" + q;
+}
+
+function relayCall(action, params, method){
+  method = method || "GET";
+  var url = relayUrl(action, method === "GET" ? params : null);
+  var opts = {method:method, headers:{"Content-Type":"application/json"}};
+  if(method !== "GET") opts.body = JSON.stringify(params||{});
+  return fetch(url, opts).then(function(r){ return r.json(); });
+}
+
+function startPolling(){
+  stopPolling();
+  POLL = setInterval(function(){
+    if(GAME && GAME.code && !GAME.over){
+      relayCall("state", {code:GAME.code}).then(function(d){
+        if(d && d.state){
+          syncRemoteState(d.state, d.version);
+        }
+      }).catch(function(){});
+    }
+  }, 2500);
+}
+function stopPolling(){ if(POLL){ clearInterval(POLL); POLL = null; } }
+
+function syncRemoteState(remote, version){
+  if(!GAME || !remote) return;
+  // only adopt if this is the host (host is source of truth) or we're a joiner
+  if(GAME.isHost) return; // host pushes; joiners pull
+  // avoid clobbering while a decision is open locally
+  if(GAME.pending && GAME.pending.seat === LOCAL.seat) return;
+  var changed = JSON.stringify({players:GAME.players.map(function(p){return {seat:p.seat,name:p.name,bot:p.bot};}),
+                                turn:GAME.turn, positions:GAME.positions, round:GAME.round}) !==
+                JSON.stringify({players:remote.players, turn:remote.turn, positions:remote.positions, round:remote.round});
+  if(changed){
+    GAME.players = remote.players;
+    GAME.turn = remote.turn;
+    GAME.positions = remote.positions;
+    GAME.round = remote.round;
+    GAME.over = remote.over;
+    if(remote.finalScores) GAME.finalScores = remote.finalScores;
+    if(remote.winner) GAME.winner = remote.winner;
+    renderAll();
+  }
+}
+
+function pushState(){
+  if(!GAME || !GAME.code || !GAME.isHost) return;
+  var payload = {
+    code: GAME.code,
+    players: GAME.players.map(function(p){ return {seat:p.seat, name:p.name, bot:p.bot, type:p.type, email:p.email}; }),
+    turn: GAME.turn,
+    positions: GAME.positions,
+    trust: GAME.trust, cheese: GAME.cheese, pts: GAME.pts, helps: GAME.helps,
+    jailTurns: GAME.jailTurns, woodsUsed: GAME.woodsUsed,
+    round: GAME.round, over: GAME.over,
+    finalScores: GAME.finalScores, winner: GAME.winner,
+    predator: GAME.predator, snowEgg: GAME.snowEgg,
+    log: GAME.log.slice(-40)
+  };
+  relayCall("move", {code:GAME.code, state:payload}, "POST").catch(function(e){
+    console.log("relay push failed", e);
+  });
+}
+
+/* ---------- LEAD CAPTURE (email -> HubSpot, tagged site=snitch) ---------- */
+function captureLead(name, email){
+  if(!email) return Promise.resolve();
+  var payload = {name:name, email:email, source:"snitch"};
+  return relayCall("lead", payload, "POST").then(function(d){
+    if(d && d.ok) logMsg("📬 " + name + " saved — you're on the board. Check your email for the invite.","me");
+    else logMsg("⚠️ Could not save profile (offline?). Playing anyway.","sys");
+    return d;
+  }).catch(function(){
+    logMsg("⚠️ Could not save profile (offline?). Playing anyway.","sys");
+  });
+}
+/* ================= UI WIRING ================= */
+var GAME = null;
+var LOCAL = null;
+var MODE = "hotseat";
+var POLL = null;
+var RELAY = "https://tasks.zdotllc.com/snitch/api.php";
+
+function $(id){ return document.getElementById(id); }
+function esc(s){ return String(s||"").replace(/[&<>"']/g, function(c){
+  return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+
+/* ---------- RAT SELECTION ---------- */
+function renderRats(){
+  var el = $("ratGrid");
+  el.innerHTML = RATS.map(function(r){
+    return '<div class="rat-card" id="ratcard-' + r.id + '" onclick="selectRat(\'' + r.id + '\')">' +
+      '<span class="emoji">' + r.emoji + '</span>' +
+      '<div class="name">' + r.name + '</div>' +
+      '<div class="ab">' + r.ability + '</div>' +
+      '<div class="quote">' + r.catch + '</div>' +
+      '</div>';
+  }).join("");
+}
+var SELECTED_RAT = null;
+function selectRat(id){
+  SELECTED_RAT = id;
+  document.querySelectorAll(".rat-card").forEach(function(c){ c.classList.remove("sel"); });
+  $("ratcard-" + id).classList.add("sel");
+}
+
+/* ---------- PLAYER SETUP ---------- */
+function renderPlayerSetup(){
+  var el = $("playerSetup");
+  if(MODE === "hotseat"){
+    el.innerHTML =
+      '<div class="row" style="margin-bottom:6px">' +
+      '<input type="number" id="playerCount" min="1" max="4" value="2" style="width:80px">' +
+      '<span style="opacity:.7; font-size:.8rem; align-self:center">players (1–4)</span></div>' +
+      '<div id="hotseatNames"></div>';
+    updateHotseatNames();
+  } else if(MODE === "quick"){
+    el.innerHTML =
+      '<input type="text" id="yourNameQ" placeholder="Your name" value="' + esc((LOCAL && LOCAL.name) || "You") + '">' +
+      '<p class="trap-line">Quick Play: 1–3 bots fill the other seats. 4-player cap.</p>';
+  } else if(MODE === "online"){
+    el.innerHTML =
+      '<input type="text" id="yourNameO" placeholder="Your name (required)" value="' + esc((LOCAL && LOCAL.name) || "") + '">' +
+      '<input type="email" id="yourEmail" placeholder="Email (to save your record + invites)">' +
+      '<p class="trap-line">Online: invite friends with a link. Seats cap at 4. Bots fill empty seats.</p>';
+  }
+}
+
+function updateHotseatNames(){
+  var el = $("hotseatNames");
+  if(!el) return;
+  var n = parseInt(($("playerCount")||{}).value || "2", 10);
+  var html = "";
+  for(var i=1;i<=n;i++){
+    html += '<input type="text" id="hsName' + i + '" placeholder="Player ' + i + ' name" value="' + esc((LOCAL && i===1 && LOCAL.name) || ("Player " + i)) + '" style="margin:3px 0">';
+  }
+  el.innerHTML = html;
+}
+
+/* ---------- MODE TABS ---------- */
+function setMode(m){
+  MODE = m;
+  document.querySelectorAll(".tab").forEach(function(t){
+    t.classList.toggle("active", t.dataset.mode === m);
+  });
+  var desc = {
+    hotseat:"Hotseat: 1–4 players take turns on one device.",
+    quick:"Quick Play: you + up to 3 bot rats. Compete for the high score.",
+    online:"Online: invite friends with a link. Bots fill empty seats. 4-player cap."
+  }[m];
+  $("modeDesc").textContent = desc;
+  renderPlayerSetup();
+}
+
+/* ---------- START ---------- */
+function startGame(){
+  var players = [];
+  if(MODE === "hotseat"){
+    var n = parseInt($("playerCount").value || "2", 10);
+    for(var i=1;i<=n;i++){
+      var nm = ($("hsName" + i) || {}).value || ("Player " + i);
+      players.push({name:nm, bot:false, seat:i-1});
+    }
+  } else if(MODE === "quick"){
+    var yourName = $("yourNameQ").value || "You";
+    players.push({name:yourName, bot:false, seat:0});
+    var nBots = 3; // quick play always fills to 4? Spec: "up to 4". Fill to 3 bots for a full board feel.
+    for(var b=0;b<nBots;b++){
+      players.push({name:BOT_NAMES[b % BOT_NAMES.length], bot:true, type:BOT_TYPES[b % BOT_TYPES.length], seat:b+1});
+    }
+  } else if(MODE === "online"){
+    var nameO = $("yourNameO").value || "";
+    var email = $("yourEmail").value || "";
+    if(!nameO){ alert("Enter your name to host an online game."); return; }
+    LOCAL = {name:nameO, email:email, seat:0, isHost:true};
+    captureLead(nameO, email);
+    createOnlineRoom(nameO, email);
+    return;
+  }
+  startLocal(players, MODE);
+}
+
+function startLocal(players, mode){
+  GAME = newGame();
+  GAME.mode = mode;
+  players.forEach(function(p){
+    addPlayer(p.seat, p.name, {bot:p.bot, type:p.type});
+  });
+  // assign rats round-robin from selection
+  var ratIds = ["cheese","scout","alley","city","woods"];
+  GAME.players.forEach(function(p, i){
+    var rid = (SELECTED_RAT && i === 0) ? SELECTED_RAT : ratIds[i % ratIds.length];
+    GAME.rats[p.seat] = rid;
+    // apply starting bonuses
+    var r = ratObj(p.seat);
+    if(r.startCheese) GAME.cheese[p.seat] = r.startCheese;
+    if(r.woodsSafe) GAME.woodsUsed[p.seat] = 0;
+  });
+  GAME.turn = 0;
+  GAME.started = true;
+  GAME.startedAt = Date.now();
+  logMsg("🐀 The race from the dumpster begins! First rat to the Rat King's Lair wins — but Trust, helping, and cheese decide the crown.","sys");
+  showGame();
+  if(GAME.mode === "online") pushState();
+  if(botTurn()) scheduleBot();
+  renderAll();
+}
+
+/* ---------- ONLINE ROOM ---------- */
+function createOnlineRoom(name, email){
+  relayCall("create", {name:name, email:email, rat:SELECTED_RAT||"cheese"}, "POST").then(function(d){
+    if(d && d.code){
+      GAME = d.state;
+      GAME.code = d.code;
+      GAME.mode = "online";
+      GAME.isHost = true;
+      LOCAL = {name:name, email:email, seat:d.hostSeat || 0, isHost:true};
+      showGame();
+      var link = location.href.split("#")[0] + "#snitch=" + d.code;
+      logMsg("🔗 Room created! Share this link: " + link, "me");
+      showInvite(link);
+      startPolling();
+      renderAll();
+    } else {
+      alert("Could not create room: " + (d.error || "unknown"));
+    }
+  }).catch(function(e){ alert("Relay unreachable: " + e); });
+}
+
+function joinOnlineRoom(code, name, email){
+  relayCall("join", {code:code, name:name, email:email, rat:SELECTED_RAT||"cheese"}, "POST").then(function(d){
+    if(d && d.seat !== undefined && d.state){
+      GAME = d.state;
+      GAME.code = code;
+      GAME.mode = "online";
+      GAME.isHost = false;
+      LOCAL = {name:name, email:email, seat:d.seat, isHost:false};
+      captureLead(name, email);
+      showGame();
+      startPolling();
+      renderAll();
+    } else {
+      alert("Could not join: " + (d.error || "room full or missing"));
+    }
+  }).catch(function(e){ alert("Relay unreachable: " + e); });
+}
+
+function showInvite(link){
+  var bg = $("modalBg"), el = $("modalBody");
+  el.innerHTML =
+    '<h2>🔗 INVITE YOUR CREW</h2>' +
+    '<p>Send this link — anyone who opens it joins your live board (up to 4 players; bots fill the rest).</p>' +
+    '<input type="text" readonly value="' + esc(link) + '" id="inviteLinkInput">' +
+    '<div class="row" style="justify-content:center">' +
+    '<button class="btn" onclick="copyInvite()">📋 Copy link</button>' +
+    '<button class="btn gold" onclick="closeModal()">Start playing</button></div>' +
+    '<p class="trap-line">Seats cap at 4 · first-come first-served · bots fill empty seats</p>';
+  bg.classList.add("show");
+}
+function copyInvite(){
+  var inp = $("inviteLinkInput");
+  inp.select();
+  try { document.execCommand("copy"); } catch(e){}
+  logMsg("Invite link copied!","me");
+}
+
+/* ---------- ROLL ---------- */
+function roll(){
+  if(!GAME || GAME.over) return;
+  var cp = currentPlayer();
+  if(cp.bot) return;
+  GAME.phase = "rolling";
+  var d1 = rollDie();
+  GAME.lastRoll = d1;
+  var dieEl = $("die1");
+  dieEl.textContent = "🎲";
+  dieEl.classList.add("rolling");
+  setTimeout(function(){
+    dieEl.classList.remove("rolling");
+    dieEl.textContent = d1;
+    logMsg(cp.name + " rolled a " + d1 + "!","me");
+    var to = movePlayer(cp.seat, d1);
+    checkWin(cp.seat, to);
+  }, 450);
+}
+
+function checkWin(seat, to){
+  if(to >= 39){
+    GAME.positions[seat] = 39;
+    lairShowdown(seat);
+    return;
+  }
+  // sewer reroll for Sewer Scout
+  var r = ratObj(seat);
+  if(r && r.rerollSewer && zoneOf(seat) === "sewer" && Math.random() < 0.5 && !GAME.sewerRerolled){
+    GAME.sewerRerolled = true;
+    logMsg(r.name + " uses Sewer Scout — reroll!","me");
+    setTimeout(function(){ roll(); }, 500);
+    return;
+  }
+  landTrigger(seat);
+}
+
+function endTurn(){
+  if(GAME.pending) return;
+  nextTurn();
+  renderAll();
+  if(GAME.over) return;
+  if(botTurn()) scheduleBot();
+}
+
+function botTurn(){
+  var cp = currentPlayer();
+  return cp && cp.bot && !GAME.over;
+}
+
+function scheduleBot(){
+  setTimeout(function(){
+    if(!GAME || GAME.over) return;
+    var cp = currentPlayer();
+    if(!cp.bot) return;
+    botAct(cp);
+  }, 1200);
+}
+
+function botAct(p){
+  var d = rollDie();
+  logMsg("🤖 " + p.name + " rolls " + d + "...","sys");
+  var to = movePlayer(p.seat, d);
+  if(to >= 39){ GAME.positions[p.seat] = 39; lairShowdown(p.seat); }
+  else {
+    // bots auto-resolve cards with personality
+    if(GAME.pending && GAME.pending.seat === p.seat){
+      var card = GAME.pending.card;
+      var choice = botChoice(p, card);
+      resolveOption(p.seat, choice);
+    } else {
+      landTrigger(p.seat);
+    }
+  }
+  if(!GAME.pending && !GAME.over){
+    endTurn();
+  }
+}
+
+function botChoice(p, card){
+  // greedy/snitchy pick the points option; loyal pick trust/help; cautious pick safe
+  var safe = card.opts.findIndex(function(o){ return o.effect.indexOf("trust+") >= 0 || o.effect === "none"; });
+  var pts = card.opts.findIndex(function(o){ return o.effect.indexOf("pts+") >= 0 || o.effect.indexOf("steal") >= 0 || o.effect.indexOf("take") >= 0; });
+  if(p.type === "greedy" && pts >= 0) return pts;
+  if(p.type === "loyal" && safe >= 0) return safe;
+  if(p.type === "cautious") return safe >= 0 ? safe : 0;
+  return pts >= 0 ? pts : 0; // snitchy
+}
+
+/* ---------- LAIR SHOWDOWN (from engine) ---------- */
+function lairShowdown(seat){
+  GAME.pending = {seat:seat, kind:"lair", card:{
+    title:"THE RAT KING'S LAIR",
+    text:"You made it to the throne of trash and cheese. Final choice: share the cheese, or take it all?",
+    opts:[
+      {label:"🍕 Share the cheese", effect:"share,help+1", note:"+3 Trust, +2 bonus pts, everyone +1 Trust, +1 Help"},
+      {label:"👑 Take it all", effect:"take", note:"+5 pts, −2 Trust"}
+    ]
+  }};
+  renderDecision();
+}
+
+/* ---------- SHOW / HIDE ---------- */
+function showGame(){
+  $("lobby").classList.add("hidden");
+  $("game").classList.remove("hidden");
+}
+function toLobby(){
+  stopPolling();
+  GAME = null;
+  $("game").classList.add("hidden");
+  $("lobby").classList.remove("hidden");
+  renderPlayerSetup();
+}
+function closeModal(){ $("modalBg").classList.remove("show"); }
+function playAgain(){
+  GAME = null;
+  toLobby();
+  // restart same mode quickly
+  setTimeout(function(){ $("startBtn").click(); }, 100);
+}
+
+function renderAll(){
+  renderBoard();
+  renderPlayersBar();
+  renderDecision();
+  renderStatus();
+  renderLog();
+}
+
+/* ---------- INIT ---------- */
+document.addEventListener("DOMContentLoaded", function(){
+  // detect invite link: #snitch=CODE
+  var h = location.hash || "";
+  var m = h.match(/snitch=([A-Za-z0-9]+)/);
+  if(m && m[1]){
+    MODE = "online";
+    document.querySelectorAll(".tab").forEach(function(t){ t.classList.toggle("active", t.dataset.mode === "online"); });
+    $("modeDesc").textContent = "Online: you've been invited to a live board game!";
+    renderPlayerSetup();
+    // prompt to join
+    var bg = $("modalBg"), el = $("modalBody");
+    el.innerHTML =
+      '<h2>🔗 YOU\'RE INVITED</h2>' +
+      '<p>A rat sent you a link to their live board game. Sign in and your seat\'s waiting.</p>' +
+      '<input type="text" id="joinName" placeholder="Your name" value="' + esc((LOCAL&&LOCAL.name)||"") + '">' +
+      '<input type="email" id="joinEmail" placeholder="Email (saves your record)">' +
+      '<div class="row" style="justify-content:center">' +
+      '<button class="btn gold" onclick="doJoin(\'' + m[1] + '\')">🐀 Join the game</button></div>' +
+      '<p class="trap-line">4-player cap · first-come, first-served · bots fill empty seats</p>';
+    bg.classList.add("show");
+  }
+  renderRats();
+  renderPlayerSetup();
+  document.querySelectorAll(".tab").forEach(function(t){
+    t.onclick = function(){ setMode(t.dataset.mode); };
+  });
+  $("startBtn").onclick = startGame;
+  $("rollBtn").onclick = roll;
+  $("leaveBtn").onclick = toLobby;
+  $("playerCount").onchange = updateHotseatNames;
+});
+function doJoin(code){
+  var n = ($("joinName")||{}).value || "";
+  var e = ($("joinEmail")||{}).value || "";
+  if(!n){ alert("Enter your name to join."); return; }
+  closeModal();
+  joinOnlineRoom(code, n, e);
+}
+</script>
+</body>
+</html>

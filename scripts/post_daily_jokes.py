@@ -127,6 +127,7 @@ ACCOUNT_PROFILES = {
     "ivy_chen":    {"topics": ["school & books", "work & office"],   "tags": ["books", "work"], "series": None, "series_p": 0},
 }
 ACCOUNTS = list(ACCOUNT_PROFILES.keys())
+TEAM_HANDLES = ["ClickClack_", "TedBear", "mark", "seleena", "manny", "meta", "jasmine", "trevor"]  # minimal, ~15%
 
 def build_topic_index():
     """Map each JOKE_BANK index -> topic, parsed from the source comments."""
@@ -205,8 +206,12 @@ def main():
     for bank_idx, content, punchline in picked:
         topic = TOPIC_OF[bank_idx] if bank_idx < len(TOPIC_OF) else "general"
         # pick an account whose profile matches the joke topic (fallback: random)
-        matches = [u for u, pr in ACCOUNT_PROFILES.items() if topic in pr["topics"]]
-        uname = random.choice(matches) if matches else random.choice(ACCOUNTS)
+        # ~85% realistic personas, ~15% team handles (BossLady: team jokes fine at MINIMAL)
+        if random.random() < 0.85:
+            matches = [u for u, pr in ACCOUNT_PROFILES.items() if topic in pr["topics"]]
+            uname = random.choice(matches) if matches else random.choice(ACCOUNTS)
+        else:
+            uname = random.choice(TEAM_HANDLES)
         prof = ACCOUNT_PROFILES[uname]
         tok = api("/auth/login", {"username": uname, "password": PW}).get("token")
         if not tok:
