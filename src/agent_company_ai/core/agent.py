@@ -63,6 +63,36 @@ class Agent:
             team_members=team_members or [],
             profit_engine_dna=profit_engine_dna,
         )
+
+        # Company identity doc (SOUL.md at the workspace root) — brand, values
+        # and operating principles. Appended to the system prompt when present
+        # so agents are actually hooked into the company's identity.
+        try:
+            soul_path = Path("SOUL.md")
+            if soul_path.exists():
+                soul = soul_path.read_text(encoding="utf-8").strip()
+                if soul:
+                    self._system_prompt += (
+                        "\n\n===== COMPANY SOUL (identity & values) =====\n"
+                        f"{soul}"
+                    )
+        except Exception as e:  # pragma: no cover - never block agent startup
+            logger.warning(f"[{self.name}] could not load SOUL.md: {e}")
+
+        # Personal soul (role-tuned) — souls/SOUL-<agent-name>.md at the workspace
+        # root. Appended AFTER the company soul so each agent carries their own
+        # identity, current plate, and guardrails on top of the company rules.
+        try:
+            personal_soul_path = Path("souls") / f"SOUL-{self.name}.md"
+            if personal_soul_path.exists():
+                personal = personal_soul_path.read_text(encoding="utf-8").strip()
+                if personal:
+                    self._system_prompt += (
+                        "\n\n===== PERSONAL SOUL (your role, tuned) =====\n"
+                        f"{personal}"
+                    )
+        except Exception as e:  # pragma: no cover - never block agent startup
+            logger.warning(f"[{self.name}] could not load personal soul: {e}")
         self._tool_registry = ToolRegistry.get()
 
         # Register on message bus
