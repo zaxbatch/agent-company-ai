@@ -125,9 +125,10 @@ function drawScene(){
   drawSnow(180,150+bobS,mouthS);
   drawVin(470,150+bobV,mouthV);
   // speech bubbles
-  if(t>90&&t<260){bubble(40,40,150,44,"Yo, who's this icy kid?");}
-  if(t>200&&t<380){bubble(430,30,170,44,"I'm Snow. You the vinegar from the hood?");}
-  if(t>340){bubble(60,120,180,44,"ACV baby. Hardcore. Let's spread da word.");}
+  if(t>90&&t<260){bubble(430,30,150,44,"Yo, who's this icy kid?");}
+  if(t>200&&t<380){bubble(40,30,170,44,"I'm Snow. You the vinegar from the hood?");}
+  if(t>340){bubble(430,110,180,44,"ACV baby. Hardcore. Let's spread da word.");}
+  if(t>360){bubble(430,160,190,44,"I'm the realist vinegar you know.");}
   // bottom ticker
   if(t>420){ctx.fillStyle='#ffd166';ctx.font='12px monospace';ctx.textAlign='center';ctx.fillText('▶ cutout style confirmed — full episode coming',W/2,H-14);}
 }

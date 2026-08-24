@@ -11,11 +11,12 @@
 
 ---
 
-## 0. LATEST SESSION (2026-08-24d)
-- **DIRECTION CONFIRMED:** South Park style via Rive = winning vote for Spread Da Word. Vin Negar v2 approved ("looks good"). Snow Beats (86) + Beat Maker Pad (85) = hits on the site ✅
-- **EPISODE 1 FULL BUILT + DEPLOYED:** content/spread-da-word/episode-1-full.html — "The Hood Meets the Snow" (4 scenes: title, meet, beat jam on Snow Beats, Spread Da Word CTA). South Park cutout, music, progress bar. LIVE: https://spread-da-word.netlify.app/episode-1-full.html (music at /intro-music.wav, hub at /). Tested browser: no JS errors.
-- **Games live (11):** T23, UFO Hunter 70, Snow Snake 76, Snowball Fight 78, Iceberg Hopper 79, SNOWBALL BLITZ 80, VIN NEGAR BOTTLE FLIP 81, SNOW SNAKE RUSH 83, Spread Da Word Intro Music 84, Beat Maker Pad 85, SNOW BEATS 86. Getting plays ✅
-- Content counts: jokes 46, games 11, characters 3, episodes 2 (admin-only posting), comics/doodles 0 (approval folder).
+## 0. LATEST SESSION (2026-08-24e)
+- **OFFICIAL ROSTER LOCKED (canon):** content/spread-da-word/ROSTER.md — full Spread Da Word universe. HOOD (Vin Negar/Outlaw, Que/BBQ-best-friend-HEART, Soy/philosopher, Fi/secret-weapon, Aji/sparkplug), FRIDGE (Mayo White/diplomat, Whip/Miracle Whip-schemer, Red/ketchup-star, Yellow/mustard-old-guard, Zest/lemon-cleaner, Crisp/ranch-newcomer), WILD CARDS (Worces/academic, Tahini/ancestor, Sage/mystic), SNOW SNAKE (hidden mascot). Relationships defined. QUE IS CANON.
+- **New rigs built:** que-rig.html (BBQ bottle, party heart, warm smile) + aji-rig.html (slim hot sauce, flame cap, chaos) — South Park cutout, Rive-ready. Roster gallery: content/spread-da-word/roster/index.html.
+- **Deployed to netlify:** https://spread-da-word.netlify.app/roster.html (full gallery), /que-rig.html, /aji-rig.html, /vin-negar-rig.html, /episode-1-full.html, /intro-music.wav.
+- **Vin catchphrase in ep1:** "I'm the realist vinegar you know. 🍶" (scene 2 + scene 3) — deployed. Roster vibe: "You ain't ready for me, bro."
+- Dialogue alignment FIXED (Vin right says his lines, Snow left says his) — was stale-deploy mixup.
 
 ## 1. TOP PRIORITIES (current)
 1. **SnowSnakes content runs in the background** — jokes + games, ~20 jokes/day, 1-3 games/day.

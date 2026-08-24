@@ -25,3 +25,6 @@ pw*.html
 # LPT secrets — NEVER commit
 LPT/top-secret/
 LPT/.env
+
+# SnowSnakes auth tokens — NEVER commit
+.snowsnakes_accounts.json

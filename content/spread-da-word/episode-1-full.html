@@ -102,8 +102,9 @@ function drawScene(){
   if(t<80){bgNight();titleCard('SPREAD DA WORD','Episode 1 — The Hood Meets the Snow');}
   // SCENE 2: meet
   else if(t<300){bgNight();drawSnow(180,150+bobS,mouthS);drawVin(470,150+bobV,mouthV);
-    if(t>90&&t<200)bubble(40,40,150,40,"Yo, who's this icy kid?");
-    if(t>210&&t<300)bubble(420,30,180,40,"I'm Snow. You the vinegar from the hood?");}
+    if(t>90&&t<200)bubble(420,30,150,40,"Yo, who's this icy kid?");
+    if(t>210&&t<300)bubble(40,30,180,40,"I'm Snow. You the vinegar from the hood?");
+    if(t>215&&t<300)bubble(420,120,190,44,"I'm the realist vinegar you know.");}
   // SCENE 3: beat jam (Snow Beats promo)
   else if(t<560){bgNight();
     // draw a mini beat pad between them
@@ -111,7 +112,8 @@ function drawScene(){
     drawBeatPads(220,120,200,60,8,onIdx);
     drawSnow(120,150+bobS,mouthS);drawVin(520,150+bobV,mouthV);
     if(t>310&&t<420)bubble(30,30,170,40,"You make beats? Let's jam.");
-    if(t>430&&t<560)bubble(400,20,190,40,"ACV approved. This the vibe. 💯");}
+    if(t>430&&t<520)bubble(400,20,190,40,"ACV approved. This the vibe. 💯");
+    if(t>520&&t<580)bubble(400,10,200,44,"I'm the realist vinegar you know. 🍶");}
   // SCENE 4: spread da word
   else{bgNight();drawSnow(180,150+bobS,mouthS);drawVin(470,150+bobV,mouthV);
     bubble(40,30,210,40,"Register free — join the SnowSnakes crew.");
