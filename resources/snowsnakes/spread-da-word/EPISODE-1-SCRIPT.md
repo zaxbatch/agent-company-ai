@@ -12,6 +12,7 @@ Duration target: 30-45s · Music: intro-music.wav (12.5s chiptune)
 - VIN (stern, deadpan): "You already know the name."
 
 ## Scene 2 — The gag (15-30s)
+- VIN (classic): "I'm the realist vinegar you know."
 - VIN: "They call me sour. But lemme tell you somethin'..."
 - (beat) VIN: "Sour keeps the good stuff fresh. You feel me?"
 - Small "vinegar splash" sound effect. He straightens his shades.
