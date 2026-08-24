@@ -11,6 +11,12 @@
 
 ---
 
+## 0. LATEST SESSION (2026-08-24m)
+- **SNOW BEATS mod SHIPPED:** game id 97 "SNOW BEATS — loop download" live on snowsnakes (icon 🎧, tags music/beatmaker/sequencer/8-bit/loop/download).
+  Feature: ⬇ Download loop — renders current pattern to WAV (OfflineAudioContext, same 8 synths, BPM+swing, 4 passes), triggers download.
+  Verified live: code round-trips (API auto-decodes base64), /api/games/97/launch 200. Local copy: resources/snowsnakes/games-posted/snow-beats-loop-download.html.
+- **POLICY (BossLady):** Promotional games for other projects ARE allowed in snowsnakes games — they must BE games (no episodes/trailers/media). Snow Beats download = promo for SDW soundtracks, OK.
+- **Doodles:** 5 SVG doodles in doodles/ (vin-negar, que-cookout, red-ketchup, snow-snake, snitch-rat) awaiting approval. resources/snowsnakes/doodles-comics-under-review/ also exists for comics.
 ## 0. LATEST SESSION (2026-08-24k) — BossLady DIRECTIVES (house cleaning #2)
 - **SNOWSNAKES = GAMES ONLY.** Nothing but games on snowsnakes. Promotional games for other projects OK, but they must BE
   games — NO episodes, NO trailers, NO media pages. EXCEPTION: soundtrack cassette player stays (BossLady: "it's cute").

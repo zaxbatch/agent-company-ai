@@ -1,0 +1,214 @@
+{
+  "updated": "2026-08-24 23:15 UTC",
+  "live": [
+    {
+      "name": "SnowSnakes (games only)",
+      "url": "https://snowsnakes.zerric.xyz"
+    },
+    {
+      "name": "Task dashboard",
+      "url": "https://tasks.zdotllc.com"
+    },
+    {
+      "name": "Spread Da Word hub (Netlify)",
+      "url": "https://spread-da-word.netlify.app/"
+    },
+    {
+      "name": "Cassette player (live)",
+      "url": "https://snowsnakes.zerric.xyz/spread-da-word/audio/soundtracks-cassette-player.html"
+    }
+  ],
+  "projects": [
+    {
+      "icon": "\ud83c\udfac",
+      "title": "Spread Da Word \u2014 Animated Series",
+      "blurb": "Cassette player with switchable tapes (each its own label/colors/download), live on SnowSnakes. Rule: SnowSnakes = games only (promo games OK; no episodes/trailers). 2 soundtracks per episode (1 remix + 1 original), 6\u20138 songs each, tape-switch to change.",
+      "links": [
+        [
+          "Cassette player (live)",
+          "https://snowsnakes.zerric.xyz/spread-da-word/audio/soundtracks-cassette-player.html"
+        ],
+        [
+          "SDW official channel",
+          "https://snowsnakes.zerric.xyz"
+        ],
+        [
+          "Hub + legal",
+          "https://spread-da-word.netlify.app/"
+        ]
+      ],
+      "meta": "v3 upgrade in progress: 20+ soundtracks, drag-tape-to-switch."
+    },
+    {
+      "icon": "\ud83d\udc00",
+      "title": "Snitch \u2014 Online Board Game",
+      "blurb": "Rats racing the snake board. 4-player cap, sign-in = lead capture, 3 modes (solo vs bots / invite / quick-play).",
+      "links": [
+        [
+          "Play the prototype",
+          "snitch.html"
+        ],
+        [
+          "Design (canon)",
+          "snitch-design.html"
+        ],
+        [
+          "v1 Build spec",
+          "snitch-spec.html"
+        ]
+      ],
+      "meta": "Working prototype in repo. Online relay + HubSpot lead capture = next build."
+    },
+    {
+      "icon": "\ud83d\udce3",
+      "title": "Outreach Sprint",
+      "blurb": "Prospect \u2192 CRM loop. HubSpot sync tool built and run against Louisville prospect leads.",
+      "links": [
+        [
+          "HubSpot CRM",
+          "https://app.hubspot.com/"
+        ]
+      ],
+      "meta": "created 28, updated 1 (last run 2026-08-24 09:22). Next: email outreach (blocked on provider key)."
+    },
+    {
+      "icon": "\ud83d\udc0d",
+      "title": "SnowSnakes \u2014 Community",
+      "blurb": "Live community site. Rule per BossLady: games ONLY (promotional games for other projects OK \u2014 no episodes, trailers, or media pages). Soundtrack player kept (cute).",
+      "links": [
+        [
+          "SnowSnakes (live)",
+          "https://snowsnakes.zerric.xyz"
+        ]
+      ],
+      "meta": "8 realistic personas registered. Content posting paused during house-cleaning."
+    },
+    {
+      "icon": "\ud83d\udda5\ufe0f",
+      "title": "Platform & Infra",
+      "blurb": "Team portal, legal pages, git history, email/SMS channels \u2014 the operating backbone.",
+      "links": [
+        [
+          "Task dashboard",
+          "https://tasks.zdotllc.com"
+        ],
+        [
+          "Legal (Netlify)",
+          "https://spread-da-word.netlify.app/privacy.html"
+        ],
+        [
+          "Repo (private)",
+          "https://github.com/zaxbatch/agent-company-ai"
+        ]
+      ],
+      "meta": "Dashboard + checklist portal live. State snapshots every 30 min."
+    }
+  ],
+  "commits": [
+    [
+      "69d365b",
+      "house cleaning #2: games-only snowsnakes, SDW 6-8 songs x2 per episode, progress page live at tasks.zdotllc.com/progress (auth-gated)"
+    ],
+    [
+      "c5c2303",
+      "state snapshot 20260824-230002"
+    ],
+    [
+      "051985b",
+      "house cleaning: stop content loops, team jokes minimal, proof-of-work site live (zdot-proof.netlify.app) + generator"
+    ],
+    [
+      "fd21649",
+      "state snapshot 20260824-223002"
+    ],
+    [
+      "f4a706d",
+      "state: snapshot 2026-08-24T22:05:01Z"
+    ],
+    [
+      "2e359b3",
+      "state snapshot 20260824-220001"
+    ],
+    [
+      "7ab8366",
+      "state snapshot 20260824-213001"
+    ],
+    [
+      "4db7ca6",
+      "state snapshot 20260824-210001"
+    ],
+    [
+      "f09ce7a",
+      "state snapshot 20260824-203001"
+    ],
+    [
+      "1deeeb4",
+      "state: snapshot 2026-08-24T20:05:01Z"
+    ],
+    [
+      "c28b483",
+      "state snapshot 20260824-200002"
+    ],
+    [
+      "c36ead6",
+      "state snapshot 20260824-193001"
+    ],
+    [
+      "6635f05",
+      "snowsnakes: retire team handles from public posting; 8 realistic personas (ids 72-79) drive jokes+engagement"
+    ],
+    [
+      "0a6c00c",
+      "jokes: remove dead Team Daily Jokes SERIES constant \u2014 posting was already organic (per-account profiles, series only on ClickClack_ 25%); live 35 tagged jokes were from pre-815f791 cron run"
+    ],
+    [
+      "142a30a",
+      "state snapshot 20260824-190001"
+    ],
+    [
+      "815f791",
+      "jokes: organic posting - account topic profiles, varied tags, series only for ClickClack_ 25% of time (mix looks like real users)"
+    ]
+  ],
+  "personas": [
+    {
+      "avatar": "\ud83c\udf73",
+      "username": "sam_rivera"
+    },
+    {
+      "avatar": "\ud83c\udfa7",
+      "username": "nia_brooks"
+    },
+    {
+      "avatar": "\ud83c\udfae",
+      "username": "leo_park"
+    },
+    {
+      "avatar": "\ud83d\udc00",
+      "username": "rae_dunn"
+    },
+    {
+      "avatar": "\ud83c\udf2e",
+      "username": "kai_torres"
+    },
+    {
+      "avatar": "\ud83c\udfb8",
+      "username": "elle_marsh"
+    },
+    {
+      "avatar": "\ud83c\udfc0",
+      "username": "max_fields"
+    },
+    {
+      "avatar": "\ud83d\udcda",
+      "username": "ivy_chen"
+    }
+  ],
+  "blockers": [
+    "Stripe API key (Zerric) \u2014 gates payments",
+    "Email provider key (Resend) \u2014 gates outreach",
+    "zerric.xyz FTP/DNS \u2014 Snitch + SDW proper domains (tasks.zerric.xyz NXDOMAIN, using tasks.zdotllc.com)",
+    "SnowSnakes admin \u2014 duplicate game cleanup",
+    "ClickClack_ login broken (id 56) \u2014 needs password reset"
+  ]
+}

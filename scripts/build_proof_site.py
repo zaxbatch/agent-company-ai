@@ -50,9 +50,9 @@ cards = [
      "Series world: Vin Negar, Que, Hood vs Fridge, cassettes, episodes placeholder."),
     ("🐀", "Snitch — Online Board Game",
      "Rats racing the snake board. 4-player cap, sign-in = lead capture, 3 modes (solo vs bots / invite / quick-play).",
-     [("Play the prototype", "snitch.html"),
-      ("Design (canon)", "snitch-design.html"),
-      ("v1 Build spec", "snitch-spec.html")],
+     [("Play the prototype", "./snitch.html"),
+      ("Design (canon)", "./snitch-design.html"),
+      ("v1 Build spec", "./snitch-spec.html")],
      "Working prototype in repo. Online P2P layer + HubSpot lead capture = next build."),
     ("📣", "Outreach Sprint",
      "Prospect → CRM loop. HubSpot sync tool built and run against 29 Louisville prospect leads.",
@@ -172,4 +172,19 @@ html = f"""<!DOCTYPE html>
 </html>
 """
 (OUT_DIR / "index.html").write_text(html)
-print(f"proof site written: {OUT_DIR / 'index.html'}")
+
+# Also emit an auth-gated PHP page (private) for tasks.zdotllc.com/progress
+# Same content, wrapped in the same session gate as api.php (redirects to auth.html).
+php = """<?php
+// Z-Dot Team - private proof-of-work page (requires login like api.php)
+session_start();
+if (!isset($_SESSION['user'])) {
+    header('Location: auth.html');
+    exit;
+}
+$me = $_SESSION['user'];
+?>
+""" + html.replace('<title>Z-Dot Team — Proof of Work</title>',
+    '<title>Z-Dot Team — Progress (private)</title>') + "\n"
+(OUT_DIR / "index.php").write_text(php)
+print(f"private php written: {OUT_DIR / 'index.php'}")

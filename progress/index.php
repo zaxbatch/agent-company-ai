@@ -1,9 +1,18 @@
+<?php
+// Z-Dot Team - private proof-of-work page (requires login like api.php)
+session_start();
+if (!isset($_SESSION['user'])) {
+    header('Location: auth.html');
+    exit;
+}
+$me = $_SESSION['user'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Z-Dot Team — Proof of Work</title>
+<title>Z-Dot Team — Progress (private)</title>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   body { font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif; background:#0b1220; color:#dbe7ff; line-height:1.6; }
@@ -105,3 +114,4 @@
 </div>
 </body>
 </html>
+

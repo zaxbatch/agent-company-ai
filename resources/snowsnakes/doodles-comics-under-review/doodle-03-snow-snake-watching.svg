@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#0b1a2a"/>
+  <!-- night sky -->
+  <circle cx="120" cy="90" r="40" fill="#f2e6c8"/>
+  <circle cx="700" cy="70" r="30" fill="#c8d8e8"/>
+  <!-- snow ground -->
+  <rect y="440" width="800" height="160" fill="#dfeef8"/>
+  <!-- snow snake (long S-curve) -->
+  <path d="M 120 460 C 200 380, 320 520, 400 440 C 480 360, 600 500, 680 420" stroke="#e8f4ff" stroke-width="46" fill="none" stroke-linecap="round"/>
+  <path d="M 120 460 C 200 380, 320 520, 400 440 C 480 360, 600 500, 680 420" stroke="#cfe4f2" stroke-width="30" fill="none" stroke-linecap="round"/>
+  <!-- snake head -->
+  <g transform="translate(680,410)">
+    <ellipse cx="0" cy="0" rx="34" ry="24" fill="#e8f4ff"/>
+    <circle cx="-8" cy="-12" r="6" fill="#2b3a4a"/>
+    <circle cx="18" cy="-12" r="6" fill="#2b3a4a"/>
+    <path d="M-6 4 L14 4" stroke="#2b3a4a" stroke-width="3" fill="none"/>
+    <path d="M30 -2 L52 -12 L46 4 Z" fill="#e8f4ff"/>
+  </g>
+  <!-- snowflakes -->
+  <g fill="#fff" opacity="0.7">
+    <circle cx="100" cy="150" r="4"/><circle cx="300" cy="100" r="3"/><circle cx="500" cy="130" r="5"/>
+    <circle cx="620" cy="200" r="4"/><circle cx="200" cy="260" r="3"/><circle cx="420" cy="220" r="4"/>
+  </g>
+  <!-- tiny rat silhouette running -->
+  <g transform="translate(300,420)" fill="#5a6a7a">
+    <circle cx="0" cy="0" r="10"/>
+    <ellipse cx="14" cy="4" rx="16" ry="8"/>
+    <path d="M22 0 L36 -6" stroke="#5a6a7a" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <text x="400" y="560" font-size="24" fill="#7fd1ff" text-anchor="middle" font-family="monospace" font-weight="bold">ALWAYS WATCHING. NEVER EXPLAINED.</text>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#1a1a2e"/>
+  <!-- parking lot asphalt -->
+  <rect y="380" width="800" height="220" fill="#2d2d44"/>
+  <line x1="0" y1="380" x2="800" y2="380" stroke="#4a4a66" stroke-width="4"/>
+  <rect x="60" y="440" width="140" height="8" fill="#e6e6ff" opacity="0.3"/>
+  <rect x="300" y="440" width="140" height="8" fill="#e6e6ff" opacity="0.3"/>
+  <rect x="540" y="440" width="140" height="8" fill="#e6e6ff" opacity="0.3"/>
+  <!-- dumpster -->
+  <rect x="600" y="300" width="130" height="90" rx="8" fill="#3f6f5f"/>
+  <rect x="600" y="300" width="130" height="20" rx="6" fill="#4f8f6f"/>
+  <circle cx="665" cy="360" r="12" fill="#2f4f4f"/>
+  <!-- moon -->
+  <circle cx="680" cy="90" r="45" fill="#f2e6c8"/>
+  <circle cx="695" cy="80" r="40" fill="#1a1a2e"/>
+  <!-- Vin Negar (vinegar bottle) -->
+  <g transform="translate(200,250)">
+    <rect x="10" y="60" width="70" height="120" rx="10" fill="#3d5a3d"/>
+    <rect x="25" y="10" width="40" height="55" rx="6" fill="#3d5a3d"/>
+    <rect x="35" y="-10" width="20" height="25" rx="4" fill="#4d6a4d"/>
+    <text x="45" y="115" font-size="20" fill="#cfe8cf" text-anchor="middle" font-family="monospace">ACV</text>
+    <circle cx="30" cy="40" r="5" fill="#fff" opacity="0.6"/>
+    <!-- eyes -->
+    <circle cx="35" cy="30" r="6" fill="#fff"/>
+    <circle cx="60" cy="30" r="6" fill="#fff"/>
+    <circle cx="37" cy="31" r="3" fill="#111"/>
+    <circle cx="58" cy="31" r="3" fill="#111"/>
+    <path d="M38 45 Q50 52 62 45" stroke="#111" stroke-width="3" fill="none"/>
+  </g>
+  <!-- Que (bbq bottle) -->
+  <g transform="translate(420,270)">
+    <rect x="10" y="50" width="80" height="110" rx="12" fill="#6a2f1f"/>
+    <rect x="28" y="5" width="44" height="50" rx="8" fill="#7a3f2f"/>
+    <rect x="38" y="-12" width="24" height="22" rx="4" fill="#8a4f3f"/>
+    <text x="50" y="100" font-size="16" fill="#ffd9c8" text-anchor="middle" font-family="monospace">BBQ</text>
+    <circle cx="38" cy="28" r="6" fill="#fff"/>
+    <circle cx="64" cy="28" r="6" fill="#fff"/>
+    <circle cx="40" cy="29" r="3" fill="#111"/>
+    <circle cx="62" cy="29" r="3" fill="#111"/>
+    <path d="M42 44 Q52 52 62 44" stroke="#111" stroke-width="3" fill="none"/>
+    <!-- smile -->
+  </g>
+  <!-- speech bubbles -->
+  <rect x="120" y="140" width="140" height="40" rx="16" fill="#fff"/>
+  <text x="190" y="166" font-size="16" fill="#111" text-anchor="middle" font-family="monospace">You ain't ready.</text>
+  <rect x="420" y="110" width="150" height="40" rx="16" fill="#fff"/>
+  <text x="495" y="136" font-size="16" fill="#111" text-anchor="middle" font-family="monospace">Pass the vibe.</text>
+  <!-- title -->
+  <text x="400" y="560" font-size="24" fill="#7fd1ff" text-anchor="middle" font-family="monospace" font-weight="bold">THE HOOD, 3AM — LOOKING FOR SNACKS</text>
+</svg>
