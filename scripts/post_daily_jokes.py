@@ -18,7 +18,6 @@ BASE = "https://snowsnakes.zerric.xyz/api"
 PW = "Snowsnakes2026!"
 STATE_FILE = Path(__file__).resolve().parent.parent / ".agent-company-ai" / "joke_state.json"
 DAILY_TARGET = 20
-SERIES = "Team Daily Jokes"
 
 # ── Original joke bank: (setup, punchline) — varied topics, all original ──
 JOKE_BANK = [
