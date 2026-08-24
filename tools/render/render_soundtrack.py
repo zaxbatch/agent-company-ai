@@ -197,3 +197,73 @@ song("hood-theme", 150,
      [(b, nf('D2')) for b in range(18)] + [(b,2,nf('A1')) for b in range(0,18,4)],
      [(b, nf(x)) for b,x in enumerate(['D5','F5','E5','D5','C5','D5','A4','D5','F5','E5','D5','C5','D5','A4','F5','E5','D5','C5'])],
      lead='sq')
+
+# =====================================================================
+# BATCH 2 — MORE SOUNDTRACKS (2026-08-24, per BossLady: more tapes!)
+# New drum kits + 5 new character/zone themes for the cassette library.
+# =====================================================================
+
+def rock_drums(buf, bar, b0, BEAT, n, amp=1.0):
+    for beat in [0, 2]: kick(buf, b0 + beat*BEAT, 0.5*amp, n=n)
+    for beat in [1, 3]: snare(buf, b0 + beat*BEAT, 0.3*amp, n=n)
+    for s in range(16):
+        hat(buf, b0 + s*0.25*BEAT, (0.07 if s % 2 == 0 else 0.04)*amp, n=n)
+
+def funk_drums(buf, bar, b0, BEAT, n, amp=1.0):
+    kick(buf, b0, 0.5*amp, n=n)
+    snare(buf, b0 + 1*BEAT, 0.22*amp, n=n); snare(buf, b0 + 3*BEAT, 0.22*amp, n=n)
+    for s in range(16):
+        if s % 2 == 0: hat(buf, b0 + s*0.25*BEAT, 0.05*amp, n=n)
+    if bar % 2 == 0: kick(buf, b0 + 2.75*BEAT, 0.35*amp, n=n)  # syncopation
+
+def no_drums(buf, bar, b0, BEAT, n, amp=1.0):
+    pass
+
+print("Rendering soundtrack batch 2...")
+
+# 2) VIN'S VINEGAR ROCK — edgy rock, 140bpm, 26 bars ~45s
+_vm = ['A4','C5','D5','E5','D5','C5','A4','G4','A4','C5','D5','E5','G5','E5','D5','C5']
+song("vin-vinegar-rock", 140,
+     [("intro",2),("groove",8),("bridge",2),("buildup",4),("drop",8),("outro",2)],
+     rock_drums,
+     [(b, nf('A1')) for b in range(26)] + [(b, 2, nf('E2')) for b in range(0, 26, 4)],
+     [(b, nf(_vm[b % len(_vm)])) for b in range(26)],
+     lead='sq')
+
+# 3) QUE'S COOKOUT — warm funk, 118bpm, 22 bars ~45s
+_qm = ['A4','B4','C#5','E5','D5','C#5','B4','A4']
+song("que-cookout", 118,
+     [("intro",2),("groove",8),("bridge",2),("buildup",2),("drop",6),("outro",2)],
+     funk_drums,
+     [(b, nf('A1')) for b in range(22)] + [(b, 2, 0.5, nf('A2')) if b % 2 == 0 else (b, 2.5, 0.5, nf('E2')) for b in range(22)],
+     [(b, nf(_qm[b % len(_qm)])) for b in range(22)],
+     lead='tri')
+
+# 4) SNOW SNAKE SLITHER — icy ambient, 84bpm, 18 bars ~51s
+_sm = ['D5','E5','G5','A5']
+song("snow-snake-slither", 84,
+     [("intro",2),("groove",6),("bridge",2),("buildup",2),("drop",4),("outro",2)],
+     no_drums,
+     [(b, nf('D2')) for b in range(18)],
+     [(b, nf(_sm[b % len(_sm)])) for b in range(18)],
+     lead='tri')
+
+# 5) CAB-NETS DRILL — dark hood trap, 145bpm, 26 bars ~43s
+_dm = ['D4','F4','G4','A4','G4','F4','D4','C4']
+song("cabnets-drill", 145,
+     [("intro",2),("groove",8),("bridge",2),("buildup",4),("drop",8),("outro",2)],
+     trap_drums,
+     [(b, nf('D1')) for b in range(26)] + [(b, 2, nf('A1')) for b in range(0, 26, 4)],
+     [(b, nf(_dm[b % len(_dm)])) for b in range(26)],
+     lead='saw')
+
+# 6) MAYO SMOOTH — chill smooth jazz, 100bpm, 20 bars ~48s
+_jm = ['A3','C4','E4','G4','E4','C4','A3','D4']
+song("mayo-smooth", 100,
+     [("intro",2),("groove",6),("bridge",2),("buildup",2),("drop",6),("outro",2)],
+     lofi_drums,
+     [(b, nf(['A1','C2','E2','G2'][b % 4])) for b in range(20)],
+     [(b, nf(_jm[b % len(_jm)])) for b in range(20)],
+     lead='tri')
+
+print("Batch 2 done.")
