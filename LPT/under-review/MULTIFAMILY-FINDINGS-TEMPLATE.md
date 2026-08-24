@@ -10,7 +10,7 @@ BossLady from ez@zerric.xyz.
 
 ## Credentials (per LPT/top-secret/credentials.txt)
 - URL: https://lou.flexmls.com/ticket
-- User: lou.30557
+- User: LPT creds file
 - NOTE: Login page is CAPTCHA-gated (image captcha). Automated login blocked — requires
   manual login by whoever has access, OR a flexmls API key for programmatic access.
 
