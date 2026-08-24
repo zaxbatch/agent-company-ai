@@ -23,6 +23,12 @@
   No password in v1 (recommended: name+email only). P2P via PeerJS (host stays online) — we do NOT control the snowsnakes backend.
 - **Cassette player:** LIVE at snowsnakes.zerric.xyz/spread-da-word/audio/soundtracks-cassette-player.html (8 switchable tapes, HTTP 200).
   Hub CASSETTE_LINK placeholder now wired to it (resources/zerric-xyz/spread-da-word/index.html). 4-player cap on player pages.
+- **SNITCH GAME DESIGN LOCKED (BossLady):** resources/snitch/GAME-DESIGN.md = canonical (physical board game outline
+  -> online). resources/snitch/V1-SPEC.md = online v1 build spec: sign-in (name+email, no password rec) = LEAD CAPTURE,
+  P2P via PeerJS, 2-4 players (4 cap), 5 rats w/ abilities, 8 zones, trust/cheese/snitch mechanics. Hosted zerric.xyz/snitch
+  (hosting pending — Netlify now vs zerric.xyz later). Deliverables: netlify/functions/lead.mjs, room.mjs, public/snitch/index.html.
+- **Cassette player:** LIVE at snowsnakes.zerric.xyz/spread-da-word/audio/soundtracks-cassette-player.html (8 switchable tapes, HTTP 200).
+  Hub CASSETTE_LINK placeholder now wired to it (resources/zerric-xyz/spread-da-word/index.html). 4-player cap on player pages.
 - **Cleanup:** landing page draft renamed spread-da-world-v1.html -> spread-da-word-v1.html + content fixed. Zero "World" refs left.
 ## 1. TOP PRIORITIES (current)
 1. **SnowSnakes content runs in the background** — jokes + games, ~20 jokes/day, 1-3 games/day.
