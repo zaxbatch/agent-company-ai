@@ -13,15 +13,15 @@
   },
   {
     "id": "t2-retry",
-    "description": "Retry SnowSnakes registration + post dad jokes using a JS-capable browser (Playwright); site returns HTTP 200 now",
+    "description": "Register authentic-looking account(s) on SnowSnakes (mixed genders) + post original jokes. Part of the 6-8 account pool (MOST IMPORTANT).",
     "assignee": "ClickClack",
-    "status": "done",
-    "priority": 2,
-    "result": "VERIFIED 2026-08-23: SnowSnakes account ClickClack_ (id 56) exists; login works (Bearer token issued). 4 original dad jokes posted in series 'ClickClack Dad Jokes' (joke ids 54-57, author_id 56) confirmed via GET /api/jokes. No new registration needed - retry from pre-reboot already succeeded. Evidence: /api/jokes author_id 56, login HTTP 200.",
+    "status": "in_progress",
+    "priority": 1,
+    "result": "UPDATED per BossLady (2026-08-24): accounts must look authentic, mixed genders. 6-8 accounts = TOP priority. Everyone registers with authentic-looking names and posts. Mark may have created some already - COORDINATE with Mark. 20 original jokes/day split across the pool. ClickClack's account is part of this pool. Note: original 'real name' goal (who's funniest) superseded by authentic-looking directive.",
     "created_at": "2026-08-23T14:00:00Z",
-    "updated_at": "2026-08-23T23:38:21Z",
+    "updated_at": "2026-08-24T03:48:27.081158+00:00",
     "blocker": null,
-    "last_checked_at": "2026-08-23T23:38:21Z"
+    "last_checked_at": "2026-08-24T03:48:27.081158+00:00"
   },
   {
     "id": "t3-authors",
@@ -229,14 +229,38 @@
   },
   {
     "id": "t20-dadjokes-daily",
-    "description": "Dad jokes system: 6-8 accounts posting ORIGINAL jokes daily on SnowSnakes (Mark writes/posts; help welcome; HubSpot CRM already works - BossLady handled)",
+    "description": "Dad jokes system: 20 ORIGINAL jokes/day split across everyone, from 6-8 authentic-looking accounts (mixed genders), HubSpot works",
     "assignee": "Mark",
     "status": "in_progress",
-    "priority": 4,
-    "result": "LIVE WORKSTREAM per BossLady (2026-08-24). Previously recorded as 'failed goal' 4a492b667ed7 - CORRECTED: system is in place, Mark was writing/posting, HubSpot works (BossLady set it up). Requirement: ORIGINAL jokes only, posted daily from 6-8 registered accounts. Help available: ClickClack can assist writing/posting. More engagement = better. Note: t2 (ClickClack real-name account) is a SEPARATE track (BossLady's 'see who's funniest' goal).",
+    "priority": 2,
+    "result": "LIVE per BossLady (2026-08-24): 20 jokes/day TOTAL, split between everyone. Original jokes only. 6-8 accounts, authentic-looking, mixed genders (Mark may have made some - VERIFY). Everyone can post: just register with authentic-looking name and post. BossLady + Mark = marketing team within a team. Help: ClickClack can pitch in. HubSpot CRM works (BossLady set up). See resources/SNOWSNAKES-CONTENT-PLAN.md",
     "blocker": "None",
     "created_at": "2026-08-24T03:30:41.505846+00:00",
-    "updated_at": "2026-08-24T03:30:41.505846+00:00",
-    "last_checked_at": "2026-08-24T03:30:41.505846+00:00"
+    "updated_at": "2026-08-24T03:48:27.081158+00:00",
+    "last_checked_at": "2026-08-24T03:48:27.081158+00:00"
+  },
+  {
+    "id": "t21-games",
+    "description": "Games on SnowSnakes: 1-3 games cadence; CTO has green light to post game ideas anytime; specific games discussed when BossLady ready",
+    "assignee": "NinjaNerd",
+    "status": "in_progress",
+    "priority": 3,
+    "result": "Per BossLady (2026-08-24): 'feel free to post' - CTO autonomy on games. 1-3 games target. SHIPPED: Food Truck Frenzy v2 (id 74, pumpkin head \ud83c\udf83) + Snow Snake (id 76, \ud83d\udc0d). Old id 71 duplicate = BossLady deletes (her call). Next: more games as ideas come.",
+    "blocker": "None",
+    "created_at": "2026-08-24T03:48:27.081158+00:00",
+    "updated_at": "2026-08-24T03:48:27.081158+00:00",
+    "last_checked_at": "2026-08-24T03:48:27.081158+00:00"
+  },
+  {
+    "id": "t22-doodles-comics",
+    "description": "Doodles + comics: drafts go to resources/snowsnakes/doodles-comics-under-review/ for BossLady approval (like LPT gate)",
+    "assignee": "NinjaNerd",
+    "status": "pending",
+    "priority": 4,
+    "result": "Folder created: resources/snowsnakes/doodles-comics-under-review/ (2026-08-24). BossLady approves doodles + comics before posting (same as LPT rule: Zerric confirms everything LPT, doodles, comics). No doodles/comics posted until approval. Nothing currently in folder.",
+    "blocker": "None",
+    "created_at": "2026-08-24T03:48:27.081158+00:00",
+    "updated_at": "2026-08-24T03:48:27.081158+00:00",
+    "last_checked_at": "2026-08-24T03:48:27.081158+00:00"
   }
 ]

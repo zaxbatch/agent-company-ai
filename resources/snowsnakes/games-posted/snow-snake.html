@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SNOW SNAKE - 8-Bit Winter Snake</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0b1a2a; display:flex; justify-content:center; align-items:center; min-height:100vh; font-family:'Courier New',monospace; }
+  .wrap { text-align:center; }
+  canvas { background:#0e2233; border:4px solid #7fd1ff; image-rendering:pixelated; }
+  .hud { color:#cfeeff; font-size:14px; margin-top:8px; letter-spacing:1px; }
+  .hud span { color:#ffd166; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <canvas id="g" width="480" height="480"></canvas>
+  <div class="hud">SCORE <span id="score">0</span> &nbsp;.&nbsp; BEST <span id="best">0</span> &nbsp;.&nbsp; LEN <span id="len">3</span></div>
+</div>
+<script>
+(function(){
+  var cv = document.getElementById('g');
+  var ctx = cv.getContext('2d');
+  function $(id){ return document.getElementById(id); }
+  var S = 20, N = 24; // cell size, grid cells
+  var best = +(localStorage.getItem('snowsnake_best')||0);
+  $('best').textContent = best;
+
+  var snake, dir, nextDir, food, score, dead, state, tick, speed, snow;
+
+  function reset(){
+    snake = [{x:10,y:12},{x:9,y:12},{x:8,y:12}];
+    dir = {x:1,y:0}; nextDir = {x:1,y:0};
+    score = 0; dead = false; state = 'play'; tick = 0;
+    speed = 6; // moves per second
+    $('score').textContent = 0; $('len').textContent = 3;
+    spawnFood();
+    snow = [];
+    for(var i=0;i<60;i++) snow.push({x:Math.random()*N|0, y:Math.random()*N|0});
+  }
+  function spawnFood(){
+    var ok = false;
+    while(!ok){
+      food = {x:Math.random()*N|0, y:Math.random()*N|0};
+      ok = true;
+      for(var i=0;i<snake.length;i++){ if(snake[i].x===food.x && snake[i].y===food.y){ ok=false; break; } }
+    }
+  }
+  var AC = null;
+  function beep(f,d,t){ t=t||'square'; try{ AC=AC||new(window.AudioContext||window.webkitAudioContext)(); var o=AC.createOscillator(),g=AC.createGain(); o.type=t; o.frequency.value=f; g.gain.value=0.08; o.connect(g); g.connect(AC.destination); o.start(); g.gain.exponentialRampToValueAtTime(0.0001,AC.currentTime+d); o.stop(AC.currentTime+d); }catch(e){} }
+
+  document.addEventListener('keydown', function(e){
+    var k = e.key;
+    if(k==='ArrowUp'&&dir.y!==1) nextDir={x:0,y:-1};
+    if(k==='ArrowDown'&&dir.y!==-1) nextDir={x:0,y:1};
+    if(k==='ArrowLeft'&&dir.x!==1) nextDir={x:-1,y:0};
+    if(k==='ArrowRight'&&dir.x!==-1) nextDir={x:1,y:0};
+    if(k===' '||k==='Enter'){ if(state==='title'||state==='over'){ reset(); } }
+    if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight',' '].indexOf(k)>=0) e.preventDefault();
+  });
+
+  function step(){
+    dir = nextDir;
+    var head = { x: snake[0].x + dir.x, y: snake[0].y + dir.y };
+    // wall hit?
+    if(head.x<0||head.y<0||head.x>=N||head.y>=N){ die(); return; }
+    // self hit?
+    for(var i=0;i<snake.length;i++){ if(snake[i].x===head.x && snake[i].y===head.y){ die(); return; } }
+    snake.unshift(head);
+    if(head.x===food.x && head.y===food.y){
+      score += 10; beep(660,0.08,'square');
+      $('score').textContent = score;
+      $('len').textContent = snake.length;
+      if(score % 50 === 0 && speed < 14){ speed += 1; beep(988,0.15,'triangle'); }
+      spawnFood();
+    } else {
+      snake.pop();
+    }
+  }
+  function die(){
+    dead = true; beep(180,0.25,'sawtooth');
+    if(score>best){ best=score; localStorage.setItem('snowsnake_best', best); $('best').textContent=best; }
+  }
+
+  function render(){
+    ctx.fillStyle='#0e2233'; ctx.fillRect(0,0,480,480);
+    // falling snow (visual)
+    for(var i=0;i<snow.length;i++){ snow[i].y += 0.05; if(snow[i].y>=N) snow[i].y=0; ctx.fillStyle='#dff3ff'; ctx.fillRect(snow[i].x*S, snow[i].y*S|0, 3, 3); }
+    // food = glowing snowflake
+    ctx.fillStyle='#ffd166'; ctx.fillRect(food.x*S+6, food.y*S+2, 8, 16);
+    ctx.fillRect(food.x*S+2, food.y*S+6, 16, 8);
+    // snake body (icy blues)
+    for(var i=snake.length-1;i>=0;i--){
+      var hue = i===0 ? '#e8f7ff' : (i%2 ? '#3fb6e8' : '#1f8ec4');
+      ctx.fillStyle = hue;
+      ctx.fillRect(snake[i].x*S+1, snake[i].y*S+1, S-2, S-2);
+    }
+    // eyes
+    ctx.fillStyle='#0b1a2a';
+    ctx.fillRect(snake[0].x*S+4+dir.x*4, snake[0].y*S+4+dir.y*4, 4, 4);
+    ctx.fillRect(snake[0].x*S+12+dir.x*4, snake[0].y*S+4+dir.y*4, 4, 4);
+
+    if(state==='title'||state==='over'){
+      ctx.fillStyle='rgba(11,26,42,0.75)'; ctx.fillRect(0,0,480,480);
+      ctx.fillStyle='#7fd1ff'; ctx.font='bold 40px monospace'; ctx.textAlign='center';
+      ctx.fillText(state==='title' ? 'SNOW SNAKE' : 'GAME OVER', 240, 180);
+      ctx.fillStyle='#cfeeff'; ctx.font='16px monospace';
+      ctx.fillText(state==='title' ? 'Eat the snowflakes. Grow. Survive.' : 'Score: '+score+'  Best: '+best, 240, 220);
+      if(state==='over' && score>=best && score>0){ ctx.fillStyle='#7CFC00'; ctx.fillText('* NEW BEST! *', 240, 250); }
+      ctx.fillStyle='#ffd166'; ctx.font='bold 18px monospace';
+      ctx.fillText(state==='title' ? 'ARROWS to move - ENTER to start' : 'PRESS ENTER TO PLAY AGAIN', 240, 300);
+      ctx.textAlign='left';
+      return;
+    }
+  }
+
+  var lastT = 0, acc = 0;
+  function loop(t){
+    requestAnimationFrame(loop);
+    var dt = Math.min(((t-lastT)/1000)||0.016, 0.05); lastT = t;
+    if(state==='play'){
+      acc += dt;
+      var interval = 1/speed;
+      while(acc >= interval){ acc -= interval; step(); if(dead){ state='over'; } }
+    }
+    render();
+  }
+
+  state='title';
+  reset();
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
