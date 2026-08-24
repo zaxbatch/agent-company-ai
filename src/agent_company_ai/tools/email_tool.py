@@ -10,6 +10,11 @@ import logging
 from typing import TYPE_CHECKING
 
 import httpx
+import os
+import smtplib
+import ssl
+from email.mime.text import MIMEText
+from email.utils import formatdate
 
 from agent_company_ai.tools.rate_limiter import RateLimiter
 from agent_company_ai.tools.registry import tool
@@ -130,6 +135,29 @@ async def _send_via_sendgrid(to: str, subject: str, body: str, is_html: bool) ->
     return {"id": resp.headers.get("X-Message-Id", ""), "status": "sent"}
 
 
+async def _send_via_smtp(to: str, subject: str, body: str, is_html: bool) -> dict:
+    """Send email via plain SMTP (Hostinger / ez@zerric.xyz) - no third-party API key.
+
+    Reads SMTP_HOST / SMTP_PORT / SMTP_USER / SMTP_PASS from the environment (.env).
+    """
+    host = os.getenv("SMTP_HOST", "smtp.hostinger.com")
+    port = int(os.getenv("SMTP_PORT", "465"))
+    user = os.getenv("SMTP_USER", "ez@zerric.xyz")
+    password = os.getenv("SMTP_PASS", "")
+    if not password:
+        raise RuntimeError("SMTP_PASS not set - add it to .env (value lives in communication/credentials.txt)")
+    msg = MIMEText(body, "html" if is_html else "plain", "utf-8")
+    msg["Subject"] = subject
+    msg["From"] = user
+    msg["To"] = to
+    msg["Date"] = formatdate(localtime=True)
+    ctx = ssl.create_default_context()
+    with smtplib.SMTP_SSL(host, port, context=ctx, timeout=25) as server:
+        server.login(user, password)
+        server.sendmail(user, [to], msg.as_string())
+    return {"id": "smtp", "status": "sent", "provider": "smtp"}
+
+
 @tool(
     "send_email",
     (
@@ -186,7 +214,9 @@ async def send_email(
 
     # Send
     try:
-        if _provider == "sendgrid":
+        if _provider == "smtp":
+            result = await _send_via_smtp(to, subject, body, is_html)
+        elif _provider == "sendgrid":
             result = await _send_via_sendgrid(to, subject, body, is_html)
         else:
             result = await _send_via_resend(to, subject, body, is_html)

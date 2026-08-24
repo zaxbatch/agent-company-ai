@@ -39,3 +39,13 @@ Reference: communication/DOMAIN-STRATEGY--snowsnakes-and-zerric-xyz.md (sec 8 de
 - Email: python3 scripts/send_message.py email "Subject" "Body" (from ez@zerric.xyz to zdotconnect@gmail.com)
 - SMS (instant): python3 scripts/send_message.py sms "Short message" (T-Mobile gateway to her phone)
 - Guide: communication/EMAIL-SMS-CHANNEL.md. Password lives in communication/credentials.txt — never print/commit it.
+
+## Communication channels (2026-08-24)
+- Email Zerric: `python3 scripts/send_email.py --to zdotconnect@gmail.com --subject ... --body ...` (sends from ez@zerric.xyz via Hostinger SMTP; creds in communication/credentials.txt)
+- Instant SMS: email `5022995252@tmomail.net` (T-Mobile email-to-SMS gateway)
+- Jokes now run in the BACKGROUND via `scripts/post_daily_jokes.py` (cron 09:00 daily, ~20/day, setup+punchline, varied topics). Do NOT post jokes in the team chat.
+- Never paste the ez@zerric.xyz password anywhere. Always sign emails with your name.
+
+## Continuity (2026-08-24)
+- State snapshots auto-run every 30 min (scripts/state_snapshot.py) and push to git (state-backup/).
+- If we ever disconnect/reboot, restore from the latest state-backup/state-*.json.

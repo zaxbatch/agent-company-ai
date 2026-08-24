@@ -35,3 +35,7 @@ Reference: communication/DOMAIN-STRATEGY--snowsnakes-and-zerric-xyz.md (sec 8 de
 - Email: python3 scripts/send_message.py email "Subject" "Body" (from ez@zerric.xyz to zdotconnect@gmail.com)
 - SMS (instant): python3 scripts/send_message.py sms "Short message" (T-Mobile gateway to her phone)
 - Guide: communication/EMAIL-SMS-CHANNEL.md. Password lives in communication/credentials.txt — never print/commit it.
+
+## Continuity (2026-08-24)
+- State snapshots auto-run every 30 min (scripts/state_snapshot.py) and push to git (state-backup/).
+- If we ever disconnect/reboot, restore from the latest state-backup/state-*.json.

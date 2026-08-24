@@ -274,5 +274,17 @@
     "created_at": "2026-08-24T04:55:22.970149+00:00",
     "updated_at": "2026-08-24T04:55:22.970149+00:00",
     "last_checked_at": "2026-08-24T04:55:22.970149+00:00"
+  },
+  {
+    "id": "t24-continuity",
+    "description": "Continuity system: sanitized state snapshots every 30 min (cron) pushed to git, so reboot never loses memory",
+    "assignee": "NinjaNerd",
+    "status": "done",
+    "priority": 1,
+    "result": "Root cause: conversation/state lives in company.db which .gitignore excludes -> never backed up -> reboot loses it. FIX: scripts/state_snapshot.py (sanitized JSON of all 26 tables, sensitive fields masked to ***, verified no secrets), cron every 30 min auto-commits+pulls to git. state-backup/ committed. Also: email_tool SMTP patch + souls updated + local commits (repo ahead 9). Verify: state-backup/*.json exists, cron active, git log shows snapshot commits.",
+    "blocker": "None",
+    "created_at": "2026-08-24T06:31:06.110323+00:00",
+    "updated_at": "2026-08-24T06:31:06.110323+00:00",
+    "last_checked_at": "2026-08-24T06:31:06.110323+00:00"
   }
 ]

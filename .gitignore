@@ -18,3 +18,6 @@ pw*.html
 
 # CEO communication channel (credentials) — NEVER commit
 /communication/
+
+# Continuity snapshots (sanitized) - keep in git
+!state-backup/
