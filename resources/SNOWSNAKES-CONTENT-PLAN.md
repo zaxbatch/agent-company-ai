@@ -1,6 +1,9 @@
-# SnowSnakes Content Plan — Jokes + Games Focus (v2)
+# SnowSnakes Content Plan — BACKGROUND MODE (v3)
 Owner: NinjaNerd (CTO) coordinating · Content owners: Mark + BossLady (marketing team-within-a-team), ClickClack (help), NinjaNerd (games) · Date: 2026-08-24
 Scope per BossLady: CONCENTRATE ON JOKES + GAMES. Doodles/comics gated. LPT untouched.
+
+## MODE (2026-08-24, BossLady): jokes + games run IN THE BACKGROUND.
+They should NOT require chat/board attention. Post them asynchronously. We focus on BIGGER goals.
 
 ## Targets (BossLady's numbers, 2026-08-24)
 - **20 ORIGINAL jokes/day** — split between everyone.
@@ -12,12 +15,12 @@ Scope per BossLady: CONCENTRATE ON JOKES + GAMES. Doodles/comics gated. LPT unto
 | Type | Rule |
 |---|---|
 | Games | ✅ POST FREELY — no approval. CTO autonomy. (Food Truck Frenzy id 74 🎃, Snow Snake id 76 🐍 live; duplicates = BossLady deletes) |
-| Jokes | ✅ 20/day, original, split across accounts (t20) |
+| Jokes | ✅ BACKGROUND: 20/day, original, split across accounts (t20). Batch: resources/snowsnakes/jokes/ |
 | Doodles + Comics | ⛔ DRAFTS → resources/snowsnakes/doodles-comics-under-review/ → BossLady approval before posting (t22) |
 | LPT content | ⛔ NOTHING in LPT folder now; Zerric confirms EVERYTHING LPT, doodles, comics |
 
 ## Who does what
-- **Mark** (marketer) + **BossLady** (marketer too) = marketing team within a team. Mark: confirm/create the 6-8 accounts, coordinate daily joke quota, own challenge copy.
+- **Mark** (marketer) + **BossLady** (marketer too) = marketing team within a team. Mark: run jokes in background (accounts + daily quota), no chat updates needed.
 - **ClickClack**: register authentic-looking account (part of pool), help with jokes.
 - **NinjaNerd**: games (posting freely), content infrastructure, board hygiene.
 - **Seleena**: tag plan for incoming HubSpot contacts (source: snowsnakes).

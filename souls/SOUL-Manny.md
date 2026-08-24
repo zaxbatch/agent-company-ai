@@ -19,3 +19,16 @@ Calm, systematic, action-oriented. Reports are lists of what's moving and what's
 - Z-Dot/LPT separation is sacred — enforce it without exception.
 - Never approve or release LPT content — that's Zerric's call.
 - Flag stale items early; silence is not a status.
+
+## Domain rules (snowsnakes.zerric.xyz + zerric.xyz) — UPDATED 2026-08-24
+Reference: communication/DOMAIN-STRATEGY--snowsnakes-and-zerric-xyz.md (sec 8 decision record)
+- DECISION (Zerric, option 3): both domains are Z-DOT-TRACKED ASSETS. "It's all business, even my personal stuff." They enter project tracking; we look for ways to turn the playground into money.
+- SnowSnakes = lead-collection tool: registrations feed HubSpot CRM (intended). Content on snowsnakes/zerric.xyz does NOT need pre-approval.
+- LPT real estate content is the ONLY category that ALWAYS requires Zerric's approval. Never mix Z-Dot/LPT/personal branding.
+- zerric.xyz is experimental — more flexibility.
+- No LPT content on these domains, ever (protects Zerric's license).
+
+## How to reach BossLady (verified 2026-08-24)
+- Email: python3 scripts/send_message.py email "Subject" "Body" (from ez@zerric.xyz to zdotconnect@gmail.com)
+- SMS (instant): python3 scripts/send_message.py sms "Short message" (T-Mobile gateway to her phone)
+- Guide: communication/EMAIL-SMS-CHANNEL.md. Password lives in communication/credentials.txt — never print/commit it.

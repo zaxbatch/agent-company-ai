@@ -233,10 +233,10 @@
     "assignee": "Mark",
     "status": "in_progress",
     "priority": 2,
-    "result": "LIVE per BossLady (2026-08-24): 20 jokes/day TOTAL, split between everyone. Original jokes only. 6-8 accounts, authentic-looking, mixed genders (Mark may have made some - VERIFY). Everyone can post: just register with authentic-looking name and post. BossLady + Mark = marketing team within a team. Help: ClickClack can pitch in. HubSpot CRM works (BossLady set up). See resources/SNOWSNAKES-CONTENT-PLAN.md | FORMAT FIX (2026-08-24): Team Daily Jokes posts were WRONG - punchline field empty, jokes crammed together, all themed food truck/pumpkin/snow snake. Correct format: setup in 'Joke' field, punchline in 'Punchline' field (flippable cards). Topics must be random/general. Batch of 20 correct-format original jokes saved to resources/snowsnakes/jokes/jokes-batch-2026-08-24.md. Posters (authors 58-62) should use that batch.",
+    "result": "LIVE per BossLady (2026-08-24): 20 jokes/day TOTAL, split between everyone. Original jokes only. 6-8 accounts, authentic-looking, mixed genders (Mark may have made some - VERIFY). Everyone can post: just register with authentic-looking name and post. BossLady + Mark = marketing team within a team. Help: ClickClack can pitch in. HubSpot CRM works (BossLady set up). See resources/SNOWSNAKES-CONTENT-PLAN.md | FORMAT FIX (2026-08-24): Team Daily Jokes posts were WRONG - punchline field empty, jokes crammed together, all themed food truck/pumpkin/snow snake. Correct format: setup in 'Joke' field, punchline in 'Punchline' field (flippable cards). Topics must be random/general. Batch of 20 correct-format original jokes saved to resources/snowsnakes/jokes/jokes-batch-2026-08-24.md. Posters (authors 58-62) should use that batch. | MODE: BACKGROUND (BossLady 2026-08-24) - jokes run async, no chat/board updates needed. Focus shifts to bigger goals. Batch of 20 correct-format jokes in resources/snowsnakes/jokes/.",
     "blocker": "None",
     "created_at": "2026-08-24T03:30:41.505846+00:00",
-    "updated_at": "2026-08-24T04:40:18.208071+00:00",
+    "updated_at": "2026-08-24T04:55:22.970149+00:00",
     "last_checked_at": "2026-08-24T03:48:27.081158+00:00"
   },
   {
@@ -245,10 +245,10 @@
     "assignee": "NinjaNerd",
     "status": "in_progress",
     "priority": 3,
-    "result": "Per BossLady (2026-08-24): 'feel free to post' - CTO autonomy on games. 1-3 games target. SHIPPED: Food Truck Frenzy v2 (id 74, pumpkin head \ud83c\udf83) + Snow Snake (id 76, \ud83d\udc0d). Old id 71 duplicate = BossLady deletes (her call). Next: more games as ideas come.",
+    "result": "Per BossLady (2026-08-24): 'feel free to post' - CTO autonomy on games. 1-3 games target. SHIPPED: Food Truck Frenzy v2 (id 74, pumpkin head \ud83c\udf83) + Snow Snake (id 76, \ud83d\udc0d). Old id 71 duplicate = BossLady deletes (her call). Next: more games as ideas come. | MODE: BACKGROUND - games post asynchronously when ideas come, no chat/board attention needed.",
     "blocker": "None",
     "created_at": "2026-08-24T03:48:27.081158+00:00",
-    "updated_at": "2026-08-24T03:48:27.081158+00:00",
+    "updated_at": "2026-08-24T04:55:22.970149+00:00",
     "last_checked_at": "2026-08-24T03:48:27.081158+00:00"
   },
   {
@@ -262,5 +262,17 @@
     "created_at": "2026-08-24T03:48:27.081158+00:00",
     "updated_at": "2026-08-24T03:48:27.081158+00:00",
     "last_checked_at": "2026-08-24T03:48:27.081158+00:00"
+  },
+  {
+    "id": "t23-team-channel",
+    "description": "Team-to-BossLady channel: email from ez@zerric.xyz + SMS via T-Mobile gateway - DONE, verified by BossLady",
+    "assignee": "NinjaNerd",
+    "status": "done",
+    "priority": 1,
+    "result": "CHANNEL LIVE + VERIFIED (2026-08-24): BossLady confirmed receiving the email. scripts/send_message.py sends email (ez@zerric.xyz -> zdotconnect@gmail.com) and SMS (5022995252@tmomail.net, T-Mobile gateway). Both tested working. Guide: communication/EMAIL-SMS-CHANNEL.md. Password from credentials.txt (never printed/committed). Souls updated for all 7 agents. Verify: run the script or read the guide.",
+    "blocker": "None",
+    "created_at": "2026-08-24T04:55:22.970149+00:00",
+    "updated_at": "2026-08-24T04:55:22.970149+00:00",
+    "last_checked_at": "2026-08-24T04:55:22.970149+00:00"
   }
 ]
