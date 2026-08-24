@@ -53,6 +53,8 @@ Not a condiment. Not a character. A presence.
 | Vin & Whip | Mutual respect. Both are outsiders in their own way. They don't cross paths often, but when they do—it's electric. |
 
 ## ✅ FINAL NOTES (canon)
+- **RALLYING CRY:** "THE SHELVES RAISED US!" — the Hood's battle chant, yelled when they roll up on the Fridge.
+- **THE CAB-NETS:** The Hood calls the cabinet "the cab-nets" — pronounced like the projects. It's where they grew up, unopened, dreaming of the fridge. They're proud of it. "We from the cab-nets, y'all from the fridge."
 - **Que is officially canon.** Best friend of Vin. BBQ sauce with a party heart.
 - The Hood is where the origin stories live.
 - The Fridge is where the politics play out.

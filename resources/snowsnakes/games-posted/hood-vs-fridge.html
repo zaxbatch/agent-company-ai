@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HOOD vs FRIDGE - 8-Bit Condiment Battle</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0b1a2a; display:flex; justify-content:center; align-items:center; min-height:100vh; font-family:'Courier New',monospace; }
+  .wrap { text-align:center; }
+  canvas { background:#0e2233; border:4px solid #ffd166; image-rendering:pixelated; }
+  .hud { color:#cfeeff; font-size:14px; margin-top:8px; letter-spacing:1px; }
+  .hud span { color:#ffd166; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <canvas id="g" width="640" height="480"></canvas>
+  <div class="hud">HOOD ENERGY <span id="score">0</span> &nbsp;.&nbsp; BEST <span id="best">0</span> &nbsp;.&nbsp; HOOD <span id="lives">3</span></div>
+</div>
+<script>
+(function(){
+  var cv=document.getElementById('g'), ctx=cv.getContext('2d');
+  function $(id){return document.getElementById(id);}
+  var W=640,H=480, score=0, lives=3, best=+(localStorage.getItem('hoodvsfridge_best')||0);
+  $('best').textContent=best;
+  var state='title';
+  var hood={x:W/2-40, y:H-70, w:80, h:56, speed:6};
+  var shots=[], foes=[], fTimer=0, phase=0;
+
+  var HOOD_LINES = ["from the cab-nets, baby","you ain't ready for me, bro","pass the sauce, pass the vibe","the fridge don't know the streets","sour keeps it fresh, feel me?"];
+  var FRIDGE_LINES = ["let's keep it smooth","I go with everything","I was here first","a little goes a long way"];
+
+  function reset(){ score=0; lives=3; shots=[]; foes=[]; fTimer=0; phase=0; $('score').textContent=0; $('lives').textContent=3; state='play'; }
+
+  function beep(f,d,t){t=t||'square';try{var AC=beep.AC||(beep.AC=new(window.AudioContext||window.webkitAudioContext)());var o=AC.createOscillator(),g=AC.createGain();o.type=t;o.frequency.value=f;g.gain.value=0.07;o.connect(g);g.connect(AC.destination);o.start();g.gain.exponentialRampToValueAtTime(0.0001,AC.currentTime+d);o.stop(AC.currentTime+d);}catch(e){}}
+
+  var keys={};
+  document.addEventListener('keydown', function(e){
+    keys[e.key]=true;
+    if(e.key===' '||e.key==='Enter'){ if(state==='title'||state==='over') reset(); else fire(); }
+    if(['ArrowLeft','ArrowRight',' '].indexOf(e.key)>=0) e.preventDefault();
+  });
+  document.addEventListener('keyup', function(e){ keys[e.key]=false; });
+  function fire(){
+    shots.push({x:hood.x+hood.w/2-5, y:hood.y-10, vy:-7});
+    beep(700,0.07,'square');
+  }
+
+  function drawHood(x){
+    // Vin (vinegar bottle) as the player
+    ctx.fillStyle='#4a2c08'; ctx.fillRect(x, H-70, 80, 46); // bottle body
+    ctx.fillStyle='#1c1006'; ctx.fillRect(x+16, H-64, 48, 34); // label
+    ctx.fillStyle='#ffd166'; ctx.font='bold 14px monospace'; ctx.fillText('VIN', x+26, H-50);
+    ctx.fillStyle='#e94560'; ctx.fillRect(x+10, H-78, 20, 10); // cap
+    ctx.fillStyle='#ffd700'; ctx.fillRect(x+30, H-56, 20, 4); // chain
+    // eyes on bottle
+    ctx.fillStyle='#fff'; ctx.fillRect(x+20, H-56, 8, 8); ctx.fillRect(x+44, H-56, 8, 8);
+    ctx.fillStyle='#111'; ctx.fillRect(x+22, H-54, 4, 4); ctx.fillRect(x+46, H-54, 4, 4);
+  }
+
+  function drawFoe(f){
+    var colors = {mayo:'#f5f5f5', whip:'#fff3d6', red:'#e22', yellow:'#fc3', zest:'#cf8', crisp:'#eef6ff'};
+    var names = {mayo:'MAYO', whip:'WHIP', red:'RED', yellow:'YELLOW', zest:'ZEST', crisp:'CRISP'};
+    ctx.fillStyle=colors[f.kind]||'#fff';
+    ctx.fillRect(f.x, f.y, 46, 54);
+    ctx.fillStyle='#111'; ctx.font='bold 9px monospace'; ctx.textAlign='center';
+    ctx.fillText(names[f.kind]||'?', f.x+23, f.y+32);
+    ctx.textAlign='left';
+    // eyes
+    ctx.fillStyle='#111'; ctx.fillRect(f.x+10, f.y+10, 6, 6); ctx.fillRect(f.x+30, f.y+10, 6, 6);
+  }
+
+  function loop(){
+    requestAnimationFrame(loop);
+    if(state==='play'){
+      if(keys['ArrowLeft']||keys['a']) hood.x-=hood.speed;
+      if(keys['ArrowRight']||keys['d']) hood.x+=hood.speed;
+      hood.x=Math.max(4,Math.min(W-84,hood.x));
+
+      fTimer++;
+      if(fTimer%50===0){
+        var kinds=['mayo','whip','red','yellow','zest','crisp'];
+        foes.push({x:Math.random()*(W-50)+4, y:-40, vy:1+phase*0.4+Math.random()*0.8, kind:kinds[Math.floor(Math.random()*kinds.length)]});
+        if(fTimer%150===0) phase++;
+      }
+      for(var i=foes.length-1;i>=0;i--){
+        var f=foes[i]; f.y+=f.vy;
+        // shot hit
+        for(var j=shots.length-1;j>=0;j--){
+          var s=shots[j];
+          if(s.x>f.x-4 && s.x<f.x+50 && s.y>f.y && s.y<f.y+54){
+            score+=10; $('score').textContent=score; foes.splice(i,1); shots.splice(j,1);
+            beep(880,0.08,'triangle'); break;
+          }
+        }
+        // reached hood
+        if(f.y>H-80){
+          lives--; $('lives').textContent=lives; beep(180,0.25,'sawtooth');
+          foes.splice(i,1);
+          if(lives<=0){ if(score>best){best=score;localStorage.setItem('hoodvsfridge_best',best);$('best').textContent=best;} state='over'; }
+        }
+      }
+      for(var k=shots.length-1;k>=0;k--){ shots[k].y+=shots[k].vy; if(shots[k].y<-20) shots.splice(k,1); }
+    }
+    render();
+  }
+
+  function render(){
+    ctx.fillStyle='#0e2233'; ctx.fillRect(0,0,W,H);
+    // cabinet background (the hood's home)
+    ctx.fillStyle='#1c1006'; ctx.fillRect(0,0,W,120);
+    ctx.fillStyle='#2a1a0a'; ctx.fillRect(0,120,W,40);
+    ctx.fillStyle='#ffd166'; ctx.font='bold 16px monospace'; ctx.fillText('THE CAB-NETS', 12, 30);
+    ctx.fillStyle='#cfeeff'; ctx.font='12px monospace'; ctx.fillText('THE HOOD', 12, 56);
+    // fridge zone (bottom)
+    ctx.fillStyle='#e8f4ff'; ctx.fillRect(0,H-120,W,120);
+    ctx.fillStyle='#5a7a8a'; ctx.fillRect(0,H-120,W,6);
+    ctx.fillStyle='#0b1a2a'; ctx.font='bold 16px monospace'; ctx.fillText('THE FRIDGE', 12, H-100);
+    // banter
+    var t=Math.floor(performance.now()/1000);
+    if(t%4===0){ ctx.fillStyle='#ffd166'; ctx.font='12px monospace'; ctx.fillText('"'+HOOD_LINES[(t/4)%HOOD_LINES.length]+'"', 320, H-140); }
+    if(t%4===2){ ctx.fillStyle='#9fd8f0'; ctx.font='12px monospace'; ctx.fillText('"'+FRIDGE_LINES[(t/4)%FRIDGE_LINES.length]+'"', 320, 140); }
+
+    // shots (condiment blobs)
+    for(var i=0;i<shots.length;i++){ ctx.fillStyle='#ffd166'; ctx.beginPath(); ctx.arc(shots[i].x,shots[i].y,6,0,7); ctx.fill(); }
+    // foes (fridge crew)
+    for(var j=0;j<foes.length;j++) drawFoe(foes[j]);
+    // player
+    drawHood(hood.x);
+
+    if(state==='title'||state==='over'){
+      ctx.fillStyle='rgba(11,26,42,0.8)'; ctx.fillRect(0,0,W,H);
+      ctx.fillStyle='#ffd166'; ctx.font='bold 40px monospace'; ctx.textAlign='center';
+      ctx.fillText(state==='title'?'HOOD vs FRIDGE':'THE HOOD HOLDS', W/2, 170);
+      ctx.fillStyle='#cfeeff'; ctx.font='16px monospace';
+      ctx.fillText(state==='title'?'The cab-nets vs the suburbs. Throw your sauce.':'Score: '+score+'  Best: '+best, W/2, 210);
+      if(state==='over' && score>=best && score>0){ ctx.fillStyle='#7CFC00'; ctx.fillText('* NEW BEST! *', W/2, 240); }
+      ctx.fillStyle='#ffd166'; ctx.font='bold 16px monospace';
+      ctx.fillText(state==='title'?'ARROWS move · SPACE throws sauce':'PRESS ENTER TO RUN IT BACK', W/2, 290);
+      ctx.textAlign='left'; return;
+    }
+  }
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>

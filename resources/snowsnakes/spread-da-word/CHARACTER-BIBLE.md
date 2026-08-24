@@ -54,3 +54,13 @@ Not a condiment. Not a character. A presence.
 - **Que is officially canon.** Best friend of Vin. BBQ sauce with a party heart.
 - **The Hood** = origin stories. **The Fridge** = politics. **The Snow Snake** watches it all.
 - Vin's classic line (per BossLady): "I'm the realist vinegar you know."
+
+## 🗣️ VOICE / DIALECT (canon, from BossLady 2026-08-24)
+- **The Hood** says they're "from the cab-nets" — like the projects. You can hear it. Project/street energy in their delivery.
+- Vin (vibe): "You ain't ready for me, bro." / "I'm the realist vinegar you know."
+- Que (vibe): "Pass the sauce, pass the vibe."
+- The Hood speaks with that cadence — it's part of their origin (cabinet = the projects).
+- The Fridge = the suburbs. Smoother, more proper. That contrast is the show.
+
+## 🔥 CANON LINE (BossLady, 2026-08-24)
+- **"The shelves raised us!"** — THE Hood anthem line. The cabinet (the projects) raised them. This is their origin story in five words.
