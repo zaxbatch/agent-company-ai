@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.1] - 2026-08-23
+
+### Added
+- Checklist web portal (FastAPI + single-file UI) under `src/agent_company_ai/checklist/`
+- Notification configuration models (email/SMS/push + rate limits) for the dashboard
+- Restored CI workflow (`.github/workflows/ci.yml`) — pytest on push/PR
+
+### Changed
+- Version synced between `pyproject.toml`, `__init__.py`, and this changelog (0.6.1)
+- DeepSeek/OpenAI API key moved from plaintext config to environment variable (`${DEEPSEEK_API_KEY}`)
+
 ## [0.5.0] - 2026-03-15
 
 ### Added

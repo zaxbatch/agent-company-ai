@@ -355,6 +355,56 @@ class Database:
                 updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             );
 
+
+            CREATE TABLE IF NOT EXISTS notifications (
+                id TEXT PRIMARY KEY,
+                user_id TEXT NOT NULL DEFAULT 'admin',
+                event_id TEXT UNIQUE,
+                type TEXT NOT NULL,
+                category TEXT NOT NULL DEFAULT 'system',
+                source TEXT DEFAULT '',
+                severity TEXT NOT NULL DEFAULT 'LOW',
+                priority TEXT NOT NULL DEFAULT 'LOW',
+                title TEXT NOT NULL,
+                body TEXT DEFAULT '',
+                metadata_json TEXT DEFAULT '{}',
+                read_at TIMESTAMP,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            );
+
+            CREATE TABLE IF NOT EXISTS user_preferences (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                user_id TEXT NOT NULL DEFAULT 'admin',
+                category TEXT NOT NULL DEFAULT '*',
+                channel TEXT NOT NULL DEFAULT 'inapp',
+                frequency TEXT NOT NULL DEFAULT 'instant',
+                enabled INTEGER NOT NULL DEFAULT 1,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                UNIQUE(user_id, category, channel)
+            );
+
+            CREATE TABLE IF NOT EXISTS notification_deliveries (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                notification_id TEXT NOT NULL,
+                channel TEXT NOT NULL,
+                status TEXT DEFAULT 'pending',
+                attempts INTEGER DEFAULT 0,
+                max_attempts INTEGER DEFAULT 3,
+                last_error TEXT DEFAULT '',
+                next_attempt_at TIMESTAMP,
+                delivered_at TIMESTAMP,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (notification_id) REFERENCES notifications(id)
+            );
+
+            CREATE TABLE IF NOT EXISTS notification_events (
+                event_id TEXT PRIMARY KEY,
+                type TEXT NOT NULL,
+                source TEXT DEFAULT '',
+                payload_json TEXT DEFAULT '{}',
+                status TEXT DEFAULT 'ingested',
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            );
             CREATE TABLE IF NOT EXISTS browse_log (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 url TEXT NOT NULL,

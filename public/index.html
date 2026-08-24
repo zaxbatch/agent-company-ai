@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Z-Dot Team Checklist</title>
+<style>
+  :root { --green:#1a7f37; --red:#c62828; --blue:#1565c0; --amber:#b26a00; --grey:#616161; }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, Segoe UI, Roboto, sans-serif; margin: 0; background:#f5f6f8; color:#1c1e21; }
+  header { background:#1c1e21; color:#fff; padding:14px 20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; }
+  header h1 { font-size:18px; margin:0; }
+  .panel { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+  select, input, button { font-size:14px; padding:6px 10px; border:1px solid #ccc; border-radius:6px; }
+  button { cursor:pointer; background:#1c1e21; color:#fff; border:none; }
+  button:hover { opacity:.85; }
+  main { max-width:1200px; margin:20px auto; padding:0 16px; }
+  .card { background:#fff; border:1px solid #e0e0e0; border-radius:10px; padding:16px; margin-bottom:16px; }
+  .add-row { display:flex; gap:8px; flex-wrap:wrap; }
+  .add-row input[type=text] { flex:1 1 240px; }
+  table { width:100%; border-collapse:collapse; background:#fff; }
+  th, td { text-align:left; padding:8px 10px; border-bottom:1px solid #eee; font-size:14px; vertical-align:top; }
+  th { background:#fafafa; font-weight:600; white-space:nowrap; }
+  .badge { display:inline-block; padding:2px 8px; border-radius:12px; color:#fff; font-size:12px; font-weight:600; white-space:nowrap; }
+  .b-done{background:var(--green)} .b-failed{background:var(--red)} .b-in_progress{background:var(--blue)}
+  .b-review{background:var(--amber)} .b-pending,.b-assigned{background:var(--grey)}
+  .blocker { color:var(--amber); }
+  .stale { color:var(--red); font-weight:600; }
+  .ok { color:var(--green); }
+  footer { text-align:center; color:#666; font-size:13px; padding:12px; }
+  .actions button { margin-right:4px; padding:4px 8px; font-size:12px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Z-Dot Team Checklist</h1>
+  <div class="panel">
+    <select id="me"><option value="">Who are you?</option></select>
+    <button id="checkin" disabled>Check in</button>
+    <span id="checkin-status"></span>
+  </div>
+</header>
+<main>
+  <div class="card" id="team-panel"></div>
+  <div class="card">
+    <div class="add-row">
+      <input type="text" id="desc" placeholder="Task description (required)">
+      <input type="text" id="assignee" placeholder="Assignee">
+      <select id="priority"><option value="0">Priority: low</option><option value="1">Priority: high</option><option value="2">Priority: medium</option><option value="3">Priority: low</option></select>
+      <button id="add">Add task</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="panel" style="margin-bottom:10px">
+      <select id="f-assignee"><option value="">All assignees</option></select>
+      <select id="f-status"><option value="">All statuses</option></select>
+    </div>
+    <table>
+      <thead><tr><th>Task</th><th>Assignee</th><th>Priority</th><th>Status</th><th>Blocker</th><th>Updated</th><th>Action</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <footer id="totals"></footer>
+  </div>
+</main>
+<script>
+const state = { tasks: [], me: localStorage.getItem('checklist_user') || '' };
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const STATUS = ['pending','assigned','in_progress','review','done','failed','cancelled'];
+const PRIO = {0:'low',1:'high',2:'medium',3:'low'};
+const STALE_MS = 2 * 60 * 60 * 1000;
+
+async function api(url, opts) {
+  const r = await fetch(url, opts);
+  if (!r.ok) { const t = await r.text(); throw new Error(t); }
+  return r.status === 204 ? null : r.json();
+}
+function relTime(iso) {
+  if (!iso) return 'never';
+  const d = new Date(iso), diff = Date.now() - d.getTime();
+  if (diff < 60000) return 'just now';
+  if (diff < 3600000) return Math.floor(diff/60000) + 'm ago';
+  return Math.floor(diff/3600000) + 'h ago';
+}
+function badge(s) { return '<span class="badge b-' + s + '">' + s.replace('_',' ') + '</span>'; }
+
+function render() {
+  const tasks = state.tasks;
+  const fA = $('f-assignee').value, fS = $('f-status').value;
+  const rows = tasks.filter(t => (!fA || t.assignee === fA) && (!fS || t.status === fS));
+  $('rows').innerHTML = rows.map(t => {
+    const blk = t.blocker ? '<span class="blocker">' + esc(t.blocker) + '</span>' : '&mdash;';
+    const done = t.status === 'done';
+    return '<tr><td>' + esc(t.description) + '</td><td>' + esc(t.assignee || '&mdash;') + '</td><td>' + PRIO[t.priority] + '</td><td>' + badge(t.status) + '</td><td>' + blk + '</td><td>' + relTime(t.updated_at) + '</td><td class="actions">' +
+      (done ? '<button onclick="reopen(\'' + t.id + '\')">Reopen</button>' : '<button onclick="markDone(\'' + t.id + '\')">Mark done</button>') +
+      '<button onclick="del(\'' + t.id + '\')">Delete</button></td></tr>';
+  }).join('') || '<tr><td colspan="7">No tasks match.</td></tr>';
+  const done = tasks.filter(t => t.status === 'done').length;
+  $('totals').textContent = 'Total: ' + tasks.length + '   Done: ' + done + '   Open: ' + (tasks.length - done);
+
+  const assigns = [...new Set(tasks.map(t => t.assignee).filter(Boolean))];
+  const fSel = $('f-assignee');
+  if (!fSel.dataset.built) { fSel.dataset.built = 1; assigns.forEach(a => { const o = document.createElement('option'); o.value = a; o.textContent = a; fSel.appendChild(o); }); }
+  const meSel = $('me');
+  if (!meSel.dataset.built) {
+    meSel.dataset.built = 1;
+    assigns.forEach(a => { const o = document.createElement('option'); o.value = a; o.textContent = a; meSel.appendChild(o); });
+    meSel.value = state.me;
+  }
+
+  const myTasks = tasks.filter(t => t.assignee === state.me && !['done','failed','cancelled'].includes(t.status));
+  const myLast = Math.max(...myTasks.map(t => t.last_checked_at ? new Date(t.last_checked_at).getTime() : 0), 0);
+  const stale = myLast && (Date.now() - myLast) > STALE_MS;
+  const never = myTasks.length && !myLast;
+  const statusEl = $('checkin-status');
+  if (never) statusEl.innerHTML = '<span class="stale">You have open tasks and have not checked in today</span>';
+  else if (stale) statusEl.innerHTML = '<span class="stale">Last check-in over 2h ago</span>';
+  else if (myLast) statusEl.innerHTML = '<span class="ok">Checked in ' + relTime(new Date(myLast).toISOString()) + '</span>';
+  else statusEl.textContent = '';
+  $('checkin').disabled = !state.me;
+
+  const panel = $('team-panel');
+  panel.innerHTML = '<strong>Team check-in (last 2h)</strong><div style="margin-top:6px">' +
+    assigns.map(a => {
+      const at = tasks.filter(t => t.assignee === a);
+      const last = Math.max(...at.map(t => t.last_checked_at ? new Date(t.last_checked_at).getTime() : 0), 0);
+      const open = at.filter(t => !['done','failed','cancelled'].includes(t.status)).length;
+      const cls = (!last && open) || (last && Date.now() - last > STALE_MS) ? 'stale' : 'ok';
+      const when = last ? relTime(new Date(last).toISOString()) : 'never';
+      return '<div class="' + cls + '">' + esc(a) + ': ' + when + ' (' + open + ' open)</div>';
+    }).join('') + '</div>';
+}
+
+async function load() { state.tasks = await api('/api/tasks'); render(); }
+async function markDone(id) { const r = prompt('Result (optional):'); await api('/api/tasks/' + id, { method:'PATCH', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ status:'done', result: r || null }) }); load(); }
+async function reopen(id) { await api('/api/tasks/' + id, { method:'PATCH', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ status:'in_progress' }) }); load(); }
+async function del(id) { if (confirm('Delete task?')) { await api('/api/tasks/' + id, { method:'DELETE' }); load(); } }
+
+$('add').onclick = async () => {
+  const desc = $('desc').value.trim(); if (!desc) return alert('Description required');
+  await api('/api/tasks', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ description: desc, assignee: $('assignee').value.trim() || null, priority: Number($('priority').value) }) });
+  $('desc').value = ''; load();
+};
+$('f-assignee').onchange = render; $('f-status').onchange = render;
+$('me').onchange = () => { state.me = $('me').value; localStorage.setItem('checklist_user', state.me); render(); };
+$('checkin').onclick = async () => {
+  const now = new Date().toISOString();
+  const mine = state.tasks.filter(t => t.assignee === state.me && !['done','failed','cancelled'].includes(t.status));
+  for (const t of mine) await api('/api/tasks/' + t.id, { method:'PATCH', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ last_checked_at: now }) });
+  load();
+};
+load();
+</script>
+</body>
+</html>

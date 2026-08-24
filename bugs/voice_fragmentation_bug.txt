@@ -1,0 +1,22 @@
+TECHNICAL INCIDENT REPORT: Voice-to-Text Fragmentation
+
+Status: Open / Critical
+Issue: Premature Utterance Termination (PUT)
+Component: Voice Activity Detection (VAD) / STT Interface
+
+1. Problem Description
+The voice-to-text interface is currently malfunctioning by triggering the 'submit' action prematurely. Instead of capturing a complete sentence or thought, the system is flushing the audio buffer and sending partial fragments to the LLM. This creates a 'stuttering' effect where the user's speech is broken into multiple, incomplete messages.
+
+2. Root Cause Analysis
+The issue is rooted in the Voice Activity Detection (VAD) configuration. The 'Silence Threshold' (the duration of silence required to trigger an end-of-speech event) is set too low. As a result, natural pauses in human speech—such as breathing or thinking—are being misinterpreted as the end of the utterance, triggering an immediate data transmission.
+
+3. Technical Requirements for Resolution
+To resolve this, the following architectural adjustments are required:
+
+- Adjust Silence Timeout: Increase the trailing silence window from the current (estimated) 500ms to a range of 1.5s - 2.0s. This will accommodate natural speaking cadences without prematurely cutting off the user.
+- Implement Semantic Buffering: Shift the trigger logic from simple silence detection to a hybrid model. The system should prioritize punctuation markers (periods, question marks) as the primary 'send' trigger.
+- Utterance Length Validation: Introduce a minimum character or word count threshold. Packets that do not meet a minimum length should remain in the buffer unless a definitive end-of-speech marker is detected.
+- VAD Sensitivity Calibration: Review the noise floor threshold to ensure that background noise isn't accidentally keeping the mic 'open' while simultaneously cutting off the actual speech.
+
+4. Expected Outcome
+Upon implementation, the user should be able to speak naturally, including pauses for thought, without the system splitting a single sentence into multiple messages. The system will only commit the text to the LLM once a complete thought is detected or a significant period of silence has passed.

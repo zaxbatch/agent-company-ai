@@ -194,6 +194,7 @@ class StripeConfig(BaseModel):
 
     enabled: bool = False
     api_key: str = ""                 # ${STRIPE_SECRET_KEY}
+    webhook_secret: str = ""          # ${STRIPE_WEBHOOK_SECRET} — signs incoming events
 
 
 class LandingPageConfig(BaseModel):
@@ -227,6 +228,7 @@ class GumroadConfig(BaseModel):
 
     enabled: bool = False
     access_token: str = ""           # ${GUMROAD_ACCESS_TOKEN}
+    webhook_secret: str = ""         # ${GUMROAD_WEBHOOK_SECRET} — optional shared secret
 
 
 class InvoiceConfig(BaseModel):
@@ -244,7 +246,62 @@ class CalcomConfig(BaseModel):
 
     enabled: bool = False
     api_key: str = ""                # ${CALCOM_API_KEY}
+    webhook_secret: str = ""         # ${CALCOM_WEBHOOK_SECRET} — signs incoming events
     default_duration: int = 30
+
+
+
+class NotificationEmailConfig(BaseModel):
+    """Email delivery for notifications (Resend or SendGrid)."""
+
+    enabled: bool = False
+    provider: str = "resend"          # "resend" | "sendgrid"
+    api_key: str = ""                 # ${RESEND_API_KEY} or ${SENDGRID_API_KEY}
+    from_address: str = ""
+    from_name: str = ""
+    reply_to: str = ""
+
+
+class NotificationSmsConfig(BaseModel):
+    """SMS delivery for notifications (pluggable; console provider by default)."""
+
+    enabled: bool = False
+    provider: str = "console"         # "console" | "twilio"
+    api_key: str = ""                 # ${TWILIO_API_KEY}
+    account_sid: str = ""             # ${TWILIO_ACCOUNT_SID}
+    from_number: str = ""
+
+
+class NotificationPushConfig(BaseModel):
+    """Push delivery for notifications (pluggable; console provider by default)."""
+
+    enabled: bool = False
+    provider: str = "console"         # "console" | "webpush"
+
+
+class NotificationRateLimitConfig(BaseModel):
+    """Rate limits for out-of-band notification delivery (anti-spam)."""
+
+    emails_per_hour: int = 20
+    emails_per_day: int = 100
+    sms_per_hour: int = 10
+    sms_per_day: int = 50
+    pushes_per_hour: int = 30
+    pushes_per_day: int = 200
+
+
+class NotificationConfig(BaseModel):
+    """Dashboard notification system configuration."""
+
+    enabled: bool = False
+    default_user_id: str = "admin"
+    digest_time: str = "08:00"        # local 24h "HH:MM" for the daily digest
+    max_retries: int = 3
+    retry_base_seconds: int = 5       # exponential backoff base (5s, 10s, 20s...)
+    email: NotificationEmailConfig = Field(default_factory=NotificationEmailConfig)
+    sms: NotificationSmsConfig = Field(default_factory=NotificationSmsConfig)
+    push: NotificationPushConfig = Field(default_factory=NotificationPushConfig)
+    rate_limits: NotificationRateLimitConfig = Field(default_factory=NotificationRateLimitConfig)
 
 
 class IntegrationsConfig(BaseModel):
@@ -259,6 +316,7 @@ class IntegrationsConfig(BaseModel):
     invoice: InvoiceConfig = Field(default_factory=InvoiceConfig)
     calcom: CalcomConfig = Field(default_factory=CalcomConfig)
     rate_limits: RateLimitConfig = Field(default_factory=RateLimitConfig)
+    notifications: NotificationConfig = Field(default_factory=NotificationConfig)
 
 
 class CompanyConfig(BaseModel):

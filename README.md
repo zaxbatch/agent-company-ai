@@ -1,4 +1,7 @@
-# Agent Company AI
+# What goes here
+Working drafts and files for the Z-Dot LLC business (marketing, sales, client work).
+- Approved/ready-to-send Z-Dot material can go out freely — no approval gate.
+- For real estate (LPT Realty) material, use the `LPT/` folder instead. Never mix the two.
 
 [![PyPI version](https://img.shields.io/pypi/v/agent-company-ai.svg)](https://pypi.org/project/agent-company-ai/)
 [![Python versions](https://img.shields.io/pypi/pyversions/agent-company-ai.svg)](https://pypi.org/project/agent-company-ai/)
@@ -753,3 +756,5 @@ Please contact gobeyondfj@gmail.com
 ## License
 
 MIT
+## Team checklist
+See TEAM-CHECKLIST.md for how we track tasks. Everyone checks it regularly.
