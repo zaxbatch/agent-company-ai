@@ -283,7 +283,7 @@ var CARDS = {
   sewer: [
     {title:"SEWER — SHORTCUT", text:"You find a shortcut! Move ahead 2 — but another rat might follow.",
      opts:[
-       {label:"Let them follow", effect:"trust+1", note:"+1 Trust"},
+       {label:"Let them follow", effect:"trust+1,help+1", note:"+1 Trust · +1 Help"},
        {label:"Block the path", effect:"pts+2,trust-1", note:"+2 pts, −1 Trust"}
      ]},
     {title:"SEWER — STUCK", text:"A grate slams shut behind you. You're stuck in the muck.",
@@ -307,6 +307,11 @@ var CARDS = {
      ]}
   ],
   woods: [
+    {title:"WOODS — TREASURE", text:"A hidden stash of cheese under a log!",
+     opts:[
+       {label:"Take it all", effect:"cheese+2", note:"+2 Cheese"},
+       {label:"Share with the crew", effect:"cheese+1,trust+1,help+1", note:"+1 Cheese · +1 Trust · +1 Help"}
+     ]},
     {title:"WOODS — PREDATOR", text:"A shadow moves in the trees. An owl is hunting.",
      opts:[
        {label:"Hide (spend 1 Trust)", effect:"trust-1", note:"Safe"},
@@ -454,48 +459,6 @@ var SCENARIOS = {
   ]
 };
 /* ---------- GAME STATE ---------- */
-function newGame(mode){
-  return {
-    mode: mode,              // hotseat | quick | online
-    code: null,              // online room code
-    host: null,              // host player seat
-    players: [],             // [{seat,name,rat,color,icon,bot,type,email,pos,tokens:{points,trust,cheese},jail,skip,woodsSafe,joined}]
-    turn: 0,                 // index into players
-    phase: "lobby",          // lobby | rolling | decision | showdown | over
-    round: 0,
-    lastRoll: null,
-    predator: {cat:18, owl:27},
-    pending: null,           // pending scenario {space, card}
-    winner: null,
-    log: [],
-    startedAt: null
-  };
-}
-
-function addPlayer(g, opts){
-  var seat = g.players.length;
-  var p = {
-    seat: seat,
-    name: opts.name || ("Player " + (seat+1)),
-    rat: opts.rat || null,
-    color: PLAYER_COLORS[seat % 4],
-    icon: PLAYER_ICONS[seat % 4],
-    bot: !!opts.bot,
-    type: opts.type || null,
-    email: opts.email || null,
-    pos: 0,
-    tokens: {points:0, trust:1, cheese:0},
-    jail: false,
-    skip: 0,
-    woodsSafe: 0,
-    joined: Date.now()
-  };
-  g.players.push(p);
-  return p;
-}
-
-function currentPlayer(g){ return g.players[g.turn]; }
-
 function ratById(id){ return RATS.filter(function(r){return r.id===id;})[0]; }
 
 function nextSeat(g, seat){
@@ -530,7 +493,7 @@ function newGame(){
     code:null, mode:MODE, hostSeat:null, started:false, over:false,
     turn:0, round:1, turnCount:0,
     players:[], rats:{}, // seat -> rat id
-    positions:{}, trust:{}, cheese:{}, pts:{}, jailTurns:{}, woodsUsed:{},
+    positions:{}, trust:{}, cheese:{}, pts:{}, helps:{}, jailTurns:{}, woodsUsed:{},
     predatorStep:0,
     log:[], pending:null, winner:null, finalScores:null,
     snowEgg:false
@@ -695,6 +658,8 @@ function resolveOption(seat, opt){
       GAME.jailTurns[seat] = (GAME.jailTurns[seat]||0) + 1;
       logMsg("Stuck! Loses a turn.","sys");
     }
+    else if(e === "help+1"){ GAME.helps[seat] = (GAME.helps[seat]||0)+1; logMsg("+1 Help (you helped a rat in need)","me"); }
+    else if(e.indexOf("cheese+") === 0){ var cn = parseInt(e.split("+")[1],10); var got = gainCheese(seat, cn); logMsg("+" + got + " Cheese","me"); }
     else if(e === "steal"){ resolveSteal(seat); }
     else if(e === "woodsPenalty"){
       var r = ratObj(seat);
@@ -757,7 +722,7 @@ function lairShowdown(seat){
     title:"THE RAT KING'S LAIR",
     text:"You made it to the throne of trash and cheese. Final choice: share the cheese, or take it all?",
     opts:[
-      {label:"🍕 Share the cheese", effect:"share", note:"+3 Trust, +2 bonus pts, everyone +1 Trust"},
+      {label:"🍕 Share the cheese", effect:"share,help+1", note:"+3 Trust, +2 bonus pts, everyone +1 Trust, +1 Help"},
       {label:"👑 Take it all", effect:"take", note:"+5 pts, −2 Trust"}
     ]
   }};
@@ -831,13 +796,17 @@ function showSnowSnake(target, mv){
 function finalize(){
   var scores = GAME.players.map(function(p){
     var s = p.seat;
-    var pts = (GAME.pts[s]||0) + (GAME.trust[s]||0) + (GAME.cheese[s]||0);
-    return {seat:s, name:p.name, pts:pts, trust:GAME.trust[s]||0, cheese:GAME.cheese[s]||0, snitchPts:GAME.pts[s]||0};
+    var snitchPts = GAME.pts[s]||0;
+    var trustPts = GAME.trust[s]||0;
+    var cheesePts = GAME.cheese[s]||0;
+    var helpPts = (GAME.helps[s]||0) * 2;
+    var pts = snitchPts + trustPts + cheesePts + helpPts;
+    return {seat:s, name:p.name, pts:pts, trust:trustPts, cheese:cheesePts, snitchPts:snitchPts, helps:GAME.helps[s]||0, helpPts:helpPts};
   });
   scores.sort(function(a,b){ return b.pts - a.pts; });
   GAME.finalScores = scores;
   GAME.winner = scores[0];
-  logMsg("🏁 GAME OVER — " + scores[0].name + " wins with " + scores[0].pts + " pts!","me");
+  logMsg("🏁 GAME OVER — " + scores[0].name + " wins with " + scores[0].pts + " pts (snitch " + scores[0].snitchPts + " + trust " + scores[0].trust + " + help " + scores[0].helpPts + " + cheese " + scores[0].cheese + ")","me");
   renderFinal();
   saveLocalScore(scores[0]);
   if(GAME.mode === "online" || GAME.mode === "quick") pushState();
@@ -1001,7 +970,10 @@ function renderFinal(){
     var medal = i===0?"🏆":i===1?"🥈":i===2?"🥉":"";
     return '<div style="display:flex; justify-content:space-between; padding:8px 6px; border-bottom:1px solid #ffffff14">' +
       '<span>' + medal + ' <b>' + esc(s.name) + '</b></span>' +
-      '<span>⭐' + s.pts + ' (snitch ' + s.snitchPts + ' · trust ' + s.trust + ' · cheese ' + s.cheese + ')</span></div>';
+      '<span>⭐' + s.pts + '</span></div>' +
+      '<div style="font-size:.72rem; opacity:.8; padding:0 6px 6px 26px; border-bottom:1px solid #ffffff08">' +
+      'snitch ' + s.snitchPts + ' pts · trust bonus ' + s.trust + ' · help bonus ' + s.helpPts + ' (' + s.helps + ' helps) · cheese ' + s.cheese +
+      '</div>';
   }).join("");
   var shareTxt = "I snitched " + GAME.pts[GAME.winner.seat] + " times and still won " + GAME.winner.pts + " pts in Snitch: Rats in the Grass! 🐀👑";
   el.innerHTML =

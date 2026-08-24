@@ -2,6 +2,8 @@
 
 > Status: APPROVED scope (BossLady 2026-08-24) — "user signs in to play and I collect a lead."
 > Design source: resources/snitch/GAME-DESIGN.md (canonical).
+> **Universe note:** SNITCH is a STANDALONE board game. It is NOT part of the Spread Da Word animated series.
+> Spread Da Word = animated series (separate). Do not mix branding/content between the two.
 
 ## The money loop this serves
 Sign-in → lead captured (HubSpot) → play live with a friend → share → more sign-ins.

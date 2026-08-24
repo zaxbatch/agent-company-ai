@@ -1,7 +1,9 @@
 # SNITCH: RATS IN THE GRASS — Canonical Game Design
 
 > Source: BossLady (Zerric/Z-Dot), 2026-08-24. This is the authoritative design for the
-> game, originally outlined as a physical board game. The online boardgame (zerric.xyz/snitch)
+> game, originally outlined as a physical board game.
+> **Universe note:** SNITCH is a STANDALONE board game — NOT part of the Spread Da Word animated series.
+> Spread Da Word = the animated series (separate project). Keep them fully separate. The online boardgame (zerric.xyz/snitch)
 > implements this design. Any deviation must be flagged and approved.
 
 ## Game Title

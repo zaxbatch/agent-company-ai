@@ -29,6 +29,8 @@
   Spec: resources/snitch/V1-SPEC.md + GAME-DESIGN.md.
 - **SNITCH v1 MODES ADDED (BossLady):** 1) SOLO VS BOTS (local AI, instant play, lead capture) 2) PRIVATE invite-by-link (P2P)
   3) QUICK PLAY random match (open-room registry via Netlify Blobs, fallback to bots). Bot AI = simple strategy (roll, snitch/stay-silent, spend trust). See resources/snitch/V1-SPEC.md.
+- **SEPARATION (BossLady 2026-08-24):** SPREAD DA WORD = the ANIMATED SERIES. SNITCH = the BOARD GAME. Two SEPARATE things.
+  Never mix branding/content. Both Snitch specs carry a "Universe note" flagging this.
 - **SNITCH GAME DESIGN LOCKED (BossLady):** resources/snitch/GAME-DESIGN.md = canonical (physical board game outline
   -> online). resources/snitch/V1-SPEC.md = online v1 build spec: sign-in (name+email, no password rec) = LEAD CAPTURE,
   P2P via PeerJS, 2-4 players (4 cap), 5 rats w/ abilities, 8 zones, trust/cheese/snitch mechanics. Hosted zerric.xyz/snitch
