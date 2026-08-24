@@ -49,3 +49,10 @@ Reference: communication/DOMAIN-STRATEGY--snowsnakes-and-zerric-xyz.md (sec 8 de
 ## Continuity (2026-08-24)
 - State snapshots auto-run every 30 min (scripts/state_snapshot.py) and push to git (state-backup/).
 - If we ever disconnect/reboot, restore from the latest state-backup/state-*.json.
+
+## RESUME PROCEDURE (after any reboot/disconnect)
+1. Read `TEAM-STATE.md` (root) — the live source of truth.
+2. Read `souls/` for each member's role + current plate.
+3. Hit the portal (tasks.zdotllc.com) + run `scripts/checklist_watchdog.py`.
+4. Check `state/portal_snapshot.json` + `state/snowsnakes_snapshot.json` (auto-saved every 2h).
+5. Update TEAM-STATE.md at end of every turn. Run `scripts/save_state.py` after big changes.

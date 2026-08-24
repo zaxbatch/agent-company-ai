@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spread Da Word — Vin Negar (vinegar bottle character)</title>
+<style>
+  body { background:#0b1a2a; color:#cfeeff; font-family:'Courier New',monospace; text-align:center; margin:0; padding:20px; }
+  h1 { color:#ffd166; font-size:18px; letter-spacing:1px; }
+  p { font-size:12px; max-width:640px; margin:6px auto; }
+  .stage { background:#223344; border:3px solid #7fd1ff; display:inline-block; padding:12px; border-radius:8px; }
+  .controls { margin-top:12px; }
+  .controls button { background:#e94560; color:#fff; border:0; padding:8px 14px; margin:4px; font-family:inherit; font-size:13px; border-radius:6px; cursor:pointer; }
+  .controls button:hover { background:#ff5a75; }
+</style>
+</head>
+<body>
+<h1>🥃 VIN NEGAR — "from the hood" · vinegar bottle · rig v1</h1>
+<p>South Park-style cutout. Vin is a bottle of vinegar — deep amber, dark label, sharp attitude. Named parts so we can animate head, arms, legs, eyes, mouth. Click to see him move.</p>
+
+<div class="stage">
+  <svg id="rig" width="300" height="420" viewBox="0 0 300 420" xmlns="http://www.w3.org/2000/svg">
+    <!-- shadow -->
+    <ellipse cx="150" cy="398" rx="85" ry="10" fill="#00000055"/>
+    <!-- LEGS -->
+    <g id="legL" transform="translate(120,340)">
+      <rect x="-9" y="0" width="18" height="56" fill="#3b2a1a" rx="4"/>
+      <rect x="-12" y="52" width="24" height="12" fill="#111" rx="5"/>
+    </g>
+    <g id="legR" transform="translate(180,340)">
+      <rect x="-9" y="0" width="18" height="56" fill="#3b2a1a" rx="4"/>
+      <rect x="-12" y="52" width="24" height="12" fill="#111" rx="5"/>
+    </g>
+    <!-- ARMS -->
+    <g id="armL" transform="translate(96,215)">
+      <rect x="-9" y="0" width="18" height="52" fill="#2f5d8a" rx="8"/>
+      <circle cx="0" cy="54" r="8" fill="#e8b88a"/>
+    </g>
+    <g id="armR" transform="translate(204,215)">
+      <rect x="-9" y="0" width="18" height="52" fill="#2f5d8a" rx="8"/>
+      <circle cx="0" cy="54" r="8" fill="#e8b88a"/>
+    </g>
+    <!-- BODY = the VINEGAR BOTTLE -->
+    <g id="body">
+      <!-- bottle body (classic vinegar bottle: wide base, tapering neck) -->
+      <path d="M 95 215 L 205 215 L 205 300 Q 205 340 175 340 L 125 340 Q 95 340 95 300 Z" fill="#8a5a1a"/>
+      <!-- amber glass highlight -->
+      <path d="M 108 225 L 120 225 L 120 330 L 108 330 Z" fill="#c8852e" opacity="0.5"/>
+      <!-- label -->
+      <rect x="112" y="245" width="76" height="58" fill="#2b1a0a" rx="6"/>
+      <text x="150" y="272" fill="#ffd166" font-size="15" font-family="monospace" text-anchor="middle" font-weight="bold">VIN</text>
+      <text x="150" y="292" fill="#cfeeff" font-size="10" font-family="monospace" text-anchor="middle">NEGAR</text>
+      <!-- neck + cap -->
+      <rect x="128" y="178" width="44" height="37" fill="#8a5a1a" rx="4"/>
+      <rect x="122" y="168" width="56" height="16" fill="#1a1a1a" rx="4"/>
+      <rect x="132" y="158" width="36" height="12" fill="#222" rx="3"/>
+    </g>
+    <!-- HEAD (bottle-cap face sits on top) -->
+    <g id="head" transform="translate(150,120)">
+      <circle cx="0" cy="0" r="46" fill="#e8b88a"/>
+      <!-- beanie / hood energy -->
+      <path d="M -46 2 A 46 46 0 0 1 46 2 L 46 -8 A 46 46 0 0 0 -46 -8 Z" fill="#1a1a1a"/>
+      <rect x="-24" y="-26" width="48" height="10" fill="#e94560" rx="3"/>
+      <g id="eyeL" transform="translate(-16,-4)">
+        <circle cx="0" cy="0" r="8" fill="#fff"/><circle cx="2" cy="0" r="4" fill="#111"/>
+      </g>
+      <g id="eyeR" transform="translate(16,-4)">
+        <circle cx="0" cy="0" r="8" fill="#fff"/><circle cx="2" cy="0" r="4" fill="#111"/>
+      </g>
+      <g id="mouth" transform="translate(0,18)">
+        <rect x="-13" y="-3" width="26" height="6" fill="#7a3b2a" rx="3"/>
+      </g>
+    </g>
+  </svg>
+</div>
+
+<div class="controls">
+  <button onclick="anim('talk')">🗣️ Talk</button>
+  <button onclick="anim('wave')">👋 Wave</button>
+  <button onclick="anim('lean')">🕶️ Lean (hood)</button>
+  <button onclick="anim('idle')">🧍 Idle</button>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+let tid = 0;
+function tween(part, props, dur=500){
+  const el=$(part); if(!el) return;
+  const from={}, to={};
+  for(const k in props){ from[k]=parseFloat(el.getAttribute(k)||0); to[k]=props[k]; }
+  const start=performance.now(); const id=++tid;
+  function frame(now){
+    if(id!==tid) return;
+    const t=Math.min((now-start)/dur,1);
+    for(const k in to) el.setAttribute(k, from[k]+(to[k]-from[k])*t);
+    if(t<1) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+function anim(n){
+  switch(n){
+    case 'talk':
+      for(let i=0;i<4;i++){
+        setTimeout(()=>$('mouth').setAttribute('transform','translate(0,18) scale(1,1.8)'), i*120);
+        setTimeout(()=>$('mouth').setAttribute('transform','translate(0,18) scale(1,0.5)'), i*120+60);
+      }
+      tween('head',{translateY:3},150); setTimeout(()=>tween('head',{translateY:0},150),300);
+      break;
+    case 'wave':
+      tween('armR',{rotate:0});
+      tween('armR',{rotate:-45},180); setTimeout(()=>tween('armR',{rotate:25},180),180);
+      setTimeout(()=>tween('armR',{rotate:-45},180),360); setTimeout(()=>tween('armR',{rotate:0},220),540);
+      break;
+    case 'lean': // hood lean: tilt body+head, arms out
+      tween('body',{rotate:8},250); tween('head',{rotate:8},250);
+      tween('armR',{rotate:-30},250); tween('armL',{rotate:30},250);
+      setTimeout(()=>{ tween('body',{rotate:0},300); tween('head',{rotate:0},300); tween('armR',{rotate:0},300); tween('armL',{rotate:0},300); },800);
+      break;
+    default:
+      tween('armL',{rotate:0}); tween('armR',{rotate:0});
+      tween('legL',{rotate:0}); tween('legR',{rotate:0});
+      tween('body',{rotate:0}); tween('head',{rotate:0}); tween('head',{translateY:0});
+  }
+}
+</script>
+</body>
+</html>

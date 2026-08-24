@@ -21,3 +21,7 @@ pw*.html
 
 # Continuity snapshots (sanitized) - keep in git
 !state-backup/
+
+# LPT secrets — NEVER commit
+LPT/top-secret/
+LPT/.env

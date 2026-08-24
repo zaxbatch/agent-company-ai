@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spread Da Word — Character Rig (South Park-style cutout)</title>
+<style>
+  body { background:#0b1a2a; color:#cfeeff; font-family:'Courier New',monospace; text-align:center; margin:0; padding:20px; }
+  h1 { color:#ffd166; font-size:18px; letter-spacing:1px; }
+  p { font-size:12px; max-width:640px; margin:6px auto; }
+  .stage { background:#223344; border:3px solid #7fd1ff; display:inline-block; padding:10px; border-radius:8px; }
+  .controls { margin-top:12px; }
+  .controls button { background:#e94560; color:#fff; border:0; padding:8px 14px; margin:4px; font-family:inherit; font-size:13px; border-radius:6px; cursor:pointer; }
+  .controls button:hover { background:#ff5a75; }
+  .slider { margin:6px; }
+  label { font-size:12px; }
+</style>
+</head>
+<body>
+<h1>🎬 Spread Da Word — Character Rig v1</h1>
+<p>South Park-style cutout rig. Every part is a named SVG group, so animators (us!) can move head, arms, legs, eyes, and mouth independently. Click the buttons to see the rig move.</p>
+
+<div class="stage">
+  <svg id="rig" width="360" height="420" viewBox="0 0 360 420" xmlns="http://www.w3.org/2000/svg">
+    <!-- shadow -->
+    <ellipse cx="180" cy="396" rx="90" ry="10" fill="#00000055"/>
+    <!-- LEFT LEG (pivot at hip) -->
+    <g id="legL" transform="translate(150,330)">
+      <rect x="-10" y="0" width="20" height="62" fill="#2f5d8a" rx="4"/>
+      <rect x="-14" y="58" width="28" height="14" fill="#111" rx="5"/>
+    </g>
+    <!-- RIGHT LEG -->
+    <g id="legR" transform="translate(210,330)">
+      <rect x="-10" y="0" width="20" height="62" fill="#2f5d8a" rx="4"/>
+      <rect x="-14" y="58" width="28" height="14" fill="#111" rx="5"/>
+    </g>
+    <!-- BODY (coat) -->
+    <g id="body">
+      <rect x="128" y="210" width="104" height="130" fill="#3a6ea5" rx="10"/>
+      <rect x="138" y="250" width="84" height="70" fill="#2f5d8a" rx="6"/>
+      <rect x="170" y="300" width="20" height="26" fill="#111" rx="3"/> <!-- zipper -->
+    </g>
+    <!-- LEFT ARM (pivot at shoulder) -->
+    <g id="armL" transform="translate(128,222)">
+      <rect x="-12" y="0" width="24" height="70" fill="#3a6ea5" rx="8"/>
+      <circle cx="0" cy="72" r="9" fill="#e8b88a"/>
+    </g>
+    <!-- RIGHT ARM -->
+    <g id="armR" transform="translate(232,222)">
+      <rect x="-12" y="0" width="24" height="70" fill="#3a6ea5" rx="8"/>
+      <circle cx="0" cy="72" r="9" fill="#e8b88a"/>
+    </g>
+    <!-- HEAD (the big South Park ball) -->
+    <g id="head" transform="translate(180,150)">
+      <circle cx="0" cy="0" r="64" fill="#e8b88a"/>
+      <!-- hair cap -->
+      <path d="M -64 0 A 64 64 0 0 1 64 0 L 64 -10 A 64 64 0 0 0 -64 -10 Z" fill="#3a2414"/>
+      <!-- LEFT EYE -->
+      <g id="eyeL" transform="translate(-24,-8)">
+        <circle cx="0" cy="0" r="10" fill="#fff"/>
+        <circle cx="3" cy="0" r="5" fill="#111"/>
+      </g>
+      <!-- RIGHT EYE -->
+      <g id="eyeR" transform="translate(24,-8)">
+        <circle cx="0" cy="0" r="10" fill="#fff"/>
+        <circle cx="3" cy="0" r="5" fill="#111"/>
+      </g>
+      <!-- MOUTH -->
+      <g id="mouth" transform="translate(0,26)">
+        <rect x="-18" y="-4" width="36" height="8" fill="#7a3b2a" rx="4"/>
+      </g>
+    </g>
+  </svg>
+</div>
+
+<div class="controls">
+  <button onclick="anim('wave')">👋 Wave</button>
+  <button onclick="anim('walk')">🚶 Walk</button>
+  <button onclick="anim('talk')">🗣️ Talk</button>
+  <button onclick="anim('jump')">⬆️ Jump</button>
+  <button onclick="anim('idle')">🧍 Idle</button>
+</div>
+<div class="slider">
+  <label>Head turn <input type="range" id="headTurn" min="-30" max="30" value="0" oninput="setHead(this.value)"></label>
+</div>
+
+<script>
+// ---- Rig animation engine (tween parts by name) ----
+const $ = id => document.getElementById(id);
+let tweenId = 0;
+
+function tween(part, props, dur=500, ease=t=>t) {
+  const el = $(part); if (!el) return;
+  const from = {}, to = {};
+  for (const k in props) { from[k] = parseFloat(el.getAttribute(k) || 0); to[k] = props[k]; }
+  const start = performance.now();
+  const id = ++tweenId;
+  function frame(now) {
+    if (id !== tweenId) return; // superseded
+    const t = Math.min((now - start) / dur, 1);
+    const e = ease(t);
+    for (const k in to) el.setAttribute(k, from[k] + (to[k] - from[k]) * e);
+    if (t < 1) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+
+function setHead(v) { $('head').setAttribute('transform', `translate(180,150) rotate(${v})`); }
+
+function anim(name) {
+  switch(name) {
+    case 'wave': // right arm waves
+      tween('armR', { rotate: 0 });
+      tween('armR', { rotate: -40 }, 200);
+      setTimeout(() => tween('armR', { rotate: 30 }, 200), 200);
+      setTimeout(() => tween('armR', { rotate: -40 }, 200), 400);
+      setTimeout(() => tween('armR', { rotate: 0 }, 250), 600);
+      break;
+    case 'walk': // legs swing + arms counter-swing
+      tween('legL', { rotate: -25 }, 250); tween('legR', { rotate: 25 }, 250);
+      tween('armL', { rotate: 20 }, 250);  tween('armR', { rotate: -20 }, 250);
+      setTimeout(() => { tween('legL', { rotate: 25 }, 250); tween('legR', { rotate: -25 }, 250);
+                         tween('armL', { rotate: -20 }, 250); tween('armR', { rotate: 20 }, 250); }, 250);
+      setTimeout(() => { tween('legL', { rotate: 0 }, 250); tween('legR', { rotate: 0 }, 250);
+                         tween('armL', { rotate: 0 }, 250); tween('armR', { rotate: 0 }, 250); }, 500);
+      break;
+    case 'talk': // mouth opens/closes, head bobs
+      for (let i = 0; i < 4; i++) {
+        setTimeout(() => $('mouth').setAttribute('transform', 'translate(0,26) scale(1,1.8)'), i*120);
+        setTimeout(() => $('mouth').setAttribute('transform', 'translate(0,26) scale(1,0.6)'), i*120+60);
+      }
+      tween('head', { translateY: 4 }, 200);
+      setTimeout(() => tween('head', { translateY: 0 }, 200), 400);
+      break;
+    case 'jump': // whole body up (translate body+head+arms+legs)
+      tween('body', { translateY: -40 }, 200);
+      tween('head', { translateY: -40 }, 200);
+      tween('armL', { translateY: -40 }, 200); tween('armR', { translateY: -40 }, 200);
+      tween('legL', { translateY: -40 }, 200); tween('legR', { translateY: -40 }, 200);
+      setTimeout(() => {
+        tween('body', { translateY: 0 }, 250); tween('head', { translateY: 0 }, 250);
+        tween('armL', { translateY: 0 }, 250); tween('armR', { translateY: 0 }, 250);
+        tween('legL', { translateY: 0 }, 250); tween('legR', { translateY: 0 }, 250);
+      }, 200);
+      break;
+    default: // idle
+      tween('armL', { rotate: 0 }); tween('armR', { rotate: 0 });
+      tween('legL', { rotate: 0 }); tween('legR', { rotate: 0 });
+      tween('head', { translateY: 0 });
+      break;
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SWARM – The Business Ecosystem</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" type="image/svg+xml" href="assets/logos/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="assets/logos/favicon.ico" />
+
+    <style>
+        .swarm-hero {
+            background: linear-gradient(180deg, #1E1B4B 0%, #0EA5E9 100%);
+            color: #fff;
+            padding-top: 120px;
+        }
+        .swarm-hero .hero-title { color: #fff; }
+        .swarm-hero .hero-subtitle { color: rgba(255,255,255,0.8); }
+        .swarm-hero .hero-badge { background: rgba(255,255,255,0.15); color: #fff; }
+        .swarm-hero .btn-secondary { color: #fff; border-color: rgba(255,255,255,0.3); }
+        .swarm-hero .btn-secondary:hover { background: rgba(255,255,255,0.15); border-color: #fff; }
+        .swarm-hero .hero-stats { color: rgba(255,255,255,0.7); }
+        .swarm-hero .hero-stats strong { color: #fff; }
+        .swarm-hero .dashboard-mockup { border-color: rgba(255,255,255,0.2); }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+        .feature-card {
+            background: var(--color-white);
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-md);
+            transition: var(--transition);
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+        .feature-card .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-md);
+            background: rgba(14,165,233,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: var(--color-teal);
+            margin-bottom: var(--spacing-sm);
+        }
+        .feature-card h4 { font-size: 1.1rem; margin-bottom: 0.25rem; }
+        .feature-card p { font-size: 0.9rem; color: var(--color-muted); }
+        .feature-card .beta-tag { margin-left: 0.5rem; }
+
+        .swarm-cta-section {
+            background: var(--color-indigo);
+            color: #fff;
+            padding: var(--spacing-xl) 0;
+            text-align: center;
+        }
+        .swarm-cta-section h2 { font-size: 2.5rem; margin-bottom: var(--spacing-sm); }
+        .swarm-cta-section p {
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+            margin: 0 auto var(--spacing-md);
+        }
+        .swarm-cta-section .btn-primary {
+            background: #fff;
+            color: var(--color-indigo);
+        }
+        .swarm-cta-section .btn-primary:hover {
+            background: rgba(255,255,255,0.9);
+        }
+        .swarm-cta-section .btn-secondary {
+            color: #fff;
+            border-color: rgba(255,255,255,0.3);
+        }
+        .swarm-cta-section .btn-secondary:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        .product-badges {
+            display: flex;
+            gap: var(--spacing-sm);
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: var(--spacing-md);
+        }
+        .product-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.2rem;
+            background: rgba(255,255,255,0.08);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.8);
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+        .product-badge .beta-tag {
+            background: rgba(245,158,11,0.2);
+            color: #fcd34d;
+        }
+        .product-badge a { color: #fff; transition: var(--transition); }
+        .product-badge a:hover { color: var(--color-teal); }
+
+        @media (max-width: 768px) {
+            .feature-grid { grid-template-columns: 1fr; }
+            .swarm-hero .hero-title { font-size: 2.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="./index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zdot logo">
+                    <polygon points="50,8 88,30 88,74 50,96 12,74 12,30" fill="#1E1B4B" />
+                    <path d="M 28 32 L 60 32 L 34 68 L 66 68" stroke="#FFFFFF" stroke-width="11" fill="none" stroke-linejoin="miter" stroke-linecap="butt" />
+                    <polygon points="76,62 82,68 76,74 70,68" fill="#0EA5E9" />
+                </svg>
+                <span>zdot</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <!-- Intentionally empty – only logo and auth remain -->
+            </ul>
+
+            <div class="nav-auth" id="navAuth">
+                <button class="btn btn-secondary" onclick="showTeaser('Login Dashboard'); return false;">Log In</button>
+                <button class="btn btn-primary" onclick="showTeaser('Sign Up & Onboarding'); return false;">Get Started</button>
+            </div>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="hero swarm-hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <span class="hero-badge"><i class="fas fa-cubes"></i> SWARM Ecosystem</span>
+                <h1 class="hero-title">The Operating System for<br /><span style="color:#fff;background:linear-gradient(135deg,#0EA5E9,#8B5CF6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Your Business Growth</span></h1>
+                <p class="hero-subtitle">Capture leads, build communities, and close deals — all from one unified platform. Bizzy Bee CRM + Social Butterfly work together to turn visitors into customers.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary btn-lg" onclick="showTeaser('SWARM Free Trial'); return false;"><i class="fas fa-arrow-right"></i> Start Free Trial</button>
+                    <a href="#features" class="btn btn-secondary btn-lg"><i class="fas fa-info-circle"></i> Explore Features</a>
+                </div>
+                <div class="product-badges">
+                    <span class="product-badge"><i class="fas fa-database"></i> <a href="https://bizzybee.zdotllc.com" target="_blank">Bizzy Bee CRM</a> <span class="beta-tag">Beta</span></span>
+                    <span class="product-badge"><i class="fas fa-share-alt"></i> <a href="https://sparx.zerric.xyz" target="_blank">Social Butterfly</a> <span class="beta-tag">Beta</span></span>
+                </div>
+                <div style="margin-top:0.5rem;font-size:0.7rem;color:rgba(255,255,255,0.4);"><i class="fas fa-flask"></i> Both products are in active beta. Free to use during preview.</div>
+            </div>
+            <div class="hero-visual">
+                <div class="dashboard-mockup">
+                    <div class="mockup-sidebar">
+                        <div class="mockup-item active"><i class="fas fa-home"></i> Home</div>
+                        <div class="mockup-item"><i class="fas fa-users"></i> Leads</div>
+                        <div class="mockup-item"><i class="fas fa-database"></i> CRM</div>
+                        <div class="mockup-item"><i class="fas fa-share-alt"></i> Social</div>
+                        <div class="mockup-item"><i class="fas fa-credit-card"></i> Billing</div>
+                    </div>
+                    <div class="mockup-content">
+                        <div class="mockup-widgets">
+                            <div class="mockup-widget blue"><span class="mockup-widget-label">Today's Leads</span><span class="mockup-widget-value">24</span></div>
+                            <div class="mockup-widget teal"><span class="mockup-widget-label">Active Subscribers</span><span class="mockup-widget-value">187</span></div>
+                            <div class="mockup-widget purple"><span class="mockup-widget-label">Engagement Rate</span><span class="mockup-widget-value">94%</span></div>
+                        </div>
+                        <div class="mockup-recent">
+                            <div class="mockup-recent-item"><i class="fas fa-user-circle"></i><div><span class="mockup-recent-name">Sarah J.</span><span class="mockup-recent-action">Signed up for Social Butterfly</span></div><span class="mockup-recent-time">2 min ago</span></div>
+                            <div class="mockup-recent-item"><i class="fas fa-user-circle"></i><div><span class="mockup-recent-name">Mike R.</span><span class="mockup-recent-action">Added to Bizzy Bee CRM</span></div><span class="mockup-recent-time">15 min ago</span></div>
+                            <div class="mockup-recent-item"><i class="fas fa-user-circle"></i><div><span class="mockup-recent-name">Aisha K.</span><span class="mockup-recent-action">Bot interaction</span></div><span class="mockup-recent-time">1 hour ago</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pillars" id="features" style="padding-top:var(--spacing-xl);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Coming Soon</span>
+                <h2>Features We're Building</h2>
+                <p>SWARM is under active development. Here's what's on the roadmap.</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-robot"></i></div>
+                    <h4>AI-Powered Bots</h4>
+                    <p>Automate engagement with programmable and AI-driven bots that keep your community active 24/7.</p>
+                    <span class="beta-tag">Planned</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-paint-brush"></i></div>
+                    <h4>White-Label Branding</h4>
+                    <p>Fully customize your community with your logo, colors, and custom domain. Make it yours.</p>
+                    <span class="beta-tag">Planned</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-users-cog"></i></div>
+                    <h4>Tenant Management</h4>
+                    <p>Manage multiple communities, users, and roles from a single admin dashboard.</p>
+                    <span class="beta-tag">Planned</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                    <h4>Lead Analytics</h4>
+                    <p>Track engagement, conversion rates, and community growth with real-time analytics.</p>
+                    <span class="beta-tag">Planned</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-plug"></i></div>
+                    <h4>HubSpot Integration</h4>
+                    <p>Automatically sync leads from your communities directly into your HubSpot CRM.</p>
+                    <span class="beta-tag">Planned</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h4>Mobile-Ready</h4>
+                    <p>Your communities look great and work perfectly on every device.</p>
+                    <span class="beta-tag">Planned</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="swarm-cta-section">
+        <div class="container">
+            <h2>Try SWARM Today</h2>
+            <p>Bizzy Bee CRM and Social Butterfly are live in beta. Sign up to get early access and help us shape the future of business ecosystems.</p>
+            <div style="display:flex;gap:var(--spacing-sm);flex-wrap:wrap;justify-content:center;">
+                <a href="https://bizzybee.zdotllc.com" target="_blank" class="btn btn-primary btn-lg"><i class="fas fa-database"></i> Try Bizzy Bee (Beta)</a>
+                <a href="https://sparx.zerric.xyz" target="_blank" class="btn btn-secondary btn-lg"><i class="fas fa-share-alt"></i> Try Social Butterfly (Beta)</a>
+            </div>
+            <div style="margin-top:var(--spacing-sm);font-size:0.85rem;color:rgba(255,255,255,0.5);"><i class="fas fa-flask"></i> Both products are in active beta. Free to use during preview.</div>
+            <div style="margin-top:var(--spacing-md);">
+                <a href="./index.html" class="btn btn-secondary" style="font-size:0.85rem;"><i class="fas fa-arrow-left"></i> Back to ZDOT Home</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="./index.html" class="logo" style="color:#fff;">
+                        <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zdot logo">
+                            <polygon points="50,8 88,30 88,74 50,96 12,74 12,30" fill="#FFFFFF" />
+                            <path d="M 28 32 L 60 32 L 34 68 L 66 68" stroke="#1E1B4B" stroke-width="11" fill="none" stroke-linejoin="miter" stroke-linecap="butt" />
+                            <polygon points="76,62 82,68 76,74 70,68" fill="#0EA5E9" />
+                        </svg>
+                        <span>zdot</span>
+                    </a>
+                    <p>Business solutions that actually work.</p>
+                    <div class="footer-social">
+                        <button onclick="showTeaser('Twitter / X'); return false;"><i class="fab fa-twitter"></i></button>
+                        <button onclick="showTeaser('LinkedIn'); return false;"><i class="fab fa-linkedin"></i></button>
+                        <button onclick="showTeaser('GitHub'); return false;"><i class="fab fa-github"></i></button>
+                        <button onclick="showTeaser('YouTube'); return false;"><i class="fab fa-youtube"></i></button>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Products</h4>
+                    <a href="./swarm.html">SWARM Ecosystem</a>
+                    <a href="https://bizzybee.zdotllc.com" target="_blank">Bizzy Bee CRM <span class="beta-badge">Beta</span></a>
+                    <a href="https://sparx.zerric.xyz" target="_blank">Social Butterfly <span class="beta-badge">Beta</span></a>
+                    <button onclick="showTeaser('Pricing'); return false;" style="background:none;border:none;color:inherit;cursor:pointer;padding:0.25rem 0;font-size:0.85rem;">Pricing</button>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <button onclick="showTeaser('About ZDOT'); return false;" style="background:none;border:none;color:inherit;cursor:pointer;padding:0.25rem 0;font-size:0.85rem;">About</button>
+                    <button onclick="showTeaser('Careers'); return false;" style="background:none;border:none;color:inherit;cursor:pointer;padding:0.25rem 0;font-size:0.85rem;">Careers</button>
+                    <button onclick="showTeaser('Blog'); return false;" style="background:none;border:none;color:inherit;cursor:pointer;padding:0.25rem 0;font-size:0.85rem;">Blog</button>
+                    <button onclick="showTeaser('Contact'); return false;" style="background:none;border:none;color:inherit;cursor:pointer;padding:0.25rem 0;font-size:0.85rem;">Contact</button>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <button onclick="showTeaser('Help Center'); return false;" style="background:none;border:none;color:inherit;cursor:pointer;padding:0.25rem 0;font-size:0.85rem;">Help Center</button>
+                    <button onclick="showTeaser('Documentation'); return false;" style="background:none;border:none;color:inherit;cursor:pointer;padding:0.25rem 0;font-size:0.85rem;">Documentation</button>
+                    <button onclick="showTeaser('Status'); return false;" style="background:none;border:none;color:inherit;cursor:pointer;padding:0.25rem 0;font-size:0.85rem;">Status</button>
+                    <button onclick="showTeaser('Privacy Policy'); return false;" style="background:none;border:none;color:inherit;cursor:pointer;padding:0.25rem 0;font-size:0.85rem;">Privacy Policy</button>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ZDOT LLC. All rights reserved. | <a href="mailto:zdotconnect@gmail.com" style="color:var(--color-teal);">zdotconnect@gmail.com</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="cookie-consent" id="cookieConsent">
+        <div class="cookie-consent-container">
+            <div class="cookie-consent-text">
+                <i class="fas fa-cookie-bite" style="margin-right:0.5rem;color:var(--color-teal);"></i>
+                We use cookies to enhance your experience, analyze traffic, and serve personalized content.
+                <button onclick="showTeaser('Cookie Policy'); return false;" style="background:none;border:none;color:var(--color-teal);cursor:pointer;text-decoration:underline;">Learn more</button>.
+            </div>
+            <div class="cookie-consent-buttons">
+                <button class="btn btn-ghost" id="cookieDecline">Decline</button>
+                <button class="btn btn-primary" id="cookieAccept">Accept All</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
