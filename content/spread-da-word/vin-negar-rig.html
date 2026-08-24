@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vin Negar — Cutout Rig (bottle-faced, from the hood)</title>
+<style>
+  body { background:#1a1a2e; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:100vh; font-family:monospace; color:#eee; margin:0; }
+  h1 { font-size:20px; letter-spacing:2px; color:#ffd166; margin-bottom:4px; }
+  .sub { color:#aaa; font-size:12px; margin-bottom:16px; }
+  svg { background:#0f0f1e; border-radius:10px; border:2px solid #333; box-shadow:0 0 30px rgba(255,209,102,.15); }
+  .note { margin-top:12px; color:#777; font-size:11px; text-align:center; max-width:460px; line-height:1.5; }
+</style>
+</head>
+<body>
+<h1>🍶 VIN NEGAR</h1>
+<div class="sub">bottle of vinegar · from the hood · face IS the bottle</div>
+<!--
+  RIG: Vin Negar is a VINEGAR BOTTLE. His face is part of the bottle —
+  eyes + mouth live directly on the glass, NO human head.
+  Articulated groups (for Rive cutout animation):
+    bottle (body+label+cap) / eyes / mouth / arm-left / arm-right / leg-left / leg-right
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" width="360" height="468">
+  <!-- ===== LEGS (hood sneakers) ===== -->
+  <g id="leg-left" style="transform-origin:168px 420px;">
+    <rect x="156" y="420" width="24" height="36" fill="#222" rx="5"/>
+    <rect x="148" y="452" width="40" height="16" fill="#fff" rx="6"/>
+    <rect x="148" y="464" width="40" height="5" fill="#999" rx="2"/>
+  </g>
+  <g id="leg-right" style="transform-origin:222px 420px;">
+    <rect x="210" y="420" width="24" height="36" fill="#222" rx="5"/>
+    <rect x="204" y="452" width="40" height="16" fill="#fff" rx="6"/>
+    <rect x="204" y="464" width="40" height="5" fill="#999" rx="2"/>
+  </g>
+
+  <!-- ===== THE BOTTLE (his body — amber vinegar glass) ===== -->
+  <g id="bottle" style="transform-origin:195px 380px;">
+    <!-- glass body -->
+    <path d="M155 268 L235 268 L247 312 L250 400 Q250 420 195 420 Q140 420 140 400 L143 312 Z" fill="#d9a066"/>
+    <!-- glass highlight -->
+    <path d="M162 276 L172 276 L166 400 L158 400 Z" fill="#ecc489" opacity=".6"/>
+    <!-- cap (the 'head' top, still part of bottle) -->
+    <rect x="176" y="236" width="38" height="32" rx="6" fill="#2b3a55"/>
+    <rect x="180" y="228" width="30" height="10" rx="3" fill="#1f2a40"/>
+    <!-- label = his hoodie/shirt -->
+    <rect x="156" y="316" width="78" height="62" rx="6" fill="#f5e6d0"/>
+    <rect x="166" y="324" width="58" height="14" rx="3" fill="#7a4a1e"/>
+    <text x="195" y="335" font-family="monospace" font-size="9" fill="#fff" text-anchor="middle">VIN NEGAR</text>
+    <text x="195" y="356" font-family="monospace" font-size="8" fill="#7a4a1e" text-anchor="middle">est. the hood</text>
+  </g>
+
+  <!-- ===== FACE ON THE BOTTLE (no human head — it's the glass) ===== -->
+  <g id="eyes" style="transform-origin:195px 296px;">
+    <!-- eyes drawn directly on the bottle glass -->
+    <circle cx="178" cy="292" r="9" fill="#fff" stroke="#111" stroke-width="2"/>
+    <circle cx="212" cy="292" r="9" fill="#fff" stroke="#111" stroke-width="2"/>
+    <circle cx="180" cy="293" r="4.5" fill="#111"/>
+    <circle cx="214" cy="293" r="4.5" fill="#111"/>
+    <!-- stern brows -->
+    <rect x="166" y="278" width="22" height="4" rx="2" fill="#111" transform="rotate(-8 177 280)"/>
+    <rect x="202" y="278" width="22" height="4" rx="2" fill="#111" transform="rotate(8 213 280)"/>
+  </g>
+  <g id="mouth" style="transform-origin:195px 314px;">
+    <!-- smirk on the glass -->
+    <path d="M182 310 Q195 320 208 310" stroke="#111" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- ===== ARMS ===== -->
+  <g id="arm-left" style="transform-origin:146px 290px;">
+    <rect x="120" y="290" width="26" height="66" rx="10" fill="#d9a066"/>
+    <circle cx="133" cy="360" r="11" fill="#d9a066"/>
+  </g>
+  <g id="arm-right" style="transform-origin:244px 290px;">
+    <rect x="244" y="290" width="26" height="66" rx="10" fill="#d9a066"/>
+    <circle cx="257" cy="360" r="11" fill="#d9a066"/>
+  </g>
+
+  <text x="20" y="498" font-family="monospace" font-size="10" fill="#888">RIG: bottle / eyes / mouth / arms / legs — face is part of the bottle, no human head</text>
+</svg>
+<div class="note">Vin Negar is 100% bottle — eyes and smirk live right on the amber glass, label is his hoodie. Import the groups into Rive to animate the cutout (bottle bob, eyebrow raise, arm wave).</div>
+</body>
+</html>

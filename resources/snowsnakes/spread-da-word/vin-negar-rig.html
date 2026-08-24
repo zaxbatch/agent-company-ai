@@ -16,7 +16,7 @@
 </head>
 <body>
 <h1>🥃 VIN NEGAR — "from the hood" · vinegar bottle · rig v1</h1>
-<p>South Park-style cutout. Vin is a bottle of vinegar — deep amber, dark label, sharp attitude. Named parts so we can animate head, arms, legs, eyes, mouth. Click to see him move.</p>
+<p>South Park-style cutout. Vin IS the bottle — his face lives on the label, no human face. Deep amber glass, sharp attitude, bottle-cap lid. Parts: face (eyes+mouth on label), arms, legs. Click to see him move.</p>
 
 <div class="stage">
   <svg id="rig" width="300" height="420" viewBox="0 0 300 420" xmlns="http://www.w3.org/2000/svg">
@@ -55,21 +55,21 @@
       <rect x="122" y="168" width="56" height="16" fill="#1a1a1a" rx="4"/>
       <rect x="132" y="158" width="36" height="12" fill="#222" rx="3"/>
     </g>
-    <!-- HEAD (bottle-cap face sits on top) -->
-    <g id="head" transform="translate(150,120)">
-      <circle cx="0" cy="0" r="46" fill="#e8b88a"/>
-      <!-- beanie / hood energy -->
-      <path d="M -46 2 A 46 46 0 0 1 46 2 L 46 -8 A 46 46 0 0 0 -46 -8 Z" fill="#1a1a1a"/>
-      <rect x="-24" y="-26" width="48" height="10" fill="#e94560" rx="3"/>
-      <g id="eyeL" transform="translate(-16,-4)">
-        <circle cx="0" cy="0" r="8" fill="#fff"/><circle cx="2" cy="0" r="4" fill="#111"/>
+    <!-- FACE is PART OF THE BOTTLE (Vin is a bottle, not a human) -->
+    <g id="face" transform="translate(150,258)">
+      <!-- eyes: vinegar-bottle label style, piercing -->
+      <g id="eyeL" transform="translate(-18,-8)">
+        <circle cx="0" cy="0" r="9" fill="#fff"/><circle cx="2" cy="0" r="4" fill="#111"/>
       </g>
-      <g id="eyeR" transform="translate(16,-4)">
-        <circle cx="0" cy="0" r="8" fill="#fff"/><circle cx="2" cy="0" r="4" fill="#111"/>
+      <g id="eyeR" transform="translate(18,-8)">
+        <circle cx="0" cy="0" r="9" fill="#fff"/><circle cx="2" cy="0" r="4" fill="#111"/>
       </g>
-      <g id="mouth" transform="translate(0,18)">
-        <rect x="-13" y="-3" width="26" height="6" fill="#7a3b2a" rx="3"/>
+      <!-- mouth: sharp, on the label -->
+      <g id="mouth" transform="translate(0,16)">
+        <rect x="-15" y="-3" width="30" height="6" fill="#7a3b2a" rx="3"/>
       </g>
+      <!-- bottle "cap" = his hair/hat energy (still bottle-related) -->
+      <rect x="124" y="164" width="52" height="14" fill="#1a1a1a" rx="4"/>
     </g>
   </svg>
 </div>
@@ -104,7 +104,7 @@ function anim(n){
         setTimeout(()=>$('mouth').setAttribute('transform','translate(0,18) scale(1,1.8)'), i*120);
         setTimeout(()=>$('mouth').setAttribute('transform','translate(0,18) scale(1,0.5)'), i*120+60);
       }
-      tween('head',{translateY:3},150); setTimeout(()=>tween('head',{translateY:0},150),300);
+      tween('face',{translateY:3},150); setTimeout(()=>tween('face',{translateY:0},150),300);
       break;
     case 'wave':
       tween('armR',{rotate:0});
@@ -112,14 +112,14 @@ function anim(n){
       setTimeout(()=>tween('armR',{rotate:-45},180),360); setTimeout(()=>tween('armR',{rotate:0},220),540);
       break;
     case 'lean': // hood lean: tilt body+head, arms out
-      tween('body',{rotate:8},250); tween('head',{rotate:8},250);
+      tween('body',{rotate:8},250); tween('face',{rotate:8},250);
       tween('armR',{rotate:-30},250); tween('armL',{rotate:30},250);
-      setTimeout(()=>{ tween('body',{rotate:0},300); tween('head',{rotate:0},300); tween('armR',{rotate:0},300); tween('armL',{rotate:0},300); },800);
+      setTimeout(()=>{ tween('body',{rotate:0},300); tween('face',{rotate:0},300); tween('armR',{rotate:0},300); tween('armL',{rotate:0},300); },800);
       break;
     default:
       tween('armL',{rotate:0}); tween('armR',{rotate:0});
       tween('legL',{rotate:0}); tween('legR',{rotate:0});
-      tween('body',{rotate:0}); tween('head',{rotate:0}); tween('head',{translateY:0});
+      tween('body',{rotate:0}); tween('face',{rotate:0}); tween('face',{translateY:0});
   }
 }
 </script>

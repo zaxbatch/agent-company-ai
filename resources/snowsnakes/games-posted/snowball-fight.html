@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SNOWBALL FIGHT - 8-Bit Winter Battle</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0b1a2a; display:flex; justify-content:center; align-items:center; min-height:100vh; font-family:'Courier New',monospace; }
+  .wrap { text-align:center; }
+  canvas { background:#cfe8f7; border:4px solid #7fd1ff; image-rendering:pixelated; cursor:none; }
+  .hud { color:#cfeeff; font-size:14px; margin-top:8px; letter-spacing:1px; }
+  .hud span { color:#ffd166; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <canvas id="g" width="640" height="480"></canvas>
+  <div class="hud">SCORE <span id="score">0</span> &nbsp;.&nbsp; BEST <span id="best">0</span> &nbsp;.&nbsp; AMNO <span id="ammo">30</span></div>
+</div>
+<script>
+(function(){
+  var cv=document.getElementById('g'), ctx=cv.getContext('2d');
+  function $(id){return document.getElementById(id);}
+  var W=640,H=480, score=0, ammo=30, best=+(localStorage.getItem('snowballfight_best')||0);
+  $('best').textContent=best;
+  var state='title', mouse={x:W/2,y:H-60}, balls=[], targets=[], tTimer=0, tSpeed=1;
+
+  function reset(){ score=0; ammo=30; balls=[]; targets=[]; tTimer=0; tSpeed=1; state='play'; $('score').textContent=0; $('ammo').textContent=30; }
+
+  function spawnTarget(){
+    var row = Math.random()<0.5 ? 60 : 120;
+    targets.push({x: Math.random()*(W-80)+40, y: row, v: (0.6+Math.random()*1.2)*tSpeed, hp: 2, w: 46, h: 50});
+  }
+
+  function beep(f,d,t){t=t||'square';try{var AC=beep.AC||(beep.AC=new(window.AudioContext||window.webkitAudioContext)());var o=AC.createOscillator(),g=AC.createGain();o.type=t;o.frequency.value=f;g.gain.value=0.08;o.connect(g);g.connect(AC.destination);o.start();g.gain.exponentialRampToValueAtTime(0.0001,AC.currentTime+d);o.stop(AC.currentTime+d);}catch(e){}}
+
+  cv.addEventListener('mousemove', function(e){ var r=cv.getBoundingClientRect(); mouse.x=e.clientX-r.left; mouse.y=e.clientY-r.top; });
+  cv.addEventListener('click', function(){
+    if(state==='title'||state==='over'){ reset(); return; }
+    if(ammo<=0) return;
+    ammo--; $('ammo').textContent=ammo;
+    var dx=mouse.x-(W/2), dy=mouse.y-(H-40), len=Math.sqrt(dx*dx+dy*dy)||1;
+    balls.push({x:W/2, y:H-40, vx:dx/len*9, vy:dy/len*9, r:9});
+    beep(700,0.07,'square');
+  });
+  document.addEventListener('keydown', function(e){ if(e.key===' '||e.key==='Enter'){ if(state==='title'||state==='over') reset(); } });
+
+  function drawSnowman(x,y,w,h){
+    ctx.fillStyle='#f0f8ff'; ctx.fillRect(x,y,w,h);
+    ctx.fillRect(x-6,y+6,w+12,h*0.3);
+    ctx.fillStyle='#111'; ctx.fillRect(x+8,y+12,6,6); ctx.fillRect(x+w-14,y+12,6,6);
+    ctx.fillRect(x+10,y+h-10,8,5);
+    ctx.fillStyle='#e94560'; ctx.fillRect(x+2,y-8,8,8); ctx.fillRect(x+w-10,y-8,8,8);
+  }
+
+  function loop(){
+    requestAnimationFrame(loop);
+    if(state==='play'){
+      tTimer++;
+      if(tTimer%40===0) spawnTarget();
+      for(var i=targets.length-1;i>=0;i--){
+        var t=targets[i]; t.x += t.v;
+        if(t.x<-60||t.x>W+60){ targets.splice(i,1); continue; }
+        for(var j=balls.length-1;j>=0;j--){
+          var b=balls[j];
+          if(b.x>t.x && b.x<t.x+t.w && b.y>t.y && b.y<t.y+t.h){
+            t.hp--; balls.splice(j,1); beep(500,0.06,'triangle');
+            if(t.hp<=0){ score+=10; $('score').textContent=score; targets.splice(i,1); beep(880,0.1,'square'); break; }
+          }
+        }
+      }
+      for(var k=balls.length-1;k>=0;k--){
+        var bl=balls[k]; bl.x+=bl.vx; bl.y+=bl.vy;
+        if(bl.x<-20||bl.x>W+20||bl.y<-20||bl.y>H+20) balls.splice(k,1);
+      }
+      if(score>0 && score%100===0 && score<=500){ tSpeed=1+score/100; }
+    }
+    render();
+  }
+
+  function render(){
+    ctx.fillStyle='#cfe8f7'; ctx.fillRect(0,0,W,H);
+    // snow ground
+    ctx.fillStyle='#eef6ff'; ctx.fillRect(0,H-60,W,60);
+    ctx.fillStyle='#bfe0f0'; ctx.fillRect(0,H-60,W,6);
+    // targets (snowman army)
+    for(var i=0;i<targets.length;i++){
+      var t=targets[i]; drawSnowman(t.x,t.y,t.w,t.h);
+      if(t.hp<2){ ctx.fillStyle='#e94560'; ctx.fillRect(t.x+6,t.y-14,34,5); ctx.fillStyle='#fff'; ctx.fillRect(t.x+6,t.y-14,(t.hp/2)*34,5); }
+    }
+    // balls
+    ctx.fillStyle='#fff'; ctx.strokeStyle='#9bc';
+    for(var j=0;j<balls.length;j++){ ctx.beginPath(); ctx.arc(balls[j].x,balls[j].y,balls[j].r,0,7); ctx.fill(); ctx.stroke(); }
+    // player (snowball launcher)
+    ctx.fillStyle='#f0f8ff'; ctx.fillRect(W/2-22,H-60,44,60);
+    ctx.fillStyle='#111'; ctx.fillRect(W/2-12,H-40,10,10); ctx.fillRect(W/2+2,H-40,10,10);
+    ctx.fillStyle='#e94560'; ctx.fillRect(W/2-6,H-18,12,12);
+    // aim line
+    ctx.strokeStyle='#e94560'; ctx.setLineDash([4,4]); ctx.beginPath(); ctx.moveTo(W/2,H-40); ctx.lineTo(mouse.x,mouse.y); ctx.stroke(); ctx.setLineDash([]);
+    // crosshair
+    ctx.strokeStyle='#e94560'; ctx.beginPath(); ctx.arc(mouse.x,mouse.y,12,0,7); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(mouse.x-16,mouse.y); ctx.lineTo(mouse.x-6,mouse.y); ctx.moveTo(mouse.x+6,mouse.y); ctx.lineTo(mouse.x+16,mouse.y); ctx.stroke();
+
+    if(state==='title'||state==='over'){
+      ctx.fillStyle='rgba(11,26,42,0.7)'; ctx.fillRect(0,0,W,H);
+      ctx.fillStyle='#ffd166'; ctx.font='bold 42px monospace'; ctx.textAlign='center';
+      ctx.fillText(state==='title'?'SNOWBALL FIGHT':'VICTORY!', W/2, 160);
+      ctx.fillStyle='#fff'; ctx.font='16px monospace';
+      ctx.fillText(state==='title'?'The snowmen took the town. Take it back.':'Score: '+score+'  Best: '+best, W/2, 200);
+      if(state==='over' && score>=best && score>0){ ctx.fillStyle='#7CFC00'; ctx.fillText('* NEW BEST! *', W/2, 230); }
+      ctx.fillStyle='#ffd166'; ctx.font='bold 18px monospace';
+      ctx.fillText(state==='title'?'MOVE MOUSE + CLICK to throw snowballs':'CLICK / ENTER TO PLAY AGAIN', W/2, 280);
+      ctx.textAlign='left'; return;
+    }
+    $('ammo').textContent=ammo;
+  }
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>

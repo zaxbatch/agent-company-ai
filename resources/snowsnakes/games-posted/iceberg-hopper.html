@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICEBERG HOPPER - 8-Bit Winter Crossing</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0b1a2a; display:flex; justify-content:center; align-items:center; min-height:100vh; font-family:'Courier New',monospace; }
+  .wrap { text-align:center; }
+  canvas { background:#0e2233; border:4px solid #7fd1ff; image-rendering:pixelated; }
+  .hud { color:#cfeeff; font-size:14px; margin-top:8px; letter-spacing:1px; }
+  .hud span { color:#ffd166; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <canvas id="g" width="480" height="560"></canvas>
+  <div class="hud">SCORE <span id="score">0</span> &nbsp;.&nbsp; BEST <span id="best">0</span> &nbsp;.&nbsp; LIVES <span id="lives">3</span></div>
+</div>
+<script>
+(function(){
+  var cv=document.getElementById('g'), ctx=cv.getContext('2d');
+  function $(id){return document.getElementById(id);}
+  var W=480,H=560, score=0, lives=3, best=+(localStorage.getItem('iceberghopper_best')||0);
+  $('best').textContent=best;
+  var state='title';
+  var frog={x:W/2-16, y:H-52, w:32, h:30, home:false};
+  var lanes=[], logs=[], homes=[false,false,false,false,false];
+  // 5 water lanes, each with moving ice/logs
+  function buildLanes(){
+    lanes=[]; logs=[];
+    for(var i=0;i<5;i++){
+      var y=120+i*70, dir=(i%2===0)?1:-1, sp=(1.5+i*0.6);
+      lanes.push({y:y, dir:dir, sp:sp});
+      var n=Math.floor(5-i*0.5);
+      for(var j=0;j<n;j++){
+        var lw=90+Math.random()*60;
+        logs.push({x:j*120, y:y, w:lw, dir:dir, sp:sp});
+      }
+    }
+  }
+  function reset(){ score=0; lives=3; frog={x:W/2-16,y:H-52,w:32,h:30,home:false}; homes=[false,false,false,false,false]; buildLanes(); $('score').textContent=0; $('lives').textContent=3; state='play'; }
+
+  function beep(f,d,t){t=t||'square';try{var AC=beep.AC||(beep.AC=new(window.AudioContext||window.webkitAudioContext)());var o=AC.createOscillator(),g=AC.createGain();o.type=t;o.frequency.value=f;g.gain.value=0.06;o.connect(g);g.connect(AC.destination);o.start();g.gain.exponentialRampToValueAtTime(0.0001,AC.currentTime+d);o.stop(AC.currentTime+d);}catch(e){}}
+
+  document.addEventListener('keydown', function(e){
+    var k=e.key;
+    if(state==='title'||state==='over'){ if(k===' '||k==='Enter'){ reset(); } return; }
+    if(k==='ArrowUp'){ frog.y-=70; beep(400,0.05,'triangle'); }
+    if(k==='ArrowDown'){ frog.y+=70; }
+    if(k==='ArrowLeft'){ frog.x-=40; }
+    if(k==='ArrowRight'){ frog.x+=40; }
+    frog.x=Math.max(0,Math.min(W-32,frog.x));
+    if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight',' '].indexOf(k)>=0) e.preventDefault();
+  });
+
+  function onLog(f){
+    for(var i=0;i<logs.length;i++){
+      var l=logs[i];
+      if(f.y+30>l.y && f.y<l.y+34 && f.x+32>l.x && f.x<l.x+l.w) return l;
+    }
+    return null;
+  }
+
+  function loop(){
+    requestAnimationFrame(loop);
+    if(state==='play'){
+      // move logs
+      for(var i=0;i<logs.length;i++){
+        var l=logs[i]; l.x += l.dir*l.sp;
+        if(l.x>W) l.x=-l.w; if(l.x+l.w<0) l.x=W;
+      }
+      // frog rides log if on one
+      var ride=onLog(frog);
+      if(ride){ frog.x += ride.dir*ride.sp; }
+      // out of bounds sides
+      if(frog.x<-10||frog.x>W+10){ loseLife(); }
+      // water check (lanes area)
+      if(frog.y>110 && frog.y<H-70){
+        if(!ride){ loseLife(); }
+      }
+      // reached top: claim a home
+      if(frog.y<=90){
+        var slot=-1;
+        for(var h=0;h<5;h++){ if(!homes[h] && Math.abs(frog.x-(h*96+24))<48){ slot=h; break; } }
+        if(slot>=0){ homes[slot]=true; score+=50; $('score').textContent=score; beep(880,0.15,'square'); }
+        frog={x:W/2-16,y:H-52,w:32,h:30,home:false};
+        if(homes.every(Boolean)){ score+=200; state='over'; beep(1100,0.3,'square'); }
+      }
+      // boundaries
+      if(frog.y>H-20){ frog.y=H-52; }
+    }
+    render();
+  }
+
+  function loseLife(){
+    lives--; $('lives').textContent=lives; beep(200,0.25,'sawtooth');
+    if(lives<=0){ if(score>best){ best=score; localStorage.setItem('iceberghopper_best',best); $('best').textContent=best; } state='over'; }
+    else { frog={x:W/2-16,y:H-52,w:32,h:30,home:false}; }
+  }
+
+  function render(){
+    ctx.fillStyle='#0e2233'; ctx.fillRect(0,0,W,H);
+    // start grass
+    ctx.fillStyle='#1f4d2e'; ctx.fillRect(0,H-70,W,70);
+    // water lanes
+    for(var i=0;i<lanes.length;i++){
+      var y=lanes[i].y;
+      ctx.fillStyle=(i%2)?'#0f2c44':'#12395a'; ctx.fillRect(0,y,W,60);
+    }
+    // logs (icebergs)
+    for(var j=0;j<logs.length;j++){
+      var l=logs[j];
+      ctx.fillStyle='#cfeeff'; ctx.fillRect(l.x+2,l.y+4,l.w-4,28);
+      ctx.fillStyle='#fff'; ctx.fillRect(l.x+6,l.y+8,l.w-12,6);
+      ctx.fillStyle='#9fd8f0'; ctx.fillRect(l.x+4,l.y+30,l.w-8,4);
+    }
+    // top grass + homes
+    ctx.fillStyle='#1f4d2e'; ctx.fillRect(0,0,W,90);
+    for(var h=0;h<5;h++){
+      ctx.fillStyle='#0e2233'; ctx.fillRect(h*96+12,20,60,44);
+      if(homes[h]){ ctx.fillStyle='#7CFC00'; ctx.fillRect(h*96+16,24,52,36); }
+    }
+    // frog
+    ctx.fillStyle='#7CFC00';
+    ctx.fillRect(frog.x+8,frog.y,16,10); // head
+    ctx.fillRect(frog.x+2,frog.y+10,28,16); // body
+    ctx.fillRect(frog.x-2,frog.y+8,8,12); ctx.fillRect(frog.x+26,frog.y+8,8,12); // arms
+    ctx.fillStyle='#111'; ctx.fillRect(frog.x+12,frog.y+3,4,4); ctx.fillRect(frog.x+20,frog.y+3,4,4);
+    // particles (snow)
+    ctx.fillStyle='#fff';
+    for(var p=0;p<30;p++){ ctx.fillRect((p*37)%W, (p*23)%H, 2,2); }
+
+    if(state==='title'||state==='over'){
+      ctx.fillStyle='rgba(11,26,42,0.75)'; ctx.fillRect(0,0,W,H);
+      ctx.fillStyle='#7fd1ff'; ctx.font='bold 34px monospace'; ctx.textAlign='center';
+      ctx.fillText(state==='title'?'ICEBERG HOPPER':'CROSSING COMPLETE!', W/2, 200);
+      ctx.fillStyle='#fff'; ctx.font='15px monospace';
+      ctx.fillText(state==='title'?'Hop the icebergs home. Do not fall in!':'Score: '+score+'  Best: '+best, W/2, 240);
+      if(state==='over' && score>=best && score>0){ ctx.fillStyle='#7CFC00'; ctx.fillText('* NEW BEST! *', W/2, 270); }
+      ctx.fillStyle='#ffd166'; ctx.font='bold 16px monospace';
+      ctx.fillText(state==='title'?'ARROWS to hop - ENTER to start':'PRESS ENTER TO PLAY AGAIN', W/2, 320);
+      ctx.textAlign='left'; return;
+    }
+  }
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>

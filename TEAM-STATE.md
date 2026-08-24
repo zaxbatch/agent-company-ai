@@ -11,6 +11,14 @@
 
 ---
 
+## 0. LATEST SESSION (2026-08-24)
+- **Email monitored:** scripts/check_email.py (IMAP) works. Zerric tested us ("Send me a snowsnake") — REPLIED with 🐍. Email = reliable channel both ways.
+- **SMS diagnosed:** earlier bounce was `<5022995252@msg.t-mobile.com> host not found` (old script). Current scripts use tmomail.net (correct). T-Mobile still filters — email remains the channel.
+- **NEW GAMES LIVE:** SNOWBALL BLITZ id80 (trevor), VIN NEGAR BOTTLE FLIP id81 (jasmine). Snow Snake Slither id77 (jasmine), Pumpkin's FTF id75.
+- **Spread Da Word:** Vin Negar rig FIXED → content/spread-da-word/vin-negar-rig.html (face IS the bottle, no human head). Intro music: content/spread-da-word/intro-music.wav (20s 8-bit chiptune) + player page.
+- **DIRECTION CHANGE:** DO NOT work on zdotllc.com (BossLady has a clear direction; on hold). Focus = **zerric.xyz** for the first run. NOTE: the FTP creds we have are for zdotllc.com (different host); need zerric.xyz access/repo when ready.
+- Character rigs: rig-01 "Snow", rig-02 "Vin Negar" (svg + html). Vote tally: South Park cutout via Rive.
+
 ## 1. TOP PRIORITIES (current)
 1. **SnowSnakes content runs in the background** — jokes + games, ~20 jokes/day, 1-3 games/day.
    Automated: `scripts/post_daily_jokes.py` (cron 09:00 daily). Do NOT post jokes in chat.
@@ -55,7 +63,12 @@
 - LPT/.env — (empty)
 - Thunderbird profile bz60b9tj.default-default has ez@zerric.xyz (IMAP/SMTP) configured.
 
-## 5. MAIN DOMAIN (zdotllc.com) — HOSTINGER FTP
+## 5. DOMAINS
+### zdotllc.com — HOSTINGER FTP (ON HOLD per BossLady 2026-08-24 — do not work on zdot)
+- BossLady has a clear direction for zdot; first run is zerric.xyz instead.
+- Improvements staged in archive/zerric-xyz-main/ (lead.php, index.html, script.js) — NOT deployed, PARKED.
+### zerric.xyz — FOCUS (nexus hub, 18 projects)
+- Audit done; need FTP/repo access to edit (current FTP creds are for zdotllc.com, different host).
 - FTP: 151.106.97.104, user u281804670.zdotllc.com (creds in communication/credentials.txt)
 - Root = main domain (index.html = ZDOT Business Solutions site; swarm.html = SWARM).
 - Subfolders = separate projects (pallets/, tasks/). FTP controls main domain only.
