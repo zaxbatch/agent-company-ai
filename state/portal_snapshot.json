@@ -32,9 +32,9 @@
     "priority": 1,
     "result": null,
     "created_at": "2026-08-23T14:00:00Z",
-    "updated_at": "2026-08-24T05:57:50Z",
+    "updated_at": "2026-08-24T06:56:58Z",
     "blocker": "Zerric confirmed 2026-08-24 he will provide a Stripe key; wiring ready to go once received",
-    "last_checked_at": "2026-08-24T05:57:50.830Z",
+    "last_checked_at": "2026-08-24T06:56:58.267Z",
     "updated_by": "Zerric"
   },
   {
@@ -70,9 +70,9 @@
     "priority": 2,
     "result": null,
     "created_at": "2026-08-23T14:00:00Z",
-    "updated_at": "2026-08-24T05:57:51Z",
+    "updated_at": "2026-08-24T06:56:58Z",
     "blocker": "Zerric action: rotate CEO email password and enable 2FA",
-    "last_checked_at": "2026-08-24T05:57:50.830Z",
+    "last_checked_at": "2026-08-24T06:56:58.267Z",
     "updated_by": "Zerric"
   },
   {
@@ -84,8 +84,8 @@
     "result": null,
     "blocker": "Zerric action on Proton account",
     "created_at": "2026-08-23T15:00:00Z",
-    "updated_at": "2026-08-24T05:57:51Z",
-    "last_checked_at": "2026-08-24T05:57:50.830Z",
+    "updated_at": "2026-08-24T06:56:58Z",
+    "last_checked_at": "2026-08-24T06:56:58.267Z",
     "updated_by": "Zerric"
   },
   {
@@ -97,8 +97,8 @@
     "result": null,
     "blocker": "DNS access for zerric.xyz + provider account",
     "created_at": "2026-08-23T15:00:00Z",
-    "updated_at": "2026-08-24T05:57:51Z",
-    "last_checked_at": "2026-08-24T05:57:50.830Z",
+    "updated_at": "2026-08-24T06:56:59Z",
+    "last_checked_at": "2026-08-24T06:56:58.267Z",
     "updated_by": "Zerric"
   },
   {
