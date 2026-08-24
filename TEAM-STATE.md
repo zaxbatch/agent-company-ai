@@ -12,6 +12,11 @@
 ---
 
 ## 0. LATEST SESSION## 0. LATEST SESSION (2026-08-24h)
+
+- **CSFE SPEC SAVED (ClickClack):** docs/company-status-front-end-spec.md committed (78c6182) — PM-approved
+  spec for Company Status Front End: /status page on snowsnakes.zerric.xyz (fallback zerric.xyz/status),
+  /api/metrics.json endpoint, 5-day timeline, blocker register B-01..B-04 (Stripe/Gumroad/Cal.com/wallet — all OPEN,
+  placeholders launch regardless). Day 1 deliverable. Next: tasks on portal + dependency delegation.
 - **NAME LOCKED (BossLady):** The SaaS/product is **SPREAD DA WORD** — NOT "Spread Da World", NOT "Bizzy Bee".
   Bizzy Bee = separate future project. Snitch = an ONLINE BOARDGAME ("Snitch: Rats in the Grass"), hosted at zerric.xyz/snitch.
 - **OUTREACH SPRINT GREENLIT (BossLady).** CRM leg DONE: `scripts/hubspot_sync.py` built + ran — 28 contacts CREATED,
@@ -38,6 +43,15 @@
 - **Cassette player:** LIVE at snowsnakes.zerric.xyz/spread-da-word/audio/soundtracks-cassette-player.html (8 switchable tapes, HTTP 200).
   Hub CASSETTE_LINK placeholder now wired to it (resources/zerric-xyz/spread-da-word/index.html). 4-player cap on player pages.
 - **Cleanup:** landing page draft renamed spread-da-world-v1.html -> spread-da-word-v1.html + content fixed. Zero "World" refs left.
+## 0b. CRM FRONTEND - COORDINATION NOTICE (Meta/PM, received by ClickClack 2026-08-24)
+- **Build window: Day 5-12** after CTO architecture lands (Day 5). ClickClack HOLDS until then - NO coding started.
+- **Spec READ (Day 3 requirement met):** Meta's `CRM FRONTEND - REQUIREMENTS & MVP SPEC v1.0` (DRAFT, pending Day 3 approval gate BossLady->CTO->Sales).
+  Full copy: `.agent-company-ai/default/output/Meta_CRM_FRONTEND___REQUIREMENTS___MVP_SPEC__Meta___Company_goal.md`
+- **Timeline:** Day 5-7 backend/API+auth -> Day 7-9 contact list/search+filter, detail, kanban -> Day 9-10 follow-up queue + KPI dashboard -> Day 10-12 mobile/polish/demo -> FEATURE FREEZE end Day 12 -> QA Day 13-14 (Manny executes sec 6 checklist, Meta gates).
+- **Constraints (locked):** internal tool only; Z-Dot branding only; NO LPT content/views (LPT data = tag only); HubSpot = system of record; status change <=5 clicks (SC-1); pipeline load <=2s p95 (SC-2); mobile 390x844 + 360x800 no horizontal scroll (SC-3); auth on every route (SC-5). MUST stories US-01..US-11.
+- **Groundwork verified (readiness):** `scripts/hubspot_sync.py` (HubSpot read/write/delete VERIFIED; batch upsert returns 400 -> use per-contact flow; 28 contacts synced; token in .env). `src/agent_company_ai/tools/contacts.py` (SQLite status enum lead/prospect/customer/churned matches kanban stages). `src/agent_company_ai/dashboard/server.py` (session auth exists: HMAC cookies 7d, PBKDF2, default admin must-change-pw - reusable pattern, NOT yet HubSpot-backed).
+- **Blockers/asks for Day 3-5 arch (NinjaNerd):** (1) HubSpot contact/deal mapping decision + API contract, (2) custom properties for next-follow-up date/priority + tags (or sidecar), (3) rate-limit/caching strategy for <=2s pipeline + KPI aggregates, (4) deployment target for internal tool (local? hostinger? vercel? - token must stay server-side), (5) leads/week + stale>7d field definitions. Ask Meta: confirm Day 3 approval gate + portal task id for CRM frontend.
+
 ## 1. TOP PRIORITIES (current)
 1. **SnowSnakes content runs in the background** — jokes + games, ~20 jokes/day, 1-3 games/day.
    Automated: `scripts/post_daily_jokes.py` (cron 09:00 daily). Do NOT post jokes in chat.
