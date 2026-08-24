@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spread Da Word — Episode 1: The Hood Meets the Snow</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#0a1220;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;font-family:monospace;color:#cfe8ff}
+  h1{color:#9bd1ff;font-size:18px;letter-spacing:3px;margin-bottom:4px;text-align:center}
+  .sub{color:#6ea8d8;font-size:11px;margin-bottom:10px;text-align:center}
+  #wrap{position:relative}
+  canvas{background:#0e1a2e;border:3px solid #3d5a80;border-radius:8px;box-shadow:0 0 30px #4a6cff44;display:block}
+  .controls{position:absolute;bottom:10px;left:0;right:0;display:flex;justify-content:center;gap:10px}
+  button{background:rgba(61,90,128,.9);color:#cfe8ff;border:1px solid #4a6cff;border-radius:8px;padding:8px 18px;font-family:monospace;font-size:13px;cursor:pointer}
+  button:hover{background:#4a6cff}
+  .progress{width:640px;height:4px;background:#16263f;border-radius:2px;margin-top:8px}
+  .progress i{display:block;height:100%;background:#4a6cff;border-radius:2px;width:0}
+</style>
+</head>
+<body>
+<h1>🎬 SPREAD DA WORD — EP 1</h1>
+<div class="sub">"The Hood Meets the Snow" · South Park-style cutout · music by ClickClack</div>
+<div id="wrap">
+  <canvas id="g" width="640" height="400"></canvas>
+  <div class="controls">
+    <button id="playBtn">▶ Play</button>
+    <button id="replayBtn">↺ Replay</button>
+    <button id="muteBtn">🔊</button>
+  </div>
+</div>
+<div class="progress"><i id="prog"></i></div>
+<audio id="music" loop><source src="intro-music.wav" type="audio/wav"></audio>
+
+<script>
+var cv=document.getElementById('g'),ctx=cv.getContext('2d'),W=640,H=400;
+var music=document.getElementById('music'),muted=false,t=0,playing=false,started=false;
+var prog=document.getElementById('prog');
+document.getElementById('playBtn').onclick=function(){playing=true;started=true;if(!muted)music.play();this.textContent='▶ Playing…';};
+document.getElementById('replayBtn').onclick=function(){t=0;playing=true;started=true;if(!muted){music.pause();music.currentTime=0;music.play();}};
+document.getElementById('muteBtn').onclick=function(){muted=!muted;if(muted)music.pause();else if(started)music.play();this.textContent=muted?'🔇':'🔊';};
+
+// ── Cutout rigs (South Park flat style) ──
+function drawSnow(x,y,bob,mouth){
+  ctx.fillStyle='#2b3a55';ctx.fillRect(x-18,y+46,14,24);ctx.fillRect(x+4,y+46,14,24);
+  ctx.fillStyle='#1f2a40';ctx.fillRect(x-24,y+70,26,8);ctx.fillRect(x-2,y+70,26,8);
+  ctx.fillStyle='#e8f1fb';ctx.fillRect(x-20,y+16,40,34);
+  ctx.fillStyle='#3a86ff';ctx.fillRect(x-12,y+22,24,12);ctx.fillStyle='#fff';ctx.fillRect(x-4,y+24,8,8);
+  ctx.fillStyle='#e8f1fb';ctx.fillRect(x-32,y+18,12,22);ctx.fillRect(x+20,y+18,12,22);
+  ctx.fillStyle='#ffd9a0';ctx.beginPath();ctx.ellipse(x,y-8,20,24,0,0,7);ctx.fill();
+  ctx.fillStyle='#111';ctx.beginPath();ctx.arc(x-7,y-10,3,0,7);ctx.fill();ctx.beginPath();ctx.arc(x+7,y-10,3,0,7);ctx.fill();
+  ctx.strokeStyle='#111';ctx.lineWidth=2;ctx.beginPath();
+  if(mouth>0){ctx.moveTo(x-6,y+6);ctx.lineTo(x+6,y+6);}else{ctx.arc(x,y+8,6,0.15*Math.PI,0.85*Math.PI);}
+  ctx.stroke();
+  ctx.fillStyle='#3a86ff';ctx.beginPath();ctx.moveTo(x-20,y-22);ctx.quadraticCurveTo(x,y-38,x+20,y-22);ctx.lineTo(x+20,y-16);ctx.lineTo(x-20,y-16);ctx.fill();
+  ctx.fillStyle='#ff5d8f';ctx.beginPath();ctx.arc(x,y-34,5,0,7);ctx.fill();
+}
+function drawVin(x,y,bob,mouth){
+  ctx.fillStyle='#151515';ctx.fillRect(x-14,y+52,12,18);ctx.fillRect(x+4,y+52,12,18);
+  ctx.fillStyle='#eee';ctx.fillRect(x-18,y+70,20,8);ctx.fillRect(x,y+70,20,8);
+  ctx.fillStyle='#ffd700';ctx.fillRect(x-18,y+76,20,3);ctx.fillRect(x,y+76,20,3);
+  ctx.fillStyle='#8a4f1f';ctx.beginPath();ctx.moveTo(x-22,y-6);ctx.lineTo(x+22,y-6);ctx.lineTo(x+26,y+18);ctx.lineTo(x+26,y+54);ctx.quadraticCurveTo(x+26,y+70,x,y+70);ctx.quadraticCurveTo(x-26,y+70,x-26,y+54);ctx.lineTo(x-26,y+18);ctx.fill();
+  ctx.fillStyle='rgba(176,112,48,.7)';ctx.fillRect(x-20,y-2,6,y+68);
+  ctx.fillStyle='#111';ctx.fillRect(x-10,y-22,20,16);
+  ctx.fillStyle='#2a1a10';ctx.fillRect(x-22,y+24,44,28);
+  ctx.fillStyle='#8a4f1f';ctx.fillRect(x-18,y+27,36,7);
+  ctx.fillStyle='#ffd700';ctx.font='7px monospace';ctx.textAlign='center';ctx.fillText('VIN NEGAR',x,y+46);
+  ctx.strokeStyle='#ffd700';ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(x-22,y+8);ctx.quadraticCurveTo(x,y+20,x+22,y+8);ctx.stroke();
+  ctx.fillStyle='#ffd700';ctx.beginPath();ctx.arc(x,y+22,5,0,7);ctx.fill();
+  ctx.fillStyle='#7a4a00';ctx.font='6px monospace';ctx.fillText('V',x,y+24);
+  ctx.fillStyle='#000';ctx.fillRect(x-16,y-16,13,9);ctx.fillRect(x+3,y-16,13,9);ctx.fillRect(x-3,y-13,6,2);
+  ctx.strokeStyle='#ffd700';ctx.lineWidth=1.5;ctx.strokeRect(x-17,y-17,15,11);ctx.strokeRect(x+2,y-17,15,11);
+  ctx.strokeStyle='#111';ctx.lineWidth=2.5;ctx.beginPath();
+  if(mouth>0){ctx.moveTo(x-8,y+4);ctx.quadraticCurveTo(x,y+10,x+8,y+4);}else{ctx.arc(x,y+6,7,0.15*Math.PI,0.85*Math.PI);}
+  ctx.stroke();
+  ctx.fillStyle='#ffd700';ctx.fillRect(x-1,y+6,3,3);
+  ctx.fillStyle='#8a4f1f';ctx.fillRect(x-34,y-2,12,26);ctx.fillRect(x+22,y-2,12,26);
+  ctx.fillStyle='#ffd700';ctx.fillRect(x-36,y+14,8,6);
+}
+function bubble(x,y,w,h,text){
+  ctx.fillStyle='#fff';ctx.strokeStyle='#111';ctx.lineWidth=2;
+  ctx.beginPath();ctx.roundRect(x,y,w,h,10);ctx.fill();ctx.stroke();
+  ctx.beginPath();ctx.moveTo(x+w/2-8,y+h);ctx.lineTo(x+w/2,y+h+10);ctx.lineTo(x+w/2+8,y+h);ctx.fill();
+  ctx.fillStyle='#111';ctx.font='bold 12px monospace';ctx.textAlign='center';
+  var words=text.split(' '),line='',yy=y+h/2-6;
+  for(var i=0;i<words.length;i++){var test=line+words[i]+' ';if(ctx.measureText(test).width>w-16&&line){ctx.fillText(line,x+w/2,yy+8);line=words[i]+' ';yy+=14;}else line=test;}
+  ctx.fillText(line,x+w/2,yy+8);
+}
+// scene helpers
+function bgNight(){var g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,'#0e1a2e');g.addColorStop(1,'#16263f');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);for(var i=0;i<40;i++){ctx.fillStyle='rgba(255,255,255,'+(0.15+(i%5)*0.05)+')';ctx.fillRect((i*53)%W,(i*29)%(H-80),2,2);}ctx.fillStyle='#12233f';ctx.fillRect(0,H-40,W,40);ctx.fillStyle='#3d5a80';ctx.fillRect(0,H-40,W,3);}
+function titleCard(txt,sub){ctx.fillStyle='#9bd1ff';ctx.font='bold 32px monospace';ctx.textAlign='center';ctx.fillText(txt,W/2,120);ctx.fillStyle='#ffd166';ctx.font='15px monospace';ctx.fillText(sub,W/2,150);}
+function drawBeatPads(x,y,w,h,n,onIdx){
+  ctx.fillStyle='#16263f';ctx.fillRect(x,y,w,h);ctx.strokeStyle='#3d5a80';ctx.lineWidth=2;ctx.strokeRect(x,y,w,h);
+  var cw=w/n;
+  for(var i=0;i<n;i++){if(i===onIdx){ctx.fillStyle='#4a6cff';}else{ctx.fillStyle='#0e1a2e';}ctx.fillRect(x+i*cw+3,y+3,cw-6,h-6);}
+}
+function drawScene(){
+  ctx.clearRect(0,0,W,H);
+  var bobS=Math.sin(t*0.08)*3,bobV=Math.sin(t*0.07+1)*3;
+  var mouthS=(Math.sin(t*0.3)>0)?1:0,mouthV=(Math.sin(t*0.25+1)>0)?1:0;
+  // SCENE 1: title
+  if(t<80){bgNight();titleCard('SPREAD DA WORD','Episode 1 — The Hood Meets the Snow');}
+  // SCENE 2: meet
+  else if(t<300){bgNight();drawSnow(180,150+bobS,mouthS);drawVin(470,150+bobV,mouthV);
+    if(t>90&&t<200)bubble(40,40,150,40,"Yo, who's this icy kid?");
+    if(t>210&&t<300)bubble(420,30,180,40,"I'm Snow. You the vinegar from the hood?");}
+  // SCENE 3: beat jam (Snow Beats promo)
+  else if(t<560){bgNight();
+    // draw a mini beat pad between them
+    var onIdx=Math.floor((t-300)/18)%8;
+    drawBeatPads(220,120,200,60,8,onIdx);
+    drawSnow(120,150+bobS,mouthS);drawVin(520,150+bobV,mouthV);
+    if(t>310&&t<420)bubble(30,30,170,40,"You make beats? Let's jam.");
+    if(t>430&&t<560)bubble(400,20,190,40,"ACV approved. This the vibe. 💯");}
+  // SCENE 4: spread da word
+  else{bgNight();drawSnow(180,150+bobS,mouthS);drawVin(470,150+bobV,mouthV);
+    bubble(40,30,210,40,"Register free — join the SnowSnakes crew.");
+    bubble(420,120,190,40,"Spread da word. Tell your hood. 🍶❄️");
+    ctx.fillStyle='#ffd166';ctx.font='14px monospace';ctx.textAlign='center';ctx.fillText('snowsnakes.zerric.xyz — jokes · games · beats',W/2,H-60);
+  }
+}
+function loop(){
+  if(playing)t++;
+  drawScene();
+  prog.style.width=Math.min(100,(t/700)*100)+'%';
+  requestAnimationFrame(loop);
+}
+loop();
+</script>
+</body>
+</html>
