@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SNOWBALL BREAKOUT - 8-Bit Ice Smasher</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0b1a2a; display:flex; justify-content:center; align-items:center; min-height:100vh; font-family:'Courier New',monospace; }
+  .wrap { text-align:center; }
+  canvas { background:#0e2233; border:4px solid #7fd1ff; image-rendering:pixelated; }
+  .hud { color:#cfeeff; font-size:14px; margin-top:8px; letter-spacing:1px; }
+  .hud span { color:#ffd166; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <canvas id="g" width="520" height="600"></canvas>
+  <div class="hud">SCORE <span id="score">0</span> &nbsp;.&nbsp; BEST <span id="best">0</span> &nbsp;.&nbsp; LIVES <span id="lives">3</span></div>
+</div>
+<script>
+(function(){
+  var cv=document.getElementById('g'), ctx=cv.getContext('2d');
+  function $(id){return document.getElementById(id);}
+  var W=520,H=600, score=0, lives=3, best=+(localStorage.getItem('snowballbreakout_best')||0);
+  $('best').textContent=best;
+  var state='title';
+  var paddle={x:W/2-45, w:90, h:14, y:H-40, speed:7};
+  var ball=null, bricks=[], keys={};
+
+  function buildBricks(){
+    bricks=[];
+    var cols=9, rows=7, bw=50, bh=22, gap=4, top=60, left=(W-(cols*(bw+gap)))/2;
+    for(var r=0;r<rows;r++){
+      for(var c=0;c<cols;c++){
+        var hp = r<2?2:1;
+        bricks.push({x:left+c*(bw+gap), y:top+r*(bh+gap), w:bw, h:bh, hp:hp, row:r});
+      }
+    }
+  }
+  function resetBall(){ ball={x:paddle.x+paddle.w/2, y:paddle.y-10, vx:3*(Math.random()<0.5?-1:1), vy:-5, r:8}; }
+  function reset(){ score=0; lives=3; buildBricks(); paddle.x=W/2-45; resetBall(); $('score').textContent=0; $('lives').textContent=3; state='play'; }
+
+  function beep(f,d,t){t=t||'square';try{var AC=beep.AC||(beep.AC=new(window.AudioContext||window.webkitAudioContext)());var o=AC.createOscillator(),g=AC.createGain();o.type=t;o.frequency.value=f;g.gain.value=0.06;o.connect(g);g.connect(AC.destination);o.start();g.gain.exponentialRampToValueAtTime(0.0001,AC.currentTime+d);o.stop(AC.currentTime+d);}catch(e){}}
+
+  document.addEventListener('keydown', function(e){
+    keys[e.key]=true;
+    if(e.key===' '||e.key==='Enter'){ if(state==='title'||state==='over') reset(); }
+    if(['ArrowLeft','ArrowRight',' '].indexOf(e.key)>=0) e.preventDefault();
+  });
+  document.addEventListener('keyup', function(e){ keys[e.key]=false; });
+
+  function loop(){
+    requestAnimationFrame(loop);
+    if(state==='play'){
+      // paddle
+      if(keys['ArrowLeft']||keys['a']) paddle.x-=paddle.speed;
+      if(keys['ArrowRight']||keys['d']) paddle.x+=paddle.speed;
+      paddle.x=Math.max(4,Math.min(W-paddle.w-4,paddle.x));
+      // ball
+      if(ball){
+        ball.x+=ball.vx; ball.y+=ball.vy;
+        if(ball.x<8||ball.x>W-8) ball.vx*=-1;
+        if(ball.y<8) ball.vy*=-1;
+        // paddle bounce
+        if(ball.vy>0 && ball.y+ball.r>=paddle.y && ball.y+ball.r<=paddle.y+14 && ball.x>=paddle.x-6 && ball.x<=paddle.x+paddle.w+6){
+          var hit=(ball.x-(paddle.x+paddle.w/2))/(paddle.w/2); // -1..1
+          ball.vx=hit*5; ball.vy=-Math.abs(ball.vy); beep(600,0.06,'square');
+        }
+        // brick collision
+        for(var i=bricks.length-1;i>=0;i--){
+          var b=bricks[i];
+          if(ball.x>b.x-8 && ball.x<b.x+b.w+8 && ball.y>b.y-8 && ball.y<b.y+b.h+8){
+            b.hp--; ball.vy*=-1;
+            if(b.hp<=0){
+              score += (9-b.row)*5; bricks.splice(i,1);
+              $('score').textContent=score; beep(880,0.08,'triangle');
+            } else { beep(500,0.05,'triangle'); }
+            break;
+          }
+        }
+        // lost ball
+        if(ball.y>H+20){ lives--; $('lives').textContent=lives; beep(200,0.25,'sawtooth');
+          if(lives<=0){ if(score>best){best=score;localStorage.setItem('snowballbreakout_best',best);$('best').textContent=best;} state='over'; }
+          else resetBall(); }
+      }
+      // win
+      if(bricks.length===0){ score+=100; $('score').textContent=score; if(score>best){best=score;localStorage.setItem('snowballbreakout_best',best);$('best').textContent=best;} state='over'; beep(1100,0.4,'square'); }
+    }
+    render();
+  }
+
+  function render(){
+    ctx.fillStyle='#0e2233'; ctx.fillRect(0,0,W,H);
+    // ice bricks
+    for(var i=0;i<bricks.length;i++){
+      var b=bricks[i];
+      var cols=['#7fd1ff','#5fb8e8','#3f9fd0','#2f86b0','#1f6d90','#174f6a','#0f3a4f'];
+      ctx.fillStyle=cols[b.row%cols.length];
+      ctx.fillRect(b.x,b.y,b.w,b.h);
+      ctx.fillStyle='#dff3ff'; ctx.fillRect(b.x+2,b.y+2,b.w-4,4); // ice shine
+      if(b.hp>1){ ctx.fillStyle='#fff'; ctx.fillRect(b.x+4,b.y+8,6,4); }
+    }
+    // paddle (snowball mound)
+    ctx.fillStyle='#eef6ff'; ctx.fillRect(paddle.x,paddle.y,paddle.w,paddle.h);
+    ctx.fillStyle='#fff'; ctx.fillRect(paddle.x+4,paddle.y+2,paddle.w-8,4);
+    ctx.fillStyle='#9fd8f0'; ctx.fillRect(paddle.x+6,paddle.y+10,paddle.w-12,3);
+    // ball (snowball)
+    if(ball){ ctx.fillStyle='#fff'; ctx.beginPath(); ctx.arc(ball.x,ball.y,ball.r,0,7); ctx.fill(); ctx.strokeStyle='#9bc'; ctx.stroke(); }
+    // snow particles
+    ctx.fillStyle='#fff';
+    for(var p=0;p<20;p++){ ctx.fillRect((p*29)%W, (p*41)%H, 2,2); }
+    if(state==='title'||state==='over'){
+      ctx.fillStyle='rgba(11,26,42,0.75)'; ctx.fillRect(0,0,W,H);
+      ctx.fillStyle='#7fd1ff'; ctx.font='bold 36px monospace'; ctx.textAlign='center';
+      ctx.fillText(state==='title'?'SNOWBALL BREAKOUT':'ICE SMASHED!', W/2, 210);
+      ctx.fillStyle='#fff'; ctx.font='15px monospace';
+      ctx.fillText(state==='title'?'Smash the ice bricks with your snowball. Clear the wall!':'Score: '+score+'  Best: '+best, W/2, 250);
+      if(state==='over' && score>=best && score>0){ ctx.fillStyle='#7CFC00'; ctx.fillText('* NEW BEST! *', W/2, 280); }
+      ctx.fillStyle='#ffd166'; ctx.font='bold 17px monospace';
+      ctx.fillText(state==='title'?'LEFT / RIGHT to move - ENTER to start':'PRESS ENTER TO PLAY AGAIN', W/2, 330);
+      ctx.textAlign='left'; return;
+    }
+  }
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>

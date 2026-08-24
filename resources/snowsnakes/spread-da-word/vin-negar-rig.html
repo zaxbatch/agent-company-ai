@@ -16,7 +16,7 @@
 </head>
 <body>
 <h1>🥃 VIN NEGAR — "from the hood" · vinegar bottle · rig v1</h1>
-<p>South Park-style cutout. Vin IS the bottle — his face lives on the label, no human face. Deep amber glass, sharp attitude, bottle-cap lid. Parts: face (eyes+mouth on label), arms, legs. Click to see him move.</p>
+<p>South Park-style cutout. Vin IS the bottle — APPLE CIDER VINEGAR, dark and hardcore. Gold chain, sunglasses, stern mouth. Bottle-cap lid tilted. Parts: shades+mouth on label, gold chain, arms, legs. Pure swag.</p>
 
 <div class="stage">
   <svg id="rig" width="300" height="420" viewBox="0 0 300 420" xmlns="http://www.w3.org/2000/svg">
@@ -43,33 +43,42 @@
     <!-- BODY = the VINEGAR BOTTLE -->
     <g id="body">
       <!-- bottle body (classic vinegar bottle: wide base, tapering neck) -->
-      <path d="M 95 215 L 205 215 L 205 300 Q 205 340 175 340 L 125 340 Q 95 340 95 300 Z" fill="#8a5a1a"/>
+      <path d="M 95 215 L 205 215 L 205 300 Q 205 340 175 340 L 125 340 Q 95 340 95 300 Z" fill="#4a2c08"/>
       <!-- amber glass highlight -->
-      <path d="M 108 225 L 120 225 L 120 330 L 108 330 Z" fill="#c8852e" opacity="0.5"/>
+      <path d="M 108 225 L 120 225 L 120 330 L 108 330 Z" fill="#7a4a12" opacity="0.5"/>
       <!-- label -->
-      <rect x="112" y="245" width="76" height="58" fill="#2b1a0a" rx="6"/>
+      <rect x="112" y="245" width="76" height="58" fill="#1c1006" rx="6"/>
       <text x="150" y="272" fill="#ffd166" font-size="15" font-family="monospace" text-anchor="middle" font-weight="bold">VIN</text>
       <text x="150" y="292" fill="#cfeeff" font-size="10" font-family="monospace" text-anchor="middle">NEGAR</text>
       <!-- neck + cap -->
-      <rect x="128" y="178" width="44" height="37" fill="#8a5a1a" rx="4"/>
+      <rect x="128" y="178" width="44" height="37" fill="#4a2c08" rx="4"/>
       <rect x="122" y="168" width="56" height="16" fill="#1a1a1a" rx="4"/>
       <rect x="132" y="158" width="36" height="12" fill="#222" rx="3"/>
     </g>
     <!-- FACE is PART OF THE BOTTLE (Vin is a bottle, not a human) -->
     <g id="face" transform="translate(150,258)">
       <!-- eyes: vinegar-bottle label style, piercing -->
-      <g id="eyeL" transform="translate(-18,-8)">
-        <circle cx="0" cy="0" r="9" fill="#fff"/><circle cx="2" cy="0" r="4" fill="#111"/>
-      </g>
-      <g id="eyeR" transform="translate(18,-8)">
-        <circle cx="0" cy="0" r="9" fill="#fff"/><circle cx="2" cy="0" r="4" fill="#111"/>
+      <!-- hardcore sunglasses -->
+      <g id="shades" transform="translate(0,-10)">
+        <rect x="-30" y="-6" width="24" height="14" rx="4" fill="#111"/>
+        <rect x="6"  y="-6" width="24" height="14" rx="4" fill="#111"/>
+        <rect x="-8"  y="-4" width="16" height="6" fill="#222"/>
+        <rect x="-34" y="-3" width="40" height="3" fill="#222"/>
+        <rect x="0"  y="-3" width="40" height="3" fill="#222"/>
       </g>
       <!-- mouth: sharp, on the label -->
-      <g id="mouth" transform="translate(0,16)">
-        <rect x="-15" y="-3" width="30" height="6" fill="#7a3b2a" rx="3"/>
+      <!-- stern mouth -->
+      <g id="mouth" transform="translate(0,20)">
+        <rect x="-16" y="-2" width="32" height="4" fill="#111" rx="2"/>
       </g>
       <!-- bottle "cap" = his hair/hat energy (still bottle-related) -->
       <rect x="124" y="164" width="52" height="14" fill="#1a1a1a" rx="4"/>
+      <!-- gold chain necklace (swag) -->
+      <g id="chain">
+        <path d="M 122 200 q 8 6 28 6 q 20 0 28 -6" fill="none" stroke="#ffd700" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="150" cy="210" r="10" fill="none" stroke="#ffd700" stroke-width="4"/>
+        <path d="M 146 210 l 8 0 l -4 8 z" fill="#ffd700"/>
+      </g>
     </g>
   </svg>
 </div>

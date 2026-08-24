@@ -286,5 +286,41 @@
     "created_at": "2026-08-24T06:31:06.110323+00:00",
     "updated_at": "2026-08-24T06:31:06.110323+00:00",
     "last_checked_at": "2026-08-24T06:31:06.110323+00:00"
+  },
+  {
+    "id": "t25-games",
+    "description": "SnowSnakes games catalog (background): Snow Snake, Snowball Fight, Iceberg Hopper, Snowball Breakout live; Food Truck Frenzy deleted (glitchy)",
+    "assignee": "NinjaNerd",
+    "status": "in_progress",
+    "priority": 3,
+    "result": "LIVE: Snow Snake (76), Snowball Fight (78), Iceberg Hopper (79), Snowball Breakout (82). Team added: Snowball Blitz (80), Vin Negar Bottle Flip (81). Food Truck Frenzy DELETED by BossLady (glitchy) - off list. Game 2 pick: Snowball Breakout (classic brick-breaker, snow theme). Catalog now: shooter, snake, frogger, flipper, brick-breaker - good variety.",
+    "blocker": "None",
+    "created_at": "2026-08-24T07:10:26.498394+00:00",
+    "updated_at": "2026-08-24T07:10:26.498394+00:00",
+    "last_checked_at": "2026-08-24T07:10:26.498394+00:00"
+  },
+  {
+    "id": "t26-vin-negar",
+    "description": "Vin Negar character: apple cider vinegar, hardcore swag (dark amber, gold chain, sunglasses, stern mouth) - rig updated",
+    "assignee": "NinjaNerd",
+    "status": "done",
+    "priority": 2,
+    "result": "Vin Negar rig v2: face IS part of the bottle (no human face per BossLady). Upgraded: darker apple-cider amber (#4a2c08), GOLD CHAIN necklace, SUNGLASSES, stern mouth, harder vibe. File: resources/snowsnakes/spread-da-word/vin-negar-rig.html. Vin already featured by team: 'Vin Negar Bottle Flip' game (id 81) live.",
+    "blocker": "None",
+    "created_at": "2026-08-24T07:10:26.498394+00:00",
+    "updated_at": "2026-08-24T07:10:26.498394+00:00",
+    "last_checked_at": "2026-08-24T07:10:26.498394+00:00"
+  },
+  {
+    "id": "t27-spread-da-word-ep1",
+    "description": "Spread Da Word Episode 1: South Park cutout style (won vote), plan ready, pending Zerric final pick + script + cast",
+    "assignee": "NinjaNerd",
+    "status": "in_progress",
+    "priority": 2,
+    "result": "Style: SOUTH PARK CUTOUT (winning vote). Plan: resources/snowsnakes/spread-da-word/EPISODE-1-PLAN.md. Assets: Vin Negar rig + generic rig + intro music (intro-music.wav, 12.5s chiptune). NEEDED before build: Zerric's final style pick, Episode 1 script/gag, 1-2 more cast members. Ship as self-contained HTML page on snowsnakes (fast lane, no approval).",
+    "blocker": "None",
+    "created_at": "2026-08-24T07:10:26.498394+00:00",
+    "updated_at": "2026-08-24T07:10:26.498394+00:00",
+    "last_checked_at": "2026-08-24T07:10:26.498394+00:00"
   }
 ]
