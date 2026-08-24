@@ -112,7 +112,39 @@ JOKE_BANK = [
     ("Why did the truck go to the gym?", "To work on its chassis."),
 ]
 
-ACCOUNTS = ["ClickClack_", "TedBear", "mark", "seleena", "manny", "meta", "jasmine", "trevor"]
+# ── Account profiles: make each account look like a real user ──
+# Preferred topics, tag style, and (rarely) a personal series. Most jokes have NO
+# series — real users don't label every post. Only a few accounts ever share one.
+ACCOUNT_PROFILES = {
+    "ClickClack_": {"topics": ["tech", "work & office"], "tags": ["tech", "dev-life"],  "series": "The Code Review", "series_p": 0.25},
+    "TedBear":     {"topics": ["animals", "food"],        "tags": ["animals", "snacks"], "series": None, "series_p": 0},
+    "mark":        {"topics": ["music & movies", "sports & games"], "tags": ["movies", "sports"], "series": None, "series_p": 0},
+    "seleena":     {"topics": ["work & office", "travel & vehicles"], "tags": ["work", "travel"], "series": None, "series_p": 0},
+    "manny":       {"topics": ["school & books", "home & everyday"], "tags": ["school", "home"], "series": None, "series_p": 0},
+    "meta":        {"topics": ["tech", "weather & seasons"], "tags": ["tech", "weather"], "series": None, "series_p": 0},
+    "jasmine":     {"topics": ["food", "health & body"],  "tags": ["food", "health"],   "series": None, "series_p": 0},
+    "trevor":      {"topics": ["animals", "sports & games"], "tags": ["animals", "sports"], "series": None, "series_p": 0},
+}
+ACCOUNTS = list(ACCOUNT_PROFILES.keys())
+
+def build_topic_index():
+    """Map each JOKE_BANK index -> topic, parsed from the source comments."""
+    src = Path(__file__).read_text()
+    topic_of, cur, in_bank = [], "general", False
+    for ln in src.splitlines():
+        s = ln.strip()
+        if s.startswith("JOKE_BANK"):
+            in_bank = True; continue
+        if in_bank and s.startswith("]"):
+            break
+        if in_bank:
+            if s.startswith("#"):
+                cur = s.lstrip("#").strip()
+            elif s.startswith("("):
+                topic_of.append(cur)
+    return topic_of
+
+TOPIC_OF = build_topic_index()
 
 def api(path, data=None, token=None, method="POST"):
     headers = {"Content-Type": "application/json"}
@@ -150,34 +182,52 @@ def main():
         state["used"] = state.get("used", [])[- (args.target * 3):]
         state["last_date"] = today
 
-    available = [j for i, j in enumerate(JOKE_BANK) if i not in state["used"]]
+    available = [i for i in range(len(JOKE_BANK)) if i not in state["used"]]
     if len(available) < args.target:
         # pool exhausted → reset window (all jokes unique again)
         state["used"] = []
-        available = list(JOKE_BANK)
+        available = list(range(len(JOKE_BANK)))
 
     picks = random.sample(available, min(args.target, len(available)))
+    # picks are bank indices; resolve to (bank_idx, content, punchline)
+    picked = [(i, JOKE_BANK[i][0], JOKE_BANK[i][1]) for i in picks]
 
     if args.dry_run:
-        print(f"[DRY RUN] would post {len(picks)} jokes across {len(ACCOUNTS)} accounts")
-        for j in picks[:5]:
-            print("  ", j[0][:50], "->", j[1][:30])
+        print(f"[DRY RUN] would post {len(picked)} jokes across {len(ACCOUNTS)} accounts (organic style)")
+        for bi, c, pu in picked[:6]:
+            topic = TOPIC_OF[bi] if bi < len(TOPIC_OF) else "?"
+            print(f"  [{topic}] {c[:48]} -> {pu[:28]}")
         return
 
     posted = 0
-    for idx, (content, punchline) in enumerate(picks):
-        uname = ACCOUNTS[idx % len(ACCOUNTS)]
+    random.shuffle(picked)  # avoid predictable account order
+    for bank_idx, content, punchline in picked:
+        topic = TOPIC_OF[bank_idx] if bank_idx < len(TOPIC_OF) else "general"
+        # pick an account whose profile matches the joke topic (fallback: random)
+        matches = [u for u, pr in ACCOUNT_PROFILES.items() if topic in pr["topics"]]
+        uname = random.choice(matches) if matches else random.choice(ACCOUNTS)
+        prof = ACCOUNT_PROFILES[uname]
         tok = api("/auth/login", {"username": uname, "password": PW}).get("token")
         if not tok:
             print(f"  login failed for {uname}, skipping")
             continue
-        res = api("/jokes", {"content": content, "punchline": punchline,
-                             "tags": ["dad-joke"], "series": SERIES}, tok)
+        # tags: account style + topic, "dad-joke" only ~30% of the time
+        tags = list(prof["tags"])
+        if random.random() < 0.3:
+            tags.append("dad-joke")
+        if topic not in tags and random.random() < 0.5:
+            tags.append(topic)
+        # series: only accounts with one, only some of the time
+        series = prof["series"] if prof["series"] and random.random() < prof["series_p"] else None
+        payload = {"content": content, "punchline": punchline, "tags": tags}
+        if series:
+            payload["series"] = series
+        res = api("/jokes", payload, tok)
         if res.get("id"):
-            bank_idx = JOKE_BANK.index((content, punchline))
             state["used"].append(bank_idx)
             posted += 1
-            print(f"  posted id {res['id']} as {uname}: {content[:45]}")
+            s = f" series={series}" if series else ""
+            print(f"  posted id {res['id']} as {uname} [{topic}]{s}: {content[:45]}")
         else:
             print(f"  FAIL {uname}: {res}")
 
