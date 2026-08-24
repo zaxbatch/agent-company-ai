@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FOOD TRUCK FRENZY - 8-Bit Kitchen Rush</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0f0f1a; display:flex; justify-content:center; align-items:center; min-height:100vh; font-family:'Courier New',monospace; }
+  .wrap { text-align:center; }
+  canvas { background:#1a1a2e; border:4px solid #e94560; image-rendering:pixelated; cursor:none; }
+  .hud { color:#eee; font-size:14px; margin-top:8px; letter-spacing:1px; }
+  .hud span { color:#ffd166; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <canvas id="g" width="640" height="480"></canvas>
+  <div class="hud">SCORE <span id="score">0</span> &nbsp;.&nbsp; BEST <span id="best">0</span> &nbsp;.&nbsp; LIVES <span id="lives">3</span> &nbsp;.&nbsp; SHIFT <span id="time">45</span>s</div>
+</div>
+<script>
+(function(){
+  var cv = document.getElementById('g');
+  var ctx = cv.getContext('2d');
+  function $(id){ return document.getElementById(id); }
+  var W = 640, H = 480;
+  var score=0, lives=3, time=45, level=1, served=0, state='title';
+  var best = +(localStorage.getItem('ftf_best')||0);
+  $('best').textContent = best;
+
+  var truck = { x:W/2-48, speed:6 };
+
+  var FOODS = [
+    { name:'burger', color:'#c07a3a', top:'#e9c46a', pts:10 },
+    { name:'taco',   color:'#e9c46a', top:'#f4a261', pts:10 },
+    { name:'fries',  color:'#ffd166', top:'#e94560', pts:15 },
+    { name:'pizza',  color:'#e94560', top:'#ffd166', pts:15 },
+    { name:'hotdog', color:'#b5651d', top:'#e9c46a', pts:20 },
+    { name:'rotten', color:'#6a7b4f', top:'#3a3a2e', pts:-1 }
+  ];
+  var items = [];
+  function spawn(){
+    var bad = (Math.random() < 0.22);
+    var idx = bad ? 5 : Math.floor(Math.random()*5);
+    var f = FOODS[idx];
+    items.push({ x: Math.random()*(W-40)+20, y:-24, v: 1.6 + level*0.35 + Math.random()*1.2, kind: f, spin: Math.random()*0.2 });
+  }
+
+  var AC = null;
+  function beep(freq, dur, type){
+    type = type || 'square';
+    try{
+      AC = AC || new (window.AudioContext||window.webkitAudioContext)();
+      var o = AC.createOscillator(), g = AC.createGain();
+      o.type = type; o.frequency.value = freq;
+      g.gain.value = 0.12;
+      o.connect(g); g.connect(AC.destination);
+      o.start();
+      g.gain.exponentialRampToValueAtTime(0.0001, AC.currentTime + dur);
+      o.stop(AC.currentTime + dur);
+    }catch(e){}
+  }
+
+  var keys = {};
+  document.addEventListener('keydown', function(e){
+    keys[e.key] = true;
+    if(e.key === 'Enter' || e.key === ' '){
+      if(state==='title' || state==='over'){ startGame(); }
+    }
+    if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown',' '].indexOf(e.key)>=0) e.preventDefault();
+  });
+  document.addEventListener('keyup', function(e){ keys[e.key] = false; });
+
+  function startGame(){
+    score=0; lives=3; time=45; level=1; served=0; items=[]; state='play';
+    $('score').textContent=0; $('lives').textContent=3; $('time').textContent=45;
+    beep(523,0.1,'triangle'); beep(659,0.1,'triangle'); beep(784,0.15,'triangle');
+  }
+
+  function drawPixel(x,y,w,h,color){ ctx.fillStyle=color; ctx.fillRect(x,y,w,h); }
+
+  function drawTruck(x){
+    drawPixel(x, H-80, 96, 40, '#e94560');
+    drawPixel(x+6, H-88, 84, 8, '#ffd166');
+    drawPixel(x+8, H-96, 20, 8, '#333');
+    drawPixel(x+10, H-40, 16, 16, '#222');
+    drawPixel(x+70, H-40, 16, 16, '#222');
+    drawPixel(x+14, H-40, 6, 16, '#888');
+    drawPixel(x+74, H-40, 6, 16, '#888');
+    drawPixel(x+40, H-76, 34, 12, '#7fd1ff');
+    // pumpkin-headed driver in the window (nod to the target: Pumpkin)
+    var px = x+44, py = H-74;
+    drawPixel(px, py, 22, 15, '#e8781e');      // pumpkin head
+    drawPixel(px+9, py-4, 6, 4, '#4a7c2e');    // stem
+    drawPixel(px+12, py+2, 2, 3, '#7a3b0e');   // rib shadow
+    ctx.fillStyle='#111';
+    ctx.fillRect(px+4, py+4, 4, 4);            // left eye
+    ctx.fillRect(px+13, py+4, 4, 4);           // right eye
+    ctx.fillRect(px+6, py+10, 9, 3);           // mouth
+    drawPixel(x+20, H-46, 56, 6, '#222');
+    drawPixel(x+10, H-72, 24, 8, '#fff');
+    ctx.fillStyle='#111'; ctx.font='bold 8px monospace';
+    ctx.fillText('FF', x+13, H-65);
+  }
+
+  function drawFood(f, x, y, rot){
+    ctx.save();
+    ctx.translate(x+12, y+12);
+    ctx.rotate(rot);
+    drawPixel(-10,-10, 20, 20, f.color);
+    drawPixel(-10,-10, 20, 8, f.top);
+    if(f.name==='rotten'){ ctx.fillStyle='#222'; ctx.fillRect(-6,-2,4,4); ctx.fillRect(2,4,4,4); }
+    if(f.name==='fries'){ ctx.fillStyle='#fff'; ctx.fillRect(-4,-14,4,10); ctx.fillRect(0,-14,4,10); ctx.fillRect(4,-14,4,10); }
+    if(f.name==='pizza'){ ctx.fillStyle='#fff'; ctx.fillRect(-2,-4,4,4); ctx.fillRect(2,2,4,4); }
+    if(f.name==='burger'){ ctx.fillStyle='#fff'; ctx.fillRect(-6,-4,4,4); ctx.fillRect(2,-4,4,4); }
+    ctx.restore();
+  }
+
+  var lastT = 0;
+  function loop(t){
+    requestAnimationFrame(loop);
+    var dt = Math.min(((t-lastT)/16.7) || 1, 3); lastT = t;
+    if(state==='play'){
+      time -= dt/60;
+      if(time <= 0){ endGame(); }
+      $('time').textContent = Math.max(0, Math.ceil(time));
+
+      if(keys['ArrowLeft'] || keys['a']) truck.x -= truck.speed*dt;
+      if(keys['ArrowRight']|| keys['d']) truck.x += truck.speed*dt;
+      truck.x = Math.max(4, Math.min(W-100, truck.x));
+
+      if(Math.random() < 0.016*dt + level*0.002) spawn();
+
+      for(var i=items.length-1;i>=0;i--){
+        var it = items[i];
+        it.y += it.v*dt; it.spin += 0.03*dt;
+        if(it.y+24 >= H-80 && it.y <= H-8 && it.x+24 >= truck.x && it.x <= truck.x+96){
+          if(it.kind.name==='rotten'){
+            lives--; beep(140,0.3,'sawtooth');
+            $('lives').textContent = lives;
+            if(lives<=0){ endGame(); }
+          } else {
+            score += it.kind.pts; served++;
+            beep(660+served*8, 0.08, 'square');
+            $('score').textContent = score;
+            if(served % 10 === 0){ level++; beep(988,0.2,'triangle'); }
+          }
+          items.splice(i,1);
+          continue;
+        }
+        if(it.y > H+30){ items.splice(i,1); }
+      }
+    }
+    render();
+  }
+
+  function render(){
+    ctx.fillStyle='#1a1a2e'; ctx.fillRect(0,0,W,H);
+    for(var i=0;i<40;i++){ var sx=(i*53)%W, sy=(i*31)%(H-120); ctx.fillStyle = (i%3===0)?'#e9c46a':'#fff'; ctx.fillRect(sx,sy,2,2); }
+    ctx.fillStyle='#2b2b3a'; ctx.fillRect(0,H-56,W,56);
+    ctx.fillStyle='#e94560'; ctx.fillRect(0,H-56,W,4);
+    ctx.fillStyle='#444'; ctx.fillRect((Math.floor(performance.now()/80)%40)-20,H-28,20,6);
+
+    if(state==='title'){
+      ctx.fillStyle='#ffd166'; ctx.font='bold 44px monospace'; ctx.textAlign='center';
+      ctx.fillText('FOOD TRUCK FRENZY', W/2, 140);
+      ctx.fillStyle='#eee'; ctx.font='bold 18px monospace';
+      ctx.fillText('Catch the orders! Feed the city!', W/2, 190);
+      ctx.fillStyle='#e94560'; ctx.font='16px monospace';
+      ctx.fillText('LEFT / RIGHT (or A / D) to move', W/2, 240);
+      ctx.fillText('Catch good food - AVOID the rotten', W/2, 264);
+      ctx.fillStyle='#ffd166'; ctx.font='bold 22px monospace';
+      ctx.fillText('PRESS ENTER TO OPEN', W/2, 330);
+      if(best>0){ ctx.fillStyle='#aaa'; ctx.font='14px monospace'; ctx.fillText('BEST: '+best, W/2, 360); }
+      drawTruck(W/2-48);
+      ctx.textAlign='left';
+      return;
+    }
+    if(state==='over'){
+      ctx.fillStyle='#ffd166'; ctx.font='bold 44px monospace'; ctx.textAlign='center';
+      ctx.fillText('SHIFT OVER!', W/2, 150);
+      ctx.fillStyle='#eee'; ctx.font='20px monospace';
+      ctx.fillText('Served: '+served+'  -  Score: '+score, W/2, 200);
+      if(score>best){ localStorage.setItem('ftf_best', score); best=score; $('best').textContent=best; ctx.fillStyle='#7CFC00'; ctx.fillText('* NEW BEST! *', W/2, 240); }
+      ctx.fillStyle='#ffd166'; ctx.font='bold 22px monospace';
+      ctx.fillText('PRESS ENTER TO PLAY AGAIN', W/2, 300);
+      ctx.textAlign='left';
+      return;
+    }
+
+    for(var j=0;j<items.length;j++) drawFood(items[j].kind, items[j].x, items[j].y, items[j].spin);
+    drawTruck(truck.x);
+    ctx.fillStyle='#ffd166'; ctx.font='bold 12px monospace';
+    ctx.fillText('LEVEL '+level, 8, 16);
+  }
+
+  function endGame(){ state='over'; beep(330,0.2,'sawtooth'); beep(220,0.3,'sawtooth'); }
+
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
