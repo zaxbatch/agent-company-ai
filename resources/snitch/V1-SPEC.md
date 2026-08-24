@@ -29,12 +29,17 @@ Play turn by turn: roll -> move -> scenario card -> snitch/trust decisions
 ## IN v1 (must work for first live game)
 - Sign-in screen (name + email, NO password — lead-form friction, per CTO rec)
 - Room code + share link (copy button; QR optional v1.1)
-- 2–4 players (4-player cap, BossLady) — 5 rats to choose from
+- **PLAYER CAP: 4 max** (BossLady 2026-08-24). 2–4 real players online; solo mode = 1 human + up to 3 bots (total 4 seats max). 5 rats to choose from (seats < rats)
 - Snake board: ~40 spaces across the 8 themed zones (Dumpster start → Rat King's Lair finish)
 - Turn loop: roll dice → move → resolve space (scenario card auto-drawn for Sewer/Alley/Lake/Woods) → snitch/trust/cheese decisions
 - Trust tokens + cheese tokens (tracked on board)
 - Jail: roll 6 to escape; Lake: penalty
-- Win: first to finish + bonus points for trust/cheese (scoring screen)
+- **WIN CONDITION (BossLady 2026-08-24):** First rat to reach the finish line WINS the game.
+  Bonus points awarded on the results screen for:
+  1. **High trust** — bonus per Trust Token held at the end
+  2. **Helping other rats** — bonus for each "let them follow"/help action taken during the game
+  3. **Most points along the way** — bonus for the rat with the highest points collected during play
+- Results screen shows: race placement + bonus breakdown + overall "Top Rat" (highest combined score incl. bonuses — flavor title; the race winner still wins the game, per BossLady)
 - Rat abilities IN (simple versions): Cheese Chaser +2 cheese, Sewer Scout reroll, Alley Catcher +1 trust on stay-silent, City Sneaker no-trust-loss steal, Woodland Explorer ignore 1 woods penalty
 - P2P realtime via PeerJS (host authoritative; host must stay online — documented trade-off)
 - Solo vs bots mode (local AI) — instant play, no peer needed

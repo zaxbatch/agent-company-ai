@@ -49,9 +49,12 @@ Each rat has a catchphrase (e.g., Cheese Chaser: "I'd snitch for a slice.").
 - **Alley**: "You see another rat stealing food. Snitch (+3 points, −1 Trust) or stay silent (+1 Trust)"
 - **Lake**: "You fall in! Roll 1-3: lose a turn. Roll 4-6: swim to safety."
 
-## Winning
-First rat to the finish wins, but **bonus points** for: high trust, helping other rats,
-most cheese collected. (Trust should matter — the "winner" isn't always the snitch.)
+## Winning (LOCKED — BossLady 2026-08-24)
+The first rat to reach the finish line **wins the game**. Bonus points are awarded for:
+1. **High trust** — bonus per Trust Token held at the end
+2. **Helping other rats** — bonus per help/"let them follow" action
+3. **Collecting the most points along the way** — bonus for highest points collected
+Results screen shows placement + bonus breakdown + "Top Rat" (highest combined score incl. bonuses).
 
 ## Optional Add-Ons (NOT in v1)
 1. Rat abilities (each rat has unique ability) — *partially IN v1 (see V1-SPEC)*

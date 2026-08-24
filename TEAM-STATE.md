@@ -23,6 +23,10 @@
   No password in v1 (recommended: name+email only). P2P via PeerJS (host stays online) — we do NOT control the snowsnakes backend.
 - **Cassette player:** LIVE at snowsnakes.zerric.xyz/spread-da-word/audio/soundtracks-cassette-player.html (8 switchable tapes, HTTP 200).
   Hub CASSETTE_LINK placeholder now wired to it (resources/zerric-xyz/spread-da-word/index.html). 4-player cap on player pages.
+- **SNITCH v1 LOCKED (BossLady):** PLAYER CAP = 4 max (2-4 real online; solo = 1 human + up to 3 bots = 4 seats).
+  WIN CONDITION: first rat to finish line WINS; bonus points for (1) high trust (2) helping other rats
+  (3) most points collected along the way. Results screen = placement + bonus breakdown + "Top Rat" title.
+  Spec: resources/snitch/V1-SPEC.md + GAME-DESIGN.md.
 - **SNITCH v1 MODES ADDED (BossLady):** 1) SOLO VS BOTS (local AI, instant play, lead capture) 2) PRIVATE invite-by-link (P2P)
   3) QUICK PLAY random match (open-room registry via Netlify Blobs, fallback to bots). Bot AI = simple strategy (roll, snitch/stay-silent, spend trust). See resources/snitch/V1-SPEC.md.
 - **SNITCH GAME DESIGN LOCKED (BossLady):** resources/snitch/GAME-DESIGN.md = canonical (physical board game outline
