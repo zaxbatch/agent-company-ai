@@ -11,11 +11,10 @@
 
 ---
 
-## 0. LATEST SESSION (2026-08-24b)
-- **Games:** FTF deleted by Zerric (glitchy) ✅. NEW: SNOW SNAKE RUSH id83 (manny, endless runner). Vin Negar Bottle Flip id81, Snowball Blitz id80. Others live: Snowball Breakout 82, Iceberg Hopper 79, Snowball Fight 78, Snow Snake 76, UFO Hunter 70.
-- **Vin Negar rig v2:** darker ACV amber bottle, gold chain (V pendant), gold-rimmed shades, gold tooth, gold watch, gold-tip kicks — face ON the bottle, no human head. → content/spread-da-word/vin-negar-rig.html
-- **Spread Da Word Episode 1 teaser:** content/spread-da-word/episode-1-teaser.html — South Park cutout animation (Snow + Vin Negar), speech bubbles, intro music (intro-music.wav), play/mute. Style = CONFIRMED cutout.
-- **zerric.xyz is the focus** (zdotllc.com on hold per BossLady). Need zerric.xyz FTP/repo access to edit.
+## 0. LATEST SESSION (2026-08-24c)
+- **NEW GAME: SNOW BEATS (id86, meta)** — 8-bit beat maker for snowsnakes. 16-step sequencer, 8 tracks (kick/snare/hat/clap/ohat/bass/lead/noise), 5 presets (Classic/Boombap/Trap/Lo-fi/8-Bit), BPM 60-180, swing, tap-to-play pads, visualizer. Web Audio synthesized (no files). Beat makers' playground. Tested in browser: 128 pads, preset loads, no JS errors.
+- **Music + Ep1 deployed:** https://spread-da-word.netlify.app (intro-music.wav + episode-1-teaser.html) — Zerric confirmed the intro is great ✅
+- Games live: Snow Beats 86, Snow Snake Rush 83, Snowball Breakout 82, Vin Negar Bottle Flip 81, Snowball Blitz 80, Iceberg Hopper 79, Snowball Fight 78, Snow Snake 76, UFO Hunter 70.
 
 ## 1. TOP PRIORITIES (current)
 1. **SnowSnakes content runs in the background** — jokes + games, ~20 jokes/day, 1-3 games/day.
