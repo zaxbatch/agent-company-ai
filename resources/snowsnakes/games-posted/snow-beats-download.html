@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SNOW BEATS — 8-Bit Beat Maker</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#0a1220;color:#cfe8ff;font-family:monospace;display:flex;flex-direction:column;align-items:center;min-height:100vh;padding:16px;user-select:none}
+  h1{color:#9bd1ff;font-size:24px;letter-spacing:4px;text-shadow:0 0 12px #4a6cff88;margin-bottom:2px}
+  .sub{color:#6ea8d8;font-size:12px;margin-bottom:14px}
+  .panel{background:#0e1a2e;border:2px solid #3d5a80;border-radius:12px;padding:16px;max-width:720px;width:100%;box-shadow:0 0 30px #4a6cff33}
+  .transport{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+  .btn{background:#3d5a80;color:#cfe8ff;border:none;border-radius:8px;padding:10px 18px;font-family:monospace;font-size:14px;cursor:pointer}
+  .btn:hover{background:#4a6cff}
+  .btn.play{background:#1a7f37}.btn.play:hover{background:#2a9d4f}
+  .btn.stop{background:#c62828}.btn.stop:hover{background:#e05252}
+  .btn.dl{background:#6a3fbf}.btn.dl:hover{background:#8a5fd0}
+  label{font-size:11px;color:#7fa8d0}
+  input[type=range]{accent-color:#4a6cff;width:120px}
+  .bpm{display:flex;align-items:center;gap:8px}
+  #bpmVal{color:#ffd166;font-size:16px;min-width:34px;text-align:center}
+  .grid{display:grid;grid-template-columns:44px repeat(16,1fr);gap:3px;margin-top:6px}
+  .track-label{display:flex;align-items:center;justify-content:flex-end;font-size:10px;color:#9bd1ff;padding-right:6px;white-space:nowrap}
+  .cell{aspect-ratio:1;background:#16263f;border-radius:4px;cursor:pointer;border:1px solid #1c3352;transition:background .08s}
+  .cell:hover{background:#1c3352}
+  .cell.on{background:#4a6cff;box-shadow:0 0 8px #4a6cff88}
+  .cell.playing{background:#ffd166;box-shadow:0 0 10px #ffd166aa}
+  .cell.on.playing{background:#e94560;box-shadow:0 0 12px #e94560aa}
+  .track-row{margin-bottom:8px}
+  .presets{display:flex;gap:8px;margin:12px 0;flex-wrap:wrap}
+  .preset{background:#16263f;border:1px solid #3d5a80;color:#9bd1ff;border-radius:8px;padding:6px 12px;font-size:11px;cursor:pointer}
+  .preset:hover{background:#1c3352}
+  .viz{height:56px;background:#0a1526;border-radius:8px;margin-top:12px;display:flex;align-items:flex-end;gap:2px;padding:4px;overflow:hidden}
+  .bar{flex:1;background:linear-gradient(180deg,#4a6cff,#9bd1ff);border-radius:2px;min-height:2px;transition:height .06s}
+  .tip{color:#5f7fa0;font-size:11px;margin-top:10px;text-align:center;line-height:1.6}
+  .mute{margin-left:auto}
+</style>
+</head>
+<body>
+<h1>❄️ SNOW BEATS</h1>
+<div class="sub">8-bit beat maker · make a groove, the snow snake feels it</div>
+<div class="panel">
+  <div class="transport">
+    <button class="btn play" id="playBtn">▶ Play</button>
+    <button class="btn stop" id="stopBtn">■ Stop</button>
+    <button class="btn dl" id="dlBtn">⬇ Download Loop</button>
+    <div class="bpm"><label>BPM</label><input type="range" id="bpm" min="60" max="180" value="100"><span id="bpmVal">100</span></div>
+    <label style="margin-left:8px">Swing</label><input type="range" id="swing" min="0" max="50" value="0" style="width:70px">
+    <button class="btn mute" id="clearBtn">✕ Clear</button>
+  </div>
+  <div class="presets" id="presets">
+    <button class="preset" data-p="1">🥁 Classic</button>
+    <button class="preset" data-p="2">🕺 Boombap</button>
+    <button class="preset" data-p="3">⚡ Trap</button>
+    <button class="preset" data-p="4">🌧 Lo-fi</button>
+    <button class="preset" data-p="5">🎮 8-Bit</button>
+  </div>
+  <div class="grid" id="grid"></div>
+  <div class="viz" id="viz"></div>
+  <div class="tip">Click pads to build a pattern · ▶ Play · 🎮 presets · BPM + swing for feel · pads light up on the beat</div>
+</div>
+<script>
+var TRACKS=[
+  {name:'KICK',sound:'kick'},
+  {name:'SNARE',sound:'snare'},
+  {name:'HAT',sound:'hat'},
+  {name:'CLAP',sound:'clap'},
+  {name:'OHAT',sound:'ohat'},
+  {name:'BASS',sound:'bass'},
+  {name:'LEAD',sound:'lead'},
+  {name:'NOISE',sound:'noise'}
+];
+var STEPS=16;
+var pattern=[];
+for(var t=0;t<TRACKS.length;t++){pattern.push(new Array(STEPS).fill(0));}
+var step=0,playing=false,bpm=100,swing=0;
+var AC=null,master=null,comp=null;
+var gridEl=document.getElementById('grid'),vizEl=document.getElementById('viz');
+var bars=[];
+
+// build grid
+for(var t=0;t<TRACKS.length;t++){
+  var lbl=document.createElement('div');lbl.className='track-label';lbl.textContent=TRACKS[t].name;gridEl.appendChild(lbl);
+  for(var s=0;s<STEPS;s++){
+    (function(ti,si){
+      var c=document.createElement('div');c.className='cell';
+      if(s%4===0)c.style.borderColor='#3d5a80';
+      c.onclick=function(){pattern[ti][si]=pattern[ti][si]?0:1;c.classList.toggle('on',!!pattern[ti][si]);};
+      gridEl.appendChild(c);
+    })(t,s);
+  }
+}
+// viz bars
+for(var i=0;i<32;i++){var b=document.createElement('div');b.className='bar';vizEl.appendChild(b);bars.push(b);}
+
+function initAudio(){
+  if(AC)return;
+  AC=new (window.AudioContext||window.webkitAudioContext)();
+  comp=AC.createDynamicsCompressor();comp.threshold.value=-14;comp.ratio.value=8;
+  master=AC.createGain();master.gain.value=.8;
+  master.connect(comp);comp.connect(AC.destination);
+}
+function env(g,t,a,d){g.gain.setValueAtTime(0,AC.currentTime);g.gain.linearRampToValueAtTime(a,AC.currentTime+t);g.gain.exponentialRampToValueAtTime(.001,AC.currentTime+t+d);}
+function kick(){var o=AC.createOscillator(),g=AC.createGain();o.type='sine';o.frequency.setValueAtTime(160,AC.currentTime);o.frequency.exponentialRampToValueAtTime(40,AC.currentTime+.12);env(g,0,.9,.13);o.connect(g);g.connect(master);o.start();o.stop(AC.currentTime+.15);}
+function snare(){var n=AC.createBufferSource(),b=AC.createBuffer(1,AC.sampleRate*.12,AC.sampleRate);var d=b.getChannelData(0);for(var i=0;i<d.length;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/d.length,2);n.buffer=b;var g=AC.createGain();env(g,0,.5,.1);n.connect(g);g.connect(master);n.start();var o=AC.createOscillator(),g2=AC.createGain();o.type='triangle';o.frequency.setValueAtTime(180,AC.currentTime);env(g2,0,.3,.08);o.connect(g2);g2.connect(master);o.start();o.stop(AC.currentTime+.1);}
+function hat(){var n=AC.createBufferSource(),b=AC.createBuffer(1,AC.sampleRate*.05,AC.sampleRate);var d=b.getChannelData(0);for(var i=0;i<d.length;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/d.length,3);n.buffer=b;var g=AC.createGain();env(g,0,.25,.04);n.connect(g);g.connect(master);n.start();}
+function clap(){var o=AC.createOscillator(),g=AC.createGain();o.type='square';o.frequency.setValueAtTime(800,AC.currentTime);o.frequency.exponentialRampToValueAtTime(400,AC.currentTime+.05);env(g,0,.35,.08);o.connect(g);g.connect(master);o.start();o.stop(AC.currentTime+.1);}
+function ohat(){var n=AC.createBufferSource(),b=AC.createBuffer(1,AC.sampleRate*.18,AC.sampleRate);var d=b.getChannelData(0);for(var i=0;i<d.length;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/d.length,2);n.buffer=b;var g=AC.createGain();env(g,0,.2,.15);n.connect(g);g.connect(master);n.start();}
+function bass(note){var o=AC.createOscillator(),g=AC.createGain();o.type='sawtooth';o.frequency.value=note;var f=AC.createBiquadFilter();f.type='lowpass';f.frequency.value=400;env(g,0,.3,.22);o.connect(f);f.connect(g);g.connect(master);o.start();o.stop(AC.currentTime+.24);}
+function lead(note){var o=AC.createOscillator(),g=AC.createGain();o.type='square';o.frequency.value=note;env(g,0,.22,.18);o.connect(g);g.connect(master);o.start();o.stop(AC.currentTime+.2);}
+function noiseBurst(){var n=AC.createBufferSource(),b=AC.createBuffer(1,AC.sampleRate*.25,AC.sampleRate);var d=b.getChannelData(0);for(var i=0;i<d.length;i++)d[i]=(Math.random()*2-1)*(1-i/d.length);n.buffer=b;var g=AC.createGain();env(g,0,.25,.2);n.connect(g);g.connect(master);n.start();}
+function playSound(ti){
+  var t=TRACKS[ti].sound;
+  if(t==='kick')kick();else if(t==='snare')snare();else if(t==='hat')hat();else if(t==='clap')clap();
+  else if(t==='ohat')ohat();else if(t==='bass')bass(110);else if(t==='lead')lead(440);else if(t==='noise')noiseBurst();
+}
+function drawViz(energy){
+  for(var i=0;i<bars.length;i++){var h=4+Math.random()*50*energy;bars[i].style.height=h+'px';}
+}
+function playStep(){
+  var eighth=bpm/120;
+  var sw=(step%2===1)?swing*0.01*eighth:0;
+  setTimeout(function(){
+    for(var ti=0;ti<TRACKS.length;ti++){if(pattern[ti][step]){playSound(ti);drawViz(1);}}
+    // light grid column
+    var cells=gridEl.querySelectorAll('.cell');
+    for(var i=0;i<cells.length;i++)cells[i].classList.remove('playing');
+    for(var ti=0;ti<TRACKS.length;ti++){var idx=ti*STEPS+step;cells[idx].classList.add('playing');}
+    step=(step+1)%STEPS;
+  },sw*1000);
+}
+var timer=null;
+function start(){initAudio();if(AC.state==='suspended')AC.resume();if(timer)clearInterval(timer);timer=setInterval(function(){playStep();},60000/bpm/4);}
+function stopSeq(){if(timer)clearInterval(timer);timer=null;step=0;var cells=gridEl.querySelectorAll('.cell');for(var i=0;i<cells.length;i++)cells[i].classList.remove('playing');}
+document.getElementById('playBtn').onclick=function(){playing=true;start();};
+document.getElementById('stopBtn').onclick=function(){playing=false;stopSeq();};
+document.getElementById('clearBtn').onclick=function(){for(var t=0;t<TRACKS.length;t++)for(var s=0;s<STEPS;s++)pattern[t][s]=0;refreshGrid();};
+document.getElementById('bpm').oninput=function(){bpm=+this.value;document.getElementById('bpmVal').textContent=bpm;if(timer){clearInterval(timer);timer=setInterval(function(){playStep();},60000/bpm/4);}};
+document.getElementById('swing').oninput=function(){swing=+this.value;};
+function refreshGrid(){var cells=gridEl.querySelectorAll('.cell');for(var t=0;t<TRACKS.length;t++)for(var s=0;s<STEPS;s++){cells[t*STEPS+s].classList.toggle('on',!!pattern[t][s]);}}
+
+// presets
+var PRESETS={
+  1:{kick:[0,4,8,12],snare:[4,12],hat:[0,2,4,6,8,10,12,14],clap:[],ohat:[10],bass:[0,8],lead:[],noise:[]},
+  2:{kick:[0,8,10],snare:[4,12],hat:[0,2,4,6,8,10,12,14],clap:[4],ohat:[14],bass:[0,10],lead:[],noise:[]},
+  3:{kick:[0,4,6,8,12],snare:[4,12],hat:[0,2,4,6,8,10,12,14,15],clap:[],ohat:[2,10],bass:[0,6,12],lead:[],noise:[15]},
+  4:{kick:[0,8],snare:[4,12],hat:[2,6,10,14],clap:[8],ohat:[],bass:[0,8],lead:[4,12],noise:[]},
+  5:{kick:[0,4,8,12],snare:[4,12],hat:[0,2,4,6,8,10,12,14],clap:[8],ohat:[],bass:[0,3,8,11],lead:[0,4,8,12],noise:[]}
+};
+document.querySelectorAll('.preset').forEach(function(b){
+  b.onclick=function(){
+    var p=PRESETS[+this.dataset.p];
+    for(var t=0;t<TRACKS.length;t++){var nm=TRACKS[t].sound;for(var s=0;s<STEPS;s++)pattern[t][s]=0;(p[nm]||[]).forEach(function(x){pattern[t][x]=1;});}
+    refreshGrid();
+  };
+});
+// tap pads also play sound
+gridEl.addEventListener('mousedown',function(e){if(e.target.classList.contains('cell')){var idx=Array.prototype.indexOf.call(gridEl.children,e.target);var ti=Math.floor(idx/STEPS);playSound(ti);}});
+
+/* ---------- DOWNLOAD LOOP (offline render -> WAV) ---------- */
+function renderLoop(){
+  var dl = document.getElementById('dlBtn');
+  dl.textContent = '⏳ Rendering…';
+  dl.disabled = true;
+  setTimeout(function(){
+    try {
+      var sr = 44100;
+      var stepDur = 60/bpm/4;               // seconds per 16th
+      var loops = 4;                        // 4 bars of 16 steps
+      var total = stepDur * 16 * loops + 0.5;
+      var ctx = new (window.OfflineAudioContext||window.webkitOfflineAudioContext)(1, Math.ceil(sr*total), sr);
+      var master = ctx.createGain(); master.gain.value = .8;
+      var comp = ctx.createDynamicsCompressor(); comp.threshold.value=-14; comp.ratio.value=8;
+      master.connect(comp); comp.connect(ctx.destination);
+
+      function env(g,t,a,d){ g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(a,t+0.002); g.gain.exponentialRampToValueAtTime(.001,t+a*0+d+0.02); }
+      // note: env above uses absolute t; implement per-instrument with absolute scheduling
+      function scheduleKick(t){ var o=ctx.createOscillator(),g=ctx.createGain(); o.type='sine';
+        o.frequency.setValueAtTime(160,t); o.frequency.exponentialRampToValueAtTime(40,t+.12);
+        g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(.9,t+.002); g.gain.exponentialRampToValueAtTime(.001,t+.15);
+        o.connect(g); g.connect(master); o.start(t); o.stop(t+.18); }
+      function scheduleSnare(t){ var n=ctx.createBufferSource(),b=ctx.createBuffer(1,Math.ceil(ctx.sampleRate*.12),ctx.sampleRate);
+        var d=b.getChannelData(0); for(var i=0;i<d.length;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/d.length,2);
+        n.buffer=b; var g=ctx.createGain(); g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(.5,t+.002); g.gain.exponentialRampToValueAtTime(.001,t+.12);
+        n.connect(g); g.connect(master); n.start(t); n.stop(t+.15);
+        var o=ctx.createOscillator(),g2=ctx.createGain(); o.type='triangle'; o.frequency.setValueAtTime(180,t);
+        g2.gain.setValueAtTime(0,t); g2.gain.linearRampToValueAtTime(.3,t+.002); g2.gain.exponentialRampToValueAtTime(.001,t+.1);
+        o.connect(g2); g2.connect(master); o.start(t); o.stop(t+.12); }
+      function scheduleHat(t){ var n=ctx.createBufferSource(),b=ctx.createBuffer(1,Math.ceil(ctx.sampleRate*.05),ctx.sampleRate);
+        var d=b.getChannelData(0); for(var i=0;i<d.length;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/d.length,3);
+        n.buffer=b; var g=ctx.createGain(); g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(.25,t+.002); g.gain.exponentialRampToValueAtTime(.001,t+.05);
+        n.connect(g); g.connect(master); n.start(t); n.stop(t+.08); }
+      function scheduleClap(t){ var o=ctx.createOscillator(),g=ctx.createGain(); o.type='square';
+        o.frequency.setValueAtTime(800,t); o.frequency.exponentialRampToValueAtTime(400,t+.05);
+        g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(.35,t+.002); g.gain.exponentialRampToValueAtTime(.001,t+.1);
+        o.connect(g); g.connect(master); o.start(t); o.stop(t+.12); }
+      function scheduleOHat(t){ var n=ctx.createBufferSource(),b=ctx.createBuffer(1,Math.ceil(ctx.sampleRate*.18),ctx.sampleRate);
+        var d=b.getChannelData(0); for(var i=0;i<d.length;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/d.length,2);
+        n.buffer=b; var g=ctx.createGain(); g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(.2,t+.002); g.gain.exponentialRampToValueAtTime(.001,t+.18);
+        n.connect(g); g.connect(master); n.start(t); n.stop(t+.2); }
+      function scheduleBass(t){ var o=ctx.createOscillator(),g=ctx.createGain(); o.type='sawtooth'; o.frequency.value=110;
+        var f=ctx.createBiquadFilter(); f.type='lowpass'; f.frequency.value=400;
+        g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(.3,t+.002); g.gain.exponentialRampToValueAtTime(.001,t+.24);
+        o.connect(f); f.connect(g); g.connect(master); o.start(t); o.stop(t+.26); }
+      function scheduleLead(t){ var o=ctx.createOscillator(),g=ctx.createGain(); o.type='square'; o.frequency.value=440;
+        g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(.22,t+.002); g.gain.exponentialRampToValueAtTime(.001,t+.2);
+        o.connect(g); g.connect(master); o.start(t); o.stop(t+.22); }
+      function scheduleNoise(t){ var n=ctx.createBufferSource(),b=ctx.createBuffer(1,Math.ceil(ctx.sampleRate*.25),ctx.sampleRate);
+        var d=b.getChannelData(0); for(var i=0;i<d.length;i++)d[i]=(Math.random()*2-1)*(1-i/d.length);
+        n.buffer=b; var g=ctx.createGain(); g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(.25,t+.002); g.gain.exponentialRampToValueAtTime(.001,t+.25);
+        n.connect(g); g.connect(master); n.start(t); n.stop(t+.28); }
+      function snd(ti,t){ var nm=TRACKS[ti].sound;
+        if(nm==='kick')scheduleKick(t); else if(nm==='snare')scheduleSnare(t); else if(nm==='hat')scheduleHat(t);
+        else if(nm==='clap')scheduleClap(t); else if(nm==='ohat')scheduleOHat(t); else if(nm==='bass')scheduleBass(t);
+        else if(nm==='lead')scheduleLead(t); else if(nm==='noise')scheduleNoise(t); }
+      // swing formula identical to live playback
+      var eighth=bpm/120;
+      for(var L=0;L<loops;L++){
+        for(var s=0;s<STEPS;s++){
+          var sw=(s%2===1)?swing*0.01*eighth:0;
+          var t=(L*16+s)*stepDur + sw;
+          for(var ti=0;ti<TRACKS.length;ti++){ if(pattern[ti][s]) snd(ti,t); }
+        }
+      }
+      ctx.startRendering().then(function(buf){
+        var wav = encodeWav(buf.getChannelData(0), buf.sampleRate);
+        var a = document.createElement('a');
+        a.href = URL.createObjectURL(new Blob([wav],{type:'audio/wav'}));
+        a.download = 'snow-beats-loop-' + bpm + 'bpm.wav';
+        document.body.appendChild(a); a.click(); a.remove();
+        dl.textContent = '⬇ Download Loop'; dl.disabled = false;
+      }).catch(function(e){ dl.textContent='⬇ Download Loop'; dl.disabled=false; alert('Render failed: '+e); });
+    } catch(e){ dl.textContent='⬇ Download Loop'; dl.disabled=false; alert('Offline render not supported: '+e); }
+  }, 30);
+}
+function encodeWav(samples, sr){
+  var n = samples.length, buf = new ArrayBuffer(44 + n*2), v = new DataView(buf);
+  function ws(o,s){ for(var i=0;i<s.length;i++) v.setUint8(o+i, s.charCodeAt(i)); }
+  ws(0,'RIFF'); v.setUint32(4, 36+n*2, true); ws(8,'WAVE'); ws(12,'fmt ');
+  v.setUint32(16,16,true); v.setUint16(20,1,true); v.setUint16(22,1,true);
+  v.setUint32(24,sr,true); v.setUint32(28,sr*2,true); v.setUint16(32,2,true); v.setUint16(34,16,true);
+  ws(36,'data'); v.setUint32(40, n*2, true);
+  for(var i=0;i<n;i++){ var s=Math.max(-1,Math.min(1,samples[i])); v.setInt16(44+i*2, s<0?s*0x8000:s*0x7FFF, true); }
+  return buf;
+}
+document.getElementById('dlBtn').onclick = renderLoop;
+
+/* ---------- DOWNLOAD LOOP (offline render -> WAV) ---------- */
+function renderLoopOffline(){
+  var bars = 4; // render 4 bars for a usable loop
+  var stepDur = 60 / bpm / 4;            // seconds per 16th step
+  var total = bars * STEPS * stepDur;
+  var sr = 44100;
+  var ctx = new (window.OfflineAudioContext || window.webkitOfflineAudioContext)(1, Math.ceil(sr * total), sr);
+  var comp = ctx.createDynamicsCompressor(); comp.threshold.value = -14; comp.ratio.value = 8;
+  var master = ctx.createGain(); master.gain.value = 0.8;
+  master.connect(comp); comp.connect(ctx.destination);
+
+  function envAt(g, t, a, d){ g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(a, t + 0.005); g.gain.exponentialRampToValueAtTime(0.001, t + a + d); }
+  function kickAt(t){ var o = ctx.createOscillator(), g = ctx.createGain(); o.type='sine'; o.frequency.setValueAtTime(160, t); o.frequency.exponentialRampToValueAtTime(40, t + .12); envAt(g, t, .9, .13); o.connect(g); g.connect(master); o.start(t); o.stop(t + .15); }
+  function snareAt(t){ var n = ctx.createBufferSource(), b = ctx.createBuffer(1, sr * .12, sr); var d = b.getChannelData(0); for (var i = 0; i < d.length; i++) d[i] = (Math.random()*2-1)*Math.pow(1-i/d.length,2); n.buffer = b; var g = ctx.createGain(); envAt(g, t, .5, .1); n.connect(g); g.connect(master); n.start(t); var o = ctx.createOscillator(), g2 = ctx.createGain(); o.type='triangle'; o.frequency.setValueAtTime(180, t); envAt(g2, t, .3, .08); o.connect(g2); g2.connect(master); o.start(t); o.stop(t + .1); }
+  function hatAt(t){ var n = ctx.createBufferSource(), b = ctx.createBuffer(1, sr * .05, sr); var d = b.getChannelData(0); for (var i = 0; i < d.length; i++) d[i] = (Math.random()*2-1)*Math.pow(1-i/d.length,3); n.buffer = b; var g = ctx.createGain(); envAt(g, t, .25, .04); n.connect(g); g.connect(master); n.start(t); }
+  function clapAt(t){ var o = ctx.createOscillator(), g = ctx.createGain(); o.type='square'; o.frequency.setValueAtTime(800, t); o.frequency.exponentialRampToValueAtTime(400, t + .05); envAt(g, t, .35, .08); o.connect(g); g.connect(master); o.start(t); o.stop(t + .1); }
+  function ohatAt(t){ var n = ctx.createBufferSource(), b = ctx.createBuffer(1, sr * .18, sr); var d = b.getChannelData(0); for (var i = 0; i < d.length; i++) d[i] = (Math.random()*2-1)*Math.pow(1-i/d.length,2); n.buffer = b; var g = ctx.createGain(); envAt(g, t, .2, .15); n.connect(g); g.connect(master); n.start(t); }
+  function bassAt(note, t){ var o = ctx.createOscillator(), g = ctx.createGain(); o.type='sawtooth'; o.frequency.value = note; var f = ctx.createBiquadFilter(); f.type='lowpass'; f.frequency.value = 400; envAt(g, t, .3, .22); o.connect(f); f.connect(g); g.connect(master); o.start(t); o.stop(t + .24); }
+  function leadAt(note, t){ var o = ctx.createOscillator(), g = ctx.createGain(); o.type='square'; o.frequency.value = note; envAt(g, t, .22, .18); o.connect(g); g.connect(master); o.start(t); o.stop(t + .2); }
+  function noiseAt(t){ var n = ctx.createBufferSource(), b = ctx.createBuffer(1, sr * .25, sr); var d = b.getChannelData(0); for (var i = 0; i < d.length; i++) d[i] = (Math.random()*2-1)*(1-i/d.length); n.buffer = b; var g = ctx.createGain(); envAt(g, t, .25, .2); n.connect(g); g.connect(master); n.start(t); }
+  function soundAt(ti, t){
+    var s = TRACKS[ti].sound;
+    if (s === 'kick') kickAt(t); else if (s === 'snare') snareAt(t); else if (s === 'hat') hatAt(t);
+    else if (s === 'clap') clapAt(t); else if (s === 'ohat') ohatAt(t); else if (s === 'bass') bassAt(110, t);
+    else if (s === 'lead') leadAt(440, t); else if (s === 'noise') noiseAt(t);
+  }
+
+  // schedule with swing (same feel as live)
+  var eighth = bpm / 120;
+  for (var bar = 0; bar < bars; bar++){
+    for (var s = 0; s < STEPS; s++){
+      var base = (bar * STEPS + s) * stepDur;
+      var sw = (s % 2 === 1) ? swing * 0.01 * eighth : 0;
+      var t = base + sw;
+      for (var ti = 0; ti < TRACKS.length; ti++){
+        if (pattern[ti][s]) soundAt(ti, t);
+      }
+    }
+  }
+  return ctx.startRendering().then(function(buffer){ return buffer; });
+}
+
+function bufferToWav(buffer){
+  var numCh = 1, sr = buffer.sampleRate, len = buffer.length * numCh * 2;
+  var ab = new ArrayBuffer(44 + len), dv = new DataView(ab);
+  function ws(off, s){ for (var i = 0; i < s.length; i++) dv.setUint8(off + i, s.charCodeAt(i)); }
+  ws(0, 'RIFF'); dv.setUint32(4, 36 + len, true); ws(8, 'WAVE'); ws(12, 'fmt ');
+  dv.setUint32(16, 16, true); dv.setUint16(20, 1, true); dv.setUint16(22, numCh, true);
+  dv.setUint32(24, sr, true); dv.setUint32(28, sr * numCh * 2, true); dv.setUint16(32, numCh * 2, true); dv.setUint16(34, 16, true);
+  ws(36, 'data'); dv.setUint32(40, len, true);
+  var data = buffer.getChannelData(0), off = 44;
+  for (var i = 0; i < data.length; i++){
+    var s = Math.max(-1, Math.min(1, data[i]));
+    dv.setInt16(off, s < 0 ? s * 0x8000 : s * 0x7FFF, true); off += 2;
+  }
+  return new Blob([ab], { type: 'audio/wav' });
+}
+
+document.getElementById('dlBtn').onclick = function(){
+  var btn = document.getElementById('dlBtn');
+  btn.textContent = '⏳ Rendering…'; btn.disabled = true;
+  renderLoopOffline().then(function(buffer){
+    var blob = bufferToWav(buffer);
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url; a.download = 'snow-beats-' + bpm + 'bpm-' + (new Date().toISOString().slice(0,10)) + '.wav';
+    document.body.appendChild(a); a.click();
+    setTimeout(function(){ URL.revokeObjectURL(url); a.remove(); }, 1000);
+    btn.textContent = '⬇ Download Loop'; btn.disabled = false;
+  }).catch(function(e){
+    alert('Render failed: ' + e.message);
+    btn.textContent = '⬇ Download Loop'; btn.disabled = false;
+  });
+};
+</script>
+</body>
+</html>
