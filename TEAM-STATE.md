@@ -11,11 +11,10 @@
 
 ---
 
-## 0. LATEST SESSION (2026-08-24f)
-- **TRAP INTRO BEAT (BossLady request):** intro-music.wav regenerated — TRAP-STYLE video game beat, 145 BPM, D minor, 808 bass drops, punchy kicks, rolling 16th hi-hats + rolls, dark square lead, riser. 16s, 44.1kHz. Deployed to netlify (verified 1.4MB).
-- **FRIDGE TEASER (BossLady request):** fridge-teaser.html live — "The Fridge" coming-soon page: 6 fridge characters lineup (Mayo White, Whip, Red, Yellow, Zest, Crisp) + "fridge door opens soon" tease + Snow Snake hint. Nav added to all pages.
-- **Navigable site:** spread-da-word.netlify.app now has nav on ALL pages (Home/Watch/Music/Cast/Fridge/Behind the Scenes). Pages: index, episode-1, music, roster, behind-the-scenes, fridge-teaser, vin/que/aji rigs. Behind-the-scenes page shows process (Roster→Rig→Scene→Episode, Rive, chiptune).
-- BossLady direction: "Tease the fridge. Intro: Make it a trap style video game beat."
+## 0. LATEST SESSION (2026-08-24g)
+- **LEGAL DONE:** zerric.xyz Privacy Policy + Terms of Service written (content/legal/*.md) + HTML versions deployed: https://spread-da-word.netlify.app/privacy.html + /terms.html. Footer legal links added to site pages. Copied to archive/zerric-xyz-main/legal/ for when we deploy to zerric.xyz proper.
+- **Cassette player v2 LIVE:** soundtracks.html — 5 themes (Retro/Icy/Lava/Gold/Violet) + Random mode, physical cassette swap per tape (each tape has own colors/label), download buttons, spinning reels. 8 tapes.
+- **CANON:** "THE SHELVES RAISED US!" = Hood's rallying cry (in ROSTER.md). "The cab-nets" = the cabinet (the projects).
 
 ## 1. TOP PRIORITIES (current)
 1. **SnowSnakes content runs in the background** — jokes + games, ~20 jokes/day, 1-3 games/day.
