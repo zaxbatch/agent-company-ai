@@ -199,7 +199,7 @@
       <div id="decisionArea"><p class="trap-line">Your turn: roll the dice.</p></div>
     </div>
 
-    <div class="trap-line">🎧 Soundtrack: <span class="tag">Trap Cabnets</span> <span class="tag">Slither</span> — cassettes from Spread Da Word</div>
+    <div class="trap-line">🎧 Soundtrack: <span class="tag">Trap</span> <span class="tag">Slither</span> <span class="tag">Lo-Fi</span> — part of the SnowSnakes universe</div>
   </div>
 
   <!-- MODALS -->
@@ -207,11 +207,11 @@
     <div class="modal" id="modalBody"></div>
   </div>
 </div>
-<div class="foot">SNITCH: RATS IN THE GRASS · SPREAD DA WORD UNIVERSE · THE SHELVES RAISED US · © Z-DOT</div>
+<div class="foot">SNITCH: RATS IN THE GRASS · PART OF THE SNOWSNAKES UNIVERSE · © Z-DOT</div>
 <script>
 "use strict";
 /* ================= SNITCH: RATS IN THE GRASS — v1 =================
-   Spread Da Word universe · online board game
+   SnowSnakes universe · online board game
    - Hotseat (1-4) / Quick Play (vs random + bots) / Online (invite link)
    - Snake-in-the-grass board, 8 locations, 5 rats, snitch/trust/cheese
    - Scenario cards, predators, jail, lake, Rat King's lair showdown
@@ -350,10 +350,10 @@ function makeBot(seat, usedNames){
   return {seat:seat, name:n, bot:true, type:BOT_TYPES[seat % BOT_TYPES.length],
           email:null, joined:Date.now()};
 }
-<script>
+
 "use strict";
 /* ===== SNITCH: RATS IN THE GRASS — v1 =====
-   Spread Da Word universe. 4-player cap. Hotseat / Quick Play (bots) / Online (invite link).
+   SnowSnakes universe. 4-player cap. Hotseat / Quick Play (bots) / Online (invite link).
    Lead capture: sign-in with email -> relay (HubSpot tag site=snitch).
    ========================================== */
 var RELAY_BASE = "https://tasks.zdotllc.com/snitch/api.php";
@@ -1014,3 +1014,458 @@ function saveLocalScore(winner){
     localStorage.setItem(key, JSON.stringify(list));
   } catch(e){}
 }
+/* ================= RELAY (ONLINE INVITE + LEAD CAPTURE) =================
+   Host: tasks.zdotllc.com/snitch/api.php  (Hostinger PHP, CORS open)
+   Actions:
+     POST create  {name, email?, rat}        -> {code, host, state}
+     GET  state?code=X&since=TS             -> {state, version}
+     POST join   {code, name, email?, rat}   -> {seat, state}  (cap 4)
+     POST move   {code, token, move:{...}}   -> {state, version}
+     POST lead   {name, email, source}       -> {ok} (HubSpot tag site=snitch)
+   Bots: the relay auto-fills empty seats with bots after host starts.
+   Polling: every 2.5s while in an online room.
+=========================================================================== */
+function relayUrl(action, params){
+  var q = "action=" + encodeURIComponent(action);
+  Object.keys(params||{}).forEach(function(k){
+    q += "&" + encodeURIComponent(k) + "=" + encodeURIComponent(params[k]);
+  });
+  return RELAY_BASE + "?" + q;
+}
+
+function relayCall(action, params, method){
+  method = method || "GET";
+  var url = relayUrl(action, method === "GET" ? params : null);
+  var opts = {method:method, headers:{"Content-Type":"application/json"}};
+  if(method !== "GET") opts.body = JSON.stringify(params||{});
+  return fetch(url, opts).then(function(r){ return r.json(); });
+}
+
+function startPolling(){
+  stopPolling();
+  POLL = setInterval(function(){
+    if(GAME && GAME.code && !GAME.over){
+      relayCall("state", {code:GAME.code}).then(function(d){
+        if(d && d.state){
+          syncRemoteState(d.state, d.version);
+        }
+      }).catch(function(){});
+    }
+  }, 2500);
+}
+function stopPolling(){ if(POLL){ clearInterval(POLL); POLL = null; } }
+
+function syncRemoteState(remote, version){
+  if(!GAME || !remote) return;
+  // only adopt if this is the host (host is source of truth) or we're a joiner
+  if(GAME.isHost) return; // host pushes; joiners pull
+  // avoid clobbering while a decision is open locally
+  if(GAME.pending && GAME.pending.seat === LOCAL.seat) return;
+  var changed = JSON.stringify({players:GAME.players.map(function(p){return {seat:p.seat,name:p.name,bot:p.bot};}),
+                                turn:GAME.turn, positions:GAME.positions, round:GAME.round}) !==
+                JSON.stringify({players:remote.players, turn:remote.turn, positions:remote.positions, round:remote.round});
+  if(changed){
+    GAME.players = remote.players;
+    GAME.turn = remote.turn;
+    GAME.positions = remote.positions;
+    GAME.round = remote.round;
+    GAME.over = remote.over;
+    if(remote.finalScores) GAME.finalScores = remote.finalScores;
+    if(remote.winner) GAME.winner = remote.winner;
+    renderAll();
+  }
+}
+
+function pushState(){
+  if(!GAME || !GAME.code || !GAME.isHost) return;
+  var payload = {
+    code: GAME.code,
+    players: GAME.players.map(function(p){ return {seat:p.seat, name:p.name, bot:p.bot, type:p.type, email:p.email}; }),
+    turn: GAME.turn,
+    positions: GAME.positions,
+    trust: GAME.trust, cheese: GAME.cheese, pts: GAME.pts, helps: GAME.helps,
+    jailTurns: GAME.jailTurns, woodsUsed: GAME.woodsUsed,
+    round: GAME.round, over: GAME.over,
+    finalScores: GAME.finalScores, winner: GAME.winner,
+    predator: GAME.predator, snowEgg: GAME.snowEgg,
+    log: GAME.log.slice(-40)
+  };
+  relayCall("move", {code:GAME.code, state:payload}, "POST").catch(function(e){
+    console.log("relay push failed", e);
+  });
+}
+
+/* ---------- LEAD CAPTURE (email -> HubSpot, tagged site=snitch) ---------- */
+function captureLead(name, email){
+  if(!email) return Promise.resolve();
+  var payload = {name:name, email:email, source:"snitch"};
+  return relayCall("lead", payload, "POST").then(function(d){
+    if(d && d.ok) logMsg("📬 " + name + " saved — you're on the board. Check your email for the invite.","me");
+    else logMsg("⚠️ Could not save profile (offline?). Playing anyway.","sys");
+    return d;
+  }).catch(function(){
+    logMsg("⚠️ Could not save profile (offline?). Playing anyway.","sys");
+  });
+}
+/* ================= UI WIRING ================= */
+var GAME = null;
+var LOCAL = null;
+var MODE = "hotseat";
+var POLL = null;
+var RELAY = "https://tasks.zdotllc.com/snitch/api.php";
+
+function $(id){ return document.getElementById(id); }
+function esc(s){ return String(s||"").replace(/[&<>"']/g, function(c){
+  return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+
+/* ---------- RAT SELECTION ---------- */
+function renderRats(){
+  var el = $("ratGrid");
+  el.innerHTML = RATS.map(function(r){
+    return '<div class="rat-card" id="ratcard-' + r.id + '" onclick="selectRat(\'' + r.id + '\')">' +
+      '<span class="emoji">' + r.emoji + '</span>' +
+      '<div class="name">' + r.name + '</div>' +
+      '<div class="ab">' + r.ability + '</div>' +
+      '<div class="quote">' + r.catch + '</div>' +
+      '</div>';
+  }).join("");
+}
+var SELECTED_RAT = null;
+function selectRat(id){
+  SELECTED_RAT = id;
+  document.querySelectorAll(".rat-card").forEach(function(c){ c.classList.remove("sel"); });
+  $("ratcard-" + id).classList.add("sel");
+}
+
+/* ---------- PLAYER SETUP ---------- */
+function renderPlayerSetup(){
+  var el = $("playerSetup");
+  if(MODE === "hotseat"){
+    el.innerHTML =
+      '<div class="row" style="margin-bottom:6px">' +
+      '<input type="number" id="playerCount" min="1" max="4" value="2" style="width:80px">' +
+      '<span style="opacity:.7; font-size:.8rem; align-self:center">players (1–4)</span></div>' +
+      '<div id="hotseatNames"></div>';
+    updateHotseatNames();
+  } else if(MODE === "quick"){
+    el.innerHTML =
+      '<input type="text" id="yourNameQ" placeholder="Your name" value="' + esc((LOCAL && LOCAL.name) || "You") + '">' +
+      '<p class="trap-line">Quick Play: 1–3 bots fill the other seats. 4-player cap.</p>';
+  } else if(MODE === "online"){
+    el.innerHTML =
+      '<input type="text" id="yourNameO" placeholder="Your name (required)" value="' + esc((LOCAL && LOCAL.name) || "") + '">' +
+      '<input type="email" id="yourEmail" placeholder="Email (to save your record + invites)">' +
+      '<p class="trap-line">Online: invite friends with a link. Seats cap at 4. Bots fill empty seats.</p>';
+  }
+}
+
+function updateHotseatNames(){
+  var el = $("hotseatNames");
+  if(!el) return;
+  var n = parseInt(($("playerCount")||{}).value || "2", 10);
+  var html = "";
+  for(var i=1;i<=n;i++){
+    html += '<input type="text" id="hsName' + i + '" placeholder="Player ' + i + ' name" value="' + esc((LOCAL && i===1 && LOCAL.name) || ("Player " + i)) + '" style="margin:3px 0">';
+  }
+  el.innerHTML = html;
+}
+
+/* ---------- MODE TABS ---------- */
+function setMode(m){
+  MODE = m;
+  document.querySelectorAll(".tab").forEach(function(t){
+    t.classList.toggle("active", t.dataset.mode === m);
+  });
+  var desc = {
+    hotseat:"Hotseat: 1–4 players take turns on one device.",
+    quick:"Quick Play: you + up to 3 bot rats. Compete for the high score.",
+    online:"Online: invite friends with a link. Bots fill empty seats. 4-player cap."
+  }[m];
+  $("modeDesc").textContent = desc;
+  renderPlayerSetup();
+}
+
+/* ---------- START ---------- */
+function startGame(){
+  var players = [];
+  if(MODE === "hotseat"){
+    var n = parseInt($("playerCount").value || "2", 10);
+    for(var i=1;i<=n;i++){
+      var nm = ($("hsName" + i) || {}).value || ("Player " + i);
+      players.push({name:nm, bot:false, seat:i-1});
+    }
+  } else if(MODE === "quick"){
+    var yourName = $("yourNameQ").value || "You";
+    players.push({name:yourName, bot:false, seat:0});
+    var nBots = 3; // quick play always fills to 4? Spec: "up to 4". Fill to 3 bots for a full board feel.
+    for(var b=0;b<nBots;b++){
+      players.push({name:BOT_NAMES[b % BOT_NAMES.length], bot:true, type:BOT_TYPES[b % BOT_TYPES.length], seat:b+1});
+    }
+  } else if(MODE === "online"){
+    var nameO = $("yourNameO").value || "";
+    var email = $("yourEmail").value || "";
+    if(!nameO){ alert("Enter your name to host an online game."); return; }
+    LOCAL = {name:nameO, email:email, seat:0, isHost:true};
+    captureLead(nameO, email);
+    createOnlineRoom(nameO, email);
+    return;
+  }
+  startLocal(players, MODE);
+}
+
+function startLocal(players, mode){
+  GAME = newGame();
+  GAME.mode = mode;
+  players.forEach(function(p){
+    addPlayer(p.seat, p.name, {bot:p.bot, type:p.type});
+  });
+  // assign rats round-robin from selection
+  var ratIds = ["cheese","scout","alley","city","woods"];
+  GAME.players.forEach(function(p, i){
+    var rid = (SELECTED_RAT && i === 0) ? SELECTED_RAT : ratIds[i % ratIds.length];
+    GAME.rats[p.seat] = rid;
+    // apply starting bonuses
+    var r = ratObj(p.seat);
+    if(r.startCheese) GAME.cheese[p.seat] = r.startCheese;
+    if(r.woodsSafe) GAME.woodsUsed[p.seat] = 0;
+  });
+  GAME.turn = 0;
+  GAME.started = true;
+  GAME.startedAt = Date.now();
+  logMsg("🐀 The race from the dumpster begins! First rat to the Rat King's Lair wins — but Trust, helping, and cheese decide the crown.","sys");
+  showGame();
+  if(GAME.mode === "online") pushState();
+  if(botTurn()) scheduleBot();
+  renderAll();
+}
+
+/* ---------- ONLINE ROOM ---------- */
+function createOnlineRoom(name, email){
+  relayCall("create", {name:name, email:email, rat:SELECTED_RAT||"cheese"}, "POST").then(function(d){
+    if(d && d.code){
+      GAME = d.state;
+      GAME.code = d.code;
+      GAME.mode = "online";
+      GAME.isHost = true;
+      LOCAL = {name:name, email:email, seat:d.hostSeat || 0, isHost:true};
+      showGame();
+      var link = location.href.split("#")[0] + "#snitch=" + d.code;
+      logMsg("🔗 Room created! Share this link: " + link, "me");
+      showInvite(link);
+      startPolling();
+      renderAll();
+    } else {
+      alert("Could not create room: " + (d.error || "unknown"));
+    }
+  }).catch(function(e){ alert("Relay unreachable: " + e); });
+}
+
+function joinOnlineRoom(code, name, email){
+  relayCall("join", {code:code, name:name, email:email, rat:SELECTED_RAT||"cheese"}, "POST").then(function(d){
+    if(d && d.seat !== undefined && d.state){
+      GAME = d.state;
+      GAME.code = code;
+      GAME.mode = "online";
+      GAME.isHost = false;
+      LOCAL = {name:name, email:email, seat:d.seat, isHost:false};
+      captureLead(name, email);
+      showGame();
+      startPolling();
+      renderAll();
+    } else {
+      alert("Could not join: " + (d.error || "room full or missing"));
+    }
+  }).catch(function(e){ alert("Relay unreachable: " + e); });
+}
+
+function showInvite(link){
+  var bg = $("modalBg"), el = $("modalBody");
+  el.innerHTML =
+    '<h2>🔗 INVITE YOUR CREW</h2>' +
+    '<p>Send this link — anyone who opens it joins your live board (up to 4 players; bots fill the rest).</p>' +
+    '<input type="text" readonly value="' + esc(link) + '" id="inviteLinkInput">' +
+    '<div class="row" style="justify-content:center">' +
+    '<button class="btn" onclick="copyInvite()">📋 Copy link</button>' +
+    '<button class="btn gold" onclick="closeModal()">Start playing</button></div>' +
+    '<p class="trap-line">Seats cap at 4 · first-come first-served · bots fill empty seats</p>';
+  bg.classList.add("show");
+}
+function copyInvite(){
+  var inp = $("inviteLinkInput");
+  inp.select();
+  try { document.execCommand("copy"); } catch(e){}
+  logMsg("Invite link copied!","me");
+}
+
+/* ---------- ROLL ---------- */
+function roll(){
+  if(!GAME || GAME.over) return;
+  var cp = currentPlayer();
+  if(cp.bot) return;
+  GAME.phase = "rolling";
+  var d1 = rollDie();
+  GAME.lastRoll = d1;
+  var dieEl = $("die1");
+  dieEl.textContent = "🎲";
+  dieEl.classList.add("rolling");
+  setTimeout(function(){
+    dieEl.classList.remove("rolling");
+    dieEl.textContent = d1;
+    logMsg(cp.name + " rolled a " + d1 + "!","me");
+    var to = movePlayer(cp.seat, d1);
+    checkWin(cp.seat, to);
+  }, 450);
+}
+
+function checkWin(seat, to){
+  if(to >= 39){
+    GAME.positions[seat] = 39;
+    lairShowdown(seat);
+    return;
+  }
+  // sewer reroll for Sewer Scout
+  var r = ratObj(seat);
+  if(r && r.rerollSewer && zoneOf(seat) === "sewer" && Math.random() < 0.5 && !GAME.sewerRerolled){
+    GAME.sewerRerolled = true;
+    logMsg(r.name + " uses Sewer Scout — reroll!","me");
+    setTimeout(function(){ roll(); }, 500);
+    return;
+  }
+  landTrigger(seat);
+}
+
+function endTurn(){
+  if(GAME.pending) return;
+  nextTurn();
+  renderAll();
+  if(GAME.over) return;
+  if(botTurn()) scheduleBot();
+}
+
+function botTurn(){
+  var cp = currentPlayer();
+  return cp && cp.bot && !GAME.over;
+}
+
+function scheduleBot(){
+  setTimeout(function(){
+    if(!GAME || GAME.over) return;
+    var cp = currentPlayer();
+    if(!cp.bot) return;
+    botAct(cp);
+  }, 1200);
+}
+
+function botAct(p){
+  var d = rollDie();
+  logMsg("🤖 " + p.name + " rolls " + d + "...","sys");
+  var to = movePlayer(p.seat, d);
+  if(to >= 39){ GAME.positions[p.seat] = 39; lairShowdown(p.seat); }
+  else {
+    // bots auto-resolve cards with personality
+    if(GAME.pending && GAME.pending.seat === p.seat){
+      var card = GAME.pending.card;
+      var choice = botChoice(p, card);
+      resolveOption(p.seat, choice);
+    } else {
+      landTrigger(p.seat);
+    }
+  }
+  if(!GAME.pending && !GAME.over){
+    endTurn();
+  }
+}
+
+function botChoice(p, card){
+  // greedy/snitchy pick the points option; loyal pick trust/help; cautious pick safe
+  var safe = card.opts.findIndex(function(o){ return o.effect.indexOf("trust+") >= 0 || o.effect === "none"; });
+  var pts = card.opts.findIndex(function(o){ return o.effect.indexOf("pts+") >= 0 || o.effect.indexOf("steal") >= 0 || o.effect.indexOf("take") >= 0; });
+  if(p.type === "greedy" && pts >= 0) return pts;
+  if(p.type === "loyal" && safe >= 0) return safe;
+  if(p.type === "cautious") return safe >= 0 ? safe : 0;
+  return pts >= 0 ? pts : 0; // snitchy
+}
+
+/* ---------- LAIR SHOWDOWN (from engine) ---------- */
+function lairShowdown(seat){
+  GAME.pending = {seat:seat, kind:"lair", card:{
+    title:"THE RAT KING'S LAIR",
+    text:"You made it to the throne of trash and cheese. Final choice: share the cheese, or take it all?",
+    opts:[
+      {label:"🍕 Share the cheese", effect:"share,help+1", note:"+3 Trust, +2 bonus pts, everyone +1 Trust, +1 Help"},
+      {label:"👑 Take it all", effect:"take", note:"+5 pts, −2 Trust"}
+    ]
+  }};
+  renderDecision();
+}
+
+/* ---------- SHOW / HIDE ---------- */
+function showGame(){
+  $("lobby").classList.add("hidden");
+  $("game").classList.remove("hidden");
+}
+function toLobby(){
+  stopPolling();
+  GAME = null;
+  $("game").classList.add("hidden");
+  $("lobby").classList.remove("hidden");
+  renderPlayerSetup();
+}
+function closeModal(){ $("modalBg").classList.remove("show"); }
+function playAgain(){
+  GAME = null;
+  toLobby();
+  // restart same mode quickly
+  setTimeout(function(){ $("startBtn").click(); }, 100);
+}
+
+function renderAll(){
+  renderBoard();
+  renderPlayersBar();
+  renderDecision();
+  renderStatus();
+  renderLog();
+}
+
+/* ---------- INIT ---------- */
+document.addEventListener("DOMContentLoaded", function(){
+  // detect invite link: #snitch=CODE
+  var h = location.hash || "";
+  var m = h.match(/snitch=([A-Za-z0-9]+)/);
+  if(m && m[1]){
+    MODE = "online";
+    document.querySelectorAll(".tab").forEach(function(t){ t.classList.toggle("active", t.dataset.mode === "online"); });
+    $("modeDesc").textContent = "Online: you've been invited to a live board game!";
+    renderPlayerSetup();
+    // prompt to join
+    var bg = $("modalBg"), el = $("modalBody");
+    el.innerHTML =
+      '<h2>🔗 YOU\'RE INVITED</h2>' +
+      '<p>A rat sent you a link to their live board game. Sign in and your seat\'s waiting.</p>' +
+      '<input type="text" id="joinName" placeholder="Your name" value="' + esc((LOCAL&&LOCAL.name)||"") + '">' +
+      '<input type="email" id="joinEmail" placeholder="Email (saves your record)">' +
+      '<div class="row" style="justify-content:center">' +
+      '<button class="btn gold" onclick="doJoin(\'' + m[1] + '\')">🐀 Join the game</button></div>' +
+      '<p class="trap-line">4-player cap · first-come, first-served · bots fill empty seats</p>';
+    bg.classList.add("show");
+  }
+  renderRats();
+  renderPlayerSetup();
+  document.querySelectorAll(".tab").forEach(function(t){
+    t.onclick = function(){ setMode(t.dataset.mode); };
+  });
+  $("startBtn").onclick = startGame;
+  $("rollBtn").onclick = roll;
+  $("leaveBtn").onclick = toLobby;
+  $("playerCount").onchange = updateHotseatNames;
+});
+function doJoin(code){
+  var n = ($("joinName")||{}).value || "";
+  var e = ($("joinEmail")||{}).value || "";
+  if(!n){ alert("Enter your name to join."); return; }
+  closeModal();
+  joinOnlineRoom(code, n, e);
+}
+</script>
+</body>
+</html>
