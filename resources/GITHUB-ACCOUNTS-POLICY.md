@@ -15,13 +15,25 @@
 ssh -T git@github.com          # → "Hi <account>!"
 ```
 
+## NEW-REPO RULE (BossLady 2026-08-25) — which account for new projects
+> **When starting ANY new app/project/repo, confirm the GitHub account FIRST. Default by domain:**
+
+| New project is for… | GitHub account | Remote prefix |
+|---------------------|----------------|---------------|
+| zerric.xyz / snowsnakes / Spread Da Word / Snitch / cassettes / any personal-domain or playground app | **zaxbatch** | `git@github-zaxbatch:zaxbatch/REPO.git` |
+| zdotllc.com / task portal / client SaaS / marketing / Stripe / CRM / anything Z-Dot business | **zdot (zdotllc)** | `git@github-zdot:zdotllc/REPO.git` |
+
+**When in doubt, ASK BossLady/Zerric which account before creating the repo.** Default: if it's tied to
+a domain, that domain's account owns it. Never guess on ambiguous projects (e.g. an app that touches both).
+Create repos with the PAT (create via API) or `gh`, using the account whose key matches.
+
 ## SSH keys — one per account, wired by alias
 
 | Key file | Account | Status (verified 2026-08-24) |
 |----------|---------|------------------------------|
 | `~/.ssh/id_ed25519` | zdotllc (comment zdotconnect@gmail.com) | ✅ authenticates as zdotllc |
 | `~/.ssh/id_ed25519_zdotllc` | (zdotllc@email.com) | ❌ NOT registered on GitHub — do not use |
-| `~/.ssh/id_ed25519_zaxbatch` | zaxbatch | ❌ MISSING — create + register on zaxbatch account |
+| `~/.ssh/id_ed25519_zaxbatch` | zaxbatch | ✅ VERIFIED 2026-08-25 — authenticates as zaxbatch ("Hi zaxbatch!") |
 
 **~/.ssh/config — alias per account (the rule that prevents confusion):**
 ```
