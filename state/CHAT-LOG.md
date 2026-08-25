@@ -101,3 +101,6 @@ GitHub new-repo rule: confirm account per new project. zaxbatch = zerric.xyz/sno
 ### 2026-08-25 02:06 UTC — ClickClack
 Email setup: sent test emails from ez@zerric.xyz to snowsnakes@, milkups@, spreaddaword@, snitch@zerric.xyz — SMTP accepted all 4. VRFY disabled so can't confirm mailbox existence server-side; if any bounce back as 'mailbox unavailable' the mailbox needs creating in hPanel. Next: wire senders into send_email.py + Thunderbird once confirmed.
 
+### 2026-08-25 02:06 UTC — BossLady
+MilkUps = the band behind ALL the music (Spread Da Word soundtracks, cassettes, etc). We're working on MilkUps too — active project. milkups@zerric.xyz email set up.
+

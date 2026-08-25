@@ -38,3 +38,8 @@
 2. Every morning: review hot list, move 🔥 → 🏗/✅/❌ as decided
 3. Progress page auto-shows this list (build_proof_site.py reads it)
 4. Portal tasks created for anything 🏗
+
+## 🎵 MILKUPS (BossLady 2026-08-25) — the band behind all the music
+- MilkUps = the band behind ALL our music: Spread Da Word soundtracks, cassette tapes, Snow Beats loops, everything.
+- Active project we're working on. milkups@zerric.xyz mailbox set up.
+- Music pipeline: MilkUps -> soundtracks (6-8 songs each, 2 per episode) -> cassette player -> SnowSnakes games.
