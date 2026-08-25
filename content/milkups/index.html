@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MilkUps — We're the MilkUps</title>
+<meta name="description" content="MilkUps — independent band behind the Spread Da Word soundtracks. Fresh beats, cold vibes, Milk Carton Club. The shelves raised us.">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif; background:#0d050d; color:#f3e8ff; line-height:1.7; }
+  /* BEAT THREAD theme — vibrant music/beat accents */
+  .wrap { max-width:960px; margin:0 auto; padding:0 20px; }
+  .hero { text-align:center; padding:80px 20px 50px; background:radial-gradient(circle at 50% 0%, #1a0d1a 0%, #0d050d 70%); }
+  .hero .carton { font-size:80px; filter:drop-shadow(0 0 24px #e040fb88); }
+  .hero h1 { font-size:56px; letter-spacing:2px; background:linear-gradient(135deg,#ea80fc,#d500f9,#7fd1ff); background-clip:text; -webkit-background-clip:text; color:transparent; margin-top:10px; }
+  .hero .tag { color:#ce93d8; letter-spacing:6px; font-size:13px; margin-top:8px; text-transform:uppercase; }
+  .hero .blurb { max-width:560px; margin:22px auto 0; color:#d4b8e8; }
+  .btn { display:inline-block; margin:26px 8px 0; padding:13px 28px; border-radius:30px; text-decoration:none; font-weight:700; border:2px solid #e040fb; color:#ea80fc; transition:.2s; }
+  .btn:hover { background:#e040fb; color:#0a0f1a; }
+  .btn.solid { background:linear-gradient(135deg,#ea80fc,#d500f9); color:#0d050d; border:none; }
+  .btn.solid:hover { filter:brightness(1.15); }
+  section { padding:54px 0; }
+  h2 { font-size:30px; text-align:center; margin-bottom:26px; background:linear-gradient(135deg,#ea80fc,#d500f9); background-clip:text; -webkit-background-clip:text; color:transparent; }
+  .tapes { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
+  .tape { background:#1a0d1a; border:1px solid #e040fb44; border-radius:14px; padding:18px; text-align:center; }
+  .tape .em { font-size:38px; }
+  .tape h3 { color:#ea80fc; font-size:17px; margin:8px 0 4px; }
+  .tape p { color:#b08cc8; font-size:13px; }
+  .club { background:linear-gradient(145deg,#1a0d1a,#0d050d); border:1px solid #e040fb; border-radius:16px; padding:34px; max-width:520px; margin:0 auto; text-align:center; }
+  .club input { width:100%; margin:10px 0; padding:13px 16px; border-radius:10px; border:1px solid #7a3f8a; background:#120a12; color:#f3e8ff; font-size:15px; }
+  .club button { width:100%; padding:14px; border:none; border-radius:10px; background:linear-gradient(135deg,#ea80fc,#d500f9); color:#0d050d; font-size:16px; font-weight:800; cursor:pointer; }
+  .club button:hover { filter:brightness(1.15); }
+  .note { font-size:12px; color:#9b6fb0; margin-top:12px; }
+  .sdw-link { text-align:center; background:#0a0f1a; border:1px solid #7fd1ff33; border-radius:14px; padding:26px; margin-top:40px; }
+  .sdw-link h3 { color:#7fd1ff; }
+  .sdw-link p { color:#a9c2e5; font-size:14px; }
+  footer { text-align:center; padding:34px; color:#6f4f80; font-size:12px; border-top:1px solid #2a1a2a; }
+</style>
+</head>
+<body>
+  <div class="hero">
+    <div class="carton">🥛</div>
+    <h1>MILKUPS</h1>
+    <div class="tag">the shelves raised us</div>
+    <p class="blurb">Independent band. Cold vibes, fresh beats, straight from the cab-nets. We make the music behind <strong>Spread Da Word</strong>.</p>
+    <a class="btn solid" href="#music">Hear the music</a>
+    <a class="btn" href="#club">Join the Milk Carton Club</a>
+  </div>
+
+  <section id="music">
+    <h2>🎧 HEAR MORE — ON SPREAD DA WORD</h2>
+    <p style="text-align:center;color:#b08cc8;max-width:600px;margin:0 auto 24px;">Our soundtracks live in the Spread Da Word world. Switch tapes, feel the vibe, take the beat with you.</p>
+    <div class="tapes">
+      <div class="tape"><div class="em">📼</div><h3>Cassette Player</h3><p>8 switchable tapes · Trap, Lo-fi, Electro, Pop, Country, Funk, Synthwave, Icy</p></div>
+      <div class="tape"><div class="em">🎮</div><h3>Snow Beats</h3><p>Make your own loops on SnowSnakes — download them and remix us</p></div>
+      <div class="tape"><div class="em">🎬</div><h3>Spread Da Word</h3><p>The animated series our music scores — Vin, Que, the whole cabinet</p></div>
+    </div>
+    <div class="sdw-link">
+      <h3>🎬 Spread Da Word — the series our music lives in</h3>
+      <p>Hear the full soundtracks, switch tapes, and explore the world.</p>
+      <a class="btn solid" href="https://snowsnakes.zerric.xyz/spread-da-word/audio/soundtracks-cassette-player.html" target="_blank" rel="noopener">🎵 Open the Cassette Player</a>
+      <a class="btn" href="https://snowsnakes.zerric.xyz" target="_blank" rel="noopener">Visit SnowSnakes</a>
+    </div>
+  </section>
+
+  <section id="club">
+    <h2>🥛 MILK CARTON CLUB</h2>
+    <div class="club">
+      <p style="color:#d4b8e8">First to hear new tapes. Behind-the-scenes from the band. BeatThread drops.</p>
+      <input type="text" id="name" placeholder="Your name">
+      <input type="email" id="email" placeholder="you@email.com">
+      <button onclick="joinClub()">JOIN THE CLUB</button>
+      <div class="note">Sign in to join — we'll keep you posted on new music.</div>
+      <div id="msg" style="margin-top:10px;color:#7ee2a8;font-size:14px"></div>
+    </div>
+  </section>
+
+  <footer>
+    MILKUPS · an independent Z-Dot band · music for Spread Da Word<br>
+    🥛 the shelves raised us 🥛
+  </footer>
+
+  <script>
+    function joinClub(){
+      var n = document.getElementById('name').value.trim();
+      var e = document.getElementById('email').value.trim();
+      var m = document.getElementById('msg');
+      if(!n || !e || !e.includes('@')){ m.textContent = 'Name + valid email, please.'; m.style.color='#ff8a8a'; return; }
+      // v1: log locally; v2: POST to lead capture
+      try{ var list = JSON.parse(localStorage.getItem('milkclub')||'[]'); list.push({n:n,e:e,t:Date.now()}); localStorage.setItem('milkclub', JSON.stringify(list)); }catch(err){}
+      m.textContent = '🥛 Welcome to the Milk Carton Club, ' + n + '!';
+      m.style.color = '#7ee2a8';
+      document.getElementById('name').value=''; document.getElementById('email').value='';
+    }
+  </script>
+</body>
+</html>
