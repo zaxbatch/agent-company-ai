@@ -28,3 +28,6 @@
 - Soundtrack/cassette player kept (approved as cute).
 - Doodles/comics go to approval folder first — NOT posted until approved.
 - Jokes: some from team OK (minimal); mix to look like real users.
+
+## 2026-08-24 — Branding (Zerric)
+- **Slogan: "We'll have our bots call your bots."** — Z-Dot LLC tagline. Use in marketing, landing pages, outreach. Keep it Z-Dot branded (never mix with LPT).
