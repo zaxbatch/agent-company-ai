@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#141008"/>
+  <rect x="154.0" y="42" width="92" height="18" rx="7" fill="#c9a32a" stroke="#0003"/>
+<rect x="154.0" y="60" width="92" height="150" rx="14" fill="#8a6d1a" stroke="#0004"/>
+<rect x="162.0" y="70" width="76" height="130" rx="9" fill="#a8862a"/>
+<text x="200" y="143.0" font-size="38.64" text-anchor="middle" font-family="monospace" font-weight="bold" fill="#ffe680">Y</text>
+<circle cx="169.33333333333334" cy="76" r="4" fill="#fff"/><circle cx="230.66666666666666" cy="76" r="4" fill="#fff"/>
+<circle cx="169.33333333333334" cy="76" r="2" fill="#111"/><circle cx="230.66666666666666" cy="76" r="2" fill="#111"/><text x="200" y="70" font-size="22" text-anchor="middle" font-family="monospace" fill="#fff3c4">YELLOW</text>
+  <text x="200" y="382" font-size="16" text-anchor="middle" font-family="monospace" fill="#a9c2e5">yellow-portrait</text>
+</svg>
