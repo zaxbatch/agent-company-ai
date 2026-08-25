@@ -16,6 +16,9 @@
 | 7 | **10 doodles/day for approval** | ✅ live | CTO | → resources/snowsnakes/doodles-comics-under-review/ + shown on tasks.zdotllc.com/progress |
 | 7b | **Z-DOT SLOGAN: "We'll have our bots call your bots"** | 🔥 captured | BossLady/Zerric | Tagline for Z-Dot LLC — bots doing the work. Add to marketing/landing pages when approved |
 
+## ✅ DECISION LOG — locked
+- 2026-08-25: **Spread Da Word animation = South Park-style cutout with Rive** (team vote + Zerric confirm). Character rigs done (Vin, Que, Aji); ep1 proof-of-concept next.
+
 ## 🏗 BUILDING / APPROVED
 | # | Idea | Status | Owner | Notes |
 |---|------|--------|-------|-------|
