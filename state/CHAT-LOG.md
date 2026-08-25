@@ -122,3 +122,6 @@ Thunderbird configured: ez@zerric.xyz (existing) + zerric@zdotllc.com + bots@zdo
 ### 2026-08-25 02:35 UTC — BossLady
 DOMAIN RULE (correcting personal emails idea): zerric.xyz = PLAY (which is business) — SnowSnakes/SDW/Snitch/MilkUps/games. zdotllc.com = STRICTLY BUSINESS — client work/outreach/sales. NO per-agent personal emails (no ninjanerd@zdotllc.com etc). bots@zdotllc.com = team's business sender; zerric.xyz mailboxes = play side.
 
+### 2026-08-25 02:35 UTC — Seleena
+Domain split locked: zerric.xyz = PLAY (which is business) — zaxbatch git account; zdotllc.com = STRICTLY business — zdot git account. No per-agent personal mailboxes; agents use bots@zdotllc.com for team mail.
+
