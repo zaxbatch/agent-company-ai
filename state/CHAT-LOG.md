@@ -71,3 +71,6 @@ Agreed: every chat logs the moment it happens (immediate append to CHAT-LOG.md),
 ### 2026-08-25 00:58 UTC — Zerric
 Two GitHub accounts: zaxbatch (zerric.xyz) + zdot (zdotllc). Policy written: resources/GITHUB-ACCOUNTS-POLICY.md — key aliases in ~/.ssh/config, remote URLs use alias, per-repo identity, no shared tokens.
 
+### 2026-08-25 01:29 UTC — BossLady
+Stripe key added (sk_live_, acct_1U885HGviPL80jeH Z Dot LLC). Account under review ~24h — card_payments pending, transfers active. checkout.mjs ready; session test blocked only by review.
+
