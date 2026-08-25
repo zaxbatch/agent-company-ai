@@ -2,15 +2,19 @@
 
 > Purpose: every idea from BossLady/Zerric/team gets logged here so nothing discussed
 > gets dropped. Status: captured → scoped → building → live.
+>
+> **KEEP IDEAS HOT** (BossLady 2026-08-24): many of the best ideas come as "sleepy talk" —
+> they may not be perfectly formed yet. Treat every logged idea as alive: revisit, refine,
+> and evolve it. Never archive an idea just because it's fuzzy — fuzzy is where the gold is.
 
 ## 2026-08-24 — BossLady (sleepy ideas session, handed to loop)
 
 | # | Idea | Status | Notes |
 |---|------|--------|-------|
-| 1 | **Doodle-making app** — users make doodles | CAPTURED | Should be able to post straight to SnowSnakes |
-| 2 | **Comic-making app** — users build comics | CAPTURED | Should be able to post straight to SnowSnakes |
-| 3 | **Simple game builder** — users build simple games | CAPTURED | Should be able to post straight to SnowSnakes |
-| 4 | Doodles: 10/day for approval → `doodles-comics-under-review/` + progress page | BUILDING | Pipeline = script + approval folder + gallery on tasks.zdotllc.com/progress |
+| 1 | **Doodle-making app** — users make doodles | 🔥 HOT (captured) | Sleepy-talk idea. Should post straight to SnowSnakes. Keep refining. |
+| 2 | **Comic-making app** — users build comics | 🔥 HOT (captured) | Sleepy-talk idea. Should post straight to SnowSnakes. Keep refining. |
+| 3 | **Simple game builder** — users build simple games | 🔥 HOT (captured) | Sleepy-talk idea. Should post straight to SnowSnakes. Keep refining. |
+| 4 | Doodles: 10/day for approval → `doodles-comics-under-review/` + progress page | LIVE 🔥 | `scripts/doodle_pipeline.py` generates 10/day; gallery on tasks.zdotllc.com/progress |
 
 ## 2026-08-24 — Seleena (Snitch promo)
 
