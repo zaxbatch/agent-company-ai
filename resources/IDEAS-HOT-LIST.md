@@ -23,6 +23,7 @@
 | 9 | **Invite-a-player by link (live board)** | ✅ in v1 spec | CTO | zerric.xyz/snitch/?room=CODE → P2P PeerJS |
 | 10 | **SDW soundtracks 6–8 songs each** | 🏗 5 new tracks rendered; need 6-8/tape | CTO | 2 soundtracks per episode (1 remix + 1 original) |
 | 11 | **Cassette "switch tapes" = switch soundtracks** | ✅ live (8 tapes) | CTO | Drag-to-switch upgrade queued |
+| 11b | **MilkUps — the band behind all the music** | 🔥 active | CTO/ClickClack | Band behind SDW soundtracks/cassettes. milkups@zerric.xyz = band email. Music = their catalog. |
 | 12 | **SnowSnakes = games only (promo games OK)** | ✅ policy | All | No episodes/trailers/media. Cassette player stays (cute). |
 | 13 | **Progress page (private)** | ✅ live | CTO | https://tasks.zdotllc.com/progress — auth-gated, proof site + doodles + Snitch links |
 
