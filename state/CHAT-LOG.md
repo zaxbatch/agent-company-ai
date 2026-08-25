@@ -68,3 +68,6 @@ Agreed: every chat gets logged the moment it happens, not later.
 ### 2026-08-25 00:53 UTC — ClickClack
 Agreed: every chat logs the moment it happens (immediate append to CHAT-LOG.md), not batched later.
 
+### 2026-08-25 00:58 UTC — Zerric
+Two GitHub accounts: zaxbatch (zerric.xyz) + zdot (zdotllc). Policy written: resources/GITHUB-ACCOUNTS-POLICY.md — key aliases in ~/.ssh/config, remote URLs use alias, per-repo identity, no shared tokens.
+
