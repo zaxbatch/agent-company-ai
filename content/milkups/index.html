@@ -4,11 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MilkUps — We're the MilkUps</title>
-<meta name="description" content="MilkUps — independent band behind the Spread Da Word soundtracks. Fresh beats, cold vibes, Milk Carton Club. The shelves raised us.">
+<meta name="description" content="MilkUps — independent band behind the Spread Da Word soundtracks. Fresh beats, cold vibes, Milk Carton Club. Drop your version on BeatThread. The shelves raised us.">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   body { font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif; background:#0d050d; color:#f3e8ff; line-height:1.7; }
-  /* BEAT THREAD theme — vibrant music/beat accents */
   .wrap { max-width:960px; margin:0 auto; padding:0 20px; }
   .hero { text-align:center; padding:80px 20px 50px; background:radial-gradient(circle at 50% 0%, #1a0d1a 0%, #0d050d 70%); }
   .hero .carton { font-size:80px; filter:drop-shadow(0 0 24px #e040fb88); }
@@ -19,6 +18,8 @@
   .btn:hover { background:#e040fb; color:#0a0f1a; }
   .btn.solid { background:linear-gradient(135deg,#ea80fc,#d500f9); color:#0d050d; border:none; }
   .btn.solid:hover { filter:brightness(1.15); }
+  .btn.blue { border-color:#7fd1ff; color:#7fd1ff; }
+  .btn.blue:hover { background:#7fd1ff; color:#0a0f1a; }
   section { padding:54px 0; }
   h2 { font-size:30px; text-align:center; margin-bottom:26px; background:linear-gradient(135deg,#ea80fc,#d500f9); background-clip:text; -webkit-background-clip:text; color:transparent; }
   .tapes { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
@@ -26,14 +27,21 @@
   .tape .em { font-size:38px; }
   .tape h3 { color:#ea80fc; font-size:17px; margin:8px 0 4px; }
   .tape p { color:#b08cc8; font-size:13px; }
+  .sdw-link { text-align:center; background:#0a0f1a; border:1px solid #7fd1ff33; border-radius:14px; padding:26px; margin-top:40px; }
+  .sdw-link h3 { color:#7fd1ff; }
+  .sdw-link p { color:#a9c2e5; font-size:14px; }
+  .bt { background:linear-gradient(145deg,#1a0d1a,#12081a); border:1px solid #e040fb66; border-radius:16px; padding:34px; text-align:center; margin-top:20px; }
+  .bt h3 { color:#ea80fc; font-size:20px; }
+  .bt p { color:#c39fd8; max-width:600px; margin:12px auto; }
+  .bt .steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin:22px 0; }
+  .bt .step { background:#140a1a; border:1px solid #e040fb33; border-radius:12px; padding:16px; }
+  .bt .step b { color:#ea80fc; display:block; margin-bottom:6px; }
+  .bt .step span { color:#9b6fb0; font-size:13px; }
   .club { background:linear-gradient(145deg,#1a0d1a,#0d050d); border:1px solid #e040fb; border-radius:16px; padding:34px; max-width:520px; margin:0 auto; text-align:center; }
   .club input { width:100%; margin:10px 0; padding:13px 16px; border-radius:10px; border:1px solid #7a3f8a; background:#120a12; color:#f3e8ff; font-size:15px; }
   .club button { width:100%; padding:14px; border:none; border-radius:10px; background:linear-gradient(135deg,#ea80fc,#d500f9); color:#0d050d; font-size:16px; font-weight:800; cursor:pointer; }
   .club button:hover { filter:brightness(1.15); }
   .note { font-size:12px; color:#9b6fb0; margin-top:12px; }
-  .sdw-link { text-align:center; background:#0a0f1a; border:1px solid #7fd1ff33; border-radius:14px; padding:26px; margin-top:40px; }
-  .sdw-link h3 { color:#7fd1ff; }
-  .sdw-link p { color:#a9c2e5; font-size:14px; }
   footer { text-align:center; padding:34px; color:#6f4f80; font-size:12px; border-top:1px solid #2a1a2a; }
 </style>
 </head>
@@ -42,10 +50,10 @@
     <div class="carton">🥛</div>
     <h1>MILKUPS</h1>
     <div class="tag">the shelves raised us</div>
-    <p class="blurb">Independent band. Cold vibes, fresh beats, straight from the cab-nets. We make the music behind <strong>Spread Da Word</strong>.</p>
+    <p class="blurb">Independent band. Cold vibes, fresh beats, straight from the cab-nets. We make the music behind <strong>Spread Da Word</strong> — and you can put your verse on it.</p>
     <a class="btn solid" href="#music">Hear the music</a>
-    <a class="btn" href="#beatthread">BeatThread</a>
-    <a class="btn" href="#club">Milk Carton Club</a>
+    <a class="btn" href="#beatthread">Drop your version</a>
+    <a class="btn blue" href="#club">Milk Carton Club</a>
   </div>
 
   <section id="music">
@@ -65,12 +73,16 @@
   </section>
 
   <section id="beatthread">
-    <h2>🧵 BEATTHREAD — YOUR BEAT, YOUR VERSION</h2>
-    <p style="text-align:center;color:#b08cc8;max-width:620px;margin:0 auto 26px;">Reddit for beats. We post a MilkUps beat — you record your lyrics over it, submit your version, and the top voted takes the stage.</p>
-    <div class="club" style="max-width:560px">
-      <p style="color:#d4b8e8"><strong>This week's beat:</strong> fresh from the cab-nets. Drop your take.</p>
-      <a class="btn solid" style="margin:14px 0;width:100%;text-align:center" href="https://beatthread.netlify.app/" target="_blank" rel="noopener">🧵 OPEN BEATTHREAD</a>
-      <p class="note">Producers post beats · fans submit versions · top voted wins the stage</p>
+    <h2>🎧 BEATTHREAD — YOUR VERSE, OUR BEAT</h2>
+    <div class="bt">
+      <h3>You're the star. Our beats take the stage.</h3>
+      <p>We drop our beats on BeatThread — the community feed where beat makers post tracks and the crowd crowns the best version. Record your lyrics over a MilkUps beat, submit your version, and let the votes decide.</p>
+      <div class="steps">
+        <div class="step"><b>1 · Grab a beat</b><span>Pick a MilkUps track from the cassette player or BeatThread</span></div>
+        <div class="step"><b>2 · Drop your verse</b><span>Record your lyrics over the beat — phone or studio, we don't judge</span></div>
+        <div class="step"><b>3 · Get crowned</b><span>Submit your version. The crowd votes the best one to the top</span></div>
+      </div>
+      <a class="btn solid" href="https://beatthread.netlify.app/" target="_blank" rel="noopener">🎧 Drop your version on BeatThread</a>
     </div>
   </section>
 
@@ -81,13 +93,13 @@
       <input type="text" id="name" placeholder="Your name">
       <input type="email" id="email" placeholder="you@email.com">
       <button onclick="joinClub()">JOIN THE CLUB</button>
-      <div class="note">Sign in to join — we'll keep you posted on new music.</div>
+      <div class="note">Join the club — first word on new beats and BeatThread drops.</div>
       <div id="msg" style="margin-top:10px;color:#7ee2a8;font-size:14px"></div>
     </div>
   </section>
 
   <footer>
-    MILKUPS · an independent Z-Dot band · music for Spread Da Word<br>
+    MILKUPS · an independent Z-Dot band · music for Spread Da Word · beats on BeatThread<br>
     🥛 the shelves raised us 🥛
   </footer>
 
@@ -97,8 +109,12 @@
       var e = document.getElementById('email').value.trim();
       var m = document.getElementById('msg');
       if(!n || !e || !e.includes('@')){ m.textContent = 'Name + valid email, please.'; m.style.color='#ff8a8a'; return; }
-      // v1: log locally; v2: POST to lead capture
+      // v1: log locally + POST to lead capture endpoint (HubSpot via dashboard)
       try{ var list = JSON.parse(localStorage.getItem('milkclub')||'[]'); list.push({n:n,e:e,t:Date.now()}); localStorage.setItem('milkclub', JSON.stringify(list)); }catch(err){}
+      var payload = {name:n, email:e, source:'milkups'};
+      fetch('https://tasks.zdotllc.com/snitch/api.php?action=lead', {
+        method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload)
+      }).catch(function(){});
       m.textContent = '🥛 Welcome to the Milk Carton Club, ' + n + '!';
       m.style.color = '#7ee2a8';
       document.getElementById('name').value=''; document.getElementById('email').value='';
