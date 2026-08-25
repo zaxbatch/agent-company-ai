@@ -42,3 +42,10 @@
   3) add ~/.ssh/config alias `github-zaxbatch` -> IdentityFile ~/.ssh/id_ed25519_zaxbatch
   4) point this repo's remote at `git@github-zaxbatch:zaxbatch/agent-company-ai.git`
 - **NEVER paste a private key into credentials.txt/chat/email.** Fingerprint ≠ key.
+
+## NEW PROJECTS — which git account (BossLady 2026-08-25)
+Default rule for ANY new app/repo:
+- **zaxbatch** = zerric.xyz ecosystem: snowsnakes, Spread Da Word, Snitch, games, creative/playground, community.
+- **zdotllc** = Z-Dot LLC business: client work, marketing/sales, SaaS-for-business (Bizzy Bee later), zdotllc.com.
+- If a project touches BOTH (e.g. a game that promotes a client) → **confirm with BossLady/Zerric at repo-creation time** before creating.
+- New repo is always created via the PAT (API) so the owner is explicit — never guess.
