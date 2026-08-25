@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-25T03:20:01.844918+00:00",
+ "generated_at": "2026-08-25T05:00:02.012370+00:00",
  "note": "Sanitized continuity snapshot. Sensitive fields masked (***). Restore: this JSON documents what was in flight so work can resume after any disruption.",
  "tables": {
   "agents": {
@@ -4845,7 +4845,7 @@
     },
     {
      "name": "content_pieces",
-     "seq": 47
+     "seq": 48
     },
     {
      "name": "contacts",
@@ -6756,7 +6756,7 @@
      "status": "active",
      "created_by": "Mark",
      "created_at": "2026-08-24 23:10:55",
-     "updated_at": "2026-08-25 03:04:02",
+     "updated_at": "2026-08-25 04:40:34",
      "live_url": ""
     }
    ]
@@ -8043,7 +8043,7 @@
   },
   "content_pieces": {
    "table": "content_pieces",
-   "count": 47,
+   "count": 48,
    "rows": [
     {
      "id": 1,
@@ -8702,6 +8702,20 @@
      "created_by": "Mark",
      "created_at": "2026-08-25 00:43:05",
      "updated_at": "2026-08-25 00:43:05"
+    },
+    {
+     "id": 48,
+     "content_type": "digital_product",
+     "title": "Doodle Mega Pack \u2014 50 for Evening Review",
+     "slug": "doodle-mega-pack-50",
+     "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/content/products/doodle-mega-pack-50.html",
+     "html_content": "***",
+     "json_content": "***",
+     "status": "draft",
+     "word_count": 655,
+     "created_by": "Mark",
+     "created_at": "2026-08-25 04:52:10",
+     "updated_at": "2026-08-25 04:52:10"
     }
    ]
   },
