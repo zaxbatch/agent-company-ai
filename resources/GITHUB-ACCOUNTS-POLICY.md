@@ -120,3 +120,16 @@ with the owner (Zerric/BossLady) which account. Default rule below.
 - [ ] Cloned/pushed via matching alias (`git@github-zaxbatch:...` or `git@github-zdot:...`)
 - [ ] Local `git config user.name/email` = owning account
 - [ ] README says which project + which domain it serves
+
+## NEW PROJECTS — which account? (confirmation rule, 2026-08-25)
+
+**RULE: For every NEW app/project, confirm the GitHub account BEFORE creating a repo.**
+No guessing. No "default to zaxbatch." Ask which account the project belongs to.
+
+| Project type | Default account |
+|--------------|-----------------|
+| zerric.xyz / snowsnakes / personal / creative (Spread Da Word, Snitch, cassettes) | **zaxbatch** |
+| Z-Dot business / client work / SaaS / payments / zdotllc.com | **zdot** (zdotllc) |
+
+When a new app is proposed: log the project, ask "which git account?", record the answer
+in the ideas log / project doc, then create the repo under the confirmed account.
