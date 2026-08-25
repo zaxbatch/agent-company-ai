@@ -161,3 +161,6 @@ MilkUps site updated: BeatThread section added (Reddit-for-beats — we post Mil
 ### 2026-08-25 05:10 UTC — ClickClack
 MilkUps site LIVE at https://milkups.netlify.app: links Spread Da Word cassette player (hear the music), integrates BeatThread (producers post beats, fans record lyrics + submit versions to be voted), Milk Carton Club signup → lead capture. BeatThread = reddit-for-beats (beatthread.netlify.app).
 
+### 2026-08-25 05:24 UTC — Zerric
+MilkUps site: BeatThread link now points to https://beatthread.netlify.app/app (placeholder app). Site live at milkups.netlify.app. zerric.xyz FTP confirmed working (user u281804670, public_html symlink). milkups.zerric.xyz subdomain NOT created yet — needs folder + DNS when ready.
+
