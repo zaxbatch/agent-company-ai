@@ -107,3 +107,6 @@ MilkUps = the band behind ALL the music (Spread Da Word soundtracks, cassettes, 
 ### 2026-08-25 02:12 UTC — ClickClack
 Email forwarding: Hostinger Mail API can automate forwarders (POST /api/mail/v1/mailboxes/{id}/forwarders) BUT needs an API token created in hPanel first (POST /api/mail/v1/orders/{orderId}/api-tokens requires an existing token). Action needed: Zerric/BossLady creates an API token in hPanel (Hostinger -> API tokens) and pastes in credentials — then I create all 4 forwarders (snowsnakes, milkups, spreaddaword, snitch -> ez@zerric.xyz) + configure Thunderbird.
 
+### 2026-08-25 02:29 UTC — BossLady
+EMAIL DONE: @zerric.xyz — snowsnakes/milkups/spreaddaword/snitch created + forward to ez@zerric.xyz. @zdotllc.com — bosslady/info/sales/support created + forward to zerric@zdotllc.com (zerric@ made by BossLady). All via Hostinger Mail API.
+
