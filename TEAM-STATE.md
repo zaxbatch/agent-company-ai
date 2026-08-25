@@ -11,6 +11,11 @@
 
 ---
 
+## 0. LATEST SESSION (2026-08-25c) — ZERRIC ANSWERS ROUND 2
+- **Stripe product made:** "Linux Ghost - Barebones" (prod_V8SXbzJ0M1SaAF), price $0.00 one-time. Team to set real price later.
+- **SnowSnakes admins:** ninjanerd REGISTERED (id 82) — Zerric will promote. clickclack = username TAKEN (existing) — need password/reset from Zerric.
+- **DNS snitch subdomain:** new API token WORKS on zone GET but NO record-create route (404) → still hPanel-only. Asked Zerric for hPanel add.
+- **Decisions:** GitHub force-push = SEPARATE meeting (Zerric blocker, put on task). Doodle review = PAUSED (Zerric tonight). Email config = separate meeting (Zerric/IT). Snitch buyer = CONSUMER (venue open). SDW = 2 tapes/episode (1 remix). MilkUps = Z-Dot-owned, independent band, under zerric.xyz. Outreach sender = bots@zdotllc.com. Stripe price = TBD team. Next promo game = Snitch (Snow Beats exists).
 ## 0. LATEST SESSION (2026-08-25b) — ZERRIC'S ANSWERS (house-cleaning pass)
 - **SnowSnakes admin:** Zerric made @ninjanerd + @clickclack admins (need platform passwords from Zerric — 403 with persona PW). Use to delete dup games.
 - **GitHub history: CLEAN + push WORKS** (venv purged, d96b059..d507205). ClickClack's clone may be stale → fetch/reset.

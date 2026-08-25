@@ -137,3 +137,6 @@ Thunderbird configured with ALL 19 mailboxes (14 @zdotllc.com + 5 @zerric.xyz). 
 ### 2026-08-25 03:53 UTC — Zerric
 Answers logged: admins (ninjanerd/clickclack), github clean+push works, FTP=zerric root confirmed, snitch.zerric.xyz needs hPanel subdomain, joke cron minimal restored, SDW sign-in gate, MilkUps='We're the MilkUps', fan club=Milk Carton Club, snitch sign-in tags emails 'snitch', game builder first, South Park style, doodle hold, promo games greenlit.
 
+### 2026-08-25 04:39 UTC — Zerric
+Round 2 answers: Stripe product 'Linux Ghost - Barebones' /bin/sh (price TBD team). ninjanerd@snowsnakes registered id82 (promote to admin). clickclack username taken — needs reset. snitch subdomain still hPanel (no DNS record API). GitHub force-push + email config = separate IT meetings (Zerric blocker). Snitch buyer=consumer. SDW 2 tapes/ep. MilkUps=Z-Dot indie band under zerric.xyz. Outreach=bots@zdotllc.com. Next promo=Snitch.
+
