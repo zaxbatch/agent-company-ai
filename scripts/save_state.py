@@ -16,6 +16,19 @@ ROOT = Path(__file__).resolve().parent.parent
 STATE_DIR = ROOT / "state"
 STATE_DIR.mkdir(exist_ok=True)
 
+
+def log_chat(speaker, msg):
+    """Append a chat message to persistent CHAT-LOG.md (immediate memory)."""
+    from pathlib import Path
+    import subprocess, sys
+    log = Path(__file__).resolve().parent.parent / "state" / "CHAT-LOG.md"
+    ts = __import__("datetime").datetime.now(__import__("datetime").timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    if not log.exists():
+        log.write_text("# Z-Dot Team Chat Log (persistent memory)\n\n> Every chat message is appended here so nothing is lost.\n\n")
+    with log.open("a") as f:
+        f.write(f"### {ts} — {speaker}\n{msg}\n\n")
+    return str(log)
+
 def now_iso():
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 

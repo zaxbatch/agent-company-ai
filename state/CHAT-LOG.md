@@ -17,3 +17,45 @@ Slogan: 'We'll have our bots call your bots' — drafts in marketing/slogan-bots
 ### 2026-08-25 00:48 UTC — BossLady
 Keep all chats stored in memory immediately — CHAT-LOG.md is the persistent log.
 
+### 2026-08-25 00:48 UTC — BossLady
+House cleaning: stop the loop. Need a website showing tangible proof of work, updated on progress, well organized.
+
+### 2026-08-25 00:48 UTC — BossLady
+Progress page location: https://tasks.zdotllc.com/progress — private, logging into tasks.zdotllc.com gets you in. Not public.
+
+### 2026-08-25 00:48 UTC — BossLady
+SnowSnakes = games only. Promo games for other projects CAN go in games. No episodes/trailers/media pages. Soundtrack cassette player kept (cute).
+
+### 2026-08-25 00:48 UTC — BossLady
+SDW: 6-8 songs per soundtrack, 2 soundtracks per episode (1 remix + 1 original). Switch tapes to switch soundtracks. Cassette player upgrade = drag tape from library into deck.
+
+### 2026-08-25 00:48 UTC — BossLady
+Media player isn't right on the spread-da-word website.
+
+### 2026-08-25 00:48 UTC — BossLady
+Doodles: 10/day for approval → resources/snowsnakes/doodles-comics-under-review/ AND posted to progress page.
+
+### 2026-08-25 00:48 UTC — Seleena
+Snitch mini-game (catch cheese, dodge the cat) = YES on SnowSnakes (promo game). Snitch trailer video = NO.
+
+### 2026-08-25 00:48 UTC — BossLady
+Doodle pack is good as is. Don't post until we decide to go live. Can still change before live.
+
+### 2026-08-25 00:48 UTC — BossLady
+Sleepy-talk ideas are often the best — keep ideas HOT, keep refining, never archive fuzzy ideas.
+
+### 2026-08-25 00:48 UTC — BossLady
+Creator tools (sleepy ideas): doodle-making app, comic-making app, simple game builder — all should post straight to SnowSnakes.
+
+### 2026-08-25 00:48 UTC — BossLady
+Snow Beats download can be behind gated sign-in, but the download feature doesn't work because the game loads in a modal — fix it.
+
+### 2026-08-25 00:48 UTC — Zerric
+Stripe checkout: Option 2 — prebuilt checkout form (Stripe Checkout Sessions). Build into Mission Control; webhook marks paid in CRM.
+
+### 2026-08-25 00:48 UTC — Zerric
+Slogan: 'We'll have our bots call your bots' — draft content while fresh.
+
+### 2026-08-25 00:48 UTC — BossLady
+All chats need to store and stay in memory immediately.
+
