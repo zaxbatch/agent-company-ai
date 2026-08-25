@@ -92,3 +92,9 @@ GITHUB UNBLOCKED: zaxbatch key verified ('Hi zaxbatch!'), SSH config wired, reba
 ### 2026-08-25 01:50 UTC — BossLady
 Email split: zerric.xyz email = ez@zerric.xyz (LIVE, Hostinger SMTP via scripts/send_email.py) for zaxbatch/zerric.xyz work. zdot email (for zdotllc business) = BossLady working on it; candidate bosslady-zdot@protonmail.com or new @zdotllc.com mailbox. Keep the two accounts' emails separate.
 
+### 2026-08-25 02:02 UTC — BossLady
+New-project git rule: zaxbatch=zerric.xyz/snowsnakes/SDW/Snitch/games; zdotllc=business/client. Overlap=confirm at creation. Written to GITHUB-RULE.md.
+
+### 2026-08-25 02:03 UTC — BossLady
+GitHub new-repo rule: confirm account per new project. zaxbatch = zerric.xyz/snowsnakes/SDW/Snitch/playground. zdot = zdotllc.com/business/CRM/payments. Default by domain; ask if ambiguous.
+
