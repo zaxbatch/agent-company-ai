@@ -152,3 +152,6 @@ Task list ownership: live portal has 16 tasks, updaters = Zerric(5) + ClickClack
 ### 2026-08-25 05:01 UTC — Zerric
 MilkUps site BUILT (BeatThread theme, Spread Da Word music links, Milk Carton Club signup) — LIVE at https://zdotllc.com/milkups/. But zerric.xyz is a DIFFERENT host (A: 145.223.124.19/88.223.87.209; our FTP=151.106.97.104 serves zdotllc.com). Need zerric.xyz hosting FTP creds to move it under zerric.xyz/milkups.
 
+### 2026-08-25 05:01 UTC — ClickClack
+CORRECTION: I misattributed Zerric as BossLady in recent comms. Zerric is the owner answering the team list. BossLady = CEO. Noted for all future entries.
+
