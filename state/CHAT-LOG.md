@@ -89,3 +89,6 @@ zaxbatch key status: id_ed25519_zaxbatch exists+valid (comment zaxbatch@github, 
 ### 2026-08-25 01:48 UTC — NinjaNerd
 GITHUB UNBLOCKED: zaxbatch key verified ('Hi zaxbatch!'), SSH config wired, rebased 128 commits, purged 116MB venv/playwright from history, FORCE-PUSHED main -> zaxbatch/agent-company-ai (75801e2..1e41244). Test123 repo: needs creation on GitHub first (no token) — BossLady to create empty repo, then push.
 
+### 2026-08-25 01:50 UTC — BossLady
+Email split: zerric.xyz email = ez@zerric.xyz (LIVE, Hostinger SMTP via scripts/send_email.py) for zaxbatch/zerric.xyz work. zdot email (for zdotllc business) = BossLady working on it; candidate bosslady-zdot@protonmail.com or new @zdotllc.com mailbox. Keep the two accounts' emails separate.
+
