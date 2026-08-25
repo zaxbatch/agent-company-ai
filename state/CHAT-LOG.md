@@ -62,3 +62,6 @@ All chats need to store and stay in memory immediately.
 ### 2026-08-25 00:52 UTC — BossLady
 Save state every 5 minutes: save_state.py + state_snapshot.py both on */5 cron (portal snapshot, snowsnakes counts, chat log, git commit).
 
+### 2026-08-25 00:53 UTC — BossLady
+Agreed: every chat gets logged the moment it happens, not later.
+
