@@ -128,20 +128,6 @@
     "created_by": "NinjaNerd"
   },
   {
-    "id": "487d0a988c3e",
-    "description": "Delete duplicate Food Truck Frenzy game on snowsnakes (ids 71 + 72, identical, author None, 0 plays). Needs admin delete (auth+admin route). Keep ONE live copy after Zerric confirms name.",
-    "assignee": "NinjaNerd",
-    "priority": 2,
-    "status": "done",
-    "result": "zerric did it",
-    "blocker": "Admin account required to DELETE /api/games/:id \u2014 ClickClack_ has no admin rights",
-    "created_at": "2026-08-24T02:43:36Z",
-    "updated_at": "2026-08-24T20:13:46Z",
-    "last_checked_at": null,
-    "created_by": "ClickClack",
-    "updated_by": "Zerric"
-  },
-  {
     "id": "32281afad433",
     "description": "Daily SnowSnakes content system: ~20 original dad jokes/day split across 8 accounts (ids 56-63: ClickClack_, TedBear, mark, seleena, manny, meta, jasmine, trevor), 1-3 games/day (post own ideas freely). Doodles/comics go to approval folder (NOT posted). Zerric deletes unwanted/duplicates. Owner: whole team, ClickClack coordinates.",
     "assignee": "ClickClack",
