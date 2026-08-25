@@ -59,3 +59,6 @@ Slogan: 'We'll have our bots call your bots' — draft content while fresh.
 ### 2026-08-25 00:48 UTC — BossLady
 All chats need to store and stay in memory immediately.
 
+### 2026-08-25 00:52 UTC — BossLady
+Save state every 5 minutes: save_state.py + state_snapshot.py both on */5 cron (portal snapshot, snowsnakes counts, chat log, git commit).
+
