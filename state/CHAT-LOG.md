@@ -80,3 +80,6 @@ GitHub key audit: this machine's default SSH key = zdotllc (ssh -T confirmed). N
 ### 2026-08-25 01:33 UTC — Zerric
 zaxbatch@github in credentials = GitHub CLI public key fingerprint (SHA256:WyqU...). Private key id_ed25519_zaxbatch NOT on machine yet. Options: (1) paste private key file into credentials, or (2) gh auth login with zaxbatch account. Policy in resources/GITHUB-ACCOUNTS-POLICY.md.
 
+### 2026-08-25 01:36 UTC — BossLady
+zdot key confirmed already on machine (works). Will get zaxbatch key now — CTO to verify + wire SSH alias + point remote when it lands.
+
