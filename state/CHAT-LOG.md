@@ -113,3 +113,6 @@ EMAIL DONE: @zerric.xyz — snowsnakes/milkups/spreaddaword/snitch created + for
 ### 2026-08-25 02:32 UTC — BossLady
 bots@zdotllc.com created (team account for all agents). Test email sent from bots@ -> zerric@zdotllc.com. Bots = the AI team's sending identity.
 
+### 2026-08-25 02:33 UTC — ClickClack
+Mailboxes done: zerric@zdotllc.com (Zerric), bots@zdotllc.com (bot account for all agents — password reset + verified sending). Email sent from bots@ -> zerric@ confirming live. Also on zdotllc.com: bosslady@, info@, sales@, support@ (pre-existing), ceo@, team@ (created earlier — flag if unwanted). zerric.xyz mailboxes (snowsnakes@, milkups@, spreaddaword@, snitch@) got test emails; forwarders still need hPanel API token.
+
