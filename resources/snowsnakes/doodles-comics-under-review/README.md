@@ -13,3 +13,15 @@ Batch 1 · 2026-08-24 · Spread Da Word universe · South Park cutout vibe · SV
 
 Rule: these are NOT posted to SnowSnakes (doodles go to approval first).
 Awaiting Zerric/BossLady review → approved doodles can become comics/games or post as images.
+
+## 2026-08-24 — daily batch
+- doodle-2026-08-24-01-red.svg
+- doodle-2026-08-24-02-crisp.svg
+- doodle-2026-08-24-03-whip.svg
+- doodle-2026-08-24-04-crisp.svg
+- doodle-2026-08-24-05-snow-snake.svg
+- doodle-2026-08-24-06-vin-negar.svg
+- doodle-2026-08-24-07-que.svg
+- doodle-2026-08-24-08-que.svg
+- doodle-2026-08-24-09-mayo.svg
+- doodle-2026-08-24-10-que.svg

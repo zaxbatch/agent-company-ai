@@ -8,6 +8,7 @@ One command to regenerate after any progress:
 Pulls live facts from the repo (git log, state files, account files) so the page
 is always current. NO secrets/emails/tokens — public-safe (counts + links only).
 """
+import base64
 import json
 import subprocess
 from datetime import datetime, timezone
@@ -89,13 +90,14 @@ DOODLE_SRC = ROOT / "resources" / "snowsnakes" / "doodles-comics-under-review"
 doodle_files = sorted(DOODLE_SRC.glob("*.svg")) if DOODLE_SRC.exists() else []
 doodle_map = {}
 for i, d in enumerate(doodle_files, 1):
-    flat = f"doodle-{i:02d}-{d.stem}.svg"
-    (OUT_DIR / flat).write_bytes(d.read_bytes())
-    doodle_map[flat] = d.stem.replace("-", " ").title()
+    # embed inline (data URI) so doodles render on static hosting without extra files
+    b64 = base64.b64encode(d.read_bytes()).decode()
+    uri = f"data:image/svg+xml;base64,{b64}"
+    doodle_map[uri] = d.stem.replace("-", " ").title()
 doodle_cards = "".join(
-    f'<div class="doodle"><img src="{flat}" alt="{name}" loading="lazy"><p>{name}</p></div>'
-    for flat, name in doodle_map.items()
-) if doodle_map else '<p style="color:#6f8db0">No doodles pending review right now.</p>'
+    f'<div class="doodle"><img src="{uri}" alt="{name}" loading="lazy"><p>{name}</p></div>'
+    for uri, name in doodle_map.items()
+) if doodle_map else '<p style="color:#6f8db0">No doodles pending review right now.</p>' 
 
 commit_rows = "".join(
     f'<tr><td class="hash">{h}</td><td>{m}</td></tr>' for h, m in commits
@@ -141,6 +143,9 @@ html = f"""<!DOCTYPE html>
   .doodle {{ background:#101d33; border:1px solid #1f3a5f; border-radius:10px; padding:8px; text-align:center; }}
   .doodle img {{ width:100%; height:auto; border-radius:6px; background:#0a1526; }}
   .doodle p {{ font-size:.7rem; color:#a9c2e5; margin-top:6px; }}
+  .ideas {{ display:flex; flex-direction:column; gap:8px; margin-top:14px; }}
+  .idea {{ background:#101d33; border:1px solid #1f3a5f; border-left:4px solid #ffd166; border-radius:8px; padding:8px 12px; font-size:.82rem; color:#a9c2e5; }}
+  .idea .st {{ font-weight:700; margin-right:8px; }}
   .blockers li {{ margin:6px 0 6px 18px; color:#ffb3a0; }}
   footer {{ margin-top:40px; text-align:center; color:#4a6385; font-size:.75rem; }}
 </style>
@@ -172,6 +177,9 @@ html = f"""<!DOCTYPE html>
 
   <h3 class="section">🎨 DOODLES FOR APPROVAL (latest batch)</h3>
   <div class="doodles">{doodle_cards}</div>
+
+  <h3 class="section">💡 HOT IDEAS (kept hot — from BossLady/Zerric, incl. sleepy talk)</h3>
+  <div class="ideas"><div class="idea"><span class="st">**Doodle-making app** that posts straight to SnowSnakes</span><b>1</b> — 🔥 captured</div><div class="idea"><span class="st">**Comic-making app** that posts straight to SnowSnakes</span><b>2</b> — 🔥 captured</div><div class="idea"><span class="st">**Simple game builder** that posts straight to SnowSnakes</span><b>3</b> — 🔥 captured</div><div class="idea"><span class="st">**Snitch mini-game (catch cheese, dodge the cat)** → SnowSnakes</span><b>4</b> — ✅ approved (Seleena)</div><div class="idea"><span class="st">**Snitch trailer video**</span><b>5</b> — ❌ nixed (BossLady)</div><div class="idea"><span class="st">**Snow Beats ⬇ download**</span><b>6</b> — ✅ done (game 97 → fixed 99)</div><div class="idea"><span class="st">**10 doodles/day for approval**</span><b>7</b> — ✅ live</div><div class="idea"><span class="st">**Snitch online board game v1**</span><b>8</b> — 🏗 prototype done, needs online layer</div><div class="idea"><span class="st">**Invite-a-player by link (live board)**</span><b>9</b> — ✅ in v1 spec</div><div class="idea"><span class="st">**SDW soundtracks 6–8 songs each**</span><b>10</b> — 🏗 5 new tracks rendered; need 6-8/tape</div><div class="idea"><span class="st">**Cassette "switch tapes" = switch soundtracks**</span><b>11</b> — ✅ live (8 tapes)</div><div class="idea"><span class="st">**SnowSnakes = games only (promo games OK)**</span><b>12</b> — ✅ policy</div><div class="idea"><span class="st">**Progress page (private)**</span><b>13</b> — ✅ live</div><div class="idea"><span class="st">Predator tokens (cat/owl) in Snitch</span><b>14</b> — 🗄</div><div class="idea"><span class="st">Public signup / self-serve / leaderboards</span><b>15</b> — 🗄</div><div class="idea"><span class="st">Bizzy Bee SaaS</span><b>16</b> — 🗄</div></div>
 
   <h3 class="section">🧾 RECENT COMMITS</h3>
   <table>
