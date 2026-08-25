@@ -196,8 +196,7 @@ _probe() { # $1 = method $2 = path $3 = expect_http $4 = expect_body \
 }
 
 _run_mode() { # $1 = mode label (virtual/normal) $2 = start cmd $3 = logfile
-  local mode="$1" cmd="$2" log="$3"
-  local jar="$LOG_DIR/${mode}-cookies.txt"
+  local mode="$1" cmd="$2" log="$3" jar="$LOG_DIR/${mode}-cookies.txt"
   _log "══════════════════════════════════════════════════════════"
   _log "MODE: ${mode^^}  (AC-1/AC-2/AC-3 for virtual; AC-4 for normal)"
   _log "══════════════════════════════════════════════════════════"
