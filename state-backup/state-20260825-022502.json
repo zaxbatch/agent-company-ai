@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-24T23:30:01.989238+00:00",
+ "generated_at": "2026-08-25T02:25:01.895901+00:00",
  "note": "Sanitized continuity snapshot. Sensitive fields masked (***). Restore: this JSON documents what was in flight so work can resume after any disruption.",
  "tables": {
   "agents": {
@@ -90,7 +90,7 @@
   },
   "tasks": {
    "table": "tasks",
-   "count": 196,
+   "count": 197,
    "rows": [
     {
      "id": "1e06bda85075",
@@ -2443,12 +2443,24 @@
      "artifacts_json": "[]",
      "created_at": "2026-08-24 19:09:16",
      "updated_at": "2026-08-24 19:09:17"
+    },
+    {
+     "id": "95f8e637733a",
+     "description": "fugure out how to call Zerric",
+     "assignee_id": "BossLady",
+     "status": "done",
+     "priority": 0,
+     "parent_id": null,
+     "result": "***",
+     "artifacts_json": "***",
+     "created_at": "2026-08-25 00:45:10",
+     "updated_at": "2026-08-25 00:46:17"
     }
    ]
   },
   "messages": {
    "table": "messages",
-   "count": 261,
+   "count": 262,
    "rows": [
     {
      "id": "bfc26bedbffc",
@@ -4798,6 +4810,15 @@
      "topic": "task.completed",
      "metadata_json": "{}",
      "timestamp": "2026-08-24T19:08:40.279456+00:00"
+    },
+    {
+     "id": "809d623fbe49",
+     "from_agent": "BossLady",
+     "to_agent": null,
+     "content": "Task completed (done): HOW TO CALL ZERRIC \u2014 VERIFIED CONTACT & ESCALATION GUIDE (researched via live web checks 2026-08-24)\n\nBottom line: Zerric's personal cell is (502) 299-5252 \u2014 that is the literal \"call\" channel. It's l",
+     "topic": "task.completed",
+     "metadata_json": "{}",
+     "timestamp": "2026-08-25T00:46:17.165341+00:00"
     }
    ]
   },
@@ -4812,7 +4833,7 @@
    "rows": [
     {
      "name": "browse_log",
-     "seq": 196
+     "seq": 202
     },
     {
      "name": "prospect_searches",
@@ -4820,11 +4841,11 @@
     },
     {
      "name": "social_drafts",
-     "seq": 67
+     "seq": 70
     },
     {
      "name": "content_pieces",
-     "seq": 45
+     "seq": 47
     },
     {
      "name": "contacts",
@@ -4838,7 +4859,7 @@
   },
   "artifacts": {
    "table": "artifacts",
-   "count": 102,
+   "count": 103,
    "rows": [
     {
      "id": "bd30561548dc",
@@ -5757,12 +5778,21 @@
      "content": "***",
      "artifact_type": "text",
      "created_at": "2026-08-24 19:08:40"
+    },
+    {
+     "id": "34bf01d67923",
+     "task_id": "95f8e637733a",
+     "agent_id": "BossLady",
+     "name": "result",
+     "content": "***",
+     "artifact_type": "text",
+     "created_at": "2026-08-25 00:46:17"
     }
    ]
   },
   "goals": {
    "table": "goals",
-   "count": 19,
+   "count": 21,
    "rows": [
     {
      "id": "bf88aa5e1266",
@@ -5896,6 +5926,20 @@
      "status": "failed",
      "created_at": "2026-08-24 18:32:41",
      "completed_at": "2026-08-24 19:09:17"
+    },
+    {
+     "id": "376e337a061d",
+     "description": "Figure out how to talk back and forth \"hot potato\" in our group chat. The goal is to be able to initiate bot mode, where you have a group meeting without the need for me to keep it going. I am able to join in and out at any time. I can turn any group chat into boss mode. the file to modify is advance.html",
+     "status": "failed",
+     "created_at": "2026-08-25 00:44:40",
+     "completed_at": "2026-08-25 00:44:40"
+    },
+    {
+     "id": "cb70d2e7a2cc",
+     "description": "call zerric",
+     "status": "failed",
+     "created_at": "2026-08-25 01:28:40",
+     "completed_at": "2026-08-25 01:28:40"
     }
    ]
   },
@@ -6705,21 +6749,21 @@
     },
     {
      "id": 23,
-     "title": "Z-Dot Progress \u2014 See What We're Working On",
+     "title": "Z-Dot Progress \u2014 Team Memory & Status",
      "slug": "progress",
-     "html_content": "***",
+     "html_content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Z-Dot Progress \u2014 Team Memory &amp; Status</title>\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n         background: #0a0a0a; color: #e0e0e0; line-height: 1.6; }\n  .hero { text-align: center; padding: 80px 20px 60px;\n           background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }\n  .hero h1 { font-size: 2.5rem; font-weight: 700; color: #fff;\n              max-width: 700px; margin: 0 auto 16px; }\n  .hero .subtitle { font-size: 1.2rem; color: #94a3b8; max-width: 600px;\n                     margin: 0 auto 32px; }\n  \n  .section { max-width: 720px; margin: 0 auto; padding: 48px 24px; }\n  .section h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px;\n                 border-bottom: 2px solid #1e40af; padding-bottom: 8px; display: inline-block; }\n  .section p { margin-bottom: 16px; color: #cbd5e1; }\n  .section ul { margin: 16px 0 16px 24px; color: #cbd5e1; }\n  .section li { margin-bottom: 8px; }\n  .section strong { color: #fff; }\n  .cta-bar { text-align: center; padding: 48px 20px;\n              background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }\n  .cta-bar .btn { display: inline-block; background: #2563eb; color: #fff;\n                   padding: 16px 40px; border-radius: 8px; font-size: 1.1rem;\n                   font-weight: 600; text-decoration: none;\n                   transition: background 0.2s; }\n  .cta-bar .btn:hover { background: #1d4ed8; }\n  .cta-bar .sub { color: #64748b; margin-top: 12px; font-size: 0.9rem; }\n  .footer { text-align: center; padding: 32px; color: #475569; font-size: 0.8rem; }\n</style>\n</head>\n<body>\n<div class=\"hero\">\n  <h1>See What We're Working On</h1>\n  <div class=\"subtitle\">Private Z-Dot progress page + team memory. Every chat logged the moment it happens.</div>\n  \n</div>\n<div class=\"section\"><h2>\ud83d\udd12 Private \u2014 Login Required</h2>\n<p><strong>Direct URL:</strong> https://tasks.zdotllc.com/progress \u2014 reached via tasks.zdotllc.com login. Team only.</p>\n\n<p>---</p></div>\n<div class=\"section\"><h2>\ud83e\udde0 TEAM MEMORY \u2014 Running Decision Log</h2>\n<p><strong>Core rules:</strong></p>\n<ul>\n<li>\u2705 All chats logged <strong>the moment they happen</strong></li>\n<li>\u2705 Snapshots every <strong>5 minutes</strong></li>\n<li>\u2705 Nothing lives only in chat</li>\n</ul>\n\n<p><strong>#26 RESOLVED \u2014 both domains on HOSTINGER \u2705:</strong></p>\n<ul>\n<li>\u2705 <strong>zerric.xyz</strong> hosted at Hostinger</li>\n<li>\u2705 <strong>zdotllc.com</strong> hosted at Hostinger too (BossLady)</li>\n<li>\u2705 Same host = @zdotllc.com can use same mail setup/API</li>\n<li>\u23f3 NinjaNerd: add zdotllc.com to Hostinger mail \u2192 verify DNS (MX/SPF/DKIM) \u2192 create zerric@zdotllc.com \u2192 Thunderbird</li>\n</ul>\n\n<p><strong>Email stack:</strong></p>\n<ul>\n<li>zerric.xyz: ez@ (active) \u00b7 snowsnakes@ \u00b7 milkups@ \u00b7 spreaddaword@ \u00b7 snitch@ (forward \u2192 ez@, #24)</li>\n<li>zdotllc.com: zerric@zdotllc.com (#27)</li>\n</ul>\n\n<p>---</p></div>\n<div class=\"section\"><h2>\ud83d\udccb Project Status (brief)</h2>\n<ul>\n<li><strong>\ud83c\udfac Spread Da Word</strong> \u2014 \ud83d\udfe1 built \u00b7 needs tape list</li>\n<li><strong>\ud83c\udfb5 MilkUps (band)</strong> \u2014 \ud83c\udd95 active \u00b7 scope TBD</li>\n<li><strong>\ud83d\udc00 Snitch</strong> \u2014 \ud83d\udfe1 rules locked \u00b7 pages built \u00b7 awaiting deploy</li>\n<li><strong>\ud83c\udfae Promo games</strong> \u2014 Rat Run \u2705 \u00b7 3 \ud83c\udf21\ufe0f</li>\n<li><strong>\ud83c\udfa7 Snow Beats</strong> \u2014 spec done \u00b7 gating locked \u00b7 modal bug open</li>\n<li><strong>\u270f\ufe0f Doodles</strong> \u2014 \u2705 approved \u00b7 Batch 2 delivered</li>\n<li><strong>\ud83e\uddd1\ud83e\udd1d\ud83e\uddd1 Creator apps</strong> \u2014 \ud83c\udf21\ufe0f hot</li>\n<li><strong>\ud83d\udce7 Outreach</strong> \u2014 \ud83d\udd34 blocked on email config</li>\n<li><strong>\ud83d\ude9a FTF</strong> \u2014 \ud83d\udd34 blocked on client info</li>\n<li><strong>\ud83c\udfd7\ufe0f Local pipeline</strong> \u2014 \ud83d\udfe2 25+ leads</li>\n<li><strong>\ud83d\udcb3 Stripe</strong> \u2014 \u23f3 under review ~24h</li>\n</ul>\n\n<p>---</p></div>\n<div class=\"section\"><h2>\u26a1 Blockers</h2>\n<p>Email integration config (unblocks outreach + tests) \u00b7 Vercel \u00b7 Progress page wiring \u00b7 Tape list \u00b7 FTF info \u00b7 Doodle folder write access \u00b7 Snow Beats modal fix \u00b7 Stripe review \u00b7 Hostinger mail setup (#26/#27) \u00b7 MilkUps scope</p>\n\n<p>---</p></div>\n<div class=\"section\"><h2>\ud83d\udcdd Changelog</h2>\n<ul>\n<li><strong>Aug 24</strong> \u2014 Decision log (17), snapshot 5-min, logging timing locked.</li>\n<li><strong>Aug 24</strong> \u2014 Stripe key stored; under review ~24h. GitHub keys (#17 \u2705). PAT (#19 \u2705).</li>\n<li><strong>Aug 24</strong> \u2014 #18\u2013#25 logged (email/Thunderbird/mailboxes/MilkUps/key rotation).</li>\n<li><strong>Aug 24</strong> \u2014 <strong>#26 RESOLVED: both domains on Hostinger \u2014 same mail setup path for @zdotllc.com.</strong> #27 zerric@zdotllc.com pending creation.</li>\n<li>*Every turn appends.*</li>\n</ul></div>\n<div class=\"cta-bar\">\n  <a class=\"btn\" href=\"#\">Open Task Dashboard</a>\n  <div class=\"sub\">Private \u2014 requires tasks.zdotllc.com login</div>\n</div>\n<div class=\"footer\">&copy; 2024 Z Dot Team. All rights reserved.</div>\n</body>\n</html>\n",
      "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/landing_pages/progress.html",
      "status": "active",
      "created_by": "Mark",
      "created_at": "2026-08-24 23:10:55",
-     "updated_at": "2026-08-24 23:26:45",
+     "updated_at": "2026-08-25 02:24:14",
      "live_url": ""
     }
    ]
   },
   "social_drafts": {
    "table": "social_drafts",
-   "count": 67,
+   "count": 70,
    "rows": [
     {
      "id": 1,
@@ -7591,6 +7635,45 @@
      "created_at": "2026-08-24 23:20:34",
      "updated_at": "2026-08-24 23:20:34",
      "published_id": ""
+    },
+    {
+     "id": 68,
+     "platform": "twitter",
+     "content": "We'll have our bots call your bots.\n\nYour business runs on automation. So do we. \ud83e\udd16\n\nZ-Dot builds the systems, the AI, and the outreach that never sleeps \u2014 so you don't have to.",
+     "media_urls": "",
+     "hashtags": "Zdot,Automation,AI,BusinessGrowth",
+     "status": "draft",
+     "scheduled_for": null,
+     "created_by": "Mark",
+     "created_at": "2026-08-25 00:43:05",
+     "updated_at": "2026-08-25 00:43:05",
+     "published_id": ""
+    },
+    {
+     "id": 69,
+     "platform": "linkedin",
+     "content": "\"We'll have our bots call your bots.\"\n\nThat's the Z-Dot promise. While you're sleeping, your outreach is running. While you're in meetings, your follow-ups are sending. While you're growing, your systems are scaling.\n\nAutomation isn't a luxury anymore \u2014 it's the difference between a business that hustles and a business that runs.\n\nLet's put your business on autopilot. \ud83e\udd16",
+     "media_urls": "",
+     "hashtags": "Zdot,Automation,AI,BusinessGrowth,SmallBusiness",
+     "status": "draft",
+     "scheduled_for": null,
+     "created_by": "Mark",
+     "created_at": "2026-08-25 00:43:05",
+     "updated_at": "2026-08-25 00:43:05",
+     "published_id": ""
+    },
+    {
+     "id": 70,
+     "platform": "instagram",
+     "content": "We'll have our bots call your bots. \ud83e\udd16\n\nThat's not a threat. It's a promise.\n\nYour business + our automation = growth that runs itself.",
+     "media_urls": "",
+     "hashtags": "Zdot,Automation,AI,BusinessGrowth",
+     "status": "draft",
+     "scheduled_for": null,
+     "created_by": "Mark",
+     "created_at": "2026-08-25 00:43:05",
+     "updated_at": "2026-08-25 00:43:05",
+     "published_id": ""
     }
    ]
   },
@@ -7960,7 +8043,7 @@
   },
   "content_pieces": {
    "table": "content_pieces",
-   "count": 45,
+   "count": 47,
    "rows": [
     {
      "id": 1,
@@ -8591,12 +8674,40 @@
      "created_by": "NinjaNerd",
      "created_at": "2026-08-24 23:21:06",
      "updated_at": "2026-08-24 23:21:06"
+    },
+    {
+     "id": 46,
+     "content_type": "digital_product",
+     "title": "Doodle Batch 2 \u2014 10 Doodles for Approval (Day 1)",
+     "slug": "snowsnakes-doodles-batch-2",
+     "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/content/products/snowsnakes-doodles-batch-2.html",
+     "html_content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Doodle Batch 2 \u2014 10 Doodles for Approval (Day 1)</title>\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n         background: #0a0a0a; color: #e0e0e0; line-height: 1.8; }\n  .cover { text-align: center; padding: 80px 20px 60px;\n            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }\n  .cover h1 { font-size: 2.5rem; font-weight: 700; color: #fff;\n               max-width: 700px; margin: 0 auto 16px; }\n  .cover .author { color: #94a3b8; font-size: 1.1rem; }\n  .cover .price { display: inline-block; background: #1e3a5f; color: #38bdf8;\n                   font-size: 1.4rem; font-weight: 700; padding: 8px 24px;\n                   border-radius: 8px; margin-top: 16px; }\n  .toc { max-width: 720px; margin: 0 auto; padding: 48px 24px; }\n  .toc h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px; }\n  .toc ul { list-style: none; padding: 0; }\n  .toc li { margin-bottom: 8px; }\n  .toc a { color: #60a5fa; text-decoration: none; }\n  .toc a:hover { text-decoration: underline; }\n  .chapter { max-width: 720px; margin: 0 auto; padding: 48px 24px;\n              border-top: 1px solid #1e293b; }\n  .chapter h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px;\n                 border-bottom: 2px solid #1e40af; padding-bottom: 8px; display: inline-block; }\n  .chapter h3 { font-size: 1.2rem; color: #e2e8f0; margin: 24px 0 12px; }\n  .chapter p { margin-bottom: 16px; color: #cbd5e1; }\n  .chapter ul { margin: 16px 0 16px 24px; color: #cbd5e1; }\n  .chapter li { margin-bottom: 8px; }\n  .chapter strong { color: #fff; }\n  .footer { text-align: center; padding: 32px; color: #475569; font-size: 0.8rem;\n             border-top: 1px solid #1e293b; margin-top: 48px; }\n</style>\n</head>\n<body>\n<div class=\"cover\">\n  <h1>Doodle Batch 2 \u2014 10 Doodles for Approval (Day 1)</h1>\n  <div class=\"author\">By Mark (Head of Marketing)</div>\n  <div class=\"price\">Suggested Price: For approval \u2014 not for sale</div>\n</div>\n<div class=\"toc\">\n  <h2>Table of Contents</h2>\n  <ul>\n    <li><a href=\"#chapter-1\">Chapter 1: Doodle Batch 2 \u2014 10 Doodles (Day 1 of Daily 10)</a></li>\n    <li><a href=\"#chapter-2\">Chapter 2: Doodle 1 \u2014 Rat Run Mascot (cheese wedge sprint)</a></li>\n    <li><a href=\"#chapter-3\">Chapter 3: Doodle 2 \u2014 Dodge the Cat (Rat Run)</a></li>\n    <li><a href=\"#chapter-4\">Chapter 4: Doodle 3 \u2014 Doodle Maker Pen</a></li>\n    <li><a href=\"#chapter-5\">Chapter 5: Doodle 4 \u2014 Comic Maker Panel</a></li>\n    <li><a href=\"#chapter-6\">Chapter 6: Doodle 5 \u2014 Game Builder Wrench-Controller</a></li>\n    <li><a href=\"#chapter-7\">Chapter 7: Doodle 6 \u2014 Cassette with Record Button (Spread Da Word)</a></li>\n    <li><a href=\"#chapter-8\">Chapter 8: Doodle 7 \u2014 Cab-Net Arcade Cabinet</a></li>\n    <li><a href=\"#chapter-9\">Chapter 9: Doodle 8 \u2014 Neon Night Cassette</a></li>\n    <li><a href=\"#chapter-10\">Chapter 10: Doodle 9 \u2014 Beat Paw (Snow Beats)</a></li>\n    <li><a href=\"#chapter-11\">Chapter 11: Doodle 10 \u2014 Rat King Thumbs Up (Snitch)</a></li>\n  </ul>\n</div>\n<div class=\"chapter\" id=\"chapter-1\">\n  <h2>Chapter 1: Doodle Batch 2 \u2014 10 Doodles (Day 1 of Daily 10)</h2>\n  <p>Daily cadence: <strong>10 doodles/day</strong> for approval. Today = Batch 2 (10 fresh concepts).</p>\n\n<p>Each has: look, where it goes, vibe. Approved \u2192 final files land in `/home/zax/Biz/z-dot-team/resources/snowsnakes/doodles-comics-under-review` and get posted to `tasks.zdotllc.com/progress`.</p>\n</div>\n<div class=\"chapter\" id=\"chapter-2\">\n  <h2>Chapter 2: Doodle 1 \u2014 Rat Run Mascot (cheese wedge sprint)</h2>\n  <p><strong>Look:</strong> A determined rat sprinting hard, clutching a big cheese wedge, motion lines behind it. Black outline, warm gray body, yellow cheese, tiny sweat drop.</p>\n<p><strong>Where:</strong> Rat Run promo mini-game (catch cheese, dodge the cat) \u2014 icon + loading screen.</p>\n<p><strong>Vibe:</strong> 'Gotta go fast, gotta get the cheese.'</p>\n</div>\n<div class=\"chapter\" id=\"chapter-3\">\n  <h2>Chapter 3: Doodle 2 \u2014 Dodge the Cat (Rat Run)</h2>\n  <p><strong>Look:</strong> A low cat silhouette with glowing eyes looming behind a tiny running rat \u2014 classic danger shadow. Black outline, purple shadow accent, red '!' above the rat.</p>\n<p><strong>Where:</strong> Rat Run tutorial card + game-over screen.</p>\n<p><strong>Vibe:</strong> 'Run. Now. The cat is coming.'</p>\n</div>\n<div class=\"chapter\" id=\"chapter-4\">\n  <h2>Chapter 4: Doodle 3 \u2014 Doodle Maker Pen</h2>\n  <p><strong>Look:</strong> A chunky pen that's doodling a snowflake onto a blank page, sparkles flying. Black outline, icy blue ink trail, warm paper white.</p>\n<p><strong>Where:</strong> Doodle Maker app icon + empty-state illustration.</p>\n<p><strong>Vibe:</strong> 'Your doodle starts here \u2014 anything can be drawn.'</p>\n</div>\n<div class=\"chapter\" id=\"chapter-5\">\n  <h2>Chapter 5: Doodle 4 \u2014 Comic Maker Panel</h2>\n  <p><strong>Look:</strong> A comic panel with a speech bubble saying 'SNITCH?!' and a thought bubble with a cheese wedge inside. Clean black outlines, minimal colors (red bubble, yellow cheese).</p>\n<p><strong>Where:</strong> Comic Maker app icon + sample template.</p>\n<p><strong>Vibe:</strong> 'Every rat has a story. Tell it in panels.'</p>\n</div>\n<div class=\"chapter\" id=\"chapter-6\">\n  <h2>Chapter 6: Doodle 5 \u2014 Game Builder Wrench-Controller</h2>\n  <p><strong>Look:</strong> A game controller crossed with a wrench \u2014 one handle is a joystick, the other a wrench head. Black outline, red + gray, chunky and friendly.</p>\n<p><strong>Where:</strong> Simple Game Builder app icon + build screen corner.</p>\n<p><strong>Vibe:</strong> 'Build your own game \u2014 no code, just fun.'</p>\n</div>\n<div class=\"chapter\" id=\"chapter-7\">\n  <h2>Chapter 7: Doodle 6 \u2014 Cassette with Record Button (Spread Da Word)</h2>\n  <p><strong>Look:</strong> A cassette with a glowing red record button and a tape visibly spinning. Retro shape, warm brown + red accents.</p>\n<p><strong>Where:</strong> Spread Da Word 'switch tapes' UI + soundtrack player badge.</p>\n<p><strong>Vibe:</strong> 'Press record. The tape is live.'</p>\n</div>\n<div class=\"chapter\" id=\"chapter-8\">\n  <h2>Chapter 8: Doodle 7 \u2014 Cab-Net Arcade Cabinet</h2>\n  <p><strong>Look:</strong> A classic arcade cabinet with a screen showing two tiny figures facing off (Hood vs Fridge), joystick + buttons below. Black outline, neon red vs icy blue split screen.</p>\n<p><strong>Where:</strong> Cab-Net Clash promo game icon.</p>\n<p><strong>Vibe:</strong> 'The cabinet originals vs the suburbs \u2014 insert coin.'</p>\n</div>\n<div class=\"chapter\" id=\"chapter-9\">\n  <h2>Chapter 9: Doodle 8 \u2014 Neon Night Cassette</h2>\n  <p><strong>Look:</strong> A cassette glowing with neon pink/purple light, musical notes rising like city lights. Black outline, neon gradient accents.</p>\n<p><strong>Where:</strong> Spread Da Word Neon Night soundtrack theme + playlist art.</p>\n<p><strong>Vibe:</strong> 'Late night, city lights, cold beats.'</p>\n</div>\n<div class=\"chapter\" id=\"chapter-10\">\n  <h2>Chapter 10: Doodle 9 \u2014 Beat Paw (Snow Beats)</h2>\n  <p><strong>Look:</strong> A cute snowman paw tapping a beat pad, tiny 'thump' rings radiating. Black outline, icy blue pad, red scarf flash.</p>\n<p><strong>Where:</strong> Snow Beats download success toast + beat pad UI.</p>\n<p><strong>Vibe:</strong> 'One tap. That's a beat.'</p>\n</div>\n<div class=\"chapter\" id=\"chapter-11\">\n  <h2>Chapter 11: Doodle 10 \u2014 Rat King Thumbs Up (Snitch)</h2>\n  <p><strong>Look:</strong> The Rat King giving a big thumbs up from his cheese-wheel throne, crown slightly tilted, smug happy grin.</p>\n<p><strong>Where:</strong> Snitch profile badge + leaderboard crown icon.</p>\n<p><strong>Vibe:</strong> 'You won. The Rat King approves.'</p>\n</div>\n<div class=\"footer\">&copy; Z Dot Team. All rights reserved.</div>\n</body>\n</html>\n",
+     "json_content": "[\n  {\n    \"title\": \"Doodle Batch 2 \u2014 10 Doodles (Day 1 of Daily 10)\",\n    \"content\": \"Daily cadence: **10 doodles/day** for approval. Today = Batch 2 (10 fresh concepts).\\n\\nEach has: look, where it goes, vibe. Approved \u2192 final files land in `/home/zax/Biz/z-dot-team/resources/snowsnakes/doodles-comics-under-review` and get posted to `tasks.zdotllc.com/progress`.\"\n  },\n  {\n    \"title\": \"Doodle 1 \u2014 Rat Run Mascot (cheese wedge sprint)\",\n    \"content\": \"**Look:** A determined rat sprinting hard, clutching a big cheese wedge, motion lines behind it. Black outline, warm gray body, yellow cheese, tiny sweat drop.\\n**Where:** Rat Run promo mini-game (catch cheese, dodge the cat) \u2014 icon + loading screen.\\n**Vibe:** 'Gotta go fast, gotta get the cheese.'\"\n  },\n  {\n    \"title\": \"Doodle 2 \u2014 Dodge the Cat (Rat Run)\",\n    \"content\": \"**Look:** A low cat silhouette with glowing eyes looming behind a tiny running rat \u2014 classic danger shadow. Black outline, purple shadow accent, red '!' above the rat.\\n**Where:** Rat Run tutorial card + game-over screen.\\n**Vibe:** 'Run. Now. The cat is coming.'\"\n  },\n  {\n    \"title\": \"Doodle 3 \u2014 Doodle Maker Pen\",\n    \"content\": \"**Look:** A chunky pen that's doodling a snowflake onto a blank page, sparkles flying. Black outline, icy blue ink trail, warm paper white.\\n**Where:** Doodle Maker app icon + empty-state illustration.\\n**Vibe:** 'Your doodle starts here \u2014 anything can be drawn.'\"\n  },\n  {\n    \"title\": \"Doodle 4 \u2014 Comic Maker Panel\",\n    \"content\": \"**Look:** A comic panel with a speech bubble saying 'SNITCH?!' and a thought bubble with a cheese wedge inside. Clean black outlines, minimal colors (red bubble, yellow cheese).\\n**Where:** Comic Maker app icon + sample template.\\n**Vibe:** 'Every rat has a story. Tell it in panels.'\"\n  },\n  {\n    \"title\": \"Doodle 5 \u2014 Game Builder Wrench-Controller\",\n    \"content\": \"**Look:** A game controller crossed with a wrench \u2014 one handle is a joystick, the other a wrench head. Black outline, red + gray, chunky and friendly.\\n**Where:** Simple Game Builder app icon + build screen corner.\\n**Vibe:** 'Build your own game \u2014 no code, just fun.'\"\n  },\n  {\n    \"title\": \"Doodle 6 \u2014 Cassette with Record Button (Spread Da Word)\",\n    \"content\": \"**Look:** A cassette with a glowing red record button and a tape visibly spinning. Retro shape, warm brown + red accents.\\n**Where:** Spread Da Word 'switch tapes' UI + soundtrack player badge.\\n**Vibe:** 'Press record. The tape is live.'\"\n  },\n  {\n    \"title\": \"Doodle 7 \u2014 Cab-Net Arcade Cabinet\",\n    \"content\": \"**Look:** A classic arcade cabinet with a screen showing two tiny figures facing off (Hood vs Fridge), joystick + buttons below. Black outline, neon red vs icy blue split screen.\\n**Where:** Cab-Net Clash promo game icon.\\n**Vibe:** 'The cabinet originals vs the suburbs \u2014 insert coin.'\"\n  },\n  {\n    \"title\": \"Doodle 8 \u2014 Neon Night Cassette\",\n    \"content\": \"**Look:** A cassette glowing with neon pink/purple light, musical notes rising like city lights. Black outline, neon gradient accents.\\n**Where:** Spread Da Word Neon Night soundtrack theme + playlist art.\\n**Vibe:** 'Late night, city lights, cold beats.'\"\n  },\n  {\n    \"title\": \"Doodle 9 \u2014 Beat Paw (Snow Beats)\",\n    \"content\": \"**Look:** A cute snowman paw tapping a beat pad, tiny 'thump' rings radiating. Black outline, icy blue pad, red scarf flash.\\n**Where:** Snow Beats download success toast + beat pad UI.\\n**Vibe:** 'One tap. That's a beat.'\"\n  },\n  {\n    \"title\": \"Doodle 10 \u2014 Rat King Thumbs Up (Snitch)\",\n    \"content\": \"**Look:** The Rat King giving a big thumbs up from his cheese-wheel throne, crown slightly tilted, smug happy grin.\\n**Where:** Snitch profile badge + leaderboard crown icon.\\n**Vibe:** 'You won. The Rat King approves.'\"\n  }\n]",
+     "status": "draft",
+     "word_count": 450,
+     "created_by": "Mark",
+     "created_at": "2026-08-25 00:02:25",
+     "updated_at": "2026-08-25 00:02:25"
+    },
+    {
+     "id": 47,
+     "content_type": "blog_post",
+     "title": "We'll Have Our Bots Call Your Bots: Why Automation Is the New Growth Strategy",
+     "slug": "bots-call-bots-automation-growth",
+     "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/content/blog/bots-call-bots-automation-growth.html",
+     "html_content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>We'll Have Our Bots Call Your Bots: Why Automation Is the New Growth Strategy</title>\n<meta name=\"description\" content=\"The Z-Dot slogan explained: why automation is the new growth strategy, and what &quot;We'll have our bots call your bots&quot; really means for your business.\">\n<meta name=\"keywords\" content=\"automation,AI,small business,business growth,Z-Dot,outreach\">\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n         background: #0a0a0a; color: #e0e0e0; line-height: 1.8; }\n  .header { text-align: center; padding: 60px 20px 40px;\n             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }\n  .header h1 { font-size: 2.2rem; font-weight: 700; color: #fff;\n                max-width: 700px; margin: 0 auto 12px; }\n  .header .meta { color: #94a3b8; font-size: 0.9rem; }\n  .content { max-width: 720px; margin: 0 auto; padding: 48px 24px; }\n  .content h2 { font-size: 1.5rem; color: #fff; margin: 32px 0 16px;\n                 border-bottom: 2px solid #1e40af; padding-bottom: 8px; display: inline-block; }\n  .content h3 { font-size: 1.2rem; color: #e2e8f0; margin: 24px 0 12px; }\n  .content p { margin-bottom: 16px; color: #cbd5e1; }\n  .content ul { margin: 16px 0 16px 24px; color: #cbd5e1; }\n  .content li { margin-bottom: 8px; }\n  .content strong { color: #fff; }\n  .footer { text-align: center; padding: 32px; color: #475569; font-size: 0.8rem;\n             border-top: 1px solid #1e293b; margin-top: 48px; }\n</style>\n</head>\n<body>\n<div class=\"header\">\n  <h1>We'll Have Our Bots Call Your Bots: Why Automation Is the New Growth Strategy</h1>\n  <div class=\"meta\">By Mark \u2014 Z-Dot Marketing | Z Dot Team</div>\n</div>\n<div class=\"content\">\n<h2>The New Handshake</h2>\n\n<p>Business used to be about who worked harder. Then it became about who worked smarter. Now? It's about who works <strong>while everyone else sleeps</strong>.</p>\n\n<p>That's the thinking behind our slogan: <strong>\"We'll have our bots call your bots.\"</strong></p>\n\n<p>It's a joke with a point. The businesses winning right now aren't just the ones with the best products \u2014 they're the ones with the best <strong>systems</strong>.</p>\n\n<h2>What \"Our Bots Call Your Bots\" Actually Means</h2>\n\n<p>It means your marketing never clocks out.</p>\n\n<ul>\n<li>Your <strong>outreach</strong> keeps sending while you're in meetings</li>\n<li>Your <strong>follow-ups</strong> land while you're asleep</li>\n<li>Your <strong>leads</strong> get nurtured the second they raise their hand</li>\n<li>Your <strong>content</strong> keeps working long after it's posted</li>\n</ul>\n\n<p>Meanwhile, your team focuses on what only humans can do: close the deal, wow the client, build the vision.</p>\n\n<h2>Automation Isn't Cold. It's Considerate.</h2>\n\n<p>Some people hear \"bots\" and imagine something robotic.</p>\n\n<p>We hear it and imagine <strong>consistency</strong>. Every lead gets a response. Every follow-up actually happens. Every promise is kept \u2014 because a system remembers.</p>\n\n<p>That's what Z-Dot builds: the systems behind the business so the business can grow.</p>\n\n<h2>The Z-Dot Promise</h2>\n\n<p>We build your websites, your funnels, your automation, your AI outreach, and your growth systems \u2014 then we set them loose.</p>\n\n<p>So the next time you're wondering why the phone isn't ringing? Maybe it's time to let our bots make it ring \u2014 literally.</p>\n\n<p><strong>We'll have our bots call your bots. And then we'll have them close the deal.</strong></p>\n</div>\n<div class=\"footer\">&copy; Z Dot Team. All rights reserved.</div>\n</body>\n</html>\n",
+     "json_content": "",
+     "status": "published",
+     "word_count": 254,
+     "created_by": "Mark",
+     "created_at": "2026-08-25 00:43:05",
+     "updated_at": "2026-08-25 00:43:05"
     }
    ]
   },
   "browse_log": {
    "table": "browse_log",
-   "count": 196,
+   "count": 202,
    "rows": [
     {
      "id": 1,
@@ -10557,6 +10668,66 @@
      "extracted_links_count": 0,
      "browsed_by": "Seleena",
      "created_at": "2026-08-24 23:16:25"
+    },
+    {
+     "id": 197,
+     "url": "https://zerric.com",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 1,
+     "extracted_links_count": 3,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-25 00:45:18"
+    },
+    {
+     "id": 198,
+     "url": "https://tasks.zdotllc.com",
+     "status_code": 403,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-25 00:45:26"
+    },
+    {
+     "id": 199,
+     "url": "https://snowsnakes.zerric.xyz",
+     "status_code": 403,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-25 00:45:35"
+    },
+    {
+     "id": 200,
+     "url": "https://zerric.com/contact",
+     "status_code": 200,
+     "extract_mode": "links",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 3,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-25 00:45:39"
+    },
+    {
+     "id": 201,
+     "url": "https://www.realtor.com/realestateagents/Zerric-Allen_Lexington_KY",
+     "status_code": 429,
+     "extract_mode": "links",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-25 00:45:48"
+    },
+    {
+     "id": 202,
+     "url": "https://botcity.zerric.com",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 2,
+     "extracted_links_count": 2,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-25 00:45:59"
     }
    ]
   },
