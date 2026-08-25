@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#0f0a14"/>
+  <text x="200" y="170" font-size="80" text-anchor="middle">🌆</text><text x="140" y="240" font-size="40" text-anchor="middle">🌮</text><text x="260" y="230" font-size="40" text-anchor="middle">🍕</text><text x="200" y="320" font-size="16" text-anchor="middle" font-family="monospace" fill="#ffd166">CITY LIFE</text>
+  <text x="200" y="382" font-size="16" text-anchor="middle" font-family="monospace" fill="#a9c2e5">city-life</text>
+</svg>

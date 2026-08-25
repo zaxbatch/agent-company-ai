@@ -143,3 +143,6 @@ Round 2 answers: Stripe product 'Linux Ghost - Barebones' /bin/sh (price TBD tea
 ### 2026-08-25 04:39 UTC — Zerric
 DECISIONS 2026-08-25: 1) GitHub force-push = separate IT chat, Ninja+Click, Zerric blocker (task it). 2) Doodle review = tonight, paused. 3) Stripe first product = Linux Gost @ /bin/sh.00 (temp). 4) Admin accounts: make NinjaNerd + ClickClack fresh accounts, Zerric flips admin. 5) hPanel: new API token in credentials (for snitch subdomain) — NOT seen yet, checking. 6) SDW tapes = 2 per episode (1 remix + 1 original). 7) MilkUps = independent band, housed under zerric.xyz. 8) Outreach sender = bots@zdotllc.com. 9) Next promo game = Snitch (Snow Beats done). 10) Snitch buyer = consumer first, venue open. 11) Email config = urgent, separate chat.
 
+### 2026-08-25 04:50 UTC — BossLady
+Task-list owner = Meta (primary) + Manny (backup), watchdog enforces. Made 50 new doodles for tonight (76 total in review folder, live on progress page).
+

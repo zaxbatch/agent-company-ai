@@ -11,6 +11,12 @@
 
 ---
 
+## 0. LATEST SESSION (2026-08-25d)
+- **TASK-LIST OWNERSHIP (BossLady asked):** Meta = PRIMARY owner of the portal task list (tasks.zdotllc.com) — clears/updates daily.
+  Manny = BACKUP/co-owner. Watchdog (scripts/checklist_watchdog.py) flags stale; PMs act on it. CTO keeps statuses in TEAM-STATE.
+- **50 new doodles made (2026-08-25 batch)** → resources/snowsnakes/doodles-comics-under-review/ (76 total). For Zerric's bedtime review.
+  Deployed to progress page (tasks.zdotllc.com/progress embeds proof site). Categories: 12 portraits, 10 duos/scenes,
+  8 locations, 10 MilkUps/music, 10 gags. Zerric review = PAUSED reward, don't nag.
 ## 0. LATEST SESSION (2026-08-25c) — ZERRIC ANSWERS ROUND 2
 - **Stripe product made:** "Linux Ghost - Barebones" (prod_V8SXbzJ0M1SaAF), price $0.00 one-time. Team to set real price later.
 - **SnowSnakes admins:** ninjanerd REGISTERED (id 82) — Zerric will promote. clickclack = username TAKEN (existing) — need password/reset from Zerric.

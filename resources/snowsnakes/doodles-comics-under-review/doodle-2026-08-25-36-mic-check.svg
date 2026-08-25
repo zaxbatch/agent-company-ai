@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#0a0a14"/>
+  <text x="200" y="200" font-size="90" text-anchor="middle">🎙️</text><text x="200" y="310" font-size="16" text-anchor="middle" font-family="monospace" fill="#ffb347">ONE TWO ONE TWO</text>
+  <text x="200" y="382" font-size="16" text-anchor="middle" font-family="monospace" fill="#a9c2e5">mic-check</text>
+</svg>
