@@ -133,3 +133,21 @@ No guessing. No "default to zaxbatch." Ask which account the project belongs to.
 
 When a new app is proposed: log the project, ask "which git account?", record the answer
 in the ideas log / project doc, then create the repo under the confirmed account.
+
+## DOMAIN SPLIT (BossLady, 2026-08-25) — the rule that governs everything
+
+- **zerric.xyz = PLAY (which is business).** SnowSnakes, Spread Da Word, Snitch,
+  MilkUps, cassettes, games, community — creative/play projects that ALSO generate
+  business (leads, funnels, brand). Git account: **zaxbatch**.
+- **zdotllc.com = STRICTLY BUSINESS.** Client work, SaaS, payments, CRM, outreach,
+  sales, the task portal, bots@ — pure business. Git account: **zdot (zdotllc)**.
+
+Mailboxes:
+- zerric.xyz side: ez@zerric.xyz (main), snowsnakes@/milkups@/spreaddaword@/snitch@zerric.xyz (project)
+- zdotllc side: zerric@zdotllc.com (owner), bots@zdotllc.com (team/automation),
+  bosslady@/info@/sales@/support@zdotllc.com (business) — STRICTLY business.
+- Personal per-agent mailboxes (ninjanerd@, mark@, etc.): DECLINED for now
+  (Seleena directive) — agents use bots@ for team-sent mail; keep the split clean.
+
+## New project rule (unchanged)
+Ask which domain it serves → zerric.xyz = zaxbatch, zdotllc.com = zdot. Never guess.
