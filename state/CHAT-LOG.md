@@ -104,3 +104,6 @@ Email setup: sent test emails from ez@zerric.xyz to snowsnakes@, milkups@, sprea
 ### 2026-08-25 02:06 UTC — BossLady
 MilkUps = the band behind ALL the music (Spread Da Word soundtracks, cassettes, etc). We're working on MilkUps too — active project. milkups@zerric.xyz email set up.
 
+### 2026-08-25 02:12 UTC — ClickClack
+Email forwarding: Hostinger Mail API can automate forwarders (POST /api/mail/v1/mailboxes/{id}/forwarders) BUT needs an API token created in hPanel first (POST /api/mail/v1/orders/{orderId}/api-tokens requires an existing token). Action needed: Zerric/BossLady creates an API token in hPanel (Hostinger -> API tokens) and pastes in credentials — then I create all 4 forwarders (snowsnakes, milkups, spreaddaword, snitch -> ez@zerric.xyz) + configure Thunderbird.
+
