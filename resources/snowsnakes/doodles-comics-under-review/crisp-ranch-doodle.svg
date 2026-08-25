@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#08140c"/>
+  <g transform="translate(200,240)">
+    <rect x="-52" y="-136" width="70" height="26" rx="8" fill="#51cf66" stroke="#a8e8c8" stroke-width="3"/>
+    <rect x="-52" y="-112" width="104" height="176" rx="16" fill="#2a5a3f" stroke="#a8e8c8" stroke-width="4"/>
+    <rect x="-60" y="-96" width="88" height="158" rx="10" fill="#3a7a52"/>
+    <text x="0" y="22" font-size="56" text-anchor="middle" font-family="monospace" font-weight="bold" fill="#a8e8c8">C</text>
+    <circle cx="-34" cy="-58" r="7" fill="#fff"/>
+    <circle cx="34" cy="-58" r="7" fill="#fff"/>
+    <circle cx="-34" cy="-58" r="3" fill="#111"/>
+    <circle cx="34" cy="-58" r="3" fill="#111"/>
+  </g>
+  <text x="200" y="330" font-size="20" text-anchor="middle" font-family="monospace" fill="#a8e8c8">"Hey guys! What's up?"</text>
+</svg>

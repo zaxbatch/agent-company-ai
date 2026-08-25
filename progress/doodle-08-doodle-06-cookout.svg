@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#1a3a1a"/>
+  <!-- grill -->
+  <rect x="300" y="380" width="200" height="70" rx="10" fill="#444"/>
+  <rect x="280" y="450" width="240" height="14" rx="6" fill="#333"/>
+  <circle cx="400" cy="370" r="8" fill="#666"/>
+  <g fill="#ff7043" opacity="0.8">
+    <path d="M320 370 q6 -18 12 0 q6 -14 10 0 Z"/>
+    <path d="M450 375 q6 -18 12 0 q6 -14 10 0 Z"/>
+    <path d="M385 355 q5 -15 10 0 q5 -12 8 0 Z"/>
+  </g>
+  <!-- smoke -->
+  <g stroke="#ccc" stroke-width="5" fill="none" opacity="0.4">
+    <path d="M370 340 q-10 -20 0 -40 q10 -20 0 -40"/>
+    <path d="M430 335 q10 -20 0 -40 q-10 -20 0 -40"/>
+  </g>
+  <!-- Que at the grill (bbq bottle) -->
+  <g transform="translate(180,240)">
+    <rect x="10" y="50" width="80" height="110" rx="12" fill="#6a2f1f"/>
+    <rect x="28" y="5" width="44" height="50" rx="8" fill="#7a3f2f"/>
+    <rect x="38" y="-12" width="24" height="22" rx="4" fill="#8a4f3f"/>
+    <text x="50" y="100" font-size="15" fill="#ffd9c8" text-anchor="middle" font-family="monospace">BBQ</text>
+    <circle cx="38" cy="28" r="6" fill="#fff"/>
+    <circle cx="64" cy="28" r="6" fill="#fff"/>
+    <circle cx="40" cy="29" r="3" fill="#111"/>
+    <circle cx="62" cy="29" r="3" fill="#111"/>
+    <path d="M42 46 Q52 56 62 46" stroke="#111" stroke-width="3" fill="none"/>
+  </g>
+  <!-- Vin leaning -->
+  <g transform="translate(560,250)">
+    <rect x="10" y="60" width="70" height="110" rx="10" fill="#3d5a3d"/>
+    <rect x="25" y="10" width="40" height="55" rx="6" fill="#3d5a3d"/>
+    <rect x="35" y="-10" width="20" height="25" rx="4" fill="#4d6a4d"/>
+    <text x="45" y="105" font-size="14" fill="#cfe8cf" text-anchor="middle" font-family="monospace">ACV</text>
+    <circle cx="30" cy="30" r="6" fill="#fff"/>
+    <circle cx="60" cy="30" r="6" fill="#fff"/>
+    <circle cx="32" cy="31" r="3" fill="#111"/>
+    <circle cx="58" cy="31" r="3" fill="#111"/>
+    <path d="M35 46 Q50 38 65 46" stroke="#111" stroke-width="3" fill="none"/>
+  </g>
+  <!-- speech -->
+  <rect x="150" y="120" width="180" height="44" rx="16" fill="#fff"/>
+  <text x="240" y="148" font-size="16" fill="#111" text-anchor="middle" font-family="monospace">Pass the sauce, pass the vibe.</text>
+  <rect x="540" y="130" width="160" height="40" rx="16" fill="#fff"/>
+  <text x="620" y="156" font-size="15" fill="#111" text-anchor="middle" font-family="monospace">It's 3AM again??</text>
+  <text x="400" y="560" font-size="24" fill="#9fe8c0" text-anchor="middle" font-family="monospace" font-weight="bold">COOKOUT SZN — THE HOOD NEVER SLEEPS</text>
+</svg>

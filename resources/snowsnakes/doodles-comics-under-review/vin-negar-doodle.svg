@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#1a0e05"/>
+  <g transform="translate(200,240)">
+    <rect x="-48" y="-136" width="96" height="18" rx="8" fill="#8a5a2b" stroke="#d4a017" stroke-width="3"/>
+    <rect x="-48" y="-112" width="96" height="170" rx="26" fill="#3d2b1f" stroke="#d4a017" stroke-width="4"/>
+    <rect x="-56" y="-96" width="80" height="152" rx="20" fill="#4a3728"/>
+    <text x="0" y="22" font-size="56" text-anchor="middle" font-family="monospace" font-weight="bold" fill="#d4a017">V</text>
+    <circle cx="-32" cy="-58" r="7" fill="#fff"/>
+    <circle cx="32" cy="-58" r="7" fill="#fff"/>
+    <circle cx="-32" cy="-58" r="3" fill="#111"/>
+    <circle cx="32" cy="-58" r="3" fill="#111"/>
+  </g>
+  <text x="200" y="330" font-size="20" text-anchor="middle" font-family="monospace" fill="#d4a017">"You ain't ready for me, bro."</text>
+</svg>

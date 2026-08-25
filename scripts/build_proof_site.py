@@ -84,6 +84,19 @@ def card_html(c):
 
 cards_html = "\n".join(card_html(c) for c in cards)
 
+# ── Doodles for approval: copy from review folder (flat unique names for Netlify) ──
+DOODLE_SRC = ROOT / "resources" / "snowsnakes" / "doodles-comics-under-review"
+doodle_files = sorted(DOODLE_SRC.glob("*.svg")) if DOODLE_SRC.exists() else []
+doodle_map = {}
+for i, d in enumerate(doodle_files, 1):
+    flat = f"doodle-{i:02d}-{d.stem}.svg"
+    (OUT_DIR / flat).write_bytes(d.read_bytes())
+    doodle_map[flat] = d.stem.replace("-", " ").title()
+doodle_cards = "".join(
+    f'<div class="doodle"><img src="{flat}" alt="{name}" loading="lazy"><p>{name}</p></div>'
+    for flat, name in doodle_map.items()
+) if doodle_map else '<p style="color:#6f8db0">No doodles pending review right now.</p>'
+
 commit_rows = "".join(
     f'<tr><td class="hash">{h}</td><td>{m}</td></tr>' for h, m in commits
 )
@@ -124,6 +137,10 @@ html = f"""<!DOCTYPE html>
   td.hash {{ color:#7fd1ff; font-family:monospace; white-space:nowrap; }}
   .personas {{ display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }}
   .persona {{ background:#101d33; border:1px solid #1f3a5f; border-radius:8px; padding:5px 10px; font-size:.82rem; }}
+  .doodles {{ display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:10px; margin-top:14px; }}
+  .doodle {{ background:#101d33; border:1px solid #1f3a5f; border-radius:10px; padding:8px; text-align:center; }}
+  .doodle img {{ width:100%; height:auto; border-radius:6px; background:#0a1526; }}
+  .doodle p {{ font-size:.7rem; color:#a9c2e5; margin-top:6px; }}
   .blockers li {{ margin:6px 0 6px 18px; color:#ffb3a0; }}
   footer {{ margin-top:40px; text-align:center; color:#4a6385; font-size:.75rem; }}
 </style>
@@ -152,6 +169,9 @@ html = f"""<!DOCTYPE html>
 
   <h3 class="section">🐀 SNOWSNAKES PERSONAS (real-user look)</h3>
   <div class="personas">{persona_html}</div>
+
+  <h3 class="section">🎨 DOODLES FOR APPROVAL (latest batch)</h3>
+  <div class="doodles">{doodle_cards}</div>
 
   <h3 class="section">🧾 RECENT COMMITS</h3>
   <table>
