@@ -158,3 +158,6 @@ CORRECTION: I misattributed Zerric as BossLady in recent comms. Zerric is the ow
 ### 2026-08-25 05:09 UTC — Zerric
 MilkUps site updated: BeatThread section added (Reddit-for-beats — we post MilkUps beats, fans record/submit versions, top voted takes stage). Links to beatthread.netlify.app. Live at zdotllc.com/milkups. Still needs zerric.xyz host access for zerric.xyz/milkups.
 
+### 2026-08-25 05:10 UTC — ClickClack
+MilkUps site LIVE at https://milkups.netlify.app: links Spread Da Word cassette player (hear the music), integrates BeatThread (producers post beats, fans record lyrics + submit versions to be voted), Milk Carton Club signup → lead capture. BeatThread = reddit-for-beats (beatthread.netlify.app).
+
