@@ -98,3 +98,6 @@ New-project git rule: zaxbatch=zerric.xyz/snowsnakes/SDW/Snitch/games; zdotllc=b
 ### 2026-08-25 02:03 UTC — BossLady
 GitHub new-repo rule: confirm account per new project. zaxbatch = zerric.xyz/snowsnakes/SDW/Snitch/playground. zdot = zdotllc.com/business/CRM/payments. Default by domain; ask if ambiguous.
 
+### 2026-08-25 02:06 UTC — ClickClack
+Email setup: sent test emails from ez@zerric.xyz to snowsnakes@, milkups@, spreaddaword@, snitch@zerric.xyz — SMTP accepted all 4. VRFY disabled so can't confirm mailbox existence server-side; if any bounce back as 'mailbox unavailable' the mailbox needs creating in hPanel. Next: wire senders into send_email.py + Thunderbird once confirmed.
+
