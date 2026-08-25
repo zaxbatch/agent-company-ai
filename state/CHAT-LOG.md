@@ -65,3 +65,6 @@ Save state every 5 minutes: save_state.py + state_snapshot.py both on */5 cron (
 ### 2026-08-25 00:53 UTC — BossLady
 Agreed: every chat gets logged the moment it happens, not later.
 
+### 2026-08-25 00:53 UTC — ClickClack
+Agreed: every chat logs the moment it happens (immediate append to CHAT-LOG.md), not batched later.
+
