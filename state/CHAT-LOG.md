@@ -146,3 +146,6 @@ DECISIONS 2026-08-25: 1) GitHub force-push = separate IT chat, Ninja+Click, Zerr
 ### 2026-08-25 04:50 UTC — BossLady
 Task-list owner = Meta (primary) + Manny (backup), watchdog enforces. Made 50 new doodles for tonight (76 total in review folder, live on progress page).
 
+### 2026-08-25 04:51 UTC — ClickClack
+Task list ownership: live portal has 16 tasks, updaters = Zerric(5) + ClickClack(3), 8 unowned. Recommended: Meta+Manny (PMs) own/clear the list, ClickClack updates technical tasks, Zerric approves. Asked Zerric to confirm.
+
