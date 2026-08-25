@@ -26,3 +26,29 @@ have to. Want to see it in action on your list? Reply and we'll set it up.
 - We'll have our bots call your bots.
 - Our bots talk to your bots, so you talk to people.
 - Bots on bots. Deals with humans.
+
+## Home page section (hero-adjacent)
+**Your bots are busy. Ours are too.**
+Z-Dot builds AI agents that do the work you hate: outreach, follow-ups,
+CRM entry, lead qualification. So your team can do the work that matters —
+talking to real customers.
+We'll have our bots call your bots.
+
+## Mission Control / dashboard line
+**We'll have our bots call your bots.**
+Your pipeline runs itself while you sleep — agents qualify, log, and follow up.
+Check the board in the morning. Close the deals by noon.
+
+## Short ad / banner (25 words)
+Bots on bots. Deals with humans. 🤖🤝
+Z-Dot's AI agents handle your outreach, follow-ups, and CRM —
+so you only talk to people worth talking to.
+We'll have our bots call your bots.
+
+## Email PS (win-back / cold)
+PS — We'll have our bots call your bots. It's how we keep
+your pipeline moving when your team is heads-down. Happy to show you.
+
+## Site meta description (SEO)
+Z-Dot LLC — We'll have our bots call your bots. AI agents for outreach,
+CRM, and follow-ups so small businesses close more deals with less busywork.
