@@ -125,3 +125,6 @@ DOMAIN RULE (correcting personal emails idea): zerric.xyz = PLAY (which is busin
 ### 2026-08-25 02:35 UTC — Seleena
 Domain split locked: zerric.xyz = PLAY (which is business) — zaxbatch git account; zdotllc.com = STRICTLY business — zdot git account. No per-agent personal mailboxes; agents use bots@zdotllc.com for team mail.
 
+### 2026-08-25 02:42 UTC — BossLady
+Personal team emails created on zdotllc.com, ALL forward to zerric@zdotllc.com: ninjanerd@, clickclack@, mark@, meta@, manny@, seleena@ (also existing: zerric@, bots@, bosslady@, ceo@, team@, info@, sales@, support@). BossLady: 'You can all use these accounts to get in touch with me at zerric@zdotllc.com.'
+
