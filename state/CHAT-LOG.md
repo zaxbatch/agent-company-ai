@@ -74,3 +74,9 @@ Two GitHub accounts: zaxbatch (zerric.xyz) + zdot (zdotllc). Policy written: res
 ### 2026-08-25 01:29 UTC — BossLady
 Stripe key added (sk_live_, acct_1U885HGviPL80jeH Z Dot LLC). Account under review ~24h — card_payments pending, transfers active. checkout.mjs ready; session test blocked only by review.
 
+### 2026-08-25 01:32 UTC — NinjaNerd
+GitHub key audit: this machine's default SSH key = zdotllc (ssh -T confirmed). No zaxbatch private key locally — credentials only has the zaxbatch FINGERPRINT (not the key). Push to zaxbatch/agent-company-ai blocked. Fix: generate new zaxbatch keypair, Zerric adds pub to zaxbatch GitHub, SSH config alias. Private keys never pasted.
+
+### 2026-08-25 01:33 UTC — Zerric
+zaxbatch@github in credentials = GitHub CLI public key fingerprint (SHA256:WyqU...). Private key id_ed25519_zaxbatch NOT on machine yet. Options: (1) paste private key file into credentials, or (2) gh auth login with zaxbatch account. Policy in resources/GITHUB-ACCOUNTS-POLICY.md.
+
