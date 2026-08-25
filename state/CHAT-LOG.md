@@ -119,3 +119,6 @@ Mailboxes done: zerric@zdotllc.com (Zerric), bots@zdotllc.com (bot account for a
 ### 2026-08-25 02:35 UTC — BossLady
 Thunderbird configured: ez@zerric.xyz (existing) + zerric@zdotllc.com + bots@zdotllc.com (IMAP imap.hostinger.com:993, SMTP 465). Personal team emails offered — bosslady@ exists; ninjanerd@/clickclack@/mark@/meta@/manny@/seleena@ can be created on go.
 
+### 2026-08-25 02:35 UTC — BossLady
+DOMAIN RULE (correcting personal emails idea): zerric.xyz = PLAY (which is business) — SnowSnakes/SDW/Snitch/MilkUps/games. zdotllc.com = STRICTLY BUSINESS — client work/outreach/sales. NO per-agent personal emails (no ninjanerd@zdotllc.com etc). bots@zdotllc.com = team's business sender; zerric.xyz mailboxes = play side.
+
