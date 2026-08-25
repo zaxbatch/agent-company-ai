@@ -11,6 +11,10 @@
 
 ---
 
+## 0. LATEST SESSION (2026-08-25) — CHAT MEMORY RULE
+- **ALL CHATS STORED IMMEDIATELY (BossLady):** state/CHAT-LOG.md = persistent chat memory. Every turn, append
+  the conversation via `./venv/bin/python scripts/log_chat.py "<speaker>" "<message>"`. Log is committed with
+  state snapshots (auto every 30 min). On resume, read TEAM-STATE.md + state/CHAT-LOG.md to restore full context.
 ## 0. LATEST SESSION (2026-08-24m)
 - **SNOW BEATS mod SHIPPED:** game id 97 "SNOW BEATS — loop download" live on snowsnakes (icon 🎧, tags music/beatmaker/sequencer/8-bit/loop/download).
   Feature: ⬇ Download loop — renders current pattern to WAV (OfflineAudioContext, same 8 synths, BPM+swing, 4 passes), triggers download.
