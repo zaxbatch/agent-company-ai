@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-25T03:35:01.316967+00:00",
+ "generated_at": "2026-08-25T05:15:01.266000+00:00",
  "note": "Sanitized continuity snapshot. Sensitive fields masked (***). Restore: this JSON documents what was in flight so work can resume after any disruption.",
  "tables": {
   "agents": {
@@ -4833,7 +4833,7 @@
    "rows": [
     {
      "name": "browse_log",
-     "seq": 202
+     "seq": 205
     },
     {
      "name": "prospect_searches",
@@ -4845,7 +4845,7 @@
     },
     {
      "name": "content_pieces",
-     "seq": 47
+     "seq": 48
     },
     {
      "name": "contacts",
@@ -6751,12 +6751,12 @@
      "id": 23,
      "title": "Z-Dot Progress \u2014 Team Memory & Status",
      "slug": "progress",
-     "html_content": "***",
+     "html_content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Z-Dot Progress \u2014 Team Memory &amp; Status</title>\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n         background: #0a0a0a; color: #e0e0e0; line-height: 1.6; }\n  .hero { text-align: center; padding: 80px 20px 60px;\n           background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }\n  .hero h1 { font-size: 2.5rem; font-weight: 700; color: #fff;\n              max-width: 700px; margin: 0 auto 16px; }\n  .hero .subtitle { font-size: 1.2rem; color: #94a3b8; max-width: 600px;\n                     margin: 0 auto 32px; }\n  \n  .section { max-width: 720px; margin: 0 auto; padding: 48px 24px; }\n  .section h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px;\n                 border-bottom: 2px solid #1e40af; padding-bottom: 8px; display: inline-block; }\n  .section p { margin-bottom: 16px; color: #cbd5e1; }\n  .section ul { margin: 16px 0 16px 24px; color: #cbd5e1; }\n  .section li { margin-bottom: 8px; }\n  .section strong { color: #fff; }\n  .cta-bar { text-align: center; padding: 48px 20px;\n              background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }\n  .cta-bar .btn { display: inline-block; background: #2563eb; color: #fff;\n                   padding: 16px 40px; border-radius: 8px; font-size: 1.1rem;\n                   font-weight: 600; text-decoration: none;\n                   transition: background 0.2s; }\n  .cta-bar .btn:hover { background: #1d4ed8; }\n  .cta-bar .sub { color: #64748b; margin-top: 12px; font-size: 0.9rem; }\n  .footer { text-align: center; padding: 32px; color: #475569; font-size: 0.8rem; }\n</style>\n</head>\n<body>\n<div class=\"hero\">\n  <h1>See What We're Working On</h1>\n  <div class=\"subtitle\">Private Z-Dot progress page + team memory. Every chat logged the moment it happens.</div>\n  \n</div>\n<div class=\"section\"><h2>\ud83d\udd12 Private \u2014 Login Required</h2>\n<p><strong>Direct URL:</strong> https://tasks.zdotllc.com/progress \u2014 reached via tasks.zdotllc.com login. Team only.</p>\n\n<p>---</p></div>\n<div class=\"section\"><h2>\ud83e\udde0 DECISION LOG \u2014 MilkUps + BeatThread (#47 update)</h2>\n<p><strong>beatthread.com (verified live, Zerric's rep):</strong></p>\n<ul>\n<li>Reddit-for-beats: producers drop beats \u2192 fans submit versions (record lyrics) \u2192 votes crown the best</li>\n<li>Threads per beat, waveform/EQ/orbit player, leaderboards, <strong>embed anywhere</strong> (1 line of code)</li>\n<li>Pricing: Starter $0 (3 beats, 5 versions/beat) \u00b7 Pro $19/mo (unlimited, downloads) \u00b7 Business $49/mo (white-label)</li>\n</ul>\n\n<p><strong>MilkUps integration (Zerric directive):</strong></p>\n<ul>\n<li>MilkUps = producer \u2192 upload beats to BeatThread</li>\n<li>Fans record lyrics \u2192 submit version \u2192 vote</li>\n<li><strong>Embed BeatThread player on MilkUps site</strong> (free Starter works; Pro for downloads later)</li>\n<li>SDW site \u2192 link to MilkUps (\"hear more of their music\")</li>\n<li>Milk Carton Club fan signup on MilkUps site</li>\n</ul>\n\n<p><strong>Next (Mark):</strong> draft MilkUps site structure + copy: Home \u00b7 Music (BeatThread embed + downloads) \u00b7 Remix Challenge (submit your version) \u00b7 Milk Carton Club \u00b7 link to SDW. Get beatthread embed code from Zerric/NinjaNerd.</p>\n\n<p>---</p></div>\n<div class=\"section\"><h2>\ud83d\udccb Project Status (brief)</h2>\n<ul>\n<li><strong>\ud83c\udfb5 MilkUps</strong> \u2014 \ud83d\udfe2 ACTIVE \u00b7 site + BeatThread embed in design</li>\n<li><strong>\ud83c\udfac SDW</strong> \u2014 \ud83d\udfe1 2 tapes/ep \u00b7 \u2192 links to MilkUps</li>\n<li><strong>\ud83d\udc00 Snitch</strong> \u2014 \ud83d\udfe1 buyer=consumer</li>\n<li><strong>\ud83c\udfae Promo games</strong> \u2014 next = Snitch</li>\n<li><strong>\u270f\ufe0f Doodles</strong> \u2014 50-pack delivered \u00b7 review paused</li>\n<li><strong>\ud83d\udce7 Outreach</strong> \u2014 sender bots@ \u00b7 blocked email config</li>\n<li><strong>\ud83d\udcb3 Stripe</strong> \u2014 Linux Gost $0 \u00b7 review pending</li>\n</ul>\n\n<p>---</p></div>\n<div class=\"section\"><h2>\u23f3 OPEN</h2>\n<ul>\n<li>SDW episode count (BossLady) \u00b7 SDW buyer/platforms</li>\n<li>Email config (separate chat) \u00b7 GitHub push (IT chat)</li>\n<li>Stripe price (team) \u00b7 Doodle review (tonight)</li>\n<li>snitch subdomain test \u00b7 SnowSnakes admin accounts</li>\n<li><strong>BeatThread embed code (Zerric/NinjaNerd)</strong></li>\n<li><strong>MilkUps beats uploaded (Zerric as producer)</strong></li>\n</ul>\n\n<p>---</p></div>\n<div class=\"section\"><h2>\ud83d\udcdd Changelog</h2>\n<ul>\n<li><strong>Aug 24</strong> \u2014 <strong>#47 updated: BeatThread verified + integration plan set (MilkUps producer \u2192 fans submit \u2192 vote; embed player on site).</strong></li>\n<li>*Every turn appends.*</li>\n</ul></div>\n<div class=\"cta-bar\">\n  <a class=\"btn\" href=\"#\">Open Task Dashboard</a>\n  <div class=\"sub\">Private \u2014 requires tasks.zdotllc.com login</div>\n</div>\n<div class=\"footer\">&copy; 2024 Z Dot Team. All rights reserved.</div>\n</body>\n</html>\n",
      "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/landing_pages/progress.html",
      "status": "active",
      "created_by": "Mark",
      "created_at": "2026-08-24 23:10:55",
-     "updated_at": "2026-08-25 03:04:02",
+     "updated_at": "2026-08-25 05:11:10",
      "live_url": ""
     }
    ]
@@ -8043,7 +8043,7 @@
   },
   "content_pieces": {
    "table": "content_pieces",
-   "count": 47,
+   "count": 48,
    "rows": [
     {
      "id": 1,
@@ -8702,12 +8702,26 @@
      "created_by": "Mark",
      "created_at": "2026-08-25 00:43:05",
      "updated_at": "2026-08-25 00:43:05"
+    },
+    {
+     "id": 48,
+     "content_type": "digital_product",
+     "title": "Doodle Mega Pack \u2014 50 for Evening Review",
+     "slug": "doodle-mega-pack-50",
+     "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/content/products/doodle-mega-pack-50.html",
+     "html_content": "***",
+     "json_content": "***",
+     "status": "draft",
+     "word_count": 655,
+     "created_by": "Mark",
+     "created_at": "2026-08-25 04:52:10",
+     "updated_at": "2026-08-25 04:52:10"
     }
    ]
   },
   "browse_log": {
    "table": "browse_log",
-   "count": 202,
+   "count": 205,
    "rows": [
     {
      "id": 1,
@@ -10728,6 +10742,36 @@
      "extracted_links_count": 2,
      "browsed_by": "BossLady",
      "created_at": "2026-08-25 00:45:59"
+    },
+    {
+     "id": 203,
+     "url": "https://beatthread.netlify.app/",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 1,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-25 05:09:34"
+    },
+    {
+     "id": 204,
+     "url": "https://beatthread.netlify.app/",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 1,
+     "browsed_by": "Mark",
+     "created_at": "2026-08-25 05:10:59"
+    },
+    {
+     "id": 205,
+     "url": "https://beatthread.netlify.app/",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 1,
+     "browsed_by": "Seleena",
+     "created_at": "2026-08-25 05:11:28"
     }
    ]
   },
