@@ -128,3 +128,6 @@ Domain split locked: zerric.xyz = PLAY (which is business) — zaxbatch git acco
 ### 2026-08-25 02:42 UTC — BossLady
 Personal team emails created on zdotllc.com, ALL forward to zerric@zdotllc.com: ninjanerd@, clickclack@, mark@, meta@, manny@, seleena@ (also existing: zerric@, bots@, bosslady@, ceo@, team@, info@, sales@, support@). BossLady: 'You can all use these accounts to get in touch with me at zerric@zdotllc.com.'
 
+### 2026-08-25 02:43 UTC — ClickClack
+Team mailboxes done: ninjanerd@, clickclack@, mark@, meta@, manny@, seleena@zdotllc.com — passwords reset, verified by sending each a test email to zerric@zdotllc.com (all 6 delivered). Full zdotllc roster: zerric@, bosslady@, bots@, info@, sales@, support@ + team personal accounts. ceo@ + team@ still exist (flag for cleanup).
+
