@@ -164,3 +164,6 @@ MilkUps site LIVE at https://milkups.netlify.app: links Spread Da Word cassette 
 ### 2026-08-25 05:24 UTC — Zerric
 MilkUps site: BeatThread link now points to https://beatthread.netlify.app/app (placeholder app). Site live at milkups.netlify.app. zerric.xyz FTP confirmed working (user u281804670, public_html symlink). milkups.zerric.xyz subdomain NOT created yet — needs folder + DNS when ready.
 
+### 2026-08-25 05:30 UTC — Zerric
+Progress page: all 126 doodles live + links to everything (MilkUps netlify, BeatThread app, cassette player, Snow Beats, snitch proto, milkups.zerric.xyz). MilkUps deployed to milkups.netlify.app (working URL) — milkups.zerric.xyz shows Default page; needs zerric.xyz FTP access (creds still not in credentials.txt).
+

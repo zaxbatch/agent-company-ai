@@ -164,6 +164,11 @@ html = f"""<!DOCTYPE html>
     <a href="https://tasks.zdotllc.com" target="_blank" rel="noopener">✓ tasks.zdotllc.com</a>
     <a href="https://spread-da-word.netlify.app/" target="_blank" rel="noopener">✓ spread-da-word.netlify.app</a>
     <a href="https://snowsnakes.zerric.xyz/spread-da-word/audio/soundtracks-cassette-player.html" target="_blank" rel="noopener">✓ Cassette player</a>
+    <a href="https://milkups.netlify.app" target="_blank" rel="noopener">✓ MilkUps (music)</a>
+    <a href="https://beatthread.netlify.app/app" target="_blank" rel="noopener">✓ BeatThread (beats)</a>
+    <a href="https://zdotllc.com/milkups/" target="_blank" rel="noopener">✓ MilkUps @ zdotllc</a>
+    <a href="https://snowsnakes.zerric.xyz/games/86" target="_blank" rel="noopener">✓ Snow Beats</a>
+    <a href="https://milkups.zerric.xyz" target="_blank" rel="noopener">✓ milkups.zerric.xyz (default page — awaiting deploy)</a>
     <a href="snitch.html" target="_blank" rel="noopener">✓ Snitch prototype</a>
   </div>
 
