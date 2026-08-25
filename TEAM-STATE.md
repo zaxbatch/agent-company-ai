@@ -11,6 +11,11 @@
 
 ---
 
+## 0. LATEST SESSION (2026-08-25e) — SDW ANIMATION PIPELINE LOCKED
+- **Spread Da Word episodes = RIVE MOTION-COMIC (South Park cutout style).** Zerric confirmed "that's what we'll use."
+  Pipeline: existing SVG rigs -> Rive -> motion-comic panels -> ship on snowsnakes episodes. Build episode 1 PoC next.
+- **MilkUps:** live milkups.netlify.app + zdotllc.com/milkups (BeatThread /app link fixed). milkups.zerric.xyz = default page; needs zerric.xyz host FTP creds (STILL not in credentials.txt).
+- **Doodles:** 126 inline on progress page for Zerric's bed review. Task-list owner: Meta (primary) + Manny (backup).
 ## 0. LATEST SESSION (2026-08-25d)
 - **TASK-LIST OWNERSHIP (BossLady asked):** Meta = PRIMARY owner of the portal task list (tasks.zdotllc.com) — clears/updates daily.
   Manny = BACKUP/co-owner. Watchdog (scripts/checklist_watchdog.py) flags stale; PMs act on it. CTO keeps statuses in TEAM-STATE.

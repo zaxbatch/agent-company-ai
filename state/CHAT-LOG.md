@@ -167,3 +167,6 @@ MilkUps site: BeatThread link now points to https://beatthread.netlify.app/app (
 ### 2026-08-25 05:30 UTC — Zerric
 Progress page: all 126 doodles live + links to everything (MilkUps netlify, BeatThread app, cassette player, Snow Beats, snitch proto, milkups.zerric.xyz). MilkUps deployed to milkups.netlify.app (working URL) — milkups.zerric.xyz shows Default page; needs zerric.xyz FTP access (creds still not in credentials.txt).
 
+### 2026-08-25 05:41 UTC — Zerric
+SET: Spread Da Word episodes = Rive motion-comic (South Park cutout style). Official pipeline locked. Rigs already exist (Snow, Vin, Que, Aji). Episode feature on SnowSnakes has 2 seeded placeholders. Next: build episode 1 proof-of-concept.
+
