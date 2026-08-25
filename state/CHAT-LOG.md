@@ -134,3 +134,6 @@ Team mailboxes done: ninjanerd@, clickclack@, mark@, meta@, manny@, seleena@zdot
 ### 2026-08-25 02:48 UTC — BossLady
 Thunderbird configured with ALL 19 mailboxes (14 @zdotllc.com + 5 @zerric.xyz). Everyone accessible from the machine. Passwords = Snowsnakes2026! (default, stored in credentials.txt). All zdotllc boxes forward to zerric@zdotllc.com; all zerric.xyz boxes forward to ez@zerric.xyz.
 
+### 2026-08-25 03:53 UTC — Zerric
+Answers logged: admins (ninjanerd/clickclack), github clean+push works, FTP=zerric root confirmed, snitch.zerric.xyz needs hPanel subdomain, joke cron minimal restored, SDW sign-in gate, MilkUps='We're the MilkUps', fan club=Milk Carton Club, snitch sign-in tags emails 'snitch', game builder first, South Park style, doodle hold, promo games greenlit.
+

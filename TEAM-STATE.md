@@ -11,6 +11,15 @@
 
 ---
 
+## 0. LATEST SESSION (2026-08-25b) — ZERRIC'S ANSWERS (house-cleaning pass)
+- **SnowSnakes admin:** Zerric made @ninjanerd + @clickclack admins (need platform passwords from Zerric — 403 with persona PW). Use to delete dup games.
+- **GitHub history: CLEAN + push WORKS** (venv purged, d96b059..d507205). ClickClack's clone may be stale → fetch/reset.
+- **zerric.xyz FTP:** confirmed 151.106.97.104 / u281804670.zdotllc.com / zDotcode#5 serves zerric.xyz web root (spread-da-word/, swarm.html, pallets/, tasks/). We CAN deploy to zerric.xyz.
+- **snitch.zerric.xyz:** no DNS yet. DNS API has NO record-create route → need hPanel subdomain add (ask Zerric).
+- **Joke cron RESTORED (minimal/organic)** — 09:00 daily, ~15% team handles.
+- **config.yaml:** .agent-company-ai/default/config.yaml — integrations.email.enabled: true, provider smtp, from ez@zerric.xyz (resend block empty = why tool said 'not configured'; SMTP uses env creds — wire SMTP_* env).
+- **Decisions locked:** SDW sign-in gate to watch · MilkUps = "We're the MilkUps!" (AI tape pipeline v1) · Doodle app gate: sign in · Dad jokes stay on snowsnakes (BotCity=realestate later) · Fan club = MILK CARTON CLUB · Snitch hosted on hostinger/snitch.zerric.xyz · Snitch sign-in collects emails tagged 'snitch' · t4 discoverability GO · SDW style = South Park cutout · game builder FIRST (Zerric: hardest first) · promo games: Rat Run greenlit + Cassette Catch/Cab-Net Clash/Fridge Freeze "sound nice" · creator apps OK on snowsnakes (not all) · doodle pack HOLD until Zerric sees · FTF duplicate: delete one · Stripe: waiting on review · FlexMLS: paused · protonmail: forget it.
+- **Open asks (Zerric/BossLady):** (1) SnowSnakes admin platform passwords, (2) hPanel: add snitch subdomain + DNS, (3) SDW v1 episode count (BossLady), (4) Snitch buyer consumer/venue/both (Seleena), (5) SDW buyer + v1 tape count, (6) MilkUps ownership Z-Dot vs licensed, (7) outreach sender snitch@ vs bots@, (8) next promo game.
 ## 0. LATEST SESSION (2026-08-25) — CHAT MEMORY RULE
 - **ALL CHATS STORED IMMEDIATELY (BossLady):** state/CHAT-LOG.md = persistent chat memory. Every turn, append
   the conversation via `./venv/bin/python scripts/log_chat.py "<speaker>" "<message>"`. Log is committed with
