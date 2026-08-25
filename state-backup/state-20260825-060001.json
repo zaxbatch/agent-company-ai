@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-25T04:20:01.228708+00:00",
+ "generated_at": "2026-08-25T06:00:01.418545+00:00",
  "note": "Sanitized continuity snapshot. Sensitive fields masked (***). Restore: this JSON documents what was in flight so work can resume after any disruption.",
  "tables": {
   "agents": {
@@ -4833,7 +4833,7 @@
    "rows": [
     {
      "name": "browse_log",
-     "seq": 202
+     "seq": 205
     },
     {
      "name": "prospect_searches",
@@ -4845,7 +4845,7 @@
     },
     {
      "name": "content_pieces",
-     "seq": 47
+     "seq": 48
     },
     {
      "name": "contacts",
@@ -4853,7 +4853,7 @@
     },
     {
      "name": "landing_pages",
-     "seq": 23
+     "seq": 24
     }
    ]
   },
@@ -6445,12 +6445,12 @@
      "phone": "212-439-1008",
      "status": "lead",
      "source": "outreach sprint",
-     "notes": "NYC local gaming store with 1000+ board game library, multiple locations. Outreach sprint target: venue partnership / Snitch demo night. Also us@hexnyc.com, magic@hexnyc.com. Socials: IG/FB/Twitter @hexandcompany.",
+     "notes": "NYC local gaming store with 1000+ board game library, multiple locations. Outreach sprint target: venue partnership / Snitch demo night. Also us@hexnyc.com, magic@hexnyc.com. Socials: IG/FB/Twitter @hexandcompany.\nSTATUS 2026-08-24: Outreach queued (Snitch venue wave 1). BLOCKED on email integration config (NinjaNerd/ClickClack/Zerric meeting). Sender: bots@zdotllc.com. Sequence: Snitch Venue Outreach (ID 39).",
      "tags": "snowsnakes,outreach,spread-da-word,snitch,gaming-partner",
      "custom_fields": "{}",
      "created_by": "ClickClack",
      "created_at": "2026-08-24 09:26:42",
-     "updated_at": "2026-08-24 09:26:42"
+     "updated_at": "2026-08-25 05:40:03"
     },
     {
      "id": 35,
@@ -6460,12 +6460,12 @@
      "phone": "",
      "status": "lead",
      "source": "outreach sprint",
-     "notes": "Gaming influencer marketing agency (YouTube/Twitch/TikTok creator campaigns). Outreach sprint target: potential paid creator campaign partner for Spread Da Word / Snitch launch. Socials: @clout_boost.",
+     "notes": "Gaming influencer marketing agency (YouTube/Twitch/TikTok creator campaigns). Outreach sprint target: potential paid creator campaign partner for Spread Da Word / Snitch launch. Socials: @clout_boost.\nSTATUS 2026-08-24: Outreach queued (Snitch/gaming partner). BLOCKED on email integration config. Sender: bots@zdotllc.com. Sequence: Snitch Venue Outreach (ID 39).",
      "tags": "snowsnakes,outreach,spread-da-word,snitch,agency",
      "custom_fields": "{}",
      "created_by": "ClickClack",
      "created_at": "2026-08-24 09:26:42",
-     "updated_at": "2026-08-24 09:26:42"
+     "updated_at": "2026-08-25 05:40:03"
     }
    ]
   },
@@ -6481,7 +6481,7 @@
   },
   "landing_pages": {
    "table": "landing_pages",
-   "count": 23,
+   "count": 24,
    "rows": [
     {
      "id": 1,
@@ -6749,14 +6749,26 @@
     },
     {
      "id": 23,
-     "title": "Z-Dot Progress \u2014 Team Memory & Status",
+     "title": "Z-Dot Progress \u2014 Links & Everything",
      "slug": "progress",
-     "html_content": "***",
+     "html_content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Z-Dot Progress \u2014 Links &amp; Everything</title>\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n         background: #0a0a0a; color: #e0e0e0; line-height: 1.6; }\n  .hero { text-align: center; padding: 80px 20px 60px;\n           background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }\n  .hero h1 { font-size: 2.5rem; font-weight: 700; color: #fff;\n              max-width: 700px; margin: 0 auto 16px; }\n  .hero .subtitle { font-size: 1.2rem; color: #94a3b8; max-width: 600px;\n                     margin: 0 auto 32px; }\n  \n  .section { max-width: 720px; margin: 0 auto; padding: 48px 24px; }\n  .section h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px;\n                 border-bottom: 2px solid #1e40af; padding-bottom: 8px; display: inline-block; }\n  .section p { margin-bottom: 16px; color: #cbd5e1; }\n  .section ul { margin: 16px 0 16px 24px; color: #cbd5e1; }\n  .section li { margin-bottom: 8px; }\n  .section strong { color: #fff; }\n  .cta-bar { text-align: center; padding: 48px 20px;\n              background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }\n  .cta-bar .btn { display: inline-block; background: #2563eb; color: #fff;\n                   padding: 16px 40px; border-radius: 8px; font-size: 1.1rem;\n                   font-weight: 600; text-decoration: none;\n                   transition: background 0.2s; }\n  .cta-bar .btn:hover { background: #1d4ed8; }\n  .cta-bar .sub { color: #64748b; margin-top: 12px; font-size: 0.9rem; }\n  .footer { text-align: center; padding: 32px; color: #475569; font-size: 0.8rem; }\n</style>\n</head>\n<body>\n<div class=\"hero\">\n  <h1>See What We're Working On</h1>\n  <div class=\"subtitle\">Private Z-Dot progress page \u2014 all links, doodles, decisions, saved &amp; updated.</div>\n  \n</div>\n<div class=\"section\"><h2>\ud83d\udd12 Private \u2014 Login Required</h2>\n<p><strong>Direct URL:</strong> https://tasks.zdotllc.com/progress \u2014 reached via tasks.zdotllc.com login. Team only.</p>\n\n<p>---</p></div>\n<div class=\"section\"><h2>\ud83e\udde0 DECISION LOG \u2014 #50 SDW animation (FINAL \u2705)</h2>\n<ul>\n<li><strong>Approach (set, Zerric confirmed):</strong> motion-comic + Rive hybrid (build) + <strong>South Park style</strong> (look)</li>\n<li>\u2705 <strong>CONFIRMED \u2014 that's what we're using.</strong> No more options review.</li>\n<li>Next: episode count (BossLady) \u2192 first episode build (ClickClack + MilkUps music)</li>\n</ul></div>\n<div class=\"section\"><h2>\ud83d\udccb Status (brief)</h2>\n<ul>\n<li><strong>\ud83c\udfac SDW</strong> \u2014 \ud83d\udfe2 animation FINAL \u00b7 episode count open</li>\n<li><strong>\ud83c\udfb5 MilkUps</strong> \u2014 \ud83d\udfe2 ACTIVE \u00b7 milkups.zerric.xyz \u00b7 deploy pending</li>\n<li><strong>\ud83d\udc00 Snitch</strong> \u2014 \ud83d\udfe1 buyer=consumer</li>\n<li><strong>\ud83c\udfae Promo</strong> \u2014 next = Snitch</li>\n<li><strong>\u270f\ufe0f Doodles</strong> \u2014 all posted \u00b7 review pending</li>\n<li><strong>\ud83d\udce7 Outreach</strong> \u2014 blocked email config</li>\n<li><strong>\ud83d\udcb3 Stripe</strong> \u2014 Linux Gost $0 \u00b7 review pending</li>\n</ul></div>\n<div class=\"section\"><h2>\u23f3 OPEN</h2>\n<p>SDW episode count (BossLady) \u00b7 Email config (sep chat) \u00b7 GitHub push (IT chat) \u00b7 Stripe price \u00b7 snitch subdomain \u00b7 SnowSnakes admin \u00b7 MilkUps deploy \u00b7 Doodle review</p>\n\n<p>---</p></div>\n<div class=\"section\"><h2>\ud83d\udcdd Changelog</h2>\n<ul>\n<li><strong>Aug 24</strong> \u2014 #50 CONFIRMED final (South Park style + motion-comic/Rive). All progress saved.</li>\n<li>*Every turn appends.*</li>\n</ul></div>\n<div class=\"cta-bar\">\n  <a class=\"btn\" href=\"#\">Open Task Dashboard</a>\n  <div class=\"sub\">Private \u2014 requires tasks.zdotllc.com login</div>\n</div>\n<div class=\"footer\">&copy; 2024 Z Dot Team. All rights reserved.</div>\n</body>\n</html>\n",
      "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/landing_pages/progress.html",
      "status": "active",
      "created_by": "Mark",
      "created_at": "2026-08-24 23:10:55",
-     "updated_at": "2026-08-25 03:04:02",
+     "updated_at": "2026-08-25 05:42:39",
+     "live_url": ""
+    },
+    {
+     "id": 24,
+     "title": "MilkUps \u2014 The Band Behind the Music",
+     "slug": "milkups",
+     "html_content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>MilkUps \u2014 The Band Behind the Music</title>\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n         background: #0a0a0a; color: #e0e0e0; line-height: 1.6; }\n  .hero { text-align: center; padding: 80px 20px 60px;\n           background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }\n  .hero h1 { font-size: 2.5rem; font-weight: 700; color: #fff;\n              max-width: 700px; margin: 0 auto 16px; }\n  .hero .subtitle { font-size: 1.2rem; color: #94a3b8; max-width: 600px;\n                     margin: 0 auto 32px; }\n  \n  .section { max-width: 720px; margin: 0 auto; padding: 48px 24px; }\n  .section h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px;\n                 border-bottom: 2px solid #1e40af; padding-bottom: 8px; display: inline-block; }\n  .section p { margin-bottom: 16px; color: #cbd5e1; }\n  .section ul { margin: 16px 0 16px 24px; color: #cbd5e1; }\n  .section li { margin-bottom: 8px; }\n  .section strong { color: #fff; }\n  .cta-bar { text-align: center; padding: 48px 20px;\n              background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }\n  .cta-bar .btn { display: inline-block; background: #2563eb; color: #fff;\n                   padding: 16px 40px; border-radius: 8px; font-size: 1.1rem;\n                   font-weight: 600; text-decoration: none;\n                   transition: background 0.2s; }\n  .cta-bar .btn:hover { background: #1d4ed8; }\n  .cta-bar .sub { color: #64748b; margin-top: 12px; font-size: 0.9rem; }\n  .footer { text-align: center; padding: 32px; color: #475569; font-size: 0.8rem; }\n</style>\n</head>\n<body>\n<div class=\"hero\">\n  <h1>MilkUps \u2014 the band behind the music.</h1>\n  <div class=\"subtitle\">Independent band. Original soundtracks. BeatThread-powered beats \u2014 and your voice could be next.</div>\n  \n</div>\n<div class=\"section\"><h2>The Band</h2>\n<p><strong>MilkUps</strong> \u2014 the independent band behind all the music. If you've heard a beat on Spread Da Word, SnowSnakes, or anywhere in the Zerric-verse, that's us.</p>\n\n<p>We make the soundtracks. We drop the loops. We're just getting started.</p></div>\n<div class=\"section\"><h2>\ud83c\udfa7 Hear the Music</h2>\n<p>Our beats live on <strong>BeatThread</strong> \u2014 the community where producers drop beats and the crowd crowns the best one.</p>\n\n<p>\ud83d\udc49 <strong>Tap here to open our BeatThread app:</strong></p>\n<p><strong>https://beatthread.netlify.app/app</strong></p>\n\n<p>*Full player + downloads coming soon.*</p></div>\n<div class=\"section\"><h2>\ud83c\udfa4 Remix Challenge</h2>\n<p>Every beat we drop is an open invitation:</p>\n\n<ul>\n<li>Pick a MilkUps beat</li>\n<li>Record your own lyrics over it</li>\n<li>Submit your version to the thread</li>\n<li>The crowd votes the best one to the top</li>\n</ul>\n\n<p>Your voice could end up on a MilkUps release. \ud83e\udd5b</p></div>\n<div class=\"section\"><h2>\ud83e\udd5b Milk Carton Club</h2>\n<p>Join the fan club for early drops, behind-the-scenes, and first dibs on remix challenges.</p>\n\n<ul>\n<li>Early access to new beats</li>\n<li>Vote in remix battles</li>\n<li>Fan club only merch (coming)</li>\n</ul></div>\n<div class=\"section\"><h2>\ud83c\udfac From the Spread Da Word Universe</h2>\n<p>Hear more of our music on the series \u2014 the soundtracks are ours:</p>\n<p><strong>Spread Da Word</strong> \u2192 *Hear more from MilkUps* \ud83c\udfb5</p></div>\n<div class=\"cta-bar\">\n  <a class=\"btn\" href=\"#\">Open BeatThread App</a>\n  <div class=\"sub\">Free to join \u00b7 Independent band \u00b7 Part of the zerric.xyz family</div>\n</div>\n<div class=\"footer\">&copy; 2024 Z Dot Team. All rights reserved.</div>\n</body>\n</html>\n",
+     "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/landing_pages/milkups.html",
+     "status": "active",
+     "created_by": "Meta",
+     "created_at": "2026-08-25 05:25:16",
+     "updated_at": "2026-08-25 05:31:50",
      "live_url": ""
     }
    ]
@@ -8043,7 +8055,7 @@
   },
   "content_pieces": {
    "table": "content_pieces",
-   "count": 47,
+   "count": 48,
    "rows": [
     {
      "id": 1,
@@ -8702,12 +8714,26 @@
      "created_by": "Mark",
      "created_at": "2026-08-25 00:43:05",
      "updated_at": "2026-08-25 00:43:05"
+    },
+    {
+     "id": 48,
+     "content_type": "digital_product",
+     "title": "Doodle Mega Pack \u2014 50 for Evening Review",
+     "slug": "doodle-mega-pack-50",
+     "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/content/products/doodle-mega-pack-50.html",
+     "html_content": "***",
+     "json_content": "***",
+     "status": "draft",
+     "word_count": 655,
+     "created_by": "Mark",
+     "created_at": "2026-08-25 04:52:10",
+     "updated_at": "2026-08-25 04:52:10"
     }
    ]
   },
   "browse_log": {
    "table": "browse_log",
-   "count": 202,
+   "count": 205,
    "rows": [
     {
      "id": 1,
@@ -10728,6 +10754,36 @@
      "extracted_links_count": 2,
      "browsed_by": "BossLady",
      "created_at": "2026-08-25 00:45:59"
+    },
+    {
+     "id": 203,
+     "url": "https://beatthread.netlify.app/",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 1,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-25 05:09:34"
+    },
+    {
+     "id": 204,
+     "url": "https://beatthread.netlify.app/",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 1,
+     "browsed_by": "Mark",
+     "created_at": "2026-08-25 05:10:59"
+    },
+    {
+     "id": 205,
+     "url": "https://beatthread.netlify.app/",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 1,
+     "browsed_by": "Seleena",
+     "created_at": "2026-08-25 05:11:28"
     }
    ]
   },
