@@ -131,3 +131,6 @@ Personal team emails created on zdotllc.com, ALL forward to zerric@zdotllc.com: 
 ### 2026-08-25 02:43 UTC — ClickClack
 Team mailboxes done: ninjanerd@, clickclack@, mark@, meta@, manny@, seleena@zdotllc.com — passwords reset, verified by sending each a test email to zerric@zdotllc.com (all 6 delivered). Full zdotllc roster: zerric@, bosslady@, bots@, info@, sales@, support@ + team personal accounts. ceo@ + team@ still exist (flag for cleanup).
 
+### 2026-08-25 02:48 UTC — BossLady
+Thunderbird configured with ALL 19 mailboxes (14 @zdotllc.com + 5 @zerric.xyz). Everyone accessible from the machine. Passwords = Snowsnakes2026! (default, stored in credentials.txt). All zdotllc boxes forward to zerric@zdotllc.com; all zerric.xyz boxes forward to ez@zerric.xyz.
+
