@@ -14,6 +14,7 @@
 | 5 | **Snitch trailer video** | ❌ nixed (BossLady) | — | Does NOT go on SnowSnakes (video ≠ game) |
 | 6 | **Snow Beats ⬇ download** | ✅ done (game 97 → fixed 99) | CTO | Behind gated sign-in; fixed sandbox download via save-file-picker + popup fallback |
 | 7 | **10 doodles/day for approval** | ✅ live | CTO | → resources/snowsnakes/doodles-comics-under-review/ + shown on tasks.zdotllc.com/progress |
+| 7b | **Z-DOT SLOGAN: "We'll have our bots call your bots"** | 🔥 captured | BossLady/Zerric | Tagline for Z-Dot LLC — bots doing the work. Add to marketing/landing pages when approved |
 
 ## 🏗 BUILDING / APPROVED
 | # | Idea | Status | Owner | Notes |
