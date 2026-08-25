@@ -32,5 +32,13 @@
 5. **Before ANY push:** `git remote -v` (confirm owner) + `git config user.email` (confirm identity). Two checks, 2 seconds, zero mixups.
 6. **Secrets:** never commit .env / credentials.txt / config.yaml / tokens to ANY repo (either account). Check `git diff` before every push.
 
-## The one active known-issue
-- `zaxbatch/agent-company-ai` (this repo) currently has NO write access for zdotllc → pushes from here are blocked until Zerric grants access or we push from the correct account. Escalate to BossLady/Zerric — do NOT work around by changing remotes.
+## CURRENT REALITY (2026-08-25 — verified)
+- **This machine's DEFAULT key (`~/.ssh/id_ed25519`) = zdotllc account** (ssh -T says "Hi zdotllc!").
+  `~/.ssh/id_ed25519_zdotllc` = also zdotllc. NO zaxbatch private key exists on this machine.
+- **zaxbatch key is NOT here.** BossLady added only the zaxbatch key FINGERPRINT (SHA256:WyqUu9ep…) to credentials.txt —
+  a fingerprint does NOT authenticate. We need the actual private key OR a new key registered to zaxbatch.
+- **How to fix (safe, no key travel):** 1) generate new key locally: `ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_zaxbatch -C "zaxbatch@github"`
+  2) Zerric adds the .pub to github.com/settings/ssh (zaxbatch account)
+  3) add ~/.ssh/config alias `github-zaxbatch` -> IdentityFile ~/.ssh/id_ed25519_zaxbatch
+  4) point this repo's remote at `git@github-zaxbatch:zaxbatch/agent-company-ai.git`
+- **NEVER paste a private key into credentials.txt/chat/email.** Fingerprint ≠ key.
