@@ -28,3 +28,4 @@ LPT/.env
 
 # SnowSnakes auth tokens — NEVER commit
 .snowsnakes_accounts.json
+venv/
