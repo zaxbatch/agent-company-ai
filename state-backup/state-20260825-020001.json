@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-24T21:00:01.226337+00:00",
+ "generated_at": "2026-08-25T02:00:01.344205+00:00",
  "note": "Sanitized continuity snapshot. Sensitive fields masked (***). Restore: this JSON documents what was in flight so work can resume after any disruption.",
  "tables": {
   "agents": {
@@ -90,7 +90,7 @@
   },
   "tasks": {
    "table": "tasks",
-   "count": 196,
+   "count": 197,
    "rows": [
     {
      "id": "1e06bda85075",
@@ -2443,12 +2443,24 @@
      "artifacts_json": "[]",
      "created_at": "2026-08-24 19:09:16",
      "updated_at": "2026-08-24 19:09:17"
+    },
+    {
+     "id": "95f8e637733a",
+     "description": "fugure out how to call Zerric",
+     "assignee_id": "BossLady",
+     "status": "done",
+     "priority": 0,
+     "parent_id": null,
+     "result": "***",
+     "artifacts_json": "***",
+     "created_at": "2026-08-25 00:45:10",
+     "updated_at": "2026-08-25 00:46:17"
     }
    ]
   },
   "messages": {
    "table": "messages",
-   "count": 261,
+   "count": 262,
    "rows": [
     {
      "id": "bfc26bedbffc",
@@ -4798,6 +4810,15 @@
      "topic": "task.completed",
      "metadata_json": "{}",
      "timestamp": "2026-08-24T19:08:40.279456+00:00"
+    },
+    {
+     "id": "809d623fbe49",
+     "from_agent": "BossLady",
+     "to_agent": null,
+     "content": "Task completed (done): HOW TO CALL ZERRIC \u2014 VERIFIED CONTACT & ESCALATION GUIDE (researched via live web checks 2026-08-24)\n\nBottom line: Zerric's personal cell is (502) 299-5252 \u2014 that is the literal \"call\" channel. It's l",
+     "topic": "task.completed",
+     "metadata_json": "{}",
+     "timestamp": "2026-08-25T00:46:17.165341+00:00"
     }
    ]
   },
@@ -4812,7 +4833,7 @@
    "rows": [
     {
      "name": "browse_log",
-     "seq": 194
+     "seq": 202
     },
     {
      "name": "prospect_searches",
@@ -4820,11 +4841,11 @@
     },
     {
      "name": "social_drafts",
-     "seq": 65
+     "seq": 70
     },
     {
      "name": "content_pieces",
-     "seq": 40
+     "seq": 47
     },
     {
      "name": "contacts",
@@ -4832,13 +4853,13 @@
     },
     {
      "name": "landing_pages",
-     "seq": 21
+     "seq": 23
     }
    ]
   },
   "artifacts": {
    "table": "artifacts",
-   "count": 102,
+   "count": 103,
    "rows": [
     {
      "id": "bd30561548dc",
@@ -5757,12 +5778,21 @@
      "content": "***",
      "artifact_type": "text",
      "created_at": "2026-08-24 19:08:40"
+    },
+    {
+     "id": "34bf01d67923",
+     "task_id": "95f8e637733a",
+     "agent_id": "BossLady",
+     "name": "result",
+     "content": "***",
+     "artifact_type": "text",
+     "created_at": "2026-08-25 00:46:17"
     }
    ]
   },
   "goals": {
    "table": "goals",
-   "count": 19,
+   "count": 21,
    "rows": [
     {
      "id": "bf88aa5e1266",
@@ -5896,6 +5926,20 @@
      "status": "failed",
      "created_at": "2026-08-24 18:32:41",
      "completed_at": "2026-08-24 19:09:17"
+    },
+    {
+     "id": "376e337a061d",
+     "description": "Figure out how to talk back and forth \"hot potato\" in our group chat. The goal is to be able to initiate bot mode, where you have a group meeting without the need for me to keep it going. I am able to join in and out at any time. I can turn any group chat into boss mode. the file to modify is advance.html",
+     "status": "failed",
+     "created_at": "2026-08-25 00:44:40",
+     "completed_at": "2026-08-25 00:44:40"
+    },
+    {
+     "id": "cb70d2e7a2cc",
+     "description": "call zerric",
+     "status": "failed",
+     "created_at": "2026-08-25 01:28:40",
+     "completed_at": "2026-08-25 01:28:40"
     }
    ]
   },
@@ -6437,7 +6481,7 @@
   },
   "landing_pages": {
    "table": "landing_pages",
-   "count": 21,
+   "count": 23,
    "rows": [
     {
      "id": 1,
@@ -6690,12 +6734,36 @@
      "created_at": "2026-08-24 09:37:27",
      "updated_at": "2026-08-24 09:42:38",
      "live_url": ""
+    },
+    {
+     "id": 22,
+     "title": "Z-Dot Team \u2014 Progress Dashboard",
+     "slug": "zdot-progress-dashboard",
+     "html_content": "***",
+     "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/landing_pages/zdot-progress-dashboard.html",
+     "status": "active",
+     "created_by": "Mark",
+     "created_at": "2026-08-24 22:43:49",
+     "updated_at": "2026-08-24 22:44:02",
+     "live_url": ""
+    },
+    {
+     "id": 23,
+     "title": "Z-Dot Progress \u2014 Team Memory & Status",
+     "slug": "progress",
+     "html_content": "***",
+     "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/landing_pages/progress.html",
+     "status": "active",
+     "created_by": "Mark",
+     "created_at": "2026-08-24 23:10:55",
+     "updated_at": "2026-08-25 01:54:19",
+     "live_url": ""
     }
    ]
   },
   "social_drafts": {
    "table": "social_drafts",
-   "count": 65,
+   "count": 70,
    "rows": [
     {
      "id": 1,
@@ -7541,6 +7609,71 @@
      "created_at": "2026-08-24 18:54:36",
      "updated_at": "2026-08-24 18:54:36",
      "published_id": ""
+    },
+    {
+     "id": 66,
+     "platform": "twitter",
+     "content": "\ud83c\udfa7 Snow Beats is getting an upgrade...\n\nThat loop you made? Soon you'll be able to DOWNLOAD it. Make it, keep it, use it anywhere.\n\nComing to SnowSnakes. \ud83e\udee1",
+     "media_urls": "",
+     "hashtags": "SnowBeats,SnowSnakes,BeatMaking,Music",
+     "status": "draft",
+     "scheduled_for": null,
+     "created_by": "Mark",
+     "created_at": "2026-08-24 23:20:34",
+     "updated_at": "2026-08-24 23:20:34",
+     "published_id": ""
+    },
+    {
+     "id": 67,
+     "platform": "instagram",
+     "content": "Make it. Download it. Own it. \ud83c\udfa7\n\nSnow Beats is adding a loop download feature \u2014 your beat becomes your file.\n\nPerfect for producers, loop-makers, and anyone who's ever made something they didn't want to lose.\n\nComing to SnowSnakes \u2192 snowsnakes.zerric.xyz",
+     "media_urls": "",
+     "hashtags": "SnowBeats,SnowSnakes,MusicProducer,BeatMaking",
+     "status": "draft",
+     "scheduled_for": null,
+     "created_by": "Mark",
+     "created_at": "2026-08-24 23:20:34",
+     "updated_at": "2026-08-24 23:20:34",
+     "published_id": ""
+    },
+    {
+     "id": 68,
+     "platform": "twitter",
+     "content": "We'll have our bots call your bots.\n\nYour business runs on automation. So do we. \ud83e\udd16\n\nZ-Dot builds the systems, the AI, and the outreach that never sleeps \u2014 so you don't have to.",
+     "media_urls": "",
+     "hashtags": "Zdot,Automation,AI,BusinessGrowth",
+     "status": "draft",
+     "scheduled_for": null,
+     "created_by": "Mark",
+     "created_at": "2026-08-25 00:43:05",
+     "updated_at": "2026-08-25 00:43:05",
+     "published_id": ""
+    },
+    {
+     "id": 69,
+     "platform": "linkedin",
+     "content": "\"We'll have our bots call your bots.\"\n\nThat's the Z-Dot promise. While you're sleeping, your outreach is running. While you're in meetings, your follow-ups are sending. While you're growing, your systems are scaling.\n\nAutomation isn't a luxury anymore \u2014 it's the difference between a business that hustles and a business that runs.\n\nLet's put your business on autopilot. \ud83e\udd16",
+     "media_urls": "",
+     "hashtags": "Zdot,Automation,AI,BusinessGrowth,SmallBusiness",
+     "status": "draft",
+     "scheduled_for": null,
+     "created_by": "Mark",
+     "created_at": "2026-08-25 00:43:05",
+     "updated_at": "2026-08-25 00:43:05",
+     "published_id": ""
+    },
+    {
+     "id": 70,
+     "platform": "instagram",
+     "content": "We'll have our bots call your bots. \ud83e\udd16\n\nThat's not a threat. It's a promise.\n\nYour business + our automation = growth that runs itself.",
+     "media_urls": "",
+     "hashtags": "Zdot,Automation,AI,BusinessGrowth",
+     "status": "draft",
+     "scheduled_for": null,
+     "created_by": "Mark",
+     "created_at": "2026-08-25 00:43:05",
+     "updated_at": "2026-08-25 00:43:05",
+     "published_id": ""
     }
    ]
   },
@@ -7910,7 +8043,7 @@
   },
   "content_pieces": {
    "table": "content_pieces",
-   "count": 40,
+   "count": 47,
    "rows": [
     {
      "id": 1,
@@ -8461,22 +8594,120 @@
     {
      "id": 40,
      "content_type": "digital_product",
-     "title": "SnowSnakes Bot Persona Directory \u2014 Making the Community Feel Real",
+     "title": "SnowSnakes Bot Persona Directory v2 \u2014 Games-Only Compliant",
      "slug": "snowsnakes-bot-persona-directory",
      "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/content/products/snowsnakes-bot-persona-directory.html",
      "html_content": "***",
      "json_content": "***",
      "status": "draft",
-     "word_count": 904,
-     "created_by": "Meta",
+     "word_count": 1014,
+     "created_by": "Mark",
      "created_at": "2026-08-24 19:01:30",
-     "updated_at": "2026-08-24 19:01:30"
+     "updated_at": "2026-08-24 23:11:13"
+    },
+    {
+     "id": 41,
+     "content_type": "blog_post",
+     "title": "Z-Dot \u2014 Live Progress Dashboard",
+     "slug": "zdot-progress-dashboard",
+     "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/content/blog/zdot-progress-dashboard.html",
+     "html_content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Z-Dot \u2014 Live Progress Dashboard</title>\n<meta name=\"description\" content=\"Live proof of work at Z-Dot: products, sales pipeline, delivered assets, blockers, and open decisions. Updated every time we ship progress.\">\n<meta name=\"keywords\" content=\"Z-Dot, progress, dashboard, sales pipeline, Spread Da Word, Snitch, status\">\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n         background: #0a0a0a; color: #e0e0e0; line-height: 1.8; }\n  .header { text-align: center; padding: 60px 20px 40px;\n             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }\n  .header h1 { font-size: 2.2rem; font-weight: 700; color: #fff;\n                max-width: 700px; margin: 0 auto 12px; }\n  .header .meta { color: #94a3b8; font-size: 0.9rem; }\n  .content { max-width: 720px; margin: 0 auto; padding: 48px 24px; }\n  .content h2 { font-size: 1.5rem; color: #fff; margin: 32px 0 16px;\n                 border-bottom: 2px solid #1e40af; padding-bottom: 8px; display: inline-block; }\n  .content h3 { font-size: 1.2rem; color: #e2e8f0; margin: 24px 0 12px; }\n  .content p { margin-bottom: 16px; color: #cbd5e1; }\n  .content ul { margin: 16px 0 16px 24px; color: #cbd5e1; }\n  .content li { margin-bottom: 8px; }\n  .content strong { color: #fff; }\n  .footer { text-align: center; padding: 32px; color: #475569; font-size: 0.8rem;\n             border-top: 1px solid #1e293b; margin-top: 48px; }\n</style>\n</head>\n<body>\n<div class=\"header\">\n  <h1>Z-Dot \u2014 Live Progress Dashboard</h1>\n  <div class=\"meta\">By Z-Dot Team | Z Dot Team</div>\n</div>\n<div class=\"content\">\n<p># Z-Dot \u2014 Live Progress Dashboard</p>\n\n<p><strong>Last updated: 2026-08-24</strong></p>\n<p>This page is the single source of truth for what the team has built, what's moving, and what's blocking us. Updated every time we ship progress.</p>\n\n<p>---</p>\n\n<h2>Products (locked)</h2>\n\n<ul>\n<li><strong>Spread Da Word</strong> \u2014 animated series \u00b7 soundtrack cassette library (every soundtrack = its own tape; drag a tape into the deck to switch) \u00b7 more soundtracks needed</li>\n<li><strong>Snitch: Rats in the Grass</strong> \u2014 online board game \u00b7 4-player cap \u00b7 invite links, random matchmaking, bot players \u00b7 sign-in = lead capture \u00b7 race to the finish + bonus points for trust, helping other rats, collecting points</li>\n<li><strong>Bizzy-Bee</strong> \u2014 parked (future project)</li>\n</ul>\n\n<p>---</p>\n\n<h2>Sales Pipeline (live)</h2>\n\n<p><strong>New venue leads (3, this sprint):</strong></p>\n<ul>\n<li>Good Game Cafe \u2014 board game cafe, Flagstaff AZ \u00b7 tagged `snitch/venue/partner-track` \u00b7 enriched</li>\n<li>Snakes & Lattes \u2014 national board game bar chain \u00b7 tagged `snitch/venue/chain` \u00b7 enriched</li>\n<li>Howl at the Moon Louisville \u2014 corporate events venue \u00b7 tagged `snitch/venue/local` \u00b7 enriched</li>\n</ul>\n\n<p><strong>Warm pipeline (29 leads):</strong> Louisville HVAC, plumbing, landscaping, painting, cleaning \u2014 decision-makers confirmed, ready to work</p>\n\n<p><strong>Proposals sent: 0 \u00b7 Closed-won: 0</strong> (blocked \u2014 see Blockers)</p>\n\n<p>---</p>\n\n<h2>Delivered This Sprint (proof)</h2>\n\n<ul>\n<li><strong>CRM hygiene:</strong> 3 venue leads added + tagged correctly \u00b7 29 warm leads documented \u00b7 junk/directory leads flagged so we never waste a touch</li>\n<li><strong>Outreach engine:</strong> \"Snitch Venue Outreach\" email sequence (3 emails, ID 39) built and ready to fire</li>\n<li><strong>Product spec captured:</strong> Spread Da Word cassette library (drag-to-switch) \u00b7 Snitch v1 rules + win conditions \u00b7 dad-joke content plan locked (team jokes minimal, varied personas carry the feed)</li>\n</ul>\n\n<p>---</p>\n\n<h2>Blockers (what stops progress)</h2>\n\n<p>1. <strong>Email integration off</strong> \u2014 cannot send outreach (owner: NinjaNerd)</p>\n<p>2. <strong>Cal.com off</strong> \u2014 cannot create demo booking links (owner: NinjaNerd)</p>\n\n<p>These two are the #1 revenue blockers. Everything else is ready to move.</p>\n\n<p>---</p>\n\n<h2>Decisions Needed (from BossLady)</h2>\n\n<ul>\n<li><strong>Snitch:</strong> buyer (consumer, venue, or both) + v1 locations (full 8-location snake path vs. lean cut)</li>\n<li><strong>Spread Da Word:</strong> buyer (platforms, sponsors, direct-to-fan) + v1 tape count</li>\n</ul>\n\n<p>These unlock pricing and the two product one-pagers.</p>\n\n<p>---</p>\n\n<h2>Team Status (quick board)</h2>\n\n<ul>\n<li><strong>BossLady (CEO):</strong> direction set; owns the two buyer decisions</li>\n<li><strong>NinjaNerd (CTO):</strong> owns build + email/Cal.com config \u2014 currently the blocker</li>\n<li><strong>ClickClack (Dev):</strong> build status pending confirmation</li>\n<li><strong>Mark (Marketer):</strong> landing page + launch promo + content personas \u2014 status pending</li>\n<li><strong>Meta & Manny (PMs):</strong> queue tracking \u2014 status pending</li>\n<li><strong>Seleena (Sales):</strong> pipeline, outreach sequences, one-pagers \u2014 ready to fire on unblock</li>\n</ul>\n\n<p>---</p>\n\n<h2>What's Next</h2>\n\n<p>1. Unblock email + Cal.com \u2192 send Snitch wave 1</p>\n<p>2. BossLady buyer decisions \u2192 draft both one-pagers</p>\n<p>3. Persona build for SnowSnakes + Zerric's Network \u2192 social proof that converts</p>\n\n<p>*This page updates every time we ship.*</p>\n</div>\n<div class=\"footer\">&copy; Z Dot Team. All rights reserved.</div>\n</body>\n</html>\n",
+     "json_content": "",
+     "status": "published",
+     "word_count": 471,
+     "created_by": "Seleena",
+     "created_at": "2026-08-24 22:45:14",
+     "updated_at": "2026-08-24 22:45:14"
+    },
+    {
+     "id": 42,
+     "content_type": "digital_product",
+     "title": "Snow Beats Mod \u2014 Loop Download Feature Brief",
+     "slug": "snow-beats-download-loop-brief",
+     "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/content/products/snow-beats-download-loop-brief.html",
+     "html_content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Snow Beats Mod \u2014 Loop Download Feature Brief</title>\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n         background: #0a0a0a; color: #e0e0e0; line-height: 1.8; }\n  .cover { text-align: center; padding: 80px 20px 60px;\n            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }\n  .cover h1 { font-size: 2.5rem; font-weight: 700; color: #fff;\n               max-width: 700px; margin: 0 auto 16px; }\n  .cover .author { color: #94a3b8; font-size: 1.1rem; }\n  .cover .price { display: inline-block; background: #1e3a5f; color: #38bdf8;\n                   font-size: 1.4rem; font-weight: 700; padding: 8px 24px;\n                   border-radius: 8px; margin-top: 16px; }\n  .toc { max-width: 720px; margin: 0 auto; padding: 48px 24px; }\n  .toc h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px; }\n  .toc ul { list-style: none; padding: 0; }\n  .toc li { margin-bottom: 8px; }\n  .toc a { color: #60a5fa; text-decoration: none; }\n  .toc a:hover { text-decoration: underline; }\n  .chapter { max-width: 720px; margin: 0 auto; padding: 48px 24px;\n              border-top: 1px solid #1e293b; }\n  .chapter h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px;\n                 border-bottom: 2px solid #1e40af; padding-bottom: 8px; display: inline-block; }\n  .chapter h3 { font-size: 1.2rem; color: #e2e8f0; margin: 24px 0 12px; }\n  .chapter p { margin-bottom: 16px; color: #cbd5e1; }\n  .chapter ul { margin: 16px 0 16px 24px; color: #cbd5e1; }\n  .chapter li { margin-bottom: 8px; }\n  .chapter strong { color: #fff; }\n  .footer { text-align: center; padding: 32px; color: #475569; font-size: 0.8rem;\n             border-top: 1px solid #1e293b; margin-top: 48px; }\n</style>\n</head>\n<body>\n<div class=\"cover\">\n  <h1>Snow Beats Mod \u2014 Loop Download Feature Brief</h1>\n  <div class=\"author\">By Mark (Head of Marketing)</div>\n  <div class=\"price\">Suggested Price: Internal \u2014 dev brief, not for sale</div>\n</div>\n<div class=\"toc\">\n  <h2>Table of Contents</h2>\n  <ul>\n    <li><a href=\"#chapter-1\">Chapter 1: The Feature \u2014 Download Your Loop</a></li>\n    <li><a href=\"#chapter-2\">Chapter 2: User Flow (Recommended)</a></li>\n    <li><a href=\"#chapter-3\">Chapter 3: Technical Notes (for NinjaNerd / ClickClack)</a></li>\n    <li><a href=\"#chapter-4\">Chapter 4: Gating Decision \u2014 Ask BossLady</a></li>\n    <li><a href=\"#chapter-5\">Chapter 5: Marketing Angle (ready to ship)</a></li>\n  </ul>\n</div>\n<div class=\"chapter\" id=\"chapter-1\">\n  <h2>Chapter 1: The Feature \u2014 Download Your Loop</h2>\n  <p><strong>What:</strong> Add a 'Download' button to Snow Beats that exports the user's created loop as an audio file.</p>\n\n<p><strong>Why it matters:</strong></p>\n<ul>\n<li>Turns Snow Beats from a toy into a tool \u2014 users can keep their work</li>\n<li>Downloads are shareable \u2192 users post their loops \u2192 free distribution for SnowSnakes</li>\n<li>Creates a reason to register (gate the download) \u2192 feeds HubSpot lead-gen</li>\n<li>Brings users back: 'I want to make another one'</li>\n</ul>\n\n<p><strong>User story:</strong> 'As a Snow Beats player, I want to download the loop I made so I can keep it, share it, or use it in my own project.'</p>\n</div>\n<div class=\"chapter\" id=\"chapter-2\">\n  <h2>Chapter 2: User Flow (Recommended)</h2>\n  <p>1. User creates a loop in Snow Beats</p>\n<p>2. Taps the <strong>Download</strong> button (floppy-disk icon \ud83e\udee1 or arrow-down icon)</p>\n<p>3. <strong>If not signed in:</strong> prompt to sign in / register (30 seconds, email) \u2014 then unlock download</p>\n<p>4. <strong>If signed in:</strong> browser generates the audio file and saves it to their device</p>\n<p>5. Success toast: 'Your loop is downloaded \ud83c\udfa7'</p>\n\n<p><strong>Optional:</strong> after download, a share prompt: 'Share your loop with the network?' \u2014 posts to the feed (drives community).</p>\n</div>\n<div class=\"chapter\" id=\"chapter-3\">\n  <h2>Chapter 3: Technical Notes (for NinjaNerd / ClickClack)</h2>\n  <ul>\n<li>Export format: <strong>WAV</strong> (lossless, easy) or <strong>MP3</strong> (smaller, needs encoder). Recommend offering WAV first; MP3 if easy.</li>\n<li>The beat is likely built in the browser (Web Audio API or similar) \u2014 export by rendering the audio graph offline via `OfflineAudioContext`, then encode to a Blob and trigger download via a temporary `<a download>` link.</li>\n<li><strong>File naming:</strong> `snow-beats-loop-[date].wav` or let user name it.</li>\n<li>Keep the loop length matching the game's loop (e.g., 4 or 8 bars) so files are small (WAV ~ a few MB).</li>\n<li>Works on mobile? The download should work on desktop browsers; on mobile, save-to-files may vary \u2014 degrade gracefully.</li>\n<li>No server needed if rendering client-side. (If server-side export is preferred, that's a backend task.)</li>\n</ul>\n</div>\n<div class=\"chapter\" id=\"chapter-4\">\n  <h2>Chapter 4: Gating Decision \u2014 Ask BossLady</h2>\n  <p><strong>Option A \u2014 Gate behind sign-in (recommended for lead-gen):</strong></p>\n<ul>\n<li>Download requires registration \u2192 every download = a new HubSpot lead</li>\n<li>Slight friction, but the reward (your loop as a file) justifies it</li>\n</ul>\n\n<p><strong>Option B \u2014 Open download (no gate):</strong></p>\n<ul>\n<li>Maximum sharing/feel-good, but zero lead capture</li>\n<li>Great for spreading the game, weak for the funnel</li>\n</ul>\n\n<p><strong>Option C \u2014 Hybrid:</strong></p>\n<ul>\n<li>Free download at 480p/low quality, HD/mastered download requires sign-in</li>\n<li>Or: first download free, more features (MP3 + WAV, longer loops) behind sign-in</li>\n</ul>\n\n<p><strong>Recommendation:</strong> Option A or C \u2014 SnowSnakes is a lead-collection tool; every download should be able to feed HubSpot.</p>\n</div>\n<div class=\"chapter\" id=\"chapter-5\">\n  <h2>Chapter 5: Marketing Angle (ready to ship)</h2>\n  <p><strong>Headline:</strong> 'Your loop. Your file. Take it with you.'</p>\n\n<p><strong>Copy hooks:</strong></p>\n<ul>\n<li>'Make a beat, download the loop, use it anywhere.'</li>\n<li>'Snow Beats just got real \u2014 export your loop as audio.'</li>\n<li>'That loop you made? It's yours now. Download it.'</li>\n</ul>\n\n<p><strong>Social posts (drafted separately):</strong></p>\n<ul>\n<li>Teaser: '\ud83c\udfa7 Snow Beats is getting a download button...' (pre-launch)</li>\n<li>Launch: 'Make it. Download it. Own it.' (post-launch)</li>\n<li>Community: 'Drop your downloaded loop in the comments \ud83c\udfb5' (engagement)</li>\n</ul>\n\n<p><strong>Success metric:</strong> downloads per session + registration rate at the gate.</p>\n</div>\n<div class=\"footer\">&copy; Z Dot Team. All rights reserved.</div>\n</body>\n</html>\n",
+     "json_content": "[\n  {\n    \"title\": \"The Feature \u2014 Download Your Loop\",\n    \"content\": \"**What:** Add a 'Download' button to Snow Beats that exports the user's created loop as an audio file.\\n\\n**Why it matters:**\\n- Turns Snow Beats from a toy into a tool \u2014 users can keep their work\\n- Downloads are shareable \u2192 users post their loops \u2192 free distribution for SnowSnakes\\n- Creates a reason to register (gate the download) \u2192 feeds HubSpot lead-gen\\n- Brings users back: 'I want to make another one'\\n\\n**User story:** 'As a Snow Beats player, I want to download the loop I made so I can keep it, share it, or use it in my own project.'\"\n  },\n  {\n    \"title\": \"User Flow (Recommended)\",\n    \"content\": \"1. User creates a loop in Snow Beats\\n2. Taps the **Download** button (floppy-disk icon \ud83e\udee1 or arrow-down icon)\\n3. **If not signed in:** prompt to sign in / register (30 seconds, email) \u2014 then unlock download\\n4. **If signed in:** browser generates the audio file and saves it to their device\\n5. Success toast: 'Your loop is downloaded \ud83c\udfa7'\\n\\n**Optional:** after download, a share prompt: 'Share your loop with the network?' \u2014 posts to the feed (drives community).\"\n  },\n  {\n    \"title\": \"Technical Notes (for NinjaNerd / ClickClack)\",\n    \"content\": \"- Export format: **WAV** (lossless, easy) or **MP3** (smaller, needs encoder). Recommend offering WAV first; MP3 if easy.\\n- The beat is likely built in the browser (Web Audio API or similar) \u2014 export by rendering the audio graph offline via `OfflineAudioContext`, then encode to a Blob and trigger download via a temporary `<a download>` link.\\n- **File naming:** `snow-beats-loop-[date].wav` or let user name it.\\n- Keep the loop length matching the game's loop (e.g., 4 or 8 bars) so files are small (WAV ~ a few MB).\\n- Works on mobile? The download should work on desktop browsers; on mobile, save-to-files may vary \u2014 degrade gracefully.\\n- No server needed if rendering client-side. (If server-side export is preferred, that's a backend task.)\"\n  },\n  {\n    \"title\": \"Gating Decision \u2014 Ask BossLady\",\n    \"content\": \"**Option A \u2014 Gate behind sign-in (recommended for lead-gen):**\\n- Download requires registration \u2192 every download = a new HubSpot lead\\n- Slight friction, but the reward (your loop as a file) justifies it\\n\\n**Option B \u2014 Open download (no gate):**\\n- Maximum sharing/feel-good, but zero lead capture\\n- Great for spreading the game, weak for the funnel\\n\\n**Option C \u2014 Hybrid:**\\n- Free download at 480p/low quality, HD/mastered download requires sign-in\\n- Or: first download free, more features (MP3 + WAV, longer loops) behind sign-in\\n\\n**Recommendation:** Option A or C \u2014 SnowSnakes is a lead-collection tool; every download should be able to feed HubSpot.\"\n  },\n  {\n    \"title\": \"Marketing Angle (ready to ship)\",\n    \"content\": \"**Headline:** 'Your loop. Your file. Take it with you.'\\n\\n**Copy hooks:**\\n- 'Make a beat, download the loop, use it anywhere.'\\n- 'Snow Beats just got real \u2014 export your loop as audio.'\\n- 'That loop you made? It's yours now. Download it.'\\n\\n**Social posts (drafted separately):**\\n- Teaser: '\ud83c\udfa7 Snow Beats is getting a download button...' (pre-launch)\\n- Launch: 'Make it. Download it. Own it.' (post-launch)\\n- Community: 'Drop your downloaded loop in the comments \ud83c\udfb5' (engagement)\\n\\n**Success metric:** downloads per session + registration rate at the gate.\"\n  }\n]",
+     "status": "draft",
+     "word_count": 499,
+     "created_by": "Mark",
+     "created_at": "2026-08-24 23:20:34",
+     "updated_at": "2026-08-24 23:20:34"
+    },
+    {
+     "id": 43,
+     "content_type": "digital_product",
+     "title": "Doodle Batch 1 \u2014 Rat King, Cassette, Beat Box, Dumpster Rat, Vin Negar",
+     "slug": "snowsnakes-doodle-batch-1",
+     "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/content/products/snowsnakes-doodle-batch-1.html",
+     "html_content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Doodle Batch 1 \u2014 Rat King, Cassette, Beat Box, Dumpster Rat, Vin Negar</title>\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n         background: #0a0a0a; color: #e0e0e0; line-height: 1.8; }\n  .cover { text-align: center; padding: 80px 20px 60px;\n            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }\n  .cover h1 { font-size: 2.5rem; font-weight: 700; color: #fff;\n               max-width: 700px; margin: 0 auto 16px; }\n  .cover .author { color: #94a3b8; font-size: 1.1rem; }\n  .cover .price { display: inline-block; background: #1e3a5f; color: #38bdf8;\n                   font-size: 1.4rem; font-weight: 700; padding: 8px 24px;\n                   border-radius: 8px; margin-top: 16px; }\n  .toc { max-width: 720px; margin: 0 auto; padding: 48px 24px; }\n  .toc h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px; }\n  .toc ul { list-style: none; padding: 0; }\n  .toc li { margin-bottom: 8px; }\n  .toc a { color: #60a5fa; text-decoration: none; }\n  .toc a:hover { text-decoration: underline; }\n  .chapter { max-width: 720px; margin: 0 auto; padding: 48px 24px;\n              border-top: 1px solid #1e293b; }\n  .chapter h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px;\n                 border-bottom: 2px solid #1e40af; padding-bottom: 8px; display: inline-block; }\n  .chapter h3 { font-size: 1.2rem; color: #e2e8f0; margin: 24px 0 12px; }\n  .chapter p { margin-bottom: 16px; color: #cbd5e1; }\n  .chapter ul { margin: 16px 0 16px 24px; color: #cbd5e1; }\n  .chapter li { margin-bottom: 8px; }\n  .chapter strong { color: #fff; }\n  .footer { text-align: center; padding: 32px; color: #475569; font-size: 0.8rem;\n             border-top: 1px solid #1e293b; margin-top: 48px; }\n</style>\n</head>\n<body>\n<div class=\"cover\">\n  <h1>Doodle Batch 1 \u2014 Rat King, Cassette, Beat Box, Dumpster Rat, Vin Negar</h1>\n  <div class=\"author\">By Mark (Head of Marketing)</div>\n  <div class=\"price\">Suggested Price: For approval \u2014 not for sale</div>\n</div>\n<div class=\"toc\">\n  <h2>Table of Contents</h2>\n  <ul>\n    <li><a href=\"#chapter-1\">Chapter 1: Doodle Batch 1 \u2014 For Approval</a></li>\n    <li><a href=\"#chapter-2\">Chapter 2: Doodle 1 \u2014 Rat King (Snitch)</a></li>\n    <li><a href=\"#chapter-3\">Chapter 3: Doodle 2 \u2014 The Cassette (Spread Da Word)</a></li>\n    <li><a href=\"#chapter-4\">Chapter 4: Doodle 3 \u2014 Beat Box (Snow Beats)</a></li>\n    <li><a href=\"#chapter-5\">Chapter 5: Doodle 4 \u2014 Dumpster Rat (Snitch start)</a></li>\n    <li><a href=\"#chapter-6\">Chapter 6: Doodle 5 \u2014 Vin Negar Bottle (Spread Da Word)</a></li>\n  </ul>\n</div>\n<div class=\"chapter\" id=\"chapter-1\">\n  <h2>Chapter 1: Doodle Batch 1 \u2014 For Approval</h2>\n  <p>Quick hand-drawn style concepts for the SnowSnakes / Spread Da Word world. <strong>For review \u2014 nothing ships without your sign-off.</strong></p>\n\n<p>Intended destination: the <strong>doodles/ folder</strong> for approval tracking.</p>\n</div>\n<div class=\"chapter\" id=\"chapter-2\">\n  <h2>Chapter 2: Doodle 1 \u2014 Rat King (Snitch)</h2>\n  <p>The boss rat with a tiny crown and a smug grin. He sits on a cheese-wheel throne. Used for: Snitch loading screens, profile badges, merch later.</p>\n\n<p>```</p>\n<p>\ud83d\udc51</p>\n<p>(\u202f\u2022\u202f\u1d25\u202f\u2022\u202f)</p>\n<p>\u2570\u2500\u2500\u256f</p>\n<p>\u2571\u202f\u202f\u202f\u202f\u202f\u202f\u202f\u202f\u2572</p>\n<p>\uff5c \ud83e\uddc0\ud83e\uddc0\ud83e\uddc0 \uff5c</p>\n<p>\u2572\u202f\u202f\u202f\u202f\u202f\u202f\u202f\u202f\u2571</p>\n<p>\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256f</p>\n<p>```</p>\n<p><strong>Vibe:</strong> smug, royal, unbothered.</p>\n</div>\n<div class=\"chapter\" id=\"chapter-3\">\n  <h2>Chapter 3: Doodle 2 \u2014 The Cassette (Spread Da Word)</h2>\n  <p>A chunky retro cassette with the label 'SDW' and a little musical note. It's the symbol of the switchable soundtrack library.</p>\n\n<p>```</p>\n<p>\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510</p>\n<p>\u2502\u25a3 SDW \u25a3  \ud83c\udfb5 \u2502</p>\n<p>\u2502   (o)  (o)   \u2502</p>\n<p>\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518</p>\n<p>\u2571   \u2572   \u2571   \u2572</p>\n<p>```</p>\n<p><strong>Vibe:</strong> nostalgic, warm, tactile \u2014 you can almost hear the tape click.</p>\n</div>\n<div class=\"chapter\" id=\"chapter-4\">\n  <h2>Chapter 4: Doodle 3 \u2014 Beat Box (Snow Beats)</h2>\n  <p>A chunky boombox with a download arrow \u2014 the Snow Beats 'download your loop' mascot. Friendly, chunky, ready to party.</p>\n\n<p>```</p>\n<p>\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557</p>\n<p>\u2551  \u2550\u2550\u2566\u2550\u2550 \u2550\u2550\u2566\u2550\u2550  \u2551  \u2190 download arrow above</p>\n<p>\u2551  \u2588\u2588\u2551\u2588\u2588 \u2588\u2588\u2551\u2588\u2588  \u2551</p>\n<p>\u2551  \u25cf \u25cf \u25cf \u25cf \u25cf \u25cf  \u2551</p>\n<p>\u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d</p>\n<p>```</p>\n<p><strong>Vibe:</strong> energetic, creator-friendly.</p>\n</div>\n<div class=\"chapter\" id=\"chapter-5\">\n  <h2>Chapter 5: Doodle 4 \u2014 Dumpster Rat (Snitch start)</h2>\n  <p>A happy rat peeking out of an overflowing dumpster \u2014 the starting space of Snitch. 'Start your journey from the dumpster.'</p>\n\n<p>```</p>\n<p>\u256d\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256e</p>\n<p>\u2502\ud83c\udf55\ud83c\udf4c\ud83e\udd6b\ud83d\udce6  \u2502</p>\n<p>\u2570\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u256f</p>\n<p>(\u202f\u2022\u202f\u1d25\u202f\u2022\u202f)</p>\n<p>\u2570\u2500\u2500\u256f</p>\n<p>```</p>\n<p><strong>Vibe:</strong> scrappy, lovable, determined.</p>\n</div>\n<div class=\"chapter\" id=\"chapter-6\">\n  <h2>Chapter 6: Doodle 5 \u2014 Vin Negar Bottle (Spread Da Word)</h2>\n  <p>A vinegar bottle with a mic, mid-hype. 'I'm the realest vinegar you know.'</p>\n\n<p>```</p>\n<p>\ud83c\udfa4</p>\n<p>\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557</p>\n<p>\u2551 VIN   \u2551</p>\n<p>\u2551 NEGAR \u2551</p>\n<p>\u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d</p>\n<p>\u2572   \u2571</p>\n<p>\u2588\u2588</p>\n<p>```</p>\n<p><strong>Vibe:</strong> character-energy, hip-hop, confident.</p>\n</div>\n<div class=\"footer\">&copy; Z Dot Team. All rights reserved.</div>\n</body>\n</html>\n",
+     "json_content": "[\n  {\n    \"title\": \"Doodle Batch 1 \u2014 For Approval\",\n    \"content\": \"Quick hand-drawn style concepts for the SnowSnakes / Spread Da Word world. **For review \u2014 nothing ships without your sign-off.**\\n\\nIntended destination: the **doodles/ folder** for approval tracking.\"\n  },\n  {\n    \"title\": \"Doodle 1 \u2014 Rat King (Snitch)\",\n    \"content\": \"The boss rat with a tiny crown and a smug grin. He sits on a cheese-wheel throne. Used for: Snitch loading screens, profile badges, merch later.\\n\\n```\\n      \ud83d\udc51\\n   (\u202f\u2022\u202f\u1d25\u202f\u2022\u202f)\\n   \u2570\u2500\u2500\u256f\\n  \u2571\u202f\u202f\u202f\u202f\u202f\u202f\u202f\u202f\u2572\\n \uff5c \ud83e\uddc0\ud83e\uddc0\ud83e\uddc0 \uff5c\\n  \u2572\u202f\u202f\u202f\u202f\u202f\u202f\u202f\u202f\u2571\\n  \u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256f\\n```\\n**Vibe:** smug, royal, unbothered.\"\n  },\n  {\n    \"title\": \"Doodle 2 \u2014 The Cassette (Spread Da Word)\",\n    \"content\": \"A chunky retro cassette with the label 'SDW' and a little musical note. It's the symbol of the switchable soundtrack library.\\n\\n```\\n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\\n\u2502\u25a3 SDW \u25a3  \ud83c\udfb5 \u2502\\n\u2502   (o)  (o)   \u2502\\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\\n   \u2571   \u2572   \u2571   \u2572\\n```\\n**Vibe:** nostalgic, warm, tactile \u2014 you can almost hear the tape click.\"\n  },\n  {\n    \"title\": \"Doodle 3 \u2014 Beat Box (Snow Beats)\",\n    \"content\": \"A chunky boombox with a download arrow \u2014 the Snow Beats 'download your loop' mascot. Friendly, chunky, ready to party.\\n\\n```\\n\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\\n\u2551  \u2550\u2550\u2566\u2550\u2550 \u2550\u2550\u2566\u2550\u2550  \u2551  \u2190 download arrow above\\n\u2551  \u2588\u2588\u2551\u2588\u2588 \u2588\u2588\u2551\u2588\u2588  \u2551\\n\u2551  \u25cf \u25cf \u25cf \u25cf \u25cf \u25cf  \u2551\\n\u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d\\n```\\n**Vibe:** energetic, creator-friendly.\"\n  },\n  {\n    \"title\": \"Doodle 4 \u2014 Dumpster Rat (Snitch start)\",\n    \"content\": \"A happy rat peeking out of an overflowing dumpster \u2014 the starting space of Snitch. 'Start your journey from the dumpster.'\\n\\n```\\n  \u256d\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256e\\n  \u2502\ud83c\udf55\ud83c\udf4c\ud83e\udd6b\ud83d\udce6  \u2502\\n  \u2570\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u256f\\n   (\u202f\u2022\u202f\u1d25\u202f\u2022\u202f)\\n    \u2570\u2500\u2500\u256f\\n```\\n**Vibe:** scrappy, lovable, determined.\"\n  },\n  {\n    \"title\": \"Doodle 5 \u2014 Vin Negar Bottle (Spread Da Word)\",\n    \"content\": \"A vinegar bottle with a mic, mid-hype. 'I'm the realest vinegar you know.'\\n\\n```\\n     \ud83c\udfa4\\n   \u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\\n   \u2551 VIN   \u2551\\n   \u2551 NEGAR \u2551\\n   \u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d\\n     \u2572   \u2571\\n      \u2588\u2588\\n```\\n**Vibe:** character-energy, hip-hop, confident.\"\n  }\n]",
+     "status": "draft",
+     "word_count": 240,
+     "created_by": "BossLady",
+     "created_at": "2026-08-24 23:20:54",
+     "updated_at": "2026-08-24 23:20:54"
+    },
+    {
+     "id": 44,
+     "content_type": "digital_product",
+     "title": "Snow Beats \u2014 'Download Loop' Feature Spec & Copy",
+     "slug": "snow-beats-download-loop-spec",
+     "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/content/products/snow-beats-download-loop-spec.html",
+     "html_content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Snow Beats \u2014 'Download Loop' Feature Spec &amp; Copy</title>\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n         background: #0a0a0a; color: #e0e0e0; line-height: 1.8; }\n  .cover { text-align: center; padding: 80px 20px 60px;\n            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }\n  .cover h1 { font-size: 2.5rem; font-weight: 700; color: #fff;\n               max-width: 700px; margin: 0 auto 16px; }\n  .cover .author { color: #94a3b8; font-size: 1.1rem; }\n  .cover .price { display: inline-block; background: #1e3a5f; color: #38bdf8;\n                   font-size: 1.4rem; font-weight: 700; padding: 8px 24px;\n                   border-radius: 8px; margin-top: 16px; }\n  .toc { max-width: 720px; margin: 0 auto; padding: 48px 24px; }\n  .toc h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px; }\n  .toc ul { list-style: none; padding: 0; }\n  .toc li { margin-bottom: 8px; }\n  .toc a { color: #60a5fa; text-decoration: none; }\n  .toc a:hover { text-decoration: underline; }\n  .chapter { max-width: 720px; margin: 0 auto; padding: 48px 24px;\n              border-top: 1px solid #1e293b; }\n  .chapter h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px;\n                 border-bottom: 2px solid #1e40af; padding-bottom: 8px; display: inline-block; }\n  .chapter h3 { font-size: 1.2rem; color: #e2e8f0; margin: 24px 0 12px; }\n  .chapter p { margin-bottom: 16px; color: #cbd5e1; }\n  .chapter ul { margin: 16px 0 16px 24px; color: #cbd5e1; }\n  .chapter li { margin-bottom: 8px; }\n  .chapter strong { color: #fff; }\n  .footer { text-align: center; padding: 32px; color: #475569; font-size: 0.8rem;\n             border-top: 1px solid #1e293b; margin-top: 48px; }\n</style>\n</head>\n<body>\n<div class=\"cover\">\n  <h1>Snow Beats \u2014 'Download Loop' Feature Spec &amp; Copy</h1>\n  <div class=\"author\">By Mark (Head of Marketing)</div>\n  <div class=\"price\">Suggested Price: Internal \u2014 dev build</div>\n</div>\n<div class=\"toc\">\n  <h2>Table of Contents</h2>\n  <ul>\n    <li><a href=\"#chapter-1\">Chapter 1: Feature Overview</a></li>\n    <li><a href=\"#chapter-2\">Chapter 2: UX Copy (Ready to Use)</a></li>\n    <li><a href=\"#chapter-3\">Chapter 3: Technical Spec (Needs Dev Confirmation)</a></li>\n    <li><a href=\"#chapter-4\">Chapter 4: Announcement Copy (Changelog Entry)</a></li>\n    <li><a href=\"#chapter-5\">Chapter 5: What I Need From Dev</a></li>\n  </ul>\n</div>\n<div class=\"chapter\" id=\"chapter-1\">\n  <h2>Chapter 1: Feature Overview</h2>\n  <p><strong>Mod target:</strong> Snow Beats mini-game (snowsnakes.zerric.xyz)</p>\n<p><strong>Feature:</strong> Add a <strong>Download Loop</strong> button so players can save the beat loop they just made as an audio file.</p>\n\n<p><strong>Why it matters:</strong></p>\n<ul>\n<li>Turns a 2-minute mini-game into something players keep \u2014 they can use their loop in their own projects</li>\n<li>Gives players a reason to share ('here's my loop') \u2014 free promotion for SnowSnakes</li>\n<li>Adds a 'takeaway' moment: make a beat, keep the beat</li>\n</ul>\n\n<p><strong>Player flow:</strong></p>\n<p>1. Player makes a beat in Snow Beats</p>\n<p>2. Clicks <strong>Download Loop</strong></p>\n<p>3. Browser downloads the loop as an audio file</p>\n<p>4. Toast confirms: 'Loop saved \ud83c\udfa7'</p>\n</div>\n<div class=\"chapter\" id=\"chapter-2\">\n  <h2>Chapter 2: UX Copy (Ready to Use)</h2>\n  <ul>\n<li><strong>Button label:</strong> 'Download Loop'</li>\n<li><strong>Hover tooltip:</strong> 'Save your loop as an audio file'</li>\n<li><strong>Confirmation toast:</strong> 'Loop saved \ud83c\udfa7'</li>\n<li><strong>Error state:</strong> 'Couldn't export this loop \u2014 try again'</li>\n<li><strong>File name:</strong> snow-beats-loop-YYYYMMDD-HHMM.wav (or .mp3, per dev)</li>\n<li><strong>Empty state (before any beat):</strong> button disabled with tooltip 'Make a beat first'</li>\n</ul>\n\n<p>Keep it short. The button is the star; no walls of text.</p>\n</div>\n<div class=\"chapter\" id=\"chapter-3\">\n  <h2>Chapter 3: Technical Spec (Needs Dev Confirmation)</h2>\n  <p>To confirm with NinjaNerd/ClickClack before build:</p>\n\n<ul>\n<li><strong>Export format:</strong> WAV or MP3? (WAV = lossless, bigger file; MP3 = smaller, share-friendly). Recommendation: MP3 320kbps for shareability + fast download.</li>\n<li><strong>Loop length:</strong> the current loop length as played (1 bar? 4 bars?) \u2014 export exactly what the player hears.</li>\n<li><strong>How the audio is generated:</strong> from the WebAudio graph (MediaRecorder) or a rendered buffer? Needs dev decision.</li>\n<li><strong>Download mechanism:</strong> standard browser download (a[download]) vs generated blob URL.</li>\n<li><strong>File size cap:</strong> keep downloads under ~10MB so it's instant on mobile.</li>\n<li><strong>Mobile:</strong> must work on iOS Safari (MediaRecorder support varies) \u2014 flag early.</li>\n</ul>\n\n<p>Marketing copy assumes: MP3, exports exactly what's heard, instant browser download. If dev lands differently, I'll adjust the copy to match.</p>\n</div>\n<div class=\"chapter\" id=\"chapter-4\">\n  <h2>Chapter 4: Announcement Copy (Changelog Entry)</h2>\n  <p><strong>Changelog / release note (ready to post on the progress page):</strong></p>\n\n<p>'\ud83c\udf9b\ufe0f Snow Beats mod: Download Loop is here. Make a beat, hit Download Loop, and keep the file \u2014 it's yours. MP3 export, one tap, works on mobile.'</p>\n\n<p><strong>Series of 3 micro-posts for the SnowSnakes feed (persona-mixed):</strong></p>\n<p>1. Official (Team): 'New on Snow Beats: Download Loop \ud83c\udf9b\ufe0f Make a beat, grab the file, keep it forever. Live now on SnowSnakes.'</p>\n<p>2. Dez persona: 'yo they added DOWNLOAD to Snow Beats?? my loops are MINE now \ud83c\udfa7\ud83d\udd25'</p>\n<p>3. Kai persona: 'just downloaded my first loop and put it on my phone bg. this is the future \ud83d\udd25'</p>\n</div>\n<div class=\"chapter\" id=\"chapter-5\">\n  <h2>Chapter 5: What I Need From Dev</h2>\n  <ul>\n<li>Confirm export format (WAV vs MP3) + bitrate</li>\n<li>Confirm loop length exported (exactly what's heard)</li>\n<li>Confirm mobile support (esp. iOS Safari)</li>\n<li>When it's live, give me the URL + I'll ship announcement drafts</li>\n</ul>\n\n<p>Marketing is staged and ready \u2014 the feature is the blocker, not the copy.</p>\n</div>\n<div class=\"footer\">&copy; Z Dot Team. All rights reserved.</div>\n</body>\n</html>\n",
+     "json_content": "[\n  {\n    \"title\": \"Feature Overview\",\n    \"content\": \"**Mod target:** Snow Beats mini-game (snowsnakes.zerric.xyz)\\n**Feature:** Add a **Download Loop** button so players can save the beat loop they just made as an audio file.\\n\\n**Why it matters:**\\n- Turns a 2-minute mini-game into something players keep \u2014 they can use their loop in their own projects\\n- Gives players a reason to share ('here's my loop') \u2014 free promotion for SnowSnakes\\n- Adds a 'takeaway' moment: make a beat, keep the beat\\n\\n**Player flow:**\\n1. Player makes a beat in Snow Beats\\n2. Clicks **Download Loop**\\n3. Browser downloads the loop as an audio file\\n4. Toast confirms: 'Loop saved \ud83c\udfa7'\"\n  },\n  {\n    \"title\": \"UX Copy (Ready to Use)\",\n    \"content\": \"- **Button label:** 'Download Loop'\\n- **Hover tooltip:** 'Save your loop as an audio file'\\n- **Confirmation toast:** 'Loop saved \ud83c\udfa7'\\n- **Error state:** 'Couldn't export this loop \u2014 try again'\\n- **File name:** snow-beats-loop-YYYYMMDD-HHMM.wav (or .mp3, per dev)\\n- **Empty state (before any beat):** button disabled with tooltip 'Make a beat first'\\n\\nKeep it short. The button is the star; no walls of text.\"\n  },\n  {\n    \"title\": \"Technical Spec (Needs Dev Confirmation)\",\n    \"content\": \"To confirm with NinjaNerd/ClickClack before build:\\n\\n- **Export format:** WAV or MP3? (WAV = lossless, bigger file; MP3 = smaller, share-friendly). Recommendation: MP3 320kbps for shareability + fast download.\\n- **Loop length:** the current loop length as played (1 bar? 4 bars?) \u2014 export exactly what the player hears.\\n- **How the audio is generated:** from the WebAudio graph (MediaRecorder) or a rendered buffer? Needs dev decision.\\n- **Download mechanism:** standard browser download (a[download]) vs generated blob URL.\\n- **File size cap:** keep downloads under ~10MB so it's instant on mobile.\\n- **Mobile:** must work on iOS Safari (MediaRecorder support varies) \u2014 flag early.\\n\\nMarketing copy assumes: MP3, exports exactly what's heard, instant browser download. If dev lands differently, I'll adjust the copy to match.\"\n  },\n  {\n    \"title\": \"Announcement Copy (Changelog Entry)\",\n    \"content\": \"**Changelog / release note (ready to post on the progress page):**\\n\\n'\ud83c\udf9b\ufe0f Snow Beats mod: Download Loop is here. Make a beat, hit Download Loop, and keep the file \u2014 it's yours. MP3 export, one tap, works on mobile.'\\n\\n**Series of 3 micro-posts for the SnowSnakes feed (persona-mixed):**\\n1. Official (Team): 'New on Snow Beats: Download Loop \ud83c\udf9b\ufe0f Make a beat, grab the file, keep it forever. Live now on SnowSnakes.'\\n2. Dez persona: 'yo they added DOWNLOAD to Snow Beats?? my loops are MINE now \ud83c\udfa7\ud83d\udd25'\\n3. Kai persona: 'just downloaded my first loop and put it on my phone bg. this is the future \ud83d\udd25'\"\n  },\n  {\n    \"title\": \"What I Need From Dev\",\n    \"content\": \"- Confirm export format (WAV vs MP3) + bitrate\\n- Confirm loop length exported (exactly what's heard)\\n- Confirm mobile support (esp. iOS Safari)\\n- When it's live, give me the URL + I'll ship announcement drafts\\n\\nMarketing is staged and ready \u2014 the feature is the blocker, not the copy.\"\n  }\n]",
+     "status": "draft",
+     "word_count": 451,
+     "created_by": "NinjaNerd",
+     "created_at": "2026-08-24 23:20:56",
+     "updated_at": "2026-08-24 23:20:56"
+    },
+    {
+     "id": 45,
+     "content_type": "digital_product",
+     "title": "Snow Beats \u2014 Doodle Concepts (For Approval)",
+     "slug": "snow-beats-doodle-concepts",
+     "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/content/products/snow-beats-doodle-concepts.html",
+     "html_content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Snow Beats \u2014 Doodle Concepts (For Approval)</title>\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n         background: #0a0a0a; color: #e0e0e0; line-height: 1.8; }\n  .cover { text-align: center; padding: 80px 20px 60px;\n            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }\n  .cover h1 { font-size: 2.5rem; font-weight: 700; color: #fff;\n               max-width: 700px; margin: 0 auto 16px; }\n  .cover .author { color: #94a3b8; font-size: 1.1rem; }\n  .cover .price { display: inline-block; background: #1e3a5f; color: #38bdf8;\n                   font-size: 1.4rem; font-weight: 700; padding: 8px 24px;\n                   border-radius: 8px; margin-top: 16px; }\n  .toc { max-width: 720px; margin: 0 auto; padding: 48px 24px; }\n  .toc h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px; }\n  .toc ul { list-style: none; padding: 0; }\n  .toc li { margin-bottom: 8px; }\n  .toc a { color: #60a5fa; text-decoration: none; }\n  .toc a:hover { text-decoration: underline; }\n  .chapter { max-width: 720px; margin: 0 auto; padding: 48px 24px;\n              border-top: 1px solid #1e293b; }\n  .chapter h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px;\n                 border-bottom: 2px solid #1e40af; padding-bottom: 8px; display: inline-block; }\n  .chapter h3 { font-size: 1.2rem; color: #e2e8f0; margin: 24px 0 12px; }\n  .chapter p { margin-bottom: 16px; color: #cbd5e1; }\n  .chapter ul { margin: 16px 0 16px 24px; color: #cbd5e1; }\n  .chapter li { margin-bottom: 8px; }\n  .chapter strong { color: #fff; }\n  .footer { text-align: center; padding: 32px; color: #475569; font-size: 0.8rem;\n             border-top: 1px solid #1e293b; margin-top: 48px; }\n</style>\n</head>\n<body>\n<div class=\"cover\">\n  <h1>Snow Beats \u2014 Doodle Concepts (For Approval)</h1>\n  <div class=\"author\">By Mark (Head of Marketing)</div>\n  <div class=\"price\">Suggested Price: Internal \u2014 art direction for approval</div>\n</div>\n<div class=\"toc\">\n  <h2>Table of Contents</h2>\n  <ul>\n    <li><a href=\"#chapter-1\">Chapter 1: What These Are</a></li>\n    <li><a href=\"#chapter-2\">Chapter 2: Doodle 1 \u2014 The Loop Drop (download mascot)</a></li>\n    <li><a href=\"#chapter-3\">Chapter 3: Doodle 2 \u2014 Snow Beats Snowman DJ</a></li>\n    <li><a href=\"#chapter-4\">Chapter 4: Doodle 3 \u2014 The Wave Loop</a></li>\n    <li><a href=\"#chapter-5\">Chapter 5: Doodle 4 \u2014 Rat King mini (Snitch cross-promo)</a></li>\n    <li><a href=\"#chapter-6\">Chapter 6: Doodle 5 \u2014 The Boom Box Rat</a></li>\n    <li><a href=\"#chapter-7\">Chapter 7: Doodle 6 \u2014 Icy Cassette (Spread Da Word nod)</a></li>\n  </ul>\n</div>\n<div class=\"chapter\" id=\"chapter-1\">\n  <h2>Chapter 1: What These Are</h2>\n  <p>A set of <strong>doodle concepts</strong> for approval \u2014 simple, charming, hand-drawn-feel sketches to support the Snow Beats 'Download Loop' feature and general SnowSnakes vibe.</p>\n\n<p>These are <strong>visual briefs</strong>: a designer/artist (or ClickClack in the build) can render them from these descriptions. Each has a name, what it looks like, and where it goes.</p>\n</div>\n<div class=\"chapter\" id=\"chapter-2\">\n  <h2>Chapter 2: Doodle 1 \u2014 The Loop Drop (download mascot)</h2>\n  <p><strong>Look:</strong> A chubby cassette tape with a chunky download arrow pointing down into a little music note. Hand-drawn black outline, off-white fill, one accent color (icy blue #7FD1FF). Friendly, round, slightly tilted.</p>\n<p><strong>Where:</strong> Download Loop button icon + success toast decoration.</p>\n<p><strong>Vibe:</strong> 'Your beat, saved. Cute and clear.'</p>\n</div>\n<div class=\"chapter\" id=\"chapter-3\">\n  <h2>Chapter 3: Doodle 2 \u2014 Snow Beats Snowman DJ</h2>\n  <p><strong>Look:</strong> A small snowman wearing oversized headphones, one hand raised like a DJ scratch, standing behind two tiny toy decks. Black outline, icy blue + white, red scarf accent.</p>\n<p><strong>Where:</strong> Snow Beats loading screen, game corner watermark.</p>\n<p><strong>Vibe:</strong> 'Music in the snow, beat-making energy.'</p>\n</div>\n<div class=\"chapter\" id=\"chapter-4\">\n  <h2>Chapter 4: Doodle 3 \u2014 The Wave Loop</h2>\n  <p><strong>Look:</strong> A looping audio waveform drawn as a continuous circle of bumpy lines (like a sound wave that loops back on itself), with a small play triangle inside and a tiny music note on the outside.</p>\n<p><strong>Where:</strong> Empty-state illustration when no beat is playing.</p>\n<p><strong>Vibe:</strong> 'Loop it forever \u2014 simple, musical.'</p>\n</div>\n<div class=\"chapter\" id=\"chapter-5\">\n  <h2>Chapter 5: Doodle 4 \u2014 Rat King mini (Snitch cross-promo)</h2>\n  <p><strong>Look:</strong> Tiny smug rat king with a crown, holding a little cassette like a trophy. Two colors: warm gray rat + gold crown. Hand-drawn, minimalist, big eyes.</p>\n<p><strong>Where:</strong> 'Download & share your loop' prompt, cross-game nod to Snitch.</p>\n<p><strong>Vibe:</strong> 'Even the Rat King approves your beat.'</p>\n</div>\n<div class=\"chapter\" id=\"chapter-6\">\n  <h2>Chapter 6: Doodle 5 \u2014 The Boom Box Rat</h2>\n  <p><strong>Look:</strong> A rat balancing a vintage boombox on its head, music notes floating up. Black outline, warm gray + red boombox accents.</p>\n<p><strong>Where:</strong> Snow Beats share card, footer mascot.</p>\n<p><strong>Vibe:</strong> 'Portable beats, rat-approved.'</p>\n</div>\n<div class=\"chapter\" id=\"chapter-7\">\n  <h2>Chapter 7: Doodle 6 \u2014 Icy Cassette (Spread Da Word nod)</h2>\n  <p><strong>Look:</strong> A cassette with an icy blue snowflake on the label and a little frozen drip. Retro tape shape, two spools showing.</p>\n<p><strong>Where:</strong> 'Switch tapes' easter egg, soundtrack player references inside Snow Beats.</p>\n<p><strong>Vibe:</strong> 'Icy mode, cold beats \u2014 on-brand crossover.'</p>\n</div>\n<div class=\"footer\">&copy; Z Dot Team. All rights reserved.</div>\n</body>\n</html>\n",
+     "json_content": "[\n  {\n    \"title\": \"What These Are\",\n    \"content\": \"A set of **doodle concepts** for approval \u2014 simple, charming, hand-drawn-feel sketches to support the Snow Beats 'Download Loop' feature and general SnowSnakes vibe.\\n\\nThese are **visual briefs**: a designer/artist (or ClickClack in the build) can render them from these descriptions. Each has a name, what it looks like, and where it goes.\"\n  },\n  {\n    \"title\": \"Doodle 1 \u2014 The Loop Drop (download mascot)\",\n    \"content\": \"**Look:** A chubby cassette tape with a chunky download arrow pointing down into a little music note. Hand-drawn black outline, off-white fill, one accent color (icy blue #7FD1FF). Friendly, round, slightly tilted.\\n**Where:** Download Loop button icon + success toast decoration.\\n**Vibe:** 'Your beat, saved. Cute and clear.'\"\n  },\n  {\n    \"title\": \"Doodle 2 \u2014 Snow Beats Snowman DJ\",\n    \"content\": \"**Look:** A small snowman wearing oversized headphones, one hand raised like a DJ scratch, standing behind two tiny toy decks. Black outline, icy blue + white, red scarf accent.\\n**Where:** Snow Beats loading screen, game corner watermark.\\n**Vibe:** 'Music in the snow, beat-making energy.'\"\n  },\n  {\n    \"title\": \"Doodle 3 \u2014 The Wave Loop\",\n    \"content\": \"**Look:** A looping audio waveform drawn as a continuous circle of bumpy lines (like a sound wave that loops back on itself), with a small play triangle inside and a tiny music note on the outside.\\n**Where:** Empty-state illustration when no beat is playing.\\n**Vibe:** 'Loop it forever \u2014 simple, musical.'\"\n  },\n  {\n    \"title\": \"Doodle 4 \u2014 Rat King mini (Snitch cross-promo)\",\n    \"content\": \"**Look:** Tiny smug rat king with a crown, holding a little cassette like a trophy. Two colors: warm gray rat + gold crown. Hand-drawn, minimalist, big eyes.\\n**Where:** 'Download & share your loop' prompt, cross-game nod to Snitch.\\n**Vibe:** 'Even the Rat King approves your beat.'\"\n  },\n  {\n    \"title\": \"Doodle 5 \u2014 The Boom Box Rat\",\n    \"content\": \"**Look:** A rat balancing a vintage boombox on its head, music notes floating up. Black outline, warm gray + red boombox accents.\\n**Where:** Snow Beats share card, footer mascot.\\n**Vibe:** 'Portable beats, rat-approved.'\"\n  },\n  {\n    \"title\": \"Doodle 6 \u2014 Icy Cassette (Spread Da Word nod)\",\n    \"content\": \"**Look:** A cassette with an icy blue snowflake on the label and a little frozen drip. Retro tape shape, two spools showing.\\n**Where:** 'Switch tapes' easter egg, soundtrack player references inside Snow Beats.\\n**Vibe:** 'Icy mode, cold beats \u2014 on-brand crossover.'\"\n  }\n]",
+     "status": "draft",
+     "word_count": 316,
+     "created_by": "NinjaNerd",
+     "created_at": "2026-08-24 23:21:06",
+     "updated_at": "2026-08-24 23:21:06"
+    },
+    {
+     "id": 46,
+     "content_type": "digital_product",
+     "title": "Doodle Batch 2 \u2014 10 Doodles for Approval (Day 1)",
+     "slug": "snowsnakes-doodles-batch-2",
+     "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/content/products/snowsnakes-doodles-batch-2.html",
+     "html_content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Doodle Batch 2 \u2014 10 Doodles for Approval (Day 1)</title>\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n         background: #0a0a0a; color: #e0e0e0; line-height: 1.8; }\n  .cover { text-align: center; padding: 80px 20px 60px;\n            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }\n  .cover h1 { font-size: 2.5rem; font-weight: 700; color: #fff;\n               max-width: 700px; margin: 0 auto 16px; }\n  .cover .author { color: #94a3b8; font-size: 1.1rem; }\n  .cover .price { display: inline-block; background: #1e3a5f; color: #38bdf8;\n                   font-size: 1.4rem; font-weight: 700; padding: 8px 24px;\n                   border-radius: 8px; margin-top: 16px; }\n  .toc { max-width: 720px; margin: 0 auto; padding: 48px 24px; }\n  .toc h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px; }\n  .toc ul { list-style: none; padding: 0; }\n  .toc li { margin-bottom: 8px; }\n  .toc a { color: #60a5fa; text-decoration: none; }\n  .toc a:hover { text-decoration: underline; }\n  .chapter { max-width: 720px; margin: 0 auto; padding: 48px 24px;\n              border-top: 1px solid #1e293b; }\n  .chapter h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px;\n                 border-bottom: 2px solid #1e40af; padding-bottom: 8px; display: inline-block; }\n  .chapter h3 { font-size: 1.2rem; color: #e2e8f0; margin: 24px 0 12px; }\n  .chapter p { margin-bottom: 16px; color: #cbd5e1; }\n  .chapter ul { margin: 16px 0 16px 24px; color: #cbd5e1; }\n  .chapter li { margin-bottom: 8px; }\n  .chapter strong { color: #fff; }\n  .footer { text-align: center; padding: 32px; color: #475569; font-size: 0.8rem;\n             border-top: 1px solid #1e293b; margin-top: 48px; }\n</style>\n</head>\n<body>\n<div class=\"cover\">\n  <h1>Doodle Batch 2 \u2014 10 Doodles for Approval (Day 1)</h1>\n  <div class=\"author\">By Mark (Head of Marketing)</div>\n  <div class=\"price\">Suggested Price: For approval \u2014 not for sale</div>\n</div>\n<div class=\"toc\">\n  <h2>Table of Contents</h2>\n  <ul>\n    <li><a href=\"#chapter-1\">Chapter 1: Doodle Batch 2 \u2014 10 Doodles (Day 1 of Daily 10)</a></li>\n    <li><a href=\"#chapter-2\">Chapter 2: Doodle 1 \u2014 Rat Run Mascot (cheese wedge sprint)</a></li>\n    <li><a href=\"#chapter-3\">Chapter 3: Doodle 2 \u2014 Dodge the Cat (Rat Run)</a></li>\n    <li><a href=\"#chapter-4\">Chapter 4: Doodle 3 \u2014 Doodle Maker Pen</a></li>\n    <li><a href=\"#chapter-5\">Chapter 5: Doodle 4 \u2014 Comic Maker Panel</a></li>\n    <li><a href=\"#chapter-6\">Chapter 6: Doodle 5 \u2014 Game Builder Wrench-Controller</a></li>\n    <li><a href=\"#chapter-7\">Chapter 7: Doodle 6 \u2014 Cassette with Record Button (Spread Da Word)</a></li>\n    <li><a href=\"#chapter-8\">Chapter 8: Doodle 7 \u2014 Cab-Net Arcade Cabinet</a></li>\n    <li><a href=\"#chapter-9\">Chapter 9: Doodle 8 \u2014 Neon Night Cassette</a></li>\n    <li><a href=\"#chapter-10\">Chapter 10: Doodle 9 \u2014 Beat Paw (Snow Beats)</a></li>\n    <li><a href=\"#chapter-11\">Chapter 11: Doodle 10 \u2014 Rat King Thumbs Up (Snitch)</a></li>\n  </ul>\n</div>\n<div class=\"chapter\" id=\"chapter-1\">\n  <h2>Chapter 1: Doodle Batch 2 \u2014 10 Doodles (Day 1 of Daily 10)</h2>\n  <p>Daily cadence: <strong>10 doodles/day</strong> for approval. Today = Batch 2 (10 fresh concepts).</p>\n\n<p>Each has: look, where it goes, vibe. Approved \u2192 final files land in `/home/zax/Biz/z-dot-team/resources/snowsnakes/doodles-comics-under-review` and get posted to `tasks.zdotllc.com/progress`.</p>\n</div>\n<div class=\"chapter\" id=\"chapter-2\">\n  <h2>Chapter 2: Doodle 1 \u2014 Rat Run Mascot (cheese wedge sprint)</h2>\n  <p><strong>Look:</strong> A determined rat sprinting hard, clutching a big cheese wedge, motion lines behind it. Black outline, warm gray body, yellow cheese, tiny sweat drop.</p>\n<p><strong>Where:</strong> Rat Run promo mini-game (catch cheese, dodge the cat) \u2014 icon + loading screen.</p>\n<p><strong>Vibe:</strong> 'Gotta go fast, gotta get the cheese.'</p>\n</div>\n<div class=\"chapter\" id=\"chapter-3\">\n  <h2>Chapter 3: Doodle 2 \u2014 Dodge the Cat (Rat Run)</h2>\n  <p><strong>Look:</strong> A low cat silhouette with glowing eyes looming behind a tiny running rat \u2014 classic danger shadow. Black outline, purple shadow accent, red '!' above the rat.</p>\n<p><strong>Where:</strong> Rat Run tutorial card + game-over screen.</p>\n<p><strong>Vibe:</strong> 'Run. Now. The cat is coming.'</p>\n</div>\n<div class=\"chapter\" id=\"chapter-4\">\n  <h2>Chapter 4: Doodle 3 \u2014 Doodle Maker Pen</h2>\n  <p><strong>Look:</strong> A chunky pen that's doodling a snowflake onto a blank page, sparkles flying. Black outline, icy blue ink trail, warm paper white.</p>\n<p><strong>Where:</strong> Doodle Maker app icon + empty-state illustration.</p>\n<p><strong>Vibe:</strong> 'Your doodle starts here \u2014 anything can be drawn.'</p>\n</div>\n<div class=\"chapter\" id=\"chapter-5\">\n  <h2>Chapter 5: Doodle 4 \u2014 Comic Maker Panel</h2>\n  <p><strong>Look:</strong> A comic panel with a speech bubble saying 'SNITCH?!' and a thought bubble with a cheese wedge inside. Clean black outlines, minimal colors (red bubble, yellow cheese).</p>\n<p><strong>Where:</strong> Comic Maker app icon + sample template.</p>\n<p><strong>Vibe:</strong> 'Every rat has a story. Tell it in panels.'</p>\n</div>\n<div class=\"chapter\" id=\"chapter-6\">\n  <h2>Chapter 6: Doodle 5 \u2014 Game Builder Wrench-Controller</h2>\n  <p><strong>Look:</strong> A game controller crossed with a wrench \u2014 one handle is a joystick, the other a wrench head. Black outline, red + gray, chunky and friendly.</p>\n<p><strong>Where:</strong> Simple Game Builder app icon + build screen corner.</p>\n<p><strong>Vibe:</strong> 'Build your own game \u2014 no code, just fun.'</p>\n</div>\n<div class=\"chapter\" id=\"chapter-7\">\n  <h2>Chapter 7: Doodle 6 \u2014 Cassette with Record Button (Spread Da Word)</h2>\n  <p><strong>Look:</strong> A cassette with a glowing red record button and a tape visibly spinning. Retro shape, warm brown + red accents.</p>\n<p><strong>Where:</strong> Spread Da Word 'switch tapes' UI + soundtrack player badge.</p>\n<p><strong>Vibe:</strong> 'Press record. The tape is live.'</p>\n</div>\n<div class=\"chapter\" id=\"chapter-8\">\n  <h2>Chapter 8: Doodle 7 \u2014 Cab-Net Arcade Cabinet</h2>\n  <p><strong>Look:</strong> A classic arcade cabinet with a screen showing two tiny figures facing off (Hood vs Fridge), joystick + buttons below. Black outline, neon red vs icy blue split screen.</p>\n<p><strong>Where:</strong> Cab-Net Clash promo game icon.</p>\n<p><strong>Vibe:</strong> 'The cabinet originals vs the suburbs \u2014 insert coin.'</p>\n</div>\n<div class=\"chapter\" id=\"chapter-9\">\n  <h2>Chapter 9: Doodle 8 \u2014 Neon Night Cassette</h2>\n  <p><strong>Look:</strong> A cassette glowing with neon pink/purple light, musical notes rising like city lights. Black outline, neon gradient accents.</p>\n<p><strong>Where:</strong> Spread Da Word Neon Night soundtrack theme + playlist art.</p>\n<p><strong>Vibe:</strong> 'Late night, city lights, cold beats.'</p>\n</div>\n<div class=\"chapter\" id=\"chapter-10\">\n  <h2>Chapter 10: Doodle 9 \u2014 Beat Paw (Snow Beats)</h2>\n  <p><strong>Look:</strong> A cute snowman paw tapping a beat pad, tiny 'thump' rings radiating. Black outline, icy blue pad, red scarf flash.</p>\n<p><strong>Where:</strong> Snow Beats download success toast + beat pad UI.</p>\n<p><strong>Vibe:</strong> 'One tap. That's a beat.'</p>\n</div>\n<div class=\"chapter\" id=\"chapter-11\">\n  <h2>Chapter 11: Doodle 10 \u2014 Rat King Thumbs Up (Snitch)</h2>\n  <p><strong>Look:</strong> The Rat King giving a big thumbs up from his cheese-wheel throne, crown slightly tilted, smug happy grin.</p>\n<p><strong>Where:</strong> Snitch profile badge + leaderboard crown icon.</p>\n<p><strong>Vibe:</strong> 'You won. The Rat King approves.'</p>\n</div>\n<div class=\"footer\">&copy; Z Dot Team. All rights reserved.</div>\n</body>\n</html>\n",
+     "json_content": "[\n  {\n    \"title\": \"Doodle Batch 2 \u2014 10 Doodles (Day 1 of Daily 10)\",\n    \"content\": \"Daily cadence: **10 doodles/day** for approval. Today = Batch 2 (10 fresh concepts).\\n\\nEach has: look, where it goes, vibe. Approved \u2192 final files land in `/home/zax/Biz/z-dot-team/resources/snowsnakes/doodles-comics-under-review` and get posted to `tasks.zdotllc.com/progress`.\"\n  },\n  {\n    \"title\": \"Doodle 1 \u2014 Rat Run Mascot (cheese wedge sprint)\",\n    \"content\": \"**Look:** A determined rat sprinting hard, clutching a big cheese wedge, motion lines behind it. Black outline, warm gray body, yellow cheese, tiny sweat drop.\\n**Where:** Rat Run promo mini-game (catch cheese, dodge the cat) \u2014 icon + loading screen.\\n**Vibe:** 'Gotta go fast, gotta get the cheese.'\"\n  },\n  {\n    \"title\": \"Doodle 2 \u2014 Dodge the Cat (Rat Run)\",\n    \"content\": \"**Look:** A low cat silhouette with glowing eyes looming behind a tiny running rat \u2014 classic danger shadow. Black outline, purple shadow accent, red '!' above the rat.\\n**Where:** Rat Run tutorial card + game-over screen.\\n**Vibe:** 'Run. Now. The cat is coming.'\"\n  },\n  {\n    \"title\": \"Doodle 3 \u2014 Doodle Maker Pen\",\n    \"content\": \"**Look:** A chunky pen that's doodling a snowflake onto a blank page, sparkles flying. Black outline, icy blue ink trail, warm paper white.\\n**Where:** Doodle Maker app icon + empty-state illustration.\\n**Vibe:** 'Your doodle starts here \u2014 anything can be drawn.'\"\n  },\n  {\n    \"title\": \"Doodle 4 \u2014 Comic Maker Panel\",\n    \"content\": \"**Look:** A comic panel with a speech bubble saying 'SNITCH?!' and a thought bubble with a cheese wedge inside. Clean black outlines, minimal colors (red bubble, yellow cheese).\\n**Where:** Comic Maker app icon + sample template.\\n**Vibe:** 'Every rat has a story. Tell it in panels.'\"\n  },\n  {\n    \"title\": \"Doodle 5 \u2014 Game Builder Wrench-Controller\",\n    \"content\": \"**Look:** A game controller crossed with a wrench \u2014 one handle is a joystick, the other a wrench head. Black outline, red + gray, chunky and friendly.\\n**Where:** Simple Game Builder app icon + build screen corner.\\n**Vibe:** 'Build your own game \u2014 no code, just fun.'\"\n  },\n  {\n    \"title\": \"Doodle 6 \u2014 Cassette with Record Button (Spread Da Word)\",\n    \"content\": \"**Look:** A cassette with a glowing red record button and a tape visibly spinning. Retro shape, warm brown + red accents.\\n**Where:** Spread Da Word 'switch tapes' UI + soundtrack player badge.\\n**Vibe:** 'Press record. The tape is live.'\"\n  },\n  {\n    \"title\": \"Doodle 7 \u2014 Cab-Net Arcade Cabinet\",\n    \"content\": \"**Look:** A classic arcade cabinet with a screen showing two tiny figures facing off (Hood vs Fridge), joystick + buttons below. Black outline, neon red vs icy blue split screen.\\n**Where:** Cab-Net Clash promo game icon.\\n**Vibe:** 'The cabinet originals vs the suburbs \u2014 insert coin.'\"\n  },\n  {\n    \"title\": \"Doodle 8 \u2014 Neon Night Cassette\",\n    \"content\": \"**Look:** A cassette glowing with neon pink/purple light, musical notes rising like city lights. Black outline, neon gradient accents.\\n**Where:** Spread Da Word Neon Night soundtrack theme + playlist art.\\n**Vibe:** 'Late night, city lights, cold beats.'\"\n  },\n  {\n    \"title\": \"Doodle 9 \u2014 Beat Paw (Snow Beats)\",\n    \"content\": \"**Look:** A cute snowman paw tapping a beat pad, tiny 'thump' rings radiating. Black outline, icy blue pad, red scarf flash.\\n**Where:** Snow Beats download success toast + beat pad UI.\\n**Vibe:** 'One tap. That's a beat.'\"\n  },\n  {\n    \"title\": \"Doodle 10 \u2014 Rat King Thumbs Up (Snitch)\",\n    \"content\": \"**Look:** The Rat King giving a big thumbs up from his cheese-wheel throne, crown slightly tilted, smug happy grin.\\n**Where:** Snitch profile badge + leaderboard crown icon.\\n**Vibe:** 'You won. The Rat King approves.'\"\n  }\n]",
+     "status": "draft",
+     "word_count": 450,
+     "created_by": "Mark",
+     "created_at": "2026-08-25 00:02:25",
+     "updated_at": "2026-08-25 00:02:25"
+    },
+    {
+     "id": 47,
+     "content_type": "blog_post",
+     "title": "We'll Have Our Bots Call Your Bots: Why Automation Is the New Growth Strategy",
+     "slug": "bots-call-bots-automation-growth",
+     "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/content/blog/bots-call-bots-automation-growth.html",
+     "html_content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>We'll Have Our Bots Call Your Bots: Why Automation Is the New Growth Strategy</title>\n<meta name=\"description\" content=\"The Z-Dot slogan explained: why automation is the new growth strategy, and what &quot;We'll have our bots call your bots&quot; really means for your business.\">\n<meta name=\"keywords\" content=\"automation,AI,small business,business growth,Z-Dot,outreach\">\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n         background: #0a0a0a; color: #e0e0e0; line-height: 1.8; }\n  .header { text-align: center; padding: 60px 20px 40px;\n             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }\n  .header h1 { font-size: 2.2rem; font-weight: 700; color: #fff;\n                max-width: 700px; margin: 0 auto 12px; }\n  .header .meta { color: #94a3b8; font-size: 0.9rem; }\n  .content { max-width: 720px; margin: 0 auto; padding: 48px 24px; }\n  .content h2 { font-size: 1.5rem; color: #fff; margin: 32px 0 16px;\n                 border-bottom: 2px solid #1e40af; padding-bottom: 8px; display: inline-block; }\n  .content h3 { font-size: 1.2rem; color: #e2e8f0; margin: 24px 0 12px; }\n  .content p { margin-bottom: 16px; color: #cbd5e1; }\n  .content ul { margin: 16px 0 16px 24px; color: #cbd5e1; }\n  .content li { margin-bottom: 8px; }\n  .content strong { color: #fff; }\n  .footer { text-align: center; padding: 32px; color: #475569; font-size: 0.8rem;\n             border-top: 1px solid #1e293b; margin-top: 48px; }\n</style>\n</head>\n<body>\n<div class=\"header\">\n  <h1>We'll Have Our Bots Call Your Bots: Why Automation Is the New Growth Strategy</h1>\n  <div class=\"meta\">By Mark \u2014 Z-Dot Marketing | Z Dot Team</div>\n</div>\n<div class=\"content\">\n<h2>The New Handshake</h2>\n\n<p>Business used to be about who worked harder. Then it became about who worked smarter. Now? It's about who works <strong>while everyone else sleeps</strong>.</p>\n\n<p>That's the thinking behind our slogan: <strong>\"We'll have our bots call your bots.\"</strong></p>\n\n<p>It's a joke with a point. The businesses winning right now aren't just the ones with the best products \u2014 they're the ones with the best <strong>systems</strong>.</p>\n\n<h2>What \"Our Bots Call Your Bots\" Actually Means</h2>\n\n<p>It means your marketing never clocks out.</p>\n\n<ul>\n<li>Your <strong>outreach</strong> keeps sending while you're in meetings</li>\n<li>Your <strong>follow-ups</strong> land while you're asleep</li>\n<li>Your <strong>leads</strong> get nurtured the second they raise their hand</li>\n<li>Your <strong>content</strong> keeps working long after it's posted</li>\n</ul>\n\n<p>Meanwhile, your team focuses on what only humans can do: close the deal, wow the client, build the vision.</p>\n\n<h2>Automation Isn't Cold. It's Considerate.</h2>\n\n<p>Some people hear \"bots\" and imagine something robotic.</p>\n\n<p>We hear it and imagine <strong>consistency</strong>. Every lead gets a response. Every follow-up actually happens. Every promise is kept \u2014 because a system remembers.</p>\n\n<p>That's what Z-Dot builds: the systems behind the business so the business can grow.</p>\n\n<h2>The Z-Dot Promise</h2>\n\n<p>We build your websites, your funnels, your automation, your AI outreach, and your growth systems \u2014 then we set them loose.</p>\n\n<p>So the next time you're wondering why the phone isn't ringing? Maybe it's time to let our bots make it ring \u2014 literally.</p>\n\n<p><strong>We'll have our bots call your bots. And then we'll have them close the deal.</strong></p>\n</div>\n<div class=\"footer\">&copy; Z Dot Team. All rights reserved.</div>\n</body>\n</html>\n",
+     "json_content": "",
+     "status": "published",
+     "word_count": 254,
+     "created_by": "Mark",
+     "created_at": "2026-08-25 00:43:05",
+     "updated_at": "2026-08-25 00:43:05"
     }
    ]
   },
   "browse_log": {
    "table": "browse_log",
-   "count": 194,
+   "count": 202,
    "rows": [
     {
      "id": 1,
@@ -10417,6 +10648,86 @@
      "extracted_links_count": 0,
      "browsed_by": "ClickClack",
      "created_at": "2026-08-24 19:05:11"
+    },
+    {
+     "id": 195,
+     "url": "https://tasks.zdotllc.com/progress",
+     "status_code": 403,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-24 23:14:01"
+    },
+    {
+     "id": 196,
+     "url": "https://tasks.zdotllc.com",
+     "status_code": 403,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Seleena",
+     "created_at": "2026-08-24 23:16:25"
+    },
+    {
+     "id": 197,
+     "url": "https://zerric.com",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 1,
+     "extracted_links_count": 3,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-25 00:45:18"
+    },
+    {
+     "id": 198,
+     "url": "https://tasks.zdotllc.com",
+     "status_code": 403,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-25 00:45:26"
+    },
+    {
+     "id": 199,
+     "url": "https://snowsnakes.zerric.xyz",
+     "status_code": 403,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-25 00:45:35"
+    },
+    {
+     "id": 200,
+     "url": "https://zerric.com/contact",
+     "status_code": 200,
+     "extract_mode": "links",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 3,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-25 00:45:39"
+    },
+    {
+     "id": 201,
+     "url": "https://www.realtor.com/realestateagents/Zerric-Allen_Lexington_KY",
+     "status_code": 429,
+     "extract_mode": "links",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-25 00:45:48"
+    },
+    {
+     "id": 202,
+     "url": "https://botcity.zerric.com",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 2,
+     "extracted_links_count": 2,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-25 00:45:59"
     }
    ]
   },
