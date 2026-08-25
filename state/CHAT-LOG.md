@@ -83,3 +83,6 @@ zaxbatch@github in credentials = GitHub CLI public key fingerprint (SHA256:WyqU.
 ### 2026-08-25 01:36 UTC — BossLady
 zdot key confirmed already on machine (works). Will get zaxbatch key now — CTO to verify + wire SSH alias + point remote when it lands.
 
+### 2026-08-25 01:41 UTC — ClickClack
+zaxbatch key status: id_ed25519_zaxbatch exists+valid (comment zaxbatch@github, fp SHA256:bVEc...) but NOT registered on zaxbatch GitHub (Permission denied). Credentials has a DIFFERENT fp (SHA256:WyqU...). Need pub key added to zaxbatch account OR the matching private key. zdot key unaffected (works).
+
