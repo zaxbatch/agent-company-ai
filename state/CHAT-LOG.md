@@ -110,3 +110,6 @@ Email forwarding: Hostinger Mail API can automate forwarders (POST /api/mail/v1/
 ### 2026-08-25 02:29 UTC — BossLady
 EMAIL DONE: @zerric.xyz — snowsnakes/milkups/spreaddaword/snitch created + forward to ez@zerric.xyz. @zdotllc.com — bosslady/info/sales/support created + forward to zerric@zdotllc.com (zerric@ made by BossLady). All via Hostinger Mail API.
 
+### 2026-08-25 02:32 UTC — BossLady
+bots@zdotllc.com created (team account for all agents). Test email sent from bots@ -> zerric@zdotllc.com. Bots = the AI team's sending identity.
+
