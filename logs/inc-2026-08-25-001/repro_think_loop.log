@@ -1,0 +1,8 @@
+=== LLM CALL 1 (initial) ===
+finish: tool_calls
+has tool_calls: True
+has reasoning_content attr: True | value head: The user wants me to browse https://example.com and report the title. Let me do 
+tool call: browse {"url": "https://example.com"}
+
+=== LLM CALL 2 (history w/ assistant tool_calls + tool response, NO reasoning_content) ===
+STATUS: 200 OK | finish: stop

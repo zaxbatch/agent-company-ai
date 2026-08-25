@@ -1,0 +1,8 @@
+[A: sys+user+asst(tc,content=None)+tool  (think-loop replay w/ None content)] -> 400 | The `reasoning_content` in the thinking mode must be passed back to the API.
+[B: sys+user+asst(tc,content='text')+tool] -> 400 | The `reasoning_content` in the thinking mode must be passed back to the API.
+[C: B + reasoning_content echoed] -> 200 OK finish=length
+[D: B + tool first then asst (order check)] -> 400 | The `reasoning_content` in the thinking mode must be passed back to the API.
+[E: ORPHANED asst(tc) NO tool response] -> 400 | An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool mes
+[F: asst(tc, content=None) NO tool response] -> 400 | An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool mes
+[G: valid pairing but assistant content EMPTY string] -> 400 | The `reasoning_content` in the thinking mode must be passed back to the API.
+[H: no system, user+asst(tc)+tool] -> 400 | The `reasoning_content` in the thinking mode must be passed back to the API.

@@ -1,0 +1,11 @@
+--- run 0: m1.content="I'd be happy to help, but the `browse` tool requires a URL to fetch. Could you please provide the URL" | reasoning=True | tool_calls=False
+  no tool calls; skip
+--- run 1: m1.content='' | reasoning=True | tool_calls=False
+  no tool calls; skip
+--- run 2: m1.content="I'd be happy to browse, but I need a URL to fetch. Could you please provide the web address you'd like me to visit?" | reasoning=True | tool_calls=False
+  no tool calls; skip
+   [FABRICATED-None-0] -> 400 | The `reasoning_content` in the thinking mode must be passed back to the API.
+   [FABRICATED-None-1] -> 400 | The `reasoning_content` in the thinking mode must be passed back to the API.
+   [FABRICATED-None-2] -> 400 | The `reasoning_content` in the thinking mode must be passed back to the API.
+   [FABRICATED-echo-0] -> 200 finish=length
+   [FABRICATED-echo-1] -> 200 finish=length

@@ -1,0 +1,37 @@
+
+===== CONTROL A - plain chat (valid key?) =====
+STATUS: 200 OK
+finish: stop
+
+===== CONTROL B - valid tool_calls pairing (should pass) =====
+EXCEPTION TYPE: BadRequestError
+STATUS: 400
+FULL BODY (verbatim):
+{
+  "message": "The `reasoning_content` in the thinking mode must be passed back to the API.",
+  "type": "invalid_request_error",
+  "param": null,
+  "code": "invalid_request_error"
+}
+
+===== REPRO 1 - orphaned tool_calls (no tool response) =====
+EXCEPTION TYPE: BadRequestError
+STATUS: 400
+FULL BODY (verbatim):
+{
+  "message": "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)",
+  "type": "invalid_request_error",
+  "param": null,
+  "code": "invalid_request_error"
+}
+
+===== REPRO 2 - partial tool responses (1 of 2 answered) =====
+EXCEPTION TYPE: BadRequestError
+STATUS: 400
+FULL BODY (verbatim):
+{
+  "message": "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id', The following tool_call_ids did not have response messages: call_2",
+  "type": "invalid_request_error",
+  "param": null,
+  "code": "invalid_request_error"
+}
