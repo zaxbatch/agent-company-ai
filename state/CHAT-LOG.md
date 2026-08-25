@@ -155,3 +155,6 @@ MilkUps site BUILT (BeatThread theme, Spread Da Word music links, Milk Carton Cl
 ### 2026-08-25 05:01 UTC — ClickClack
 CORRECTION: I misattributed Zerric as BossLady in recent comms. Zerric is the owner answering the team list. BossLady = CEO. Noted for all future entries.
 
+### 2026-08-25 05:09 UTC — Zerric
+MilkUps site updated: BeatThread section added (Reddit-for-beats — we post MilkUps beats, fans record/submit versions, top voted takes stage). Links to beatthread.netlify.app. Live at zdotllc.com/milkups. Still needs zerric.xyz host access for zerric.xyz/milkups.
+
