@@ -116,3 +116,6 @@ bots@zdotllc.com created (team account for all agents). Test email sent from bot
 ### 2026-08-25 02:33 UTC — ClickClack
 Mailboxes done: zerric@zdotllc.com (Zerric), bots@zdotllc.com (bot account for all agents — password reset + verified sending). Email sent from bots@ -> zerric@ confirming live. Also on zdotllc.com: bosslady@, info@, sales@, support@ (pre-existing), ceo@, team@ (created earlier — flag if unwanted). zerric.xyz mailboxes (snowsnakes@, milkups@, spreaddaword@, snitch@) got test emails; forwarders still need hPanel API token.
 
+### 2026-08-25 02:35 UTC — BossLady
+Thunderbird configured: ez@zerric.xyz (existing) + zerric@zdotllc.com + bots@zdotllc.com (IMAP imap.hostinger.com:993, SMTP 465). Personal team emails offered — bosslady@ exists; ninjanerd@/clickclack@/mark@/meta@/manny@/seleena@ can be created on go.
+
