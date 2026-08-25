@@ -97,3 +97,26 @@ git remote -v          # must use the matching alias
 - [ ] Create + register `id_ed25519_zaxbatch` on zaxbatch GitHub (Zerric) — currently missing.
 - [ ] Remove/retire `id_ed25519_zdotllc` (unregistered, confusing name) — or register it if intended.
 - [ ] This repo `agent-company-ai` lives under zaxbatch but currently pushes as zdotllc (collaborator). Align: either add zdotllc as collaborator intentionally (fine) OR switch to zaxbatch key when created.
+
+## NEW PROJECTS — which GitHub account? (decision rule)
+
+**Ask first, push second.** Before creating a repo for any new project, confirm
+with the owner (Zerric/BossLady) which account. Default rule below.
+
+| New project serves… | GitHub account | Example |
+|---------------------|----------------|---------|
+| zerric.xyz / snowsnakes / personal-brand fun / Spread Da Word / Snitch / cassettes / community | **zaxbatch** | test123, agent-company-ai |
+| Z-Dot LLC business / client SaaS / payments / CRM / marketing sites / B2B tools | **zdot (zdotllc)** | (future) |
+
+**Confirmation protocol (never skip):**
+1. When a new app/project is requested, ask: *"Which account — zaxbatch or zdot?"*
+2. If it's a play/creative/community thing → zaxbatch (zerric.xyz).
+3. If it's business/client/revenue → zdot (zdotllc).
+4. Ambiguous (both) → ask Zerric directly. Never guess.
+
+**Repo creation checklist:**
+- [ ] Owner confirmed (zaxbatch or zdot)
+- [ ] Created under the OWNING account via PAT (`ghp_*` in credentials)
+- [ ] Cloned/pushed via matching alias (`git@github-zaxbatch:...` or `git@github-zdot:...`)
+- [ ] Local `git config user.name/email` = owning account
+- [ ] README says which project + which domain it serves
