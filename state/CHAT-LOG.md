@@ -170,3 +170,6 @@ Progress page: all 126 doodles live + links to everything (MilkUps netlify, Beat
 ### 2026-08-25 05:41 UTC — Zerric
 SET: Spread Da Word episodes = Rive motion-comic (South Park cutout style). Official pipeline locked. Rigs already exist (Snow, Vin, Que, Aji). Episode feature on SnowSnakes has 2 seeded placeholders. Next: build episode 1 proof-of-concept.
 
+
+### 2026-08-26 — NinjaNerd (CTO)
+FIXED + EMAILED BossLady: venv-mode 400 "insufficient tool messages following tool_calls". Root cause: _execute_chat_tool() nested LLM call mid-chain + never ran the tool. Fix: rewrite to execute tool directly, pre-flight _assert_tool_chain guard, order-insensitive repair, run-loop append-before-terminal. 80/80 tests pass (6 new regression tests). Goal 81d771158b3 completed. Email sent to zdotconnect@gmail.com.
