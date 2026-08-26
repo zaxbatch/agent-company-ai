@@ -64,14 +64,17 @@ class FakeProvider:
 
 
 def _agent_with(fake_provider, fake_tool):
+    import types
     a = Agent.__new__(Agent)
     a.name = "T"
     a.provider = fake_provider
-    a.tool_definitions = [
-        ToolDefinition(name=fake_tool.name, description="d",
-                       parameters={"type": "object", "properties": {}})
-    ]
+    # tool_definitions is a property derived from role.default_tools
+    a.role = types.SimpleNamespace(
+        default_tools=[fake_tool.name],
+        can_delegate_to=False,
+    )
     a._conversation = []
+    a._system_prompt = "system"
     a._cost_tracker = None
     # Registry with the fake tool registered
     reg = ToolRegistry()
