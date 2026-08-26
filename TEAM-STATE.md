@@ -257,3 +257,16 @@
 - **Domain rule respected:** zero LPT content on snowsnakes.zerric.xyz / zerric.xyz. This folder is GitHub-hosted only.
 - **OPEN:** Mark's LPT content pack not delivered yet — when it lands, upload into matching folder (GitHub web UI or git push).
   Next: PM delivers link+creds note to Zerric; confirm he can open it (he owns the account, so login = access).
+
+---
+## ROLLOUT STATUS — SnowSnakes LIGHT VERSION (owner: Meta, PM/QA) — 2026-08-24
+**GOAL:** Mark SnowSnakes prototype as LIGHT VERSION on snowsnakes.zerric.xyz with prominent CTA to FULL version at https://snitch.zerric.xyz.
+
+**STATUS: IN PROGRESS — BLOCKED on full-version deployment**
+- #1 BLOCKER (ESCALATED): https://snitch.zerric.xyz unreachable — CEO got connection error; Meta's research confirms ZERO indexed evidence of a live site (no DNS/HTTP/TLS evidence found). CTO (NinjaNerd) running live dig/curl/TLS verification. Escalation to BossLady → Zerric with exact access requirements (host, DNS panel, credentials, repo location) once CTO's evidence is in.
+- CTO (NinjaNerd): verifying snitch reachability; implementing LIGHT VERSION label + full-version CTA (standard wording ships 2026-08-25, final copy swap 2026-08-26); OG tags; deploy; HubSpot regression check. Due Day 2.
+- Marketer (Mark): page copy, standard+final CTA copy, OG meta, social share kit (drafts). Due Day 1 EOD.
+- Sales (Seleena): outreach templates (both links), HubSpot capture path verification, 3-touch follow-up sequence. Due Day 2.
+- QA (Meta): gate = light label visible, CTA live → snitch.zerric.xyz, works desktop+mobile, OG preview renders, HubSpot still firing, no LPT content. Sign-off HELD until snitch.zerric.xyz is verifiably reachable.
+- Daily status updates to TEAM-STATE.md each EOD. Next update: 2026-08-25.
+---
