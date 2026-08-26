@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-26T07:25:01.206660+00:00",
+ "generated_at": "2026-08-26T09:05:01.940626+00:00",
  "note": "Sanitized continuity snapshot. Sensitive fields masked (***). Restore: this JSON documents what was in flight so work can resume after any disruption.",
  "tables": {
   "agents": {
@@ -9023,7 +9023,7 @@
   },
   "goals": {
    "table": "goals",
-   "count": 51,
+   "count": 53,
    "rows": [
     {
      "id": "bf88aa5e1266",
@@ -9381,6 +9381,20 @@
      "status": "failed",
      "created_at": "2026-08-26 07:21:01",
      "completed_at": "2026-08-26 07:21:01"
+    },
+    {
+     "id": "89a4dcf5532f",
+     "description": "Snitch needs to have different themes (not css). for instance we can have a snitch streets version where your questions are more mature. or we can just adjust maturity level to keep universal appeal. the choice is yours. do whatever feels right. Maybe there can be exclusive versions locked behind paid walls. Ching!",
+     "status": "failed",
+     "created_at": "2026-08-26 07:27:58",
+     "completed_at": "2026-08-26 07:27:58"
+    },
+    {
+     "id": "56f39675421c",
+     "description": "***",
+     "status": "failed",
+     "created_at": "2026-08-26 07:38:59",
+     "completed_at": "2026-08-26 07:38:59"
     }
    ]
   },
