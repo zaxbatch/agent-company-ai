@@ -4,7 +4,7 @@
 > to pick up exactly where we left off. Every agent updates it at end of turn.
 > Auto-refresh: `python3 scripts/save_state.py` (also syncs the portal + git).
 
-**Last updated:** 2026-08-26T04:55:01Z
+**Last updated:** 2026-08-26T05:00:01Z
 **How to resume:** 1) read this file  2) read souls/*.md  3) hit the checklist portal
 (https://tasks.zdotllc.com, creds in communication/portal_credentials.txt)  4) run
 `./venv/bin/python scripts/checklist_watchdog.py` to see who's stale.
@@ -248,3 +248,12 @@
 - **Payment surfaces UNCONFIGURED (G1–G6):** BILLING-IDENTITY-POLICY.md, Stripe account name,
   Gumroad store name, invoice template From field, payment link display name, BizzyBee CRM
   subscription billing — all must read "Z-Dot LLC" once policy lands (owner: Finance / Finance+CTO).
+## 0. LATEST SESSION (2026-08-26a) — LPT PRIVATE REVIEW SPACE (CTO)
+- **LPT Realty content review folder LIVE:** GitHub PRIVATE repo `zaxbatch/lpt-realty-content-review-draft`
+  (link: https://github.com/zaxbatch/lpt-realty-content-review-draft). Owner = Zerric's account (zaxbatch) ONLY.
+  Verified: private=true, anon web+API = 404, collaborators = [zaxbatch], invites = [].
+  Structure pushed: 01-Agent-Bio / 02-Social-Copy / 03-Listing-Templates / 04-Market-Updates / 05-Compliance-Notes (+READMEs).
+  Google Drive NOT used — no Google API creds exist in env; GitHub private repo satisfies all reqs (auth-required, non-indexable).
+- **Domain rule respected:** zero LPT content on snowsnakes.zerric.xyz / zerric.xyz. This folder is GitHub-hosted only.
+- **OPEN:** Mark's LPT content pack not delivered yet — when it lands, upload into matching folder (GitHub web UI or git push).
+  Next: PM delivers link+creds note to Zerric; confirm he can open it (he owns the account, so login = access).

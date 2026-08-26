@@ -30,3 +30,7 @@ LPT/.env
 .snowsnakes_accounts.json
 venv/
 dashboard_users.json
+
+# SnowSnakes tokens — NEVER commit
+.snowsnakes_real_users.json
+.snowsnakes_accounts.json
