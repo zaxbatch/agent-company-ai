@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snitch: Rats in the Grass</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header>
+            <h1>🐍 Snitch: Rats in the Grass</h1>
+            <div id="game-controls">
+                <button id="new-game-btn">New Game</button>
+                <button id="roll-btn" disabled>Roll Dice</button>
+            </div>
+        </header>
+
+        <!-- Game Info Bar -->
+        <div id="game-info">
+            <div id="current-player">Current: Waiting...</div>
+            <div id="dice-result">🎲 Roll: -</div>
+            <div id="turn-message">Click "New Game" to start</div>
+        </div>
+
+        <!-- INTRO OVERLAY -->
+        <div id="intro-overlay">
+            <div id="intro-content">
+                <h1 id="intro-title">🐍 Snitch: Rats in the Grass</h1>
+                <p id="intro-subtitle">Watch the rats get eaten!</p>
+                <div id="intro-animation"></div>
+                <button id="intro-start-btn" disabled>🎮 Start Game</button>
+                <p id="intro-status">Loading...</p>
+            </div>
+        </div>
+
+        <!-- POOP ANIMATION OVERLAY -->
+        <div id="poop-overlay" class="hidden">
+            <div id="poop-content">
+                <h2 id="poop-title">💩 WINNER!</h2>
+                <div id="poop-animation"></div>
+                <p id="poop-message"></p>
+                <button id="poop-close-btn">🎮 Play Again</button>
+            </div>
+        </div>
+
+        <!-- Snake Board -->
+        <div id="board-container" style="display:none;">
+            <div id="snake-scene">
+                <div id="ground">
+                    <div class="grass"></div>
+                    <div class="grass"></div>
+                    <div class="grass"></div>
+                    <div class="grass"></div>
+                    <div class="grass"></div>
+                </div>
+
+                <div id="snake-wrapper">
+                    <svg id="snake-svg" viewBox="0 0 1100 500" preserveAspectRatio="xMidYMid meet">
+                        <path id="snake-path"
+                              d="M 50,250
+                                 Q 150,100 250,200
+                                 Q 350,300 450,150
+                                 Q 550,50 650,200
+                                 Q 750,350 850,150
+                                 Q 950,50 1050,200"
+                              fill="none"
+                              stroke="#2d6a4f"
+                              stroke-width="60"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"/>
+
+                        <path d="M 50,250
+                                 Q 150,100 250,200
+                                 Q 350,300 450,150
+                                 Q 550,50 650,200
+                                 Q 750,350 850,150
+                                 Q 950,50 1050,200"
+                              fill="none"
+                              stroke="#40916c"
+                              stroke-width="50"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-dasharray="10 15"/>
+
+                        <path d="M 50,250
+                                 Q 150,100 250,200
+                                 Q 350,300 450,150
+                                 Q 550,50 650,200
+                                 Q 750,350 850,150
+                                 Q 950,50 1050,200"
+                              fill="none"
+                              stroke="#1a472a"
+                              stroke-width="40"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-dasharray="8 20"/>
+
+                        <path d="M 50,250
+                                 Q 150,100 250,200
+                                 Q 350,300 450,150
+                                 Q 550,50 650,200
+                                 Q 750,350 850,150
+                                 Q 950,50 1050,200"
+                              fill="none"
+                              stroke="#52b788"
+                              stroke-width="20"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              opacity="0.3"/>
+
+                        <g id="snake-head-group">
+                            <ellipse cx="30" cy="250" rx="35" ry="40" fill="#1a472a" stroke="#40916c" stroke-width="2"/>
+                            <ellipse cx="30" cy="250" rx="25" ry="30" fill="#2d6a4f"/>
+                            <ellipse cx="15" cy="235" rx="10" ry="12" fill="white"/>
+                            <ellipse cx="15" cy="235" rx="6" ry="8" fill="#1a1a2e"/>
+                            <ellipse cx="45" cy="235" rx="10" ry="12" fill="white"/>
+                            <ellipse cx="45" cy="235" rx="6" ry="8" fill="#1a1a2e"/>
+                            <line x1="10" y1="250" x2="-20" y2="250" stroke="#e94560" stroke-width="3"/>
+                            <line x1="-20" y1="250" x2="-30" y2="245" stroke="#e94560" stroke-width="3"/>
+                            <line x1="-20" y1="250" x2="-30" y2="255" stroke="#e94560" stroke-width="3"/>
+                            <text x="0" y="295" font-size="12" fill="#ffd93d" text-anchor="middle" font-weight="bold">🐀 ENTER</text>
+                        </g>
+
+                        <g id="snake-tail-group">
+                            <ellipse cx="1060" cy="200" rx="30" ry="20" fill="#1a472a" stroke="#40916c" stroke-width="2"/>
+                            <ellipse cx="1070" cy="200" rx="15" ry="10" fill="#2d6a4f"/>
+                            <text x="1050" y="185" font-size="14" fill="#ffd93d" text-anchor="middle" font-weight="bold">💩 EXIT</text>
+                        </g>
+
+                        <g id="space-dots"></g>
+                        <g id="player-bulges"></g>
+                    </svg>
+                </div>
+
+                <div id="ground-bottom">
+                    <div class="grass"></div>
+                    <div class="grass"></div>
+                    <div class="grass"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Players Panel -->
+        <div id="players-panel" style="display:none;">
+            <h2>🐀 Players</h2>
+            <div id="players-list"></div>
+        </div>
+
+        <!-- Decision Modal -->
+        <div id="decision-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2 id="decision-title">Decision Time!</h2>
+                <p id="decision-description">What do you do?</p>
+                <div id="decision-options"></div>
+            </div>
+        </div>
+
+        <!-- Event Modal -->
+        <div id="event-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2 id="event-title">Event!</h2>
+                <p id="event-description"></p>
+                <button id="event-close-btn">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
