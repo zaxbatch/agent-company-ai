@@ -4,6 +4,6 @@
   "characters": 3,
   "comics": 0,
   "doodles": 0,
-  "episodes": 2,
-  "snapshot_at": "2026-08-26T18:40:01Z"
+  "episodes": "err:<urlopen error _ssl.c:975: The handshake operation timed out>",
+  "snapshot_at": "2026-08-26T18:45:01Z"
 }
