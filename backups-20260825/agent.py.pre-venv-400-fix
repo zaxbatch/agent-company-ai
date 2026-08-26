@@ -216,7 +216,6 @@ class Agent:
         self._result_rejections = 0
 
         for iteration in range(max_iterations):
-            self._assert_tool_chain(messages)
             try:
                 response = await self.provider.complete(
                     messages=messages,
@@ -258,17 +257,15 @@ class Agent:
                     tc.name, tc.arguments, task, best_assistant_text,
                 )
 
-                # Always append the tool result BEFORE the terminal check so
-                # the assistant tool_calls message is never left unanswered.
+                # Check if task is now terminal (report_result was called)
+                if task.is_terminal:
+                    return task.result or "Task completed."
+
                 messages.append(LLMMessage(
                     role="tool",
                     content=tool_result,
                     tool_call_id=tc.id,
                 ))
-
-                # Check if task is now terminal (report_result was called)
-                if task.is_terminal:
-                    return task.result or "Task completed."
 
         # Ran out of iterations — try to salvage by using the best content
         # from the conversation. Scan tool results for web_search data and
@@ -472,7 +469,6 @@ class Agent:
         # Bounded tool loop — mirrors think() so data tools actually run.
         for _ in range(10):
             self._repair_conversation()
-            self._assert_tool_chain(self._conversation)
             try:
                 response = await self.provider.complete(
                     messages=self._conversation,
@@ -559,7 +555,7 @@ class Agent:
                 else:
                     break
 
-            if len(matched) == len(expected_ids) and set(matched) == set(expected_ids):
+            if matched == expected_ids:
                 # Valid pairing: keep assistant + its tool responses.
                 repaired.append(msg)
                 repaired.extend(self._conversation[i + 1:j])
@@ -582,52 +578,23 @@ class Agent:
 
         self._conversation = repaired
 
-    @staticmethod
-    def _assert_tool_chain(messages: list[LLMMessage]) -> None:
-        """Fail loudly if the message chain violates the tool-call contract.
-
-        OpenAI-compatible APIs reject conversations where an assistant
-        message carrying tool_calls is not immediately followed by tool
-        responses for every declared id (non-retryable 400). This guard
-        converts that into a precise assertion at the call site so a
-        regression is caught instantly instead of surfacing as an opaque
-        API error.
-        """
-        if not messages:
-            return
-        for i, msg in enumerate(messages):
-            if not (msg.role == "assistant" and msg.tool_calls):
-                continue
-            declared = {tc["id"] for tc in msg.tool_calls if tc.get("id")}
-            j = i + 1
-            answered: set[str] = set()
-            while j < len(messages) and messages[j].role == "tool":
-                if messages[j].tool_call_id:
-                    answered.add(messages[j].tool_call_id)
-                j += 1
-            missing = declared - answered
-            if missing:
-                raise RuntimeError(
-                    f"Invalid message chain: assistant tool_calls {missing} "
-                    f"have no tool response before the next request."
-                )
-
     async def _execute_chat_tool(self, tc) -> str:
-        """Execute one tool call in chat mode and return its result string.
-
-        Executes the underlying tool directly (no nested LLM call) so the
-        caller's assistant -> tool message pairing stays intact. A nested
-        provider.complete() here would send a conversation ending in an
-        unanswered assistant tool_calls message, which OpenAI-compatible
-        APIs reject with 'insufficient tool messages following tool_calls'.
-        """
+        """Execute one tool call in chat mode (no task context needed)."""
         tool = self._tool_registry.get_tool(tc.name)
         if tool is None:
             return f"Error: Unknown tool '{tc.name}'"
         try:
-            return await tool.execute(**tc.arguments)
+            response = await self.provider.complete(
+                messages=self._conversation,
+                tools=self.tool_definitions,
+            )
         except Exception as e:
-            return f"Tool error: {e}"
+            return f"Error: {e}"
+
+        self._track_usage(response.usage)
+        reply = response.content or "(no response)"
+        self._conversation.append(LLMMessage(role="assistant", content=reply))
+        return reply
 
     async def process_inbox(self) -> list[str]:
         """Process any pending messages in the agent's inbox."""
