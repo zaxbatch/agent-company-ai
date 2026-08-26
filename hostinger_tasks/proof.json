@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-24 23:15 UTC",
+  "updated": "2026-08-26 04:54 UTC",
   "live": [
     {
       "name": "SnowSnakes (games only)",
@@ -16,6 +16,10 @@
     {
       "name": "Cassette player (live)",
       "url": "https://snowsnakes.zerric.xyz/spread-da-word/audio/soundtracks-cassette-player.html"
+    },
+    {
+      "name": "17 games live on SnowSnakes",
+      "url": "https://snowsnakes.zerric.xyz"
     }
   ],
   "projects": [
@@ -69,7 +73,7 @@
           "https://app.hubspot.com/"
         ]
       ],
-      "meta": "created 28, updated 1 (last run 2026-08-24 09:22). Next: email outreach (blocked on provider key)."
+      "meta": "HubSpot sync verified LIVE (28 created/1 updated). SnowSnakes registrations AUTO-FEED HubSpot (verified 2026-08-24, contact 540272484082). Email outreach next (blocked on provider key)."
     },
     {
       "icon": "\ud83d\udc0d",
@@ -102,6 +106,18 @@
         ]
       ],
       "meta": "Dashboard + checklist portal live. State snapshots every 30 min."
+    },
+    {
+      "icon": "\ud83d\udcb3",
+      "title": "Revenue Integrations (audit 2026-08-26)",
+      "blurb": "Company-wide audit: ALL revenue integrations UNCONFIGURED except Stripe key (received, wiring pending). Each has a concrete next action + owner on the task board.",
+      "links": [
+        [
+          "Task board",
+          "https://tasks.zdotllc.com"
+        ]
+      ],
+      "meta": "Stripe: sk_live key RECEIVED (verified live), config.yaml wiring + webhook secret pending \u00b7 Gumroad: unconfigured (enabled:false) \u00b7 Invoices: unconfigured \u00b7 Cal.com: unconfigured \u00b7 Wallet: not created (agent-company-ai wallet create)"
     }
   ],
   "commits": [
@@ -205,10 +221,12 @@
     }
   ],
   "blockers": [
-    "Stripe API key (Zerric) \u2014 gates payments",
-    "Email provider key (Resend) \u2014 gates outreach",
-    "zerric.xyz FTP/DNS \u2014 Snitch + SDW proper domains (tasks.zerric.xyz NXDOMAIN, using tasks.zdotllc.com)",
-    "SnowSnakes admin \u2014 duplicate game cleanup",
-    "ClickClack_ login broken (id 56) \u2014 needs password reset"
+    "Wallet not created \u2014 run `agent-company-ai wallet create` (owner: NinjaNerd, t33-wallet)",
+    "Stripe wiring pending: config.yaml integrations.stripe.enabled:true + api_key:${STRIPE_SECRET_KEY}; STRIPE_WEBHOOK_SECRET needed from Zerric (t5-stripe) \u2014 KEY RECEIVED, tools still error until wired",
+    "Gumroad / Invoices / Cal.com unconfigured \u2014 need access token + company billing details (t30/t31/t32)",
+    "SnowSnakes SNOW BEATS duplicate cluster ids 97/98/99/101 \u2014 cleanup owner ClickClack, deadline 2026-08-28 (t34-dup-games); needs admin platform password from Zerric",
+    "HubSpot auto-sync go/no-go \u2014 Zerric to confirm (already LIVE since 2026-08-24, t35-hubspot-live)",
+    "SnowSnakes admin platform passwords (ninjanerd id 82 + clickclack) \u2014 Zerric",
+    "SaaS MVP money-loop priority (leads-first vs payments-first) \u2014 BossLady decision (t36-ceo-scope)"
   ]
 }
