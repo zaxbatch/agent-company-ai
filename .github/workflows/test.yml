@@ -3,6 +3,15 @@ name: Tests
 on:
   push:
     branches: [main]
+    # Housekeeping-only pushes (state snapshots, TEAM-STATE, logs, DBs) must
+    # NOT trigger CI. Real code changes still run the full matrix.
+    paths-ignore:
+      - 'state/**'
+      - 'state-backup/**'
+      - 'TEAM-STATE.md'
+      - 'logs/**'
+      - '*.db'
+      - '*.db.bak-*'
   pull_request:
     branches: [main]
 

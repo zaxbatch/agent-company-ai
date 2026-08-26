@@ -97,7 +97,7 @@ def main():
     print(f"snapshot {stamp}: portal tasks={len(tasks)} open={len(open_tasks)} snowsnakes={counts}")
 
     if not args.no_commit:
-        git_commit(f"state: snapshot {stamp}")
+        git_commit(f"state: snapshot {stamp} [skip ci]")
 
 if __name__ == "__main__":
     main()

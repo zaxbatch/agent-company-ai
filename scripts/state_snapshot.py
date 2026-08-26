@@ -51,7 +51,7 @@ def main():
         os.remove(os.path.join(OUT_DIR, old))
         print("pruned:", old)
     if "--commit" in sys.argv:
-        os.system(f"git add {OUT_DIR} && git commit -q -m 'state snapshot {ts}' && git push -q origin main 2>&1 | tail -1")
+        os.system(f"git add {OUT_DIR} && git commit -q -m 'state snapshot {ts} [skip ci]' && git push -q origin main 2>&1 | tail -1")
         print("committed + pushed")
 
 if __name__ == "__main__":
