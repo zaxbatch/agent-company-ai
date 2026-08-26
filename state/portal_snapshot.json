@@ -1,31 +1,5 @@
 [
   {
-    "id": "t3-authors",
-    "description": "Reconcile SnowSnakes authors 56/57 (posts of 2026-08-23) against the recorded FAILED goal - determine if agent accounts",
-    "assignee": "NinjaNerd",
-    "status": "done",
-    "priority": 3,
-    "result": "Reconciled 2026-08-26: authors 56/57 are SnowSnakes accounts from the persona era (not agent-account anomalies). Live /api/jokes: author 57 (TedBear) has 7 jokes; author 56 (ClickClack_) has 0 jokes in current API (superseded by real-user strategy, see fce626157ddb).",
-    "created_at": "2026-08-23T14:00:00Z",
-    "updated_at": "2026-08-26T04:54:27Z",
-    "blocker": "",
-    "last_checked_at": null,
-    "updated_by": "NinjaNerd"
-  },
-  {
-    "id": "t4-discoverability",
-    "description": "Decide whether SnowSnakes needs search visibility (currently does not rank under its own name) - blocked on ownership decision",
-    "assignee": "NinjaNerd",
-    "status": "done",
-    "priority": 4,
-    "result": "Decision made 2026-08-25 (Zerric): discoverability GO. Search-visibility analysis exists in resources/. Implementation is a separate follow-up task.",
-    "created_at": "2026-08-23T14:00:00Z",
-    "updated_at": "2026-08-26T04:54:28Z",
-    "blocker": "None - decided.",
-    "last_checked_at": "2026-08-24T02:56:11Z",
-    "updated_by": "NinjaNerd"
-  },
-  {
     "id": "t5-stripe",
     "description": "Stripe payments/subscriptions: LIVE KEY RECEIVED (sk_live in .env + credentials.txt, verified via balance API 2026-08-26 livemode). NEXT (CTO): 1) config.yaml integrations.stripe.enabled: true 2) api_key: ${STRIPE_SECRET_KEY} 3) add STRIPE_WEBHOOK_SECRET to .env 4) test payment link (stripe_tools) + subscription link (stripe_subs). Product 'Linux Ghost - Barebones' exists (prod_V8SXbzJ0M1SaAF, $0.00 one-time - set real price).",
     "assignee": "NinjaNerd",
@@ -36,19 +10,6 @@
     "updated_at": "2026-08-26T04:54:28Z",
     "blocker": "STRIPE_WEBHOOK_SECRET needed from Zerric's Stripe dashboard (key itself already in .env).",
     "last_checked_at": "2026-08-26T04:51:49.568Z",
-    "updated_by": "NinjaNerd"
-  },
-  {
-    "id": "t6-roadmap",
-    "description": "Finalize SaaS MVP scope + roadmap",
-    "assignee": "NinjaNerd",
-    "status": "done",
-    "priority": 2,
-    "result": "SAAS-MVP-ROADMAP.md delivered 2026-08-24 (scope IN/OUT, phases 0-3, risks, money-loop table). CEO sign-off (leads-first vs payments-first + scope trim) tracked in new task t36-ceo-scope.",
-    "created_at": "2026-08-23T14:00:00Z",
-    "updated_at": "2026-08-26T04:54:28Z",
-    "blocker": "",
-    "last_checked_at": null,
     "updated_by": "NinjaNerd"
   },
   {
