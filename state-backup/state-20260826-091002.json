@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-26T07:30:01.714864+00:00",
+ "generated_at": "2026-08-26T09:10:01.840940+00:00",
  "note": "Sanitized continuity snapshot. Sensitive fields masked (***). Restore: this JSON documents what was in flight so work can resume after any disruption.",
  "tables": {
   "agents": {
@@ -9023,7 +9023,7 @@
   },
   "goals": {
    "table": "goals",
-   "count": 52,
+   "count": 53,
    "rows": [
     {
      "id": "bf88aa5e1266",
@@ -9388,6 +9388,13 @@
      "status": "failed",
      "created_at": "2026-08-26 07:27:58",
      "completed_at": "2026-08-26 07:27:58"
+    },
+    {
+     "id": "56f39675421c",
+     "description": "***",
+     "status": "failed",
+     "created_at": "2026-08-26 07:38:59",
+     "completed_at": "2026-08-26 07:38:59"
     }
    ]
   },
