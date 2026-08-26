@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-26T05:10:01.098729+00:00",
+ "generated_at": "2026-08-26T06:50:01.150650+00:00",
  "note": "Sanitized continuity snapshot. Sensitive fields masked (***). Restore: this JSON documents what was in flight so work can resume after any disruption.",
  "tables": {
   "agents": {
@@ -7641,7 +7641,7 @@
    "rows": [
     {
      "name": "browse_log",
-     "seq": 278
+     "seq": 280
     },
     {
      "name": "prospect_searches",
@@ -9023,7 +9023,7 @@
   },
   "goals": {
    "table": "goals",
-   "count": 38,
+   "count": 50,
    "rows": [
     {
      "id": "bf88aa5e1266",
@@ -9290,6 +9290,90 @@
      "status": "failed",
      "created_at": "2026-08-26 05:05:42",
      "completed_at": "2026-08-26 05:05:42"
+    },
+    {
+     "id": "bbdc14d6adbe",
+     "description": "I don't like the progress page. this needs to be dynamic instead of static. I want to see realtime updates on this page",
+     "status": "failed",
+     "created_at": "2026-08-26 05:13:09",
+     "completed_at": "2026-08-26 05:13:09"
+    },
+    {
+     "id": "9261b8519342",
+     "description": "finish the frontend crm and make sure it's dynamic, reflecting leads in  real time.",
+     "status": "failed",
+     "created_at": "2026-08-26 05:20:38",
+     "completed_at": "2026-08-26 05:20:38"
+    },
+    {
+     "id": "9cadc8ec6e9f",
+     "description": "make a mountain climbing game for snowsnakes",
+     "status": "failed",
+     "created_at": "2026-08-26 05:22:43",
+     "completed_at": "2026-08-26 05:22:43"
+    },
+    {
+     "id": "f3945bcf7239",
+     "description": "make 10 milkups album. every album needs a theme. Beats need to be 60 seconds long with variation, intros, bridge, climax, etc. this is our product line, so we need quality here. Use snow beats for inspiration.",
+     "status": "failed",
+     "created_at": "2026-08-26 05:30:58",
+     "completed_at": "2026-08-26 05:30:58"
+    },
+    {
+     "id": "6599a4941862",
+     "description": "@ClickClack and @NinjaNerd are admin on snowsnakes.",
+     "status": "failed",
+     "created_at": "2026-08-26 05:37:18",
+     "completed_at": "2026-08-26 05:37:18"
+    },
+    {
+     "id": "77bd45069c7d",
+     "description": "Make a Vin Negar Music Video. all music videos can be feature on Milkups page.",
+     "status": "failed",
+     "created_at": "2026-08-26 05:57:00",
+     "completed_at": "2026-08-26 05:57:00"
+    },
+    {
+     "id": "45eb9fa23c28",
+     "description": "MilkUp Themed Game For SnowSnakes! This one gotta hit!",
+     "status": "failed",
+     "created_at": "2026-08-26 06:20:37",
+     "completed_at": "2026-08-26 06:20:37"
+    },
+    {
+     "id": "0081a703dd65",
+     "description": "Milkups is our cash cow! Get it!! zerric.xyz -> Milkups -> money",
+     "status": "failed",
+     "created_at": "2026-08-26 06:21:31",
+     "completed_at": "2026-08-26 06:21:31"
+    },
+    {
+     "id": "fce3961f0bd9",
+     "description": "We're the Milkups!",
+     "status": "failed",
+     "created_at": "2026-08-26 06:22:11",
+     "completed_at": "2026-08-26 06:22:11"
+    },
+    {
+     "id": "248d1f7c1870",
+     "description": "Make reviewing pics fun for me. I want an approval gallery.",
+     "status": "failed",
+     "created_at": "2026-08-26 06:38:34",
+     "completed_at": "2026-08-26 06:38:34"
+    },
+    {
+     "id": "f362cb0b48b3",
+     "description": "make more doodles. concentrate on character design and creating scenes.",
+     "status": "failed",
+     "created_at": "2026-08-26 06:39:46",
+     "completed_at": "2026-08-26 06:39:46"
+    },
+    {
+     "id": "feb3e9390f73",
+     "description": "use milkups.zerric.xyz and spreaddaword.zerric.xyz",
+     "status": "failed",
+     "created_at": "2026-08-26 06:40:42",
+     "completed_at": "2026-08-26 06:40:42"
     }
    ]
   },
@@ -12462,7 +12546,7 @@
   },
   "browse_log": {
    "table": "browse_log",
-   "count": 278,
+   "count": 280,
    "rows": [
     {
      "id": 1,
@@ -15243,6 +15327,26 @@
      "extracted_links_count": 0,
      "browsed_by": "BossLady",
      "created_at": "2026-08-26 04:56:40"
+    },
+    {
+     "id": 279,
+     "url": "https://github.com/zaxbatch/milkups",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 14,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-26 05:57:50"
+    },
+    {
+     "id": 280,
+     "url": "https://raw.githubusercontent.com/zaxbatch/milkups/main/index.html",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 1,
+     "extracted_links_count": 3,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-26 05:57:54"
     }
    ]
   },
