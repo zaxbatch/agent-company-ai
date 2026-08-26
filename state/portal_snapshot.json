@@ -32,9 +32,9 @@
     "priority": 1,
     "result": null,
     "created_at": "2026-08-23T14:00:00Z",
-    "updated_at": "2026-08-25T21:41:41Z",
+    "updated_at": "2026-08-26T04:51:49Z",
     "blocker": "Zerric confirmed 2026-08-24 he will provide a Stripe key; wiring ready to go once received",
-    "last_checked_at": "2026-08-25T21:41:41.692Z",
+    "last_checked_at": "2026-08-26T04:51:49.568Z",
     "updated_by": "Zerric"
   },
   {
@@ -70,9 +70,9 @@
     "priority": 2,
     "result": null,
     "created_at": "2026-08-23T14:00:00Z",
-    "updated_at": "2026-08-25T21:41:41Z",
+    "updated_at": "2026-08-26T04:51:49Z",
     "blocker": "Zerric action: rotate CEO email password and enable 2FA",
-    "last_checked_at": "2026-08-25T21:41:41.692Z",
+    "last_checked_at": "2026-08-26T04:51:49.568Z",
     "updated_by": "Zerric"
   },
   {
@@ -84,8 +84,8 @@
     "result": null,
     "blocker": "Zerric action on Proton account",
     "created_at": "2026-08-23T15:00:00Z",
-    "updated_at": "2026-08-25T21:41:41Z",
-    "last_checked_at": "2026-08-25T21:41:41.692Z",
+    "updated_at": "2026-08-26T04:51:49Z",
+    "last_checked_at": "2026-08-26T04:51:49.568Z",
     "updated_by": "Zerric"
   },
   {
@@ -97,8 +97,8 @@
     "result": null,
     "blocker": "DNS access for zerric.xyz + provider account",
     "created_at": "2026-08-23T15:00:00Z",
-    "updated_at": "2026-08-25T21:41:41Z",
-    "last_checked_at": "2026-08-25T21:41:41.692Z",
+    "updated_at": "2026-08-26T04:51:49Z",
+    "last_checked_at": "2026-08-26T04:51:49.568Z",
     "updated_by": "Zerric"
   },
   {
@@ -205,5 +205,18 @@
     "updated_at": "2026-08-24T20:15:58Z",
     "last_checked_at": null,
     "created_by": "Zerric"
+  },
+  {
+    "id": "6fd552b2ad07",
+    "description": "# WHO'S WHO \u2014 Master Audit Checklist (Zerric=Owner vs BossLady=CEO)\nCanonical phrasing (per ROLE-CHARTER): \"Owner: Zerric \u00b7 CEO: BossLady\"\n\nA. PUBLIC WEB SURFACES\n- [ ] A1 zerric.xyz footer \u2014 states \"Owner: Zerric \u00b7 CEO: BossLady\" (owner: CTO)\n- [ ] A2 zerric.xyz About page \u2014 role attribution correct (owner: CTO)\n- [ ] A3 snowsnakes.zerric.xyz footer/landing \u2014 \"A Z-Dot LLC project \u2014 Owner: Zerric \u00b7 CEO: BossLady\" (owner: CTO)\n- [ ] A4 snowsnakes.zerric.xyz lead form \"powered by\" line (owner: CTO)\n- [ ] A5 DNS/registrar \u2014 both domains registered to Z-Dot LLC / Zerric (owner: CTO)\n\nB. SOCIAL ACCOUNTS\n- [ ] B1 Twitter/X bio \u2014 no CEO claim for Zerric; CEO=BossLady stated (owner: Marketer)\n- [ ] B2 LinkedIn \u2014 Zerric personal profile title = Owner (NOT CEO) (owner: Marketer)\n- [ ] B3 LinkedIn \u2014 Z-Dot company page: Owner vs CEO listed correctly (owner: Marketer)\n- [ ] B4 Instagram @zerric bio \u2014 role line correct/absent, no CEO claim (owner: Marketer)\n- [ ] B5 Facebook page \u2014 same (owner: Marketer)\n- [ ] B6 Threads bio \u2014 same (owner: Marketer)\n- [ ] B7 Third-party directories (Easyleadz, Buzzfile, ZoomInfo) \u2014 CONFIRMED FIX: Easyleadz lists Zerric as \"CEO\"; must be corrected to Owner/Member via directory claims (owner: Marketer; slow external process \u2014 flag risk)\n\nC. MARKETING\n- [ ] C1 Brand voice guide created (owner: Marketer)\n- [ ] C2 50 social drafts audited \u2014 full 50-row table (owner: Marketer)\n- [ ] C3 All FIX drafts corrected (owner: Marketer)\n\nD. SALES\n- [ ] D1 Outreach templates audited + fixed (owner: Sales)\n- [ ] D2 Who's Who one-pager created (owner: Sales)\n- [ ] D3 Signature line standard defined (owner: Sales)\n\nE. CRM\n- [ ] E1 HubSpot company/contact notes \u2014 no role confusion; Owner/CEO fields correct (owner: Sales, with Marketer)\n- [ ] E2 SnowSnakes\u2192HubSpot lead mapping includes role attribution (owner: CTO)\n\nF. INTERNAL\n- [ ] F1 ROLE-CHARTER.md created (owner: HR)\n- [ ] F2 TEAM-STATE.md \u2014 role lines for Zerric (Owner) and BossLady (CEO) correct (owner: PM)\n- [ ] F3 Portal (tasks.zdotllc.com) \u2014 role descriptions correct (owner: PM)\n\nG. PAYMENT/LEGAL (currently unconfigured \u2014 policy first, then config)\n- [ ] G1 BILLING-IDENTITY-POLICY.md \u2014 payee = \"Z-Dot LLC\" everywhere (owner: Finance)\n- [ ] G2 Stripe account name = Z-Dot LLC (owner: Finance+CTO)\n- [ ] G3 Gumroad store name = Z-Dot LLC (owner: Finance+CTO)\n- [ ] G4 Invoice template From field = Z-Dot LLC (owner: Finance)\n- [ ] G5 Payment link display name = Z-Dot LLC (owner: Finance+CTO)\n- [ ] G6 BizzyBee CRM subscription billing \u2014 payee Z-Dot LLC (Free/Pro $19/Business $49) (owner: Finance+CTO)\n\nH. CREDENTIALS/ACCESS COORDINATION\n- [ ] H1 Documented access-routing: domains + portal 403 bots; CTO access requests \u2192 PM \u2192 BossLady (email/SMS) (owner: PM)",
+    "assignee": "Meta",
+    "priority": 1,
+    "status": "assigned",
+    "result": null,
+    "blocker": "Coordination task from PM Meta \u2014 Who's Who initiative; subtasks: 09c4e50293c2 (HR), e26f6281a8b4 (CTO), df294aced64b (Marketing), 55bfbc1ac446 (Sales), ec344facf516 (Finance)",
+    "created_at": "2026-08-26T04:53:05Z",
+    "updated_at": "2026-08-26T04:53:05Z",
+    "last_checked_at": null,
+    "created_by": "ClickClack"
   }
 ]

@@ -4,7 +4,7 @@
 > to pick up exactly where we left off. Every agent updates it at end of turn.
 > Auto-refresh: `python3 scripts/save_state.py` (also syncs the portal + git).
 
-**Last updated:** 2026-08-26T04:50:01Z
+**Last updated:** 2026-08-26T04:53:50Z
 **How to resume:** 1) read this file  2) read souls/*.md  3) hit the checklist portal
 (https://tasks.zdotllc.com, creds in communication/portal_credentials.txt)  4) run
 `./venv/bin/python scripts/checklist_watchdog.py` to see who's stale.
@@ -233,3 +233,18 @@
   Reference working copy: /tmp/snowsnakes/server.js (line ~55). ClickClack owns build per CSFE spec.
 - **ARTIFACT:** SnowSnakes DB user id=80 (csfe_pipetest_598034) remains (no admin creds to delete; admin route
   DELETE /api/admin/users/:id exists). Cleanup by admin or ignore as test user.
+
+## WHO'S WHO INITIATIVE — status 2026-08-24 (owner: Meta/PM)
+- **Initiative ACTIVE.** Canonical role phrasing (per ROLE-CHARTER): "Owner: Zerric · CEO: BossLady".
+- **6 workstreams delegated:** HR, CTO, Marketing, Sales, Finance + Portal.
+  - Subtask IDs: `09c4e50293c2` (HR), `e26f6281a8b4` (CTO), `df294aced64b` (Marketing),
+    `55bfbc1ac446` (Sales), `ec344facf516` (Finance). Plus this portal-post task —
+    the WHO'S WHO Master Audit Checklist (Owner vs CEO) was posted to tasks.zdotllc.com
+    on 2026-08-26 as task id `6fd552b2ad07` (assignee Meta, created by ClickClack, status assigned).
+    Rendered/verified: https://tasks.zdotllc.com/ (screenshot: state/whos_who_portal_evidence.png).
+- **QA gate:** NO deliverable marked DONE without file path + verbatim evidence.
+- **Confirmed public misattribution:** Easyleadz lists Zerric as "CEO" → must be corrected to
+  Owner/Member via directory claims (FIX B7, owner: Marketer; slow external process — flag risk).
+- **Payment surfaces UNCONFIGURED (G1–G6):** BILLING-IDENTITY-POLICY.md, Stripe account name,
+  Gumroad store name, invoice template From field, payment link display name, BizzyBee CRM
+  subscription billing — all must read "Z-Dot LLC" once policy lands (owner: Finance / Finance+CTO).
