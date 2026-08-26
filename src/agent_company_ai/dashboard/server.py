@@ -24,6 +24,7 @@ from agent_company_ai.core.company import Company
 logger = logging.getLogger("agent_company_ai.dashboard")
 
 STATIC_DIR = Path(__file__).parent / "static"
+ADVANCE_DIR = Path(__file__).parent / "advance"
 
 _app = FastAPI(title="Agent Company AI Dashboard")
 _company: Company | None = None
@@ -617,6 +618,34 @@ async def app_js():
     )
 
 
+@_app.get("/advanced")
+async def advanced(request: Request):
+    return HTMLResponse((ADVANCE_DIR / "advanced.html").read_text())
+
+
+@_app.get("/advanced.css")
+async def advanced_css():
+    from fastapi.responses import Response
+    return Response(
+        content=(ADVANCE_DIR / "advanced.css").read_text(),
+        media_type="text/css",
+    )
+
+
+@_app.get("/advanced.js")
+async def advanced_js():
+    from fastapi.responses import Response
+    return Response(
+        content=(ADVANCE_DIR / "advanced.js").read_text(),
+        media_type="application/javascript",
+    )
+
+
+@_app.get("/main")
+async def main_dashboard(request: Request):
+    return HTMLResponse((STATIC_DIR / "index.html").read_text())
+
+
 @_app.get("/api/status")
 async def api_status():
     return _company.status() if _company else {}
@@ -659,6 +688,27 @@ async def api_chat(agent_name: str, body: dict):
         return {"reply": reply}
     except ValueError as e:
         return {"error": str(e)}
+
+
+@_app.post("/api/chat/group")
+async def api_chat_group(body: dict):
+    if not _company:
+        return {"error": "Company not loaded"}
+    message = (body.get("message") or "").strip()
+    agents = body.get("agents") or []
+    if not message or not agents:
+        return {"replies": []}
+
+    async def _one(name: str) -> dict:
+        try:
+            reply = await _company.chat(name, message)
+            return {"agent": name, "reply": reply}
+        except Exception as e:  # noqa: BLE001 — one agent failing never blocks the group
+            logger.warning("Group chat agent '%s' failed: %s", name, e)
+            return {"agent": name, "error": str(e)}
+
+    replies = await asyncio.gather(*(_one(n) for n in agents))
+    return {"replies": replies}
 
 
 _goal_task: asyncio.Task | None = None
