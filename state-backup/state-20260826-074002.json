@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-26T06:00:01.515598+00:00",
+ "generated_at": "2026-08-26T07:40:01.876788+00:00",
  "note": "Sanitized continuity snapshot. Sensitive fields masked (***). Restore: this JSON documents what was in flight so work can resume after any disruption.",
  "tables": {
   "agents": {
@@ -7641,7 +7641,7 @@
    "rows": [
     {
      "name": "browse_log",
-     "seq": 280
+     "seq": 287
     },
     {
      "name": "prospect_searches",
@@ -9023,7 +9023,7 @@
   },
   "goals": {
    "table": "goals",
-   "count": 44,
+   "count": 53,
    "rows": [
     {
      "id": "bf88aa5e1266",
@@ -9332,6 +9332,69 @@
      "status": "failed",
      "created_at": "2026-08-26 05:57:00",
      "completed_at": "2026-08-26 05:57:00"
+    },
+    {
+     "id": "45eb9fa23c28",
+     "description": "MilkUp Themed Game For SnowSnakes! This one gotta hit!",
+     "status": "failed",
+     "created_at": "2026-08-26 06:20:37",
+     "completed_at": "2026-08-26 06:20:37"
+    },
+    {
+     "id": "0081a703dd65",
+     "description": "Milkups is our cash cow! Get it!! zerric.xyz -> Milkups -> money",
+     "status": "failed",
+     "created_at": "2026-08-26 06:21:31",
+     "completed_at": "2026-08-26 06:21:31"
+    },
+    {
+     "id": "fce3961f0bd9",
+     "description": "We're the Milkups!",
+     "status": "failed",
+     "created_at": "2026-08-26 06:22:11",
+     "completed_at": "2026-08-26 06:22:11"
+    },
+    {
+     "id": "248d1f7c1870",
+     "description": "Make reviewing pics fun for me. I want an approval gallery.",
+     "status": "failed",
+     "created_at": "2026-08-26 06:38:34",
+     "completed_at": "2026-08-26 06:38:34"
+    },
+    {
+     "id": "f362cb0b48b3",
+     "description": "make more doodles. concentrate on character design and creating scenes.",
+     "status": "failed",
+     "created_at": "2026-08-26 06:39:46",
+     "completed_at": "2026-08-26 06:39:46"
+    },
+    {
+     "id": "feb3e9390f73",
+     "description": "use milkups.zerric.xyz and spreaddaword.zerric.xyz",
+     "status": "failed",
+     "created_at": "2026-08-26 06:40:42",
+     "completed_at": "2026-08-26 06:40:42"
+    },
+    {
+     "id": "169dbeccf8d9",
+     "description": "new handle for bot account since we all have @zdotllc.com. the new handle will be @dummy-z.xyz when you register bot accounts. you should use your real @zdotllc.com when you are making personal accounts to our platform",
+     "status": "failed",
+     "created_at": "2026-08-26 07:21:01",
+     "completed_at": "2026-08-26 07:21:01"
+    },
+    {
+     "id": "89a4dcf5532f",
+     "description": "Snitch needs to have different themes (not css). for instance we can have a snitch streets version where your questions are more mature. or we can just adjust maturity level to keep universal appeal. the choice is yours. do whatever feels right. Maybe there can be exclusive versions locked behind paid walls. Ching!",
+     "status": "failed",
+     "created_at": "2026-08-26 07:27:58",
+     "completed_at": "2026-08-26 07:27:58"
+    },
+    {
+     "id": "56f39675421c",
+     "description": "***",
+     "status": "failed",
+     "created_at": "2026-08-26 07:38:59",
+     "completed_at": "2026-08-26 07:38:59"
     }
    ]
   },
@@ -12504,7 +12567,7 @@
   },
   "browse_log": {
    "table": "browse_log",
-   "count": 280,
+   "count": 287,
    "rows": [
     {
      "id": 1,
@@ -15305,6 +15368,76 @@
      "extracted_links_count": 3,
      "browsed_by": "BossLady",
      "created_at": "2026-08-26 05:57:54"
+    },
+    {
+     "id": 281,
+     "url": "https://snowsnakes.zerric.xyz/spread-da-word/audio/soundtracks-cassette-player.html",
+     "status_code": 403,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-26 07:01:09"
+    },
+    {
+     "id": 282,
+     "url": "https://snowsnakes.zerric.xyz",
+     "status_code": 403,
+     "extract_mode": "links",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-26 07:01:16"
+    },
+    {
+     "id": 283,
+     "url": "https://github.com/zaxbatch?tab=repositories",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 50,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-26 07:01:20"
+    },
+    {
+     "id": 284,
+     "url": "https://github.com/zaxbatch/SnowSnakes",
+     "status_code": 200,
+     "extract_mode": "links",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 22,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-26 07:01:24"
+    },
+    {
+     "id": 285,
+     "url": "https://github.com/zaxbatch/SnowSnakes/tree/main/frontend",
+     "status_code": 200,
+     "extract_mode": "links",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 27,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-26 07:01:26"
+    },
+    {
+     "id": 286,
+     "url": "https://github.com/zaxbatch/SnowSnakes/tree/main/frontend/public",
+     "status_code": 200,
+     "extract_mode": "links",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 16,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-26 07:01:28"
+    },
+    {
+     "id": 287,
+     "url": "https://raw.githubusercontent.com/zaxbatch/SnowSnakes/main/structure.txt",
+     "status_code": 200,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-26 07:01:34"
     }
    ]
   },
