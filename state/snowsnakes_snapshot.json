@@ -1,9 +1,9 @@
 {
   "jokes": 77,
   "games": 17,
-  "characters": 3,
+  "characters": "err:<urlopen error _ssl.c:975: The handshake operation timed out>",
   "comics": 0,
   "doodles": 0,
   "episodes": 2,
-  "snapshot_at": "2026-08-27T13:00:02Z"
+  "snapshot_at": "2026-08-27T13:05:01Z"
 }
