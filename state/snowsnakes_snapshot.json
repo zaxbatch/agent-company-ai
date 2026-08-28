@@ -1,9 +1,9 @@
 {
-  "jokes": "err:The read operation timed out",
-  "games": "err:The read operation timed out",
+  "jokes": 79,
+  "games": 17,
   "characters": 3,
   "comics": 0,
   "doodles": 0,
   "episodes": 2,
-  "snapshot_at": "2026-08-28T21:25:01Z"
+  "snapshot_at": "2026-08-28T21:30:01Z"
 }
