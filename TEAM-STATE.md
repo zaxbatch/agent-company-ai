@@ -4,7 +4,7 @@
 > to pick up exactly where we left off. Every agent updates it at end of turn.
 > Auto-refresh: `python3 scripts/save_state.py` (also syncs the portal + git).
 
-**Last updated:** 2026-08-28T18:50:01Z
+**Last updated:** 2026-08-28T18:55:01Z
 **How to resume:** 1) read this file  2) read souls/*.md  3) hit the checklist portal
 (https://tasks.zdotllc.com, creds in communication/portal_credentials.txt)  4) run
 `./venv/bin/python scripts/checklist_watchdog.py` to see who's stale.
