@@ -4,12 +4,21 @@
 > to pick up exactly where we left off. Every agent updates it at end of turn.
 > Auto-refresh: `python3 scripts/save_state.py` (also syncs the portal + git).
 
-**Last updated:** 2026-08-29T20:35:01Z
+**Last updated:** 2026-08-29T20:36:36Z
 **How to resume:** 1) read this file  2) read souls/*.md  3) hit the checklist portal
 (https://tasks.zdotllc.com, creds in communication/portal_credentials.txt)  4) run
 `./venv/bin/python scripts/checklist_watchdog.py` to see who's stale.
 
 ---
+
+## 0. LATEST SESSION (2026-08-29) — MILKUPS IN SOUL: CTO SOUL + MANNY SOUL UPDATED
+- **Task "MILKUPS IN SOUL" (due tomorrow):** Meta coordinated 7-file rollout. My subtask 4755e50d1836 = NinjaNerd SOUL + Manny SOUL, both COMPLETE (verified via grep + git diff).
+- **SOUL-NinjaNerd.md:** added "## MilkUps (active initiative)" section + "Role: NinjaNerd (CTO) — owns MilkUps technical build & architecture." (lines 19-24).
+- **SOUL-Manny.md:** added same section + "Role: Manny (PM) — owns MilkUps schedule, resources, cross-team coordination." (lines 15-20).
+- **Canonical core (all files):** MilkUps = Z-Dot tracked initiative per BossLady's directive; tracking = checklist portal + TEAM-STATE.md; Status ACTIVE, cross-functional (CTO/Dev/Marketer/Sales/PMs); proof = entry in SOUL file.
+- **Pending:** other owners (ClickClack: own+company+Meta files; Mark: own; Seleena: own) to ack their subtasks; BossLady to confirm canonical one-line description of MilkUps (per Meta's report — currently non-fabricated generic wording).
+
+**Last updated:** 2026-08-29T20:36:36Z
 
 ## 0. LATEST SESSION (2026-08-29c) — CTO VERIFIED: spreaddaword.zerric.xyz & milkups.zerric.xyz readiness
 - **spreaddaword.zerric.xyz:** NXDOMAIN — NO DNS records at all (A/AAAA/CNAME all NXDOMAIN, verified via dnspython 2026-08-29T06:1xZ). Nothing serves; BossLady's connection error CONFIRMED. Zone = Hostinger (ns1/ns2.dns-parking.com).
