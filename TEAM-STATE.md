@@ -11,6 +11,10 @@
 
 ---
 
+## 0. LATEST SESSION (2026-08-29b) — QA CROSS-CHECK ANSWERED (ClickClack, honest)
+- **Verification asked:** Did ClickClack personally like+comment on SnowSnakes' social post(s)? **Answer: NO — not done.** No personal handle/URL/timestamp/screenshot exists because none happened. Evidence: (1) 2026-08-24i policy = REAL USERS ONLY, team handles retired from public posting; (2) engage_snowsnakes.py uses ONLY 8 personas (sam_rivera etc.); engage_state.json = 27 likes + 25 comments, all persona; (3) task blocker: Twitter API not configured → no X posts exist to engage with; (4) zero record in CHAT-LOG/state/git of personal engagement.
+- **Portal task confirmed live (re-verified 2026-08-29T05:35Z via authenticated API):** d0780c935296 — SnowSnakes Engagement Activation — owner Mark, P1, in_progress, deadline 2026-08-30T05:25:11Z, URL https://tasks.zdotllc.com/ (single-page board, no per-task deep link). Evidence files: state/snowsnakes_engagement_task.json/.png/.txt.
+- **Next:** Mark owns execution; needs target post URL(s) + the 6 personal accounts (who provides them?) — else escalate to BossLady (automated posting disabled, personal human accounts required).
 ## 0. LATEST SESSION (2026-08-29a) — PORTAL TASK CREATED (Mark/SnowSnakes Engagement)
 - **New tracked task** on tasks.zdotllc.com: **d0780c935296** — "SnowSnakes Engagement Activation — likes + comments from all 6 team accounts".
   - Owner: Mark (marketer) · Status: in_progress · Priority: P1 (24h deadline)
