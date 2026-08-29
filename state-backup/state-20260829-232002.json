@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-29T21:40:01.943632+00:00",
+ "generated_at": "2026-08-29T23:20:02.001202+00:00",
  "note": "Sanitized continuity snapshot. Sensitive fields masked (***). Restore: this JSON documents what was in flight so work can resume after any disruption.",
  "tables": {
   "agents": {
@@ -10448,7 +10448,7 @@
   },
   "goals": {
    "table": "goals",
-   "count": 58,
+   "count": 60,
    "rows": [
     {
      "id": "bf88aa5e1266",
@@ -10855,6 +10855,20 @@
      "status": "failed",
      "created_at": "2026-08-29 20:23:34",
      "completed_at": "2026-08-29 20:23:34"
+    },
+    {
+     "id": "caf9c6534bc5",
+     "description": "fix the bottle neck in the pipeline and the group chat. nothing is getting done today",
+     "status": "failed",
+     "created_at": "2026-08-29 22:40:55",
+     "completed_at": "2026-08-29 22:40:55"
+    },
+    {
+     "id": "930413f21698",
+     "description": "check in at https://tasks.zdotllc.com/",
+     "status": "failed",
+     "created_at": "2026-08-29 23:07:51",
+     "completed_at": "2026-08-29 23:07:51"
     }
    ]
   },
