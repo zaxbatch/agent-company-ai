@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-29T06:20:01.902669+00:00",
+ "generated_at": "2026-08-29T08:00:02.011349+00:00",
  "note": "Sanitized continuity snapshot. Sensitive fields masked (***). Restore: this JSON documents what was in flight so work can resume after any disruption.",
  "tables": {
   "agents": {
@@ -90,7 +90,7 @@
   },
   "tasks": {
    "table": "tasks",
-   "count": 350,
+   "count": 352,
    "rows": [
     {
      "id": "1e06bda85075",
@@ -4284,19 +4284,43 @@
      "id": "cf62263ef699",
      "description": "Research/coordination task (no deployments). Pull the authoritative project-tracking content plan for two zerric.xyz subdomains and report back verbatim:\n\n1. Read TEAM-STATE.md at the repo root. Extract EVERY line/section referencing: spreaddaword, milkups, \"spread the word\", \"milk\", subdomains, or content plans. Report the exact text plus the section headers they appear under.\n\n2. Read communication/DOMAIN-STRATEGY--snowsnakes-and-zerric-xyz.md. Extract any decisions/records mentioning spreaddaword or milkups subdomains (what content should live there, source of truth, owner, deadlines).\n\n3. If you have access to tasks.zdotllc.com portal data (or a local portal export/checklist file), pull every task referencing \"spreaddaword\", \"milkups\", \"spread the word\", or \"milk\" \u2014 include task IDs, titles, status, assignee, due dates, and acceptance criteria. Also note any duplicate/cleanup entries (like the Food Truck Frenzy ids 71/72 pattern).\n\n4. Check the git repo (git log --all --oneline | grep -i -E \"spread|milk\" or similar) and any docs/ or drafts/ folders for files named spreaddaword*, milkups*, milk*, spread-the-word*.\n\nReturn ALL raw findings with file paths and exact quotes \u2014 do not summarize away details. This is research only; do not modify anything.",
      "assignee_id": "ClickClack",
-     "status": "assigned",
+     "status": "done",
      "priority": 0,
      "parent_id": "c0a81adea8aa",
-     "result": null,
-     "artifacts_json": "[]",
+     "result": "Portal snapshots have zero matches \u2014 but there are CEO goal documents in `.agent-company-ai/default/output/`. Let me read those and inspect the portal export structure.",
+     "artifacts_json": "[{\"id\": \"42f9458f3cf7\", \"task_id\": \"cf62263ef699\", \"agent_id\": \"ClickClack\", \"name\": \"result\", \"artifact_type\": \"text\", \"content\": \"Portal snapshots have zero matches \\u2014 but there are CEO goal documents in `.agent-company-ai/default/output/`. Let me read those and inspect the portal export structure.\"}]",
      "created_at": "2026-08-29 06:18:04",
-     "updated_at": "2026-08-29 06:18:04"
+     "updated_at": "2026-08-29 06:21:13"
+    },
+    {
+     "id": "7ffed593ba41",
+     "description": "Research/coordination task (no deployments, no changes \u2014 read-only). Two zerric.xyz subdomains need their content plan mapped: spreaddaword.zerric.xyz and milkups.zerric.xyz. Report back raw facts:\n\n1. DNS/current hosting state: do spreaddaword.zerric.xyz and milkups.zerric.xyz resolve (nslookup/dig)? Do they point to any existing server, staging URL, or repo host (GitHub Pages, Netlify, Vercel, etc.)? What is currently served (HTTP status, any index page)?\n\n2. Portal tasks.zdotllc.com: if you can query it (API/DB/export), list EVERY task whose title or description mentions \"spreaddaword\", \"milkups\", \"spread the word\", or \"milk\". Include: task ID, title, status, assignee, due date, acceptance criteria, and any duplicate IDs that look like the Food Truck Frenzy 71/72 cleanup pattern.\n\n3. Repo inventory: in the project repo(s), find any folder/file related to these subdomains or content initiatives (e.g., spreaddaword/, milkups/, content drafts, markdown docs). State exact paths.\n\n4. Any known source-of-truth drafts for the content (Google Docs, Notion, GitHub files, social posts) that are meant to become these sites.\n\nReturn exact paths, quotes, and raw output. Read-only \u2014 do not create, edit, or deploy anything.",
+     "assignee_id": "NinjaNerd",
+     "status": "failed",
+     "priority": 0,
+     "parent_id": "c0a81adea8aa",
+     "result": "Exceeded maximum iterations without completing.",
+     "artifacts_json": "[]",
+     "created_at": "2026-08-29 06:21:14",
+     "updated_at": "2026-08-29 06:23:28"
+    },
+    {
+     "id": "61980b413b22",
+     "description": "Research/coordination only (read-only, no deployments, no posts). BossLady wants spreaddaword.zerric.xyz and milkups.zerric.xyz to be the live sites for \"spread the word\" and \"milk\" content initiatives respectively. I need to locate the SOURCE-OF-TRUTH CONTENT for both.\n\nHunt across: marketing drafts, content calendars, Google Docs links in the repo, social media content (post drafts, caption files, image assets), any markdown/Notion/drive drafts, and the tasks.zdotllc.com portal if you have access.\n\nReport back for EACH initiative:\n1. Exact file paths / doc links / URLs where the content currently lives\n2. What the content actually is (title, format, key sections \u2014 quote the first few lines if it's a doc)\n3. Who authored/owns it\n4. Any due dates, launch notes, or acceptance criteria attached\n5. Whether content mentions LPT/real estate (must be flagged \u2014 that category always needs Zerric's approval and is banned on these domains per domain strategy)\n\nReturn raw findings with paths and quotes. Do not create, edit, post, or deploy anything.",
+     "assignee_id": "Mark",
+     "status": "done",
+     "priority": 0,
+     "parent_id": "c0a81adea8aa",
+     "result": "Strong initial hits. Key discoveries:\n- **Milk**: GitHub repo `zaxbatch/milkups` \u2014 \"MilkUps band site \u2014 music for Spread Da Word, BeatThread drops, Milk Carton Club\"\n- **Spread the word**: Extensive social drafts for \"Spread Da Word\" animated series (drafts #34\u2013#61)\n- tasks.zdotllc.com portal is behind a JS/Cloudflare check (403) \u2014 I'll try alternate routes.\n\nLet me dig into the GitHub repos and check whether the target domains are live.",
+     "artifacts_json": "[{\"id\": \"ec31fee2e8e8\", \"task_id\": \"61980b413b22\", \"agent_id\": \"Mark\", \"name\": \"result\", \"artifact_type\": \"text\", \"content\": \"Strong initial hits. Key discoveries:\\n- **Milk**: GitHub repo `zaxbatch/milkups` \\u2014 \\\"MilkUps band site \\u2014 music for Spread Da Word, BeatThread drops, Milk Carton Club\\\"\\n- **Spread the word**: Extensive social drafts for \\\"Spread Da Word\\\" animated series (drafts #34\\u2013#61)\\n- tasks.zdotllc.com portal is behind a JS/Cloudflare check (403) \\u2014 I'll try alternate routes.\\n\\nLet me dig into the GitHub repos and check whether the target domains are live.\"}]",
+     "created_at": "2026-08-29 06:23:28",
+     "updated_at": "2026-08-29 06:26:21"
     }
    ]
   },
   "messages": {
    "table": "messages",
-   "count": 440,
+   "count": 442,
    "rows": [
     {
      "id": "bfc26bedbffc",
@@ -8257,6 +8281,24 @@
      "topic": "task.completed",
      "metadata_json": "{}",
      "timestamp": "2026-08-29T06:18:04.858767+00:00"
+    },
+    {
+     "id": "08ef6ebf62a1",
+     "from_agent": "ClickClack",
+     "to_agent": null,
+     "content": "Task completed (done): Portal snapshots have zero matches \u2014 but there are CEO goal documents in `.agent-company-ai/default/output/`. Let me read those and inspect the portal export structure.",
+     "topic": "task.completed",
+     "metadata_json": "{}",
+     "timestamp": "2026-08-29T06:21:13.994570+00:00"
+    },
+    {
+     "id": "65b46622bc75",
+     "from_agent": "Mark",
+     "to_agent": null,
+     "content": "Task completed (done): Strong initial hits. Key discoveries:\n- **Milk**: GitHub repo `zaxbatch/milkups` \u2014 \"MilkUps band site \u2014 music for Spread Da Word, BeatThread drops, Milk Carton Club\"\n- **Spread the word**: Extensive s",
+     "topic": "task.completed",
+     "metadata_json": "{}",
+     "timestamp": "2026-08-29T06:26:21.496521+00:00"
     }
    ]
   },
@@ -8271,7 +8313,7 @@
    "rows": [
     {
      "name": "browse_log",
-     "seq": 348
+     "seq": 403
     },
     {
      "name": "prospect_searches",
@@ -8297,7 +8339,7 @@
   },
   "artifacts": {
    "table": "artifacts",
-   "count": 164,
+   "count": 166,
    "rows": [
     {
      "id": "bd30561548dc",
@@ -9774,6 +9816,24 @@
      "content": "CONTENT-PLAN MAPPING \u2014 spreaddaword.zerric.xyz & milkups.zerric.xyz (RESEARCH/COORDINATION ONLY \u2014 NO DEPLOYMENTS)\n\nPREPARED BY: Meta (PM \u2014 QA & Delivery) | STATUS: Findings below; 3 read-only pulls in flight (subtask IDs listed) | DATE: 2026-08-24\n\n=====================================================================\n1. OWNER REQUEST (verbatim)\n=====================================================================\n\"spreaddaword.zerric.xyz & milkups.zerric.xyz need to be the sites for the respective content.\"\n\nInterpretation: BossLady wants two zerric.xyz subdomains designated as the LIVE destinations for two content initiatives \u2014 (a) \"spread the word\" content \u2192 spreaddaword.zerric.xyz, and (b) \"milk\" content (site name \"Milk Ups\") \u2192 milkups.zerric.xyz. This is a routing/destination decision, not a content-creation order. My job was to map what content should live on each, where it currently lives, who owns it, and what blocks launch.\n\n=====================================================================\n2. EVIDENCE BASE & METHOD (what I actually verified \u2014 no rubber-stamping)\n=====================================================================\nVerified directly (web/public evidence, this turn):\n- web_search \"spreaddaword.zerric.xyz\", \"milkups.zerric.xyz\" \u2192 NO public footprint. Only generic .xyz registry, WHOIS, unrelated results. Neither subdomain is indexed.\n- web_search exact strings \"spreaddaword\", \"milkups\" OR \"milk ups\" (with and without \"zerric\") \u2192 ZERO results anywhere on the public web.\n- web_search \"Milk Ups\" drink brand \u2192 zero results. \"Milk Ups\" has NO brand/product footprint.\n- web_search \"spread the word\" + Zerric Warren \u2192 zero results.\n- Wayback check (web.archive.org spreaddaword.zerric.xyz) \u2192 no archived snapshot found.\n- zerric.xyz main domain: indexed content shows a personal blog \"Easy As XYZ\" (latest post: Linux Ghost BareBones release), a \"Zerric Got Deals\" deals site, and a Linktree (\"Z \u2014 vi$ionary\"). No mention of either subdomain found.\n- tasks.zdotllc.com: the public site is ZDOT's business-solutions page; no task data is exposed publicly. Portal query must come from inside the team.\n\nPulls dispatched (read-only, results pending return \u2014 treat as in-flight, not yet verified):\n- DEVELOPER (subtask cf62263ef699): TEAM-STATE.md extraction + communication/DOMAIN-STRATEGY--snowsnakes-and-zerric-xyz.md + portal task list + repo git history for spread/milk.\n- CTO (subtask 7ffed593ba41): DNS resolution + current hosting state of both subdomains + portal task query + repo inventory.\n- MARKETER (subtask 61980b413b22): source-of-truth content hunt (drafts, content calendars, Google Docs links, social assets) for both initiatives + LPT-content scan.\n\nVERIFICATION GATE: Per my role boundaries, anything marked UNVERIFIED below has NOT been confirmed against an artifact. The mapping table separates \"established\" (from the domain-strategy decision record / public evidence) from \"pending\" (needs the in-flight pulls or a portal lookup).\n\n=====================================================================\n3. GOVERNING RULES THAT APPLY TO BOTH SUBDOMAINS\n(Source: communication/DOMAIN-STRATEGY--snowsnakes-and-zerric-xyz.md, \u00a78 decision record \u2014 Zerric, option 3, updated 2026-08-24)\n=====================================================================\n- DECISION: zerric.xyz (and therefore ALL its subdomains, incl. spreaddaword. and milkups.) are Z-DOT-TRACKED ASSETS. Quote: \"It's all business, even my personal stuff.\" \u2192 both sites enter project tracking; we look for ways to turn the playground into money (lead-gen / monetization eligible, cf. SnowSnakes \u2192 HubSpot CRM model).\n- CONTENT APPROVAL: Content on zerric.xyz subdomains does NOT need pre-approval \u2014 EXCEPT the LPT real-estate category.\n- HARD BOUNDARY: LPT real-estate content is the ONLY category that ALWAYS requires Zerric's approval, and is BANNED on these domains entirely (\"No LPT content on these domains, ever\"). Never mix Z-Dot/LPT/personal branding.\n- FLEXIBILITY: zerric.xyz is experimental \u2014 more latitude on format/content than LPT properties.\n\n=====================================================================\n4. MAPPING TABLE \u2014 SITE \u2192 CONTENT \u2192 SOURCE \u2192 OWNER \u2192 STATUS \u2192 NEXT ACTION\n=====================================================================\n| # | SITE | CONTENT (what should live there) | SOURCE OF TRUTH (where it lives now) | OWNER | STATUS | NEXT ACTION |\n|---|---|---|---|---|---|---|\n| 1 | spreaddaword.zerric.xyz | \"Spread the word\" initiative content. HYPOTHESIS (unverified): referral/advocacy/word-of-mouth hub \u2014 shareable pages, testimonial/referral capture, or evangelism content feeding lead-gen (mirroring SnowSnakes \u2192 HubSpot pattern). Naming strongly implies word-of-mouth/referral mechanics. | NOT LOCATED. No public draft, repo path, doc link, or staging URL found. Zero web footprint. Pending confirmation from developer (TEAM-STATE.md + repo), CTO (DNS + portal), marketer (draft hunt). | UNASSIGNED in available records (pending portal confirmation) | BLOCKED \u2014 RED. No site footprint, no identified content source, no owner. | (a) BossLady to confirm content scope (referral hub vs. advocacy site); (b) locate/assign draft owner; (c) CTO verify DNS; (d) assemble content per \u00a73 rules; (e) create portal task with acceptance criteria. |\n| 2 | milkups.zerric.xyz | \"Milk\" initiative content \u2014 site branded \"Milk Ups\". HYPOTHESES (unverified): (a) beverage/product brand page (milk-based drink, protein/morning \"pick-me-up\" line), or (b) personal/experimental project (zerric.xyz = experimental tier). \"Milk Ups\" shows ZERO brand footprint anywhere \u2014 treat as pre-launch/idea-stage unless portal data says otherwise. | NOT LOCATED. No public draft, product spec, repo path, or staging URL found. Pending the same three pulls as #1. | UNASSIGNED in available records (pending portal confirmation) | BLOCKED \u2014 RED. No site footprint, no identified content source, no owner. | (a) BossLady/CTO confirm what \"milk\" content actually is (product vs. content series); (b) locate the originating draft/asset; (c) CTO verify DNS; (d) assign owner; (e) create portal task. |\n\n=====================================================================\n5. DEPENDENCIES & BLOCKERS (flagged per task instruction)\n=====================================================================\n1. CRITICAL PATH \u2014 NO SOURCE-OF-TRUTH CONTENT IDENTIFIED for either site. Until a draft/doc/social asset is located (or created), no content can be routed to either subdomain. This is the #1 blocker.\n2. OWNERSHIP UNASSIGNED for both subdomains in available records. Someone (BossLady or CTO) must name a content owner + a delivery owner before tasks can be tracked to closure.\n3. NO DNS/HOSTING FOOTPRINT VERIFIED for either subdomain \u2014 not indexed publicly and no archive snapshot. They may be unregistered, unpointed, or parked. CTO dig/nslookup (subtask 7ffed593ba41) is the authoritative check; if they don't resolve, DNS record creation is a dependency for launch.\n4. DUPLICATE/ENTRY-CLEANUP CHECK PENDING: the task brief explicitly called out the Food Truck Frenzy ids 71/72 duplicate cleanup pattern. I could not access the portal from my seat \u2014 the developer/CTO pulls must scan for duplicate task IDs or conflicting entries for spreaddaword/milkups (e.g., two tasks with different statuses for the same subdomain). If found, apply the same cleanup rule as FTF 71/72: consolidate to one canonical task per subdomain, supersede the stale ID.\n5. LPT BOUNDARY (approval dependency): any located draft touching real estate is (a) BANNED from these domains and (b) requires Zerric's approval even to exist. The marketer's hunt (subtask 61980b413b22) includes an LPT-content scan \u2014 every discovered draft must be screened before it is routed to either site.\n6. BRANDING SEPARATION: no Z-Dot/LPT/personal branding mixing on either site. zerric.xyz tier allows experimentation but not brand crossover.\n7. MISSING METADATA: no deadlines or acceptance criteria exist in any record I could access for either subdomain. These must be set before the tasks are tracked (per \u00a73, both sites are Z-DOT-tracked assets and need portal entries).\n\n=====================================================================\n6. RECOMMENDATIONS (next 48h)\n=====================================================================\n- BossLady: confirm the actual content scope for both initiatives (one message, no ambiguity) \u2014 \"spread the word\" = referral/advocacy? \"milk\" = product brand or content series? This unblocks everything else.\n- CTO (NinjaNerd): complete DNS/hosting verification of both subdomains (dig + HTTP status), and confirm whether any portal tasks already exist for them (incl. duplicate-ID scan vs. the FTF 71/72 pattern).\n- Developer (ClickClack): return the TEAM-STATE.md + domain-strategy-doc extraction and repo inventory (subtask cf62263ef699) so the source-of-truth for each content item is pinned to an exact file path.\n- Marketer: return the content-draft hunt (subtask 61980b413b22) \u2014 if a \"spread the word\" or \"Milk Ups\" draft exists in docs/social, that IS the source of truth to route to the subdomain.\n- Once the three pulls land: I will consolidate into a single authoritative content plan, assign owners, set acceptance criteria, and open/update portal tasks for both subdomains. I will not mark either site \"ready\" until the content artifact exists, DNS resolves, and an owner is named.\n\n=====================================================================\n7. SUMMARY VERDICT\n=====================================================================\nBoth subdomains are in a PRE-LAUNCH / UNCONFIGURED state per all evidence available this turn. The owner's intent (routing content to these sites) is clear, but the execution chain is blocked at step one: no content source, no owner, no verified DNS, no portal entries confirmed. The domain-strategy decision record already grants both sites Z-Dot-tracked-asset status with no pre-approval needed (except LPT \u2014 which is banned). This is a \"ready to plan, not ready to ship\" status \u2014 no deployment should be attempted until the three in-flight pulls return and the blockers above are cleared.\n\nNEXT CONCRETE ASK: NinjaNerd (CTO) \u2014 please return the DNS/hosting + portal-task findings from subtask 7ffed593ba41 so I can close the blocker list; after that, BossLady confirms content scope and I open the two portal tasks.",
      "artifact_type": "text",
      "created_at": "2026-08-29 06:18:04"
+    },
+    {
+     "id": "42f9458f3cf7",
+     "task_id": "cf62263ef699",
+     "agent_id": "ClickClack",
+     "name": "result",
+     "content": "Portal snapshots have zero matches \u2014 but there are CEO goal documents in `.agent-company-ai/default/output/`. Let me read those and inspect the portal export structure.",
+     "artifact_type": "text",
+     "created_at": "2026-08-29 06:21:13"
+    },
+    {
+     "id": "ec31fee2e8e8",
+     "task_id": "61980b413b22",
+     "agent_id": "Mark",
+     "name": "result",
+     "content": "Strong initial hits. Key discoveries:\n- **Milk**: GitHub repo `zaxbatch/milkups` \u2014 \"MilkUps band site \u2014 music for Spread Da Word, BeatThread drops, Milk Carton Club\"\n- **Spread the word**: Extensive social drafts for \"Spread Da Word\" animated series (drafts #34\u2013#61)\n- tasks.zdotllc.com portal is behind a JS/Cloudflare check (403) \u2014 I'll try alternate routes.\n\nLet me dig into the GitHub repos and check whether the target domains are live.",
+     "artifact_type": "text",
+     "created_at": "2026-08-29 06:26:21"
     }
    ]
   },
@@ -13337,7 +13397,7 @@
   },
   "browse_log": {
    "table": "browse_log",
-   "count": 348,
+   "count": 403,
    "rows": [
     {
      "id": 1,
@@ -16818,6 +16878,556 @@
      "extracted_links_count": 0,
      "browsed_by": "BossLady",
      "created_at": "2026-08-29 06:10:06"
+    },
+    {
+     "id": 349,
+     "url": "https://tasks.zdotllc.com",
+     "status_code": 403,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Mark",
+     "created_at": "2026-08-29 06:23:33"
+    },
+    {
+     "id": 350,
+     "url": "https://github.com/zaxbatch/milkups",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 14,
+     "browsed_by": "Mark",
+     "created_at": "2026-08-29 06:23:40"
+    },
+    {
+     "id": 351,
+     "url": "https://milkups.zerric.xyz",
+     "status_code": 403,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Mark",
+     "created_at": "2026-08-29 06:23:41"
+    },
+    {
+     "id": 352,
+     "url": "https://raw.githubusercontent.com/zaxbatch/milkups/main/index.html",
+     "status_code": 200,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Mark",
+     "created_at": "2026-08-29 06:23:44"
+    },
+    {
+     "id": 353,
+     "url": "https://github.com/zaxbatch?tab=repositories",
+     "status_code": 200,
+     "extract_mode": "links",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 50,
+     "browsed_by": "Mark",
+     "created_at": "2026-08-29 06:23:45"
+    },
+    {
+     "id": 354,
+     "url": "https://github.com/zaxbatch/SnowSnakes",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 22,
+     "browsed_by": "Mark",
+     "created_at": "2026-08-29 06:23:55"
+    },
+    {
+     "id": 355,
+     "url": "https://github.com/zaxbatch?page=2&tab=repositories",
+     "status_code": 200,
+     "extract_mode": "links",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 51,
+     "browsed_by": "Mark",
+     "created_at": "2026-08-29 06:23:57"
+    },
+    {
+     "id": 356,
+     "url": "https://snowsnakes.zerric.xyz",
+     "status_code": 403,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Mark",
+     "created_at": "2026-08-29 06:23:57"
+    },
+    {
+     "id": 357,
+     "url": "https://github.com/zaxbatch/SnowSnakes/tree/main/frontend",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 27,
+     "browsed_by": "Mark",
+     "created_at": "2026-08-29 06:24:00"
+    },
+    {
+     "id": 358,
+     "url": "https://github.com/zaxbatch/beatthread",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 25,
+     "browsed_by": "Mark",
+     "created_at": "2026-08-29 06:24:01"
+    },
+    {
+     "id": 359,
+     "url": "https://github.com/zaxbatch?page=3&tab=repositories",
+     "status_code": 200,
+     "extract_mode": "links",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 53,
+     "browsed_by": "Mark",
+     "created_at": "2026-08-29 06:24:02"
+    },
+    {
+     "id": 360,
+     "url": "https://github.com/zaxbatch/SnowSnakes/tree/main/frontend/src",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 15,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:24:08"
+    },
+    {
+     "id": 361,
+     "url": "https://github.com/zaxbatch/SnowSnakes/tree/main/frontend/public",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 16,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:24:09"
+    },
+    {
+     "id": 362,
+     "url": "https://github.com/zaxbatch/zerricWebsite",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 35,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:24:10"
+    },
+    {
+     "id": 363,
+     "url": "https://github.com/zaxbatch/playground",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 27,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:24:10"
+    },
+    {
+     "id": 364,
+     "url": "https://github.com/zaxbatch/SnowSnakes/tree/main/frontend/src/components",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 30,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:24:21"
+    },
+    {
+     "id": 365,
+     "url": "https://raw.githubusercontent.com/zaxbatch/SnowSnakes/main/frontend/src/App.js",
+     "status_code": 200,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:24:21"
+    },
+    {
+     "id": 366,
+     "url": "https://github.com/zaxbatch/zax-blog",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 42,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:24:22"
+    },
+    {
+     "id": 367,
+     "url": "https://github.com/zaxbatch/SnowSnakes/tree/main/frontend/src/components/Spread",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 10,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:24:27"
+    },
+    {
+     "id": 368,
+     "url": "https://github.com/zaxbatch/SnowSnakes/tree/main/frontend/src/components/Characters",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 10,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:24:27"
+    },
+    {
+     "id": 369,
+     "url": "https://github.com/zaxbatch/SnowSnakes/tree/main/frontend/src/components/Games",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 10,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:24:28"
+    },
+    {
+     "id": 370,
+     "url": "https://github.com/zaxbatch/SnowSnakes/tree/main/frontend/src/components/Fridge",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 10,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:24:28"
+    },
+    {
+     "id": 371,
+     "url": "https://raw.githubusercontent.com/zaxbatch/SnowSnakes/main/frontend/src/components/Spread/EpisodeList.js",
+     "status_code": 200,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:24:32"
+    },
+    {
+     "id": 372,
+     "url": "https://raw.githubusercontent.com/zaxbatch/SnowSnakes/main/frontend/src/components/Characters/CharacterList.js",
+     "status_code": 200,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:24:32"
+    },
+    {
+     "id": 373,
+     "url": "https://raw.githubusercontent.com/zaxbatch/SnowSnakes/main/frontend/src/components/Fridge/FridgeMap.js",
+     "status_code": 200,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:24:32"
+    },
+    {
+     "id": 374,
+     "url": "https://raw.githubusercontent.com/zaxbatch/SnowSnakes/main/frontend/src/components/Games/GameGallery.js",
+     "status_code": 200,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:24:33"
+    },
+    {
+     "id": 375,
+     "url": "https://raw.githubusercontent.com/zaxbatch/SnowSnakes/main/structure.txt",
+     "status_code": 200,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:24:39"
+    },
+    {
+     "id": 376,
+     "url": "https://github.com/zaxbatch/SnowSnakes/tree/main/backend",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 22,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:24:40"
+    },
+    {
+     "id": 377,
+     "url": "https://raw.githubusercontent.com/zaxbatch/SnowSnakes/main/backend/server.js",
+     "status_code": 200,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:24:44"
+    },
+    {
+     "id": 378,
+     "url": "https://github.com/zaxbatch/SnowSnakes/tree/main/backend/uploads/games",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 36,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:24:44"
+    },
+    {
+     "id": 379,
+     "url": "https://raw.githubusercontent.com/zaxbatch/SnowSnakes/main/backend/models/Episode.js",
+     "status_code": 200,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:24:45"
+    },
+    {
+     "id": 380,
+     "url": "https://github.com/zaxbatch/beatthread/tree/main/src",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 20,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:24:52"
+    },
+    {
+     "id": 381,
+     "url": "https://github.com/zaxbatch/CommandCenter",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 17,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:24:52"
+    },
+    {
+     "id": 382,
+     "url": "https://github.com/zaxbatch/8trax",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 22,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:24:53"
+    },
+    {
+     "id": 383,
+     "url": "https://github.com/zaxbatch/retro-wave",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 21,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:24:54"
+    },
+    {
+     "id": 384,
+     "url": "https://raw.githubusercontent.com/zaxbatch/SnowSnakes/main/frontend/src/components/Home.js",
+     "status_code": 200,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:25:01"
+    },
+    {
+     "id": 385,
+     "url": "https://raw.githubusercontent.com/zaxbatch/SnowSnakes/main/frontend/src/components/Nav.js",
+     "status_code": 200,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:25:01"
+    },
+    {
+     "id": 386,
+     "url": "https://raw.githubusercontent.com/zaxbatch/SnowSnakes/main/frontend/public/index.html",
+     "status_code": 200,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:25:01"
+    },
+    {
+     "id": 387,
+     "url": "https://github.com/zaxbatch/beatthread/tree/main/public",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 16,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:25:02"
+    },
+    {
+     "id": 388,
+     "url": "https://raw.githubusercontent.com/zaxbatch/beatthread/main/public/index.html",
+     "status_code": 200,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:25:07"
+    },
+    {
+     "id": 389,
+     "url": "https://github.com/zaxbatch/goal-forge",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 14,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:25:08"
+    },
+    {
+     "id": 390,
+     "url": "https://github.com/zaxbatch?page=4&tab=repositories",
+     "status_code": 200,
+     "extract_mode": "links",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 17,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:25:08"
+    },
+    {
+     "id": 391,
+     "url": "https://github.com/zaxbatch/SnowSnakes/tree/main/frontend/src/components/Comics",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 10,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:25:15"
+    },
+    {
+     "id": 392,
+     "url": "https://github.com/zaxbatch/SnowSnakes/tree/main/frontend/src/components/Doodles",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 10,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:25:16"
+    },
+    {
+     "id": 393,
+     "url": "https://raw.githubusercontent.com/zaxbatch/milkups/main/index.html",
+     "status_code": 200,
+     "extract_mode": "forms",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:25:28"
+    },
+    {
+     "id": 394,
+     "url": "https://raw.githubusercontent.com/zaxbatch/SnowSnakes/main/frontend/src/components/MarqueeBanner.js",
+     "status_code": 200,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:25:28"
+    },
+    {
+     "id": 395,
+     "url": "https://raw.githubusercontent.com/zaxbatch/SnowSnakes/main/frontend/src/components/SocialActions.js",
+     "status_code": 200,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:25:29"
+    },
+    {
+     "id": 396,
+     "url": "https://github.com/zaxbatch/milkups/commits/main/",
+     "status_code": 200,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:25:29"
+    },
+    {
+     "id": 397,
+     "url": "https://raw.githubusercontent.com/zaxbatch/SnowSnakes/main/frontend/src/api.js",
+     "status_code": 200,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:25:39"
+    },
+    {
+     "id": 398,
+     "url": "https://raw.githubusercontent.com/zaxbatch/SnowSnakes/main/backend/config/db.js",
+     "status_code": 200,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:25:40"
+    },
+    {
+     "id": 399,
+     "url": "https://github.com/zaxbatch/zerricWebsite/tree/main/docs",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 10,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:25:40"
+    },
+    {
+     "id": 400,
+     "url": "https://github.com/zaxbatch/SnowSnakes/commits/main/",
+     "status_code": 200,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:25:41"
+    },
+    {
+     "id": 401,
+     "url": "https://github.com/search?q=spreaddaword&type=repositories",
+     "status_code": 200,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:25:50"
+    },
+    {
+     "id": 402,
+     "url": "https://tasks.zdotllc.com/api/tasks",
+     "status_code": 403,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 06:25:50"
+    },
+    {
+     "id": 403,
+     "url": "https://snowsnakes.zerric.xyz/spread-da-word/audio/soundtracks-cassette-player.html",
+     "status_code": 403,
+     "extract_mode": "links",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 07:23:06"
     }
    ]
   },
