@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-29T03:40:01.591834+00:00",
+ "generated_at": "2026-08-29T05:20:01.274289+00:00",
  "note": "Sanitized continuity snapshot. Sensitive fields masked (***). Restore: this JSON documents what was in flight so work can resume after any disruption.",
  "tables": {
   "agents": {
@@ -90,7 +90,7 @@
   },
   "tasks": {
    "table": "tasks",
-   "count": 326,
+   "count": 329,
    "rows": [
     {
      "id": "1e06bda85075",
@@ -4003,6 +4003,42 @@
      "artifacts_json": "[]",
      "created_at": "2026-08-26 05:06:06",
      "updated_at": "2026-08-26 05:06:12"
+    },
+    {
+     "id": "aea8d973f06b",
+     "description": "Fix dashboard tasks and goals",
+     "assignee_id": "BossLady",
+     "status": "assigned",
+     "priority": 0,
+     "parent_id": null,
+     "result": null,
+     "artifacts_json": "[]",
+     "created_at": "2026-08-29 05:18:30",
+     "updated_at": "2026-08-29 05:18:30"
+    },
+    {
+     "id": "b6cb4573e7f1",
+     "description": "Clear pending task in dashboard",
+     "assignee_id": "BossLady",
+     "status": "assigned",
+     "priority": 0,
+     "parent_id": null,
+     "result": null,
+     "artifacts_json": "[]",
+     "created_at": "2026-08-29 05:18:58",
+     "updated_at": "2026-08-29 05:18:58"
+    },
+    {
+     "id": "615f5def9cd0",
+     "description": "get the team to Interact on snowsnakes. Like and comment",
+     "assignee_id": "BossLady",
+     "status": "assigned",
+     "priority": 0,
+     "parent_id": null,
+     "result": null,
+     "artifacts_json": "[]",
+     "created_at": "2026-08-29 05:19:33",
+     "updated_at": "2026-08-29 05:19:33"
     }
    ]
   },
@@ -7641,7 +7677,7 @@
    "rows": [
     {
      "name": "browse_log",
-     "seq": 287
+     "seq": 321
     },
     {
      "name": "prospect_searches",
@@ -9023,7 +9059,7 @@
   },
   "goals": {
    "table": "goals",
-   "count": 53,
+   "count": 55,
    "rows": [
     {
      "id": "bf88aa5e1266",
@@ -9395,6 +9431,20 @@
      "status": "failed",
      "created_at": "2026-08-26 07:38:59",
      "completed_at": "2026-08-26 07:38:59"
+    },
+    {
+     "id": "bcb0bfa14d18",
+     "description": "Interact instead of just post on snowsnakes. like & comment",
+     "status": "failed",
+     "created_at": "2026-08-29 05:16:09",
+     "completed_at": "2026-08-29 05:16:09"
+    },
+    {
+     "id": "9e6c770baec6",
+     "description": "Make sure goals and task work in the dashboard",
+     "status": "failed",
+     "created_at": "2026-08-29 05:16:48",
+     "completed_at": "2026-08-29 05:16:48"
     }
    ]
   },
@@ -12567,7 +12617,7 @@
   },
   "browse_log": {
    "table": "browse_log",
-   "count": 287,
+   "count": 321,
    "rows": [
     {
      "id": 1,
@@ -15438,6 +15488,346 @@
      "extracted_links_count": 0,
      "browsed_by": "BossLady",
      "created_at": "2026-08-26 07:01:34"
+    },
+    {
+     "id": 288,
+     "url": "https://tasks.zdotllc.com",
+     "status_code": 403,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:06:26"
+    },
+    {
+     "id": 289,
+     "url": "https://tasks.zdotllc.com",
+     "status_code": 403,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:18:35"
+    },
+    {
+     "id": 290,
+     "url": "https://zerric.xyz",
+     "status_code": 403,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:18:38"
+    },
+    {
+     "id": 291,
+     "url": "https://snowsnakes.zerric.xyz",
+     "status_code": 403,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:18:39"
+    },
+    {
+     "id": 292,
+     "url": "https://tasks.zdotllc.com/api",
+     "status_code": 403,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:18:58"
+    },
+    {
+     "id": 293,
+     "url": "https://tasks.zdotllc.com/health",
+     "status_code": 403,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:18:58"
+    },
+    {
+     "id": 294,
+     "url": "https://tasks.zdotllc.com",
+     "status_code": 403,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:19:01"
+    },
+    {
+     "id": 295,
+     "url": "https://github.com/zdotllc",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 18,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:19:10"
+    },
+    {
+     "id": 296,
+     "url": "https://github.com/zdotllc/z-dot-team",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 8,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:19:13"
+    },
+    {
+     "id": 297,
+     "url": "https://github.com/zdotllc/socialSparx-releases",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 21,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:19:14"
+    },
+    {
+     "id": 298,
+     "url": "https://github.com/zdotllc/business6teen-bots",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 2,
+     "extracted_links_count": 34,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:19:15"
+    },
+    {
+     "id": 299,
+     "url": "https://tasks.zdotllc.com/api/tasks",
+     "status_code": 403,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:19:17"
+    },
+    {
+     "id": 300,
+     "url": "https://tasks.zdotllc.com/health",
+     "status_code": 403,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:19:17"
+    },
+    {
+     "id": 301,
+     "url": "https://github.com/zdotllc/business6teen-bots/tree/main/frontend%20-%20biz6teen",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 12,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:19:20"
+    },
+    {
+     "id": 302,
+     "url": "https://github.com/zdotllc/business6teen-bots/tree/main/.agent-company-ai/default",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 10,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:19:21"
+    },
+    {
+     "id": 303,
+     "url": "https://raw.githubusercontent.com/zdotllc/business6teen-bots/main/.agent-company-ai/default/config.yaml",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:19:24"
+    },
+    {
+     "id": 304,
+     "url": "https://api.github.com/repos/zdotllc/business6teen-bots/contents/frontend%20-%20biz6teen",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:19:29"
+    },
+    {
+     "id": 305,
+     "url": "https://github.com/zdotllc/business6teen-bots/blob/main/frontend%20-%20biz6teen/index.htm",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 9,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:19:29"
+    },
+    {
+     "id": 306,
+     "url": "https://snowsnakes.zerric.xyz",
+     "status_code": 403,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:19:36"
+    },
+    {
+     "id": 307,
+     "url": "https://github.com/zdotllc/business6teen-bots/raw/refs/heads/main/frontend%20-%20biz6teen/index.htm",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 1,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:19:37"
+    },
+    {
+     "id": 308,
+     "url": "https://github.com/zdotllc/business6teen-bots/commits/main/frontend%20-%20biz6teen",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 13,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:19:37"
+    },
+    {
+     "id": 309,
+     "url": "https://github.com/zdotllc/business6teen-bots/tree/main/src/agent_company_ai",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 22,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:19:42"
+    },
+    {
+     "id": 310,
+     "url": "https://github.com/zdotllc/business6teen-bots/tree/main/scripts",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 13,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:19:43"
+    },
+    {
+     "id": 311,
+     "url": "https://github.com/zdotllc/business6teen-bots/tree/main/src/agent_company_ai/dashboard",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 12,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:19:46"
+    },
+    {
+     "id": 312,
+     "url": "https://github.com/zdotllc/business6teen-bots/tree/main/src/agent_company_ai/storage",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 12,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:19:46"
+    },
+    {
+     "id": 313,
+     "url": "https://raw.githubusercontent.com/zdotllc/business6teen-bots/main/src/agent_company_ai/storage/models.py",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:19:49"
+    },
+    {
+     "id": 314,
+     "url": "https://raw.githubusercontent.com/zdotllc/business6teen-bots/main/src/agent_company_ai/dashboard/server.py",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 4,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:19:49"
+    },
+    {
+     "id": 315,
+     "url": "https://x.com/search?q=%23snowsnakes&f=live",
+     "status_code": 200,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:19:51"
+    },
+    {
+     "id": 316,
+     "url": "https://zerric.xyz",
+     "status_code": 403,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:19:51"
+    },
+    {
+     "id": 317,
+     "url": "https://tasks.zdotllc.com",
+     "status_code": 403,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:19:51"
+    },
+    {
+     "id": 318,
+     "url": "https://github.com/zdotllc/business6teen-bots/tree/main/src/agent_company_ai/dashboard/static",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 15,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:19:56"
+    },
+    {
+     "id": 319,
+     "url": "https://github.com/zdotllc/business6teen-bots/tree/main/src/agent_company_ai/core",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 16,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:19:57"
+    },
+    {
+     "id": 320,
+     "url": "https://raw.githubusercontent.com/zdotllc/business6teen-bots/main/src/agent_company_ai/core/company.py",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:20:00"
+    },
+    {
+     "id": 321,
+     "url": "https://raw.githubusercontent.com/zdotllc/business6teen-bots/main/src/agent_company_ai/dashboard/static/app.js",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 05:20:00"
     }
    ]
   },
