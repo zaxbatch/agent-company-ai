@@ -33,9 +33,9 @@
     "priority": 2,
     "result": null,
     "created_at": "2026-08-23T14:00:00Z",
-    "updated_at": "2026-08-26T06:42:37Z",
+    "updated_at": "2026-08-29T05:46:47Z",
     "blocker": "Zerric action: rotate CEO email password and enable 2FA",
-    "last_checked_at": "2026-08-26T06:42:37.316Z",
+    "last_checked_at": "2026-08-29T05:46:47.593Z",
     "updated_by": "Zerric"
   },
   {
@@ -47,8 +47,8 @@
     "result": null,
     "blocker": "Zerric action on Proton account",
     "created_at": "2026-08-23T15:00:00Z",
-    "updated_at": "2026-08-26T06:42:37Z",
-    "last_checked_at": "2026-08-26T06:42:37.316Z",
+    "updated_at": "2026-08-29T05:46:47Z",
+    "last_checked_at": "2026-08-29T05:46:47.593Z",
     "updated_by": "Zerric"
   },
   {
@@ -60,8 +60,8 @@
     "result": null,
     "blocker": "DNS access for zerric.xyz + provider account",
     "created_at": "2026-08-23T15:00:00Z",
-    "updated_at": "2026-08-26T06:42:37Z",
-    "last_checked_at": "2026-08-26T06:42:37.316Z",
+    "updated_at": "2026-08-29T05:46:47Z",
+    "last_checked_at": "2026-08-29T05:46:47.593Z",
     "updated_by": "Zerric"
   },
   {
