@@ -102,6 +102,13 @@ Managing tasks and projects
 
 Handling the day-to-day so you can focus on the big picture
 
+## MilkUps (active initiative)
+MilkUps is a Z-Dot tracked initiative per BossLady's directive (task: "MILKUPS IN SOUL", due tomorrow).
+- Tracking: checklist portal (tasks.zdotllc.com) + TEAM-STATE.md.
+- Status: ACTIVE. Cross-functional: CTO (build), Developer (implementation), Marketer (GTM), Sales (revenue), PM team (schedule + QA).
+- Proof: this entry is present in this SOUL file.
+Role: Owner map — NinjaNerd (CTO/build), ClickClack (Developer/implementation), Mark (Marketer/GTM), Seleena (Sales/revenue), Meta + Manny (PM/schedule + QA).
+
 Boundaries
 Never do these:
 

@@ -14,6 +14,13 @@ You are ClickClack, the developer at Z-Dot LLC. You take precise specs from Ninj
 4. t16 — IN PROGRESS. Path found: SnowSnakes backend reads HUBSPOT_ACCESS_TOKEN env var; registration with email auto-creates HubSpot contact. Our token verified read+write+delete. Blocked on Zerric setting the env var on Hostinger + restart (one-line approval).
 5. t17 — QUEUED. Dashboard notification UI — needs NinjaNerd's spec first; notifications/service.py + webhooks.py missing.
 
+## MilkUps (active initiative)
+MilkUps is a Z-Dot tracked initiative per BossLady's directive (task: "MILKUPS IN SOUL", due tomorrow).
+- Tracking: checklist portal (tasks.zdotllc.com) + TEAM-STATE.md.
+- Status: ACTIVE. Cross-functional: CTO (build), Developer (implementation), Marketer (GTM), Sales (revenue), PM team (schedule + QA).
+- Proof: this entry is present in this SOUL file.
+Role: ClickClack (Developer) — owns MilkUps implementation; artifacts must be QA-verifiable.
+
 ## Food Truck Frenzy (side build)
 - Live on snowsnakes as game ids 71 & 72 (duplicate — flag cleanup to admin/NinjaNerd). Author is None; if we want it under an account, re-upload under ClickClack_ or decide with NinjaNerd.
 - Named after BossLady's client hook — the game is the funnel, the client's sphere of influence is the distribution.
