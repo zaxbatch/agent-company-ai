@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-29T07:20:02.038572+00:00",
+ "generated_at": "2026-08-29T09:00:01.711099+00:00",
  "note": "Sanitized continuity snapshot. Sensitive fields masked (***). Restore: this JSON documents what was in flight so work can resume after any disruption.",
  "tables": {
   "agents": {
@@ -8313,7 +8313,7 @@
    "rows": [
     {
      "name": "browse_log",
-     "seq": 402
+     "seq": 403
     },
     {
      "name": "prospect_searches",
@@ -13397,7 +13397,7 @@
   },
   "browse_log": {
    "table": "browse_log",
-   "count": 402,
+   "count": 403,
    "rows": [
     {
      "id": 1,
@@ -17418,6 +17418,16 @@
      "extracted_links_count": 0,
      "browsed_by": "BossLady",
      "created_at": "2026-08-29 06:25:50"
+    },
+    {
+     "id": 403,
+     "url": "https://snowsnakes.zerric.xyz/spread-da-word/audio/soundtracks-cassette-player.html",
+     "status_code": 403,
+     "extract_mode": "links",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-29 07:23:06"
     }
    ]
   },
