@@ -4,12 +4,20 @@
 > to pick up exactly where we left off. Every agent updates it at end of turn.
 > Auto-refresh: `python3 scripts/save_state.py` (also syncs the portal + git).
 
-**Last updated:** 2026-08-29T06:15:01Z
+**Last updated:** 2026-08-29T06:15:41Z
 **How to resume:** 1) read this file  2) read souls/*.md  3) hit the checklist portal
 (https://tasks.zdotllc.com, creds in communication/portal_credentials.txt)  4) run
 `./venv/bin/python scripts/checklist_watchdog.py` to see who's stale.
 
 ---
+
+## 0. LATEST SESSION (2026-08-29c) — CTO VERIFIED: spreaddaword.zerric.xyz & milkups.zerric.xyz readiness
+- **spreaddaword.zerric.xyz:** NXDOMAIN — NO DNS records at all (A/AAAA/CNAME all NXDOMAIN, verified via dnspython 2026-08-29T06:1xZ). Nothing serves; BossLady's connection error CONFIRMED. Zone = Hostinger (ns1/ns2.dns-parking.com).
+- **milkups.zerric.xyz:** A 191.96.144.x + 212.1.212.x / AAAA 2a02:4780:: (Hostinger hCDN edges, TTL 60). Subdomain IS provisioned in hPanel but doc root EMPTY → serves Hostinger "Default page" (200 on /, 404 on any other path). BossLady's 403 = Hostinger/Cloudflare EDGE bot-protection (same class of 403 our datacenter IP gets on developers.hostinger.com) — transient/UA-dependent, NOT an origin issue. Either way: NO MilkUps content served.
+- **CORRECTION (line 45 was WRONG):** FTP 151.106.97.104 / u281804670.zdotllc.com serves the **zdotllc.com** web root (/public_html), NOT zerric.xyz. Proof: tasks.zdotllc.com, zdotllc.com/milkups, zdotllc.com/spread-da-word all serve from that /public_html; zerric.xyz/ = "Zerric.xyz // nexus // tech hub" (35,761 B) ≠ zdotllc.com/ "ZDOT – Business Solutions Company" (16,038 B). We do NOT have FTP/hPanel creds for the zerric.xyz Hostinger account (still missing from credentials.txt).
+- **Content mapping (verified):** spreaddaword.zerric.xyz ← Spread Da Word production bundle (source: /public_html/spread-da-word/ on zdotllc FTP — 16 files incl. episode-1.html, roster.html, soundtracks.html, genres/, tracks/; live mirrors: https://zdotllc.com/spread-da-word/ + https://spread-da-word.netlify.app, both 200). milkups.zerric.xyz ← content/milkups/index.html (8408 B, git 493c674; SHA-256 identical to live zdotllc.com/milkups/index.html; mirror https://milkups.netlify.app 200).
+- **Fix path (Hostinger-native, recommended):** (1) BLOCKED on zerric.xyz account access (FTP or hPanel invite — ask Zerric/BossLady); (2) create spreaddaword subdomain in hPanel (auto DNS) or add A record (API record-create route was 404; API host Cloudflare-blocks our IP — unreliable from here); (3) upload SDW bundle to spreaddaword doc root (~20-30 min); (4) upload content/milkups/index.html to milkups doc root (~10 min); (5) verify 200 + TLS + https redirect; (6) if edge 403s persist, relax hPanel bot-protection (Zerric). NO DNS/deploy changes made this session (awaiting BossLady sign-off).
+- **Share-readiness gap:** NEITHER site has og:/twitter meta tags yet (verified) → Mark's step still open after go-live.
 
 ## 0. LATEST SESSION (2026-08-29b) — QA CROSS-CHECK ANSWERED (ClickClack, honest)
 - **Verification asked:** Did ClickClack personally like+comment on SnowSnakes' social post(s)? **Answer: NO — not done.** No personal handle/URL/timestamp/screenshot exists because none happened. Evidence: (1) 2026-08-24i policy = REAL USERS ONLY, team handles retired from public posting; (2) engage_snowsnakes.py uses ONLY 8 personas (sam_rivera etc.); engage_state.json = 27 likes + 25 comments, all persona; (3) task blocker: Twitter API not configured → no X posts exist to engage with; (4) zero record in CHAT-LOG/state/git of personal engagement.
