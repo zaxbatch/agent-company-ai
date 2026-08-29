@@ -4,12 +4,20 @@
 > to pick up exactly where we left off. Every agent updates it at end of turn.
 > Auto-refresh: `python3 scripts/save_state.py` (also syncs the portal + git).
 
-**Last updated:** 2026-08-29T05:25:01Z
+**Last updated:** 2026-08-29T05:26:00Z
 **How to resume:** 1) read this file  2) read souls/*.md  3) hit the checklist portal
 (https://tasks.zdotllc.com, creds in communication/portal_credentials.txt)  4) run
 `./venv/bin/python scripts/checklist_watchdog.py` to see who's stale.
 
 ---
+
+## 0. LATEST SESSION (2026-08-29a) — PORTAL TASK CREATED (Mark/SnowSnakes Engagement)
+- **New tracked task** on tasks.zdotllc.com: **d0780c935296** — "SnowSnakes Engagement Activation — likes + comments from all 6 team accounts".
+  - Owner: Mark (marketer) · Status: in_progress · Priority: P1 (24h deadline)
+  - Created: 2026-08-29T05:25:11Z by ClickClack · Deadline: **2026-08-30T05:25:11Z** (24h)
+  - Project: SnowSnakes launch · Blocker: Twitter API not configured; publishing requires manual action or API keys
+  - Portal has NO title/due_date/project fields → title = first line of description; deadline+project embedded in description (per portal_open_tasks_export.md convention).
+  - Evidence: state/snowsnakes_engagement_task.json (API record) + state/snowsnakes_engagement_task_portal.png (screenshot, task row highlighted).
 
 ## 0. LATEST SESSION (2026-08-25e) — SDW ANIMATION PIPELINE LOCKED
 - **Spread Da Word episodes = RIVE MOTION-COMIC (South Park cutout style).** Zerric confirmed "that's what we'll use."

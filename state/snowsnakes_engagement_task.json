@@ -1,0 +1,18 @@
+{
+  "now_iso": "2026-08-29T05:25:11Z",
+  "deadline_iso": "2026-08-30T05:25:11Z",
+  "task": {
+    "id": "d0780c935296",
+    "description": "SnowSnakes Engagement Activation — likes + comments from all 6 team accounts\n\nPROJECT: SnowSnakes launch\nDEADLINE: 2026-08-30T05:25:11Z (24 hours from creation at 2026-08-29T05:25:11Z)\n\nDESCRIPTION: All 6 team members (BossLady, NinjaNerd, ClickClack, Mark, Manny, Seleena) must like and comment on SnowSnakes' social posts using their PERSONAL accounts. Comments must be unique/authentic, staggered 15–45 min apart. No bot accounts, no duplicate comments.\n\nNOTES: Blocker — Twitter API not configured; publishing requires manual action or API keys.",
+    "assignee": "Mark",
+    "priority": 1,
+    "status": "in_progress",
+    "result": null,
+    "blocker": "Twitter API not configured; publishing requires manual action or API keys.",
+    "created_at": "2026-08-29T05:25:11Z",
+    "updated_at": "2026-08-29T05:25:11Z",
+    "last_checked_at": null,
+    "created_by": "ClickClack",
+    "updated_by": "ClickClack"
+  }
+}
