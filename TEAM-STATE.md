@@ -270,3 +270,13 @@
 - QA (Meta): gate = light label visible, CTA live → snitch.zerric.xyz, works desktop+mobile, OG preview renders, HubSpot still firing, no LPT content. Sign-off HELD until snitch.zerric.xyz is verifiably reachable.
 - Daily status updates to TEAM-STATE.md each EOD. Next update: 2026-08-25.
 ---
+
+## 0. LATEST SESSION (2026-08-29) — PORTAL OPEN-TASK EXTRACTION (READ-ONLY)
+- ClickClack pulled the FULL live portal task list via API (tasks.zdotllc.com/api.php?action=list, login as PM
+  role Meta, session auth — same endpoints used by scripts/checklist_watchdog.py / save_state.py).
+- Result: 21 tasks, ALL open (14 assigned / 4 in_progress / 3 pending); 0 done/failed/cancelled.
+- NO statuses modified (read-only extraction). Exports saved:
+  state/portal_open_tasks_export.json + state/portal_open_tasks_export.md
+- Portal data model has NO title / due_date / acceptance-criteria fields; title=derived from description,
+  due_date=null, criteria embedded in description + blocker + result fields.
+- Notable: 5 tasks NEVER checked in (e807f54ae024, 32281afad433, fce626157ddb, e7c11cb0cc4a, fb6419251cdc, 2010d8331223, 7f4fbee20cc5, 6fd552b2ad07, afe1f916d4a1, 2fe7eadeee96, 2fa51aedd56c, df40292e704e, 54c070ae3827, b049281d2b3f, 14cafa6dd149 = all "assigned" tasks). Watchdog will flag stale.
