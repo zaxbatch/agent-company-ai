@@ -4,7 +4,7 @@
 > to pick up exactly where we left off. Every agent updates it at end of turn.
 > Auto-refresh: `python3 scripts/save_state.py` (also syncs the portal + git).
 
-**Last updated:** 2026-08-29T05:30:01Z
+**Last updated:** 2026-08-29T05:30:45Z
 **How to resume:** 1) read this file  2) read souls/*.md  3) hit the checklist portal
 (https://tasks.zdotllc.com, creds in communication/portal_credentials.txt)  4) run
 `./venv/bin/python scripts/checklist_watchdog.py` to see who's stale.
@@ -292,3 +292,12 @@
 - Portal data model has NO title / due_date / acceptance-criteria fields; title=derived from description,
   due_date=null, criteria embedded in description + blocker + result fields.
 - Notable: 5 tasks NEVER checked in (e807f54ae024, 32281afad433, fce626157ddb, e7c11cb0cc4a, fb6419251cdc, 2010d8331223, 7f4fbee20cc5, 6fd552b2ad07, afe1f916d4a1, 2fe7eadeee96, 2fa51aedd56c, df40292e704e, 54c070ae3827, b049281d2b3f, 14cafa6dd149 = all "assigned" tasks). Watchdog will flag stale.
+
+## IN PROGRESS — SnowSnakes Engagement Activation Campaign (tracked)
+- **Portal task:** "SnowSnakes Engagement Activation — likes + comments from all 6 team accounts" — owner Mark, deadline 24h from 2026-08-29T05:25:11Z (deadline: 2026-08-30T05:25:11Z), linked to SnowSnakes launch. (Task ID: d0780c935296)
+- **Goal:** All 6 team members (BossLady, NinjaNerd, ClickClack, Mark, Manny, Seleena) like + comment on SnowSnakes social posts from PERSONAL accounts.
+- **QA gates (Meta enforces):** per-teammate proof required — post URLs, comment permalinks, screenshots, timestamps staggered 15–45 min apart, unique authentic comments, no bot accounts. NO "done" accepted without evidence (Bot Mode lesson).
+- **BLOCKER:** Twitter/X API not configured — publishing requires manual action or API keys. X search is API-gated, hampering automated verification.
+- **Status checks:** Meta status check at 12h, final verification at 24h.
+- **Verified results:** (PENDING — log here when evidence lands)
+- **Escalation:** to BossLady immediately if any teammate refuses/skips or Mark's proof is missing.
