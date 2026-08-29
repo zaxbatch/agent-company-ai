@@ -63,7 +63,6 @@
       <input type="text" id="desc" placeholder="Task description (required)">
       <input type="text" id="assignee" placeholder="Assignee">
       <select id="priority"><option value="0">Priority: low</option><option value="1">Priority: high</option><option value="2">Priority: medium</option><option value="3">Priority: low</option></select>
-      <input type="datetime-local" id="due" title="Due (optional)">
       <button id="add">Add task</button>
     </div>
   </div>
@@ -73,7 +72,7 @@
       <select id="f-status"><option value="">All statuses</option></select>
     </div>
     <table>
-      <thead><tr><th>Task</th><th>Assignee</th><th>Priority</th><th>Status</th><th>Due</th><th>Status changed</th><th>Done</th><th>Blocker</th><th>Updated</th><th>Action</th></tr></thead>
+      <thead><tr><th>Task</th><th>Assignee</th><th>Priority</th><th>Status</th><th>Blocker</th><th>Updated</th><th>Action</th></tr></thead>
       <tbody id="rows"></tbody>
     </table>
     <footer id="totals"></footer>
@@ -107,16 +106,6 @@ function relTime(iso) {
   if (diff < 3600000) return Math.floor(diff/60000) + 'm ago';
   return Math.floor(diff/3600000) + 'h ago';
 }
-
-function fmtDue(iso, status) {
-  if (!iso) return '&mdash;';
-  const d = new Date(iso);
-  if (isNaN(d.getTime())) return esc(iso);
-  const txt = d.toLocaleString(undefined, { month:'short', day:'numeric', hour:'2-digit', minute:'2-digit' });
-  if (['done','failed','cancelled'].indexOf(status) >= 0) return esc(txt);
-  const overdue = d.getTime() < Date.now();
-  return overdue ? '<span class="stale" title="Overdue">' + esc(txt) + '</span>' : esc(txt);
-}
 function badge(s) { return '<span class="badge b-' + s + '">' + s.replace('_',' ') + '</span>'; }
 
 function render() {
@@ -126,13 +115,10 @@ function render() {
   $('rows').innerHTML = rows.map(t => {
     const blk = t.blocker ? '<span class="blocker">' + esc(t.blocker) + '</span>' : '&mdash;';
     const done = t.status === 'done';
-    const dueTxt = fmtDue(t.due_at, t.status);
-    const scTxt = t.status_changed_at ? relTime(t.status_changed_at) : '&mdash;';
-    const dnTxt = t.done_at ? relTime(t.done_at) : '&mdash;';
-    return '<tr><td>' + esc(t.description) + '</td><td>' + esc(t.assignee || '&mdash;') + '</td><td>' + PRIO[t.priority] + '</td><td>' + badge(t.status) + '</td><td>' + dueTxt + '</td><td>' + scTxt + '</td><td>' + dnTxt + '</td><td>' + blk + '</td><td>' + relTime(t.updated_at) + '</td><td class="actions">' +
+    return '<tr><td>' + esc(t.description) + '</td><td>' + esc(t.assignee || '&mdash;') + '</td><td>' + PRIO[t.priority] + '</td><td>' + badge(t.status) + '</td><td>' + blk + '</td><td>' + relTime(t.updated_at) + '</td><td class="actions">' +
       (done ? '<button onclick="reopen(\'' + t.id + '\')">Reopen</button>' : '<button onclick="markDone(\'' + t.id + '\')">Mark done</button>') +
       '<button onclick="del(\'' + t.id + '\')">Delete</button></td></tr>';
-  }).join('') || '<tr><td colspan="10">No tasks match.</td></tr>';
+  }).join('') || '<tr><td colspan="7">No tasks match.</td></tr>';
   const done = tasks.filter(t => t.status === 'done').length;
   $('totals').textContent = 'Total: ' + tasks.length + '   Done: ' + done + '   Open: ' + (tasks.length - done);
 
@@ -176,9 +162,8 @@ async function del(id) { if (confirm('Delete task?')) { await api('delete', { me
 
 $('add').onclick = async () => {
   const desc = $('desc').value.trim(); if (!desc) return alert('Description required');
-  const dueVal = $('due').value ? new Date($('due').value).toISOString() : null;
-  await api('create', { method:'POST', body: JSON.stringify({ description: desc, assignee: $('assignee').value.trim() || null, priority: Number($('priority').value), due_at: dueVal }) });
-  $('desc').value = ''; $('due').value = ''; load();
+  await api('create', { method:'POST', body: JSON.stringify({ description: desc, assignee: $('assignee').value.trim() || null, priority: Number($('priority').value) }) });
+  $('desc').value = ''; load();
 };
 $('f-assignee').onchange = render; $('f-status').onchange = render;
 $('me').onchange = () => { state.me = $('me').value; localStorage.setItem('checklist_user', state.me); render(); };

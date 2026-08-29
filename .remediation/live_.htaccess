@@ -1,0 +1,4 @@
+# Z-Dot tasks — clean URLs
+RewriteEngine On
+# /progress -> progress.php (auth-gated proof-of-work page)
+RewriteRule ^progress/?$ progress.php [L,QSA]

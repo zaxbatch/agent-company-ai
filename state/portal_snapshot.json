@@ -10,7 +10,10 @@
     "updated_at": "2026-08-26T04:54:28Z",
     "blocker": "STRIPE_WEBHOOK_SECRET needed from Zerric's Stripe dashboard (key itself already in .env).",
     "last_checked_at": "2026-08-26T04:51:49.568Z",
-    "updated_by": "NinjaNerd"
+    "updated_by": "NinjaNerd",
+    "due_at": "2026-08-29T21:00:00Z",
+    "status_changed_at": "2026-08-26T04:54:28Z",
+    "done_at": null
   },
   {
     "id": "t7-network",
@@ -23,7 +26,10 @@
     "updated_at": "2026-08-23T23:38:14Z",
     "blocker": "Diagnosis started 2026-08-23; needs Zerric's go-ahead before publishing bot content publicly",
     "last_checked_at": "2026-08-23T23:38:13Z",
-    "updated_by": "ClickClack"
+    "updated_by": "ClickClack",
+    "due_at": "2026-08-29T21:00:00Z",
+    "status_changed_at": "2026-08-23T23:38:14Z",
+    "done_at": null
   },
   {
     "id": "t8-email",
@@ -36,7 +42,10 @@
     "updated_at": "2026-08-29T18:50:05Z",
     "blocker": "Zerric action: rotate CEO email password and enable 2FA",
     "last_checked_at": "2026-08-29T18:50:04.736Z",
-    "updated_by": "Zerric"
+    "updated_by": "Zerric",
+    "due_at": "2026-08-29T21:00:00Z",
+    "status_changed_at": "2026-08-29T18:50:05Z",
+    "done_at": null
   },
   {
     "id": "t14-email-security",
@@ -49,7 +58,10 @@
     "created_at": "2026-08-23T15:00:00Z",
     "updated_at": "2026-08-29T18:50:05Z",
     "last_checked_at": "2026-08-29T18:50:04.736Z",
-    "updated_by": "Zerric"
+    "updated_by": "Zerric",
+    "due_at": "2026-08-29T21:00:00Z",
+    "status_changed_at": "2026-08-29T18:50:05Z",
+    "done_at": null
   },
   {
     "id": "t15-snowsnakes-email",
@@ -62,7 +74,10 @@
     "created_at": "2026-08-23T15:00:00Z",
     "updated_at": "2026-08-29T18:50:05Z",
     "last_checked_at": "2026-08-29T18:50:04.736Z",
-    "updated_by": "Zerric"
+    "updated_by": "Zerric",
+    "due_at": "2026-08-29T21:00:00Z",
+    "status_changed_at": "2026-08-29T18:50:05Z",
+    "done_at": null
   },
   {
     "id": "t17-notif-ui",
@@ -75,7 +90,10 @@
     "created_at": "2026-08-23T15:30:00Z",
     "updated_at": "2026-08-23T23:38:15Z",
     "last_checked_at": "2026-08-23T23:38:13Z",
-    "updated_by": "ClickClack"
+    "updated_by": "ClickClack",
+    "due_at": "2026-08-29T21:00:00Z",
+    "status_changed_at": "2026-08-23T23:38:15Z",
+    "done_at": null
   },
   {
     "id": "e807f54ae024",
@@ -88,7 +106,10 @@
     "created_at": "2026-08-23T22:58:52Z",
     "updated_at": "2026-08-23T22:58:52Z",
     "last_checked_at": null,
-    "created_by": "NinjaNerd"
+    "created_by": "NinjaNerd",
+    "due_at": "2026-08-29T21:00:00Z",
+    "status_changed_at": "2026-08-23T22:58:52Z",
+    "done_at": null
   },
   {
     "id": "32281afad433",
@@ -101,7 +122,10 @@
     "created_at": "2026-08-24T03:50:41Z",
     "updated_at": "2026-08-24T03:50:41Z",
     "last_checked_at": null,
-    "created_by": "ClickClack"
+    "created_by": "ClickClack",
+    "due_at": "2026-08-29T21:00:00Z",
+    "status_changed_at": "2026-08-24T03:50:41Z",
+    "done_at": null
   },
   {
     "id": "fce626157ddb",
@@ -114,7 +138,10 @@
     "created_at": "2026-08-24T05:23:22Z",
     "updated_at": "2026-08-24T05:23:22Z",
     "last_checked_at": null,
-    "created_by": "ClickClack"
+    "created_by": "ClickClack",
+    "due_at": "2026-08-29T21:00:00Z",
+    "status_changed_at": "2026-08-24T05:23:22Z",
+    "done_at": null
   },
   {
     "id": "e7c11cb0cc4a",
@@ -127,7 +154,10 @@
     "created_at": "2026-08-24T05:23:22Z",
     "updated_at": "2026-08-24T05:23:22Z",
     "last_checked_at": null,
-    "created_by": "ClickClack"
+    "created_by": "ClickClack",
+    "due_at": "2026-08-29T21:00:00Z",
+    "status_changed_at": "2026-08-24T05:23:22Z",
+    "done_at": null
   },
   {
     "id": "fb6419251cdc",
@@ -141,7 +171,10 @@
     "updated_at": "2026-08-24T09:28:25Z",
     "last_checked_at": null,
     "created_by": "ClickClack",
-    "updated_by": "Zerric"
+    "updated_by": "Zerric",
+    "due_at": "2026-08-29T21:00:00Z",
+    "status_changed_at": "2026-08-24T09:28:25Z",
+    "done_at": null
   },
   {
     "id": "2010d8331223",
@@ -154,7 +187,10 @@
     "created_at": "2026-08-24T20:15:18Z",
     "updated_at": "2026-08-24T20:15:18Z",
     "last_checked_at": null,
-    "created_by": "Zerric"
+    "created_by": "Zerric",
+    "due_at": "2026-08-29T21:00:00Z",
+    "status_changed_at": "2026-08-24T20:15:18Z",
+    "done_at": null
   },
   {
     "id": "7f4fbee20cc5",
@@ -167,7 +203,10 @@
     "created_at": "2026-08-24T20:15:58Z",
     "updated_at": "2026-08-24T20:15:58Z",
     "last_checked_at": null,
-    "created_by": "Zerric"
+    "created_by": "Zerric",
+    "due_at": "2026-08-29T21:00:00Z",
+    "status_changed_at": "2026-08-24T20:15:58Z",
+    "done_at": null
   },
   {
     "id": "6fd552b2ad07",
@@ -180,7 +219,10 @@
     "created_at": "2026-08-26T04:53:05Z",
     "updated_at": "2026-08-26T04:53:05Z",
     "last_checked_at": null,
-    "created_by": "ClickClack"
+    "created_by": "ClickClack",
+    "due_at": "2026-08-29T21:00:00Z",
+    "status_changed_at": "2026-08-26T04:53:05Z",
+    "done_at": null
   },
   {
     "id": "afe1f916d4a1",
@@ -193,7 +235,10 @@
     "created_at": "2026-08-26T04:54:28Z",
     "updated_at": "2026-08-26T04:54:28Z",
     "last_checked_at": null,
-    "created_by": "NinjaNerd"
+    "created_by": "NinjaNerd",
+    "due_at": "2026-08-29T21:00:00Z",
+    "status_changed_at": "2026-08-26T04:54:28Z",
+    "done_at": null
   },
   {
     "id": "2fe7eadeee96",
@@ -206,7 +251,10 @@
     "created_at": "2026-08-26T04:54:28Z",
     "updated_at": "2026-08-26T04:54:28Z",
     "last_checked_at": null,
-    "created_by": "NinjaNerd"
+    "created_by": "NinjaNerd",
+    "due_at": "2026-08-29T21:00:00Z",
+    "status_changed_at": "2026-08-26T04:54:28Z",
+    "done_at": null
   },
   {
     "id": "2fa51aedd56c",
@@ -219,7 +267,10 @@
     "created_at": "2026-08-26T04:54:28Z",
     "updated_at": "2026-08-26T04:54:28Z",
     "last_checked_at": null,
-    "created_by": "NinjaNerd"
+    "created_by": "NinjaNerd",
+    "due_at": "2026-08-29T21:00:00Z",
+    "status_changed_at": "2026-08-26T04:54:28Z",
+    "done_at": null
   },
   {
     "id": "df40292e704e",
@@ -232,7 +283,10 @@
     "created_at": "2026-08-26T04:54:28Z",
     "updated_at": "2026-08-26T04:54:28Z",
     "last_checked_at": null,
-    "created_by": "NinjaNerd"
+    "created_by": "NinjaNerd",
+    "due_at": "2026-08-29T21:00:00Z",
+    "status_changed_at": "2026-08-26T04:54:28Z",
+    "done_at": null
   },
   {
     "id": "54c070ae3827",
@@ -245,7 +299,10 @@
     "created_at": "2026-08-26T04:54:28Z",
     "updated_at": "2026-08-26T04:54:28Z",
     "last_checked_at": null,
-    "created_by": "NinjaNerd"
+    "created_by": "NinjaNerd",
+    "due_at": "2026-08-29T21:00:00Z",
+    "status_changed_at": "2026-08-26T04:54:28Z",
+    "done_at": null
   },
   {
     "id": "b049281d2b3f",
@@ -258,7 +315,10 @@
     "created_at": "2026-08-26T04:54:29Z",
     "updated_at": "2026-08-26T04:54:29Z",
     "last_checked_at": null,
-    "created_by": "NinjaNerd"
+    "created_by": "NinjaNerd",
+    "due_at": "2026-08-29T21:00:00Z",
+    "status_changed_at": "2026-08-26T04:54:29Z",
+    "done_at": null
   },
   {
     "id": "14cafa6dd149",
@@ -271,7 +331,10 @@
     "created_at": "2026-08-26T04:54:29Z",
     "updated_at": "2026-08-26T04:54:29Z",
     "last_checked_at": null,
-    "created_by": "NinjaNerd"
+    "created_by": "NinjaNerd",
+    "due_at": "2026-08-29T21:00:00Z",
+    "status_changed_at": "2026-08-26T04:54:29Z",
+    "done_at": null
   },
   {
     "id": "d0780c935296",
@@ -285,6 +348,9 @@
     "updated_at": "2026-08-29T05:25:11Z",
     "last_checked_at": null,
     "created_by": "ClickClack",
-    "updated_by": "ClickClack"
+    "updated_by": "ClickClack",
+    "due_at": "2026-08-30T05:25:11Z",
+    "status_changed_at": "2026-08-29T05:25:11Z",
+    "done_at": null
   }
 ]

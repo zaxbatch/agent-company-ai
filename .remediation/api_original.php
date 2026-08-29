@@ -49,9 +49,6 @@ if ($action === 'create') {
         'blocker' => $input['blocker'] ?? null,
         'created_at' => now_iso(),
         'updated_at' => now_iso(),
-        'due_at' => $input['due_at'] ?? null,
-        'status_changed_at' => now_iso(),
-        'done_at' => null,
         'last_checked_at' => null,
         'created_by' => $me['member'],
     ];
@@ -74,11 +71,8 @@ if ($action === 'update' || $action === 'delete') {
         http_response_code(204); exit;
     }
     $t = $tasks[$idx];
-    $prev_status = $t['status'] ?? null;
-    $status_changed = false;
     if (isset($input['status'])) {
         if (!in_array($input['status'], $VALID)) fail('invalid status: ' . $input['status']);
-        if ($input['status'] !== $prev_status) $status_changed = true;
         $t['status'] = $input['status'];
     }
     if (isset($input['assignee'])) $t['assignee'] = $input['assignee'];
@@ -90,19 +84,6 @@ if ($action === 'update' || $action === 'delete') {
     if (isset($input['result'])) $t['result'] = $input['result'];
     if (isset($input['blocker'])) $t['blocker'] = $input['blocker'];
     if (isset($input['last_checked_at'])) $t['last_checked_at'] = $input['last_checked_at'];
-    // Time-tracking fields (2026-08-24 time-tracking rollout)
-    if (isset($input['due_at'])) $t['due_at'] = $input['due_at'];
-    if (isset($input['status_changed_at'])) $t['status_changed_at'] = $input['status_changed_at'];
-    if (isset($input['done_at'])) $t['done_at'] = $input['done_at'];
-    if ($status_changed) $t['status_changed_at'] = now_iso();
-    if (($t['status'] ?? null) === 'done') {
-        if (empty($t['done_at'])) $t['done_at'] = now_iso();   // completion moment recorded once
-    } elseif ($prev_status === 'done' && isset($input['status']) && $input['status'] !== 'done') {
-        $t['done_at'] = null;                                   // reopened -> not done anymore
-    }
-    if (!isset($t['status_changed_at'])) $t['status_changed_at'] = $t['created_at'] ?? now_iso();
-    if (!array_key_exists('done_at', $t)) $t['done_at'] = null;
-    if (!array_key_exists('due_at', $t)) $t['due_at'] = null;
     $t['updated_at'] = now_iso();
     $t['updated_by'] = $me['member'];
     $tasks[$idx] = $t;

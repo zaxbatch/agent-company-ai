@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Z-Dot Team Checklist - Sign in</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, Segoe UI, Roboto, sans-serif; background:#f5f6f8; margin:0; display:flex; align-items:center; justify-content:center; min-height:100vh; }
+  .card { background:#fff; border:1px solid #e0e0e0; border-radius:12px; padding:28px; width:360px; box-shadow:0 4px 14px rgba(0,0,0,.08); }
+  h1 { font-size:18px; margin:0 0 4px; }
+  p.sub { color:#666; font-size:13px; margin:0 0 18px; }
+  label { display:block; font-size:13px; margin:10px 0 4px; color:#333; }
+  input, select { width:100%; padding:8px 10px; border:1px solid #ccc; border-radius:6px; font-size:14px; }
+  button { width:100%; margin-top:16px; padding:10px; background:#1c1e21; color:#fff; border:none; border-radius:6px; font-size:15px; cursor:pointer; }
+  button:hover { opacity:.88; }
+  .err { color:#c62828; font-size:13px; margin-top:10px; min-height:18px; }
+  .ok { color:#1a7f37; font-size:13px; }
+  .switch { text-align:center; margin-top:14px; font-size:13px; }
+  .switch a { color:#1565c0; cursor:pointer; text-decoration:underline; }
+  .hidden { display:none; }
+  .note { font-size:12px; color:#888; margin-top:8px; line-height:1.4; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>Z-Dot Team Checklist</h1>
+  <p class="sub">Sign in to access the task board</p>
+
+  <!-- LOGIN VIEW -->
+  <div id="view-login">
+    <label>Username</label>
+    <input id="login-user" autocomplete="username">
+    <label>Password</label>
+    <input id="login-pass" type="password" autocomplete="current-password">
+    <button onclick="doLogin()">Sign in</button>
+    <div class="err" id="login-err"></div>
+    <div class="switch">First time? <a onclick="show('register')">Set up your account</a></div>
+  </div>
+
+  <!-- REGISTER VIEW -->
+  <div id="view-register" class="hidden">
+    <label>Team code (first login)</label>
+    <input id="reg-code" type="password" placeholder="Provided by the team" oninput="clearVerify()">
+    <button id="verify-btn" onclick="verifyCode()" style="margin-top:8px">Verify team code</button>
+    <div class="ok hidden" id="code-ok">Team code valid. Choose your name below.</div>
+    <div class="err" id="code-err"></div>
+    <label>Your team member name</label>
+    <select id="reg-member" disabled></select>
+    <label>Username</label>
+    <input id="reg-user" autocomplete="username">
+    <label>Your password (min 6 characters)</label>
+    <input id="reg-pass" type="password" autocomplete="new-password">
+    <button onclick="doRegister()">Create account</button>
+    <div class="err" id="reg-err"></div>
+    <div class="switch">Already have an account? <a onclick="show('login')">Sign in</a></div>
+    <div class="note">Your account is bound to your real team member name so every change is attributable.</div>
+  </div>
+</div>
+
+<script>
+async function api(path, body) {
+  const r = await fetch(path, { method: body ? 'POST' : 'GET', headers: { 'Content-Type': 'application/json' }, body: body ? JSON.stringify(body) : null });
+  const t = await r.text();
+  const j = t ? JSON.parse(t) : null;
+  if (!r.ok) throw new Error(j && j.error ? j.error : t);
+  return j;
+}
+function show(v) {
+  document.getElementById('view-login').classList.toggle('hidden', v !== 'login');
+  document.getElementById('view-register').classList.toggle('hidden', v !== 'register');
+  if (v === 'register') clearVerify();
+}
+function clearVerify() {
+  document.getElementById('code-ok').classList.add('hidden');
+  document.getElementById('code-err').textContent = '';
+  const sel = document.getElementById('reg-member');
+  sel.innerHTML = '';
+  sel.disabled = true;
+}
+async function verifyCode() {
+  const code = document.getElementById('reg-code').value;
+  const err = document.getElementById('code-err');
+  const ok = document.getElementById('code-ok');
+  err.textContent = ''; ok.classList.add('hidden');
+  if (!code) { err.textContent = 'Enter the team code first.'; return; }
+  try {
+    const j = await api('auth.php?action=validate_team_code', { code: code });
+    const sel = document.getElementById('reg-member');
+    sel.innerHTML = '';
+    (j.available || []).forEach(m => { const o = document.createElement('option'); o.value = m; o.textContent = m; sel.appendChild(o); });
+    if (!j.available || !j.available.length) { err.textContent = 'All team members already have accounts.'; return; }
+    sel.disabled = false;
+    ok.classList.remove('hidden');
+  } catch (e) { err.textContent = e.message; }
+}
+async function doLogin() {
+  const err = document.getElementById('login-err'); err.textContent = '';
+  try {
+    const j = await api('auth.php?action=login', { username: document.getElementById('login-user').value, password: document.getElementById('login-pass').value });
+    localStorage.setItem('checklist_user', j.user.username);
+    window.location.href = 'index.html';
+  } catch (e) { err.textContent = e.message; }
+}
+async function doRegister() {
+  const err = document.getElementById('reg-err'); err.textContent = '';
+  const code = document.getElementById('reg-code').value;
+  const member = document.getElementById('reg-member').value;
+  const username = document.getElementById('reg-user').value;
+  const password = document.getElementById('reg-pass').value;
+  try {
+    const j = await api('auth.php?action=register', { code, member, username, password });
+    localStorage.setItem('checklist_user', j.user.username);
+    window.location.href = 'index.html';
+  } catch (e) { err.textContent = e.message; }
+}
+// On load: if already logged in, go straight to the board
+api('auth.php?action=me').then(j => { if (j.user) window.location.href = 'index.html'; }).catch(() => {});
+</script>
+</body>
+</html>
