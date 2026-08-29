@@ -679,17 +679,6 @@ async def api_create_task(body: dict):
     return task.to_dict()
 
 
-@_app.post("/api/chat/{agent_name}")
-async def api_chat(agent_name: str, body: dict):
-    if not _company:
-        return {"error": "Company not loaded"}
-    try:
-        reply = await _company.chat(agent_name, body["message"])
-        return {"reply": reply}
-    except ValueError as e:
-        return {"error": str(e)}
-
-
 @_app.post("/api/chat/group")
 async def api_chat_group(body: dict):
     if not _company:
@@ -709,6 +698,17 @@ async def api_chat_group(body: dict):
 
     replies = await asyncio.gather(*(_one(n) for n in agents))
     return {"replies": replies}
+
+
+@_app.post("/api/chat/{agent_name}")
+async def api_chat(agent_name: str, body: dict):
+    if not _company:
+        return {"error": "Company not loaded"}
+    try:
+        reply = await _company.chat(agent_name, body["message"])
+        return {"reply": reply}
+    except ValueError as e:
+        return {"error": str(e)}
 
 
 _goal_task: asyncio.Task | None = None
