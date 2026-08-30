@@ -1,9 +1,9 @@
 {
-  "jokes": "err:HTTP Error 504: Gateway Time-out",
-  "games": "err:HTTP Error 504: Gateway Time-out",
-  "characters": "err:HTTP Error 504: Gateway Time-out",
-  "comics": "err:HTTP Error 504: Gateway Time-out",
-  "doodles": "err:HTTP Error 504: Gateway Time-out",
+  "jokes": 82,
+  "games": 17,
+  "characters": 3,
+  "comics": 0,
+  "doodles": 0,
   "episodes": 2,
-  "snapshot_at": "2026-08-30T20:30:01Z"
+  "snapshot_at": "2026-08-30T20:35:01Z"
 }
