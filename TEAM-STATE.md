@@ -7,6 +7,12 @@
 **Last updated:** 2026-08-30T06:35:01Z
 
 ## CHANGELOG
+## 0. LATEST SESSION (2026-08-30g) — ZDOT-DUMMY.COM = FICTIONAL, NO REGISTRATION (Zerric)
+- **CORRECTION (Zerric):** DO NOT register zdot-dummy.com. DO NOT touch hPanel. No DNS, no MX, no SPF/DMARC.
+- **Why:** we don't need the domain to use the fictional emails — it's just an easy way for Zerric to **sort/delete/manage on HubSpot**.
+- **Updated (verified):** all 8 souls (STATUS line now says FICTIONAL, no ACTION/register line), resources/DOMAIN-INVENTORY.md (table row, MAIL DECISION, REGISTRATION PLAN → NO REGISTRATION, COSTS $0), TEAM-STATE old references.
+- **Net effect:** @zdot-dummy.com is a HubSpot label only — use it freely for dummy/test/QA; never @zdotllc.com. No blockers, no cost, no infra.
+
 ## 0. LATEST SESSION (2026-08-30f) — MILKUPS GOVERNANCE LOCKED: BOSSLADY = CREATIVE DIRECTOR (ClickClack)
 - **Zerric directive (2026-08-30):** "Mark should know exactly what MilkUps is. Get all decisions from BossLady — she has my approval to give the green light. I'll work as editor to fine-tune. She has been the creative director on this."
 - **Governance now:** BossLady = CREATIVE DIRECTOR + green-light authority (Zerric-approved). Zerric = EDITOR (reviews output, fine-tunes). Mark gets all decisions from BossLady.
@@ -25,7 +31,7 @@
 - **Zerric final wording (2026-08-30):** THREE zones, no overlap —
   - @zdotllc.com = REAL WORK/business email ONLY (staff, clients, vendors). Never dummies/tests/QA/seed.
   - @zerric.xyz = PLAY-side content owners (play which is business): MilkUps → milkups@zerric.xyz (already live), snowsnakes@, spreaddaword@, snitch@ — all forward to ez@zerric.xyz. Keeps play separate from work.
-  - @zdot-dummy.com = ALL dummy/test/QA/seed/persona accounts ONLY (NOT YET REGISTERED — no new dummies until it is; NinjaNerd drives registration).
+  - @zdot-dummy.com = ALL dummy/test/QA/seed/persona accounts ONLY (FICTIONAL — never registered, no DNS/MX/hPanel. HubSpot sort/delete/manage label per Zerric 2026-08-30).
 - **SOUL rollout COMPLETE (8/8 files):** company SOUL (archive/zerric-xyz-main/SOUL.md) Boundaries + "## Email & Dummy Account Policy" + every souls/SOUL-*.md Boundaries. Verified via grep (`zdot-dummy` in all 8; no file says MilkUps uses @zdotllc.com).
 - **MilkUps website inspiration (Zerric):** https://thebreedling.com (One Page Love winner) → recorded in company SOUL "## MilkUps website direction (Zerric 2026-08-30)". Current: content/milkups/index.html live at zdotllc.com/milkups + milkups.netlify.app; redesign toward breedling-inspired immersive band one-pager.
 - **Team convo order (Zerric):** Zerric → BossLady → NinjaNerd → ClickClack → Mark → Meta → Manny → Seleena (recorded in company SOUL).
@@ -33,7 +39,7 @@
 
 ## 0. LATEST SESSION (2026-08-30d) — CTO: ZDOT-DUMMY.COM POLICY (BossLady)
 - Policy live: all dummy/test/QA/seed accounts MUST use @zdot-dummy.com; @zdotllc.com = real correspondence ONLY.
-- zdot-dummy.com verified AVAILABLE (RDAP 404 + NXDOMAIN). Registration pending BossLady purchase (Hostinger, ~$10-16/yr).
+- ~~zdot-dummy.com verified AVAILABLE (RDAP 404 + NXDOMAIN). Registration pending BossLady purchase (Hostinger, ~$10-16/yr).~~ **SUPERSEDED 2026-08-30g: fictional, never registered (Zerric).**
 - Email decision: NO MX/catch-all (non-deliverable syntax domain) — no app sends verification/reset mail today (verified).
 - Docs: resources/DOMAIN-INVENTORY.md created + TEAM-STATE §5 updated (commit 55672b5). ClickClack delegated (4066f4780dc4). BossLady emailed.
 
@@ -288,14 +294,13 @@
 ### zdot-dummy.com — TEST/QA/SEED (POLICY 2026-08-30, BossLady)
 - POLICY: ALL dummy/test/QA/seed/persona accounts MUST use @zdot-dummy.com. @zdotllc.com = REAL
   correspondence ONLY (staff/clients/vendors). Never put dummy emails on zdotllc.com.
-- STATUS: NOT REGISTERED (verified available 2026-08-30 — Verisign RDAP 404 + DNS NXDOMAIN).
-  Registration path: Hostinger hPanel (existing account + API token + billing on file).
-  Cost ~$10-16 first yr / ~$16-22 renewal. BLOCKED on BossLady purchase (payment authority).
-- EMAIL: NO MX / NO catch-all BY DESIGN — non-deliverable syntax domain. Verified: no Z-Dot app
-  sends verification/reset email to users today. Upgrade path (MX+catch-all) documented.
-  Anti-abuse TXT after registration: SPF -all + DMARC p=reject.
+- STATUS: FICTIONAL — NEVER REGISTERED (Zerric 2026-08-30: no purchase, no hPanel, $0).
+- EMAIL: NO MX / NO DNS / NO SPF-DMARC BY DESIGN — fictional, never real mail. HubSpot label only:
+  easy to sort/delete/manage dummy records (Zerric 2026-08-30).
 - MIGRATION: 8 SnowSnakes personas (ids 72-79, .snowsnakes_real_users.json) use gmail.com ->
-  switch to @zdot-dummy.com once registered (delegated ClickClack).
+  switch to @zdot-dummy.com (fictional label, no registration needed — delegated ClickClack).
+- MIGRATION: 8 SnowSnakes personas (ids 72-79, .snowsnakes_real_users.json) use gmail.com ->
+  switch to @zdot-dummy.com (fictional label, no registration needed — delegated ClickClack).
 - Canonical reference: resources/DOMAIN-INVENTORY.md
 
 ## 6. TEAM ROSTER & ROLES (each team member has own soul)

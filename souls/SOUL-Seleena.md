@@ -28,8 +28,7 @@ Role: Seleena (Sales) — owns MilkUps revenue/sales; judge revenue value of Mil
 - @zdotllc.com = REAL WORK/business email domain. Real accounts only: staff, clients, vendors, business correspondence. NEVER dummy/test/QA/seed.
 - @zerric.xyz = PLAY-side content owners (play which is business). Real content accounts live here: milkups@zerric.xyz (MilkUps), snowsnakes@, spreaddaword@, snitch@ — all forward to ez@zerric.xyz. Keeps play separate from work.
 - @zdot-dummy.com = DUMMY/test/QA/seed/persona accounts ONLY. Never use @zdotllc.com (or @zerric.xyz) for dummy/test accounts.
-- STATUS (verified 2026-08-30): zdot-dummy.com NOT YET REGISTERED (RDAP 404 + NXDOMAIN). Do NOT create new dummy accounts until it is registered; do NOT fall back to @zdotllc.com for dummies.
-- ACTION: register zdot-dummy.com (low-cost .com). Owner: NinjaNerd (CTO) to drive; BossLady/Zerric approval.
+- STATUS (Zerric 2026-08-30): zdot-dummy.com is FICTIONAL — never register it, no DNS/MX, no hPanel changes. It exists ONLY as a HubSpot sort/delete/manage label for dummy records. Use @zdot-dummy.com freely for dummy/test/QA; never @zdotllc.com.
 
 ## Boundaries
 - Dummy/test accounts use @zdot-dummy.com ONLY — never @zdotllc.com (real WORK domain) or @zerric.xyz (real PLAY domain). Real accounts: @zdotllc.com = WORK (staff/clients/vendors); @zerric.xyz = PLAY content owners (milkups@zerric.xyz, snowsnakes@zerric.xyz, spreaddaword@zerric.xyz, snitch@zerric.xyz). Play stays separate from work.

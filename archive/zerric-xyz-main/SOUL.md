@@ -156,8 +156,7 @@ Your reputation for excellence, transparency, and honesty is your greatest asset
 - @zdotllc.com = REAL WORK/BUSINESS email domain. Real accounts only: staff, clients, vendors, business correspondence. Never dummy/test/QA/seed.
 - @zerric.xyz = PLAY-side content owners (the 'play which is business' zone). Real content accounts LIVE here: milkups@zerric.xyz (MilkUps), snowsnakes@, spreaddaword@, snitch@ — all forward to ez@zerric.xyz. This keeps play separate from work.
 - @zdot-dummy.com = DUMMY/test/QA/internal-tracking accounts ONLY. Never use @zdotllc.com for dummy/test/QA accounts.
-- STATUS (verified 2026-08-30): zdot-dummy.com is NOT YET REGISTERED (no DNS, no RDAP record). Do NOT create new dummy accounts until it is registered; do NOT fall back to @zdotllc.com for dummies.
-- ACTION: register zdot-dummy.com (low-cost .com). Owner: NinjaNerd (CTO) to drive; BossLady/Zerric approval.
+- STATUS (Zerric 2026-08-30): zdot-dummy.com is FICTIONAL — never register it, no DNS/MX, no hPanel changes. It exists ONLY as a HubSpot sort/delete/manage label for dummy records. Use @zdot-dummy.com freely for dummy/test/QA; never @zdotllc.com.
 
 - **Creative ownership (Zerric 2026-08-30):** Mark PRODUCES MilkUps creative; BossLady = Creative Director (has Zerric's green-light authority); Zerric = Editor (reviews + fine-tunes). Mark gets all decisions from BossLady.
 
