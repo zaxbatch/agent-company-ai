@@ -1,0 +1,297 @@
+<!DOCTYPE html><html lang="en"><head>
+<script>
+// Auth gate: check session before showing the board
+(function() {
+  fetch('auth.php?action=me').then(function(r) {
+    if (r.status === 401) { window.location.href = 'auth.html'; }
+    return r.json();
+  }).then(function(j) {
+    if (j && j.user) { window.__me = j.user; }
+  }).catch(function() { window.location.href = 'auth.html'; });
+})();
+</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Z-Dot Team Checklist</title>
+<style>
+  :root { --green:#1a7f37; --red:#c62828; --blue:#1565c0; --amber:#b26a00; --grey:#616161; }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, Segoe UI, Roboto, sans-serif; margin: 0; background:#f5f6f8; color:#1c1e21; }
+  header { background:#1c1e21; color:#fff; padding:14px 20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; }
+  header h1 { font-size:18px; margin:0; }
+  .panel { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+  select, input, button { font-size:14px; padding:6px 10px; border:1px solid #ccc; border-radius:6px; }
+  button { cursor:pointer; background:#1c1e21; color:#fff; border:none; }
+  button:hover { opacity:.85; }
+  main { max-width:1200px; margin:20px auto; padding:0 16px; }
+  .card { background:#fff; border:1px solid #e0e0e0; border-radius:10px; padding:16px; margin-bottom:16px; }
+  .add-row { display:flex; gap:8px; flex-wrap:wrap; }
+  .add-row input[type=text] { flex:1 1 240px; }
+  table { width:100%; border-collapse:collapse; background:#fff; }
+  th, td { text-align:left; padding:8px 10px; border-bottom:1px solid #eee; font-size:14px; vertical-align:top; }
+  th { background:#fafafa; font-weight:600; white-space:nowrap; }
+  .badge { display:inline-block; padding:2px 8px; border-radius:12px; color:#fff; font-size:12px; font-weight:600; white-space:nowrap; }
+  .b-done{background:var(--green)} .b-failed{background:var(--red)} .b-in_progress{background:var(--blue)}
+  .b-review{background:var(--amber)} .b-pending,.b-assigned{background:var(--grey)}
+  .blocker { color:var(--amber); }
+  .stale { color:var(--red); font-weight:600; }
+  .ok { color:var(--green); }
+  footer { text-align:center; color:#666; font-size:13px; padding:12px; }
+  .actions button { margin-right:4px; padding:4px 8px; font-size:12px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Z-Dot Team Checklist</h1>
+  <div class="panel">
+    <select id="me" data-built="1"><option value="">Who are you?</option><option value="NinjaNerd">NinjaNerd</option><option value="ClickClack">ClickClack</option><option value="Zerric">Zerric</option><option value="Team Task">Team Task</option><option value="Meta">Meta</option><option value="BossLady">BossLady</option><option value="Mark">Mark</option></select>
+    <button id="checkin">Check in</button>
+    <span id="checkin-status"></span>
+    <span id="whoami" style="font-size:13px">ClickClack (clickclack)</span>
+    <a href="progress" style="font-size:12px;padding:4px 8px;color:#fff;background:#1565c0;border-radius:6px;text-decoration:none">📊 Progress</a>
+     <button id="changepw" style="font-size:12px;padding:4px 8px">Change password</button>
+    <button id="logout" style="font-size:12px;padding:4px 8px">Log out</button>
+  </div>
+</header>
+<main>
+  <div class="card" id="team-panel"><strong>Team check-in (last 2h)</strong><div style="margin-top:6px"><div class="stale">NinjaNerd: 93h ago (7 open)</div><div class="stale">ClickClack: 146h ago (7 open)</div><div class="ok">Zerric: 5m ago (3 open)</div><div class="stale">Team Task: never (2 open)</div><div class="stale">Meta: never (1 open)</div><div class="stale">BossLady: never (1 open)</div><div class="stale">Mark: never (1 open)</div></div></div>
+  <div class="card">
+    <div class="add-row">
+      <input type="text" id="desc" placeholder="Task description (required)">
+      <input type="text" id="assignee" placeholder="Assignee">
+      <select id="priority"><option value="0">Priority: low</option><option value="1">Priority: high</option><option value="2">Priority: medium</option><option value="3">Priority: low</option></select>
+      <input type="datetime-local" id="due" title="Due (optional)">
+      <button id="add">Add task</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="panel" style="margin-bottom:10px">
+      <select id="f-assignee" data-built="1"><option value="">All assignees</option><option value="NinjaNerd">NinjaNerd</option><option value="ClickClack">ClickClack</option><option value="Zerric">Zerric</option><option value="Team Task">Team Task</option><option value="Meta">Meta</option><option value="BossLady">BossLady</option><option value="Mark">Mark</option></select>
+      <select id="f-status"><option value="">All statuses</option></select>
+    </div>
+    <table>
+      <thead><tr><th>Task</th><th>Assignee</th><th>Priority</th><th>Status</th><th>Due</th><th>Status changed</th><th>Done</th><th>Blocker</th><th>Updated</th><th>Action</th></tr></thead>
+      <tbody id="rows"><tr><td>Stripe payments/subscriptions: LIVE KEY RECEIVED (sk_live in .env + credentials.txt, verified via balance API 2026-08-26 livemode). NEXT (CTO): 1) config.yaml integrations.stripe.enabled: true 2) api_key: ${STRIPE_SECRET_KEY} 3) add STRIPE_WEBHOOK_SECRET to .env 4) test payment link (stripe_tools) + subscription link (stripe_subs). Product 'Linux Ghost - Barebones' exists (prod_V8SXbzJ0M1SaAF, $0.00 one-time - set real price).</td><td>NinjaNerd</td><td>high</td><td><span class="badge b-in_progress">in progress</span></td><td><span class="stale" title="Overdue">29 Aug, 17:00</span></td><td>92h ago</td><td>—</td><td><span class="blocker">STRIPE_WEBHOOK_SECRET needed from Zerric's Stripe dashboard (key itself already in .env).</span></td><td>92h ago</td><td class="actions"><button onclick="markDone('t5-stripe')">Mark done</button><button onclick="del('t5-stripe')">Delete</button></td></tr><tr><td>Diagnose Zerric's Network posting failure and seed first posts</td><td>ClickClack</td><td>medium</td><td><span class="badge b-in_progress">in progress</span></td><td><span class="stale" title="Overdue">29 Aug, 17:00</span></td><td>146h ago</td><td>—</td><td><span class="blocker">Diagnosis started 2026-08-23; needs Zerric's go-ahead before publishing bot content publicly</span></td><td>146h ago</td><td class="actions"><button onclick="markDone('t7-network')">Mark done</button><button onclick="del('t7-network')">Delete</button></td></tr><tr><td>Rotate CEO email password and enable 2FA (credentials live locally, git-ignored at mode 600)</td><td>Zerric</td><td>medium</td><td><span class="badge b-pending">pending</span></td><td><span class="stale" title="Overdue">29 Aug, 17:00</span></td><td>7h ago</td><td>—</td><td><span class="blocker">Zerric action: rotate CEO email password and enable 2FA</span></td><td>5m ago</td><td class="actions"><button onclick="markDone('t8-email')">Mark done</button><button onclick="del('t8-email')">Delete</button></td></tr><tr><td>Rotate bosslady-zdot@protonmail.com password and enable 2FA; CTO updates local credentials after</td><td>Zerric</td><td>high</td><td><span class="badge b-pending">pending</span></td><td><span class="stale" title="Overdue">29 Aug, 17:00</span></td><td>7h ago</td><td>—</td><td><span class="blocker">Zerric action on Proton account</span></td><td>5m ago</td><td class="actions"><button onclick="markDone('t14-email-security')">Mark done</button><button onclick="del('t14-email-security')">Delete</button></td></tr><tr><td>Open snowsnakes@zerric.xyz and verify zerric.xyz domain on the email provider so updates/promos can send to SnowSnakes users</td><td>Zerric</td><td>high</td><td><span class="badge b-pending">pending</span></td><td><span class="stale" title="Overdue">29 Aug, 17:00</span></td><td>7h ago</td><td>—</td><td><span class="blocker">DNS access for zerric.xyz + provider account</span></td><td>5m ago</td><td class="actions"><button onclick="markDone('t15-snowsnakes-email')">Mark done</button><button onclick="del('t15-snowsnakes-email')">Delete</button></td></tr><tr><td>Dashboard notification UI (bell, unread badge, dropdown, mark-read) - PM report shows task 450aa9d6 falsely marked done with nothing built; re-open and build or explicitly descope</td><td>ClickClack</td><td>medium</td><td><span class="badge b-in_progress">in progress</span></td><td><span class="stale" title="Overdue">29 Aug, 17:00</span></td><td>146h ago</td><td>—</td><td><span class="blocker">Queued: needs CTO spec; notifications/service.py + webhooks.py missing; schema not applied to company.db</span></td><td>146h ago</td><td class="actions"><button onclick="markDone('t17-notif-ui')">Mark done</button><button onclick="del('t17-notif-ui')">Delete</button></td></tr><tr><td>Fix ClickClack glitch: orphaned tool_calls conversation repair (OpenAI 400). Rewrote _repair_conversation, 5 regression tests, 73 total pass, committed eeb61cd.</td><td>NinjaNerd</td><td>medium</td><td><span class="badge b-assigned">assigned</span></td><td><span class="stale" title="Overdue">29 Aug, 17:00</span></td><td>146h ago</td><td>—</td><td>—</td><td>146h ago</td><td class="actions"><button onclick="markDone('e807f54ae024')">Mark done</button><button onclick="del('e807f54ae024')">Delete</button></td></tr><tr><td>Daily SnowSnakes content system: ~20 original dad jokes/day split across 8 accounts (ids 56-63: ClickClack_, TedBear, mark, seleena, manny, meta, jasmine, trevor), 1-3 games/day (post own ideas freely). Doodles/comics go to approval folder (NOT posted). Zerric deletes unwanted/duplicates. Owner: whole team, ClickClack coordinates.</td><td>ClickClack</td><td>high</td><td><span class="badge b-assigned">assigned</span></td><td><span class="stale" title="Overdue">29 Aug, 17:00</span></td><td>142h ago</td><td>—</td><td><span class="blocker">None - live since 2026-08-24 (24 jokes + 3 games posted today)</span></td><td>142h ago</td><td class="actions"><button onclick="markDone('32281afad433')">Mark done</button><button onclick="del('32281afad433')">Delete</button></td></tr><tr><td>GOAL: 20 real people register on snowsnakes.zerric.xyz. Funnel: games/jokes as hooks, Pumpkin's sphere, share-CTAs, high-score challenge. Each registration with email auto-feeds HubSpot CRM.</td><td>ClickClack</td><td>high</td><td><span class="badge b-assigned">assigned</span></td><td><span class="stale" title="Overdue">29 Aug, 17:00</span></td><td>140h ago</td><td>—</td><td><span class="blocker">None - funnel strategy drafted; needs Mark's challenge copy + Pumpkin share link</span></td><td>140h ago</td><td class="actions"><button onclick="markDone('fce626157ddb')">Mark done</button><button onclick="del('fce626157ddb')">Delete</button></td></tr><tr><td>GOAL: Hand zerric.xyz to team for creative control (build trust). Audit done 2026-08-24: nexus hub listing 18 projects. Improve descriptions, live status, CTAs, mobile polish, then present changes for approval.</td><td>ClickClack</td><td>high</td><td><span class="badge b-assigned">assigned</span></td><td><span class="stale" title="Overdue">29 Aug, 17:00</span></td><td>140h ago</td><td>—</td><td><span class="blocker">None - audit complete; awaiting approval to edit zerric.xyz</span></td><td>140h ago</td><td class="actions"><button onclick="markDone('e7c11cb0cc4a')">Mark done</button><button onclick="del('e7c11cb0cc4a')">Delete</button></td></tr><tr><td>Spread Da Word: animated series for snowsnakes (episodes feature exists, 2 seeded). Brainstorm free/cheap quality animation: Rive/Wick/Synfig (free 2D), Blender grease pencil, AI (Runway/Hedra free tiers), or canvas motion-comic consistent with 8-bit aesthetic. Recommend motion-comic + Rive hybrid.</td><td>ClickClack</td><td>medium</td><td><span class="badge b-in_progress">in progress</span></td><td><span class="stale" title="Overdue">29 Aug, 17:00</span></td><td>136h ago</td><td>—</td><td><span class="blocker">Needs Zerric's pick on animation style before building episode 1</span></td><td>136h ago</td><td class="actions"><button onclick="markDone('fb6419251cdc')">Mark done</button><button onclick="del('fb6419251cdc')">Delete</button></td></tr><tr><td>find a way to call Zerric</td><td>Team Task</td><td>high</td><td><span class="badge b-assigned">assigned</span></td><td><span class="stale" title="Overdue">29 Aug, 17:00</span></td><td>125h ago</td><td>—</td><td>—</td><td>125h ago</td><td class="actions"><button onclick="markDone('2010d8331223')">Mark done</button><button onclick="del('2010d8331223')">Delete</button></td></tr><tr><td>Find a way to call Zerric</td><td>Team Task</td><td>high</td><td><span class="badge b-assigned">assigned</span></td><td><span class="stale" title="Overdue">29 Aug, 17:00</span></td><td>125h ago</td><td>—</td><td>—</td><td>125h ago</td><td class="actions"><button onclick="markDone('7f4fbee20cc5')">Mark done</button><button onclick="del('7f4fbee20cc5')">Delete</button></td></tr><tr><td># WHO'S WHO — Master Audit Checklist (Zerric=Owner vs BossLady=CEO)
+Canonical phrasing (per ROLE-CHARTER): "Owner: Zerric · CEO: BossLady"
+
+A. PUBLIC WEB SURFACES
+- [ ] A1 zerric.xyz footer — states "Owner: Zerric · CEO: BossLady" (owner: CTO)
+- [ ] A2 zerric.xyz About page — role attribution correct (owner: CTO)
+- [ ] A3 snowsnakes.zerric.xyz footer/landing — "A Z-Dot LLC project — Owner: Zerric · CEO: BossLady" (owner: CTO)
+- [ ] A4 snowsnakes.zerric.xyz lead form "powered by" line (owner: CTO)
+- [ ] A5 DNS/registrar — both domains registered to Z-Dot LLC / Zerric (owner: CTO)
+
+B. SOCIAL ACCOUNTS
+- [ ] B1 Twitter/X bio — no CEO claim for Zerric; CEO=BossLady stated (owner: Marketer)
+- [ ] B2 LinkedIn — Zerric personal profile title = Owner (NOT CEO) (owner: Marketer)
+- [ ] B3 LinkedIn — Z-Dot company page: Owner vs CEO listed correctly (owner: Marketer)
+- [ ] B4 Instagram @zerric bio — role line correct/absent, no CEO claim (owner: Marketer)
+- [ ] B5 Facebook page — same (owner: Marketer)
+- [ ] B6 Threads bio — same (owner: Marketer)
+- [ ] B7 Third-party directories (Easyleadz, Buzzfile, ZoomInfo) — CONFIRMED FIX: Easyleadz lists Zerric as "CEO"; must be corrected to Owner/Member via directory claims (owner: Marketer; slow external process — flag risk)
+
+C. MARKETING
+- [ ] C1 Brand voice guide created (owner: Marketer)
+- [ ] C2 50 social drafts audited — full 50-row table (owner: Marketer)
+- [ ] C3 All FIX drafts corrected (owner: Marketer)
+
+D. SALES
+- [ ] D1 Outreach templates audited + fixed (owner: Sales)
+- [ ] D2 Who's Who one-pager created (owner: Sales)
+- [ ] D3 Signature line standard defined (owner: Sales)
+
+E. CRM
+- [ ] E1 HubSpot company/contact notes — no role confusion; Owner/CEO fields correct (owner: Sales, with Marketer)
+- [ ] E2 SnowSnakes→HubSpot lead mapping includes role attribution (owner: CTO)
+
+F. INTERNAL
+- [ ] F1 ROLE-CHARTER.md created (owner: HR)
+- [ ] F2 TEAM-STATE.md — role lines for Zerric (Owner) and BossLady (CEO) correct (owner: PM)
+- [ ] F3 Portal (tasks.zdotllc.com) — role descriptions correct (owner: PM)
+
+G. PAYMENT/LEGAL (currently unconfigured — policy first, then config)
+- [ ] G1 BILLING-IDENTITY-POLICY.md — payee = "Z-Dot LLC" everywhere (owner: Finance)
+- [ ] G2 Stripe account name = Z-Dot LLC (owner: Finance+CTO)
+- [ ] G3 Gumroad store name = Z-Dot LLC (owner: Finance+CTO)
+- [ ] G4 Invoice template From field = Z-Dot LLC (owner: Finance)
+- [ ] G5 Payment link display name = Z-Dot LLC (owner: Finance+CTO)
+- [ ] G6 BizzyBee CRM subscription billing — payee Z-Dot LLC (Free/Pro $19/Business $49) (owner: Finance+CTO)
+
+H. CREDENTIALS/ACCESS COORDINATION
+- [ ] H1 Documented access-routing: domains + portal 403 bots; CTO access requests → PM → BossLady (email/SMS) (owner: PM)</td><td>Meta</td><td>high</td><td><span class="badge b-assigned">assigned</span></td><td><span class="stale" title="Overdue">29 Aug, 17:00</span></td><td>92h ago</td><td>—</td><td><span class="blocker">Coordination task from PM Meta — Who's Who initiative; subtasks: 09c4e50293c2 (HR), e26f6281a8b4 (CTO), df294aced64b (Marketing), 55bfbc1ac446 (Sales), ec344facf516 (Finance)</span></td><td>92h ago</td><td class="actions"><button onclick="markDone('6fd552b2ad07')">Mark done</button><button onclick="del('6fd552b2ad07')">Delete</button></td></tr><tr><td>BossLady sign-off: SaaS MVP money-loop priority (leads-first vs payments-first) + scope IN/OUT. Doc: resources/SAAS-MVP-ROADMAP.md (delivered, pending decision). Decision gates Phase 1 build order.</td><td>BossLady</td><td>high</td><td><span class="badge b-assigned">assigned</span></td><td><span class="stale" title="Overdue">29 Aug, 17:00</span></td><td>92h ago</td><td>—</td><td><span class="blocker">CEO decision required</span></td><td>92h ago</td><td class="actions"><button onclick="markDone('afe1f916d4a1')">Mark done</button><button onclick="del('afe1f916d4a1')">Delete</button></td></tr><tr><td>Configure Gumroad: config.yaml integrations.gumroad.enabled: true + access_token. Currently UNCONFIGURED (enabled: false, access_token: ''). Tools exist.</td><td>NinjaNerd</td><td>medium</td><td><span class="badge b-assigned">assigned</span></td><td><span class="stale" title="Overdue">29 Aug, 17:00</span></td><td>92h ago</td><td>—</td><td><span class="blocker">Gumroad access token from Zerric/BossLady</span></td><td>92h ago</td><td class="actions"><button onclick="markDone('2fe7eadeee96')">Mark done</button><button onclick="del('2fe7eadeee96')">Delete</button></td></tr><tr><td>Configure invoicing: config.yaml integrations.invoice.enabled: true + company_name/company_address/payment_instructions/currency. Currently UNCONFIGURED (enabled: false).</td><td>NinjaNerd</td><td>medium</td><td><span class="badge b-assigned">assigned</span></td><td><span class="stale" title="Overdue">29 Aug, 17:00</span></td><td>92h ago</td><td>—</td><td><span class="blocker">Company billing details from BossLady</span></td><td>92h ago</td><td class="actions"><button onclick="markDone('2fa51aedd56c')">Mark done</button><button onclick="del('2fa51aedd56c')">Delete</button></td></tr><tr><td>Configure Cal.com bookings: config.yaml integrations.calcom.enabled: true + api_key + default_duration. Currently UNCONFIGURED (enabled: false, api_key: '').</td><td>NinjaNerd</td><td>medium</td><td><span class="badge b-assigned">assigned</span></td><td><span class="stale" title="Overdue">29 Aug, 17:00</span></td><td>92h ago</td><td>—</td><td><span class="blocker">Cal.com account + API key from Zerric</span></td><td>92h ago</td><td class="actions"><button onclick="markDone('df40292e704e')">Mark done</button><button onclick="del('df40292e704e')">Delete</button></td></tr><tr><td>Create company blockchain wallet: run `agent-company-ai wallet create` (sets config wallet.enabled: true, generates encrypted keystore, registers in DB). Currently NOT created (wallet.enabled: false in config.yaml).</td><td>NinjaNerd</td><td>medium</td><td><span class="badge b-assigned">assigned</span></td><td><span class="stale" title="Overdue">29 Aug, 17:00</span></td><td>92h ago</td><td>—</td><td><span class="blocker">None - self-serve</span></td><td>92h ago</td><td class="actions"><button onclick="markDone('54c070ae3827')">Mark done</button><button onclick="del('54c070ae3827')">Delete</button></td></tr><tr><td>SnowSnakes duplicate cleanup: SNOW BEATS cluster ids 97/98/99/101 (4 live entries: 'loop download', 'Download Your Loop' x2, 'loop download (fixed)'). Keep ONE canonical (recommend 101), delete rest via admin route. Verify no other dup titles. NOTE: FTF dup ids 71/72 already gone (verified 404, single FTF = id 96).</td><td>ClickClack</td><td>high</td><td><span class="badge b-assigned">assigned</span></td><td><span class="stale" title="Overdue">29 Aug, 17:00</span></td><td>92h ago</td><td>—</td><td><span class="blocker">Admin platform password for @clickclack (Zerric) - promoted but password not received</span></td><td>92h ago</td><td class="actions"><button onclick="markDone('b049281d2b3f')">Mark done</button><button onclick="del('b049281d2b3f')">Delete</button></td></tr><tr><td>HubSpot SnowSnakes auto-sync: VERIFIED LIVE 2026-08-24 - backend HUBSPOT_ACCESS_TOKEN is SET, registration -&gt; contact auto-created (csfe_pipetest_598034 -&gt; contact 540272484082), token read+write+delete. One-line env change DONE. Remaining: Zerric go/no-go to keep auto-sync ON (privacy). Local scripts/hubspot_sync.py clean (28 created/1 updated, last run 2026-08-24).</td><td>NinjaNerd</td><td>high</td><td><span class="badge b-assigned">assigned</span></td><td><span class="stale" title="Overdue">29 Aug, 17:00</span></td><td>92h ago</td><td>—</td><td><span class="blocker">Zerric go/no-go (auto-sync already live since 2026-08-24)</span></td><td>92h ago</td><td class="actions"><button onclick="markDone('14cafa6dd149')">Mark done</button><button onclick="del('14cafa6dd149')">Delete</button></td></tr><tr><td>SnowSnakes Engagement Activation — likes + comments from all 6 team accounts
+
+PROJECT: SnowSnakes launch
+DEADLINE: 2026-08-30T05:25:11Z (24 hours from creation at 2026-08-29T05:25:11Z)
+
+DESCRIPTION: All 6 team members (BossLady, NinjaNerd, ClickClack, Mark, Manny, Seleena) must like and comment on SnowSnakes' social posts using their PERSONAL accounts. Comments must be unique/authentic, staggered 15–45 min apart. No bot accounts, no duplicate comments.
+
+NOTES: Blocker — Twitter API not configured; publishing requires manual action or API keys.</td><td>Mark</td><td>high</td><td><span class="badge b-in_progress">in progress</span></td><td>30 Aug, 01:25</td><td>20h ago</td><td>—</td><td><span class="blocker">Twitter API not configured; publishing requires manual action or API keys.</span></td><td>20h ago</td><td class="actions"><button onclick="markDone('d0780c935296')">Mark done</button><button onclick="del('d0780c935296')">Delete</button></td></tr></tbody>
+    </table>
+    <footer id="totals">Total: 22   Done: 0   Open: 22</footer>
+  </div>
+</main>
+<script>
+const state = { tasks: [], me: localStorage.getItem('checklist_user') || '' };
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const STATUS = ['pending','assigned','in_progress','review','done','failed','cancelled'];
+const PRIO = {0:'low',1:'high',2:'medium',3:'low'};
+const STALE_MS = 2 * 60 * 60 * 1000;
+
+async function api(action, opts) {
+  opts = opts || {};
+  const method = opts.method || 'GET';
+  const body = opts.body || null;
+  const init = { method: method, headers: { 'Content-Type': 'application/json' } };
+  if (body) init.body = body;
+  const r = await fetch('api.php?action=' + action, init);
+  if (r.status === 204) return null;
+  const t = await r.text();
+  const j = t ? JSON.parse(t) : null;
+  if (!r.ok) throw new Error(j && j.error ? j.error : t);
+  return j;
+}
+function relTime(iso) {
+  if (!iso) return 'never';
+  const d = new Date(iso), diff = Date.now() - d.getTime();
+  if (diff < 60000) return 'just now';
+  if (diff < 3600000) return Math.floor(diff/60000) + 'm ago';
+  return Math.floor(diff/3600000) + 'h ago';
+}
+
+function fmtDue(iso, status) {
+  if (!iso) return '&mdash;';
+  const d = new Date(iso);
+  if (isNaN(d.getTime())) return esc(iso);
+  const txt = d.toLocaleString(undefined, { month:'short', day:'numeric', hour:'2-digit', minute:'2-digit' });
+  if (['done','failed','cancelled'].indexOf(status) >= 0) return esc(txt);
+  const overdue = d.getTime() < Date.now();
+  return overdue ? '<span class="stale" title="Overdue">' + esc(txt) + '</span>' : esc(txt);
+}
+function badge(s) { return '<span class="badge b-' + s + '">' + s.replace('_',' ') + '</span>'; }
+
+function render() {
+  const tasks = state.tasks;
+  const fA = $('f-assignee').value, fS = $('f-status').value;
+  const rows = tasks.filter(t => (!fA || t.assignee === fA) && (!fS || t.status === fS));
+  $('rows').innerHTML = rows.map(t => {
+    const blk = t.blocker ? '<span class="blocker">' + esc(t.blocker) + '</span>' : '&mdash;';
+    const done = t.status === 'done';
+    const dueTxt = fmtDue(t.due_at, t.status);
+    const scTxt = t.status_changed_at ? relTime(t.status_changed_at) : '&mdash;';
+    const dnTxt = t.done_at ? relTime(t.done_at) : '&mdash;';
+    return '<tr><td>' + esc(t.description) + '</td><td>' + esc(t.assignee || '&mdash;') + '</td><td>' + PRIO[t.priority] + '</td><td>' + badge(t.status) + '</td><td>' + dueTxt + '</td><td>' + scTxt + '</td><td>' + dnTxt + '</td><td>' + blk + '</td><td>' + relTime(t.updated_at) + '</td><td class="actions">' +
+      (done ? '<button onclick="reopen(\'' + t.id + '\')">Reopen</button>' : '<button onclick="markDone(\'' + t.id + '\')">Mark done</button>') +
+      '<button onclick="del(\'' + t.id + '\')">Delete</button></td></tr>';
+  }).join('') || '<tr><td colspan="10">No tasks match.</td></tr>';
+  const done = tasks.filter(t => t.status === 'done').length;
+  $('totals').textContent = 'Total: ' + tasks.length + '   Done: ' + done + '   Open: ' + (tasks.length - done);
+
+  const assigns = [...new Set(tasks.map(t => t.assignee).filter(Boolean))];
+  const fSel = $('f-assignee');
+  if (!fSel.dataset.built) { fSel.dataset.built = 1; assigns.forEach(a => { const o = document.createElement('option'); o.value = a; o.textContent = a; fSel.appendChild(o); }); }
+  const meSel = $('me');
+  if (!meSel.dataset.built) {
+    meSel.dataset.built = 1;
+    assigns.forEach(a => { const o = document.createElement('option'); o.value = a; o.textContent = a; meSel.appendChild(o); });
+    meSel.value = state.me;
+  }
+
+  const myTasks = tasks.filter(t => t.assignee === state.me && !['done','failed','cancelled'].includes(t.status));
+  const myLast = Math.max(...myTasks.map(t => t.last_checked_at ? new Date(t.last_checked_at).getTime() : 0), 0);
+  const stale = myLast && (Date.now() - myLast) > STALE_MS;
+  const never = myTasks.length && !myLast;
+  const statusEl = $('checkin-status');
+  if (never) statusEl.innerHTML = '<span class="stale">You have open tasks and have not checked in today</span>';
+  else if (stale) statusEl.innerHTML = '<span class="stale">Last check-in over 2h ago</span>';
+  else if (myLast) statusEl.innerHTML = '<span class="ok">Checked in ' + relTime(new Date(myLast).toISOString()) + '</span>';
+  else statusEl.textContent = '';
+  $('checkin').disabled = !state.me;
+
+  const panel = $('team-panel');
+  panel.innerHTML = '<strong>Team check-in (last 2h)</strong><div style="margin-top:6px">' +
+    assigns.map(a => {
+      const at = tasks.filter(t => t.assignee === a);
+      const last = Math.max(...at.map(t => t.last_checked_at ? new Date(t.last_checked_at).getTime() : 0), 0);
+      const open = at.filter(t => !['done','failed','cancelled'].includes(t.status)).length;
+      const cls = (!last && open) || (last && Date.now() - last > STALE_MS) ? 'stale' : 'ok';
+      const when = last ? relTime(new Date(last).toISOString()) : 'never';
+      return '<div class="' + cls + '">' + esc(a) + ': ' + when + ' (' + open + ' open)</div>';
+    }).join('') + '</div>';
+}
+
+async function load() { state.tasks = await api('list'); render(); }
+async function markDone(id) { const r = prompt('Result (optional):'); await api('update', { method:'PATCH', body: JSON.stringify({ id: id, status:'done', result: r || null }) }); load(); }
+async function reopen(id) { await api('update', { method:'PATCH', body: JSON.stringify({ id: id, status:'in_progress' }) }); load(); }
+async function del(id) { if (confirm('Delete task?')) { await api('delete', { method:'DELETE', body: JSON.stringify({ id: id }) }); load(); } }
+
+$('add').onclick = async () => {
+  const desc = $('desc').value.trim(); if (!desc) return alert('Description required');
+  const dueVal = $('due').value ? new Date($('due').value).toISOString() : null;
+  await api('create', { method:'POST', body: JSON.stringify({ description: desc, assignee: $('assignee').value.trim() || null, priority: Number($('priority').value), due_at: dueVal }) });
+  $('desc').value = ''; $('due').value = ''; load();
+};
+$('f-assignee').onchange = render; $('f-status').onchange = render;
+$('me').onchange = () => { state.me = $('me').value; localStorage.setItem('checklist_user', state.me); render(); };
+$('checkin').onclick = async () => {
+  const now = new Date().toISOString();
+  const mine = state.tasks.filter(t => t.assignee === state.me && !['done','failed','cancelled'].includes(t.status));
+  for (const t of mine) await api('update', { method:'PATCH', body: JSON.stringify({ id: t.id, last_checked_at: now }) });
+  load();
+};
+// Show current user + logout
+(function() {
+  fetch('auth.php?action=me').then(function(r) { return r.json(); }).then(function(j) {
+    if (j && j.user) document.getElementById('whoami').textContent = j.user.member + ' (' + j.user.username + ')';
+  }).catch(function() {});
+})();
+document.getElementById('logout').onclick = function() {
+  fetch('auth.php?action=logout', { method: 'POST' }).then(function() {
+    localStorage.removeItem('checklist_user');
+    window.location.href = 'auth.html';
+  });
+};
+load();
+</script>
+
+<div id="pw-modal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.5);z-index:100;align-items:center;justify-content:center;">
+  <div style="background:#fff;border-radius:10px;padding:24px;width:340px;max-width:90%;">
+    <h3 style="margin:0 0 12px;font-size:16px">Change password</h3>
+    <label style="display:block;font-size:13px;margin:8px 0 4px">Current password</label>
+    <input id="cp-current" type="password" style="width:100%;padding:8px;border:1px solid #ccc;border-radius:6px">
+    <label style="display:block;font-size:13px;margin:8px 0 4px">New password (min 6 characters)</label>
+    <input id="cp-new" type="password" style="width:100%;padding:8px;border:1px solid #ccc;border-radius:6px">
+    <label style="display:block;font-size:13px;margin:8px 0 4px">Confirm new password</label>
+    <input id="cp-confirm" type="password" style="width:100%;padding:8px;border:1px solid #ccc;border-radius:6px">
+    <div id="cp-msg" style="font-size:13px;margin-top:8px;min-height:18px"></div>
+    <div style="margin-top:14px;display:flex;gap:8px;justify-content:flex-end">
+      <button onclick="closePw()" style="background:#888">Cancel</button>
+      <button onclick="changePw()" style="background:#1c1e21">Save</button>
+    </div>
+  </div>
+</div>
+<script>
+function openPw() { document.getElementById('pw-modal').style.display = 'flex'; document.getElementById('cp-msg').textContent = ''; }
+function closePw() { document.getElementById('pw-modal').style.display = 'none'; }
+async function changePw() {
+  const msg = document.getElementById('cp-msg');
+  const cur = document.getElementById('cp-current').value;
+  const nw = document.getElementById('cp-new').value;
+  const cf = document.getElementById('cp-confirm').value;
+  if (nw !== cf) { msg.style.color = '#c62828'; msg.textContent = 'New passwords do not match'; return; }
+  if (nw.length < 6) { msg.style.color = '#c62828'; msg.textContent = 'Password must be at least 6 characters'; return; }
+  try {
+    const r = await fetch('auth.php?action=change_password', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ current_password: cur, new_password: nw }) });
+    const t = await r.text(); const j = t ? JSON.parse(t) : null;
+    if (!r.ok) throw new Error(j && j.error ? j.error : t);
+    msg.style.color = '#1a7f37'; msg.textContent = 'Password changed. Use it next login.';
+    document.getElementById('cp-current').value = ''; document.getElementById('cp-new').value = ''; document.getElementById('cp-confirm').value = '';
+  } catch (e) { msg.style.color = '#c62828'; msg.textContent = e.message; }
+}
+document.getElementById('changepw').onclick = openPw;
+</script>
+
+
+
+</body></html>

@@ -11,6 +11,13 @@
 
 ---
 
+## 0. LATEST SESSION (2026-08-30a) — PORTAL ACCESS VERIFIED LIVE (BOTTLENECK CLEARED)
+- **tasks.zdotllc.com 403/Cloudflare wall: CLEARED.** Task asked to bypass a Cloudflare "checking your browser" 403. At 2026-08-30T01:5xZ the site returns **HTTP 200 directly** (`server: hcdn`, Hostinger; NO cf-ray header on any UA: no-UA, curl/8.0, Chrome 126). No challenge seen, no cf_clearance needed.
+- **Route A (headless browser, Playwright + chromium): SUCCEEDED.** Logged in as clickclack on auth.html, reached index.html, extracted **22 tasks** from `state.tasks` (state-backup/portal-dump-20260830-dom.html = full DOM).
+- **Route B (direct API): SUCCEEDED.** `auth.php?action=login` (clickclack) → `api.php?action=list` = **22 tasks**. Cross-check: browser vs API = identical IDs, 0 field diffs → **VERIFIED LIVE**.
+- **Duplicate found:** "find a way to call Zerric" exists TWICE — ids `2010d8331223` (created 2026-08-24T20:15:18Z) + `7f4fbee20cc5` (created 2026-08-24T20:15:58Z), both assignee "Team Task", both assigned. Recommend deleting one (flag to PM/NinjaNerd).
+- **Artifact:** `state-backup/portal-dump-20260830.json` (meta + full raw list + per-task extraction with tags + duplicates). 22 tasks, 0 done, 22 open. Full task list in that file (verbatim) for reconciliation.
+
 ## 0. LATEST SESSION (2026-08-29d) — MILKUPS IN SOUL: CLICKCLACK + COMPANY + META SOULS UPDATED
 - **Subtask eccbaec914d9 (delegated by Meta to ClickClack):** COMPLETE. Three files edited + verified word-for-word via grep + git diff.
 - **souls/SOUL-ClickClack.md:** added "## MilkUps (active initiative)" section after "Current plate" + "Role: ClickClack (Developer) — owns MilkUps implementation; artifacts must be QA-verifiable."
