@@ -1,10 +1,10 @@
 {
- "generated_at": "2026-08-30T00:10:01.336067+00:00",
+ "generated_at": "2026-08-30T01:50:01.665665+00:00",
  "note": "Sanitized continuity snapshot. Sensitive fields masked (***). Restore: this JSON documents what was in flight so work can resume after any disruption.",
  "tables": {
   "agents": {
    "table": "agents",
-   "count": 8,
+   "count": 9,
    "rows": [
     {
      "id": "BossLady",
@@ -85,12 +85,22 @@
      "config_json": "{}",
      "status": "active",
      "created_at": "2026-08-23 23:17:29"
+    },
+    {
+     "id": "Temp",
+     "name": "Temp",
+     "role": "developer",
+     "provider": "",
+     "model": "",
+     "config_json": "{}",
+     "status": "fired",
+     "created_at": "2026-08-30 01:35:22"
     }
    ]
   },
   "tasks": {
    "table": "tasks",
-   "count": 372,
+   "count": 374,
    "rows": [
     {
      "id": "1e06bda85075",
@@ -4555,12 +4565,36 @@
      "artifacts_json": "***",
      "created_at": "2026-08-29 20:52:58",
      "updated_at": "2026-08-29 20:57:21"
+    },
+    {
+     "id": "369504d5b1c6",
+     "description": "COMPANY GOAL: check the tasks/progress portal and clear up all bottlenecks\n\nAs CEO, analyze this goal and break it down into concrete tasks for your team. Delegate each task to the appropriate team member using the delegate_task tool. Consider what each department needs to do. After delegating all tasks, report a summary of the plan.",
+     "assignee_id": "BossLady",
+     "status": "done",
+     "priority": 0,
+     "parent_id": null,
+     "result": "***",
+     "artifacts_json": "***",
+     "created_at": "2026-08-30 01:45:47",
+     "updated_at": "2026-08-30 01:47:00"
+    },
+    {
+     "id": "adfd801c0ce6",
+     "description": "***",
+     "assignee_id": "NinjaNerd",
+     "status": "assigned",
+     "priority": 0,
+     "parent_id": "369504d5b1c6",
+     "result": null,
+     "artifacts_json": "[]",
+     "created_at": "2026-08-30 01:47:00",
+     "updated_at": "2026-08-30 01:47:00"
     }
    ]
   },
   "messages": {
    "table": "messages",
-   "count": 472,
+   "count": 479,
    "rows": [
     {
      "id": "bfc26bedbffc",
@@ -8809,6 +8843,69 @@
      "topic": "task.completed",
      "metadata_json": "{}",
      "timestamp": "2026-08-29T20:57:21.129664+00:00"
+    },
+    {
+     "id": "b1ffd1d76cef",
+     "from_agent": "BossLady",
+     "to_agent": null,
+     "content": "***",
+     "topic": "task.delegate",
+     "metadata_json": "{}",
+     "timestamp": "2026-08-30T01:46:29.101423+00:00"
+    },
+    {
+     "id": "cf03c61365be",
+     "from_agent": "BossLady",
+     "to_agent": null,
+     "content": "***",
+     "topic": "task.delegate",
+     "metadata_json": "{}",
+     "timestamp": "2026-08-30T01:46:29.107441+00:00"
+    },
+    {
+     "id": "8f1e10a3e184",
+     "from_agent": "BossLady",
+     "to_agent": null,
+     "content": "{\"action\": \"delegate\", \"from\": \"BossLady\", \"to_role\": \"marketer\", \"task_id\": \"617b521c738f\", \"description\": \"SOCIAL BACKLOG IS STUCK: 50 drafts exist in the social queue (SnowSnakes LIGHT launch, SNITCH mode, Spread Da Word, Z-Dot brand, Snow Beats, dad jokes) and ZERO have been published. Content is sitting \\u2014 no distribution, no leads, no traffic. This is a critical bottleneck.\\n\\nTasks:\\n1. PUBLISH THE LAUNCH: Immediately push the SnowSnakes LIGHT launch set \\u2014 drafts #81 (LinkedIn), #82 (Twitter/X), #83 (Facebook) \\u2014 the free prototype is LIVE and this is the freshest news. Then the SNITCH mode set (#76-#80) and the light-version teasers (#71-#75).\\n2. BRAND: Follow with the Z-Dot \\\"We'll have our bots call your bots\\\" set (#68 LinkedIn, #69 Twitter, #70 Instagram).\\n3. CADENCE: Build a 7-day posting calendar (2-3 posts/day across platforms, no more than 1-2 per platform per day). Stagger so platforms don't get identical content simultaneously. Use the remaining drafts (Spread Da Word #34-#61, Snow Beats #66-#67, dad jokes #62-#65) to fill the week.\\n4. COORDINATION: Confirm each draft is approved before publishing; route any needed approvals through the CEO. After publishing, confirm status flips to \\\"posted\\\" in the portal.\\n\\nSuccess criteria: \\u226510 posts live within 48 hours (all 3 SnowSnakes LIGHT platform posts within 24h), and a full 7-day calendar documented. Report published post IDs + scheduled plan.\"}",
+     "topic": "task.delegate",
+     "metadata_json": "{}",
+     "timestamp": "2026-08-30T01:46:29.112283+00:00"
+    },
+    {
+     "id": "2f5a3aa180d6",
+     "from_agent": "BossLady",
+     "to_agent": null,
+     "content": "{\"action\": \"delegate\", \"from\": \"BossLady\", \"to_role\": \"\", \"task_id\": \"b2704ef15979\", \"description\": \"\"}",
+     "topic": "task.delegate",
+     "metadata_json": "{}",
+     "timestamp": "2026-08-30T01:46:29.180401+00:00"
+    },
+    {
+     "id": "5c006fe98ea6",
+     "from_agent": "BossLady",
+     "to_agent": null,
+     "content": "{\"action\": \"delegate\", \"from\": \"BossLady\", \"to_role\": \"sales\", \"task_id\": \"0a3b2aec9921\", \"description\": \"PIPELINE IS FULL BUT REVENUE IS ZERO: 35 contacts in the CRM \\u2014 30+ Z-Dot local business leads (HVAC, cleaning, plumbing, painting, roofing, landscaping, auto) and 5 SnowSnakes gaming-partner leads \\u2014 and ZERO customers, ZERO closed deals, ZERO revenue. The sales engine is stuck at outreach.\\n\\nTasks:\\n1. PRIORITIZE: Rank the 35 leads by (a) decision-maker confirmed, (b) known need (website/SEO/marketing/booking), (c) speed-to-close. Top candidates from notes: Compass Heating & Cooling (#9), BC Plumbing (#1), David's Lawn Service (#5), Scott's Landscaping (#6), Golden Plumbing (#3), Bluegrass Fleet (#22), Highland Roofing (#17).\\n2. SNOWSNAKES GAMING PARTNERS: Continue the outreach sprint on the 5 tagged targets \\u2014 Hex & Co (#34), Cloutboost (#35), Good Game (#31), Snakes & Lattes (#32), Howl at the Moon (#33). These are the \\\"Spread-Da-Word\\\" partner track; get at least one committed partner or a booked demo.\\n3. MILKUPS: This is an active Z-Dot initiative you own \\u2014 keep it moving and report status.\\n4. CLOSE THE FIRST DEAL: Convert at least ONE Z-Dot local business lead to a paid engagement (website/SEO/automation) this week. Offer a concrete, small first step (landing page, booking widget, automation audit) to lower the friction.\\n5. CRM HYGIENE: Flag the 3 JUNK contacts (#13, #14, #16 \\u2014 directory/scraper artifacts) for deletion so the pipeline is clean.\\n\\nSuccess criteria: One signed/paid Z-Dot customer + one committed gaming partner or booked demo by end of week. Report pipeline movement: # contacted, # replied, # proposals sent, # closed \\u2014 and what's blocked.\"}",
+     "topic": "task.delegate",
+     "metadata_json": "{}",
+     "timestamp": "2026-08-30T01:46:41.489840+00:00"
+    },
+    {
+     "id": "5bcf94bd353f",
+     "from_agent": "BossLady",
+     "to_agent": null,
+     "content": "{\"action\": \"delegate\", \"from\": \"BossLady\", \"to_role\": \"finance\", \"task_id\": \"bb22fc73f54a\", \"description\": \"REVENUE OPS \\u2014 READINESS & TRACKING: All-time revenue is $0.00 and every revenue channel (Stripe, Gumroad, invoices, crypto wallet) is currently unconfigured. The CTO is fixing integration config today. Your job:\\n\\n1. REVENUE TRACKING BASELINE: Establish the daily revenue dashboard baseline \\u2014 today's number is $0.00 across all sources (stripe, gumroad, invoice, crypto, manual). Track it daily; any non-zero day gets flagged to the CEO.\\n2. INVOICE PIPELINE: As soon as the invoice integration is enabled (CTO task), configure company_name and prep 2-3 invoice templates so sales can invoice the first Z-Dot local business deal the moment it closes. Sales target: first paid deal this week \\u2014 invoices must be ready to fire same-day.\\n3. PAYMENT REQUESTS: Audit the payment request queue \\u2014 list pending/approved/rejected requests and clear any stale ones. Any approved-but-unsent payments must be executed immediately (once wallet/Stripe are live) or escalated.\\n4. T5 STRIPE KEYS: Coordinate with the CTO and CEO \\u2014 Stripe keys from Zerric are the single gate on ALL revenue. Track this as the #1 financial blocker and report its status daily until resolved.\\n\\nSuccess criteria: Revenue dashboard baseline documented, invoice templates ready, payment queue audited and cleared, and a daily revenue status line in your updates. Report done / in progress / blocked.\"}",
+     "topic": "task.delegate",
+     "metadata_json": "{}",
+     "timestamp": "2026-08-30T01:46:41.560918+00:00"
+    },
+    {
+     "id": "e9ecb468da78",
+     "from_agent": "BossLady",
+     "to_agent": null,
+     "content": "Task completed (done): COMPANY GOAL: CLEAR ALL BOTTLENECKS \u2014 CEO ANALYSIS, PLAN & DELEGATIONS (BossLady, Z-Dot LLC)\n\n## 1. SITUATION ASSESSMENT (verified via tools)\nI pulled the full operational state. The company is NOT br",
+     "topic": "task.completed",
+     "metadata_json": "{}",
+     "timestamp": "2026-08-30T01:47:00.486465+00:00"
     }
    ]
   },
@@ -8819,11 +8916,11 @@
   },
   "sqlite_sequence": {
    "table": "sqlite_sequence",
-   "count": 6,
+   "count": 7,
    "rows": [
     {
      "name": "browse_log",
-     "seq": 427
+     "seq": 438
     },
     {
      "name": "prospect_searches",
@@ -8844,12 +8941,16 @@
     {
      "name": "landing_pages",
      "seq": 27
+    },
+    {
+     "name": "payment_links",
+     "seq": 1
     }
    ]
   },
   "artifacts": {
    "table": "artifacts",
-   "count": 177,
+   "count": 178,
    "rows": [
     {
      "id": "bd30561548dc",
@@ -10443,12 +10544,21 @@
      "content": "***",
      "artifact_type": "text",
      "created_at": "2026-08-29 20:57:21"
+    },
+    {
+     "id": "2f06833160d2",
+     "task_id": "369504d5b1c6",
+     "agent_id": "BossLady",
+     "name": "result",
+     "content": "***",
+     "artifact_type": "text",
+     "created_at": "2026-08-30 01:47:00"
     }
    ]
   },
   "goals": {
    "table": "goals",
-   "count": 60,
+   "count": 62,
    "rows": [
     {
      "id": "bf88aa5e1266",
@@ -10869,13 +10979,34 @@
      "status": "failed",
      "created_at": "2026-08-29 23:07:51",
      "completed_at": "2026-08-29 23:07:51"
+    },
+    {
+     "id": "708bfef5ca80",
+     "description": "This seems like such an easy fix for the group chat. Why isn't it fixed? \nError: No agent named 'group'.",
+     "status": "failed",
+     "created_at": "2026-08-30 01:07:13",
+     "completed_at": "2026-08-30 01:07:13"
+    },
+    {
+     "id": "848b4b7d14a0",
+     "description": "check the tasks/progress portal and clear up all bottlenecks",
+     "status": "active",
+     "created_at": "2026-08-30 01:45:47",
+     "completed_at": null
     }
    ]
   },
   "wallets": {
    "table": "wallets",
-   "count": 0,
-   "rows": []
+   "count": 1,
+   "rows": [
+    {
+     "id": "c9ba5e169ef4",
+     "address": "***",
+     "keystore_path": "***",
+     "created_at": "2026-08-30 01:48:27"
+    }
+   ]
   },
   "payment_queue": {
    "table": "payment_queue",
@@ -11420,8 +11551,22 @@
   },
   "payment_links": {
    "table": "payment_links",
-   "count": 0,
-   "rows": []
+   "count": 1,
+   "rows": [
+    {
+     "id": 1,
+     "stripe_url": "https://buy.stripe.com/8x200jewDfTRgp0b8e3VC00",
+     "stripe_price_id": "price_1U9xsiGviPL80jeHlfAiidVD",
+     "stripe_payment_link_id": "plink_1U9xsiGviPL80jeHG637dTJI",
+     "product_name": "Revenue Infra Verification (Z-Dot internal)",
+     "amount_cents": 500,
+     "currency": "usd",
+     "status": "active",
+     "contact_id": null,
+     "created_by": "unknown",
+     "created_at": "2026-08-30 01:50:00"
+    }
+   ]
   },
   "landing_pages": {
    "table": "landing_pages",
@@ -14094,7 +14239,7 @@
   },
   "browse_log": {
    "table": "browse_log",
-   "count": 427,
+   "count": 438,
    "rows": [
     {
      "id": 1,
@@ -18365,6 +18510,116 @@
      "extracted_links_count": 12,
      "browsed_by": "BossLady",
      "created_at": "2026-08-29 23:33:06"
+    },
+    {
+     "id": 428,
+     "url": "https://github.com/zaxbatch/playground/tree/main/retroWave/prototype",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 10,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-30 01:07:58"
+    },
+    {
+     "id": 429,
+     "url": "https://raw.githubusercontent.com/zaxbatch/playground/main/retroWave/public/index.html",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-30 01:07:59"
+    },
+    {
+     "id": 430,
+     "url": "https://milkups.zerric.xyz",
+     "status_code": 403,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-30 01:09:55"
+    },
+    {
+     "id": 431,
+     "url": "https://tasks.zdotllc.com",
+     "status_code": 403,
+     "extract_mode": "meta",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Temp",
+     "created_at": "2026-08-30 01:42:00"
+    },
+    {
+     "id": 432,
+     "url": "http://localhost:8420",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Temp",
+     "created_at": "2026-08-30 01:45:05"
+    },
+    {
+     "id": 433,
+     "url": "http://127.0.0.1:8420",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Temp",
+     "created_at": "2026-08-30 01:45:05"
+    },
+    {
+     "id": 434,
+     "url": "http://localhost:8420",
+     "status_code": 200,
+     "extract_mode": "meta",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Temp",
+     "created_at": "2026-08-30 01:45:05"
+    },
+    {
+     "id": 435,
+     "url": "http://127.0.0.1:8420",
+     "status_code": 200,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Temp",
+     "created_at": "2026-08-30 01:45:05"
+    },
+    {
+     "id": 436,
+     "url": "http://localhost:8420",
+     "status_code": 200,
+     "extract_mode": "meta",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "ClickClack",
+     "created_at": "2026-08-30 01:45:47"
+    },
+    {
+     "id": 437,
+     "url": "https://tasks.zdotllc.com",
+     "status_code": 403,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-08-30 01:45:51"
+    },
+    {
+     "id": 438,
+     "url": "https://snowsnakes.zerric.xyz",
+     "status_code": 403,
+     "extract_mode": "meta",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "NinjaNerd",
+     "created_at": "2026-08-30 01:46:29"
     }
    ]
   },
