@@ -8,6 +8,13 @@
 
 ## CHANGELOG
 - 2026-08-24 — Offboarding: Temp (developer) departed. All open work reassigned (see portal). Temp removed from team list.
+## 0. LATEST SESSION (2026-08-30T02:11:22Z) — CTO AUDIT: MILESTONES A+B COMPLETE (real-time /progress GATE)
+- **Audit verified live (this session):** tasks.zdotllc.com = Hostinger shared hosting via hCDN (`server: hcdn`, `platform: hostinger`, `x-powered-by: PHP/8.3.30`). NO Cloudflare wall (200 direct, no cf-ray). /progress = 302→auth.html, server-rendered from proof.json (static snapshot, "Last updated 2026-08-25 00:09 UTC"), NO task rows. Dashboard index.html = load-time fetch only, NO polling/SSE/WS.
+- **Data source:** tasks.json flat file (22 tasks) + api.php?action=list|create|update|delete (session-gated, 401 verified). No DB, no percent field, no event log.
+- **Temp removal VERIFIED:** no Temp in souls/, auth.php TEAM_MEMBERS, live users.json (8 accounts), tasks.json assignees, checklist.json, dashboard_users.json, git log. Residual = historical state-backup snapshots only.
+- **NEW SECURITY FINDINGS (blocking-ish):** users.json (pw hashes), tasks.json (full task data), access.log (usernames+IPs) ALL publicly readable (200). Hardcoded \$TEAM_CODE='zDotcode#5' in auth.php. Fix = Step 1 of impl spec (.htaccess Deny + move code out of source).
+- **DECISION (MILESTONE B):** Ship Option 1 (30s polling, no reload) now; Option 2 (SSE) after an hCDN streaming gate test (curl -N 60s heartbeat). WebSocket NOT viable on shared hosting. Frontend isolates subscription behind single subscribe(cb) for drop-in SSE swap.
+- **Blocked on:** nothing. ClickClack can start Step 1 (security) + Step 3 (polling) immediately. Full spec in this session's report.
 ## 0. LATEST SESSION (2026-08-30b) — /progress PREP NOTE (Day 1 of real-time dashboard)
 - **Day-1 prep done (ClickClack):** `communication/progress-page-current-state.md` committed (10 lines, factual, cross-checks CTO audit).
 - **Verified live (logged-in fetch):** tasks.zdotllc.com/progress = auth-gated server-rendered PHP, STATIC snapshot from scripts/build_proof_site.py (Last updated 2026-08-25 00:09 UTC). NO task rows / status / owner / percent / last-updated.
