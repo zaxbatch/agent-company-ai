@@ -4,9 +4,19 @@
 > to pick up exactly where we left off. Every agent updates it at end of turn.
 > Auto-refresh: `python3 scripts/save_state.py` (also syncs the portal + git).
 
-**Last updated:** 2026-08-30T06:15:01Z
+**Last updated:** 2026-08-30T06:20:00Z
 
 ## CHANGELOG
+## 0. LATEST SESSION (2026-08-30e) — EMAIL DOMAIN POLICY: 3 ZONES, IN ALL 8 SOULS (ClickClack)
+- **Zerric final wording (2026-08-30):** THREE zones, no overlap —
+  - @zdotllc.com = REAL WORK/business email ONLY (staff, clients, vendors). Never dummies/tests/QA/seed.
+  - @zerric.xyz = PLAY-side content owners (play which is business): MilkUps → milkups@zerric.xyz (already live), snowsnakes@, spreaddaword@, snitch@ — all forward to ez@zerric.xyz. Keeps play separate from work.
+  - @zdot-dummy.com = ALL dummy/test/QA/seed/persona accounts ONLY (NOT YET REGISTERED — no new dummies until it is; NinjaNerd drives registration).
+- **SOUL rollout COMPLETE (8/8 files):** company SOUL (archive/zerric-xyz-main/SOUL.md) Boundaries + "## Email & Dummy Account Policy" + every souls/SOUL-*.md Boundaries. Verified via grep (`zdot-dummy` in all 8; no file says MilkUps uses @zdotllc.com).
+- **MilkUps website inspiration (Zerric):** https://thebreedling.com (One Page Love winner) → recorded in company SOUL "## MilkUps website direction (Zerric 2026-08-30)". Current: content/milkups/index.html live at zdotllc.com/milkups + milkups.netlify.app; redesign toward breedling-inspired immersive band one-pager.
+- **Team convo order (Zerric):** Zerric → BossLady → NinjaNerd → ClickClack → Mark → Meta → Manny → Seleena (recorded in company SOUL).
+- **Existing records already correct:** resources/DOMAIN-INVENTORY.md 3-zone table; .snowsnakes_brand_accounts.json MilkUps = milkups@zerric.xyz.
+
 ## 0. LATEST SESSION (2026-08-30d) — CTO: ZDOT-DUMMY.COM POLICY (BossLady)
 - Policy live: all dummy/test/QA/seed accounts MUST use @zdot-dummy.com; @zdotllc.com = real correspondence ONLY.
 - zdot-dummy.com verified AVAILABLE (RDAP 404 + NXDOMAIN). Registration pending BossLady purchase (Hostinger, ~$10-16/yr).
