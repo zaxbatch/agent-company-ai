@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-30T22:00:01.155658+00:00",
+ "generated_at": "2026-08-30T23:40:01.605011+00:00",
  "note": "Sanitized continuity snapshot. Sensitive fields masked (***). Restore: this JSON documents what was in flight so work can resume after any disruption.",
  "tables": {
   "agents": {
@@ -90,7 +90,7 @@
   },
   "tasks": {
    "table": "tasks",
-   "count": 526,
+   "count": 528,
    "rows": [
     {
      "id": "1e06bda85075",
@@ -6403,6 +6403,30 @@
      "artifacts_json": "***",
      "created_at": "2026-08-30 21:42:11",
      "updated_at": "2026-08-30 21:44:37"
+    },
+    {
+     "id": "ccb3db20b511",
+     "description": "let's edit the songs on the album. All of these songs sound very similar. We did better with the first spread da word sountrack. Also, the tracks on the album page don't play (possibly due to downloading the whole album instead of individual tracks). We need to provide more structure and variation to these songs and make them playable on the album page",
+     "assignee_id": "NinjaNerd",
+     "status": "failed",
+     "priority": 0,
+     "parent_id": null,
+     "result": "Exceeded maximum iterations without completing.",
+     "artifacts_json": "[]",
+     "created_at": "2026-08-30 23:08:54",
+     "updated_at": "2026-08-30 23:11:02"
+    },
+    {
+     "id": "92b24a36e9b1",
+     "description": "Edit the Milkups album. All the songs sound the same, Let's add variety. Use the soundtrack for Spread Da Word as template since it is closer to what I'm expecting",
+     "assignee_id": "ClickClack",
+     "status": "failed",
+     "priority": 0,
+     "parent_id": null,
+     "result": "Exceeded maximum iterations without completing.",
+     "artifacts_json": "[]",
+     "created_at": "2026-08-30 23:34:03",
+     "updated_at": "2026-08-30 23:36:46"
     }
    ]
   },
@@ -14892,7 +14916,7 @@
   },
   "goals": {
    "table": "goals",
-   "count": 72,
+   "count": 74,
    "rows": [
     {
      "id": "bf88aa5e1266",
@@ -15397,6 +15421,20 @@
      "status": "failed",
      "created_at": "2026-08-30 21:31:28",
      "completed_at": "2026-08-30 21:31:28"
+    },
+    {
+     "id": "cf7cf646f274",
+     "description": "Redo the milkups album. Give the songs more structure and make sure they don't all sound alike. Make sure they are playable from the album page",
+     "status": "failed",
+     "created_at": "2026-08-30 22:52:43",
+     "completed_at": "2026-08-30 22:52:43"
+    },
+    {
+     "id": "ac3acaaebabd",
+     "description": "let's edit the songs on the album. All of these songs sound very similar. We did better with the first spread da word sountrack. Also, the tracks on the album page don't play (possibly due to downloading the whole album instead of individual tracks). We need to provide more structure and variation to these songs and make them playable on the album page",
+     "status": "failed",
+     "created_at": "2026-08-30 23:06:22",
+     "completed_at": "2026-08-30 23:06:22"
     }
    ]
   },
