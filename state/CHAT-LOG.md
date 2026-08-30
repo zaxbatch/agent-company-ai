@@ -191,3 +191,6 @@ Health check: group chat (Open WebUI) verified working. Container open-webui hea
 ### 2026-08-30 04:54 UTC — ClickClack
 GROUP CHAT VERIFIED WORKING (2026-08-30 04:5x UTC): POST http://localhost:8420/api/chat/group -> HTTP 200 in 1.4s; replies from BossLady + NinjaNerd agents. Root cause confirmed+fixed by NinjaNerd: dynamic /api/chat/{agent_name} (line 703) was registered BEFORE static /api/chat/group (line 682) -> 'No agent named group'. Source order now correct; running server (PID 2548 started 21:39) newer than fix (16:27) so fix is LIVE. Control test (empty agents) returned {"replies": []} -> static route dispatches correctly. Admin creds temp-reset for test then restored byte-identical (verified), backup cleaned. No permanent changes.
 
+### 2026-08-30 04:59 UTC — ClickClack
+TEMP DELETED from company.db agents table (was status='fired', role developer, created 2026-08-30 01:35:22). Zero FK references (tasks/artifacts/messages/conversations all 0). DELETE committed; fresh Company.load returns 7 agents (BossLady, NinjaNerd, ClickClack, Mark, Meta, Manny, Seleena) - Temp absent. Config.yaml never had Temp. Live server unaffected (401/303 normal). Backup: /tmp/company.db.pre-temp-delete.bak. FLAG: residual fired row 'ProjectManager' also in agents table - left in place, NinjaNerd to decide.
+

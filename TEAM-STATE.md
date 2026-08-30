@@ -8,6 +8,10 @@
 
 ## CHANGELOG
 - 2026-08-24 — Offboarding: Temp (developer) departed. All open work reassigned (see portal). Temp removed from team list.
+## 0. LATEST SESSION (2026-08-30b) — TEMP AGENT DELETED (ClickClack)
+- **Deleted the 'Temp' (developer) row from `.agent-company-ai/default/company.db` `agents` table.** It was a residual fired row (status='fired', created 2026-08-30 01:35:22). Zero FK references verified before delete (tasks.assignee_id=0, artifacts.agent_id=0, messages from/to=0, conversations=0).
+- **Verification:** fresh `Company.load('default')` now returns 7 agents — BossLady, NinjaNerd, ClickClack, Mark, Meta, Manny, Seleena; Temp absent. config.yaml never contained Temp (7-agent list). Live dashboard (PID 2548, :8420) unaffected (API 401 / login 303 normal). Pre-delete backup: `/tmp/company.db.pre-temp-delete.bak`.
+- **FLAG:** residual fired row `ProjectManager` (project_manager) still in agents table — left in place; NinjaNerd to decide keep/delete.
 ## 0. LATEST SESSION (2026-08-30) — GROUP CHAT VERIFIED WORKING (ClickClack)
 - **Verdict: group chat works.** Live POST to http://localhost:8420/api/chat/group returned HTTP 200 in 1.4s with replies from BossLady + NinjaNerd agents (verified 2026-08-30 ~04:55 UTC).
 - **Root cause (NinjaNerd's fix, now confirmed live):** dynamic route `/api/chat/{agent_name}` (server.py line 703) was registered BEFORE static `/api/chat/group` (line 682), so POST /api/chat/group was captured as agent_name="group" -> `No agent named 'group'`. Static-first order is in source; running server (PID 2548, started 2026-08-29 21:39) is newer than the fix (file mtime 16:27) => fix is LIVE.
