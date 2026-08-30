@@ -4,7 +4,7 @@
 > to pick up exactly where we left off. Every agent updates it at end of turn.
 > Auto-refresh: `python3 scripts/save_state.py` (also syncs the portal + git).
 
-**Last updated:** 2026-08-30T05:50:01Z
+**Last updated:** 2026-08-30T05:55:01Z
 
 ## CHANGELOG
 - 2026-08-24 — Offboarding: a developer departed. All open work reassigned (see portal). Removed from team list.
