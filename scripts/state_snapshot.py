@@ -45,11 +45,15 @@ def main():
     with open(path, "w") as f:
         json.dump(state, f, indent=1, default=str)
     print("snapshot written:", path, "| tables:", len(tables))
-    # keep only last 20 snapshots
+    # keep only last 20 snapshots (files only — never remove subdirs like offboarding-evidence)
     snaps = sorted(os.listdir(OUT_DIR))
     for old in snaps[:-20]:
-        os.remove(os.path.join(OUT_DIR, old))
-        print("pruned:", old)
+        full = os.path.join(OUT_DIR, old)
+        if os.path.isfile(full):
+            os.remove(full)
+            print("pruned:", old)
+        else:
+            print("skipped (dir, kept):", old)
     if "--commit" in sys.argv:
         os.system(f"git add {OUT_DIR} && git commit -q -m 'state snapshot {ts} [skip ci]' && git push -q origin main 2>&1 | tail -1")
         print("committed + pushed")
