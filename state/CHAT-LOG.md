@@ -194,3 +194,6 @@ GROUP CHAT VERIFIED WORKING (2026-08-30 04:5x UTC): POST http://localhost:8420/a
 ### 2026-08-30 04:59 UTC — ClickClack
 TEMP DELETED from company.db agents table (was status='fired', role developer, created 2026-08-30 01:35:22). Zero FK references (tasks/artifacts/messages/conversations all 0). DELETE committed; fresh Company.load returns 7 agents (BossLady, NinjaNerd, ClickClack, Mark, Meta, Manny, Seleena) - Temp absent. Config.yaml never had Temp. Live server unaffected (401/303 normal). Backup: /tmp/company.db.pre-temp-delete.bak. FLAG: residual fired row 'ProjectManager' also in agents table - left in place, NinjaNerd to decide.
 
+### 2026-08-30 05:01 UTC — ClickClack
+ProjectManager row NOT deleted - it is Meta's ORIGINAL hire record (default hire name for role project_manager = 'ProjectManager', created 2026-08-23 04:55). Has 10 tasks + 6 artifacts + 36 messages of Meta's PM history (CEO channel, status email, notification system). Deleting it would wipe Meta's early work. Kept in place. If cleanup ever wanted: reassign history to Meta (UPDATE tasks/artifacts/messages), never DELETE.
+

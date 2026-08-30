@@ -8,6 +8,10 @@
 
 ## CHANGELOG
 - 2026-08-24 — Offboarding: Temp (developer) departed. All open work reassigned (see portal). Temp removed from team list.
+## 0. LATEST SESSION (2026-08-30c) — PROJECTMANAGER ROW = META'S HISTORY (ClickClack)
+- **Decision: DO NOT delete the `ProjectManager` fired row in company.db agents.** It is Meta's ORIGINAL hire record: `hire()` default name = `role.title.replace(" ", "")` -> role project_manager (title "Project Manager") -> "ProjectManager" (created 2026-08-23 04:55:06). It holds 10 tasks + 6 artifacts + 36 messages of Meta's early PM history (CEO communication channel, status update email, dashboard notification system). Deleting it would wipe Meta's work.
+- **Temp deletion (previous session) was safe by contrast: 0 references.**
+- If ProjectManager cleanup is ever wanted: REASSIGN history to Meta (UPDATE agents refs in tasks/artifacts/messages), never DELETE. No action taken.
 ## 0. LATEST SESSION (2026-08-30b) — TEMP AGENT DELETED (ClickClack)
 - **Deleted the 'Temp' (developer) row from `.agent-company-ai/default/company.db` `agents` table.** It was a residual fired row (status='fired', created 2026-08-30 01:35:22). Zero FK references verified before delete (tasks.assignee_id=0, artifacts.agent_id=0, messages from/to=0, conversations=0).
 - **Verification:** fresh `Company.load('default')` now returns 7 agents — BossLady, NinjaNerd, ClickClack, Mark, Meta, Manny, Seleena; Temp absent. config.yaml never contained Temp (7-agent list). Live dashboard (PID 2548, :8420) unaffected (API 401 / login 303 normal). Pre-delete backup: `/tmp/company.db.pre-temp-delete.bak`.
