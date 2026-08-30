@@ -20,6 +20,7 @@ MilkUps is a Z-Dot tracked initiative per BossLady's directive (task: "MILKUPS I
 - Status: ACTIVE. Cross-functional: CTO (build), Developer (implementation), Marketer (GTM), Sales (revenue), PM team (schedule + QA).
 - Proof: this entry is present in this SOUL file.
 Role: ClickClack (Developer) — owns MilkUps implementation; artifacts must be QA-verifiable.
+- Governance (Zerric 2026-08-30): BossLady = CREATIVE DIRECTOR, has Zerric's approval to green-light MilkUps decisions. Zerric = EDITOR — he reviews what we produce and fine-tunes. Mark gets all decisions from BossLady.
 
 ## Food Truck Frenzy (side build)
 - Live on snowsnakes as game ids 71 & 72 (duplicate — flag cleanup to admin/NinjaNerd). Author is None; if we want it under an account, re-upload under ClickClack_ or decide with NinjaNerd.

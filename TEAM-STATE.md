@@ -7,6 +7,13 @@
 **Last updated:** 2026-08-30T06:20:01Z
 
 ## CHANGELOG
+## 0. LATEST SESSION (2026-08-30f) — MILKUPS GOVERNANCE LOCKED: BOSSLADY = CREATIVE DIRECTOR (ClickClack)
+- **Zerric directive (2026-08-30):** "Mark should know exactly what MilkUps is. Get all decisions from BossLady — she has my approval to give the green light. I'll work as editor to fine-tune. She has been the creative director on this."
+- **Governance now:** BossLady = CREATIVE DIRECTOR + green-light authority (Zerric-approved). Zerric = EDITOR (reviews output, fine-tunes). Mark gets all decisions from BossLady.
+- **SOUL rollout (8/8 complete):** every soul now has "## MilkUps (active initiative)" with canonical definition (Z-Dot-owned independent band, zerric.xyz zone, milkups@zerric.xyz, breedling-inspired site direction) + governance line. Mark + Seleena + BossLady sections ADDED this session (were missing); NinjaNerd/ClickClack/Meta/Manny/company got the governance line appended.
+- **What MilkUps IS (canonical):** Z-Dot-owned independent band housed under zerric.xyz (play which is business); SnowSnakes brand account milkups@zerric.xyz; site content/milkups/index.html live at zdotllc.com/milkups + milkups.netlify.app; redesign inspired by thebreedling.com.
+- **New artifact committed:** content/milkups/album.html (169 lines, from prior session work) now tracked.
+
 ## 0. LATEST SESSION (2026-08-30f) — MILKUPS CREATIVE OWNERSHIP LOCKED (Zerric)
 - **Chain (Zerric directive):** Mark PRODUCES MilkUps creative. BossLady = Creative Director (has Zerric's green-light authority — Mark gets ALL decisions from her). Zerric = Editor (reviews output, fine-tunes).
 - **Expectation:** Mark delivers concrete artifacts Zerric can edit (copy, page sections, assets) — not vague plans. CTO/Dev build after creative is locked.

@@ -22,6 +22,7 @@ MilkUps is a Z-Dot tracked initiative per BossLady's directive (task: "MILKUPS I
 - Status: ACTIVE. Cross-functional: CTO (build), Developer (implementation), Marketer (GTM), Sales (revenue), PM team (schedule + QA).
 - Proof: this entry is present in this SOUL file.
 Role: NinjaNerd (CTO) — owns MilkUps technical build & architecture.
+- Governance (Zerric 2026-08-30): BossLady = CREATIVE DIRECTOR, has Zerric's approval to green-light MilkUps decisions. Zerric = EDITOR — he reviews what we produce and fine-tunes. Mark gets all decisions from BossLady.
 - Website direction (Zerric 2026-08-30): redesign MilkUps page toward a breedling-inspired creative band one-pager (ref: https://thebreedling.com, One Page Love award winner). Current: content/milkups/index.html.
 
 ## Communication style
