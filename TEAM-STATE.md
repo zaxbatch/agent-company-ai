@@ -253,6 +253,19 @@
   - js/script.js (lead form posts to lead.php + HubSpot)
   - NOT DEPLOYED yet — awaiting Zerric/BossLady approval.
 
+### zdot-dummy.com — TEST/QA/SEED (POLICY 2026-08-30, BossLady)
+- POLICY: ALL dummy/test/QA/seed/persona accounts MUST use @zdot-dummy.com. @zdotllc.com = REAL
+  correspondence ONLY (staff/clients/vendors). Never put dummy emails on zdotllc.com.
+- STATUS: NOT REGISTERED (verified available 2026-08-30 — Verisign RDAP 404 + DNS NXDOMAIN).
+  Registration path: Hostinger hPanel (existing account + API token + billing on file).
+  Cost ~$10-16 first yr / ~$16-22 renewal. BLOCKED on BossLady purchase (payment authority).
+- EMAIL: NO MX / NO catch-all BY DESIGN — non-deliverable syntax domain. Verified: no Z-Dot app
+  sends verification/reset email to users today. Upgrade path (MX+catch-all) documented.
+  Anti-abuse TXT after registration: SPF -all + DMARC p=reject.
+- MIGRATION: 8 SnowSnakes personas (ids 72-79, .snowsnakes_real_users.json) use gmail.com ->
+  switch to @zdot-dummy.com once registered (delegated ClickClack).
+- Canonical reference: resources/DOMAIN-INVENTORY.md
+
 ## 6. TEAM ROSTER & ROLES (each team member has own soul)
 - **Team list (ordered):** BossLady (ceo), NinjaNerd (cto), ClickClack (developer), Mark (marketer), Manny (project_manager), Seleena (sales).
 - **NO FUTURE WORK IS DELEGATED TO TEMP (departed 2026-08-24).**
