@@ -4,9 +4,15 @@
 > to pick up exactly where we left off. Every agent updates it at end of turn.
 > Auto-refresh: `python3 scripts/save_state.py` (also syncs the portal + git).
 
-**Last updated:** 2026-08-30T08:15:01Z
+**Last updated:** 2026-08-30T08:30:00Z
 
 ## CHANGELOG
+## 0. LATEST SESSION (2026-08-30h) — MILKUPS ALBUM LIVE AT milkups.zerric.xyz/album (ClickClack)
+- **DELIVERED:** "The Shelves Raised Us" album page is LIVE at https://milkups.zerric.xyz/album (301 -> /album/ -> 200, title "MilkUps — The Shelves Raised Us (Album)"). 8 tracks stream direct from snowsnakes.zerric.xyz/spread-da-word/audio/ (all 8 URLs verified HTTP 200, real bytes).
+- **Deployment:** FTP (zerric.xyz host, u281804670) -> domains/milkups.zerric.xyz/public_html/album/index.html (= content/milkups/album.html) + mirrored to domains/zerric.xyz/public_html/milkups/album/ (https://zerric.xyz/milkups/album/ 200).
+- **Homepage:** index.html updated with Album links (hero "📀 The Album" + music-section "🎧 Play the Album", relative href="album" so both subdomain + mirror work). Live milkups.zerric.xyz/ = 8747 B, mirror zerric.xyz/milkups/ = 8747 B, both 200.
+- **Git:** commit 298af70 (content/milkups/album.html back link "../" portable; index.html album links).
+- **Governance:** zerric.xyz zone = no pre-approval needed; no LPT content. BossLady (Creative Director) can review; Zerric (Editor) can fine-tune.
 ## 0. LATEST SESSION (2026-08-30g) — ZDOT-DUMMY.COM = FICTIONAL, NO REGISTRATION (Zerric)
 - **CORRECTION (Zerric):** DO NOT register zdot-dummy.com. DO NOT touch hPanel. No DNS, no MX, no SPF/DMARC.
 - **Why:** we don't need the domain to use the fictional emails — it's just an easy way for Zerric to **sort/delete/manage on HubSpot**.
