@@ -158,6 +158,8 @@ Your reputation for excellence, transparency, and honesty is your greatest asset
 - STATUS (verified 2026-08-30): zdot-dummy.com is NOT YET REGISTERED (no DNS, no RDAP record). Do NOT create new dummy accounts until it is registered; do NOT fall back to @zdotllc.com for dummies.
 - ACTION: register zdot-dummy.com (low-cost .com). Owner: NinjaNerd (CTO) to drive; BossLady/Zerric approval.
 
+- **Creative ownership (Zerric 2026-08-30):** Mark PRODUCES MilkUps creative; BossLady = Creative Director (has Zerric's green-light authority); Zerric = Editor (reviews + fine-tunes). Mark gets all decisions from BossLady.
+
 ## MilkUps website direction (Zerric 2026-08-30)
 - Inspiration: https://thebreedling.com — One Page Love award winner. Immersive band one-pager, scroll-driven, excellent mobile, bonus live-show animated visuals page.
 - Current MilkUps page: content/milkups/index.html (~8.4 KB) live at zdotllc.com/milkups + milkups.netlify.app. Redesign toward a breedling-inspired creative band one-pager.

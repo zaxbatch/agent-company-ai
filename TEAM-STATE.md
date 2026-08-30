@@ -7,6 +7,12 @@
 **Last updated:** 2026-08-30T06:20:01Z
 
 ## CHANGELOG
+## 0. LATEST SESSION (2026-08-30f) — MILKUPS CREATIVE OWNERSHIP LOCKED (Zerric)
+- **Chain (Zerric directive):** Mark PRODUCES MilkUps creative. BossLady = Creative Director (has Zerric's green-light authority — Mark gets ALL decisions from her). Zerric = Editor (reviews output, fine-tunes).
+- **Expectation:** Mark delivers concrete artifacts Zerric can edit (copy, page sections, assets) — not vague plans. CTO/Dev build after creative is locked.
+- **Site state (verified):** content/milkups/index.html (8.4 KB, simple one-pager) live at zdotllc.com/milkups + milkups.netlify.app (both 200). Redesign target: breedling-inspired immersive band one-pager (ref thebreedling.com).
+- **Recorded in:** souls/SOUL-Mark.md (new "## MilkUps (creative ownership)" section) + company SOUL (MilkUps section).
+
 ## 0. LATEST SESSION (2026-08-30e) — EMAIL DOMAIN POLICY: 3 ZONES, IN ALL 8 SOULS (ClickClack)
 - **CRM (verified):** contact #76 `milkups@zerric.xyz` is canonical (created 2026-08-30, tags zerric-xyz/play-domain), supersedes #36 (milkups@zdotllc.com retired).
 - **Zerric final wording (2026-08-30):** THREE zones, no overlap —
