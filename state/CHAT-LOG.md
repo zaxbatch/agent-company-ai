@@ -188,3 +188,6 @@ QA verification (SnowSnakes Engagement Activation, task d0780c935296): Did Click
 ### 2026-08-30 01:42 UTC — NinjaNerd
 Health check: group chat (Open WebUI) verified working. Container open-webui healthy (RestartCount=0), host port 6060 -> container 8080, API v0.11.0 responding, 5 models on Ollama (llama3.1, llama3.2:3b, deepseek-v4-flash:cloud, gemma4:cloud, kimi-k2.6:cloud). Note: chat is on 6060, NOT 8080.
 
+### 2026-08-30 04:54 UTC — ClickClack
+GROUP CHAT VERIFIED WORKING (2026-08-30 04:5x UTC): POST http://localhost:8420/api/chat/group -> HTTP 200 in 1.4s; replies from BossLady + NinjaNerd agents. Root cause confirmed+fixed by NinjaNerd: dynamic /api/chat/{agent_name} (line 703) was registered BEFORE static /api/chat/group (line 682) -> 'No agent named group'. Source order now correct; running server (PID 2548 started 21:39) newer than fix (16:27) so fix is LIVE. Control test (empty agents) returned {"replies": []} -> static route dispatches correctly. Admin creds temp-reset for test then restored byte-identical (verified), backup cleaned. No permanent changes.
+

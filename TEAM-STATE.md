@@ -8,6 +8,11 @@
 
 ## CHANGELOG
 - 2026-08-24 — Offboarding: Temp (developer) departed. All open work reassigned (see portal). Temp removed from team list.
+## 0. LATEST SESSION (2026-08-30) — GROUP CHAT VERIFIED WORKING (ClickClack)
+- **Verdict: group chat works.** Live POST to http://localhost:8420/api/chat/group returned HTTP 200 in 1.4s with replies from BossLady + NinjaNerd agents (verified 2026-08-30 ~04:55 UTC).
+- **Root cause (NinjaNerd's fix, now confirmed live):** dynamic route `/api/chat/{agent_name}` (server.py line 703) was registered BEFORE static `/api/chat/group` (line 682), so POST /api/chat/group was captured as agent_name="group" -> `No agent named 'group'`. Static-first order is in source; running server (PID 2548, started 2026-08-29 21:39) is newer than the fix (file mtime 16:27) => fix is LIVE.
+- **Evidence:** empty-agents control returned `{"replies": []}` (static route dispatched, not dynamic); admin session temp-reset for the test then RESTORED byte-identical (hash+salt verified), backup file removed. No permanent changes.
+- **Team status (watchdog 04:54 UTC, 23 portal tasks):** BossLady 1 (money-loop decision, STALE never checked in), NinjaNerd 8 (mostly creds-blocked on Zerric), ClickClack 7 (blocked on Zerric/CTO decisions), Mark 1 (engagement, blocked Twitter API, STALE), Meta 1 (WHO'S WHO, STALE), Manny 0 (push blocked), Seleena 0, Zerric 3 pending (most active).
 ## 0. LATEST SESSION (2026-08-30T02:11:22Z) — CTO AUDIT: MILESTONES A+B COMPLETE (real-time /progress GATE)
 - **Audit verified live (this session):** tasks.zdotllc.com = Hostinger shared hosting via hCDN (`server: hcdn`, `platform: hostinger`, `x-powered-by: PHP/8.3.30`). NO Cloudflare wall (200 direct, no cf-ray). /progress = 302→auth.html, server-rendered from proof.json (static snapshot, "Last updated 2026-08-25 00:09 UTC"), NO task rows. Dashboard index.html = load-time fetch only, NO polling/SSE/WS.
 - **Data source:** tasks.json flat file (22 tasks) + api.php?action=list|create|update|delete (session-gated, 401 verified). No DB, no percent field, no event log.
