@@ -57,6 +57,14 @@ pytest tests/ -v --cov=agent_company_ai --cov-report=term-missing
 4. **Keep commits focused** — one logical change per commit
 5. **Write a clear PR description** explaining what changed and why
 
+## Email Domain Policy
+
+@zdotllc.com is reserved for real company email ONLY. Dummy/test/QA/internal-tracking accounts use @zdot-dummy.com.
+
+Never use @zdotllc.com addresses in test fixtures, seed data, sample payloads,
+QA/demo accounts, or internal-tracking records. Use the matching @zdot-dummy.com
+address instead (same local part, `@zdot-dummy.com` domain).
+
 ## Reporting Bugs
 
 Please use the [bug report template](https://github.com/gobeyondfj-cmd/agent-company-ai/issues/new?template=bug_report.md) when filing issues.

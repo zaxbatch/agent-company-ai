@@ -83,10 +83,10 @@ CATEGORIES = {
     },
     "crm": {
         "tool": "add_contact",
-        "default_args": {"email": "smoke.inc001@zdotllc.com", "name": "Smoke Test", "company": "Z-Dot LLC", "status": "lead", "source": "inc-2026-08-25-001-smoke"},
+        "default_args": {"email": "smoke.inc001@zdot-dummy.com", "name": "Smoke Test", "company": "Z-Dot LLC", "status": "lead", "source": "inc-2026-08-25-001-smoke"},
         "prompt": (
             "Use the add_contact tool to add a CRM contact with email "
-            "smoke.inc001@zdotllc.com, name 'Smoke Test', company 'Z-Dot LLC', "
+            "smoke.inc001@zdot-dummy.com, name 'Smoke Test', company 'Z-Dot LLC', "
             "status 'lead', source 'inc-2026-08-25-001-smoke'."
         ),
     },

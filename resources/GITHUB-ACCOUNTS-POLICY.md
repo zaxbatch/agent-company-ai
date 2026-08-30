@@ -147,6 +147,7 @@ Mailboxes:
 - zdotllc side: zerric@zdotllc.com (owner), bots@zdotllc.com (team/automation),
   bosslady@/info@/sales@/support@zdotllc.com (business) — STRICTLY business.
 - Personal per-agent mailboxes (ninjanerd@, mark@, etc.): DECLINED for now
+- **EMAIL DOMAIN POLICY:** @zdotllc.com is reserved for real company email ONLY. Dummy/test/QA/internal-tracking accounts use @zdot-dummy.com.
   (Seleena directive) — agents use bots@ for team-sent mail; keep the split clean.
 
 ## New project rule (unchanged)
