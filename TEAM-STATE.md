@@ -7,6 +7,12 @@
 **Last updated:** 2026-08-30T06:05:01Z
 
 ## CHANGELOG
+## 0. LATEST SESSION (2026-08-30d) — CTO: ZDOT-DUMMY.COM POLICY (BossLady)
+- Policy live: all dummy/test/QA/seed accounts MUST use @zdot-dummy.com; @zdotllc.com = real correspondence ONLY.
+- zdot-dummy.com verified AVAILABLE (RDAP 404 + NXDOMAIN). Registration pending BossLady purchase (Hostinger, ~$10-16/yr).
+- Email decision: NO MX/catch-all (non-deliverable syntax domain) — no app sends verification/reset mail today (verified).
+- Docs: resources/DOMAIN-INVENTORY.md created + TEAM-STATE §5 updated (commit 55672b5). ClickClack delegated (4066f4780dc4). BossLady emailed.
+
 - 2026-08-24 — Offboarding: a developer departed. All open work reassigned (see portal). Removed from team list.
 ## 0. LATEST SESSION (2026-08-30c) — PROJECTMANAGER ROW = META'S HISTORY (ClickClack)
 - **Decision: DO NOT delete the `ProjectManager` fired row in company.db agents.** It is Meta's ORIGINAL hire record: `hire()` default name = `role.title.replace(" ", "")` -> role project_manager (title "Project Manager") -> "ProjectManager" (created 2026-08-23 04:55:06). It holds 10 tasks + 6 artifacts + 36 messages of Meta's early PM history (CEO communication channel, status update email, dashboard notification system). Deleting it would wipe Meta's work.
@@ -231,6 +237,7 @@
   PHP app, source in hostinger_tasks/ (api.php, auth.php). Watchdog: scripts/checklist_watchdog.py.
 
 ## 4. EMAIL / DOMAIN / CREDENTIALS LOCATIONS
+- **EMAIL DOMAIN POLICY:** @zdotllc.com is reserved for real company email ONLY. Dummy/test/QA/internal-tracking accounts use @zdot-dummy.com.
 - communication/credentials.txt — CEO protonmail, netlify, hostinger FTP (zdotllc.com main domain), ez@zerric.xyz pass
 - communication/portal_credentials.txt — tasks.zdotllc.com team logins (team code zDotcode#5)
 - LPT/top-secret/credentials.txt — Flex MLS (lou.flexmls.com/ticket, user in LPT/top-secret/credentials.txt)
@@ -240,6 +247,7 @@
 
 ## 5. DOMAINS
 ### zdotllc.com — HOSTINGER FTP (ON HOLD per BossLady 2026-08-24 — do not work on zdot)
+- **EMAIL DOMAIN POLICY:** @zdotllc.com is reserved for real company email ONLY. Dummy/test/QA/internal-tracking accounts use @zdot-dummy.com.
 - BossLady has a clear direction for zdot; first run is zerric.xyz instead.
 - Improvements staged in archive/zerric-xyz-main/ (lead.php, index.html, script.js) — NOT deployed, PARKED.
 ### zerric.xyz — FOCUS (nexus hub, 18 projects)
