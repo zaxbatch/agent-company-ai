@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-30T08:40:01.565699+00:00",
+ "generated_at": "2026-08-30T10:20:01.916765+00:00",
  "note": "Sanitized continuity snapshot. Sensitive fields masked (***). Restore: this JSON documents what was in flight so work can resume after any disruption.",
  "tables": {
   "agents": {
@@ -90,7 +90,7 @@
   },
   "tasks": {
    "table": "tasks",
-   "count": 522,
+   "count": 524,
    "rows": [
     {
      "id": "1e06bda85075",
@@ -6355,6 +6355,30 @@
      "artifacts_json": "[]",
      "created_at": "2026-08-30 08:23:04",
      "updated_at": "2026-08-30 08:24:57"
+    },
+    {
+     "id": "77dc41fc67c4",
+     "description": "The album tracks aren't playing. they should still be playable, and the mp3 link should be removed",
+     "assignee_id": "ClickClack",
+     "status": "failed",
+     "priority": 0,
+     "parent_id": null,
+     "result": "Exceeded maximum iterations without completing.",
+     "artifacts_json": "[]",
+     "created_at": "2026-08-30 08:44:38",
+     "updated_at": "2026-08-30 08:46:36"
+    },
+    {
+     "id": "a516c12516c7",
+     "description": "snow beats needs to be released from the milkups account, and it should have a link to their website. like, \"see what else we're making\" clean up duplicates",
+     "assignee_id": "NinjaNerd",
+     "status": "failed",
+     "priority": 0,
+     "parent_id": null,
+     "result": "Exceeded maximum iterations without completing.",
+     "artifacts_json": "[]",
+     "created_at": "2026-08-30 08:51:29",
+     "updated_at": "2026-08-30 08:54:13"
     }
    ]
   },
