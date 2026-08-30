@@ -1,31 +1,30 @@
 #!/usr/bin/env python3
-"""Generate a MilkUps song via udioapi.pro. Key loaded from credentials.txt, never printed."""
-import re, json, os, sys, time, urllib.request, urllib.parse
+"""Generate the MilkUps anthem "Raised on the Shelves" via udioapi.pro (v2 API).
 
-CREDS = "/home/zax/Biz/z-dot-team/communication/credentials.txt"
-OUT_DIR = "/home/zax/Biz/z-dot-team/content/milkups/assets"
+Reads the API key from communication/credentials.txt (never prints/commits it).
+Pre-flights the credit balance and aborts early if there aren't enough credits.
 
-def load_key():
-    txt = open(CREDS).read()
-    m = re.search(r"udioapi\.pro\s*\n(sk-[A-Za-z0-9]+)", txt)
-    if not m:
-        sys.exit("KEY NOT FOUND in credentials.txt")
-    return m.group(1)
+API reference (verified 2026-08-30 from https://udioapi.pro/docs):
+  - POST /api/v2/generate   (Bearer auth; custom mode: prompt/style/title)
+  - GET  /api/v2/feed?workId=xxx  (poll every 5-10s until type SUCCESS)
+  - GET  /api/v2/credits    (credits left on the key)
+  - Credit cost: chirp-v3-5 = 5, chirp-v4 = 8, chirp-v4-5 = 10, chirp-v5/v5-5 = 12
+  - 402 = "account does not have enough credits" -> top up at udioapi.pro dashboard
 
-KEY = load_key()
+Usage:
+  venv/bin/python scripts/milkups_udio_song.py [--model chirp-v3-5|chirp-v5-5] [--check-credits]
+"""
+import re, json, os, sys, time, argparse, urllib.request, urllib.parse
+
+ROOT = "/home/zax/Biz/z-dot-team"
+CREDS = os.path.join(ROOT, "communication", "credentials.txt")
+OUT_DIR = os.path.join(ROOT, "content", "milkups", "assets")
+LOG_DIR = os.path.join(ROOT, "logs")
 BASE = "https://udioapi.pro/api"
 
-def post(path, payload):
-    data = json.dumps(payload).encode()
-    req = urllib.request.Request(BASE + path, data=data, headers={"Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=60) as r:
-        return json.loads(r.read().decode())
-
-def get(path, params):
-    qs = urllib.parse.urlencode(params)
-    req = urllib.request.Request(BASE + path + "?" + qs, headers={"Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=60) as r:
-        return json.loads(r.read().decode())
+# credit cost per model (from udioapi.pro docs, Credit Consumption by Model)
+MODEL_COST = {"chirp-v3-5": 5, "chirp-v4": 8, "chirp-v4-5": 10,
+              "chirp-v4-5-plus": 10, "chirp-v5": 12, "chirp-v5-5": 12}
 
 TITLE = "Raised on the Shelves"
 STYLE = ("80s retro synthwave, neon night drive, analog synth arpeggios, driving bassline, "
@@ -69,83 +68,154 @@ Turn the tape up loud, we're the MilkUps attack
 [Outro]
 Raised on the shelves... cold vibes forever..."""
 
-payload = {
-    "prompt": LYRICS,
-    "title": TITLE,
-    "style": STYLE,
-    "custom_mode": True,
-    "make_instrumental": False,
-    "model": "chirp-v3.5",
-    "gpt_description_prompt": "A MilkUps synthwave anthem about being raised on the shelves of a corner store, cold vibes, fresh beats, and the cab-nets. Retro 80s night drive energy, big chorus, dreamy vocals.",
-    "cluster": "default",
-    "token": KEY,
-}
 
-print("Submitting generation...")
-resp = post("/generate", payload)
-print("GENERATE RESPONSE:", json.dumps({k: v for k, v in resp.items() if k != "token"}, indent=2)[:800])
-work_id = resp.get("workId")
-if not work_id:
-    sys.exit("No workId in response")
+def load_key():
+    txt = open(CREDS).read()
+    m = re.search(r"udioapi\.pro\s*\n(sk-[A-Za-z0-9]+)", txt)
+    if not m:
+        sys.exit("KEY NOT FOUND in credentials.txt (expected 'udioapi.pro' then 'sk-...' line)")
+    return m.group(1)
 
-print("workId:", work_id)
-log = {"workId": work_id, "title": TITLE, "style": STYLE, "lyrics": LYRICS, "submitted_ts": int(time.time())}
-with open("/home/zax/Biz/z-dot-team/logs/milkups_udio_gen.json", "w") as f:
-    json.dump(log, f, indent=2)
 
-# Poll
-deadline = time.time() + 600
-last = ""
-while time.time() < deadline:
-    time.sleep(8)
+def api(path, payload=None, method=None):
+    """Call udioapi.pro with Bearer auth. Returns parsed JSON or raises."""
+    headers = {"Authorization": "Bearer " + KEY, "Content-Type": "application/json",
+               "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"}
+    url = BASE + path
+    if payload is not None:
+        data = json.dumps(payload).encode()
+        req = urllib.request.Request(url, data=data, headers=headers, method=method or "POST")
+    else:
+        req = urllib.request.Request(url, headers=headers, method=method or "GET")
     try:
-        st = get("/feed", {"workId": work_id, "token": KEY})
-    except Exception as e:
-        print("poll error:", e); continue
-    t = st.get("type", "?")
-    msg = json.dumps(st)[:200]
-    if msg != last:
-        print(f"[{t}] {msg}")
-        last = msg
-    if t == "complete":
-        break
-    if t == "error":
-        sys.exit("GENERATION ERROR: " + json.dumps(st)[:500])
-else:
-    sys.exit("TIMEOUT waiting for generation")
-
-tracks = st.get("response_data") or st.get("data") or []
-if not tracks:
-    # sometimes wrapped
-    d = st.get("data")
-    if isinstance(d, dict):
-        tracks = d.get("data") or []
-print("TRACKS:", len(tracks))
-for i, tr in enumerate(tracks):
-    print(f"--- track {i}: title={tr.get('title')} dur={tr.get('duration')} audio={tr.get('audio_url')}")
-
-# Download
-os.makedirs(OUT_DIR, exist_ok=True)
-saved = []
-for i, tr in enumerate(tracks):
-    au = tr.get("audio_url")
-    if not au: continue
-    fn = f"{OUT_DIR}/{TITLE.lower().replace(' ', '-')}.mp3"
-    urllib.request.urlretrieve(au, fn)
-    saved.append(fn)
-    img = tr.get("image_url")
-    if img:
+        with urllib.request.urlopen(req, timeout=90) as r:
+            return json.loads(r.read().decode())
+    except urllib.error.HTTPError as e:
+        body = e.read().decode()
         try:
-            imgfn = f"{OUT_DIR}/{TITLE.lower().replace(' ', '-')}-cover.png"
-            urllib.request.urlretrieve(img, imgfn)
-            saved.append(imgfn)
+            return json.loads(body)
+        except Exception:
+            return {"code": e.code, "message": body[:300]}
+
+
+def check_credits(model):
+    r = api("/v2/credits")
+    bal = (r.get("data") or {}).get("credits", -1)
+    need = MODEL_COST.get(model, 12)
+    print(f"[credits] balance={bal}  model={model}  cost={need}")
+    return bal, need
+
+
+def generate(model):
+    payload = {
+        "model": model,
+        "prompt": LYRICS,
+        "style": STYLE,
+        "title": TITLE,
+        "make_instrumental": False,
+        "gender": "male",
+        "duration": 180,  # chirp-v5-5 custom mode target seconds (docs: 10-360)
+    }
+    print(f"Submitting {model} generation for '{TITLE}' ...")
+    r = api("/v2/generate", payload)
+    work_id = r.get("workId") or (r.get("data") or {}).get("task_id")
+    if not work_id:
+        print("GENERATE FAILED:", json.dumps(r)[:600])
+        sys.exit(1)
+    print("workId:", work_id)
+    with open(os.path.join(LOG_DIR, "milkups_udio_gen.json"), "w") as f:
+        json.dump({"workId": work_id, "title": TITLE, "model": model, "style": STYLE,
+                   "lyrics": LYRICS, "submitted_ts": int(time.time())}, f, indent=2)
+    return work_id
+
+
+def poll(work_id, timeout=900):
+    """Poll /v2/feed until SUCCESS or fail_message. Returns response_data list."""
+    deadline = time.time() + timeout
+    last = ""
+    while time.time() < deadline:
+        time.sleep(8)
+        try:
+            st = api("/v2/feed?" + urllib.parse.urlencode({"workId": work_id}))
         except Exception as e:
-            print("img dl err", e)
-    print("saved:", fn, os.path.getsize(fn), "bytes")
+            print("poll error:", e); continue
+        d = st.get("data") or {}
+        typ = d.get("type", "?")
+        msg = json.dumps(d)[:220]
+        if msg != last:
+            print(f"[{typ}] {msg}")
+            last = msg
+        fm = d.get("fail_message") or ""
+        if fm and fm not in ("", "None"):
+            sys.exit("GENERATION FAILED: " + fm)
+        em = d.get("error_message") or ""
+        if em and em not in ("", "None"):
+            sys.exit("GENERATION ERROR: " + em)
+        if typ == "SUCCESS" and d.get("response_data"):
+            return d["response_data"]
+        if d.get("status") == "error":
+            sys.exit("GENERATION ERROR STATUS: " + json.dumps(d)[:400])
+    sys.exit("TIMEOUT waiting for generation (workId=%s)" % work_id)
 
-with open("/home/zax/Biz/z-dot-team/logs/milkups_udio_result.json", "w") as f:
-    json.dump({"workId": work_id, "saved": saved, "tracks": [
-        {k: tr.get(k) for k in ("title", "duration", "audio_url", "image_url", "tags", "model_name")} for tr in tracks
-    ]}, f, indent=2)
 
-print("DONE. saved:", saved)
+def download(tracks):
+    os.makedirs(OUT_DIR, exist_ok=True)
+    saved = []
+    base = TITLE.lower().replace(" ", "-")
+    for i, tr in enumerate(tracks):
+        au = tr.get("audio_url")
+        if not au:
+            continue
+        fn = os.path.join(OUT_DIR, f"{base}.mp3")
+        urllib.request.urlretrieve(au, fn)
+        saved.append(fn)
+        for imgkey in ("image_large_url", "image_url"):
+            img = tr.get(imgkey)
+            if img:
+                try:
+                    imgfn = os.path.join(OUT_DIR, f"{base}-cover.png")
+                    urllib.request.urlretrieve(img, imgfn)
+                    saved.append(imgfn)
+                    break
+                except Exception as e:
+                    print("img dl err", e)
+        print(f"track {i}: {tr.get('title')!r} dur={tr.get('duration')} -> {fn} "
+              f"({os.path.getsize(fn)} bytes) model={tr.get('model_name')}")
+    return saved
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--model", default="chirp-v5-5", choices=list(MODEL_COST))
+    ap.add_argument("--check-credits", action="store_true", help="Only print balance, do not generate")
+    ap.add_argument("--timeout", type=int, default=900)
+    args = ap.parse_args()
+
+    global KEY
+    KEY = load_key()
+
+    bal, need = check_credits(args.model)
+    if args.check_credits:
+        print(f"balance={bal} credits, need {need} for {args.model}; "
+              f"{'ENOUGH' if bal >= need else 'NOT ENOUGH — top up at udioapi.pro dashboard'}")
+        return
+
+    if bal < need:
+        print(f"BLOCKED: {bal} credits < {need} needed for {args.model}. "
+              f"402 'No credit' expected. Top up at https://udioapi.pro (Basic $10/mo = 1000 cr, "
+              f"Pro $20/mo = 2000 cr, or free starter credits on a new account).")
+        sys.exit(2)
+
+    work_id = generate(args.model)
+    tracks = poll(work_id, timeout=args.timeout)
+    saved = download(tracks)
+    with open(os.path.join(LOG_DIR, "milkups_udio_result.json"), "w") as f:
+        json.dump({"workId": work_id, "saved": saved, "tracks": [
+            {k: tr.get(k) for k in ("id", "title", "duration", "audio_url", "image_url",
+                                    "image_large_url", "tags", "model_name", "created_at")}
+            for tr in tracks]}, f, indent=2)
+    print("DONE. saved:", saved)
+
+
+if __name__ == "__main__":
+    main()

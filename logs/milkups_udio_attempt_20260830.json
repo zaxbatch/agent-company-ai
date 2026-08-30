@@ -1,16 +1,29 @@
 {
   "task": "Generate a MilkUps song via udioapi.pro",
-  "date": "2026-08-30",
+  "date": "2026-08-30 (re-verified)",
   "api_base": "https://udioapi.pro/api",
-  "key_status": "VALID (auth passes; 401 only on bad key)",
-  "blocker": {"code": 402, "message": "No credit", "endpoints_tested": ["POST /api/generate", "POST /v2/generate", "POST /api/v2/generate"]},
+  "api_version": "v2 (docs verified 2026-08-30)",
+  "auth": "Authorization: Bearer <sk-...> (valid; 401 only on bad key)",
+  "cloudflare_note": "Python urllib needs a browser User-Agent; curl works. Fixed in script.",
+  "balance": {"credits": 0, "used_credits": 0, "endpoint": "GET /api/v2/credits"},
+  "blocker": {
+    "code": 402,
+    "message": "No credit",
+    "evidence_file": "logs/milkups_udio_402_evidence.json",
+    "endpoint_tested": "POST /api/v2/generate (chirp-v5-5 custom mode)"
+  },
   "song_ready": {
     "title": "Raised on the Shelves",
-    "model": "chirp-v3.5",
+    "model_default": "chirp-v5-5 (12 credits; chirp-v3-5 = 5 credits via --model)",
     "custom_mode": true,
     "style": "80s retro synthwave, neon night drive, analog synth arpeggios, driving bassline, gated reverb drums, dreamy synth pop vocals, cinematic, energetic, nostalgic",
-    "lyrics_file": "scripts/milkups_udio_song.py (LYRICS const)",
+    "lyrics_chars": 1333,
+    "style_chars": 157,
+    "title_chars": 21,
+    "duration": 180,
+    "payload_validated": true,
+    "script": "scripts/milkups_udio_song.py (v2 API, Bearer auth, credit pre-flight, polls /v2/feed)",
     "run_command": "venv/bin/python scripts/milkups_udio_song.py"
   },
-  "next_action": "Top up credits at udioapi.pro dashboard (pay-as-you-go or plan), then rerun script; output lands in content/milkups/assets/raised-on-the-shelves.mp3"
+  "next_action": "Top up credits at udioapi.pro dashboard (Basic $10/mo = 1000 cr, Pro $20/mo = 2000 cr, or claim free starter credits / daily check-ins), then rerun script. Output lands in content/milkups/assets/raised-on-the-shelves.mp3 (+ cover)."
 }

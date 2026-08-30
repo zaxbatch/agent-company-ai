@@ -1,0 +1,6 @@
+{
+  "endpoint": "POST /api/v2/generate",
+  "http_status": 402,
+  "response": "{\"code\":402,\"message\":\"No credit\",\"data\":null}",
+  "note": "key valid; 0 credits; needs top-up"
+}
