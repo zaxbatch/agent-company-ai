@@ -4,17 +4,17 @@
 > to pick up exactly where we left off. Every agent updates it at end of turn.
 > Auto-refresh: `python3 scripts/save_state.py` (also syncs the portal + git).
 
-**Last updated:** 2026-08-30T05:00:01Z
+**Last updated:** 2026-08-30T05:05:01Z
 
 ## CHANGELOG
-- 2026-08-24 — Offboarding: Temp (developer) departed. All open work reassigned (see portal). Temp removed from team list.
+- 2026-08-24 — Offboarding: a developer departed. All open work reassigned (see portal). Removed from team list.
 ## 0. LATEST SESSION (2026-08-30c) — PROJECTMANAGER ROW = META'S HISTORY (ClickClack)
 - **Decision: DO NOT delete the `ProjectManager` fired row in company.db agents.** It is Meta's ORIGINAL hire record: `hire()` default name = `role.title.replace(" ", "")` -> role project_manager (title "Project Manager") -> "ProjectManager" (created 2026-08-23 04:55:06). It holds 10 tasks + 6 artifacts + 36 messages of Meta's early PM history (CEO communication channel, status update email, dashboard notification system). Deleting it would wipe Meta's work.
-- **Temp deletion (previous session) was safe by contrast: 0 references.**
+- **The residual-row deletion (previous session) was safe by contrast: 0 references.**
 - If ProjectManager cleanup is ever wanted: REASSIGN history to Meta (UPDATE agents refs in tasks/artifacts/messages), never DELETE. No action taken.
 ## 0. LATEST SESSION (2026-08-30b) — TEMP AGENT DELETED (ClickClack)
-- **Deleted the 'Temp' (developer) row from `.agent-company-ai/default/company.db` `agents` table.** It was a residual fired row (status='fired', created 2026-08-30 01:35:22). Zero FK references verified before delete (tasks.assignee_id=0, artifacts.agent_id=0, messages from/to=0, conversations=0).
-- **Verification:** fresh `Company.load('default')` now returns 7 agents — BossLady, NinjaNerd, ClickClack, Mark, Meta, Manny, Seleena; Temp absent. config.yaml never contained Temp (7-agent list). Live dashboard (PID 2548, :8420) unaffected (API 401 / login 303 normal). Pre-delete backup: `/tmp/company.db.pre-temp-delete.bak`.
+- **Deleted the departed developer's residual row from `.agent-company-ai/default/company.db` `agents` table.** It was a fired row (status='fired', created 2026-08-30 01:35:22). Zero FK references verified before delete (tasks.assignee_id=0, artifacts.agent_id=0, messages from/to=0, conversations=0).
+- **Verification:** fresh `Company.load('default')` now returns 7 agents — BossLady, NinjaNerd, ClickClack, Mark, Meta, Manny, Seleena; the departed developer is absent. config.yaml never contained them (7-agent list). Live dashboard (PID 2548, :8420) unaffected (API 401 / login 303 normal). Pre-delete backup: `/tmp/company.db.pre-temp-delete.bak`.
 - **FLAG:** residual fired row `ProjectManager` (project_manager) still in agents table — left in place; NinjaNerd to decide keep/delete.
 ## 0. LATEST SESSION (2026-08-30) — GROUP CHAT VERIFIED WORKING (ClickClack)
 - **Verdict: group chat works.** Live POST to http://localhost:8420/api/chat/group returned HTTP 200 in 1.4s with replies from BossLady + NinjaNerd agents (verified 2026-08-30 ~04:55 UTC).
@@ -24,7 +24,7 @@
 ## 0. LATEST SESSION (2026-08-30T02:11:22Z) — CTO AUDIT: MILESTONES A+B COMPLETE (real-time /progress GATE)
 - **Audit verified live (this session):** tasks.zdotllc.com = Hostinger shared hosting via hCDN (`server: hcdn`, `platform: hostinger`, `x-powered-by: PHP/8.3.30`). NO Cloudflare wall (200 direct, no cf-ray). /progress = 302→auth.html, server-rendered from proof.json (static snapshot, "Last updated 2026-08-25 00:09 UTC"), NO task rows. Dashboard index.html = load-time fetch only, NO polling/SSE/WS.
 - **Data source:** tasks.json flat file (22 tasks) + api.php?action=list|create|update|delete (session-gated, 401 verified). No DB, no percent field, no event log.
-- **Temp removal VERIFIED:** no Temp in souls/, auth.php TEAM_MEMBERS, live users.json (8 accounts), tasks.json assignees, checklist.json, dashboard_users.json, git log. Residual = historical state-backup snapshots only.
+- **Removal VERIFIED:** no departed developer in souls/, auth.php TEAM_MEMBERS, live users.json (8 accounts), tasks.json assignees, checklist.json, dashboard_users.json, git log. Residual = historical state-backup snapshots only.
 - **NEW SECURITY FINDINGS (blocking-ish):** users.json (pw hashes), tasks.json (full task data), access.log (usernames+IPs) ALL publicly readable (200). Hardcoded \$TEAM_CODE='zDotcode#5' in auth.php. Fix = Step 1 of impl spec (.htaccess Deny + move code out of source).
 - **DECISION (MILESTONE B):** Ship Option 1 (30s polling, no reload) now; Option 2 (SSE) after an hCDN streaming gate test (curl -N 60s heartbeat). WebSocket NOT viable on shared hosting. Frontend isolates subscription behind single subscribe(cb) for drop-in SSE swap.
 - **Blocked on:** nothing. ClickClack can start Step 1 (security) + Step 3 (polling) immediately. Full spec in this session's report.

@@ -1,0 +1,94 @@
+
+🚀 Starting Mission Control at http://0.0.0.0:8420
+   Default login: admin / admin123  (forced change on first login)
+
+Starting dashboard at http://0.0.0.0:8420
+INFO:     Started server process [52495]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8420 (Press CTRL+C to quit)
+INFO:     127.0.0.1:38644 - "GET /login HTTP/1.1" 200 OK
+INFO:     192.168.1.233:51786 - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     192.168.1.233:51790 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     192.168.1.233:51800 - "GET /api/agents HTTP/1.1" 200 OK
+INFO:     192.168.1.233:51810 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     192.168.1.233:51820 - "GET /api/cost HTTP/1.1" 200 OK
+INFO:     192.168.1.233:51822 - "POST /api/tasks HTTP/1.1" 200 OK
+INFO:     192.168.1.233:51826 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     192.168.1.233:51822 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     192.168.1.233:51822 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     192.168.1.233:51822 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     192.168.1.233:51826 - "GET /api/agents HTTP/1.1" 200 OK
+INFO:     192.168.1.233:51830 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     192.168.1.233:50690 - "GET /api/cost HTTP/1.1" 200 OK
+INFO:     192.168.1.233:47424 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     192.168.1.233:47440 - "GET /api/agents HTTP/1.1" 200 OK
+INFO:     192.168.1.233:47442 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     192.168.1.233:47452 - "GET /api/cost HTTP/1.1" 200 OK
+INFO:     192.168.1.233:47452 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     192.168.1.233:51318 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     192.168.1.233:51326 - "GET /api/agents HTTP/1.1" 200 OK
+INFO:     192.168.1.233:51340 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     192.168.1.233:51348 - "GET /api/cost HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34156 - "GET /api/agents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39650 - "GET /api/agents HTTP/1.1" 200 OK
+INFO:     192.168.1.233:33148 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     192.168.1.233:33164 - "GET /api/agents HTTP/1.1" 200 OK
+INFO:     192.168.1.233:33172 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     192.168.1.233:33182 - "GET /api/cost HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39654 - "POST /api/chat/group HTTP/1.1" 200 OK
+INFO:     192.168.1.233:34328 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     192.168.1.233:34328 - "GET /api/org-chart HTTP/1.1" 200 OK
+INFO:     192.168.1.233:34328 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     192.168.1.233:34344 - "GET /api/agents HTTP/1.1" 200 OK
+INFO:     192.168.1.233:34352 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     192.168.1.233:34366 - "GET /api/cost HTTP/1.1" 200 OK
+INFO:     192.168.1.233:34366 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     192.168.1.233:34366 - "GET /api/org-chart HTTP/1.1" 200 OK
+INFO:     192.168.1.233:56648 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     192.168.1.233:56648 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     192.168.1.233:56664 - "GET /api/agents HTTP/1.1" 200 OK
+INFO:     192.168.1.233:56674 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     192.168.1.233:56678 - "GET /api/cost HTTP/1.1" 200 OK
+INFO:     192.168.1.233:56674 - "GET /api/org-chart HTTP/1.1" 200 OK
+INFO:     192.168.1.233:56674 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     192.168.1.233:56674 - "GET /api/org-chart HTTP/1.1" 200 OK
+INFO:     192.168.1.233:56674 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     192.168.1.233:50240 - "GET /api/agents HTTP/1.1" 200 OK
+INFO:     192.168.1.233:50254 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     192.168.1.233:50256 - "GET /api/cost HTTP/1.1" 200 OK
+INFO:     192.168.1.233:50256 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     192.168.1.233:50256 - "GET /api/org-chart HTTP/1.1" 200 OK
+INFO:     192.168.1.233:50256 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     192.168.1.233:57890 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     192.168.1.233:57894 - "GET /api/agents HTTP/1.1" 200 OK
+INFO:     192.168.1.233:57898 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     192.168.1.233:57902 - "GET /api/cost HTTP/1.1" 200 OK
+INFO:     192.168.1.233:57902 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     192.168.1.233:57902 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     192.168.1.233:54740 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     192.168.1.233:54742 - "GET /api/agents HTTP/1.1" 200 OK
+INFO:     192.168.1.233:54744 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     192.168.1.233:54748 - "GET /api/cost HTTP/1.1" 200 OK
+INFO:     192.168.1.233:46790 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     192.168.1.233:46794 - "GET /api/agents HTTP/1.1" 200 OK
+INFO:     192.168.1.233:46806 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     192.168.1.233:46822 - "GET /api/cost HTTP/1.1" 200 OK
+INFO:     192.168.1.233:48794 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     192.168.1.233:48796 - "GET /api/agents HTTP/1.1" 200 OK
+INFO:     192.168.1.233:48798 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     192.168.1.233:48802 - "GET /api/cost HTTP/1.1" 200 OK
+INFO:     192.168.1.233:48798 - "POST /api/goal HTTP/1.1" 200 OK
+INFO:     192.168.1.233:48798 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     192.168.1.233:48802 - "GET /api/agents HTTP/1.1" 200 OK
+INFO:     192.168.1.233:48796 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     192.168.1.233:48794 - "GET /api/cost HTTP/1.1" 200 OK
+INFO:     192.168.1.233:48798 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     192.168.1.233:48794 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     192.168.1.233:48798 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37378 - "GET / HTTP/1.1" 303 See Other
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [52495]

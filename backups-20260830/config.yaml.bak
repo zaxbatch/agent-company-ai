@@ -1,0 +1,131 @@
+name: Z Dot Team
+llm:
+  default_provider: openai
+  openai:
+    api_key: sk-d7b84ac8baec4508b1f482df5042e332
+    model: deepseek-v4-flash
+    base_url: https://api.deepseek.com/v1
+    max_tokens: 4096
+agents:
+- name: BossLady
+  role: ceo
+- name: NinjaNerd
+  role: cto
+- name: ClickClack
+  role: developer
+- name: Mark
+  role: marketer
+- name: Meta
+  role: project_manager
+- name: Manny
+  role: project_manager
+- name: Seleena
+  role: sales
+dashboard:
+  port: 8420
+  host: 0.0.0.0
+autonomous:
+  max_cycles: 5
+  max_waves_per_cycle: 10
+  max_agent_iterations: 25
+  max_total_tasks: 50
+  max_time_seconds: 3600
+  max_cost_usd: 10.0
+  daily_budget_usd: 20.0
+wallet:
+  enabled: true
+  default_chain: ethereum
+profit_engine:
+  enabled: false
+  mission: ''
+  revenue_streams: ''
+  target_customers: ''
+  pricing_model: ''
+  competitive_edge: ''
+  key_metrics: ''
+  cost_priorities: ''
+  additional_context: ''
+integrations:
+  email:
+    enabled: true
+    provider: resend
+    api_key: ''
+    from_address: ''
+    from_name: ''
+    reply_to: ''
+  stripe:
+    enabled: true
+    api_key: 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
+    webhook_secret: ''
+  landing_page:
+    enabled: false
+    serve_port: 8421
+    output_dir: landing_pages
+  twitter:
+    enabled: false
+    api_key: ''
+    api_secret: ''
+    access_token: ''
+    access_token_secret: ''
+  vercel:
+    enabled: false
+    token: ''
+    project_name: ''
+  gumroad:
+    enabled: true
+    access_token: ''
+    webhook_secret: ''
+  invoice:
+    enabled: true
+    company_name: Z Dot LLC
+    company_address: ''
+    payment_instructions: ''
+    currency: USD
+  calcom:
+    enabled: true
+    api_key: ''
+    webhook_secret: ''
+    default_duration: 30
+  rate_limits:
+    emails_per_hour: 20
+    emails_per_day: 100
+    payment_links_per_day: 10
+    max_payment_amount_usd: 500.0
+    tweets_per_day: 17
+    deploys_per_day: 50
+    gumroad_daily: 50
+    invoices_daily: 50
+    bookings_daily: 20
+    prospects_per_hour: 30
+    prospects_per_day: 200
+    browse_per_hour: 60
+    browse_per_day: 500
+  notifications:
+    enabled: false
+    default_user_id: admin
+    digest_time: 08:00
+    max_retries: 3
+    retry_base_seconds: 5
+    email:
+      enabled: false
+      provider: resend
+      api_key: ''
+      from_address: ''
+      from_name: ''
+      reply_to: ''
+    sms:
+      enabled: false
+      provider: console
+      api_key: ''
+      account_sid: ''
+      from_number: ''
+    push:
+      enabled: false
+      provider: console
+    rate_limits:
+      emails_per_hour: 20
+      emails_per_day: 100
+      sms_per_hour: 10
+      sms_per_day: 50
+      pushes_per_hour: 30
+      pushes_per_day: 200
