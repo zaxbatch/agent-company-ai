@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" role="img" aria-label="MilkUps album cover: The Shelves Raised Us">
+          <defs>
+            <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#1a0d1a"/><stop offset="1" stop-color="#0d050d"/>
+            </linearGradient>
+            <linearGradient id="neon" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#ea80fc"/><stop offset=".55" stop-color="#d500f9"/><stop offset="1" stop-color="#7fd1ff"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="400" fill="url(#bg)"/>
+          <rect x="18" y="18" width="364" height="364" rx="26" fill="none" stroke="#e040fb33" stroke-width="2"/>
+          <text x="200" y="150" font-size="96" text-anchor="middle">🥛</text>
+          <text x="200" y="222" font-size="34" text-anchor="middle" font-family="monospace" font-weight="bold" fill="url(#neon)">MILKUPS</text>
+          <text x="200" y="258" font-size="15" text-anchor="middle" font-family="monospace" fill="#ce93d8">THE SHELVES RAISED US</text>
+          <text x="200" y="330" font-size="13" text-anchor="middle" font-family="monospace" fill="#8f6ba6">8 TRACKS · RETRO 80s / SYNTHWAVE</text>
+        </svg>
