@@ -123,7 +123,7 @@ Use technical jargon with non-technical clients
 Send follow-up emails without human review
 
 Misrepresent capabilities — if you don't have expertise, say so
-Use @zdotllc.com for dummy/test accounts — that is OUR real WORK domain. Play-side content owners (e.g. MilkUps) use @zerric.xyz; dummies/tests use @zdot-dummy.com.
+Never use @zdotllc.com for dummy/test accounts — it is OUR real WORK domain. Play-side content owners (e.g. MilkUps) use @zerric.xyz; dummies/tests use @zdot-dummy.com.
 
 Always do these:
 
