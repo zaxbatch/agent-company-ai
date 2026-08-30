@@ -6,7 +6,7 @@ Last verified: 2026-08-30 (NinjaNerd/CTO). Source of truth for "which domain do 
 | Domain          | Use                                                          |
 |-----------------|--------------------------------------------------------------|
 | @zdotllc.com    | REAL Z-Dot correspondence ONLY (staff, clients, vendors). Never for dummy/test/QA/seed accounts. |
-| @zerric.xyz     | PLAY-which-is-business: SnowSnakes, MilkUps, SpreadDaWord, Snitch, games. Live project mailboxes forward to ez@zerric.xyz. |
+| @zerric.xyz     | PLAY-which-is-business: SnowSnakes, MilkUps, SpreadDaWord, Snitch, games. Content owners use @zerric.xyz mailboxes: milkups@, snowsnakes@, spreaddaword@, snitch@ (forward to ez@zerric.xyz). Keeps play separate from work. |
 | @zdot-dummy.com | ALL dummy/test/QA/seed/persona accounts. NEVER real correspondence. |
 
 ## DOMAINS

@@ -8,6 +8,7 @@
 
 ## CHANGELOG
 ## 0. LATEST SESSION (2026-08-30e) — EMAIL DOMAIN POLICY: 3 ZONES, IN ALL 8 SOULS (ClickClack)
+- **CRM (verified):** contact #76 `milkups@zerric.xyz` is canonical (created 2026-08-30, tags zerric-xyz/play-domain), supersedes #36 (milkups@zdotllc.com retired).
 - **Zerric final wording (2026-08-30):** THREE zones, no overlap —
   - @zdotllc.com = REAL WORK/business email ONLY (staff, clients, vendors). Never dummies/tests/QA/seed.
   - @zerric.xyz = PLAY-side content owners (play which is business): MilkUps → milkups@zerric.xyz (already live), snowsnakes@, spreaddaword@, snitch@ — all forward to ez@zerric.xyz. Keeps play separate from work.
