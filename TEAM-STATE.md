@@ -4,7 +4,16 @@
 > to pick up exactly where we left off. Every agent updates it at end of turn.
 > Auto-refresh: `python3 scripts/save_state.py` (also syncs the portal + git).
 
-**Last updated:** 2026-08-30T21:40:01Z
+**Last updated:** 2026-08-30T21:45:00Z
+
+## 0. LATEST SESSION (2026-08-30j) — UDIO SONG: SCRIPT REWRITTEN TO v2 API, STILL BLOCKED ON 0 CREDITS (ClickClack)
+- **TASK:** Use the udioapi.pro API from communication/credentials.txt to make a MilkUps song.
+- **RESEARCH (docs verified live from https://udioapi.pro/docs + /docs/v2-generate + /docs/v2-feed + /docs/query-credits + /pricing):** current API is **v2**: `POST /api/v2/generate` (Bearer auth, custom mode = prompt/style/title), `GET /api/v2/feed?workId=` (data nested under `data.response_data`), `GET /api/v2/credits`. Models: chirp-v3-5 (5cr), chirp-v4 (8cr), chirp-v4-5 (10cr), chirp-v5/v5-5 (12cr). 402 = "No credit". Plans: Basic $10/mo = 1000 cr, Pro $20/mo = 2000 cr, Max $50/mo = 5000 cr; free tier = starter credits + daily check-ins.
+- **REWRITE DONE:** scripts/milkups_udio_song.py now targets the v2 API (was old v1: /api/generate + body token + model "chirp-v3.5"). Now: Bearer auth, browser User-Agent (Cloudflare 1010 blocks plain urllib), credit pre-flight gate, model chirp-v5-5 default + duration 180 (v5-5 custom duration 10-360s), polls /v2/feed, downloads mp3+cover to content/milkups/assets/raised-on-the-shelves.mp3. Payload validated: lyrics 1333/5000 chars, style 157/1000, title 21/80. py_compile OK.
+- **FRESH EVIDENCE (2026-08-30):** GET /api/v2/credits -> {"code":200,"credits":0,"used_credits":0} (key VALID). POST /api/v2/generate -> **HTTP 402 {"code":402,"message":"No credit"}** (evidence saved: logs/milkups_udio_402_evidence.json). Pre-flight gate exits 2 with the exact top-up instruction.
+- **BLOCKER (unchanged):** udioapi.pro account has ZERO credits. Nothing can be generated until the account is topped up (dashboard: https://udioapi.pro/pricing — $10 Basic = ~83 chirp-v5-5 songs) or free starter credits are claimed on the account. This is a manual owner action (Zerric/BossLady) — no code change can bypass it.
+- **RUN WHEN READY:** `venv/bin/python scripts/milkups_udio_song.py` (chirp-v5-5, 12cr) or `--model chirp-v3-5` (5cr). Output: content/milkups/assets/raised-on-the-shelves.mp3 + cover; then add as track to content/milkups/album.html and redeploy milkups.zerric.xyz/album.
+- **GOVERNANCE:** zerric.xyz zone, no pre-approval needed; BossLady (Creative Director) decides if it joins the album. Commit: 77ca4d2.
 
 ## 0. LATEST SESSION (2026-08-30i) — UDIOAPI.PRO: KEY VALID, NO CREDITS — MILKUPS SONG SCRIPT READY (NinjaNerd)
 - **TASK:** Use the udioai.pro (udioapi.pro) API from communication/credentials.txt to make a MilkUps song.
