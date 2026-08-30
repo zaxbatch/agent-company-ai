@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#0a1208"/>
+  <rect x="100.0" y="68" width="80" height="22" rx="7" fill="#ff6b6b" stroke="#0003"/>
+<rect x="100.0" y="90" width="80" height="130" rx="14" fill="#c22" stroke="#0004"/>
+<rect x="108.0" y="100" width="64" height="110" rx="9" fill="#e33"/>
+<text x="140" y="163.0" font-size="33.6" text-anchor="middle" font-family="monospace" font-weight="bold" fill="#ffb347">A</text>
+<circle cx="113.33333333333333" cy="106" r="4" fill="#fff"/><circle cx="166.66666666666666" cy="106" r="4" fill="#fff"/>
+<circle cx="113.33333333333333" cy="106" r="2" fill="#111"/><circle cx="166.66666666666666" cy="106" r="2" fill="#111"/><rect x="218.0" y="68" width="84" height="22" rx="7" fill="#51cf66" stroke="#0003"/>
+<rect x="218.0" y="90" width="84" height="130" rx="14" fill="#2a5a3f" stroke="#0004"/>
+<rect x="226.0" y="100" width="68" height="110" rx="9" fill="#3a7a52"/>
+<text x="260" y="163.0" font-size="35.28" text-anchor="middle" font-family="monospace" font-weight="bold" fill="#a8e8c8">C</text>
+<circle cx="232.0" cy="106" r="4" fill="#fff"/><circle cx="288.0" cy="106" r="4" fill="#fff"/>
+<circle cx="232.0" cy="106" r="2" fill="#111"/><circle cx="288.0" cy="106" r="2" fill="#111"/><text x="200" y="330" font-size="17" text-anchor="middle" font-family="monospace" fill="#a8e8c8">odd couple</text>
+  <text x="200" y="382" font-size="16" text-anchor="middle" font-family="monospace" fill="#a9c2e5">aji-and-crisp</text>
+</svg>

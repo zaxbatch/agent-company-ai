@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#0d0a06"/>
+  <rect x="152.0" y="28" width="96" height="12" rx="7" fill="#6a4f2f" stroke="#0003"/>
+<rect x="152.0" y="40" width="96" height="170" rx="14" fill="#2e2418" stroke="#0004"/>
+<rect x="160.0" y="50" width="80" height="150" rx="9" fill="#3f3222"/>
+<text x="200" y="133.0" font-size="40.32" text-anchor="middle" font-family="monospace" font-weight="bold" fill="#d8b890">W</text>
+<circle cx="168.0" cy="56" r="4" fill="#fff"/><circle cx="232.0" cy="56" r="4" fill="#fff"/>
+<circle cx="168.0" cy="56" r="2" fill="#111"/><circle cx="232.0" cy="56" r="2" fill="#111"/><text x="200" y="70" font-size="22" text-anchor="middle" font-family="monospace" fill="#d8c0a0">WORCES</text>
+  <text x="200" y="382" font-size="16" text-anchor="middle" font-family="monospace" fill="#a9c2e5">worces-portrait</text>
+</svg>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#0e1a2e"/>
+  <rect x="100" y="130" width="200" height="140" rx="18" fill="#12395a" stroke="#7fd1ff" stroke-width="3"/><circle cx="160" cy="200" r="26" fill="#0b1a2a" stroke="#7fd1ff" stroke-width="3"/><circle cx="240" cy="200" r="26" fill="#0b1a2a" stroke="#7fd1ff" stroke-width="3"/><circle cx="160" cy="200" r="7" fill="#7fd1ff"/><circle cx="240" cy="200" r="7" fill="#7fd1ff"/><text x="200" y="252" font-size="14" text-anchor="middle" font-family="monospace" fill="#7fd1ff">TAPE</text>
+  <text x="200" y="382" font-size="16" text-anchor="middle" font-family="monospace" fill="#a9c2e5">cassette-tape</text>
+</svg>

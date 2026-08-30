@@ -1,0 +1,17 @@
+{
+  "users": [
+    {
+      "username": "nn_test",
+      "member": "NinjaNerd",
+      "pw_hash": "$2y$10$cQud9FiNqqaVYvp9q62lt.pYJbO6m2f9.IAH.Zw9fuc3ymNtPkz6C",
+      "created_at": "2026-08-30T00:00:00Z"
+    },
+    {
+      "username": "zerric_test",
+      "member": "Zerric",
+      "pw_hash": "$2y$10$cQud9FiNqqaVYvp9q62lt.pYJbO6m2f9.IAH.Zw9fuc3ymNtPkz6C",
+      "created_at": "2026-08-30T00:00:00Z"
+    }
+  ],
+  "team_code_used": true
+}

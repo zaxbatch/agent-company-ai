@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#0a0a12"/>
+  <rect x="135.0" y="30" width="130" height="20" rx="7" fill="#a8b8e8" stroke="#0003"/>
+<rect x="135.0" y="50" width="130" height="160" rx="20" fill="#c8d2e8" stroke="#0004"/>
+<rect x="143.0" y="60" width="114" height="140" rx="15" fill="#dce4f4"/>
+<text x="200" y="138.0" font-size="54.6" text-anchor="middle" font-family="monospace" font-weight="bold" fill="#8a9bd8">W</text>
+<circle cx="156.66666666666666" cy="66" r="4" fill="#fff"/><circle cx="243.33333333333334" cy="66" r="4" fill="#fff"/>
+<circle cx="156.66666666666666" cy="66" r="2" fill="#111"/><circle cx="243.33333333333334" cy="66" r="2" fill="#111"/><text x="200" y="70" font-size="22" text-anchor="middle" font-family="monospace" fill="#b0bff0">WHIP</text>
+  <text x="200" y="382" font-size="16" text-anchor="middle" font-family="monospace" fill="#a9c2e5">whip-portrait</text>
+</svg>
