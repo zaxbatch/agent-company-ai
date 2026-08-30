@@ -1,0 +1,16 @@
+{
+  "task": "Generate a MilkUps song via udioapi.pro",
+  "date": "2026-08-30",
+  "api_base": "https://udioapi.pro/api",
+  "key_status": "VALID (auth passes; 401 only on bad key)",
+  "blocker": {"code": 402, "message": "No credit", "endpoints_tested": ["POST /api/generate", "POST /v2/generate", "POST /api/v2/generate"]},
+  "song_ready": {
+    "title": "Raised on the Shelves",
+    "model": "chirp-v3.5",
+    "custom_mode": true,
+    "style": "80s retro synthwave, neon night drive, analog synth arpeggios, driving bassline, gated reverb drums, dreamy synth pop vocals, cinematic, energetic, nostalgic",
+    "lyrics_file": "scripts/milkups_udio_song.py (LYRICS const)",
+    "run_command": "venv/bin/python scripts/milkups_udio_song.py"
+  },
+  "next_action": "Top up credits at udioapi.pro dashboard (pay-as-you-go or plan), then rerun script; output lands in content/milkups/assets/raised-on-the-shelves.mp3"
+}

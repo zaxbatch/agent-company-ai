@@ -6,6 +6,15 @@
 
 **Last updated:** 2026-08-30T21:30:01Z
 
+## 0. LATEST SESSION (2026-08-30i) — UDIOAPI.PRO: KEY VALID, NO CREDITS — MILKUPS SONG SCRIPT READY (NinjaNerd)
+- **TASK:** Use the udioai.pro (udioapi.pro) API from communication/credentials.txt to make a MilkUps song.
+- **VERIFIED (direct API probes, not reports):** key under "udioapi.pro" is VALID (auth passes; invalid keys get 401 "Invalid API key"). Endpoints live: POST /api/generate, POST /v2/generate, POST /api/v2/generate, GET /api/feed?workId=&token=.
+- **BLOCKER:** every generate endpoint returns 402 "No credit" — the udioapi.pro account has ZERO credits. No public balance endpoint; top-up happens in the udioapi.pro dashboard (pay-as-you-go or plan, see udioapi.pro/pricing).
+- **READY TO FIRE (zero extra work):** scripts/milkups_udio_song.py — custom-mode lyrics for "Raised on the Shelves" (retro 80s synthwave, MilkUps brand: shelves/cab-nets/cold vibes/Spread Da Word), model chirp-v3.5, polls /api/feed, downloads to content/milkups/assets/raised-on-the-shelves.mp3 (+cover), then ffprobe QA. Reads key from credentials.txt, never prints/commits it. py_compile OK.
+- **ESCALATION:** BossLady emailed + SMS'd 2026-08-30 to top up credits (or confirm the free tier is active on this account). Re-run: `venv/bin/python scripts/milkups_udio_song.py`.
+- **GOVERNANCE:** song content = zerric.xyz zone, no pre-approval needed; BossLady (Creative Director) decides if it joins the album. Commit: <commit>.
+
+
 ## CHANGELOG
 ## 0. LATEST SESSION (2026-08-30h) — MILKUPS ALBUM LIVE AT milkups.zerric.xyz/album (ClickClack)
 - **DELIVERED:** "The Shelves Raised Us" album page is LIVE at https://milkups.zerric.xyz/album (301 -> /album/ -> 200, title "MilkUps — The Shelves Raised Us (Album)"). 8 tracks stream direct from snowsnakes.zerric.xyz/spread-da-word/audio/ (all 8 URLs verified HTTP 200, real bytes).
