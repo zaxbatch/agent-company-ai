@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MilkUps — The Shelves Raised Us (Album)</title>
+<meta name="description" content="MilkUps — 'The Shelves Raised Us'. 8 tracks, direct playable. Cold vibes, fresh beats, straight from the cab-nets. the shelves raised us 🥛">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif; background:#0d050d; color:#f3e8ff; line-height:1.6; }
+  .wrap { max-width:860px; margin:0 auto; padding:0 20px 60px; }
+  /* ---------- ALBUM HERO ---------- */
+  .album-hero { display:flex; flex-wrap:wrap; gap:28px; align-items:flex-end; padding:56px 0 34px; }
+  .cover { width:220px; height:220px; border-radius:18px; overflow:hidden; border:1px solid #e040fb55;
+           box-shadow:0 0 46px #e040fb33, 0 14px 40px rgba(0,0,0,.6); flex:0 0 auto; background:#120a18; }
+  .cover svg { width:100%; height:100%; display:block; }
+  .meta h1 { font-size:42px; letter-spacing:1px; background:linear-gradient(135deg,#ea80fc,#d500f9,#7fd1ff);
+             background-clip:text; -webkit-background-clip:text; color:transparent; line-height:1.1; }
+  .meta .artist { color:#ce93d8; font-size:16px; letter-spacing:3px; text-transform:uppercase; margin-top:8px; }
+  .meta .tag { color:#8f6ba6; font-size:13px; letter-spacing:5px; text-transform:uppercase; margin-top:4px; }
+  .meta .count { margin-top:14px; font-size:13px; color:#b08cc8; }
+  .meta .count b { color:#ea80fc; }
+  /* ---------- PLAYER ---------- */
+  .player-head { display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; padding:14px 18px;
+                 background:linear-gradient(135deg,#1a0d1a,#12081a); border:1px solid #e040fb44; border-radius:16px 16px 0 0; }
+  .player-head .now { color:#ce93d8; font-size:12px; letter-spacing:2px; text-transform:uppercase; }
+  .player-head .now b { color:#ea80fc; letter-spacing:0; text-transform:none; }
+  .progress-shell { height:5px; background:#2a1a2a; border-radius:4px; overflow:hidden; }
+  .progress-fill { height:100%; width:0%; background:linear-gradient(90deg,#ea80fc,#d500f9,#7fd1ff); }
+  /* ---------- TRACKLIST ---------- */
+  .tracklist { background:#140a1a; border:1px solid #e040fb33; border-top:none; border-radius:0 0 16px 16px; overflow:hidden; }
+  .track { display:flex; align-items:center; gap:14px; padding:14px 18px; border-top:1px solid #2a1a2a; }
+  .track:first-child { border-top:none; }
+  .track:hover { background:#1c0e22; }
+  .track .num { width:26px; text-align:center; color:#7a4f8c; font-weight:700; font-size:13px; }
+  .track .info { flex:1; min-width:0; }
+  .track .info .t { color:#f3e8ff; font-weight:600; font-size:15px; }
+  .track .info .g { color:#9b6fb0; font-size:12px; margin-top:2px; }
+  .track .dur { color:#8f6ba6; font-size:12px; width:44px; text-align:right; }
+  .track audio { width:210px; height:38px; }
+  .track a.dl { color:#7fd1ff; font-size:12px; text-decoration:none; white-space:nowrap; }
+  .track a.dl:hover { text-decoration:underline; }
+  .playing .num { color:#ea80fc; }
+  .playing .info .t { color:#ea80fc; }
+  /* ---------- NOTE + FOOTER ---------- */
+  .note { margin-top:26px; padding:16px 18px; background:#0a0f1a; border:1px solid #7fd1ff33; border-radius:14px;
+          color:#a9c2e5; font-size:13px; }
+  .note b { color:#7fd1ff; }
+  .back { display:inline-block; margin-top:22px; color:#ce93d8; font-size:13px; text-decoration:none; letter-spacing:1px; }
+  .back:hover { color:#ea80fc; }
+  footer { text-align:center; padding:26px 20px; color:#6f4f80; font-size:12px; border-top:1px solid #2a1a2a; }
+  @media (max-width:640px){
+    .album-hero { justify-content:center; text-align:center; }
+    .track { flex-wrap:wrap; }
+    .track audio { width:100%; order:5; margin-top:4px; }
+    .meta h1 { font-size:32px; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="album-hero">
+      <div class="cover">
+        <svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" role="img" aria-label="MilkUps album cover: The Shelves Raised Us">
+          <defs>
+            <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#1a0d1a"/><stop offset="1" stop-color="#0d050d"/>
+            </linearGradient>
+            <linearGradient id="neon" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#ea80fc"/><stop offset=".55" stop-color="#d500f9"/><stop offset="1" stop-color="#7fd1ff"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="400" fill="url(#bg)"/>
+          <rect x="18" y="18" width="364" height="364" rx="26" fill="none" stroke="#e040fb33" stroke-width="2"/>
+          <text x="200" y="150" font-size="96" text-anchor="middle">🥛</text>
+          <text x="200" y="222" font-size="34" text-anchor="middle" font-family="monospace" font-weight="bold" fill="url(#neon)">MILKUPS</text>
+          <text x="200" y="258" font-size="15" text-anchor="middle" font-family="monospace" fill="#ce93d8">THE SHELVES RAISED US</text>
+          <text x="200" y="330" font-size="13" text-anchor="middle" font-family="monospace" fill="#8f6ba6">8 TRACKS · RETRO 80s / SYNTHWAVE</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <h1>THE SHELVES RAISED US</h1>
+        <div class="artist">milkup</div>
+        <div class="tag">the shelves raised us 🥛</div>
+        <div class="count"><b>8 tracks</b> · direct playable · no login</div>
+      </div>
+    </div>
+
+    <div class="player-head">
+      <div class="now" id="nowPlaying">▶ Now playing: <b>—</b></div>
+      <div class="now" style="color:#8f6ba6">MilkUps Cassette Tape 1–8</div>
+    </div>
+    <div class="progress-shell"><div class="progress-fill" id="progressFill"></div></div>
+
+    <div class="tracklist" id="tracklist">
+      <!-- Tracks injected by JS for one-click play + per-track native controls -->
+    </div>
+
+    <div class="note">
+      <b>🥛 The Shelves Raised Us</b> — MilkUps' album. 8 tapes, cold vibes, fresh beats, straight from the cab-nets.
+      The music behind <b>Spread Da Word</b>. Click any track to play — it streams straight from the shelf, no login required.
+      Download each track free with the <span style="color:#7fd1ff">⬇</span> link.
+    </div>
+
+    <a class="back" href="/">← Back to MilkUps</a>
+  </div>
+
+  <footer>
+    MILKUPS · an independent Z-Dot band · music for Spread Da Word · beats on BeatThread<br>
+    🥛 the shelves raised us 🥛
+  </footer>
+
+<script>
+  // The MilkUps album — 8 tracks (direct playable MP3, public, no auth)
+  var TRACKS = [
+    {n:1, t:"Trap Cabnets",  g:"Trap",       u:"https://snowsnakes.zerric.xyz/spread-da-word/audio/banger-trap-cabnets.mp3",      d:"0:55"},
+    {n:2, t:"Lofi Midnight", g:"Lo-Fi",      u:"https://snowsnakes.zerric.xyz/spread-da-word/audio/banger-lofi-midnight.mp3",     d:"1:39"},
+    {n:3, t:"Electro Neon",  g:"Electro",    u:"https://snowsnakes.zerric.xyz/spread-da-word/audio/banger-electro-neon.mp3",      d:"1:00"},
+    {n:4, t:"Pop Radio",     g:"Pop",        u:"https://snowsnakes.zerric.xyz/spread-da-word/audio/banger-pop-radio.mp3",         d:"1:05"},
+    {n:5, t:"Country Fridge",g:"Country",    u:"https://snowsnakes.zerric.xyz/spread-da-word/audio/banger-country-fridge.mp3",     d:"1:17"},
+    {n:6, t:"Funk Cookout",  g:"Funk",       u:"https://snowsnakes.zerric.xyz/spread-da-word/audio/banger-funk-cookout.mp3",      d:"1:11"},
+    {n:7, t:"Synthwave Retro",g:"Synthwave", u:"https://snowsnakes.zerric.xyz/spread-da-word/audio/banger-synthwave-retro.mp3",   d:"1:09"},
+    {n:8, t:"Icy",           g:"Icy",        u:"https://snowsnakes.zerric.xyz/spread-da-word/audio/banger-icy.mp3",               d:"1:36"}
+  ];
+
+  var list = document.getElementById('tracklist');
+  var nowEl = document.getElementById('nowPlaying');
+  var fill = document.getElementById('progressFill');
+  var audio = new Audio();
+  var currentRow = null;
+
+  TRACKS.forEach(function(tr){
+    var row = document.createElement('div');
+    row.className = 'track';
+    row.innerHTML =
+      '<div class="num">' + tr.n + '</div>' +
+      '<div class="info"><div class="t">' + tr.t + '</div><div class="g">' + tr.g + '</div></div>' +
+      '<div class="dur">' + tr.d + '</div>' +
+      '<audio preload="none" controls src="' + tr.u + '"></audio>' +
+      '<a class="dl" href="' + tr.u + '" download title="Download ' + tr.t + '.mp3">⬇ MP3</a>';
+    // clicking the row (outside native controls) starts the track
+    row.addEventListener('click', function(e){
+      if (e.target.closest('audio') || e.target.closest('a')) return;
+      playTrack(tr, row);
+    });
+    list.appendChild(row);
+  });
+
+  function playTrack(tr, row){
+    if (currentRow && currentRow !== row) currentRow.classList.remove('playing');
+    currentRow = row; row.classList.add('playing');
+    audio.src = tr.u; audio.play();
+    nowEl.innerHTML = '▶ Now playing: <b>' + tr.n + '. ' + tr.t + '</b>';
+  }
+
+  audio.addEventListener('timeupdate', function(){
+    if (audio.duration) fill.style.width = (audio.currentTime / audio.duration * 100) + '%';
+  });
+  audio.addEventListener('ended', function(){
+    fill.style.width = '0%';
+    if (currentRow) currentRow.classList.remove('playing');
+    nowEl.innerHTML = '▶ Now playing: <b>—</b>';
+  });
+  audio.addEventListener('error', function(){
+    nowEl.innerHTML = '⚠ Could not load track — check connection';
+  });
+</script>
+</body>
+</html>
