@@ -5,6 +5,9 @@
 > Auto-refresh: `python3 scripts/save_state.py` (also syncs the portal + git).
 
 **Last updated:** 2026-08-30T02:10:01Z
+
+## CHANGELOG
+- 2026-08-24 — Offboarding: Temp (developer) departed. All open work reassigned (see portal). Temp removed from team list.
 ## 0. LATEST SESSION (2026-08-30b) — /progress PREP NOTE (Day 1 of real-time dashboard)
 - **Day-1 prep done (ClickClack):** `communication/progress-page-current-state.md` committed (10 lines, factual, cross-checks CTO audit).
 - **Verified live (logged-in fetch):** tasks.zdotllc.com/progress = auth-gated server-rendered PHP, STATIC snapshot from scripts/build_proof_site.py (Last updated 2026-08-25 00:09 UTC). NO task rows / status / owner / percent / last-updated.
@@ -230,7 +233,9 @@
   - js/script.js (lead form posts to lead.php + HubSpot)
   - NOT DEPLOYED yet — awaiting Zerric/BossLady approval.
 
-## 6. SOULS & ROLES (each team member has own soul)
+## 6. TEAM ROSTER & ROLES (each team member has own soul)
+- **Team list (ordered):** BossLady (ceo), NinjaNerd (cto), ClickClack (developer), Mark (marketer), Manny (project_manager), Seleena (sales).
+- **NO FUTURE WORK IS DELEGATED TO TEMP (departed 2026-08-24).**
 - souls/SOUL-BossLady.md, SOUL-NinjaNerd.md, SOUL-ClickClack.md, SOUL-Mark.md,
   SOUL-Meta.md, SOUL-Manny.md, SOUL-Seleena.md — each tuned with verified facts + domain rules.
 
