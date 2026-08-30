@@ -1,9 +1,9 @@
 {
-  "jokes": "err:HTTP Error 503: Service Unavailable",
+  "jokes": 82,
   "games": 17,
   "characters": 3,
   "comics": 0,
   "doodles": 0,
   "episodes": 2,
-  "snapshot_at": "2026-08-30T19:50:01Z"
+  "snapshot_at": "2026-08-30T19:55:01Z"
 }
