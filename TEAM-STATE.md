@@ -4,7 +4,7 @@
 > to pick up exactly where we left off. Every agent updates it at end of turn.
 > Auto-refresh: `python3 scripts/save_state.py` (also syncs the portal + git).
 
-**Last updated:** 2026-08-30T02:10:01Z
+**Last updated:** 2026-08-30T02:15:01Z
 
 ## CHANGELOG
 - 2026-08-24 — Offboarding: Temp (developer) departed. All open work reassigned (see portal). Temp removed from team list.
@@ -351,3 +351,4 @@
 - **Status checks:** Meta status check at 12h, final verification at 24h.
 - **Verified results:** (PENDING — log here when evidence lands)
 - **Escalation:** to BossLady immediately if any teammate refuses/skips or Mark's proof is missing.
+- ALBUM 'The Shelves Raised Us' (milkup): M1 audio [CTO] IN PROGRESS due 2026-08-26, M2 cover art [Marketer] IN PROGRESS due 2026-08-26, M3 QA [Meta] PENDING, M4 distribution [Sales] PENDING, M5 launch [Marketer] PENDING — release date LOCKED Fri 2026-09-11. QA gate BLOCKED on master delivery; evidence dispatch a2bee5a9ef8f (ffprobe) pending.
