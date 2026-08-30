@@ -5,6 +5,12 @@
 > Auto-refresh: `python3 scripts/save_state.py` (also syncs the portal + git).
 
 **Last updated:** 2026-08-30T02:00:01Z
+## 0. LATEST SESSION (2026-08-30b) — /progress PREP NOTE (Day 1 of real-time dashboard)
+- **Day-1 prep done (ClickClack):** `communication/progress-page-current-state.md` committed (10 lines, factual, cross-checks CTO audit).
+- **Verified live (logged-in fetch):** tasks.zdotllc.com/progress = auth-gated server-rendered PHP, STATIC snapshot from scripts/build_proof_site.py (Last updated 2026-08-25 00:09 UTC). NO task rows / status / owner / percent / last-updated.
+- **Task data:** tasks.json (flat JSON, 22 tasks, unique ids) via api.php?action=list|create|update|delete; live API now includes due_at/status_changed_at/done_at; NO percent field exists.
+- **Gap:** no event log, no SSE/WebSocket, no DB, dashboard loads once (no polling). Implementation (Milestones C/D, Days 3-4) BLOCKED on NinjaNerd's architecture decision + event/API contract (due Day 2 EOD) — per task instructions, do NOT start backend/frontend until contract lands.
+
 **How to resume:** 1) read this file  2) read souls/*.md  3) hit the checklist portal
 (https://tasks.zdotllc.com, creds in communication/portal_credentials.txt)  4) run
 `./venv/bin/python scripts/checklist_watchdog.py` to see who's stale.

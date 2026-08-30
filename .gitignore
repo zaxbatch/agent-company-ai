@@ -17,7 +17,9 @@ newpages_*.html
 pw*.html
 
 # CEO communication channel (credentials) — NEVER commit
-/communication/
+/communication/*
+# ...except this sanitized note (no credentials)
+!/communication/progress-page-current-state.md
 
 # Continuity snapshots (sanitized) - keep in git
 !state-backup/
