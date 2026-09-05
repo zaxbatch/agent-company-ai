@@ -42,6 +42,14 @@
   .club button { width:100%; padding:14px; border:none; border-radius:10px; background:linear-gradient(135deg,#ea80fc,#d500f9); color:#0d050d; font-size:16px; font-weight:800; cursor:pointer; }
   .club button:hover { filter:brightness(1.15); }
   .note { font-size:12px; color:#9b6fb0; margin-top:12px; }
+  .support { margin:34px auto 0; max-width:520px; padding:26px 22px; background:linear-gradient(145deg,#141a05,#0d0f05);
+             border:1px solid #9bbb3a55; border-radius:16px; text-align:center; }
+  .support h2 { color:#d5f171; font-size:20px; letter-spacing:1px; margin-bottom:6px; }
+  .support p { color:#aebf88; font-size:13px; margin:0 0 14px; }
+  .support img.qr { width:140px; height:140px; border-radius:10px; border:2px solid #9bbb3a88; background:#fff; padding:6px; }
+  .support .tag-link { display:block; margin-top:10px; color:#d5f171; font-weight:700; letter-spacing:1px; text-decoration:none; }
+  .support .tag-link:hover { text-decoration:underline; }
+  .support .sub { color:#8fa26a; font-size:11px; margin-top:6px; }
   footer { text-align:center; padding:34px; color:#6f4f80; font-size:12px; border-top:1px solid #2a1a2a; }
 </style>
 </head>
@@ -101,6 +109,16 @@
       <button onclick="joinClub()">JOIN THE CLUB</button>
       <div class="note">Join the club — first word on new beats and BeatThread drops.</div>
       <div id="msg" style="margin-top:10px;color:#7ee2a8;font-size:14px"></div>
+    </div>
+  </section>
+
+  <section id="support">
+    <div class="support">
+      <h2>🥛 SUPPORT THE SHELF</h2>
+      <p>Free beats, cold vibes. If the shelf raised you too, drop something in the carton.</p>
+      <img class="qr" src="assets/cashapp-zdotllc-qr.png" alt="Cash App QR: $zdotllc">
+      <a class="tag-link" href="https://cash.app/$zdotllc" target="_blank" rel="noopener">cash.app/$zdotllc</a>
+      <div class="sub">Scan with Cash App · tips keep the tapes coming</div>
     </div>
   </section>
 

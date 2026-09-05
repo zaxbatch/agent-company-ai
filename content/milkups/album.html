@@ -42,6 +42,16 @@
   .track a.dl:hover { text-decoration:underline; }
   .playing .num { color:#ea80fc; }
   .playing .info .t { color:#ea80fc; }
+  /* ---------- SUPPORT / CASHAPP ---------- */
+  .support { margin-top:26px; padding:26px 22px; background:linear-gradient(145deg,#141a05,#0d0f05);
+             border:1px solid #9bbb3a55; border-radius:16px; text-align:center; }
+  .support h2 { color:#d5f171; font-size:22px; letter-spacing:1px; margin-bottom:6px; }
+  .support p { color:#aebf88; font-size:13px; max-width:520px; margin:0 auto 16px; }
+  .support .qr-row { display:flex; align-items:center; justify-content:center; gap:18px; flex-wrap:wrap; }
+  .support img.qr { width:150px; height:150px; border-radius:10px; border:2px solid #9bbb3a88; background:#fff; padding:6px; }
+  .support .tag-link { color:#d5f171; font-weight:700; font-size:17px; letter-spacing:1px; text-decoration:none; }
+  .support .tag-link:hover { text-decoration:underline; }
+  .support .sub { color:#8fa26a; font-size:12px; margin-top:10px; }
   /* ---------- NOTE + FOOTER ---------- */
   .note { margin-top:26px; padding:16px 18px; background:#0a0f1a; border:1px solid #7fd1ff33; border-radius:14px;
           color:#a9c2e5; font-size:13px; }
@@ -99,7 +109,30 @@
     <div class="note">
       <b>🥛 The Shelves Raised Us</b> — MilkUps' album. 8 tapes, cold vibes, fresh beats, straight from the cab-nets.
       The music behind <b>Spread Da Word</b>. Click any track to play — it streams straight from the shelf, no login required.
-      Download each track free with the <span style="color:#7fd1ff">⬇</span> link.
+      Grab the whole album for <b>$5</b> — every track, one download, straight from the shelf.
+    </div>
+
+    <div class="support">
+      <h2>🥛 SUPPORT THE SHELF</h2>
+      <p>Like what you hear? Grab the album or just drop something in the carton. Every bit keeps the cold vibes flowing.</p>
+      <div class="qr-row">
+        <img class="qr" src="assets/cashapp-zdotllc-qr.png" alt="Cash App QR: $zdotllc">
+        <div>
+          <a class="tag-link" href="https://cash.app/$zdotllc" target="_blank" rel="noopener">Scan or tap → cash.app/$zdotllc</a>
+          <div class="sub">Free downloads · tips welcome · Milk Carton Club members get first dibs</div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="buy" style="margin-top:26px;padding:22px;border:1px solid #e040fb44;border-radius:16px;background:#140a1a;text-align:center;">
+      <div style="font-size:15px;font-weight:700;color:#ea80fc;letter-spacing:1px;">🥛 THE SHELVES RAISED US — WHOLE ALBUM</div>
+      <div style="color:#9b6fb0;font-size:13px;margin:6px 0 14px;">All 8 tracks · MP3 download · $5</div>
+      <img src="assets/qr-zdotllc-5.png" alt="Cash App QR — send $5 to $zdotllc" style="width:200px;height:200px;border-radius:12px;border:2px solid #e040fb55;">
+      <div style="margin-top:12px;color:#f3e8ff;font-size:14px;">Scan with Cash App to send <b>$5</b></div>
+      <div style="color:#8f6ba6;font-size:13px;margin-top:4px;">Prefer to type it? Send to <b style="color:#7fd1ff">$zdotllc</b> on Cash App.</div>
+      <a class="dl" href="TheShelvesRaisedUs-milkups-464737.zip" download style="display:inline-block;margin-top:14px;padding:10px 22px;background:linear-gradient(135deg,#ea80fc,#d500f9);color:#0d050d;font-weight:700;border-radius:8px;text-decoration:none;">⬇ Download Whole Album — $5</a>
+      <div style="color:#6d4f7d;font-size:11px;margin-top:8px;">After payment, tap download. Pay what keeps the shelves stocked. 🥛</div>
     </div>
 
     <a class="back" href="../">← Back to MilkUps</a>
@@ -113,14 +146,14 @@
 <script>
   // The MilkUps album — 8 tracks (direct playable MP3, public, no auth)
   var TRACKS = [
-    {n:1, t:"Trap Cabnets",  g:"Trap",       u:"https://snowsnakes.zerric.xyz/spread-da-word/audio/banger-trap-cabnets.mp3",      d:"0:55"},
-    {n:2, t:"Lofi Midnight", g:"Lo-Fi",      u:"https://snowsnakes.zerric.xyz/spread-da-word/audio/banger-lofi-midnight.mp3",     d:"1:39"},
-    {n:3, t:"Electro Neon",  g:"Electro",    u:"https://snowsnakes.zerric.xyz/spread-da-word/audio/banger-electro-neon.mp3",      d:"1:00"},
-    {n:4, t:"Pop Radio",     g:"Pop",        u:"https://snowsnakes.zerric.xyz/spread-da-word/audio/banger-pop-radio.mp3",         d:"1:05"},
-    {n:5, t:"Country Fridge",g:"Country",    u:"https://snowsnakes.zerric.xyz/spread-da-word/audio/banger-country-fridge.mp3",     d:"1:17"},
-    {n:6, t:"Funk Cookout",  g:"Funk",       u:"https://snowsnakes.zerric.xyz/spread-da-word/audio/banger-funk-cookout.mp3",      d:"1:11"},
-    {n:7, t:"Synthwave Retro",g:"Synthwave", u:"https://snowsnakes.zerric.xyz/spread-da-word/audio/banger-synthwave-retro.mp3",   d:"1:09"},
-    {n:8, t:"Icy",           g:"Icy",        u:"https://snowsnakes.zerric.xyz/spread-da-word/audio/banger-icy.mp3",               d:"1:36"}
+    {n:1, t:"Trap Cabnets",  g:"Trap",       u:"audio/banger-trap-cabnets.mp3",      d:"0:55"},
+    {n:2, t:"Lofi Midnight", g:"Lo-Fi",      u:"audio/banger-lofi-midnight.mp3",     d:"1:39"},
+    {n:3, t:"Electro Neon",  g:"Electro",    u:"audio/banger-electro-neon.mp3",      d:"1:00"},
+    {n:4, t:"Pop Radio",     g:"Pop",        u:"audio/banger-pop-radio.mp3",         d:"1:05"},
+    {n:5, t:"Country Fridge",g:"Country",    u:"audio/banger-country-fridge.mp3",     d:"1:17"},
+    {n:6, t:"Funk Cookout",  g:"Funk",       u:"audio/banger-funk-cookout.mp3",      d:"1:11"},
+    {n:7, t:"Synthwave Retro",g:"Synthwave", u:"audio/banger-synthwave-retro.mp3",   d:"1:09"},
+    {n:8, t:"Icy",           g:"Icy",        u:"audio/banger-icy.mp3",               d:"1:36"}
   ];
 
   var list = document.getElementById('tracklist');
@@ -137,7 +170,7 @@
       '<div class="info"><div class="t">' + tr.t + '</div><div class="g">' + tr.g + '</div></div>' +
       '<div class="dur">' + tr.d + '</div>' +
       '<audio preload="none" controls src="' + tr.u + '"></audio>' +
-      '<a class="dl" href="' + tr.u + '" download title="Download ' + tr.t + '.mp3">⬇ MP3</a>';
+      '';
     // clicking the row (outside native controls) starts the track
     row.addEventListener('click', function(e){
       if (e.target.closest('audio') || e.target.closest('a')) return;
