@@ -52,7 +52,7 @@
 var cv=document.getElementById('g'),ctx=cv.getContext('2d'),W=640,H=400;
 var music=document.getElementById('music'),muted=false,t=0,playing=false,started=false;
 var prog=document.getElementById('prog');
-document.getElementById('playBtn').onclick=function(){playing=true;started=true;if(!muted)music.play();this.textContent='▶ Hangin'…';};
+document.getElementById('playBtn').onclick=function(){playing=true;started=true;if(!muted)music.play();this.textContent='▶ Hangin\'…';};
 document.getElementById('replayBtn').onclick=function(){t=0;playing=true;started=true;if(!muted){music.pause();music.currentTime=0;music.play();}};
 document.getElementById('muteBtn').onclick=function(){muted=!muted;if(muted)music.pause();else if(started)music.play();this.textContent=muted?'🔇':'🔊';};
 
@@ -138,7 +138,7 @@ function drawScene(){
   var bobV=Math.sin(t*0.07)*3,bobQ=Math.sin(t*0.06+1)*3;
   var mouthV=(Math.sin(t*0.25)>0)?1:0,mouthQ=(Math.sin(t*0.2)>0)?1:0;
   // SCENE 1: title
-  if(t<90){bgCabnet();titleCard('SPREAD DA WORD','Promo — Hangin' at the Cab-net');}
+  if(t<90){bgCabnet();titleCard('SPREAD DA WORD','Promo — Hangin\' at the Cab-net');}
   // SCENE 2: Que & Vin vibin'
   else if(t<420){bgCabnet();drawQue(150,200+bobQ,mouthQ);drawVin(480,200+bobV,mouthV);
     if(t>95&&t<170)bubble(20,10,190,40,"Vin! My dude. Pull up, pull up. 🔥");
