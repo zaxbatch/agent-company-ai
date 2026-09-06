@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=ai-legible&utm_source=comment&utm_medium=referral&utm_id=6cd985c8-7ce7-4b75-a573-73802d3beb43
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+<meta name="hosting-provider" content="Netlify">
+<meta name="netlify-deploy" content="https://netlify.new/?utm_campaign=ai-legible&amp;utm_source=meta&amp;utm_medium=referral&amp;utm_id=6cd985c8-7ce7-4b75-a573-73802d3beb43">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spread Da Word — Behind the Scenes</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#0a1220;color:#cfe8ff;font-family:monospace;min-height:100vh}
+  nav{background:#0e1a2e;border-bottom:2px solid #3d5a80;padding:14px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;position:sticky;top:0;z-index:50}
+  nav .logo{color:#9bd1ff;font-size:16px;letter-spacing:2px;font-weight:bold;text-decoration:none}
+  nav .logo span{color:#e94560}
+  nav a.nav{color:#9bd1ff;text-decoration:none;font-size:13px;padding:6px 10px;border-radius:6px}
+  nav a.nav:hover{background:#1c3352;color:#fff}
+  nav a.nav.active{background:#3d5a80;color:#fff}
+  .wrap{max-width:860px;margin:36px auto;padding:0 20px 40px}
+  h1{color:#9bd1ff;font-size:26px;letter-spacing:3px;text-align:center;margin-bottom:8px}
+  .sub{color:#6ea8d8;font-size:13px;text-align:center;margin-bottom:28px}
+  .bts{background:#0e1a2e;border:1px solid #3d5a80;border-radius:12px;padding:22px;margin-bottom:20px}
+  .bts h2{color:#ffd166;font-size:15px;letter-spacing:1px;margin-bottom:12px}
+  .bts ul{list-style:none;padding:0}
+  .bts li{color:#9bd1ff;font-size:13px;padding:8px 0;border-bottom:1px solid #16263f;line-height:1.6}
+  .bts li b{color:#fff}
+  .bts li .dim{color:#5f7fa0}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin-top:8px}
+  .mini{background:#122a4a;border:1px solid #38bdf8;border-radius:10px;padding:14px;text-decoration:none;color:inherit;display:block}
+  .mini:hover{border-color:#4a6cff}
+  .mini .e{font-size:26px}
+  .mini h4{color:#fff;font-size:13px;margin:6px 0 3px}
+  .mini p{color:#7fa8d0;font-size:11px;line-height:1.4}
+</style>
+</head>
+<body>
+<nav>
+  <a class='logo' href='/'>SPREAD<span>DA</span>WORD</a>
+  <a class='nav' href='/'>Home</a>
+  <a class='nav' href='/episode-1'>Watch Episode 1</a>
+  <a class='nav' href='/soundtracks'>Soundtracks</a>
+  <a class='nav' href='/roster'>The Cast</a>
+  <a class='nav active' href='/behind-the-scenes'>Behind the Scenes</a>
+</nav>
+<div class="wrap">
+  <h1>🎨 BEHIND THE SCENES</h1>
+  <div class="sub">How the condiment universe gets made — rigs, tools, and process</div>
+
+  <div class="bts">
+    <h2>🎬 THE PROCESS</h2>
+    <ul>
+      <li><b>Roster → Rig → Scene → Episode.</b> Every character starts as canon in the roster, gets a cutout rig, then appears in scenes.</li>
+      <li><b>Style:</b> South Park-style cutout — flat shapes, simple joints, no gradients. Fast to produce, instantly readable.</li>
+      <li><b>Tool:</b> <b>Rive</b> (free, browser-native) is the winning vote for the final animation. Rigs are built to import straight into Rive.</li>
+      <li><b>Music:</b> 8-bit chiptune generated in code — square/triangle oscillators + noise. No samples, no licensing, fully original.</li>
+      <li><b>The Snow Snake 🐍</b> appears in backgrounds. Always watching. Never explained.</li>
+    </ul>
+  </div>
+
+  <div class="bts">
+    <h2>🧊 THE WORLD</h2>
+    <ul>
+      <li><b>The Hood</b> — cabinet condiments who grew up unopened, dreaming of the fridge. Origin stories live here.</li>
+      <li><b>The Fridge</b> — the ones who made it out. The politics play out here.</li>
+      <li><b>Wild Cards</b> — recurring guests who leave an impression.</li>
+      <li><b>Relationships</b> are the real hook — Vin & Que, Mayo & Whip, Red & Yellow, Crisp & Aji.</li>
+    </ul>
+  </div>
+
+  <div class="bts">
+    <h2>🛠 CHARACTER RIGS (view the build)</h2>
+    <div class="grid">
+      <a class='mini' href='/vin-negar-rig'><div class="e">🍶</div><h4>Vin Negar</h4><p>The Outlaw — ACV bottle, gold chain, shades. "You ain't ready for me, bro."</p></a>
+      <a class='mini' href='/que-rig'><div class="e">🍖</div><h4>Que</h4><p>BBQ sauce, party heart, Vin's best friend. "Pass the sauce, pass the vibe."</p></a>
+      <a class='mini' href='/aji-rig'><div class="e">🌶️</div><h4>Aji</h4><p>Hot sauce sparkplug, flame cap, chaos. "…but with more fire."</p></a>
+    </div>
+  </div>
+
+  <div class="bts">
+    <h2>📋 PRODUCTION NOTES</h2>
+    <ul>
+      <li><b>Episode 1</b> — "The Hood Meets the Snow": title card, the meet, a beat jam on Snow Beats, and the Spread Da Word CTA. <span class="dim">(watch: <a href='/episode-1' style='color:#9bd1ff'>episode-1.html</a>)</span></li>
+      <li><b>The soundtrack</b> is on the <a href='/soundtracks' style='color:#9bd1ff'>cassette library</a> — the intro was originally composed to loop under the title card.</li>
+      <li><b>Promo use:</b> this site is built to be shared — point fans, partners, and future sponsors here.</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>
+<script async src="/.netlify/scripts/hud?variant=public" data-nf-variant="public" data-netlify-site-id="6cd985c8-7ce7-4b75-a573-73802d3beb43" data-app-host="app.netlify.com"></script>

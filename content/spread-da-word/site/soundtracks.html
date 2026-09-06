@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=ai-legible&utm_source=comment&utm_medium=referral&utm_id=6cd985c8-7ce7-4b75-a573-73802d3beb43
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+<meta name="hosting-provider" content="Netlify">
+<meta name="netlify-deploy" content="https://netlify.new/?utm_campaign=ai-legible&amp;utm_source=meta&amp;utm_medium=referral&amp;utm_id=6cd985c8-7ce7-4b75-a573-73802d3beb43">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spread Da Word — Soundtracks (Cassette Library)</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#0a1220;color:#cfe8ff;font-family:monospace;min-height:100vh}
+  nav{background:#0e1a2e;border-bottom:2px solid #3d5a80;padding:14px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;position:sticky;top:0;z-index:50}
+  nav .logo{color:#9bd1ff;font-size:16px;letter-spacing:2px;font-weight:bold;text-decoration:none}
+  nav .logo span{color:#e94560}
+  nav a.nav{color:#9bd1ff;text-decoration:none;font-size:13px;padding:6px 10px;border-radius:6px}
+  nav a.nav:hover{background:#1c3352;color:#fff}
+  nav a.nav.active{background:#3d5a80;color:#fff}
+  .wrap{max-width:860px;margin:30px auto;padding:0 20px 40px;text-align:center}
+  h1{color:#ffd166;font-size:28px;letter-spacing:4px;margin-bottom:6px;text-shadow:0 0 20px rgba(255,209,102,.3)}
+  .sub{color:#6ea8d8;font-size:13px;margin-bottom:24px}
+
+  /* THEME SWITCHER */
+  .themes{display:flex;justify-content:center;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+  .theme-btn{background:#22223a;border:2px solid #3a3a55;color:#cfe8ff;border-radius:20px;padding:6px 16px;font-family:monospace;font-size:12px;cursor:pointer;transition:all .2s}
+  .theme-btn:hover{border-color:#9bd1ff}
+  .theme-btn.active{border-color:#ffd166;color:#ffd166;box-shadow:0 0 12px rgba(255,209,102,.3)}
+  /* deck themes */
+  .deck.theme-icy{background:linear-gradient(180deg,#0f2a4a,#0a1a30);border-color:#38bdf8}
+  .deck.theme-icy .cassette{background:#122a4a;border-color:#38bdf8}
+  .deck.theme-icy .cassette-label{background:#e0f4ff;color:#0a1220}
+  .deck.theme-icy .reel::before{background:conic-gradient(#38bdf8 0 40deg,#7fd1ff 40deg 80deg,#38bdf8 80deg 120deg,#7fd1ff 120deg 160deg,#38bdf8 160deg 200deg,#7fd1ff 200deg 240deg,#38bdf8 240deg 280deg,#7fd1ff 280deg 320deg,#38bdf8 320deg 360deg)}
+  .deck.theme-icy .reel::after{background:#0a1a30;border-color:#38bdf8}
+  .deck.theme-icy .deck-brand{color:#7fd1ff}
+  .deck.theme-lava{background:linear-gradient(180deg,#3a0d0d,#1a0505);border-color:#e94560}
+  .deck.theme-lava .cassette{background:#2a0a0a;border-color:#e94560}
+  .deck.theme-lava .cassette-label{background:#ffe0d0;color:#3a0d0d}
+  .deck.theme-lava .reel::before{background:conic-gradient(#e94560 0 40deg,#ff6b35 40deg 80deg,#e94560 80deg 120deg,#ff6b35 120deg 160deg,#e94560 160deg 200deg,#ff6b35 200deg 240deg,#e94560 240deg 280deg,#ff6b35 280deg 320deg,#e94560 320deg 360deg)}
+  .deck.theme-lava .reel::after{background:#1a0505;border-color:#e94560}
+  .deck.theme-lava .deck-brand{color:#ff6b35}
+  .deck.theme-gold{background:linear-gradient(180deg,#2a2410,#1a1608);border-color:#ffd166}
+  .deck.theme-gold .cassette{background:#241f0e;border-color:#ffd166}
+  .deck.theme-gold .cassette-label{background:#fff3d0;color:#2a2410}
+  .deck.theme-gold .reel::before{background:conic-gradient(#ffd166 0 40deg,#c9a200 40deg 80deg,#ffd166 80deg 120deg,#c9a200 120deg 160deg,#ffd166 160deg 200deg,#c9a200 200deg 240deg,#ffd166 240deg 280deg,#c9a200 280deg 320deg,#ffd166 320deg 360deg)}
+  .deck.theme-gold .reel::after{background:#1a1608;border-color:#ffd166}
+  .deck.theme-gold .deck-brand{color:#ffd166}
+  .deck.theme-violet{background:linear-gradient(180deg,#1e1040,#120820);border-color:#a78bfa}
+  .deck.theme-violet .cassette{background:#1a0f38;border-color:#a78bfa}
+  .deck.theme-violet .cassette-label{background:#f0e8ff;color:#1e1040}
+  .deck.theme-violet .reel::before{background:conic-gradient(#a78bfa 0 40deg,#6d5bd0 40deg 80deg,#a78bfa 80deg 120deg,#6d5bd0 120deg 160deg,#a78bfa 160deg 200deg,#6d5bd0 200deg 240deg,#a78bfa 240deg 280deg,#6d5bd0 280deg 320deg,#a78bfa 320deg 360deg)}
+  .deck.theme-violet .reel::after{background:#120820;border-color:#a78bfa}
+  .deck.theme-violet .deck-brand{color:#a78bfa}
+  .deck.theme-retro{background:linear-gradient(180deg,#2a2a2a,#1a1a1a);border-color:#888}
+  .deck.theme-retro .cassette{background:#333;border-color:#777}
+  .deck.theme-retro .cassette-label{background:#e8e0c8;color:#222}
+  .deck.theme-retro .reel::before{background:conic-gradient(#888 0 40deg,#555 40deg 80deg,#888 80deg 120deg,#555 120deg 160deg,#888 160deg 200deg,#555 200deg 240deg,#888 240deg 280deg,#555 280deg 320deg,#888 320deg 360deg)}
+  .deck.theme-retro .reel::after{background:#1a1a1a;border-color:#777}
+  .deck.theme-retro .deck-brand{color:#aaa}
+  /* cassette label swap per tape */
+  .cassette .cassette-label{transition:all .3s}
+  /* CASSETTE PLAYER */
+  .deck{background:linear-gradient(180deg,#1a1a2e,#12121f);border:3px solid #333;border-radius:16px;padding:24px;max-width:560px;margin:0 auto 30px;box-shadow:0 10px 40px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.08)}
+  .deck-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+  .deck-brand{color:#9bd1ff;font-size:12px;letter-spacing:2px}
+  .deck-led{width:10px;height:10px;border-radius:50%;background:#e94560;box-shadow:0 0 10px #e94560;transition:background .2s}
+  .deck-led.on{background:#1a7f37;box-shadow:0 0 10px #1a7f37}
+  .cassette{position:relative;background:#22223a;border-radius:10px;padding:18px 24px;margin-bottom:18px;border:2px solid #3a3a55;box-shadow:0 4px 0 #0f0f1e}
+  .cassette-label{background:#f5e6d0;color:#1a1a2e;border-radius:6px;padding:8px 14px;text-align:center;margin-bottom:12px;font-family:monospace}
+  .cassette-label .tape-title{font-size:14px;font-weight:bold;letter-spacing:1px;color:#111}
+  .cassette-label .tape-sub{font-size:9px;color:#555}
+  .reels{display:flex;justify-content:space-between;align-items:center;padding:0 20px}
+  .reel{width:64px;height:64px;border-radius:50%;background:#111;border:4px solid #3a3a55;position:relative;overflow:hidden}
+  .reel::before{content:'';position:absolute;inset:0;background:conic-gradient(#1a1a2e 0 40deg,#333 40deg 80deg,#1a1a2e 80deg 120deg,#333 120deg 160deg,#1a1a2e 160deg 200deg,#333 200deg 240deg,#1a1a2e 240deg 280deg,#333 280deg 320deg,#1a1a2e 320deg 360deg)}
+  .reel.spinning{animation:spin 2s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .reel::after{content:'';position:absolute;inset:14px;border-radius:50%;background:#22223a;border:2px solid #3a3a55}
+  .window{width:90px;height:26px;background:#0a0a14;border:2px solid #3a3a55;border-radius:4px}
+  .controls{display:flex;justify-content:center;gap:12px;margin-top:16px}
+  .btn{background:#3d5a80;color:#cfe8ff;border:none;border-radius:8px;padding:10px 18px;font-family:monospace;font-size:14px;cursor:pointer;min-width:56px}
+  .btn:hover{background:#4a6cff}
+  .btn.play{background:#1a7f37}.btn.play:hover{background:#2a9d4f}
+  .btn.dl{background:#8a4f1f}.btn.dl:hover{background:#a06030}
+  .deck-time{color:#7fa8d0;font-size:12px;margin-top:10px;font-family:monospace}
+  /* TAPE LIBRARY */
+  .library{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+  .tape{background:#22223a;border:2px solid #3a3a55;border-radius:10px;padding:12px;cursor:pointer;text-align:center;transition:transform .15s,border-color .15s}
+  .tape:hover{transform:translateY(-3px);border-color:#ffd166}
+  .tape.loaded{border-color:#ffd166;background:#2a2a44}
+  .tape .e{font-size:26px;margin-bottom:4px}
+  .tape .n{color:#fff;font-size:12px;font-weight:bold}
+  .tape .g{color:#7fa8d0;font-size:10px;margin-top:2px}
+  .tape .d{font-size:9px;color:#5f7fa0;margin-top:2px}
+  .footer{text-align:center;padding:20px;color:#5f7fa0;font-size:11px;border-top:1px solid #1c3352}
+  .progress{width:100%;height:6px;background:#0a0a14;border-radius:3px;margin-top:12px;overflow:hidden}
+  .progress i{display:block;height:100%;background:linear-gradient(90deg,#ffd166,#e94560);width:0}
+</style>
+</head>
+<body>
+<nav>
+  <a class='logo' href='/'>SPREAD<span>DA</span>WORD</a>
+  <a class='nav' href='/'>Home</a>
+  <a class='nav' href='/episode-1'>Watch Episode 1</a>
+  <a class='nav active' href='/soundtracks'>Soundtracks</a>
+  <a class='nav' href='/roster'>The Cast</a>
+  <a class='nav' href='/fridge-teaser'>The Fridge</a>
+  <a class='nav' href='/behind-the-scenes'>Behind the Scenes</a>
+</nav>
+<div class="wrap">
+  <h1>💿 SOUNDTRACKS</h1>
+  <div class="sub">The Spread Da Word cassette library — load a tape, press play</div>
+
+  <div class="themes" id="themeSwitcher">
+    <button class="theme-btn active" data-theme="retro">📻 Retro</button>
+    <button class="theme-btn" data-theme="icy">❄️ Icy</button>
+    <button class="theme-btn" data-theme="lava">🌋 Lava</button>
+    <button class="theme-btn" data-theme="gold">⭐ Gold</button>
+    <button class="theme-btn" data-theme="violet">🔮 Violet</button>
+    <button class="theme-btn" id="randomTheme">🎲 Random</button>
+  </div>
+
+
+  <!-- CASSETTE PLAYER -->
+  <div class="deck">
+    <div class="deck-top">
+      <span class="deck-brand">SDW • TAPE DECK</span>
+      <span class="deck-led" id="led"></span>
+    </div>
+    <div class="cassette">
+      <div class="cassette-label">
+        <div class="tape-title" id="tapeTitle">— NO TAPE LOADED —</div>
+        <div class="tape-sub" id="tapeSub">insert a cassette from the library</div>
+      </div>
+      <div class="reels">
+        <div class="reel" id="reelL"></div>
+        <div class="window"></div>
+        <div class="reel" id="reelR"></div>
+      </div>
+    </div>
+    <div class="progress"><i id="prog"></i></div>
+    <div class="controls">
+      <button class="btn play" id="playBtn">▶</button>
+      <button class="btn" id="stopBtn">■</button>
+      <button class="btn dl" id="dlBtn">⭳</button>
+    </div>
+    <div class="deck-time" id="timeDisplay">0:00 / 0:00</div>
+  </div>
+
+  <!-- TAPE LIBRARY -->
+  <div class="library" id="library"></div>
+
+  <p style="color:#5f7fa0;font-size:11px;margin-top:20px">🎧 The shelves raised us. Every tape is a beat from the hood, the fridge, or the battle between them.</p>
+</div>
+
+<script>
+// TAPE LIBRARY
+var TAPES = [
+  {id:"hood-theme", e:"🍶", name:"Hood Theme", genre:"Trap · 150 BPM", dur:"0:29", file:"tracks/hood-theme.wav", desc:"The shelves raised us.", color:"#e94560", label:"#f5e6d0", bg:"#2a1a0e"},
+  {id:"fridge-theme", e:"🧊", name:"Fridge Theme", genre:"Pop · 120 BPM", dur:"0:32", file:"tracks/fridge-theme.wav", desc:"The suburbs.", color:"#38bdf8", label:"#e0f4ff", bg:"#122a4a"},
+  {id:"battle-theme", e:"⚔️", name:"Battle Theme", genre:"Electro · 160 BPM", dur:"0:29", file:"tracks/battle-theme.wav", desc:"Hood vs Fridge.", color:"#ff6b35", label:"#ffe0d0", bg:"#3a0d0d"},
+  {id:"intro", e:"🎬", name:"Intro (Trap)", genre:"Trap · 145 BPM", dur:"0:16", file:"intro-music.wav", desc:"The title-card banger.", color:"#9bd1ff", label:"#eef6ff", bg:"#0e1a2e"},
+  {id:"lofi", e:"🌙", name:"Lo-Fi Study", genre:"Lo-Fi · 85 BPM", dur:"0:45", file:"tracks/lofi-theme.wav", desc:"Snow snake night.", color:"#a78bfa", label:"#f0e8ff", bg:"#1a0f38"},
+  {id:"country", e:"🤠", name:"Hood Country", genre:"Country · 100 BPM", dur:"0:45", file:"tracks/country-theme.wav", desc:"Que's cookout jam.", color:"#ffd166", label:"#fff3d0", bg:"#2a2410"},
+  {id:"pop", e:"✨", name:"Fridge Pop", genre:"Pop · 118 BPM", dur:"0:45", file:"tracks/pop-theme.wav", desc:"Crisp's bop.", color:"#ff5d8f", label:"#ffe8f0", bg:"#2a0a1a"},
+  {id:"electro", e:"⚡", name:"Electro Clash", genre:"Electro · 140 BPM", dur:"0:45", file:"tracks/electro-theme.wav", desc:"The sparkplug.", color:"#4a6cff", label:"#e8ecff", bg:"#0d1233"},
+];
+var audio = new Audio();
+var current = null;
+var led = document.getElementById('led');
+var reelL = document.getElementById('reelL'), reelR = document.getElementById('reelR');
+var prog = document.getElementById('prog');
+var timeDisp = document.getElementById('timeDisplay');
+
+function buildLibrary(){
+  var lib = document.getElementById('library');
+  TAPES.forEach(function(t){
+    var el = document.createElement('div');
+    el.className = 'tape'; el.id = 'tape-'+t.id;
+    el.innerHTML = '<div class="e">'+t.e+'</div><div class="n">'+t.name+'</div><div class="g">'+t.genre+'</div><div class="d">'+t.dur+' · '+t.desc+'</div>';
+    el.onclick = function(){ loadTape(t); };
+    lib.appendChild(el);
+  });
+}
+function loadTape(t){
+  current = t;
+  swapCassette(t);
+  audio.src = t.file;
+  document.getElementById('tapeTitle').textContent = t.name;
+  document.getElementById('tapeSub').textContent = t.genre + ' · ' + t.desc;
+  document.querySelectorAll('.tape').forEach(function(x){x.classList.remove('loaded');});
+  document.getElementById('tape-'+t.id).classList.add('loaded');
+  audio.play().then(function(){
+    led.classList.add('on'); reelL.classList.add('spinning'); reelR.classList.add('spinning');
+  }).catch(function(){});
+}
+document.getElementById('playBtn').onclick = function(){
+  if(!current){ loadTape(TAPES[0]); return; }
+  if(audio.paused){ audio.play(); led.classList.add('on'); reelL.classList.add('spinning'); reelR.classList.add('spinning'); }
+  else { audio.pause(); led.classList.remove('on'); reelL.classList.remove('spinning'); reelR.classList.remove('spinning'); }
+};
+document.getElementById('stopBtn').onclick = function(){
+  audio.pause(); audio.currentTime = 0; led.classList.remove('on');
+  reelL.classList.remove('spinning'); reelR.classList.remove('spinning');
+  prog.style.width = '0';
+};
+document.getElementById('dlBtn').onclick = function(){
+  if(!current) return;
+  var a = document.createElement('a'); a.href = current.file; a.download = current.file.split('/').pop(); a.click();
+};
+audio.addEventListener('timeupdate', function(){
+  var p = audio.duration ? (audio.currentTime/audio.duration)*100 : 0;
+  prog.style.width = p + '%';
+  var m = Math.floor(audio.currentTime/60), s = Math.floor(audio.currentTime%60);
+  var dm = Math.floor((audio.duration||0)/60), ds = Math.floor((audio.duration||0)%60);
+  timeDisp.textContent = m+':'+(s<10?'0':'')+s+' / '+dm+':'+(ds<10?'0':'')+ds;
+});
+audio.addEventListener('ended', function(){
+  led.classList.remove('on'); reelL.classList.remove('spinning'); reelR.classList.remove('spinning');
+});
+
+// THEME SWITCHER (incl. random)
+var THEMES = ['retro','icy','lava','gold','violet'];
+var currentTheme = 'retro';
+var deck = document.querySelector('.deck');
+document.querySelectorAll('.theme-btn').forEach(function(btn){
+  btn.onclick = function(){
+    if(btn.id === 'randomTheme'){
+      currentTheme = THEMES[Math.floor(Math.random()*THEMES.length)];
+    } else {
+      currentTheme = btn.dataset.theme;
+    }
+    applyTheme(currentTheme);
+  };
+});
+function applyTheme(th){
+  deck.className = 'deck theme-' + th;
+  document.querySelectorAll('.theme-btn').forEach(function(b){
+    b.classList.toggle('active', b.dataset.theme === th);
+  });
+}
+// CASSETTE SWAP per tape (physical feel)
+function swapCassette(t){
+  var cassette = document.querySelector('.cassette');
+  var label = document.querySelector('.cassette-label');
+  cassette.style.background = t.bg;
+  cassette.style.borderColor = t.color;
+  label.style.background = t.label;
+  label.style.color = '#1a1a2e';
+  document.querySelectorAll('.reel').forEach(function(r){
+    r.style.borderColor = t.color;
+  });
+  // slight "insert" animation
+  cassette.style.transform = 'translateY(-4px)';
+  setTimeout(function(){ cassette.style.transform = 'translateY(0)'; }, 150);
+  cassette.style.transition = 'transform .15s';
+}
+
+buildLibrary();
+</script>
+</body>
+</html>
+<script async src="/.netlify/scripts/hud?variant=public" data-nf-variant="public" data-netlify-site-id="6cd985c8-7ce7-4b75-a573-73802d3beb43" data-app-host="app.netlify.com"></script>
