@@ -49,7 +49,7 @@
       <h2>🍶 VIN NEGAR</h2>
       <div class="role">Apple Cider Vinegar · The Outlaw</div>
       <div class="voice">Voice: deep &amp; cool</div>
-      <div class="stage" id="vinStage"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 320" width="220" height="300">
+      <div class="stage" id="vinStage"><svg xmlns="http://www.w3.org/2000/svg" id="vinSvg" viewBox="0 0 220 320" width="220" height="300">
   <defs>
     <!-- amber vinegar liquid gradient -->
     <linearGradient id="vinGlass" x1="0" y1="0" x2="1" y2="0">
@@ -130,7 +130,7 @@
       <h2>🍖 QUE</h2>
       <div class="role">BBQ Sauce · The Hype Man</div>
       <div class="voice">Voice: funny &amp; energetic</div>
-      <div class="stage" id="queStage"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 320" width="220" height="300">
+      <div class="stage" id="queStage"><svg xmlns="http://www.w3.org/2000/svg" id="queSvg" viewBox="0 0 220 320" width="220" height="300">
   <defs>
     <linearGradient id="queGlass" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#5a1d0a"/>
@@ -230,7 +230,7 @@ var vinEl = document.querySelector('#vinSvg');
 var queEl = document.querySelector('#queSvg');
 
 document.getElementById('vinSay').onclick = function(){
-  document.getElementById('vinNote').textContent = 'Vin: "You ain't ready for me, bro."';
+  document.getElementById('vinNote').textContent = "Vin: You ain't ready for me, bro.";
   vinAudio.currentTime = 0; vinAudio.play();
   var t=0; var iv=setInterval(function(){ t++;
     vinArmL.setAttribute('transform','rotate('+(-25*Math.sin(t/5))+',68,150)');
