@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spread Da Word — SnowSnakes Commercial</title>
+<style>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#0a1220;color:#cfe8ff;font-family:monospace;display:flex;flex-direction:column;align-items:center;min-height:100vh;padding:16px}
+  h1{color:#ffd166;font-size:20px;letter-spacing:3px;text-align:center}
+  .sub{color:#6ea8d8;font-size:12px;text-align:center;margin:4px 0 14px}
+  #stage{position:relative;width:760px;height:430px;background:linear-gradient(180deg,#1c0e06,#2a1a10);border:3px solid #8a5a2b;border-radius:10px;overflow:hidden;box-shadow:0 0 30px #ff9f4344}
+  /* back shelf + wall */
+  .shelfline{position:absolute;left:0;width:100%;height:3px;background:#5c3317}
+  .bottle{position:absolute;bottom:0;background:#7a2a10;border-radius:3px;border-left:2px solid #8a3d1c}
+  /* cereal boxes */
+  .cereal{position:absolute;bottom:36px;background:#c25e2b;border:2px solid #7a2a10;border-radius:3px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:monospace;color:#ffe8d0;font-weight:bold;text-shadow:1px 1px 0 #000}
+  .cereal.blue{background:#3a5a8a;border-color:#1a2a4a}
+  .cereal.green{background:#4a7a3a;border-color:#1a3a1a}
+  .cereal .c-name{font-size:9px;letter-spacing:1px}
+  .cereal .c-crunch{font-size:7px;font-weight:normal;opacity:.8}
+  /* floor */
+  .floor{position:absolute;bottom:0;left:0;width:100%;height:36px;background:#150e08;border-top:2px solid #ff9f43}
+  /* roach */
+  .roach{position:absolute;width:26px;height:14px;display:none}
+  /* speech bubbles */
+  .bubble{position:absolute;display:none;background:#fff;color:#111;border-radius:12px;padding:8px 12px;font-size:12px;max-width:230px;border:2px solid #111}
+  .bubble .tail{position:absolute;bottom:-10px;left:30px;width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-top:10px solid #fff}
+  /* character spots */
+  .char-spot{position:absolute;bottom:36px;display:flex;align-items:flex-end}
+  #queSpot{left:40px}
+  #vinSpot{right:40px}
+  .controls{margin-top:12px;display:flex;gap:10px}
+  button{background:#3d5a80;color:#cfe8ff;border:none;border-radius:8px;padding:8px 16px;font-family:monospace;cursor:pointer}
+  button.play{background:#1a7f37}
+  .endcard{position:absolute;inset:0;background:#0a1220f2;display:none;flex-direction:column;align-items:center;justify-content:center;z-index:20}
+  .endcard.show{display:flex}
+  .endcard .ec-title{font-size:26px;font-weight:bold;color:#7fd1ff;text-shadow:0 0 16px #7fd1ff}
+  .endcard .ec-sub{color:#ffd166;font-size:15px;margin-top:8px}
+  .endcard .ec-url{color:#6ea8d8;font-size:13px;margin-top:16px;letter-spacing:2px}
+</style>
+
+</style>
+</head>
+<body>
+<h1>🍖 SPREAD DA WORD — SNOWSNAKES COMMERCIAL</h1>
+<div class="sub">Que &amp; Vin · Cab-net · more dad jokes at snowsnakes.zerric.xyz</div>
+<div id="stage">
+  <!-- shelves -->
+  <div class="shelfline" style="top:70px"></div>
+  <div class="shelfline" style="top:150px"></div>
+  <!-- background bottles on shelves -->
+  <div class="bottle" style="left:30px;top:80px;width:16px;height:60px"></div>
+  <div class="bottle" style="left:60px;top:95px;width:14px;height:45px;background:#5a1d0a"></div>
+  <div class="bottle" style="left:600px;top:75px;width:18px;height:65px"></div>
+  <div class="bottle" style="left:660px;top:90px;width:14px;height:50px;background:#4a2a0a"></div>
+  <div class="bottle" style="left:700px;top:85px;width:12px;height:55px"></div>
+
+  <!-- cereal boxes (right side, beside Vin) -->
+  <div class="cereal" style="right:120px;width:52px;height:80px"><div class="c-name">CRUNCH</div><div class="c-crunch">frosted</div></div>
+  <div class="cereal blue" style="right:180px;width:44px;height:70px"><div class="c-name">CHOC</div><div class="c-crunch">puffs</div></div>
+  <div class="cereal green" style="right:230px;width:40px;height:60px"><div class="c-name">OAT</div><div class="c-crunch">hoops</div></div>
+
+  <!-- characters -->
+  <div class="char-spot" id="queSpot"><svg id="queRig" viewBox="0 0 220 330" width="150" height="225">
+  <defs>
+    <linearGradient id="queBody" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4d0f02"/>
+      <stop offset="0.3" stop-color="#6e1c04"/>
+      <stop offset="0.5" stop-color="#7e2406"/>
+      <stop offset="1" stop-color="#3a0a01"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ===== RANCH/BBQ SQUEEZE BOTTLE ===== -->
+  <!-- flip cap -->
+  <path d="M94 40 L126 40 L124 50 L96 50 Z" fill="#e04040"/>
+  <rect x="98" y="34" width="24" height="7" rx="3" fill="#b83232"/>
+  <!-- long clean neck -->
+  <rect x="92" y="50" width="36" height="64" fill="url(#queBody)" stroke="#2a0a01" stroke-width="2"/>
+  <!-- shoulders + body -->
+  <!-- shoulders curve CONCAVE inward at neck (no bulb/pillow) -->
+  <path d="M66 132 L154 132 L154 214 L158 250 Q158 264 110 264 Q62 264 62 250 L66 214 Z"
+        fill="url(#queBody)" stroke="#2a0a01" stroke-width="2.5"/>
+  <!-- concave neck-to-shoulder transition: dips in below the neck then flares to body -->
+  <path d="M84 100 Q84 116 66 132 L66 118 Q84 106 90 100 Z" fill="url(#queBody)"/>
+  <path d="M136 100 Q136 116 154 132 L154 118 Q136 106 130 100 Z" fill="url(#queBody)"/>
+  <!-- gloss -->
+  <rect x="70" y="176" width="5" height="60" rx="2.5" fill="#ffffff12"/>
+
+  <!-- ===== FACE: sits ON THE NECK ===== -->
+  <!-- eyes (on the neck, narrower) -->
+  <g id="queEyes">
+    <circle cx="99" cy="72" r="6" fill="#fff" stroke="#111" stroke-width="2"/>
+    <circle cx="121" cy="72" r="6" fill="#fff" stroke="#111" stroke-width="2"/>
+    <circle cx="100" cy="73" r="2.8" fill="#111"/>
+    <circle cx="122" cy="73" r="2.8" fill="#111"/>
+  </g>
+  <!-- mouth (on neck, below eyes) -->
+  <g id="queMouth">
+    <path d="M99 88 Q110 97 121 88" stroke="#1f0500" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <rect x="108" y="89" width="6" height="6" rx="1.5" fill="#ffd700"/>
+  </g>
+
+  <g id="queChain">
+    <path d="M88 126 Q110 156 132 126" stroke="#ffd700" stroke-width="4.5" fill="none"/>
+    <path d="M92 130 L99 142 M99 133 L105 139 M121 133 L127 139 M128 130 L135 142" stroke="#ffd700" stroke-width="2"/>
+    <path d="M110 140 l-6 13 a6 6 0 0 0 12 0 Z" fill="#ff8a3d" stroke="#ffd700" stroke-width="1.6"/>
+  </g>
+
+  <!-- ===== BANDANA at the neck (BBQ neck-label as gangsta kerchief) ===== -->
+  <g id="queBandana">
+    <!-- wrapped band around the neck -->
+    <path d="M86 104 L134 104 L136 124 Q136 132 110 132 Q84 132 84 124 Z" fill="#8a1a08" stroke="#4a0a02" stroke-width="1.5"/>
+    <!-- polka dots / pattern -->
+    <circle cx="96" cy="112" r="2.2" fill="#ff8a5a"/>
+    <circle cx="110" cy="114" r="2.2" fill="#ff8a5a"/>
+    <circle cx="124" cy="112" r="2.2" fill="#ff8a5a"/>
+    <circle cx="103" cy="124" r="2.2" fill="#ff8a5a"/>
+    <circle cx="117" cy="124" r="2.2" fill="#ff8a5a"/>
+    <!-- knot + hanging tails front-left -->
+    <path d="M104 130 L98 140 L100 142 L108 132 Z" fill="#6e1404"/>
+    <path d="M100 138 Q96 150 92 158 L98 158 Q104 150 108 142 Z" fill="#8a1a08"/>
+    <path d="M102 142 Q108 152 112 156 L116 154 Q110 146 106 140 Z" fill="#6e1404"/>
+  </g>
+
+  <!-- ===== CHAIN: hangs at the BASE of the neck / shoulder ===== -->
+
+  <!-- ===== ARMS: attach at shoulders, over label ===== -->
+  <g id="queArmL"><path d="M72 138 Q50 172 46 212" stroke="#5a1603" stroke-width="12" stroke-linecap="round" fill="none"/></g>
+  <g id="queArmR"><path d="M148 138 Q170 172 174 212" stroke="#5a1603" stroke-width="12" stroke-linecap="round" fill="none"/></g>
+
+  <!-- ===== LABEL: trapezoid matching taper ===== -->
+  <g id="queLabelWrap">
+    <path d="M66 190 L154 190 L152 244 L68 244 Z" fill="#f7ead0"/>
+    <rect x="74" y="196" width="72" height="13" fill="#6e1c04"/>
+    <text x="110" y="205" text-anchor="middle" font-family="monospace" font-size="9.5" font-weight="bold" fill="#ffe8d0">QUE'S</text>
+    <text x="110" y="224" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#5a1803">BBQ SAUCE</text>
+    <text x="110" y="236" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#7e4a24">pass the vibe</text>
+    <path d="M66 190 L76 190 L74 244 L68 244 Z" fill="#1f0500" opacity=".4"/>
+    <path d="M144 190 L154 190 L152 244 L146 244 Z" fill="#1f0500" opacity=".4"/>
+  </g>
+
+  <rect x="78" y="262" width="30" height="12" rx="5" fill="#0a0a0a"/>
+  <rect x="112" y="262" width="30" height="12" rx="5" fill="#0a0a0a"/>
+</svg></div>
+  <div class="char-spot" id="vinSpot"><svg id="vinRig" viewBox="0 0 220 330" width="160" height="240">
+  <defs>
+    <linearGradient id="vinGlass" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4f1806"/>
+      <stop offset="0.3" stop-color="#6e2608"/>
+      <stop offset="0.5" stop-color="#7e2e0a"/>
+      <stop offset="1" stop-color="#3a1003"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ===== WINE BOTTLE (flat bottom) ===== -->
+  <path d="M92 44 L128 44 L128 78 Q128 94 140 106 L142 118 L142 252 Q142 260 135 262 L85 262 Q78 260 78 252 L78 118 L80 106 Q92 94 92 78 Z"
+        fill="url(#vinGlass)" stroke="#200a02" stroke-width="2.5"/>
+
+  <!-- ===== FACE (shades + mouth) on neck/shoulder ===== -->
+  <g id="vinShades">
+    <rect x="86" y="64" width="21" height="15" rx="4" fill="#0b0b0b" stroke="#e8c15a" stroke-width="2"/>
+    <rect x="113" y="64" width="21" height="15" rx="4" fill="#0b0b0b" stroke="#e8c15a" stroke-width="2"/>
+    <path d="M107 71 L113 71" stroke="#e8c15a" stroke-width="2"/>
+    <path d="M86 71 L76 66 M134 71 L144 66" stroke="#1f0a02" stroke-width="3"/>
+  </g>
+  <g id="vinMouth">
+    <path d="M100 92 Q110 101 120 92" stroke="#160a02" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- ===== LABEL (middle of bottle) ===== -->
+  <g id="vinLabelWrap">
+    <rect x="83" y="162" width="54" height="62" rx="3" fill="#f7ead0"/>
+    <rect x="88" y="168" width="44" height="13" fill="#5a1803"/>
+    <text x="110" y="178" text-anchor="middle" font-family="monospace" font-size="9" font-weight="bold" fill="#ffe8d0">VIN NEGAR</text>
+    <text x="110" y="196" text-anchor="middle" font-family="monospace" font-size="10.5" font-weight="bold" fill="#4a1604">REALEST</text>
+    <text x="110" y="207" text-anchor="middle" font-family="monospace" font-size="5.5" fill="#7e4a24">real vinegar</text>
+    <text x="110" y="218" text-anchor="middle" font-family="monospace" font-size="6" fill="#5a2a12">est. cab-nets</text>
+    <rect x="83" y="162" width="6" height="62" fill="#200a02" opacity=".35"/>
+    <rect x="131" y="162" width="6" height="62" fill="#200a02" opacity=".35"/>
+    <rect x="102" y="162" width="5" height="62" fill="#ffffff" opacity=".18"/>
+  </g>
+
+  <!-- ===== ARMS: attach at shoulder (just below taper), drawn before chain ===== -->
+  <g id="vinArmL"><path d="M80 122 Q54 140 48 172" stroke="#1c0f06" stroke-width="11" stroke-linecap="round" fill="none"/></g>
+  <g id="vinArmR"><path d="M140 122 Q166 140 172 172" stroke="#1c0f06" stroke-width="11" stroke-linecap="round" fill="none"/></g>
+
+  <!-- ===== CHAIN: from neck, hangs ABOVE arms and dangles a little past them ===== -->
+  <g id="vinChain">
+    <path d="M82 100 Q110 150 138 100" stroke="#ffd700" stroke-width="4.5" fill="none"/>
+    <path d="M88 106 L96 120 M96 110 L102 118 M124 110 L130 118 M132 106 L140 120" stroke="#ffd700" stroke-width="2.2"/>
+    <circle cx="110" cy="124" r="10" fill="#111" stroke="#ffd700" stroke-width="3.5"/>
+    <text x="110" y="130" text-anchor="middle" font-size="9" font-weight="bold" fill="#ffd700">V</text>
+  </g>
+
+  <!-- ===== CAP: black w/ gold trim + ridges, tilted like a hat, DRAWN LAST (in front) ===== -->
+  <g id="vinCap" transform="rotate(-14 110 46)">
+    <path d="M86 44 Q88 16 110 14 Q132 16 134 44 L136 50 Q110 62 84 50 Z" fill="#0b0b0b"/>
+    <!-- ridges on black -->
+    <path d="M98 18 L98 55 M106 15.5 L106 55 M114 15.5 L114 55 M122 18 L122 55" stroke="#222" stroke-width="1.2"/>
+    <!-- gold bottom trim -->
+    <path d="M84 50 Q110 62 136 50 L136 56 Q110 68 84 56 Z" fill="#ffd700"/>
+    <!-- brim -->
+    <path d="M134 40 Q150 42 154 50 L136 54 Z" fill="#0b0b0b" stroke="#ffd700" stroke-width="1"/>
+  </g>
+
+  <!-- shoes -->
+  <rect x="84" y="260" width="24" height="10" rx="4" fill="#0a0a0a"/>
+  <rect x="112" y="260" width="24" height="10" rx="4" fill="#0a0a0a"/>
+</svg></div>
+
+  <!-- speech bubbles -->
+  <div class="bubble" id="bubbleQ" style="left:30px;top:8px"><span id="bqText"></span><div class="tail"></div></div>
+  <div class="bubble" id="bubbleV" style="right:30px;top:8px"><span id="bvText"></span><div class="tail"></div></div>
+
+  <!-- roach -->
+  <svg class="roach" id="roach" viewBox="0 0 26 14" x="0" style="bottom:6px">
+    <ellipse cx="10" cy="7" rx="8" ry="5" fill="#3a2410" stroke="#1a0c02" stroke-width="1"/>
+    <ellipse cx="19" cy="6" rx="5" ry="3.5" fill="#4a3018" stroke="#1a0c02" stroke-width="1"/>
+    <line x1="4" y1="4" x2="1" y2="0" stroke="#1a0c02" stroke-width="1.2"/>
+    <line x1="6" y1="3" x2="4" y2="-1" stroke="#1a0c02" stroke-width="1.2"/>
+    <line x1="14" y1="3" x2="13" y2="-1" stroke="#1a0c02" stroke-width="1.2"/>
+    <line x1="16" y1="4" x2="17" y2="0" stroke="#1a0c02" stroke-width="1.2"/>
+    <line x1="4" y1="10" x2="1" y2="14" stroke="#1a0c02" stroke-width="1.2"/>
+    <line x1="7" y1="11" x2="5" y2="15" stroke="#1a0c02" stroke-width="1.2"/>
+    <line x1="15" y1="10" x2="16" y2="14" stroke="#1a0c02" stroke-width="1.2"/>
+  </svg>
+
+  <!-- floor -->
+  <div class="floor"></div>
+
+  <!-- endcard -->
+  <div class="endcard" id="endcard">
+    <div class="ec-title">🐍 SNOWSNAKES</div>
+    <div class="ec-sub">GET MORE DAD JOKES</div>
+    <div class="ec-url">snowsnakes.zerric.xyz</div>
+  </div>
+</div>
+
+<div class="controls">
+  <button class="play" id="playBtn">▶ Play Commercial</button>
+  <button id="replayBtn">↺ Replay</button>
+</div>
+
+<audio id="q1" src="commercial/q1.mp3"></audio>
+<audio id="q2" src="commercial/q2.mp3"></audio>
+<audio id="v1" src="commercial/v1.mp3"></audio>
+<audio id="v2" src="commercial/v2.mp3"></audio>
+<audio id="music" loop src="intro-music.wav"></audio>
+<script>
+var q1=document.getElementById('q1'), q2=document.getElementById('q2'),
+    v1=document.getElementById('v1'), v2=document.getElementById('v2'),
+    music=document.getElementById('music');
+var bQ=document.getElementById('bubbleQ'), bV=document.getElementById('bubbleV'),
+    bqText=document.getElementById('bqText'), bvText=document.getElementById('bvText');
+var roach=document.getElementById('roach');
+var ec=document.getElementById('endcard');
+var playing=false, started=false, clock=0;
+
+// mouth elements
+var qMouth=document.getElementById('queMouth'), vMouth=document.getElementById('vinMouth');
+var qOrig='<path d="M99 88 Q110 97 121 88" stroke="#1f0500" stroke-width="3" fill="none" stroke-linecap="round"/><rect x="108" y="89" width="6" height="6" rx="1.5" fill="#ffd700"/>';
+var vOrig='<path d="M100 92 Q110 101 120 92" stroke="#160a02" stroke-width="3" fill="none" stroke-linecap="round"/>';
+qMouth.innerHTML=qOrig; vMouth.innerHTML=vOrig;
+
+function showQ(t){bqText.textContent=t;bQ.style.display='block';}
+function showV(t){bvText.textContent=t;bV.style.display='block';}
+function hideB(){bQ.style.display='none';bV.style.display='none';}
+
+// lip sync: set mouth open/closed during a line. open for given speaker bool.
+var lipsIV=null;
+function lipsync(speaker, dur){
+  if(lipsIV) clearInterval(lipsIV);
+  var t=0; lipsIV=setInterval(function(){
+    t+=60; var open=(Math.sin(t/90)>0);
+    if(speaker==='que'){ qMouth.innerHTML = open ? '<ellipse cx="110" cy="93" rx="9" ry="6" fill="#1f0500"/><rect x="107" y="89" width="6" height="6" rx="1.5" fill="#ffd700"/>' : qOrig; }
+    else if(speaker==='vin'){ vMouth.innerHTML = open ? '<ellipse cx="110" cy="97" rx="7" ry="5" fill="#160a02"/>' : vOrig; }
+    if(t>=dur*1000){ clearInterval(lipsIV); qMouth.innerHTML=qOrig; vMouth.innerHTML=vOrig; }
+  },60);
+}
+function stopLip(){ if(lipsIV) clearInterval(lipsIV); qMouth.innerHTML=qOrig; vMouth.innerHTML=vOrig; }
+
+// bob animation for characters (idle vibe)
+var bobIV=null; var tBob=0;
+function startBob(){ if(bobIV) return; bobIV=setInterval(function(){ tBob+=0.06;
+  var qb=Math.sin(tBob)*3, vb=Math.sin(tBob+1.4)*3;
+  var qs=document.getElementById('queRig'), vs=document.getElementById('vinRig');
+  if(qs) qs.style.transform='translateY('+(-qb)+'px)';
+  if(vs) vs.style.transform='translateY('+(-vb)+'px)';
+},50); }
+
+// timeline: total ~17s
+var TIMELINE=[];
+function runScene(){
+  hideB(); roach.style.display='none'; ec.classList.remove('show');
+  startBob(); music.play();
+  // 0s-2.3s: idle hang
+  setTimeout(function(){
+    // Que setup
+    showQ("Yo Vin — check this out. How do you secure your stomach?");
+    q1.play(); lipsync('que',1.9);
+  },2300);
+  setTimeout(function(){ // Que punchline
+    showQ("Belly button! Ha! Haha!"); q2.play(); lipsync('que',1.2);
+    // ROACH CRAWLS during the laugh
+    roach.style.display='block';
+    var x=0; var rIV=setInterval(function(){ x+=3; roach.style.left=x+'px'; if(x>730){clearInterval(rIV);roach.style.display='none';} },30);
+  },4700);
+  setTimeout(function(){ // Vin reaction
+    hideB(); showV("Que. That was terrible.");
+    v1.play(); lipsync('vin',1.2);
+  },6300);
+  setTimeout(function(){ // Vin closer
+    hideB(); showV("Get more dad jokes... at snowsnakes dot zerric dot xyz.");
+    v2.play(); lipsync('vin',2.4);
+  },7800);
+  setTimeout(function(){ // endcard
+    hideB(); music.pause();
+    ec.classList.add('show');
+  },10800);
+}
+document.getElementById('playBtn').onclick=function(){
+  if(playing) return; playing=true; started=true;
+  this.textContent='▶ Playing…'; runScene();
+};
+document.getElementById('replayBtn').onclick=function(){
+  // reset all
+  q1.pause();q1.currentTime=0;q2.pause();q2.currentTime=0;v1.pause();v1.currentTime=0;v2.pause();v2.currentTime=0;
+  stopLip(); hideB(); roach.style.display='none'; ec.classList.remove('show');
+  qMouth.innerHTML=qOrig; vMouth.innerHTML=vOrig;
+  var vs=document.getElementById('vinRig'); vs.style.transform=''; 
+  var qs=document.getElementById('queRig'); qs.style.transform='';
+  music.currentTime=0;
+  playing=false; document.getElementById('playBtn').textContent='▶ Play Commercial';
+  // restart if started
+  if(started){ setTimeout(function(){ document.getElementById('playBtn').click(); },300); }
+};
+</script>
+</body>
+</html>
