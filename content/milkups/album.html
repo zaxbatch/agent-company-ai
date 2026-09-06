@@ -62,6 +62,28 @@
   .buy .bb { display:inline-block; margin-top:12px; padding:11px 24px; background:linear-gradient(135deg,#ea80fc,#d500f9); color:#0d050d; font-weight:700; border-radius:10px; text-decoration:none; }
   .buy .bb:hover { filter:brightness(1.15); }
   .buy .bn { color:#6d4f7d; font-size:11px; margin-top:8px; }
+
+  /* Download/donation modal */
+  .modal-overlay { position:fixed; inset:0; background:#000a; backdrop-filter:blur(4px); display:none; align-items:center; justify-content:center; z-index:99; padding:16px; }
+  .modal-overlay.show { display:flex; }
+  .modal { background:#1c0e22; border:2px solid #e040fb66; border-radius:18px; max-width:400px; width:100%; padding:24px; text-align:center; box-shadow:0 0 60px #d500f955; }
+  .modal h3 { color:#ea80fc; font-size:18px; letter-spacing:1px; }
+  .modal .msub { color:#9b6fb0; font-size:13px; margin:6px 0 16px; line-height:1.5; }
+  .modal .amtrow { display:flex; gap:8px; justify-content:center; margin:14px 0; flex-wrap:wrap; }
+  .modal .amt { padding:9px 16px; border-radius:10px; border:1px solid #e040fb66; background:transparent; color:#ea80fc; font-weight:700; font-size:14px; cursor:pointer; }
+  .modal .amt:hover { background:#e040fb; color:#0d050d; }
+  .modal .amt.suggest { background:linear-gradient(135deg,#ea80fc,#d500f9); color:#0d050d; border:none; }
+  .modal .mqr img { width:130px; height:130px; border-radius:10px; border:2px solid #e040fb55; }
+  .modal .mqr { margin:8px 0 4px; }
+  .modal .mhandle { font-size:12px; color:#8f6ba6; margin-bottom:10px; }
+  .modal .mhandle b { color:#7fd1ff; }
+  .modal .divider { display:flex; align-items:center; gap:10px; color:#6d4f7d; font-size:11px; letter-spacing:2px; margin:12px 0; }
+  .modal .divider:before, .modal .divider:after { content:''; flex:1; height:1px; background:#e040fb33; }
+  .modal .freebtn { display:block; width:100%; padding:12px; border-radius:10px; border:1px solid #7fd1ff55; background:transparent; color:#7fd1ff; font-weight:700; cursor:pointer; font-size:14px; }
+  .modal .freebtn:hover { background:#7fd1ff22; }
+  .modal .mclose { margin-top:12px; background:none; border:none; color:#6d4f7d; cursor:pointer; font-size:12px; text-decoration:underline; }
+  .modal .mdl { display:inline-block; margin-top:4px; font-size:11px; color:#8f6ba6; }
+
   .foot { text-align:center; font-size:10px; letter-spacing:2px; color:#6d4f7d; margin-top:14px; line-height:1.7; }
   .back { display:inline-block; margin-top:16px; color:#ce93d8; font-size:13px; text-decoration:none; letter-spacing:1px; }
   .back:hover { color:#ea80fc; }
@@ -106,9 +128,29 @@
     <div class="bs">All 8 tracks · MP3 · straight from the shelf</div>
     <img src="assets/qr-zdotllc-5.png" alt="Cash App QR — send $5 to $zdotllc">
     <div style="color:#f3e8ff;font-size:13px;margin-top:8px;">Scan with Cash App to send <b>$5</b> · or type <b style="color:#7fd1ff">$zdotllc</b></div>
-    <a class="bb" href="TheShelvesRaisedUs-milkups-464737.zip" download>⬇ Download Whole Album — $5</a>
+    <a class="bb" href="#" id="dlTrigger">⬇ Download Whole Album — $5</a>
     <div class="bn">After payment, tap download. Pay what keeps the shelves stocked.</div>
   </div>
+
+  <div class="modal-overlay" id="dlModal">
+    <div class="modal">
+      <h3>🥛 Keep the shelves stocked?</h3>
+      <div class="msub">The album is yours free — but if it hits, send what it&#39;s worth. Every tip keeps MilkUps making music.</div>
+      <div class="amtrow">
+        <button class="amt suggest" data-amt="5">$5</button>
+        <button class="amt" data-amt="10">$10</button>
+        <button class="amt" data-amt="1">$1</button>
+        <button class="amt" data-amt="3">$3</button>
+      </div>
+      <div class="mqr"><img src="assets/qr-zdotllc-5.png" alt="Cash App $zdotllc"></div>
+      <div class="mhandle">Send to <b>$zdotllc</b> on Cash App</div>
+      <div class="divider">OR</div>
+      <button class="freebtn" id="dlFree">⬇ No thanks — download free</button>
+      <div><button class="mclose" id="dlClose">close</button></div>
+      <div class="mdl">The Shelves Raised Us · milkup · 8 tracks</div>
+    </div>
+  </div>
+
   <a class="back" href="../">← Back to MilkUps</a>
   <div class="foot">MILKUPS · an independent Z-Dot band · music for Spread Da Word<br>🥛 the shelves raised us 🥛</div>
 </div>
@@ -232,6 +274,35 @@ function renderRows(){
 }
 renderRows();
 load(0);
+</script>
+
+<script>
+// ---- Download / donation modal ----
+(function(){
+  var overlay = document.getElementById('dlModal');
+  var trigger = document.getElementById('dlTrigger');
+  var free = document.getElementById('dlFree');
+  var close = document.getElementById('dlClose');
+  var ZIP = 'TheShelvesRaisedUs-milkups-464737.zip';
+  function doDownload(){
+    var a = document.createElement('a');
+    a.href = ZIP; a.download = 'TheShelvesRaisedUs-milkups-464737.zip';
+    document.body.appendChild(a); a.click(); a.remove();
+  }
+  function show(){ overlay.classList.add('show'); }
+  function hide(){ overlay.classList.remove('show'); }
+  trigger.addEventListener('click', function(e){ e.preventDefault(); show(); });
+  close.addEventListener('click', hide);
+  overlay.addEventListener('click', function(e){ if(e.target===overlay) hide(); });
+  free.addEventListener('click', function(){ doDownload(); hide(); });
+  // donation amounts open Cash App (new tab) — then user can still download
+  overlay.querySelectorAll('.amt').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var amt = btn.getAttribute('data-amt');
+      window.open('https://cash.app/$zdotllc/' + amt, '_blank');
+    });
+  });
+})();
 </script>
 </body>
 </html>
