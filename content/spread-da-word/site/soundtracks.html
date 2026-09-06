@@ -62,7 +62,7 @@
   .deck-brand{color:#9bd1ff;font-size:12px;letter-spacing:2px}
   .deck-led{width:10px;height:10px;border-radius:50%;background:#e94560;box-shadow:0 0 10px #e94560;transition:background .2s}
   .deck-led.on{background:#1a7f37;box-shadow:0 0 10px #1a7f37}
-  .cassette{position:relative;background:#22223a;border-radius:12px 12px 10px 10px;padding:28px 28px 44px;margin-bottom:18px;border:2px solid #3a3a55;box-shadow:0 5px 0 #0f0f1e;display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:18px;max-width:620px;margin-left:auto;margin-right:auto;min-height:320px;width:100%;overflow:visible}
+  .cassette{position:relative;background:#22223a;border-radius:12px 12px 10px 10px;padding:22px 28px 52px;margin-bottom:14px;border:2px solid #3a3a55;box-shadow:0 4px 0 #0f0f1e;display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:18px;max-width:620px;margin-left:auto;margin-right:auto;min-height:300px;width:100%}
   .cassette-label{background:#f5e6d0;color:#1a1a2e;border-radius:8px;padding:30px 16px;text-align:center;font-family:monospace;flex:1;min-width:0;margin:0 14px;border-bottom:3px solid #00000022;box-shadow:0 3px 0 #00000022}
   .cassette-label .tape-title{font-size:17px;font-weight:bold;letter-spacing:1px;color:#111}
   .cassette-label .tape-sub{font-size:11px;color:#555}
@@ -167,9 +167,6 @@
   .x{margin-top:10px;background:none;border:none;color:#5f7fa0;cursor:pointer;font-size:11px;text-decoration:underline}
 
 
-  /* bottom trapezoid hump — real cassette protrusion (narrow at top, wide at bottom) */
-  .cassette-hump{position:absolute;left:50%;bottom:-18px;transform:translateX(-50%);width:300px;height:26px;z-index:3;background:#3a3a55;clip-path:polygon(14% 0,86% 0,100% 100%,0 100%)}
-  .cassette-hump .hi{position:absolute;top:3px;left:3px;right:3px;bottom:3px;background:#22223a;clip-path:polygon(13% 0,87% 0,100% 100%,0 100%)}
 </style>
 </head>
 
@@ -209,7 +206,6 @@
         <div class="tape-sub" id="tapeSub">open the case and load a cassette</div>
       </div>
       <div class="reel" id="reelR"></div>
-      <div class="cassette-hump"><div class="hi"></div></div>
     </div>
     <div class="progress"><i id="prog"></i></div>
     <div class="deck-time" id="timeDisp" style="text-align:center;font-size:11px;color:#7fa8d0;margin-top:4px">0:00 / 0:00 · SIDE A</div>
