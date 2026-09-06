@@ -63,8 +63,8 @@
   <!-- ===== CHAIN: hangs at the BASE of the neck / shoulder ===== -->
 
   <!-- ===== ARMS: attach at shoulders, over label ===== -->
-  <g id="queArmL"><path d="M72 138 Q50 172 46 212" stroke="#5a1603" stroke-width="12" stroke-linecap="round" fill="none"/></g>
-  <g id="queArmR"><path d="M148 138 Q170 172 174 212" stroke="#5a1603" stroke-width="12" stroke-linecap="round" fill="none"/></g>
+  <g id="queArmL"><path d="M70 166 Q50 196 46 228" stroke="#5a1603" stroke-width="12" stroke-linecap="round" fill="none"/></g>
+  <g id="queArmR"><path d="M150 166 Q170 196 174 228" stroke="#5a1603" stroke-width="12" stroke-linecap="round" fill="none"/></g>
 
   <!-- ===== LABEL: trapezoid matching taper ===== -->
   <g id="queLabelWrap">
