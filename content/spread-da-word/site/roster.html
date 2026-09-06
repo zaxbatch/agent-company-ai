@@ -33,18 +33,37 @@
   .card.rig{background:#122a4a;border-color:#38bdf8}
   .rig-tag{display:inline-block;background:#38bdf8;color:#0a1220;font-size:9px;border-radius:4px;padding:2px 6px;margin-top:6px}
   a{text-decoration:none;color:inherit}
+
+  /* ---- Watch dropdown nav ---- */
+  .watch-dd{position:relative}
+  .watch-btn{color:#9bd1ff;text-decoration:none;font-size:13px;padding:6px 10px;border-radius:6px;cursor:pointer;background:none;border:none;font-family:inherit;display:inline-flex;align-items:center;gap:4px}
+  .watch-btn:hover{background:#1c3352;color:#fff}
+  .watch-btn.active{background:#3d5a80;color:#fff}
+  .watch-dd .dd-content{display:none;position:absolute;top:100%;left:0;background:#0e1a2e;border:1px solid #3d5a80;border-radius:8px;min-width:230px;box-shadow:0 8px 24px rgba(0,0,0,.5);z-index:200;padding:6px}
+  .watch-dd:hover .dd-content,.watch-dd:focus-within .dd-content{display:block}
+  .dd-content .dd-sec{font-size:9px;letter-spacing:2px;color:#5f7fa0;padding:6px 10px 2px}
+  .dd-content a{display:block;color:#9bd1ff;text-decoration:none;font-size:13px;padding:7px 10px;border-radius:6px}
+  .dd-content a:hover{background:#1c3352;color:#fff}
+  .dd-content a.dd-active{background:#3d5a80;color:#fff}
 </style>
 </head>
 <body>
 <nav>
   <a class='logo' href='/'>SPREAD<span>DA</span>WORD</a>
-  <a class='nav' href='/'>Home</a>
-  <a class='nav' href='/episode-1'>Watch Episode 1</a>
-  <a class='nav' href='/promo'>Promo</a>
-  <a class='nav' href='/soundtracks'>Soundtracks</a>
-  <a class='nav' href='/roster'>The Cast</a>
-  <a class='nav' href='/fridge-teaser'>The Fridge</a>
-  <a class='nav' href='/behind-the-scenes'>Behind the Scenes</a>
+<a class='nav' href='/'>Home</a>
+  <div class='watch-dd'>
+    <button class='watch-btn'>▶ Watch ▾</button>
+    <div class='dd-content'>
+      <div class='dd-sec'>FEATURED</div>
+      <a href='/promo'>▶ Promo — Hangin' at the Cab-net</a>
+      <div class='dd-sec'>SEASON 1</div>
+      <a href='/episode-1'>Episode 1 — The Hood Meets the Snow</a>
+    </div>
+  </div>
+<a class='nav' href='/soundtracks'>Soundtracks</a>
+<a class='nav active' href='/roster'>The Cast</a>
+<a class='nav' href='/fridge-teaser'>The Fridge</a>
+<a class='nav' href='/behind-the-scenes'>Behind the Scenes</a>
 </nav>
 
 <h1>🎬 SPREAD DA WORD</h1>
