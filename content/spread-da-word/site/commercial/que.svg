@@ -39,9 +39,9 @@
   </g>
 
   <g id="queChain">
-    <path d="M88 126 Q110 156 132 126" stroke="#ffd700" stroke-width="4.5" fill="none"/>
-    <path d="M92 130 L99 142 M99 133 L105 139 M121 133 L127 139 M128 130 L135 142" stroke="#ffd700" stroke-width="2"/>
-    <path d="M110 140 l-6 13 a6 6 0 0 0 12 0 Z" fill="#ff8a3d" stroke="#ffd700" stroke-width="1.6"/>
+    <path d="M88 126 Q110 196 132 126" stroke="#ffd700" stroke-width="4.5" fill="none"/>
+    <path d="M93 132 L102 152 M102 138 L110 148 M118 138 L126 148 M127 132 L136 152" stroke="#ffd700" stroke-width="2.2"/>
+    <path d="M110 158 l-7 18 a7 7 0 0 0 14 0 Z" fill="#ff8a3d" stroke="#ffd700" stroke-width="1.8"/>
   </g>
 
   <!-- ===== BANDANA at the neck (BBQ neck-label as gangsta kerchief) ===== -->
@@ -63,8 +63,8 @@
   <!-- ===== CHAIN: hangs at the BASE of the neck / shoulder ===== -->
 
   <!-- ===== ARMS: attach at shoulders, over label ===== -->
-  <g id="queArmL"><path d="M70 166 Q50 196 46 228" stroke="#5a1603" stroke-width="12" stroke-linecap="round" fill="none"/></g>
-  <g id="queArmR"><path d="M150 166 Q170 196 174 228" stroke="#5a1603" stroke-width="12" stroke-linecap="round" fill="none"/></g>
+  <g id="queArmL"><path d="M68 176 Q46 206 42 240" stroke="#5a1603" stroke-width="12" stroke-linecap="round" fill="none"/></g>
+  <g id="queArmR"><path d="M152 176 Q174 206 178 240" stroke="#5a1603" stroke-width="12" stroke-linecap="round" fill="none"/></g>
 
   <!-- ===== LABEL: trapezoid matching taper ===== -->
   <g id="queLabelWrap">
