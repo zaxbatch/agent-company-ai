@@ -82,6 +82,31 @@
   .btn:hover{background:#4a6cff}
   .btn.play{background:#1a7f37}.btn.play:hover{background:#2a9d4f}
   .btn.dl{background:#8a4f1f}.btn.dl:hover{background:#a06030}
+  /* MilkUps credit */
+  .milkups-credit{margin:22px auto 4px;text-align:center;background:linear-gradient(135deg,#0e1a2e,#122a3a);border:1px solid #3d5a80;border-radius:14px;padding:16px 20px;max-width:520px}
+  .milkups-credit .mc-line{font-size:13px;color:#9bd1ff;letter-spacing:1px}
+  .milkups-credit .mc-line b{color:#fff}
+  .milkups-credit .mc-cta{display:inline-block;margin-top:10px;background:#e94560;color:#fff;text-decoration:none;font-size:13px;font-weight:bold;padding:9px 22px;border-radius:20px;letter-spacing:1px}
+  .milkups-credit .mc-cta:hover{background:#ff5c8a}
+  /* donation modal */
+  .donate-overlay{position:fixed;inset:0;background:#000b;backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;z-index:99;padding:16px}
+  .donate-overlay.show{display:flex}
+  .donate-modal{background:#0e1a2e;border:2px solid #3d5a80;border-radius:16px;max-width:380px;width:100%;padding:22px;text-align:center;color:#cfe8ff}
+  .donate-modal h3{color:#ffd166;font-size:17px;letter-spacing:1px}
+  .donate-modal .sub{color:#6ea8d8;font-size:12px;margin:6px 0 4px;line-height:1.5}
+  .donate-modal .amt-row{display:flex;gap:8px;justify-content:center;margin:14px 0;flex-wrap:wrap}
+  .donate-modal .amt{border:1px solid #3d5a80;background:transparent;color:#9bd1ff;border-radius:10px;padding:8px 14px;font-family:monospace;font-size:14px;cursor:pointer;font-weight:bold}
+  .donate-modal .amt:hover{background:#3d5a80;color:#fff}
+  .donate-modal .amt.sug{background:#ffd166;color:#1a1608;border:none}
+  .donate-modal .qr img{width:120px;height:120px;border-radius:10px;border:2px solid #3d5a80}
+  .donate-modal .handle{font-size:12px;color:#6ea8d8;margin:6px 0 2px}
+  .donate-modal .handle b{color:#9bd1ff}
+  .donate-modal .divider{display:flex;align-items:center;gap:10px;color:#5f7fa0;font-size:10px;letter-spacing:2px;margin:12px 0}
+  .donate-modal .divider:before,.donate-modal .divider:after{content:'';flex:1;height:1px;background:#3d5a8033}
+  .donate-modal .free{width:100%;padding:11px;border-radius:10px;border:1px solid #1a7f37;background:transparent;color:#7fd18a;font-family:monospace;font-weight:bold;cursor:pointer;font-size:13px}
+  .donate-modal .free:hover{background:#1a7f3744}
+  .donate-modal .x{margin-top:10px;background:none;border:none;color:#5f7fa0;cursor:pointer;font-size:11px;text-decoration:underline}
+
   .deck-time{color:#7fa8d0;font-size:12px;margin-top:10px;font-family:monospace}
   /* TAPE LIBRARY */
   .library{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
@@ -150,8 +175,30 @@
   <!-- TAPE LIBRARY -->
   <div class="library" id="library"></div>
 
-  <p style="color:#5f7fa0;font-size:11px;margin-top:20px">🎧 The shelves raised us. Every tape is a beat from the hood, the fridge, or the battle between them.</p>
+    <div class="milkups-credit">
+    <div class="mc-line">🎧 The shelves raised us.<br><b>Music by MilkUps</b> — the band behind Spread Da Word.</div>
+    <a class="mc-cta" href="https://milkups.zerric.xyz" target="_blank" rel="noopener">🥛 More from MilkUps</a>
+  </div>
 </div>
+
+  <!-- Donation / download modal -->
+  <div class="donate-overlay" id="donateOverlay">
+    <div class="donate-modal">
+      <h3>🥛 Keep the shelves stocked?</h3>
+      <div class="sub">The soundtrack is yours free — but if it moves you, send what it&#39;s worth. Every tip keeps MilkUps making music.</div>
+      <div class="amt-row">
+        <button class="amt sug" data-amt="5">$5</button>
+        <button class="amt" data-amt="10">$10</button>
+        <button class="amt" data-amt="2">$2</button>
+        <button class="amt" data-amt="1">$1</button>
+      </div>
+      <div class="qr"><img src="qr-zdotllc.png" alt="Cash App $zdotllc"></div>
+      <div class="handle">Send to <b>$zdotllc</b> on Cash App</div>
+      <div class="divider">OR</div>
+      <button class="free" id="dlFree">⬇ No thanks — download this tape free</button>
+      <div><button class="x" id="dlClose">close</button></div>
+    </div>
+  </div>
 
 <script>
 // TAPE LIBRARY
@@ -206,8 +253,24 @@ document.getElementById('stopBtn').onclick = function(){
 };
 document.getElementById('dlBtn').onclick = function(){
   if(!current) return;
-  var a = document.createElement('a'); a.href = current.file; a.download = current.file.split('/').pop(); a.click();
+  document.getElementById('donateOverlay').classList.add('show');
 };
+(function(){
+  var ov = document.getElementById('donateOverlay');
+  function hide(){ ov.classList.remove('show'); }
+  document.getElementById('dlClose').onclick = hide;
+  ov.addEventListener('click', function(e){ if(e.target===ov) hide(); });
+  document.getElementById('dlFree').onclick = function(){
+    if(!window.current) return;
+    var a = document.createElement('a'); a.href = current.file; a.download = current.file.split('/').pop(); a.click();
+    hide();
+  };
+  ov.querySelectorAll('.amt').forEach(function(b){
+    b.addEventListener('click', function(){
+      window.open('https://cash.app/$zdotllc/' + b.getAttribute('data-amt'), '_blank');
+    });
+  });
+})();
 audio.addEventListener('timeupdate', function(){
   var p = audio.duration ? (audio.currentTime/audio.duration)*100 : 0;
   prog.style.width = p + '%';
