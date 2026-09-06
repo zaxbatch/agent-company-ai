@@ -45,6 +45,16 @@
   .dd-content a{display:block;color:#9bd1ff;text-decoration:none;font-size:13px;padding:7px 10px;border-radius:6px}
   .dd-content a:hover{background:#1c3352;color:#fff}
   .dd-content a.dd-active{background:#3d5a80;color:#fff}
+
+  /* Coming soon modal */
+  .cs-overlay{position:fixed;inset:0;background:#000a;backdrop-filter:blur(2px);display:none;align-items:center;justify-content:center;z-index:999;padding:16px}
+  .cs-overlay.show{display:flex}
+  .cs-modal{background:#0e1a2e;border:2px solid #3d5a80;border-radius:14px;max-width:360px;width:100%;padding:26px;text-align:center;color:#cfe8ff;box-shadow:0 0 40px #3d5a8066}
+  .cs-modal .cs-ic{font-size:38px;margin-bottom:8px}
+  .cs-modal h3{color:#ffd166;font-size:18px;letter-spacing:1px;margin-bottom:6px}
+  .cs-modal p{color:#7fa8d0;font-size:13px;line-height:1.5;margin-bottom:18px}
+  .cs-modal button{background:#3d5a80;color:#cfe8ff;border:none;border-radius:8px;padding:9px 24px;font-family:monospace;font-size:13px;cursor:pointer}
+  .cs-modal button:hover{background:#4a6cff}
 </style>
 </head>
 <body>
@@ -57,7 +67,7 @@
       <div class='dd-sec'>FEATURED</div>
       <a href='/promo'>▶ Promo — Hangin' at the Cab-net</a>
       <div class='dd-sec'>SEASON 1</div>
-      <a href='/episode-1'>Episode 1 — The Hood Meets the Snow</a>
+      <a href='#' class='cs-trigger'>Season 1 — The Hood Meets the Snow <span style='color:#5f7fa0'>(coming soon)</span></a>
     </div>
   </div>
 <a class='nav' href='/soundtracks'>Soundtracks</a>
@@ -102,12 +112,26 @@
   <div class="bts">
     <h2>📋 PRODUCTION NOTES</h2>
     <ul>
-      <li><b>Episode 1</b> — "The Hood Meets the Snow": title card, the meet, a beat jam on Snow Beats, and the Spread Da Word CTA. <span class="dim">(watch: <a href='/episode-1' style='color:#9bd1ff'>episode-1.html</a>)</span></li>
+      <li><b>Promo</b> — "Hangin' at the Cab-net": Que &amp; Vin vibin' to the intro track. <span class="dim">(<a href='/promo' style='color:#9bd1ff'>watch the promo</a>)</span></li>
       <li><b>The soundtrack</b> is on the <a href='/soundtracks' style='color:#9bd1ff'>cassette library</a> — the intro was originally composed to loop under the title card.</li>
       <li><b>Promo use:</b> this site is built to be shared — point fans, partners, and future sponsors here.</li>
     </ul>
   </div>
 </div>
+  <div class="cs-overlay" id="csModal"><div class="cs-modal">
+    <div class="cs-ic">📼</div><h3>Season 1 — Coming Soon</h3>
+    <p>The full Season 1 premiere is still in the kitchen. Hang tight — Vin, Que and the crew are cookin' it up. 🍶🍖</p>
+    <button id="csClose">Got it</button></div></div>
+
+<script>
+(function(){var ov=document.getElementById('csModal');
+  if(!ov) return;
+  function openCS(){ov.classList.add('show');} function closeCS(){ov.classList.remove('show');}
+  var cl=document.getElementById('csClose'); if(cl) cl.onclick=closeCS;
+  ov.addEventListener('click',function(e){if(e.target===ov)closeCS();});
+  document.querySelectorAll('.cs-trigger').forEach(function(el){el.addEventListener('click',function(e){e.preventDefault();openCS();});});
+})();
+</script>
 </body>
 </html>
 <script async src="/.netlify/scripts/hud?variant=public" data-nf-variant="public" data-netlify-site-id="6cd985c8-7ce7-4b75-a573-73802d3beb43" data-app-host="app.netlify.com"></script>
