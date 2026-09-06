@@ -30,8 +30,8 @@
   .bubble .tail{position:absolute;bottom:-10px;left:30px;width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-top:10px solid #fff}
   /* character spots */
   .char-spot{position:absolute;bottom:36px;display:flex;align-items:flex-end}
-  #queSpot{left:40px}
-  #vinSpot{left:190px}
+  #queSpot{left:70px}
+  #vinSpot{left:230px}
   .controls{margin-top:12px;display:flex;gap:10px}
   button{background:#3d5a80;color:#cfe8ff;border:none;border-radius:8px;padding:8px 16px;font-family:monospace;cursor:pointer}
   button.play{background:#1a7f37}
@@ -69,7 +69,7 @@
   <div class="cereal green" style="right:214px;width:44px;height:76px;transform:rotate(4deg)"><div class="c-name">OAT</div><div class="c-crunch">hoops</div></div>
 
   <!-- characters -->
-  <div class="char-spot" id="queSpot"><svg id="queRig" viewBox="0 0 220 330" width="150" height="225">
+  <div class="char-spot" id="queSpot"><svg id="queRig" viewBox="0 40 220 236" width="150" height="185">
   <defs>
     <linearGradient id="queBody" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#4d0f02"/>
@@ -155,7 +155,7 @@
   <rect x="78" y="262" width="30" height="12" rx="5" fill="#0a0a0a"/>
   <rect x="112" y="262" width="30" height="12" rx="5" fill="#0a0a0a"/>
 </svg></div>
-  <div class="char-spot" id="vinSpot"><svg id="vinRig" viewBox="0 0 220 330" width="160" height="240">
+  <div class="char-spot" id="vinSpot"><svg id="vinRig" viewBox="0 0 220 274" width="160" height="215">
   <defs>
     <linearGradient id="vinGlass" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#4f1806"/>
@@ -240,6 +240,9 @@
 
   <!-- floor -->
   <div class="floor"></div>
+  <!-- shelf surface the chars + cereal sit on -->
+  <div style="position:absolute;left:0;right:0;bottom:34px;height:4px;background:#5c3317;z-index:1"></div>
+
 
   <!-- endcard -->
   <div class="endcard" id="endcard">
