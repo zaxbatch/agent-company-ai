@@ -28,12 +28,12 @@
 
   <!-- ===== LABEL: glass-edge occlusion (reads as wrapping around) ===== -->
   <g id="vinLabelWrap">
-    <rect x="64" y="148" width="92" height="88" rx="4" fill="#f7ead0"/>
+    <rect x="64" y="150" width="92" height="80" rx="4" fill="#f7ead0"/>
     <rect x="71" y="156" width="78" height="17" fill="#5a1803"/>
     <text x="110" y="169" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#ffe8d0">VIN NEGAR</text>
-    <text x="110" y="194" text-anchor="middle" font-family="monospace" font-size="15" font-weight="bold" fill="#4a1604">THE REALEST</text>
-    <text x="110" y="209" text-anchor="middle" font-family="monospace" font-size="8" fill="#7e4a24">vinegar you know</text>
-    <text x="110" y="226" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#5a2a12">est. the cab-nets · 100% no cap</text>
+    <text x="110" y="196" text-anchor="middle" font-family="monospace" font-size="14" font-weight="bold" fill="#4a1604">THE REALEST</text>
+    <text x="110" y="208" text-anchor="middle" font-family="monospace" font-size="7" fill="#7e4a24">vinegar you know</text>
+    <text x="110" y="224" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#5a2a12">est. cab-nets · no cap</text>
     <!-- glass curvature over label edges -->
     <rect x="64" y="148" width="12" height="88" rx="4" fill="#200a02" opacity=".5"/>
     <rect x="144" y="148" width="12" height="88" rx="4" fill="#200a02" opacity=".5"/>

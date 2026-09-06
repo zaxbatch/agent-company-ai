@@ -79,12 +79,12 @@
 
   <!-- ===== LABEL: glass-edge occlusion (reads as wrapping around) ===== -->
   <g id="vinLabelWrap">
-    <rect x="64" y="148" width="92" height="88" rx="4" fill="#f7ead0"/>
+    <rect x="64" y="150" width="92" height="80" rx="4" fill="#f7ead0"/>
     <rect x="71" y="156" width="78" height="17" fill="#5a1803"/>
     <text x="110" y="169" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#ffe8d0">VIN NEGAR</text>
-    <text x="110" y="194" text-anchor="middle" font-family="monospace" font-size="15" font-weight="bold" fill="#4a1604">THE REALEST</text>
-    <text x="110" y="209" text-anchor="middle" font-family="monospace" font-size="8" fill="#7e4a24">vinegar you know</text>
-    <text x="110" y="226" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#5a2a12">est. the cab-nets · 100% no cap</text>
+    <text x="110" y="196" text-anchor="middle" font-family="monospace" font-size="14" font-weight="bold" fill="#4a1604">THE REALEST</text>
+    <text x="110" y="208" text-anchor="middle" font-family="monospace" font-size="7" fill="#7e4a24">vinegar you know</text>
+    <text x="110" y="224" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#5a2a12">est. cab-nets · no cap</text>
     <!-- glass curvature over label edges -->
     <rect x="64" y="148" width="12" height="88" rx="4" fill="#200a02" opacity=".5"/>
     <rect x="144" y="148" width="12" height="88" rx="4" fill="#200a02" opacity=".5"/>
@@ -107,6 +107,7 @@
   <rect x="82" y="280" width="26" height="11" rx="5" fill="#0a0a0a"/>
   <rect x="112" y="280" width="26" height="11" rx="5" fill="#0a0a0a"/>
 </svg>
+
 
 
 
@@ -133,69 +134,65 @@
     </linearGradient>
   </defs>
 
-  <!-- ===== RANCH/BBQ SQUEEZE BOTTLE (v3 shape: long narrow neck + ridges + flip cap) ===== -->
+  <!-- ===== RANCH/BBQ SQUEEZE BOTTLE ===== -->
   <!-- flip cap -->
-  <path d="M96 52 L124 52 L123 62 L97 62 Z" fill="#e04040"/>
-  <rect x="98" y="47" width="24" height="6" rx="2" fill="#b83232"/>
-  <!-- long narrow neck -->
-  <rect x="92" y="62" width="36" height="42" fill="url(#queBody)" stroke="#2a0a01" stroke-width="2"/>
-  <!-- ridges (squeeze grip) -->
-  <rect x="88" y="98" width="44" height="5" fill="#1f0500" opacity=".55"/>
-  <rect x="88" y="105" width="44" height="4" fill="#1f0500" opacity=".55"/>
-  <rect x="90" y="111" width="40" height="4" fill="#1f0500" opacity=".55"/>
-  <!-- wide body, tapers up into neck -->
-  <path d="M80 118 L140 118 L158 210 L158 250 Q158 264 110 264 Q62 264 62 250 L62 210 Z"
+  <path d="M96 52 L124 52 L123 60 L97 60 Z" fill="#e04040"/>
+  <rect x="98" y="48" width="24" height="5" rx="2" fill="#b83232"/>
+  <!-- long clean neck (NO ridges = no pillow) -->
+  <rect x="92" y="60" width="36" height="56" fill="url(#queBody)" stroke="#2a0a01" stroke-width="2"/>
+  <!-- shoulders taper -->
+  <path d="M80 116 L140 116 L158 214 L158 250 Q158 264 110 264 Q62 264 62 250 L62 214 Z"
         fill="url(#queBody)" stroke="#2a0a01" stroke-width="2.5"/>
-  <!-- big shoulder curve to neck -->
-  <path d="M80 118 Q80 96 92 92 L92 118 Z" fill="url(#queBody)"/>
-  <path d="M140 118 Q140 96 128 92 L128 118 Z" fill="url(#queBody)"/>
+  <path d="M80 116 Q80 98 92 94 L92 116 Z" fill="url(#queBody)"/>
+  <path d="M140 116 Q140 98 128 94 L128 116 Z" fill="url(#queBody)"/>
   <!-- gloss -->
-  <rect x="74" y="120" width="7" height="120" rx="3.5" fill="#ffffff12"/>
+  <rect x="74" y="118" width="6" height="120" rx="3" fill="#ffffff12"/>
 
-  <!-- FACE up on the neck/shoulder area -->
+  <!-- ===== FACE: sits on the UPPER BODY (shoulder), below the neck ===== -->
+  <!-- beanie sits right on top -->
   <g id="queCap">
-    <path d="M82 40 Q110 20 140 40 L136 52 L84 52 Z" fill="#2a1a10"/>
-    <path d="M82 40 Q74 44 72 52 Q80 48 86 48 Z" fill="#160a02"/>
+    <path d="M86 96 Q110 80 134 96 L132 108 L88 108 Z" fill="#2a1a10"/>
+    <path d="M86 96 Q80 100 78 108 Q86 103 90 104 Z" fill="#160a02"/>
   </g>
+  <!-- eyes on the body -->
   <g id="queEyes">
-    <circle cx="97" cy="70" r="8" fill="#fff" stroke="#111" stroke-width="2"/>
-    <circle cx="123" cy="70" r="8" fill="#fff" stroke="#111" stroke-width="2"/>
-    <circle cx="99" cy="71" r="3.5" fill="#111"/>
-    <circle cx="125" cy="71" r="3.5" fill="#111"/>
+    <circle cx="98" cy="126" r="8" fill="#fff" stroke="#111" stroke-width="2"/>
+    <circle cx="122" cy="126" r="8" fill="#fff" stroke="#111" stroke-width="2"/>
+    <circle cx="100" cy="127" r="3.5" fill="#111"/>
+    <circle cx="124" cy="127" r="3.5" fill="#111"/>
   </g>
+  <!-- mouth -->
   <g id="queMouth">
-    <path d="M94 90 Q110 104 126 90" stroke="#1f0500" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-    <rect x="107" y="91" width="7" height="7" rx="1.5" fill="#ffd700"/>
+    <path d="M95 146 Q110 159 125 146" stroke="#1f0500" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <rect x="108" y="147" width="7" height="7" rx="1.5" fill="#ffd700"/>
   </g>
 
-  <!-- ===== LABEL: fits bottle + glass-edge occlusion ===== -->
+  <!-- ===== LABEL (fits body, clean) ===== -->
   <g id="queLabelWrap">
-    <rect x="62" y="158" width="96" height="72" rx="4" fill="#f7ead0"/>
-    <rect x="68" y="165" width="84" height="16" fill="#6e1c04"/>
-    <text x="110" y="177" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#ffe8d0">QUE'S</text>
-    <text x="110" y="198" text-anchor="middle" font-family="monospace" font-size="13" font-weight="bold" fill="#5a1803">BBQ SAUCE</text>
-    <text x="110" y="213" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#7e4a24">smoky sweet · pass the vibe</text>
-    <!-- glass-edge occlusion: dark strips over the label sides = label wraps under glass -->
-    <rect x="62" y="150" width="12" height="88" rx="4" fill="#1f0500" opacity=".55"/>
-    <rect x="146" y="150" width="12" height="88" rx="4" fill="#1f0500" opacity=".55"/>
-    <rect x="72" y="150" width="4" height="88" fill="#1f0500" opacity=".18"/>
-    <rect x="144" y="150" width="4" height="88" fill="#1f0500" opacity=".18"/>
-    <!-- glass gloss across label -->
-    <rect x="88" y="150" width="10" height="88" fill="#ffffff" opacity=".22"/>
+    <rect x="62" y="166" width="96" height="62" rx="4" fill="#f7ead0"/>
+    <rect x="68" y="172" width="84" height="15" fill="#6e1c04"/>
+    <text x="110" y="184" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#ffe8d0">QUE'S</text>
+    <text x="110" y="202" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#5a1803">BBQ SAUCE</text>
+    <text x="110" y="215" text-anchor="middle" font-family="monospace" font-size="7" fill="#7e4a24">pass the vibe</text>
+    <!-- wrap shading -->
+    <rect x="62" y="166" width="11" height="62" rx="4" fill="#1f0500" opacity=".5"/>
+    <rect x="147" y="166" width="11" height="62" rx="4" fill="#1f0500" opacity=".5"/>
+    <rect x="72" y="166" width="4" height="62" fill="#1f0500" opacity=".15"/>
+    <rect x="144" y="166" width="4" height="62" fill="#1f0500" opacity=".15"/>
   </g>
 
-  <!-- figaro chain + flame -->
+  <!-- chain -->
   <g id="queChain">
-    <path d="M80 126 Q110 152 140 126" stroke="#ffd700" stroke-width="5" fill="none"/>
-    <path d="M88 130 L94 140 M94 133 L100 138 M126 130 L132 140 M120 133 L126 138" stroke="#ffd700" stroke-width="2"/>
-    <path d="M110 140 l-7 14 a7 7 0 0 0 14 0 Z" fill="#ff8a3d" stroke="#ffd700" stroke-width="1.5"/>
+    <path d="M84 152 Q110 176 136 152" stroke="#ffd700" stroke-width="5" fill="none"/>
+    <path d="M110 162 l-6 12 a6 6 0 0 0 12 0 Z" fill="#ff8a3d" stroke="#ffd700" stroke-width="1.5"/>
   </g>
 
-  <g id="queArmL"><path d="M62 200 Q36 216 42 244" stroke="#5a1603" stroke-width="12" stroke-linecap="round" fill="none"/></g>
-  <g id="queArmR"><path d="M158 200 Q184 216 178 244" stroke="#5a1603" stroke-width="12" stroke-linecap="round" fill="none"/></g>
+  <g id="queArmL"><path d="M62 205 Q36 220 42 246" stroke="#5a1603" stroke-width="12" stroke-linecap="round" fill="none"/></g>
+  <g id="queArmR"><path d="M158 205 Q184 220 178 246" stroke="#5a1603" stroke-width="12" stroke-linecap="round" fill="none"/></g>
   <rect x="78" y="262" width="30" height="12" rx="5" fill="#0a0a0a"/>
   <rect x="112" y="262" width="30" height="12" rx="5" fill="#0a0a0a"/>
 </svg>
+
 
 
 
