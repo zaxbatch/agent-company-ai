@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spread Da Word — Character Lab</title>
+<style>
+  nav{background:#0e1a2e;border-bottom:2px solid #3d5a80;padding:14px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;position:sticky;top:0;z-index:50}
+  nav .logo{color:#9bd1ff;font-size:16px;letter-spacing:2px;font-weight:bold;text-decoration:none}
+  nav .logo span{color:#e94560}
+  nav a.nav{color:#9bd1ff;text-decoration:none;font-size:13px;padding:6px 10px;border-radius:6px}
+  nav a.nav:hover{background:#1c3352;color:#fff}
+  nav a.nav.active{background:#3d5a80;color:#fff}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#0a1220;color:#cfe8ff;font-family:monospace;min-height:100vh}
+  .wrap{max-width:1100px;margin:24px auto;padding:0 20px 40px}
+  h1{color:#ffd166;font-size:24px;letter-spacing:3px;text-align:center}
+  .sub{color:#6ea8d8;font-size:13px;text-align:center;margin:6px 0 24px}
+  .lab{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  @media(max-width:760px){.lab{grid-template-columns:1fr}}
+  .char-card{background:#0e1a2e;border:2px solid #3d5a80;border-radius:16px;padding:18px;text-align:center}
+  .char-card h2{color:#fff;letter-spacing:2px;margin-bottom:2px}
+  .char-card .role{font-size:11px;color:#7fa8d0;margin-bottom:8px}
+  .char-card .voice{font-size:10px;color:#5f7fa0;margin-bottom:10px}
+  .stage{background:linear-gradient(180deg,#1a0f08,#2a1a10);border-radius:12px;margin-bottom:12px;overflow:hidden;height:340px;display:flex;align-items:flex-end;justify-content:center;position:relative}
+  .btnrow{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+  button{background:#3d5a80;color:#cfe8ff;border:none;border-radius:8px;padding:8px 14px;font-family:monospace;font-size:12px;cursor:pointer}
+  button:hover{background:#4a6cff}
+  button.say{background:#1a7f37}
+  button.say:hover{background:#2a9d4f}
+  button.say:disabled{opacity:.5}
+  .note{margin-top:14px;font-size:11px;color:#5f7fa0;line-height:1.6}
+</style>
+</head>
+<body>
+<nav>
+  <a class='logo' href='/'>SPREAD<span>DA</span>WORD</a>
+  <a class='nav' href='/'>Home</a>
+  <a class='nav' href='/soundtracks'>Soundtracks</a>
+  <a class='nav' href='/roster'>The Cast</a>
+  <a class='nav active' href='/character-lab'>Character Lab</a>
+</nav>
+<div class="wrap">
+  <h1>🎨 CHARACTER LAB</h1>
+  <div class="sub">Richer character designs · movement · voice — work in progress</div>
+  <div class="lab">
+    <!-- VIN -->
+    <div class="char-card">
+      <h2>🍶 VIN NEGAR</h2>
+      <div class="role">Apple Cider Vinegar · The Outlaw</div>
+      <div class="voice">Voice: deep &amp; cool</div>
+      <div class="stage" id="vinStage"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 320" width="220" height="300">
+  <defs>
+    <!-- amber vinegar liquid gradient -->
+    <linearGradient id="vinGlass" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a05a1c"/>
+      <stop offset="0.35" stop-color="#d98a3d"/>
+      <stop offset="0.55" stop-color="#e8a95c"/>
+      <stop offset="1" stop-color="#8a4a12"/>
+    </linearGradient>
+    <linearGradient id="vinGlassEdge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6e3a0e"/>
+      <stop offset="1" stop-color="#6e3a0e"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ===== BOTTLE BODY (tall vinegar bottle) ===== -->
+  <!-- shoulders/neck shape: straight tall sides, slight shoulder, neck, flared lip -->
+  <!-- main body -->
+  <path d="M70 95 L150 95 L152 120 L152 250 Q152 268 110 268 Q68 268 68 250 L68 120 Z"
+        fill="url(#vinGlass)" stroke="#5a3008" stroke-width="3"/>
+  <!-- inner light highlight -->
+  <rect x="84" y="108" width="16" height="130" rx="8" fill="#ffffff22"/>
+  <!-- label band -->
+  <rect x="68" y="150" width="84" height="58" fill="#1c0f06" stroke="#d9a05c" stroke-width="2"/>
+  <text x="110" y="176" text-anchor="middle" font-family="monospace" font-size="14" font-weight="bold" fill="#f0c060">VIN</text>
+  <text x="110" y="192" text-anchor="middle" font-family="monospace" font-size="7" fill="#d9a05c">NEGAR</text>
+  <text x="110" y="202" text-anchor="middle" font-family="monospace" font-size="6" fill="#8a6a3a">apple cider</text>
+
+  <!-- ===== GOLD CHAIN (keep!) ===== -->
+  <g id="vinChain">
+    <path d="M74 134 Q110 160 146 134" stroke="#ffd700" stroke-width="4" fill="none"/>
+    <circle cx="110" cy="152" r="11" fill="none" stroke="#ffd700" stroke-width="4"/>
+    <text x="110" y="157" text-anchor="middle" font-size="10" font-weight="bold" fill="#ffd700">V</text>
+  </g>
+
+  <!-- ===== HEAD / FACE sits above the bottle neck ===== -->
+  <!-- Vin is a bottle; his 'face' is on the upper bottle / neck area -->
+  <!-- neck + cap (like a bottle top = head) -->
+  <path d="M88 66 L132 66 L134 95 L86 95 Z" fill="#2a1a10"/>
+  <!-- black cap -->
+  <rect x="82" y="48" width="56" height="24" rx="6" fill="#0d0d0d" stroke="#333" stroke-width="2"/>
+  <rect x="82" y="56" width="56" height="6" fill="#222"/>
+
+  <!-- ===== SUNGLASSES (keep!) on the neck/face area ===== -->
+  <g id="vinShades">
+    <rect x="84" y="72" width="20" height="14" rx="3" fill="#111" stroke="#ffd700" stroke-width="2"/>
+    <rect x="116" y="72" width="20" height="14" rx="3" fill="#111" stroke="#ffd700" stroke-width="2"/>
+    <path d="M104 79 L116 79" stroke="#ffd700" stroke-width="2"/>
+    <path d="M84 79 L74 74 M136 79 L146 74" stroke="#111" stroke-width="3"/>
+  </g>
+
+  <!-- ===== MOUTH (animated) ===== -->
+  <g id="vinMouth">
+    <path d="M98 100 Q110 110 122 100" stroke="#3a1a0a" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- ===== ARMS ===== -->
+  <g id="vinArmL">
+    <path d="M68 150 Q40 170 44 200" stroke="#5a3008" stroke-width="10" stroke-linecap="round" fill="none"/>
+  </g>
+  <g id="vinArmR">
+    <path d="M152 150 Q180 170 176 200" stroke="#5a3008" stroke-width="10" stroke-linecap="round" fill="none"/>
+  </g>
+
+  <!-- feet/shoes -->
+  <rect x="80" y="268" width="30" height="14" rx="4" fill="#222"/>
+  <rect x="112" y="268" width="30" height="14" rx="4" fill="#222"/>
+</svg>
+</div>
+      <div class="btnrow">
+        <button class="say" id="vinSay">🗣 Say a line</button>
+        <button id="vinWave">👋 Wave</button>
+        <button id="vinWalk">🚶 Walk</button>
+      </div>
+      <div class="note" id="vinNote">Press "Say a line" to hear Vin speak.</div>
+    </div>
+    <!-- QUE -->
+    <div class="char-card">
+      <h2>🍖 QUE</h2>
+      <div class="role">BBQ Sauce · The Hype Man</div>
+      <div class="voice">Voice: funny &amp; energetic</div>
+      <div class="stage" id="queStage"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 320" width="220" height="300">
+  <defs>
+    <linearGradient id="queGlass" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#5a1d0a"/>
+      <stop offset="0.4" stop-color="#8a3013"/>
+      <stop offset="0.6" stop-color="#a8431c"/>
+      <stop offset="1" stop-color="#4a1505"/>
+    </linearGradient>
+    <linearGradient id="queJacket" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6b1f0a"/>
+      <stop offset="0.5" stop-color="#8a2f14"/>
+      <stop offset="1" stop-color="#5a1705"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ===== BOTTLE BODY (BBQ squat bottle, hood-vibe) ===== -->
+  <path d="M60 90 L160 90 L164 130 L166 230 Q166 258 110 258 Q54 258 54 230 L56 130 Z"
+        fill="url(#queGlass)" stroke="#3a0f02" stroke-width="3"/>
+  <!-- jacket over lower half -->
+  <path d="M60 130 L160 130 L162 230 Q162 250 110 250 Q58 250 58 230 Z"
+        fill="url(#queJacket)" stroke="#3a0f02" stroke-width="2"/>
+  <!-- label = shirt w/ grill flames -->
+  <rect x="74" y="150" width="72" height="64" rx="6" fill="#1a0a04" stroke="#c05a2b" stroke-width="2"/>
+  <text x="110" y="176" text-anchor="middle" font-family="monospace" font-size="16" font-weight="bold" fill="#ff8a3d">QUE</text>
+  <text x="110" y="192" text-anchor="middle" font-family="monospace" font-size="8" fill="#ffb37a">BBQ SAUCE</text>
+  <text x="110" y="204" text-anchor="middle" font-family="monospace" font-size="7" fill="#8a5a3a">pass the vibe</text>
+
+  <!-- ===== GOLD CHAIN (add) ===== -->
+  <path d="M80 126 Q110 148 140 126" stroke="#ffd700" stroke-width="5" fill="none"/>
+  <circle cx="110" cy="143" r="13" fill="none" stroke="#ffd700" stroke-width="4"/>
+  <text x="110" y="149" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffd700">Q</text>
+
+  <!-- ===== HEAD / FACE ===== -->
+  <!-- neck/cap area is Que's head — wider & friendly -->
+  <path d="M80 66 L140 66 L144 90 L76 90 Z" fill="#1c0c04"/>
+  <!-- cap top = beanie/do-rag (hood accessory) -->
+  <g id="queCap">
+    <!-- do-rag / beanie -->
+    <path d="M70 58 Q110 34 150 58 L146 70 L74 70 Z" fill="#2a0d04"/>
+    <!-- brim pulled to the side -->
+    <path d="M70 58 Q56 62 52 72 Q60 66 74 66 Z" fill="#1a0602"/>
+  </g>
+
+  <!-- ===== EYES (friendly) ===== -->
+  <g id="queEyes">
+    <circle cx="96" cy="84" r="7" fill="#fff" stroke="#111" stroke-width="2"/>
+    <circle cx="124" cy="84" r="7" fill="#fff" stroke="#111" stroke-width="2"/>
+    <circle cx="98" cy="85" r="3" fill="#111"/>
+    <circle cx="126" cy="85" r="3" fill="#111"/>
+  </g>
+
+  <!-- ===== MOUTH (big grin + gold tooth) ===== -->
+  <g id="queMouth">
+    <path d="M92 104 Q110 118 128 104" stroke="#3a0f02" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <rect x="107" y="104" width="6" height="6" rx="1" fill="#ffd700" transform="rotate(6 110 107)"/>
+  </g>
+
+  <!-- ===== ARMS ===== -->
+  <g id="queArmL">
+    <path d="M58 150 Q34 168 38 200" stroke="#6b1f0a" stroke-width="12" stroke-linecap="round" fill="none"/>
+  </g>
+  <g id="queArmR">
+    <path d="M162 150 Q186 168 182 200" stroke="#6b1f0a" stroke-width="12" stroke-linecap="round" fill="none"/>
+  </g>
+
+  <!-- sneakers -->
+  <rect x="76" y="258" width="34" height="16" rx="5" fill="#111"/>
+  <rect x="112" y="258" width="34" height="16" rx="5" fill="#111"/>
+  <rect x="80" y="268" width="22" height="5" rx="2" fill="#fff"/>
+  <rect x="118" y="268" width="22" height="5" rx="2" fill="#fff"/>
+</svg>
+</div>
+      <div class="btnrow">
+        <button class="say" id="queSay">🗣 Say a line</button>
+        <button id="queWave">👋 Wave</button>
+        <button id="queWalk">🕺 Dance</button>
+      </div>
+      <div class="note" id="queNote">Press "Say a line" to hear Que hype.</div>
+    </div>
+  </div>
+</div>
+<audio id="vinAudio"></audio>
+<audio id="queAudio"></audio>
+
+
+<script>
+var vinAudio = document.getElementById('vinAudio');
+var queAudio = document.getElementById('queAudio');
+vinAudio.src = 'characters/vin_voice.mp3';
+queAudio.src = 'characters/que_voice.mp3';
+var vinArmL = document.querySelector('#vinSvg #vinArmL');
+var vinArmR = document.querySelector('#vinSvg #vinArmR');
+var vinMouth = document.querySelector('#vinSvg #vinMouth');
+var queArmL = document.querySelector('#queSvg #queArmL');
+var queArmR = document.querySelector('#queSvg #queArmR');
+var queMouth = document.querySelector('#queSvg #queMouth');
+var vinEl = document.querySelector('#vinSvg');
+var queEl = document.querySelector('#queSvg');
+
+document.getElementById('vinSay').onclick = function(){
+  document.getElementById('vinNote').textContent = 'Vin: "You ain't ready for me, bro."';
+  vinAudio.currentTime = 0; vinAudio.play();
+  var t=0; var iv=setInterval(function(){ t++;
+    vinArmL.setAttribute('transform','rotate('+(-25*Math.sin(t/5))+',68,150)');
+    var open = (Math.sin(t*0.5)>0) ? 9 : 2;
+    vinMouth.innerHTML = '<ellipse cx="110" cy="103" rx="'+open+'" ry="6" fill="#3a1a0a"/>';
+    if(t>80){ clearInterval(iv); vinArmL.setAttribute('transform','');
+      vinMouth.innerHTML = '<path d="M98 100 Q110 110 122 100" stroke="#3a1a0a" stroke-width="3" fill="none" stroke-linecap="round"/>'; }
+  }, 30);
+};
+var waving=false;
+document.getElementById('vinWave').onclick = function(){
+  if(waving) return; waving=true;
+  var t=0; var iv=setInterval(function(){ t++;
+    vinArmR.setAttribute('transform','rotate('+(32*Math.sin(t/3))+',152,150)');
+    if(t>70){ clearInterval(iv); vinArmR.setAttribute('transform',''); waving=false; }
+  },30);
+};
+document.getElementById('queSay').onclick = function(){
+  document.getElementById('queNote').textContent = 'Que: "Pass the sauce, pass the vibe!"';
+  queAudio.currentTime=0; queAudio.play();
+  var t=0; var iv=setInterval(function(){ t++;
+    var bounce = Math.abs(Math.sin(t/4))*6;
+    queEl.style.transform = 'translateY('+(-bounce)+'px)';
+    var open = (Math.sin(t*0.6)>0) ? 13 : 4;
+    queMouth.innerHTML = '<ellipse cx="110" cy="108" rx="'+open+'" ry="7" fill="#3a0f02"/><rect x="107" y="103" width="6" height="6" rx="1" fill="#ffd700" transform="rotate(6 110 107)"/>';
+    if(t>80){ clearInterval(iv); queEl.style.transform='';
+      queMouth.innerHTML = '<path d="M92 104 Q110 118 128 104" stroke="#3a0f02" stroke-width="3" fill="none"/><rect x="107" y="104" width="6" height="6" rx="1" fill="#ffd700"/>'; }
+  },30);
+};
+document.getElementById('queWalk').onclick = function(){
+  var t=0; var iv=setInterval(function(){ t++;
+    var swing = Math.sin(t/2)*12;
+    queArmL.setAttribute('transform','rotate('+swing+',58,150)');
+    queArmR.setAttribute('transform','rotate('+(-swing)+',162,150)');
+    var y = Math.abs(Math.sin(t/3))*5;
+    queEl.style.transform='translateY('+(-y)+'px)';
+    if(t>120){ clearInterval(iv); queArmL.setAttribute('transform',''); queArmR.setAttribute('transform',''); queEl.style.transform=''; }
+  },30);
+};
+</script>
+</body>
+</html>

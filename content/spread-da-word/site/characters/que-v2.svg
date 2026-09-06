@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 320" width="220" height="320">
+  <defs>
+    <linearGradient id="queGlass" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#5a1d0a"/>
+      <stop offset="0.4" stop-color="#8a3013"/>
+      <stop offset="0.6" stop-color="#a8431c"/>
+      <stop offset="1" stop-color="#4a1505"/>
+    </linearGradient>
+    <linearGradient id="queJacket" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6b1f0a"/>
+      <stop offset="0.5" stop-color="#8a2f14"/>
+      <stop offset="1" stop-color="#5a1705"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ===== BOTTLE BODY (BBQ squat bottle, hood-vibe) ===== -->
+  <path d="M60 90 L160 90 L164 130 L166 230 Q166 258 110 258 Q54 258 54 230 L56 130 Z"
+        fill="url(#queGlass)" stroke="#3a0f02" stroke-width="3"/>
+  <!-- jacket over lower half -->
+  <path d="M60 130 L160 130 L162 230 Q162 250 110 250 Q58 250 58 230 Z"
+        fill="url(#queJacket)" stroke="#3a0f02" stroke-width="2"/>
+  <!-- label = shirt w/ grill flames -->
+  <rect x="74" y="150" width="72" height="64" rx="6" fill="#1a0a04" stroke="#c05a2b" stroke-width="2"/>
+  <text x="110" y="176" text-anchor="middle" font-family="monospace" font-size="16" font-weight="bold" fill="#ff8a3d">QUE</text>
+  <text x="110" y="192" text-anchor="middle" font-family="monospace" font-size="8" fill="#ffb37a">BBQ SAUCE</text>
+  <text x="110" y="204" text-anchor="middle" font-family="monospace" font-size="7" fill="#8a5a3a">pass the vibe</text>
+
+  <!-- ===== GOLD CHAIN (add) ===== -->
+  <path d="M80 126 Q110 148 140 126" stroke="#ffd700" stroke-width="5" fill="none"/>
+  <circle cx="110" cy="143" r="13" fill="none" stroke="#ffd700" stroke-width="4"/>
+  <text x="110" y="149" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffd700">Q</text>
+
+  <!-- ===== HEAD / FACE ===== -->
+  <!-- neck/cap area is Que's head — wider & friendly -->
+  <path d="M80 66 L140 66 L144 90 L76 90 Z" fill="#1c0c04"/>
+  <!-- cap top = beanie/do-rag (hood accessory) -->
+  <g id="queCap">
+    <!-- do-rag / beanie -->
+    <path d="M70 58 Q110 34 150 58 L146 70 L74 70 Z" fill="#2a0d04"/>
+    <!-- brim pulled to the side -->
+    <path d="M70 58 Q56 62 52 72 Q60 66 74 66 Z" fill="#1a0602"/>
+  </g>
+
+  <!-- ===== EYES (friendly) ===== -->
+  <g id="queEyes">
+    <circle cx="96" cy="84" r="7" fill="#fff" stroke="#111" stroke-width="2"/>
+    <circle cx="124" cy="84" r="7" fill="#fff" stroke="#111" stroke-width="2"/>
+    <circle cx="98" cy="85" r="3" fill="#111"/>
+    <circle cx="126" cy="85" r="3" fill="#111"/>
+  </g>
+
+  <!-- ===== MOUTH (big grin + gold tooth) ===== -->
+  <g id="queMouth">
+    <path d="M92 104 Q110 118 128 104" stroke="#3a0f02" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <rect x="107" y="104" width="6" height="6" rx="1" fill="#ffd700" transform="rotate(6 110 107)"/>
+  </g>
+
+  <!-- ===== ARMS ===== -->
+  <g id="queArmL">
+    <path d="M58 150 Q34 168 38 200" stroke="#6b1f0a" stroke-width="12" stroke-linecap="round" fill="none"/>
+  </g>
+  <g id="queArmR">
+    <path d="M162 150 Q186 168 182 200" stroke="#6b1f0a" stroke-width="12" stroke-linecap="round" fill="none"/>
+  </g>
+
+  <!-- sneakers -->
+  <rect x="76" y="258" width="34" height="16" rx="5" fill="#111"/>
+  <rect x="112" y="258" width="34" height="16" rx="5" fill="#111"/>
+  <rect x="80" y="268" width="22" height="5" rx="2" fill="#fff"/>
+  <rect x="118" y="268" width="22" height="5" rx="2" fill="#fff"/>
+</svg>
