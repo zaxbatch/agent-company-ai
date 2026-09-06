@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spread Da Word — Promo: Hangin' at the Cab-net</title>
+<style>
+  nav{background:#0e1a2e;border-bottom:2px solid #3d5a80;padding:14px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;position:sticky;top:0;z-index:50}
+  nav .logo{color:#9bd1ff;font-size:16px;letter-spacing:2px;font-weight:bold;text-decoration:none}
+  nav .logo span{color:#e94560}
+  nav a.nav{color:#9bd1ff;text-decoration:none;font-size:13px;padding:6px 10px;border-radius:6px}
+  nav a.nav:hover{background:#1c3352;color:#fff}
+  nav a.nav.active{background:#3d5a80;color:#fff}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#0a1220;display:flex;flex-direction:column;align-items:center;min-height:100vh;font-family:monospace;color:#cfe8ff}
+  h1{color:#ffd166;font-size:18px;letter-spacing:3px;margin-top:18px;text-align:center}
+  .sub{color:#6ea8d8;font-size:11px;margin-bottom:10px;text-align:center}
+  #wrap{position:relative}
+  canvas{background:#150e08;border:3px solid #8a5a2b;border-radius:8px;box-shadow:0 0 30px #ff9f4355;display:block}
+  .controls{position:absolute;bottom:10px;left:0;right:0;display:flex;justify-content:center;gap:10px}
+  button{background:rgba(80,50,20,.9);color:#ffd9a0;border:1px solid #c25e2b;border-radius:8px;padding:8px 18px;font-family:monospace;font-size:13px;cursor:pointer}
+  button:hover{background:#c25e2b}
+  .progress{width:640px;height:4px;background:#2a1a10;border-radius:2px;margin:8px 0 4px}
+  .progress i{display:block;height:100%;background:#ff9f43;border-radius:2px;width:0}
+  .tag{color:#6ea8d8;font-size:10px;letter-spacing:2px;margin-bottom:20px}
+</style>
+</head>
+<body>
+<nav>
+  <a class='logo' href='/'>SPREAD<span>DA</span>WORD</a>
+  <a class='nav' href='/'>Home</a>
+  <a class='nav' href='/episode-1'>Watch Episode 1</a>
+  <a class='nav active' href='/promo'>Promo</a>
+  <a class='nav' href='/soundtracks'>Soundtracks</a>
+  <a class='nav' href='/roster'>The Cast</a>
+</nav>
+<h1>🍖 HANGIN' AT THE CAB-NET</h1>
+<div class="sub">Que &amp; Vin · a Spread Da Word promo · cold vibes, warm sauce</div>
+<div id="wrap">
+  <canvas id="g" width="640" height="400"></canvas>
+  <div class="controls">
+    <button id="playBtn">▶ Play</button>
+    <button id="replayBtn">↺ Replay</button>
+    <button id="muteBtn">🔊</button>
+  </div>
+</div>
+<div class="progress"><i id="prog"></i></div>
+<div class="tag">THE SHELVES RAISED US · SDW SEASON 1</div>
+<audio id="music" loop><source src="intro-music.wav" type="audio/wav"></audio>
+
+<script>
+var cv=document.getElementById('g'),ctx=cv.getContext('2d'),W=640,H=400;
+var music=document.getElementById('music'),muted=false,t=0,playing=false,started=false;
+var prog=document.getElementById('prog');
+document.getElementById('playBtn').onclick=function(){playing=true;started=true;if(!muted)music.play();this.textContent='▶ Hangin'…';};
+document.getElementById('replayBtn').onclick=function(){t=0;playing=true;started=true;if(!muted){music.pause();music.currentTime=0;music.play();}};
+document.getElementById('muteBtn').onclick=function(){muted=!muted;if(muted)music.pause();else if(started)music.play();this.textContent=muted?'🔇':'🔊';};
+
+// ── CAB-NET background: warm hood corner with the shelves ──
+function bgCabnet(){
+  var g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,'#1a0f08');g.addColorStop(1,'#2a1a10');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+  // back wall brick
+  ctx.fillStyle='#241509';for(var y=30;y<H-70;y+=22){for(var x=0;x<W;x+=64){ctx.fillRect(x+(y%44?32:0),y,54,18);}}
+  // the shelves (cab-nets) — warm wooden shelves full of bottles
+  ctx.fillStyle='#5c3317';for(var sy=40;sy<190;sy+=55){ctx.fillRect(8,sy,624,8);}
+  ctx.fillStyle='#8a3d1c';for(var sx=20;sx<620;sx+=52){ctx.fillRect(sx,52,40,34);ctx.fillRect(sx+12,108,40,34);}
+  // a few glowing bottles (labels)
+  ctx.fillStyle='#ffd9a0';for(var i=0;i<6;i++){ctx.fillRect(28+i*104+14,58,18,8);ctx.fillRect(28+i*104+10,116,16,8);}
+  // floor
+  ctx.fillStyle='#150e08';ctx.fillRect(0,H-46,W,46);ctx.fillStyle='#ff9f43';ctx.fillRect(0,H-46,W,2);
+}
+
+// ── VIN (apple cider vinegar, hood) ──
+function drawVin(x,y,bob,mouth){
+  ctx.save();ctx.translate(0,bob);
+  ctx.fillStyle='#151515';ctx.fillRect(x-14,y+52,12,18);ctx.fillRect(x+4,y+52,12,18);
+  ctx.fillStyle='#eee';ctx.fillRect(x-18,y+70,20,8);ctx.fillRect(x,y+70,20,8);
+  ctx.fillStyle='#ffd700';ctx.fillRect(x-18,y+76,20,3);ctx.fillRect(x,y+76,20,3);
+  ctx.fillStyle='#8a4f1f';ctx.beginPath();ctx.moveTo(x-22,y-6);ctx.lineTo(x+22,y-6);ctx.lineTo(x+26,y+18);ctx.lineTo(x+26,y+54);ctx.quadraticCurveTo(x+26,y+70,x,y+70);ctx.quadraticCurveTo(x-26,y+70,x-26,y+54);ctx.lineTo(x-26,y+18);ctx.closePath();ctx.fill();
+  ctx.fillStyle='rgba(176,112,48,.7)';ctx.fillRect(x-20,y-2,6,y+66);
+  ctx.fillStyle='#111';ctx.fillRect(x-10,y-22,20,16);
+  ctx.fillStyle='#2a1a10';ctx.fillRect(x-22,y+24,44,28);
+  ctx.fillStyle='#8a4f1f';ctx.fillRect(x-18,y+27,36,7);
+  ctx.fillStyle='#ffd700';ctx.font='7px monospace';ctx.textAlign='center';ctx.fillText('VIN NEGAR',x,y+46);
+  ctx.strokeStyle='#ffd700';ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(x-22,y+8);ctx.quadraticCurveTo(x,y+20,x+22,y+8);ctx.stroke();
+  ctx.fillStyle='#ffd700';ctx.beginPath();ctx.arc(x,y+22,5,0,7);ctx.fill();
+  ctx.fillStyle='#7a4a00';ctx.font='6px monospace';ctx.fillText('V',x,y+24);
+  ctx.fillStyle='#000';ctx.fillRect(x-16,y-16,13,9);ctx.fillRect(x+3,y-16,13,9);ctx.fillRect(x-3,y-13,6,2);
+  ctx.strokeStyle='#ffd700';ctx.lineWidth=1.5;ctx.strokeRect(x-17,y-17,15,11);ctx.strokeRect(x+2,y-17,15,11);
+  ctx.strokeStyle='#111';ctx.lineWidth=2.5;ctx.beginPath();
+  if(mouth>0){ctx.moveTo(x-8,y+4);ctx.quadraticCurveTo(x,y+10,x+8,y+4);}else{ctx.arc(x,y+6,7,0.15*Math.PI,0.85*Math.PI);}
+  ctx.stroke();
+  ctx.fillStyle='#ffd700';ctx.fillRect(x-1,y+6,3,3);
+  ctx.fillStyle='#8a4f1f';ctx.fillRect(x-34,y-2,12,26);ctx.fillRect(x+22,y-2,12,26);
+  ctx.fillStyle='#ffd700';ctx.fillRect(x-36,y+14,8,6);
+  ctx.restore();
+}
+
+// ── QUE (squat BBQ bottle, warm, party) ──
+function drawQue(x,y,bob,mouth){
+  ctx.save();ctx.translate(0,bob);
+  ctx.fillStyle='#2b1a0e';ctx.fillRect(x-20,y+62,22,22);ctx.fillRect(x+4,y+62,22,22);
+  ctx.fillStyle='#5c3317';ctx.fillRect(x-26,y+82,34,9);ctx.fillRect(x+0,y+82,34,9);
+  ctx.fillStyle='#6b2d14';ctx.beginPath();ctx.moveTo(x-42,y-8);ctx.lineTo(x+42,y-8);ctx.lineTo(x+48,y+26);ctx.lineTo(x+50,y+64);ctx.quadraticCurveTo(x+50,y+82,x,y+82);ctx.quadraticCurveTo(x-50,y+82,x-50,y+64);ctx.lineTo(x-48,y+26);ctx.closePath();ctx.fill();
+  ctx.fillStyle='#8a3d1c';ctx.fillRect(x-30,y-2,8,y+80);
+  // cap
+  ctx.fillStyle='#2b1a0e';ctx.fillRect(x-12,y-22,24,16);
+  // label = party shirt
+  ctx.fillStyle='#f5e6d0';ctx.fillRect(x-34,y+8,68,44);
+  ctx.fillStyle='#c25e2b';ctx.fillRect(x-26,y+14,52,12);
+  ctx.fillStyle='#fff';ctx.font='bold 10px monospace';ctx.textAlign='center';ctx.fillText('QUE',x,y+23);
+  ctx.fillStyle='#8a3d1c';ctx.font='7px monospace';ctx.fillText('pass the vibe',x,y+40);
+  // eyes friendly
+  ctx.fillStyle='#fff';ctx.strokeStyle='#111';ctx.lineWidth=2;ctx.beginPath();ctx.arc(x-12,y-30,7,0,7);ctx.fill();ctx.stroke();ctx.beginPath();ctx.arc(x+12,y-30,7,0,7);ctx.fill();ctx.stroke();
+  ctx.fillStyle='#111';ctx.beginPath();ctx.arc(x-10,y-29,3,0,7);ctx.fill();ctx.beginPath();ctx.arc(x+14,y-29,3,0,7);ctx.fill();
+  // warm brows
+  ctx.strokeStyle='#111';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(x-18,y-40);ctx.quadraticCurveTo(x-12,y-45,x-6,y-40);ctx.moveTo(x+6,y-40);ctx.quadraticCurveTo(x+12,y-45,x+18,y-40);ctx.stroke();
+  // mouth big grin
+  ctx.strokeStyle='#111';ctx.lineWidth=2.5;ctx.beginPath();
+  if(mouth>0){ctx.moveTo(x-14,y-18);ctx.quadraticCurveTo(x,y-8,x+14,y-18);}else{ctx.arc(x,y-12,12,0.15*Math.PI,0.85*Math.PI);}
+  ctx.stroke();
+  ctx.restore();
+}
+
+function bubble(x,y,w,h,text){
+  ctx.fillStyle='#fff';ctx.strokeStyle='#111';ctx.lineWidth=2;
+  ctx.beginPath();ctx.roundRect(x,y,w,h,10);ctx.fill();ctx.stroke();
+  ctx.beginPath();ctx.moveTo(x+w/2-8,y+h);ctx.lineTo(x+w/2,y+h+10);ctx.lineTo(x+w/2+8,y+h);ctx.closePath();ctx.fill();
+  ctx.fillStyle='#111';ctx.font='bold 12px monospace';ctx.textAlign='center';
+  var words=text.split(' '),line='',yy=y+h/2-6;
+  for(var i=0;i<words.length;i++){var test=line+words[i]+' ';if(ctx.measureText(test).width>w-16&&line){ctx.fillText(line,x+w/2,yy+8);line=words[i]+' ';yy+=14;}else line=test;}
+  ctx.fillText(line,x+w/2,yy+8);
+}
+function titleCard(txt,sub){ctx.fillStyle='#ffd166';ctx.font='bold 30px monospace';ctx.textAlign='center';ctx.fillText(txt,W/2,110);ctx.fillStyle='#ff9f43';ctx.font='14px monospace';ctx.fillText(sub,W/2,140);}
+
+function drawScene(){
+  ctx.clearRect(0,0,W,H);
+  var bobV=Math.sin(t*0.07)*3,bobQ=Math.sin(t*0.06+1)*3;
+  var mouthV=(Math.sin(t*0.25)>0)?1:0,mouthQ=(Math.sin(t*0.2)>0)?1:0;
+  // SCENE 1: title
+  if(t<90){bgCabnet();titleCard('SPREAD DA WORD','Promo — Hangin' at the Cab-net');}
+  // SCENE 2: Que & Vin vibin'
+  else if(t<420){bgCabnet();drawQue(150,200+bobQ,mouthQ);drawVin(480,200+bobV,mouthV);
+    if(t>95&&t<170)bubble(20,10,190,40,"Vin! My dude. Pull up, pull up. 🔥");
+    if(t>175&&t<250)bubble(430,20,190,40,"Que. Sauce stay warm out here?");
+    if(t>255&&t<330)bubble(20,10,200,40,"Always. Cab-net's the vibe. Cold drinks, warm beats.");
+    if(t>335&&t<410)bubble(430,16,190,44,"The shelves raised us. Pass the vibe. 🍶");
+  }
+  // SCENE 3: tag
+  else{bgCabnet();drawQue(150,200+bobQ,mouthQ);drawVin(480,200+bobV,mouthV);
+    bubble(90,10,220,40,"Hang at the cab-net. Spread da word.");
+    ctx.fillStyle='#ffd166';ctx.font='bold 15px monospace';ctx.textAlign='center';ctx.fillText('SPREAD DA WORD — SEASON 1',W/2,H-70);
+    ctx.fillStyle='#ff9f43';ctx.font='11px monospace';ctx.fillText('soundtracks · episodes · more — spreaddaword.zerric.xyz',W/2,H-52);
+  }
+}
+function loop(){
+  if(playing)t++;
+  drawScene();
+  prog.style.width=Math.min(100,(t/600)*100)+'%';
+  requestAnimationFrame(loop);
+}
+loop();
+</script>
+</body>
+</html>
