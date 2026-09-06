@@ -1,9 +1,9 @@
 {
   "jokes": 111,
-  "games": "err:IncompleteRead(0 bytes read)",
+  "games": 15,
   "characters": 3,
   "comics": 0,
   "doodles": 0,
   "episodes": 1,
-  "snapshot_at": "2026-09-06T23:05:01Z"
+  "snapshot_at": "2026-09-06T23:10:02Z"
 }
