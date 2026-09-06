@@ -38,6 +38,12 @@
     <rect x="108" y="89" width="6" height="6" rx="1.5" fill="#ffd700"/>
   </g>
 
+  <g id="queChain">
+    <path d="M88 126 Q110 156 132 126" stroke="#ffd700" stroke-width="4.5" fill="none"/>
+    <path d="M92 130 L99 142 M99 133 L105 139 M121 133 L127 139 M128 130 L135 142" stroke="#ffd700" stroke-width="2"/>
+    <path d="M110 140 l-6 13 a6 6 0 0 0 12 0 Z" fill="#ff8a3d" stroke="#ffd700" stroke-width="1.6"/>
+  </g>
+
   <!-- ===== BANDANA at the neck (BBQ neck-label as gangsta kerchief) ===== -->
   <g id="queBandana">
     <!-- wrapped band around the neck -->
@@ -55,11 +61,6 @@
   </g>
 
   <!-- ===== CHAIN: hangs at the BASE of the neck / shoulder ===== -->
-  <g id="queChain">
-    <path d="M88 126 Q110 156 132 126" stroke="#ffd700" stroke-width="4.5" fill="none"/>
-    <path d="M92 130 L99 142 M99 133 L105 139 M121 133 L127 139 M128 130 L135 142" stroke="#ffd700" stroke-width="2"/>
-    <path d="M110 140 l-6 13 a6 6 0 0 0 12 0 Z" fill="#ff8a3d" stroke="#ffd700" stroke-width="1.6"/>
-  </g>
 
   <!-- ===== ARMS: attach at shoulders, over label ===== -->
   <g id="queArmL"><path d="M72 138 Q50 172 46 212" stroke="#5a1603" stroke-width="12" stroke-linecap="round" fill="none"/></g>
