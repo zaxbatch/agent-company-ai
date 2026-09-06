@@ -212,10 +212,13 @@ function sideOf(n){ return n<=4 ? 'A' : 'B'; }
 function buildDeck(cfg){
   var d = {
     tracks: cfg.tracks, idx: 0, playing: false,
-    audio: new Audio(), deck: cfg.deck,
-    st: cfg.st, sd: cfg.sd, nm: cfg.nm, tn: cfg.tn,
-    pr: cfg.pr, cu: cfg.cu, to: cfg.to, tp: cfg.tp, tl: cfg.tl,
-    pl: cfg.pl, deckEl: document.getElementById(cfg.deck)
+    audio: new Audio(), deckEl: document.getElementById(cfg.deck),
+    st: document.getElementById(cfg.st), sd: document.getElementById(cfg.sd),
+    nm: document.getElementById(cfg.nm), tn: document.getElementById(cfg.tn),
+    pr: document.getElementById(cfg.pr), cu: document.getElementById(cfg.cu),
+    to: document.getElementById(cfg.to), tp: document.getElementById(cfg.tp),
+    tl: document.getElementById(cfg.tl), pl: document.getElementById(cfg.pl),
+    pv: document.getElementById(cfg.pv), nx: document.getElementById(cfg.nx)
   };
   d.audio.preload='none';
   var D=d;
@@ -259,8 +262,8 @@ function buildDeck(cfg){
     });
   }
   D.pl.onclick = toggle;
-  document.getElementById(cfg.pv).onclick = prev;
-  document.getElementById(cfg.nx).onclick = next;
+  D.pv.onclick = prev;
+  D.nx.onclick = next;
   load(0);
   return D;
 }
