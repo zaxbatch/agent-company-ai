@@ -284,9 +284,9 @@ document.getElementById('queSay').onclick = function(){
     var bounce = Math.abs(Math.sin(t/4))*6;
     queEl.style.transform = 'translateY('+(-bounce)+'px)';
     var open = (Math.sin(t*0.6)>0) ? 13 : 4;
-    queMouth.innerHTML = '<ellipse cx="110" cy="108" rx="'+open+'" ry="7" fill="#3a0f02"/><rect x="107" y="103" width="6" height="6" rx="1" fill="#ffd700" transform="rotate(6 110 107)"/>';
+    queMouth.innerHTML = '<ellipse cx="110" cy="93" rx="'+open+'" ry="6" fill="#1f0500"/><rect x="107" y="89" width="6" height="6" rx="1.5" fill="#ffd700" transform="rotate(6 110 92)"/>';
     if(t>80){ clearInterval(iv); queEl.style.transform='';
-      queMouth.innerHTML = '<path d="M92 104 Q110 118 128 104" stroke="#3a0f02" stroke-width="3" fill="none"/><rect x="107" y="104" width="6" height="6" rx="1" fill="#ffd700"/>'; }
+      queMouth.innerHTML = '<path d="M99 88 Q110 97 121 88" stroke="#1f0500" stroke-width="3" fill="none" stroke-linecap="round"/><rect x="108" y="89" width="6" height="6" rx="1.5" fill="#ffd700"/>'; }
   },30);
 };
 document.getElementById('queWalk').onclick = function(){
