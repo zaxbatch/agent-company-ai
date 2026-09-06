@@ -15,12 +15,10 @@
   <!-- long clean neck -->
   <rect x="92" y="50" width="36" height="64" fill="url(#queBody)" stroke="#2a0a01" stroke-width="2"/>
   <!-- shoulders + body -->
-  <!-- shoulders curve CONCAVE inward at neck (no bulb/pillow) -->
-  <path d="M66 132 L154 132 L154 214 L158 250 Q158 264 110 264 Q62 264 62 250 L66 214 Z"
+  <path d="M80 114 L140 114 L158 214 L158 250 Q158 264 110 264 Q62 264 62 250 L62 214 Z"
         fill="url(#queBody)" stroke="#2a0a01" stroke-width="2.5"/>
-  <!-- concave neck-to-shoulder transition: dips in below the neck then flares to body -->
-  <path d="M84 100 Q84 116 66 132 L66 118 Q84 106 90 100 Z" fill="url(#queBody)"/>
-  <path d="M136 100 Q136 116 154 132 L154 118 Q136 106 130 100 Z" fill="url(#queBody)"/>
+  <path d="M80 114 Q80 98 92 94 L92 114 Z" fill="url(#queBody)"/>
+  <path d="M140 114 Q140 98 128 94 L128 114 Z" fill="url(#queBody)"/>
   <!-- gloss -->
   <rect x="70" y="176" width="5" height="60" rx="2.5" fill="#ffffff12"/>
 
@@ -38,27 +36,11 @@
     <rect x="108" y="89" width="6" height="6" rx="1.5" fill="#ffd700"/>
   </g>
 
-  <!-- ===== BANDANA at the neck (BBQ neck-label as gangsta kerchief) ===== -->
-  <g id="queBandana">
-    <!-- wrapped band around the neck -->
-    <path d="M86 104 L134 104 L136 124 Q136 132 110 132 Q84 132 84 124 Z" fill="#8a1a08" stroke="#4a0a02" stroke-width="1.5"/>
-    <!-- polka dots / pattern -->
-    <circle cx="96" cy="112" r="2.2" fill="#ff8a5a"/>
-    <circle cx="110" cy="114" r="2.2" fill="#ff8a5a"/>
-    <circle cx="124" cy="112" r="2.2" fill="#ff8a5a"/>
-    <circle cx="103" cy="124" r="2.2" fill="#ff8a5a"/>
-    <circle cx="117" cy="124" r="2.2" fill="#ff8a5a"/>
-    <!-- knot + hanging tails front-left -->
-    <path d="M104 130 L98 140 L100 142 L108 132 Z" fill="#6e1404"/>
-    <path d="M100 138 Q96 150 92 158 L98 158 Q104 150 108 142 Z" fill="#8a1a08"/>
-    <path d="M102 142 Q108 152 112 156 L116 154 Q110 146 106 140 Z" fill="#6e1404"/>
-  </g>
-
   <!-- ===== CHAIN: hangs at the BASE of the neck / shoulder ===== -->
   <g id="queChain">
-    <path d="M88 126 Q110 156 132 126" stroke="#ffd700" stroke-width="4.5" fill="none"/>
-    <path d="M92 130 L99 142 M99 133 L105 139 M121 133 L127 139 M128 130 L135 142" stroke="#ffd700" stroke-width="2"/>
-    <path d="M110 140 l-6 13 a6 6 0 0 0 12 0 Z" fill="#ff8a3d" stroke="#ffd700" stroke-width="1.6"/>
+    <path d="M88 108 Q110 138 132 108" stroke="#ffd700" stroke-width="4.5" fill="none"/>
+    <path d="M92 112 L99 124 M99 115 L105 121 M121 115 L127 121 M128 112 L135 124" stroke="#ffd700" stroke-width="2"/>
+    <path d="M110 122 l-6 13 a6 6 0 0 0 12 0 Z" fill="#ff8a3d" stroke="#ffd700" stroke-width="1.6"/>
   </g>
 
   <!-- ===== ARMS: attach at shoulders, over label ===== -->
