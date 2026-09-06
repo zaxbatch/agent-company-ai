@@ -35,8 +35,8 @@
     <rect x="83" y="150" width="54" height="78" rx="3" fill="#f7ead0"/>
     <rect x="88" y="157" width="44" height="14" fill="#5a1803"/>
     <text x="110" y="167" text-anchor="middle" font-family="monospace" font-size="9" font-weight="bold" fill="#ffe8d0">VIN NEGAR</text>
-    <text x="110" y="188" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#4a1604">THE REALEST</text>
-    <text x="110" y="200" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#7e4a24">vinegar you know</text>
+    <text x="110" y="188" text-anchor="middle" font-family="monospace" font-size="10.5" font-weight="bold" fill="#4a1604" letter-spacing="0.5">REALEST</text>
+    <text x="110" y="199" text-anchor="middle" font-family="monospace" font-size="5.5" fill="#7e4a24">real vinegar</text>
     <text x="110" y="212" text-anchor="middle" font-family="monospace" font-size="6" fill="#5a2a12">est. cab-nets</text>
     <!-- cylinder wrap cues (thin, INSIDE the label) -->
     <rect x="83" y="150" width="6" height="78" fill="#200a02" opacity=".35"/>
@@ -46,13 +46,13 @@
 
   <!-- ===== CUBAN CHAIN (below label) ===== -->
   <g id="vinChain">
-    <path d="M80 236 Q110 264 140 236" stroke="#ffd700" stroke-width="5" fill="none"/>
-    <circle cx="110" cy="252" r="11" fill="#111" stroke="#ffd700" stroke-width="3.5"/>
-    <text x="110" y="257" text-anchor="middle" font-size="9" font-weight="bold" fill="#ffd700">V</text>
+    <path d="M82 136 Q110 166 138 136" stroke="#ffd700" stroke-width="4.5" fill="none"/>
+    <circle cx="110" cy="154" r="10" fill="#111" stroke="#ffd700" stroke-width="3"/>
+    <text x="110" y="159" text-anchor="middle" font-size="9" font-weight="bold" fill="#ffd700">V</text>
   </g>
 
-  <g id="vinArmL"><path d="M78 205 Q50 220 56 246" stroke="#1c0f06" stroke-width="11" stroke-linecap="round" fill="none"/></g>
-  <g id="vinArmR"><path d="M142 205 Q170 220 164 246" stroke="#1c0f06" stroke-width="11" stroke-linecap="round" fill="none"/></g>
+  <g id="vinArmL"><path d="M78 120 Q46 128 40 150" stroke="#1c0f06" stroke-width="10" stroke-linecap="round" fill="none"/></g>
+  <g id="vinArmR"><path d="M142 120 Q174 128 180 150" stroke="#1c0f06" stroke-width="10" stroke-linecap="round" fill="none"/></g>
   <rect x="84" y="260" width="24" height="10" rx="4" fill="#0a0a0a"/>
   <rect x="112" y="260" width="24" height="10" rx="4" fill="#0a0a0a"/>
 </svg>
