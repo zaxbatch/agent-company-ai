@@ -62,12 +62,12 @@
   .deck-brand{color:#9bd1ff;font-size:12px;letter-spacing:2px}
   .deck-led{width:10px;height:10px;border-radius:50%;background:#e94560;box-shadow:0 0 10px #e94560;transition:background .2s}
   .deck-led.on{background:#1a7f37;box-shadow:0 0 10px #1a7f37}
-  .cassette{position:relative;background:#22223a;border-radius:10px;padding:18px 24px;margin-bottom:18px;border:2px solid #3a3a55;box-shadow:0 4px 0 #0f0f1e}
-  .cassette-label{background:#f5e6d0;color:#1a1a2e;border-radius:6px;padding:8px 14px;text-align:center;margin-bottom:12px;font-family:monospace}
+  .cassette{position:relative;background:#22223a;border-radius:10px;padding:18px 20px;margin-bottom:18px;border:2px solid #3a3a55;box-shadow:0 4px 0 #0f0f1e;display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:14px}
+  .cassette-label{background:#f5e6d0;color:#1a1a2e;border-radius:6px;padding:8px 14px;text-align:center;font-family:monospace;flex:1;min-width:0;margin:0 6px}
   .cassette-label .tape-title{font-size:14px;font-weight:bold;letter-spacing:1px;color:#111}
   .cassette-label .tape-sub{font-size:9px;color:#555}
   .reels{display:flex;justify-content:space-between;align-items:center;padding:0 20px}
-  .reel{width:64px;height:64px;border-radius:50%;background:#111;border:4px solid #3a3a55;position:relative;overflow:hidden}
+  .reel{width:64px;height:64px;flex:0 0 auto;border-radius:50%;background:#111;border:4px solid #3a3a55;position:relative;overflow:hidden}
   .reel::before{content:'';position:absolute;inset:0;background:conic-gradient(#1a1a2e 0 40deg,#333 40deg 80deg,#1a1a2e 80deg 120deg,#333 120deg 160deg,#1a1a2e 160deg 200deg,#333 200deg 240deg,#1a1a2e 240deg 280deg,#333 280deg 320deg,#1a1a2e 320deg 360deg)}
   .reel.spinning{animation:spin 2s linear infinite}
   @keyframes spin{to{transform:rotate(360deg)}}
