@@ -60,9 +60,12 @@
   </defs>
 
   <!-- ===== WINE BOTTLE — flat bottom ===== -->
-  <!-- foil cap -->
-  <rect x="90" y="24" width="40" height="13" rx="3" fill="#3a1a08"/>
-  <rect x="92" y="20" width="36" height="7" rx="3" fill="#c9a04a"/>
+  <!-- tilted cap = hat -->
+  <g transform="rotate(-16 110 40)">
+    <rect x="84" y="20" width="52" height="20" rx="5" fill="#2a1206"/>
+    <rect x="84" y="36" width="52" height="6" fill="#6e2608"/>
+    <rect x="118" y="18" width="14" height="8" rx="3" fill="#1c0f06"/>
+  </g>
   <!-- body: neck, shoulder, straight sides, FLAT bottom -->
   <path d="M92 40 L128 40 L128 78 Q128 94 140 106 L142 118 L142 252 Q142 260 135 262 L85 262 Q78 260 78 252 L78 118 L80 106 Q92 94 92 78 Z"
         fill="url(#vinGlass)" stroke="#200a02" stroke-width="2.5"/>
@@ -97,16 +100,17 @@
 
   <!-- ===== CUBAN CHAIN (below label) ===== -->
   <g id="vinChain">
-    <path d="M86 146 Q110 170 134 146" stroke="#ffd700" stroke-width="4" fill="none"/>
-    <circle cx="110" cy="160" r="8" fill="#111" stroke="#ffd700" stroke-width="3"/>
-    <text x="110" y="164" text-anchor="middle" font-size="7.5" font-weight="bold" fill="#ffd700">V</text>
+    <path d="M80 108 Q110 138 140 108" stroke="#ffd700" stroke-width="4.5" fill="none"/>
+    <circle cx="110" cy="124" r="9" fill="#111" stroke="#ffd700" stroke-width="3.5"/>
+    <text x="110" y="129" text-anchor="middle" font-size="8" font-weight="bold" fill="#ffd700">V</text>
   </g>
 
-  <g id="vinArmL"><path d="M80 118 Q52 148 48 188" stroke="#1c0f06" stroke-width="10" stroke-linecap="round" fill="none"/></g>
-  <g id="vinArmR"><path d="M140 118 Q168 148 172 188" stroke="#1c0f06" stroke-width="10" stroke-linecap="round" fill="none"/></g>
+  <g id="vinArmL"><path d="M80 140 Q52 172 48 210" stroke="#1c0f06" stroke-width="10" stroke-linecap="round" fill="none"/></g>
+  <g id="vinArmR"><path d="M140 140 Q168 172 172 210" stroke="#1c0f06" stroke-width="10" stroke-linecap="round" fill="none"/></g>
   <rect x="84" y="260" width="24" height="10" rx="4" fill="#0a0a0a"/>
   <rect x="112" y="260" width="24" height="10" rx="4" fill="#0a0a0a"/>
 </svg>
+
 
 
 
@@ -172,31 +176,30 @@
     <rect x="108" y="147" width="7" height="7" rx="1.5" fill="#ffd700"/>
   </g>
 
-  <!-- ===== LABEL (fits body, clean) ===== -->
+  <!-- ===== LABEL: trapezoid matching the bottle taper ===== -->
   <g id="queLabelWrap">
-    <rect x="62" y="188" width="96" height="56" rx="4" fill="#f7ead0"/>
-    <rect x="68" y="194" width="84" height="14" fill="#6e1c04"/>
-    <text x="110" y="205" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#ffe8d0">QUE'S</text>
-    <text x="110" y="221" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#5a1803">BBQ SAUCE</text>
-    <text x="110" y="232" text-anchor="middle" font-family="monospace" font-size="7" fill="#7e4a24">pass the vibe</text>
-    <!-- wrap shading -->
-    <rect x="62" y="188" width="11" height="56" rx="4" fill="#1f0500" opacity=".5"/>
-    <rect x="147" y="188" width="11" height="56" rx="4" fill="#1f0500" opacity=".5"/>
-    <rect x="72" y="188" width="4" height="56" fill="#1f0500" opacity=".15"/>
-    <rect x="144" y="188" width="4" height="56" fill="#1f0500" opacity=".15"/>
+    <path d="M66 196 L154 196 L152 244 L68 244 Z" fill="#f7ead0"/>
+    <rect x="74" y="200" width="72" height="13" fill="#6e1c04"/>
+    <text x="110" y="210" text-anchor="middle" font-family="monospace" font-size="9.5" font-weight="bold" fill="#ffe8d0">QUE'S</text>
+    <text x="110" y="228" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#5a1803">BBQ SAUCE</text>
+    <text x="110" y="240" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#7e4a24">pass the vibe</text>
+    <path d="M66 196 L76 196 L74 244 L68 244 Z" fill="#1f0500" opacity=".4"/>
+    <path d="M144 196 L154 196 L152 244 L146 244 Z" fill="#1f0500" opacity=".4"/>
   </g>
 
-  <!-- chain ABOVE label -->
+  <!-- chain: longer, lower (drapes across body width) -->
   <g id="queChain">
-    <path d="M86 146 Q110 172 134 146" stroke="#ffd700" stroke-width="5" fill="none"/>
-    <path d="M110 158 l-6 13 a6 6 0 0 0 12 0 Z" fill="#ff8a3d" stroke="#ffd700" stroke-width="1.5"/>
+    <path d="M74 176 Q110 218 146 176" stroke="#ffd700" stroke-width="5.5" fill="none"/>
+    <path d="M78 180 L86 194 M86 184 L94 191 M124 184 L132 191 M134 180 L142 194" stroke="#ffd700" stroke-width="2.2"/>
+    <path d="M110 196 l-7 15 a7 7 0 0 0 14 0 Z" fill="#ff8a3d" stroke="#ffd700" stroke-width="1.8"/>
   </g>
 
-  <g id="queArmL"><path d="M60 150 Q34 178 40 215" stroke="#5a1603" stroke-width="12" stroke-linecap="round" fill="none"/></g>
-  <g id="queArmR"><path d="M160 150 Q186 178 180 215" stroke="#5a1603" stroke-width="12" stroke-linecap="round" fill="none"/></g>
+  <g id="queArmL"><path d="M72 132 Q48 168 44 210" stroke="#5a1603" stroke-width="12" stroke-linecap="round" fill="none"/></g>
+  <g id="queArmR"><path d="M148 132 Q172 168 176 210" stroke="#5a1603" stroke-width="12" stroke-linecap="round" fill="none"/></g>
   <rect x="78" y="262" width="30" height="12" rx="5" fill="#0a0a0a"/>
   <rect x="112" y="262" width="30" height="12" rx="5" fill="#0a0a0a"/>
 </svg>
+
 
 
 
