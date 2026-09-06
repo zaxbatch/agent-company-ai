@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Spread Da Word — Soundtracks (Season 1)</title>
+<title>Spread Da Word — Soundtracks</title>
 <style>
+
   *{margin:0;padding:0;box-sizing:border-box}
   body{background:#0a1220;color:#cfe8ff;font-family:monospace;min-height:100vh}
   nav{background:#0e1a2e;border-bottom:2px solid #3d5a80;padding:14px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;position:sticky;top:0;z-index:50}
@@ -13,67 +14,77 @@
   nav a.nav{color:#9bd1ff;text-decoration:none;font-size:13px;padding:6px 10px;border-radius:6px}
   nav a.nav:hover{background:#1c3352;color:#fff}
   nav a.nav.active{background:#3d5a80;color:#fff}
-  .wrap{max-width:760px;margin:24px auto;padding:0 18px 40px}
-  h1{color:#ffd166;font-size:24px;letter-spacing:4px;text-align:center;text-shadow:0 0 18px rgba(255,209,102,.3)}
-  .sub{color:#6ea8d8;font-size:13px;text-align:center;margin:6px 0 8px}
-  .season{color:#5f7fa0;font-size:11px;letter-spacing:3px;text-align:center;margin-bottom:22px}
-  /* --- tape deck --- */
-  .deck{margin:26px 0;background:#0e1a2e;border:2px solid #3d5a80;border-radius:16px;padding:16px;box-shadow:0 0 24px #3d5a8022}
-  .deck.remix{border-color:#6a4ac0;background:#110a22}
-  .deck-head{display:flex;justify-content:space-between;align-items:center;font-size:10px;letter-spacing:2px;color:#5f7fa0;margin-bottom:10px}
-  .deck-head .cap{color:#9bd1ff;letter-spacing:2px}
-  .deck.remix .deck-head .cap{color:#c9a2ff}
-  .deck-head .stat{color:#e94560}
-  .cassette{display:flex;gap:14px;align-items:center;justify-content:center;background:#151f33;border:1px solid #223450;border-radius:12px;padding:16px}
-  .deck.remix .cassette{background:#191230;border-color:#3a2a60}
-  .reel{width:76px;height:76px;border-radius:50%;flex:0 0 auto;background:repeating-radial-gradient(circle,#7fa8d0 0 3px,#0a1220 3px 7px);animation:spin 2.2s linear infinite;animation-play-state:paused;position:relative}
-  .deck.remix .reel{background:repeating-radial-gradient(circle,#b39ddb 0 3px,#0a0618 3px 7px)}
-  .reel.r2{animation-direction:reverse}
-  .deck.playing .reel{animation-play-state:running}
-  .reel:after{content:'';display:block;width:20px;height:20px;background:#9bd1ff;border-radius:50%;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
-  .deck.remix .reel:after{background:#c9a2ff}
+  .wrap{max-width:860px;margin:30px auto;padding:0 20px 40px;text-align:center}
+  h1{color:#ffd166;font-size:28px;letter-spacing:4px;margin-bottom:6px;text-shadow:0 0 20px rgba(255,209,102,.3)}
+  .sub{color:#6ea8d8;font-size:13px;margin-bottom:24px}
+
+  /* THEME SWITCHER */
+  .themes{display:flex;justify-content:center;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+  .theme-btn{background:#22223a;border:2px solid #3a3a55;color:#cfe8ff;border-radius:20px;padding:6px 16px;font-family:monospace;font-size:12px;cursor:pointer;transition:all .2s}
+  .theme-btn:hover{border-color:#9bd1ff}
+  .theme-btn.active{border-color:#ffd166;color:#ffd166;box-shadow:0 0 12px rgba(255,209,102,.3)}
+  /* deck themes */
+  .deck.theme-icy{background:linear-gradient(180deg,#0f2a4a,#0a1a30);border-color:#38bdf8}
+  .deck.theme-icy .cassette{background:#122a4a;border-color:#38bdf8}
+  .deck.theme-icy .cassette-label{background:#e0f4ff;color:#0a1220}
+  .deck.theme-icy .reel::before{background:conic-gradient(#38bdf8 0 40deg,#7fd1ff 40deg 80deg,#38bdf8 80deg 120deg,#7fd1ff 120deg 160deg,#38bdf8 160deg 200deg,#7fd1ff 200deg 240deg,#38bdf8 240deg 280deg,#7fd1ff 280deg 320deg,#38bdf8 320deg 360deg)}
+  .deck.theme-icy .reel::after{background:#0a1a30;border-color:#38bdf8}
+  .deck.theme-icy .deck-brand{color:#7fd1ff}
+  .deck.theme-lava{background:linear-gradient(180deg,#3a0d0d,#1a0505);border-color:#e94560}
+  .deck.theme-lava .cassette{background:#2a0a0a;border-color:#e94560}
+  .deck.theme-lava .cassette-label{background:#ffe0d0;color:#3a0d0d}
+  .deck.theme-lava .reel::before{background:conic-gradient(#e94560 0 40deg,#ff6b35 40deg 80deg,#e94560 80deg 120deg,#ff6b35 120deg 160deg,#e94560 160deg 200deg,#ff6b35 200deg 240deg,#e94560 240deg 280deg,#ff6b35 280deg 320deg,#e94560 320deg 360deg)}
+  .deck.theme-lava .reel::after{background:#1a0505;border-color:#e94560}
+  .deck.theme-lava .deck-brand{color:#ff6b35}
+  .deck.theme-gold{background:linear-gradient(180deg,#2a2410,#1a1608);border-color:#ffd166}
+  .deck.theme-gold .cassette{background:#241f0e;border-color:#ffd166}
+  .deck.theme-gold .cassette-label{background:#fff3d0;color:#2a2410}
+  .deck.theme-gold .reel::before{background:conic-gradient(#ffd166 0 40deg,#c9a200 40deg 80deg,#ffd166 80deg 120deg,#c9a200 120deg 160deg,#ffd166 160deg 200deg,#c9a200 200deg 240deg,#ffd166 240deg 280deg,#c9a200 280deg 320deg,#ffd166 320deg 360deg)}
+  .deck.theme-gold .reel::after{background:#1a1608;border-color:#ffd166}
+  .deck.theme-gold .deck-brand{color:#ffd166}
+  .deck.theme-violet{background:linear-gradient(180deg,#1e1040,#120820);border-color:#a78bfa}
+  .deck.theme-violet .cassette{background:#1a0f38;border-color:#a78bfa}
+  .deck.theme-violet .cassette-label{background:#f0e8ff;color:#1e1040}
+  .deck.theme-violet .reel::before{background:conic-gradient(#a78bfa 0 40deg,#6d5bd0 40deg 80deg,#a78bfa 80deg 120deg,#6d5bd0 120deg 160deg,#a78bfa 160deg 200deg,#6d5bd0 200deg 240deg,#a78bfa 240deg 280deg,#6d5bd0 280deg 320deg,#a78bfa 320deg 360deg)}
+  .deck.theme-violet .reel::after{background:#120820;border-color:#a78bfa}
+  .deck.theme-violet .deck-brand{color:#a78bfa}
+  .deck.theme-retro{background:linear-gradient(180deg,#2a2a2a,#1a1a1a);border-color:#888}
+  .deck.theme-retro .cassette{background:#333;border-color:#777}
+  .deck.theme-retro .cassette-label{background:#e8e0c8;color:#222}
+  .deck.theme-retro .reel::before{background:conic-gradient(#888 0 40deg,#555 40deg 80deg,#888 80deg 120deg,#555 120deg 160deg,#888 160deg 200deg,#555 200deg 240deg,#888 240deg 280deg,#555 280deg 320deg,#888 320deg 360deg)}
+  .deck.theme-retro .reel::after{background:#1a1a1a;border-color:#777}
+  .deck.theme-retro .deck-brand{color:#aaa}
+  /* cassette label swap per tape */
+  .cassette .cassette-label{transition:all .3s}
+  /* CASSETTE PLAYER */
+  .deck{background:linear-gradient(180deg,#1a1a2e,#12121f);border:3px solid #333;border-radius:16px;padding:24px;max-width:560px;margin:0 auto 30px;box-shadow:0 10px 40px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.08)}
+  .deck-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+  .deck-brand{color:#9bd1ff;font-size:12px;letter-spacing:2px}
+  .deck-led{width:10px;height:10px;border-radius:50%;background:#e94560;box-shadow:0 0 10px #e94560;transition:background .2s}
+  .deck-led.on{background:#1a7f37;box-shadow:0 0 10px #1a7f37}
+  .cassette{position:relative;background:#22223a;border-radius:10px;padding:18px 24px;margin-bottom:18px;border:2px solid #3a3a55;box-shadow:0 4px 0 #0f0f1e}
+  .cassette-label{background:#f5e6d0;color:#1a1a2e;border-radius:6px;padding:8px 14px;text-align:center;margin-bottom:12px;font-family:monospace}
+  .cassette-label .tape-title{font-size:14px;font-weight:bold;letter-spacing:1px;color:#111}
+  .cassette-label .tape-sub{font-size:9px;color:#555}
+  .reels{display:flex;justify-content:space-between;align-items:center;padding:0 20px}
+  .reel{width:64px;height:64px;border-radius:50%;background:#111;border:4px solid #3a3a55;position:relative;overflow:hidden}
+  .reel::before{content:'';position:absolute;inset:0;background:conic-gradient(#1a1a2e 0 40deg,#333 40deg 80deg,#1a1a2e 80deg 120deg,#333 120deg 160deg,#1a1a2e 160deg 200deg,#333 200deg 240deg,#1a1a2e 240deg 280deg,#333 280deg 320deg,#1a1a2e 320deg 360deg)}
+  .reel.spinning{animation:spin 2s linear infinite}
   @keyframes spin{to{transform:rotate(360deg)}}
-  .label{flex:1;text-align:center;min-width:0}
-  .label .jcard{display:inline-block;background:#eef6ff;color:#0a1220;border-radius:8px;padding:10px 16px;font-family:monospace;max-width:100%}
-  .deck.remix .label .jcard{background:#efe6ff;color:#1a0f38}
-  .label .album{font-size:10px;letter-spacing:2px;color:#555;text-transform:uppercase}
-  .label .side{font-size:11px;font-weight:bold;letter-spacing:3px;color:#e94560;margin:2px 0}
-  .label .tname{font-size:15px;font-weight:bold;color:#111;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .label .tnum{font-size:9px;color:#777;margin-top:2px;letter-spacing:1px}
-  .prog{height:6px;background:#0a0a14;border-radius:3px;margin:12px 0 4px;overflow:hidden}
-  .prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,#ffd166,#e94560)}
-  .deck.remix .prog i{background:linear-gradient(90deg,#c9a2ff,#6a4ac0)}
-  .times{display:flex;justify-content:space-between;font-size:10px;color:#5f7fa0}
-  .transport{display:flex;align-items:center;justify-content:center;gap:10px;margin:10px 0 4px}
-  .tbtn{width:44px;height:44px;border-radius:50%;border:0;font-size:15px;cursor:pointer;background:#2a4160;color:#cfe8ff;font-family:monospace}
-  .tbtn:hover{background:#3d5a80}
-  .tbtn.big{width:56px;height:56px;font-size:20px;background:#1a7f37;color:#fff}
-  .deck.remix .tbtn.big{background:#6a4ac0}
-  .tbtn.big:hover{filter:brightness(1.2)}
-  .tbtn.small{width:38px;height:38px;font-size:13px}
-  .side-tip{text-align:center;font-size:9px;letter-spacing:2px;color:#5f7fa0;margin-top:4px}
-  .tracklist{margin-top:12px}
-  .tl-side{font-size:10px;letter-spacing:2px;color:#7fa8d0;margin:8px 0 4px}
-  .trow{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:8px;cursor:pointer;border-left:2px solid transparent}
-  .trow:hover{background:#1c3352}
-  .deck.remix .trow:hover{background:#241a3a}
-  .trow.playing{background:#1c3352;border-left-color:#ffd166}
-  .deck.remix .trow.playing{background:#241a3a;border-left-color:#c9a2ff}
-  .trow .n{width:34px;color:#5f7fa0;font-size:10px}
-  .trow.playing .n{color:#ffd166}
-  .deck.remix .trow.playing .n{color:#c9a2ff}
-  .trow .tt{flex:1;font-size:13px;color:#cfe8ff}
-  .trow .g{font-size:9px;color:#5f7fa0;text-align:right}
-  .trow .d{font-size:10px;color:#5f7fa0;width:34px;text-align:right}
-  .album-row{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
-  .album-row .ad-btn{background:#8a4f1f;color:#cfe8ff;border:none;border-radius:10px;padding:11px 20px;font-family:monospace;font-size:12px;cursor:pointer;font-weight:bold}
-  .album-row .ad-btn:hover{background:#a06030}
-  .album-row .ad-btn.remix{background:#3a1f8a}
-  .album-row .ad-btn.remix:hover{background:#5230b0}
-  .milkups-credit{margin:24px auto 4px;text-align:center;background:linear-gradient(135deg,#0e1a2e,#122a3a);border:1px solid #3d5a80;border-radius:14px;padding:14px 20px;max-width:600px}
-  .milkups-credit .mc-line{font-size:13px;color:#9bd1ff}
-  .mc-link{color:#fff;text-decoration:none;border-bottom:1px dashed #e94560}
-  .mc-link:hover{color:#ffd166}
+  .reel::after{content:'';position:absolute;inset:14px;border-radius:50%;background:#22223a;border:2px solid #3a3a55}
+  .window{width:90px;height:26px;background:#0a0a14;border:2px solid #3a3a55;border-radius:4px}
+  .controls{display:flex;justify-content:center;gap:12px;margin-top:16px}
+  .btn{background:#3d5a80;color:#cfe8ff;border:none;border-radius:8px;padding:10px 18px;font-family:monospace;font-size:14px;cursor:pointer;min-width:56px}
+  .btn:hover{background:#4a6cff}
+  .btn.play{background:#1a7f37}.btn.play:hover{background:#2a9d4f}
+  .btn.dl{background:#8a4f1f}.btn.dl:hover{background:#a06030}
+  /* MilkUps credit */
+  .milkups-credit{margin:22px auto 4px;text-align:center;background:linear-gradient(135deg,#0e1a2e,#122a3a);border:1px solid #3d5a80;border-radius:14px;padding:16px 20px;max-width:520px}
+  .milkups-credit .mc-line{font-size:13px;color:#9bd1ff;letter-spacing:1px}
+  .milkups-credit .mc-line b{color:#fff}
+  .milkups-credit .mc-cta{display:inline-block;margin-top:10px;background:#e94560;color:#fff;text-decoration:none;font-size:13px;font-weight:bold;padding:9px 22px;border-radius:20px;letter-spacing:1px}
+  .milkups-credit .mc-cta:hover{background:#ff5c8a}
+  /* donation modal */
   .donate-overlay{position:fixed;inset:0;background:#000b;backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;z-index:99;padding:16px}
   .donate-overlay.show{display:flex}
   .donate-modal{background:#0e1a2e;border:2px solid #3d5a80;border-radius:16px;max-width:380px;width:100%;padding:22px;text-align:center;color:#cfe8ff}
@@ -91,11 +102,72 @@
   .donate-modal .free{width:100%;padding:11px;border-radius:10px;border:1px solid #1a7f37;background:transparent;color:#7fd18a;font-family:monospace;font-weight:bold;cursor:pointer;font-size:13px}
   .donate-modal .free:hover{background:#1a7f3744}
   .donate-modal .x{margin-top:10px;background:none;border:none;color:#5f7fa0;cursor:pointer;font-size:11px;text-decoration:underline}
-  .foot{text-align:center;padding:18px;color:#5f7fa0;font-size:11px;border-top:1px solid #1c3352;margin-top:28px}
-  @media(max-width:520px){.reel{width:54px;height:54px}.label .tname{font-size:12px}}
+
+  .deck-time{color:#7fa8d0;font-size:12px;margin-top:10px;font-family:monospace}
+  /* TAPE LIBRARY */
+  .library{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+  .tape{background:#22223a;border:2px solid #3a3a55;border-radius:10px;padding:12px;cursor:pointer;text-align:center;transition:transform .15s,border-color .15s}
+  .tape:hover{transform:translateY(-3px);border-color:#ffd166}
+  .tape.loaded{border-color:#ffd166;background:#2a2a44}
+  .tape .e{font-size:26px;margin-bottom:4px}
+  .tape .n{color:#fff;font-size:12px;font-weight:bold}
+  .tape .g{color:#7fa8d0;font-size:10px;margin-top:2px}
+  .tape .d{font-size:9px;color:#5f7fa0;margin-top:2px}
+  .footer{text-align:center;padding:20px;color:#5f7fa0;font-size:11px;border-top:1px solid #1c3352}
+  .progress{width:100%;height:6px;background:#0a0a14;border-radius:3px;margin-top:12px;overflow:hidden}
+  .progress i{display:block;height:100%;background:linear-gradient(90deg,#ffd166,#e94560);width:0}
+
+  /* Cassette holder — old-school storage box */
+  .holder{margin-top:26px;background:linear-gradient(180deg,#1c2030,#141724);border:2px solid #3a3f55;border-radius:14px;padding:18px;box-shadow:inset 0 0 30px #0005}
+  .holder-title{font-size:12px;letter-spacing:3px;color:#8fa0b8;text-align:center;margin-bottom:14px;text-transform:uppercase}
+  .holder-slots{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .holder-tape{width:170px;background:#22263a;border:1px solid #444a63;border-radius:10px;padding:10px;cursor:pointer;transition:transform .15s,border-color .15s;text-align:center}
+  .holder-tape:hover{transform:translateY(-4px);border-color:#9bd1ff}
+  .holder-tape.active{border-color:#ffd166;box-shadow:0 0 14px #ffd16644}
+  .holder-tape .ht-top{display:flex;justify-content:space-between;font-size:8px;letter-spacing:1px;color:#5f6a85;margin-bottom:8px}
+  .holder-tape .shell{background:#0d1016;border-radius:6px;padding:8px;display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:8px}
+  .holder-tape .shell .sreel{width:22px;height:22px;border-radius:50%;background:repeating-radial-gradient(circle,#5f6a85 0 1px,#0d1016 1px 3px);flex:0 0 auto}
+  .holder-tape .shell .window{flex:1;height:14px;background:#000;border-radius:3px}
+  .holder-tape .lbl{font-size:9px;letter-spacing:1px;color:#cfe8ff;font-weight:bold;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .holder-tape .lbl small{display:block;color:#7a8aa5;font-weight:normal;font-size:8px;letter-spacing:1px;margin-top:2px}
+  .deck .tracklist{max-height:0;overflow:hidden;transition:max-height .3s;margin-top:12px}
+  .deck.loaded .tracklist{max-height:600px}
+  .tracklist .tl-side{font-size:10px;letter-spacing:2px;color:#7fa8d0;margin:8px 0 4px;text-align:center}
+  .tracklist .trow{display:flex;align-items:center;gap:8px;padding:5px 8px;border-radius:6px;cursor:pointer;border-left:2px solid transparent;font-size:12px}
+  .tracklist .trow:hover{background:#ffffff11}
+  .tracklist .trow.playing{border-left-color:#ffd166;background:#ffffff11}
+  .tracklist .trow .n{width:30px;color:#5f6a85;font-size:10px}
+  .tracklist .trow .tt{flex:1}
+  .tracklist .trow .d{color:#5f6a85;font-size:10px}
+  .downrow{display:flex;gap:10px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+  .ad-btn{background:#8a4f1f;color:#cfe8ff;border:none;border-radius:10px;padding:10px 18px;font-family:monospace;font-size:12px;cursor:pointer;font-weight:bold}
+  .ad-btn:hover{background:#a06030}
+  .ad-btn.dl-tape{background:#2a4160}
+  .ad-btn.dl-tape:hover{background:#3d5a80}
+  .milkups-credit{margin:22px auto 4px;text-align:center;background:linear-gradient(135deg,#0e1a2e,#122a3a);border:1px solid #3d5a80;border-radius:14px;padding:14px 20px;max-width:600px}
+  .mc-line{font-size:13px;color:#9bd1ff}
+  .mc-link{color:#fff;text-decoration:none;border-bottom:1px dashed #e94560}
+  .mc-link:hover{color:#ffd166}
+  /* donation modal */
+  .donate-overlay{position:fixed;inset:0;background:#000b;backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;z-index:99;padding:16px}
+  .donate-overlay.show{display:flex}
+  .donate-modal{background:#0e1a2e;border:2px solid #3d5a80;border-radius:16px;max-width:380px;width:100%;padding:22px;text-align:center;color:#cfe8ff}
+  .donate-modal h3{color:#ffd166;font-size:17px}
+  .donate-modal .sub{color:#6ea8d8;font-size:12px;margin:8px 0}
+  .amt-row{display:flex;gap:8px;justify-content:center;margin:12px 0;flex-wrap:wrap}
+  .amt{border:1px solid #3d5a80;background:transparent;color:#9bd1ff;border-radius:10px;padding:8px 14px;font-family:monospace;font-size:14px;cursor:pointer;font-weight:bold}
+  .amt:hover{background:#3d5a80;color:#fff}
+  .amt.sug{background:#ffd166;color:#1a1608;border:none}
+  .qr img{width:110px;height:110px;border-radius:8px;border:2px solid #3d5a80}
+  .handle{font-size:12px;color:#6ea8d8;margin:4px 0}
+  .divider{display:flex;align-items:center;gap:10px;color:#5f7fa0;font-size:10px;letter-spacing:2px;margin:12px 0}
+  .divider:before,.divider:after{content:'';flex:1;height:1px;background:#3d5a8033}
+  .free{width:100%;padding:11px;border-radius:10px;border:1px solid #1a7f37;background:transparent;color:#7fd18a;font-family:monospace;font-weight:bold;cursor:pointer;font-size:13px}
+  .free:hover{background:#1a7f3744}
+  .x{margin-top:10px;background:none;border:none;color:#5f7fa0;cursor:pointer;font-size:11px;text-decoration:underline}
+
 </style>
 </head>
-<body>
 
 <nav>
   <a class='logo' href='/'>SPREAD<span>DA</span>WORD</a>
@@ -107,61 +179,53 @@
   <a class='nav' href='/behind-the-scenes'>Behind the Scenes</a>
 </nav>
 <div class="wrap">
-  <h1>💿 SOUNDTRACKS</h1>
-  <div class="sub">One tape per album — the original and the remix</div>
-  <div class="season">SEASON 1</div>
+  <div style="text-align:center"><span style="color:#5f7fa0;font-size:11px;letter-spacing:3px">SEASON 1</span></div>
+  <h1 style="color:#ffd166;font-size:24px;letter-spacing:4px;text-align:center">💿 SOUNDTRACKS</h1>
+  <div class="sub" style="color:#6ea8d8;font-size:13px;text-align:center;margin:6px 0 18px">Pick a tape from the case, load it, press play.</div>
 
-  <!-- TAPE 1: ORIGINAL -->
-  <div class="deck" id="deckOrig">
-    <div class="deck-head"><span class="cap">📼 SPREAD DA WORD — SEASON 1</span><span class="stat" id="stOrig">STANDBY</span></div>
-    <div class="cassette">
-      <div class="reel" id="rlOrig1"></div>
-      <div class="label"><div class="jcard">
-        <div class="album">Original Soundtrack</div>
-        <div class="side" id="sdOrig">SIDE A</div>
-        <div class="tname" id="nmOrig">Press play</div>
-        <div class="tnum" id="tnOrig">A1 / 8</div>
-      </div></div>
-      <div class="reel r2" id="rlOrig2"></div>
-    </div>
-    <div class="prog"><i id="prOrig"></i></div>
-    <div class="times"><span id="cuOrig">0:00</span><span id="toOrig">0:00</span></div>
-    <div class="transport">
-      <button class="tbtn small" id="pvOrig">⏮</button>
-      <button class="tbtn big" id="plOrig">▶</button>
-      <button class="tbtn small" id="nxOrig">⏭</button>
-    </div>
-    <div class="side-tip" id="tpOrig">AUTO-FLIP: SIDE A → SIDE B</div>
-    <div class="tracklist" id="tlOrig"></div>
+  <div class="themes" id="themeSwitcher" style="justify-content:center;display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap">
+    <button class="theme-btn active" data-theme="retro">📻 Retro</button>
+    <button class="theme-btn" data-theme="icy">❄️ Icy</button>
+    <button class="theme-btn" data-theme="lava">🌋 Lava</button>
+    <button class="theme-btn" data-theme="gold">⭐ Gold</button>
+    <button class="theme-btn" data-theme="violet">🔮 Violet</button>
+    <button class="theme-btn" id="randomTheme">🎲 Random</button>
   </div>
 
-  <!-- TAPE 2: REMIX -->
-  <div class="deck remix" id="deckRemix">
-    <div class="deck-head"><span class="cap">🎛️ SPREAD DA WORD — SEASON 1</span><span class="stat" id="stRemix">STANDBY</span></div>
+  <!-- TAPE DECK (loads whatever tape you pick) -->
+  <div class="deck theme-retro" id="deck">
+    <div class="deck-top">
+      <span class="deck-brand" id="deckBrand">SDW • TAPE DECK</span>
+      <span class="deck-led" id="led"></span>
+    </div>
     <div class="cassette">
-      <div class="reel" id="rlRemix1"></div>
-      <div class="label"><div class="jcard">
-        <div class="album">Remix Soundtrack</div>
-        <div class="side" id="sdRemix">SIDE A</div>
-        <div class="tname" id="nmRemix">Press play</div>
-        <div class="tnum" id="tnRemix">A1 / 8</div>
-      </div></div>
-      <div class="reel r2" id="rlRemix2"></div>
+      <div class="reel" id="reelL"></div>
+      <div class="cassette-label" id="cassetteLabel">
+        <div class="tape-title" id="tapeTitle">— PICK A TAPE —</div>
+        <div class="tape-sub" id="tapeSub">open the case and load a cassette</div>
+      </div>
+      <div class="reel" id="reelR"></div>
     </div>
-    <div class="prog"><i id="prRemix"></i></div>
-    <div class="times"><span id="cuRemix">0:00</span><span id="toRemix">0:00</span></div>
-    <div class="transport">
-      <button class="tbtn small" id="pvRemix">⏮</button>
-      <button class="tbtn big" id="plRemix">▶</button>
-      <button class="tbtn small" id="nxRemix">⏭</button>
+    <div class="progress"><i id="prog"></i></div>
+    <div class="deck-time" id="timeDisp" style="text-align:center;font-size:11px;color:#7fa8d0;margin-top:4px">0:00 / 0:00 · SIDE A</div>
+    <div class="controls" style="display:flex;justify-content:center;gap:10px;margin-top:12px">
+      <button class="btn" id="prevBtn">⏮</button>
+      <button class="btn play" id="playBtn">▶</button>
+      <button class="btn" id="nextBtn">⏭</button>
     </div>
-    <div class="side-tip" id="tpRemix">AUTO-FLIP: SIDE A → SIDE B</div>
-    <div class="tracklist" id="tlRemix"></div>
+    <div class="tracklist" id="tracklist"></div>
   </div>
 
-  <div class="album-row">
-    <button class="ad-btn" id="albumBtn">⬇ Download Season 1 (Original)</button>
-    <button class="ad-btn remix" id="remixAlbumBtn">⬇ Download Season 1 (Remix)</button>
+  <div class="downrow">
+    <button class="ad-btn" id="dlLoaded">⬇ Download This Tape</button>
+    <button class="ad-btn dl-tape" id="dlOrig">⬇ Season 1 Original</button>
+    <button class="ad-btn dl-tape" id="dlRemix">⬇ Season 1 Remix</button>
+  </div>
+
+  <!-- CASSETTE HOLDER -->
+  <div class="holder">
+    <div class="holder-title">📼 THE TAPE CASE</div>
+    <div class="holder-slots" id="holderSlots"></div>
   </div>
 
   <div class="milkups-credit">
@@ -188,107 +252,159 @@
 </div>
 
 <script>
-var S1_ORIG = [
-  {n:1, t:"Intro (Trap)",      g:"Trap · 145",   f:"intro-music.wav",                 d:"0:16"},
-  {n:2, t:"Hood Theme",        g:"Trap · 150",   f:"tracks/hood-theme.wav",           d:"0:21"},
-  {n:3, t:"Fridge Theme",      g:"Pop · 120",    f:"tracks/fridge-theme.wav",         d:"0:26"},
-  {n:4, t:"Battle Theme",      g:"Electro · 160",f:"tracks/battle-theme.wav",         d:"0:20"},
-  {n:5, t:"Lo-Fi Study",       g:"Lo-Fi · 85",   f:"tracks/lofi-theme.wav",           d:"0:40"},
-  {n:6, t:"Hood Country",      g:"Country · 100",f:"tracks/country-theme.wav",        d:"0:34"},
-  {n:7, t:"Fridge Pop",        g:"Pop · 118",    f:"tracks/pop-theme.wav",            d:"0:33"},
-  {n:8, t:"Electro Clash",     g:"Electro · 140",f:"tracks/electro-theme.wav",        d:"0:14"}
+// The tapes in the case — 1 per album. Season 1: Original + Remix. Next season adds 2 more.
+var TAPES = [
+  {id:'s1-orig', kind:'ORIGINAL', season:'SEASON 1', name:'Original Soundtrack', zip:'Spread-Da-Word-Soundtracks.zip',
+   label:'#f5e6d0', color:'#e94560', bg:'#2a1a0e',
+   tracks:[
+     {t:"Intro (Trap)",      g:"Trap",      f:"intro-music.wav",                 d:"0:16"},
+     {t:"Hood Theme",        g:"Trap",      f:"tracks/hood-theme.wav",           d:"0:21"},
+     {t:"Fridge Theme",      g:"Pop",       f:"tracks/fridge-theme.wav",         d:"0:26"},
+     {t:"Battle Theme",      g:"Electro",   f:"tracks/battle-theme.wav",         d:"0:20"},
+     {t:"Lo-Fi Study",       g:"Lo-Fi",     f:"tracks/lofi-theme.wav",           d:"0:40"},
+     {t:"Hood Country",      g:"Country",   f:"tracks/country-theme.wav",        d:"0:34"},
+     {t:"Fridge Pop",        g:"Pop",       f:"tracks/pop-theme.wav",            d:"0:33"},
+     {t:"Electro Clash",     g:"Electro",   f:"tracks/electro-theme.wav",        d:"0:14"}
+   ]},
+  {id:'s1-remix', kind:'REMIX', season:'SEASON 1', name:'Remix Soundtrack', zip:'SDW-Remix-Album.zip',
+   label:'#efe6ff', color:'#b39ddb', bg:'#1a0f38',
+   tracks:[
+     {t:"Intro (Phonk Remix)",    g:"Phonk",      f:"remixes/SDW-Remix-04-Intro-Phonk.mp3",    d:"1:13"},
+     {t:"Hood (Night Remix)",     g:"Night",      f:"remixes/SDW-Remix-01-Hood-Night.mp3",     d:"1:19"},
+     {t:"Fridge (Glitch Remix)",  g:"Glitch",     f:"remixes/SDW-Remix-02-Fridge-Glitch.mp3",  d:"1:15"},
+     {t:"Battle (Stadium Remix)", g:"Stadium",    f:"remixes/SDW-Remix-03-Battle-Stadium.mp3", d:"1:14"},
+     {t:"Lo-Fi (Midnight Remix)", g:"Midnight",   f:"remixes/SDW-Remix-05-Lofi-Midnight.mp3",  d:"1:28"},
+     {t:"Country (Honky Remix)",  g:"Honky",      f:"remixes/SDW-Remix-06-Country-Honky.mp3",  d:"1:17"},
+     {t:"Pop (Radio Remix)",      g:"Radio",      f:"remixes/SDW-Remix-07-Pop-Radio.mp3",      d:"1:14"},
+     {t:"Electro (Synth Remix)",  g:"Synth",      f:"remixes/SDW-Remix-08-Electro-Synth.mp3",  d:"1:24"}
+   ]}
 ];
-var S1_REMIX = [
-  {n:1, t:"Intro (Phonk Remix)",   g:"132 BPM", f:"remixes/SDW-Remix-04-Intro-Phonk.mp3",   d:"1:13"},
-  {n:2, t:"Hood (Night Remix)",    g:"128 BPM", f:"remixes/SDW-Remix-01-Hood-Night.mp3",    d:"1:19"},
-  {n:3, t:"Fridge (Glitch Remix)", g:"140 BPM", f:"remixes/SDW-Remix-02-Fridge-Glitch.mp3", d:"1:15"},
-  {n:4, t:"Battle (Stadium Remix)",g:"150 BPM", f:"remixes/SDW-Remix-03-Battle-Stadium.mp3",d:"1:14"},
-  {n:5, t:"Lo-Fi (Midnight Remix)",g:"74 BPM",  f:"remixes/SDW-Remix-05-Lofi-Midnight.mp3", d:"1:28"},
-  {n:6, t:"Country (Honky Remix)", g:"128 BPM", f:"remixes/SDW-Remix-06-Country-Honky.mp3", d:"1:17"},
-  {n:7, t:"Pop (Radio Remix)",     g:"126 BPM", f:"remixes/SDW-Remix-07-Pop-Radio.mp3",     d:"1:14"},
-  {n:8, t:"Electro (Synth Remix)", g:"100 BPM", f:"remixes/SDW-Remix-08-Electro-Synth.mp3", d:"1:24"}
-];
-function sideOf(n){ return n<=4 ? 'A' : 'B'; }
-function buildDeck(cfg){
-  var d = {
-    tracks: cfg.tracks, idx: 0, playing: false,
-    audio: new Audio(), deckEl: document.getElementById(cfg.deck),
-    st: document.getElementById(cfg.st), sd: document.getElementById(cfg.sd),
-    nm: document.getElementById(cfg.nm), tn: document.getElementById(cfg.tn),
-    pr: document.getElementById(cfg.pr), cu: document.getElementById(cfg.cu),
-    to: document.getElementById(cfg.to), tp: document.getElementById(cfg.tp),
-    tl: document.getElementById(cfg.tl), pl: document.getElementById(cfg.pl),
-    pv: document.getElementById(cfg.pv), nx: document.getElementById(cfg.nx)
-  };
-  d.audio.preload='none';
-  var D=d;
-  function fmt(s){ if(!isFinite(s)||s<0)s=0; var m=Math.floor(s/60),ss=Math.floor(s%60); return m+':'+(ss<10?'0':'')+ss; }
-  function rowLabel(i){ return sideOf(i+1)+ (i<4 ? (i+1) : (i-3)); }
-  function load(i){
-    D.idx = ((i%D.tracks.length)+D.tracks.length)%D.tracks.length;
-    var t = D.tracks[D.idx];
-    D.audio.src = t.f;
-    D.sd.textContent = 'SIDE ' + sideOf(D.idx+1);
-    D.nm.textContent = t.t;
-    D.tn.textContent = rowLabel(D.idx) + ' / ' + D.tracks.length;
-    D.pr.style.width='0'; D.cu.textContent='0:00'; D.to.textContent = t.d;
-    renderRows();
-  }
-  function play(){ D.audio.play(); D.playing=true; D.pl.textContent='⏸'; D.st.textContent='PLAYING'; D.deckEl.classList.add('playing'); }
-  function pause(){ D.audio.pause(); D.playing=false; D.pl.textContent='▶'; D.st.textContent='PAUSED'; D.deckEl.classList.remove('playing'); }
-  function toggle(){ D.playing ? pause() : play(); }
-  function next(){ load(D.idx+1); play(); }
-  function prev(){ if(D.audio.currentTime>3){ D.audio.currentTime=0; return; } load(D.idx-1); play(); }
-  D.audio.addEventListener('ended', function(){
-    if(D.idx === D.tracks.length-1){ D.tp.textContent='END OF TAPE — FLIP OR REPLAY'; pause(); D.audio.currentTime=0; return; }
-    if(sideOf(D.idx+1)==='A' && sideOf(D.idx+2)==='B'){ D.tp.textContent='FLIPPING TO SIDE B...'; setTimeout(function(){ D.tp.textContent='AUTO-FLIP: SIDE A → SIDE B'; },1600); }
-    next();
-  });
-  D.audio.addEventListener('timeupdate', function(){
-    if(D.audio.duration){ D.pr.style.width=(D.audio.currentTime/D.audio.duration*100)+'%'; D.cu.textContent=fmt(D.audio.currentTime); }
-  });
-  D.audio.addEventListener('error', function(){ D.st.textContent='⚠ TRACK ERROR'; pause(); });
-  function renderRows(){
-    D.tl.innerHTML='';
-    var curSide = null;
-    D.tracks.forEach(function(t,i){
-      var s = sideOf(i+1);
-      if(s!==curSide){ curSide=s;
-        var sh=document.createElement('div'); sh.className='tl-side'; sh.textContent = '— SIDE '+s+' —'; D.tl.appendChild(sh); }
-      var r=document.createElement('div'); r.className='trow'+(i===D.idx?' playing':'');
-      r.innerHTML = '<div class="n">'+(i<4?'A'+(i+1):'B'+(i-3))+'</div><div class="tt">'+t.t+'</div><div class="g">'+t.g+'</div><div class="d">'+t.d+'</div>';
-      r.onclick = function(){ if(i===D.idx){ toggle(); } else { load(i); play(); } };
-      D.tl.appendChild(r);
-    });
-  }
-  D.pl.onclick = toggle;
-  D.pv.onclick = prev;
-  D.nx.onclick = next;
-  load(0);
-  return D;
-}
-var orig = buildDeck({tracks:S1_ORIG, deck:'deckOrig', st:'stOrig', sd:'sdOrig', nm:'nmOrig', tn:'tnOrig', pr:'prOrig', cu:'cuOrig', to:'toOrig', tp:'tpOrig', tl:'tlOrig', pl:'plOrig', pv:'pvOrig', nx:'nxOrig'});
-var remix = buildDeck({tracks:S1_REMIX, deck:'deckRemix', st:'stRemix', sd:'sdRemix', nm:'nmRemix', tn:'tnRemix', pr:'prRemix', cu:'cuRemix', to:'toRemix', tp:'tpRemix', tl:'tlRemix', pl:'plRemix', pv:'pvRemix', nx:'nxRemix'});
-// keyboard: space toggles whichever deck most recently used
-var activeDeck = orig;
-document.addEventListener('keydown', function(e){ if(e.code==='Space'){ e.preventDefault(); activeDeck.toggle(); } });
-document.querySelectorAll('.deck').forEach(function(deckEl){ deckEl.addEventListener('click', function(){ activeDeck = (deckEl.id==='deckOrig') ? orig : remix; }); });
 
-// donation / download
-var dlMode='none';
-var DL_ALBUM='Spread-Da-Word-Soundtracks.zip', DL_REMIX='SDW-Remix-Album.zip';
-document.getElementById('albumBtn').onclick=function(){ dlMode='album'; document.getElementById('donateOverlay').classList.add('show'); };
-document.getElementById('remixAlbumBtn').onclick=function(){ dlMode='remix'; document.getElementById('donateOverlay').classList.add('show'); };
+// ---- THEME SWITCHER ----
+var THEMES = ['retro','icy','lava','gold','violet'];
+var currentTheme = 'retro';
+var deck = document.getElementById('deck');
+function applyTheme(th){
+  deck.className = 'deck theme-' + th;
+  document.querySelectorAll('.theme-btn').forEach(function(b){
+    b.classList.toggle('active', b.dataset.theme === th);
+  });
+}
+document.querySelectorAll('.theme-btn').forEach(function(btn){
+  btn.onclick = function(){
+    if(btn.id === 'randomTheme'){ currentTheme = THEMES[Math.floor(Math.random()*THEMES.length)]; }
+    else { currentTheme = btn.dataset.theme; }
+    applyTheme(currentTheme);
+  };
+});
+
+// ---- PLAYER ----
+var audio = new Audio();
+var current = null; // loaded tape
+var idx = 0;
+var playing = false;
+var el = {
+  brand: document.getElementById('deckBrand'),
+  led: document.getElementById('led'),
+  title: document.getElementById('tapeTitle'),
+  sub: document.getElementById('tapeSub'),
+  reelL: document.getElementById('reelL'),
+  reelR: document.getElementById('reelR'),
+  prog: document.getElementById('prog'),
+  time: document.getElementById('timeDisp'),
+  tl: document.getElementById('tracklist'),
+  play: document.getElementById('playBtn'),
+  cassette: document.querySelector('.cassette')
+};
+function fmt(s){ if(!isFinite(s)||s<0)s=0; var m=Math.floor(s/60),ss=Math.floor(s%60); return m+':'+(ss<10?'0':'')+ss; }
+function sideOf(i){ return (i<4)?'A':'B'; }
+function sideNum(i){ return sideOf(i) + ((i<4)?(i+1):(i-3)); }
+function loadTape(t){
+  current = t; idx = 0;
+  el.brand.textContent = 'SDW • ' + t.kind;
+  el.title.textContent = t.name;
+  el.sub.textContent = t.season + ' · ' + t.tracks.length + ' tracks · press play';
+  el.cassette.style.background = t.bg;
+  el.cassette.style.borderColor = t.color;
+  deck.classList.add('loaded');
+  // update holder active state
+  document.querySelectorAll('.holder-tape').forEach(function(h){ h.classList.toggle('active', h.dataset.tape===t.id); });
+  renderRows();
+  stop();
+  showTrack();
+}
+function showTrack(){
+  var tr = current.tracks[idx];
+  el.title.textContent = tr.t;
+  el.sub.textContent = current.season + ' · ' + current.kind + ' · ' + sideNum(idx) + ' · ' + tr.g;
+  renderRows();
+}
+function renderRows(){
+  if(!current) return;
+  el.tl.innerHTML='';
+  var curSide=null;
+  current.tracks.forEach(function(tr,i){
+    var s = sideOf(i);
+    if(s!==curSide){ curSide=s; var sh=document.createElement('div'); sh.className='tl-side'; sh.textContent='— SIDE '+s+' —'; el.tl.appendChild(sh); }
+    var r=document.createElement('div'); r.className='trow'+(i===idx?' playing':'');
+    r.innerHTML='<span class="n">'+sideNum(i)+'</span><span class="tt">'+tr.t+'</span><span class="d">'+tr.d+'</span>';
+    r.onclick=function(){ if(i===idx){ toggle(); } else { idx=i; audio.src=current.tracks[i].f; play(); } };
+    el.tl.appendChild(r);
+  });
+}
+function play(){
+  audio.play(); playing=true;
+  el.play.textContent='⏸'; el.led.classList.add('on');
+  el.reelL.classList.add('spinning'); el.reelR.classList.add('spinning');
+}
+function pause(){
+  audio.pause(); playing=false;
+  el.play.textContent='▶'; el.led.classList.remove('on');
+  el.reelL.classList.remove('spinning'); el.reelR.classList.remove('spinning');
+}
+function toggle(){ if(!current) return; playing?pause():play(); }
+function stop(){ pause(); audio.pause(); audio.currentTime=0; el.prog.style.width='0'; }
+function next(){ if(!current) return; idx=(idx+1)%current.tracks.length; audio.src=current.tracks[idx].f; showTrack(); play(); }
+function prev(){ if(!current) return; if(audio.currentTime>3){audio.currentTime=0;return;} idx=(idx-1+current.tracks.length)%current.tracks.length; audio.src=current.tracks[idx].f; showTrack(); play(); }
+audio.addEventListener('timeupdate', function(){
+  if(audio.duration){ el.prog.style.width=(audio.currentTime/audio.duration*100)+'%'; el.time.textContent=fmt(audio.currentTime)+' / '+fmt(audio.duration)+' · SIDE '+sideOf(idx); }
+});
+audio.addEventListener('ended', function(){
+  if(idx===current.tracks.length-1){ stop(); audio.currentTime=0; showTrack(); return; }
+  next();
+});
+audio.addEventListener('error', function(){ pause(); });
+el.play.onclick=toggle;
+document.getElementById('nextBtn').onclick=next;
+document.getElementById('prevBtn').onclick=prev;
+document.addEventListener('keydown', function(e){ if(e.code==='Space' && current){ e.preventDefault(); toggle(); } });
+
+// ---- BUILD HOLDER ----
+var slots = document.getElementById('holderSlots');
+TAPES.forEach(function(t){
+  var h=document.createElement('div'); h.className='holder-tape'; h.dataset.tape=t.id;
+  h.innerHTML = '<div class="ht-top"><span>'+t.kind+'</span><span>'+t.season+'</span></div>' +
+    '<div class="shell"><div class="sreel"></div><div class="window" style="background:'+t.bg+'"></div><div class="sreel"></div></div>' +
+    '<div class="lbl">'+t.name+'<small>'+t.tracks.length+' tracks</small></div>';
+  h.onclick=function(){ loadTape(t); };
+  slots.appendChild(h);
+});
+// auto-load the original so the deck isn't empty
+loadTape(TAPES[0]);
+
+// ---- DONATION / DOWNLOAD ----
+var DL_FILE=null;
+document.getElementById('dlLoaded').onclick=function(){ if(!current) return; DL_FILE=current.zip; showModal(); };
+document.getElementById('dlOrig').onclick=function(){ DL_FILE='Spread-Da-Word-Soundtracks.zip'; showModal(); };
+document.getElementById('dlRemix').onclick=function(){ DL_FILE='SDW-Remix-Album.zip'; showModal(); };
+function showModal(){ document.getElementById('donateOverlay').classList.add('show'); }
 var ov=document.getElementById('donateOverlay');
 function hideOv(){ ov.classList.remove('show'); }
 document.getElementById('dlClose').onclick=hideOv;
 ov.addEventListener('click',function(e){ if(e.target===ov) hideOv(); });
 document.getElementById('dlFree').onclick=function(){
-  var a=document.createElement('a');
-  if(dlMode==='album'){ a.href=DL_ALBUM; a.download=DL_ALBUM; }
-  else if(dlMode==='remix'){ a.href=DL_REMIX; a.download=DL_REMIX; }
-  if(a.href){ document.body.appendChild(a); a.click(); a.remove(); }
-  hideOv();
+  if(!DL_FILE) return;
+  var a=document.createElement('a'); a.href=DL_FILE; a.download=DL_FILE.split('/').pop(); document.body.appendChild(a); a.click(); a.remove(); hideOv();
 };
 ov.querySelectorAll('.amt').forEach(function(b){ b.onclick=function(){ window.open('https://cash.app/$zdotllc/'+b.getAttribute('data-amt'),'_blank'); }; });
 </script>
