@@ -51,8 +51,8 @@
     <text x="110" y="114" text-anchor="middle" font-size="7.5" font-weight="bold" fill="#ffd700">V</text>
   </g>
 
-  <g id="vinArmL"><path d="M78 200 Q48 210 44 232" stroke="#1c0f06" stroke-width="10" stroke-linecap="round" fill="none"/></g>
-  <g id="vinArmR"><path d="M142 200 Q172 210 176 232" stroke="#1c0f06" stroke-width="10" stroke-linecap="round" fill="none"/></g>
+  <g id="vinArmL"><path d="M80 120 Q52 150 48 190" stroke="#1c0f06" stroke-width="10" stroke-linecap="round" fill="none"/></g>
+  <g id="vinArmR"><path d="M140 120 Q168 150 172 190" stroke="#1c0f06" stroke-width="10" stroke-linecap="round" fill="none"/></g>
   <rect x="84" y="260" width="24" height="10" rx="4" fill="#0a0a0a"/>
   <rect x="112" y="260" width="24" height="10" rx="4" fill="#0a0a0a"/>
 </svg>
