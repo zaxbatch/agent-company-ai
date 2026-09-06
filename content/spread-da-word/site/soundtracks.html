@@ -6,7 +6,6 @@
      like this one for free: https://netlify.new/?utm_campaign=ai-legible&utm_source=comment&utm_medium=referral&utm_id=6cd985c8-7ce7-4b75-a573-73802d3beb43
      Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
 <meta name="hosting-provider" content="Netlify">
-<meta name="netlify-deploy" content="https://netlify.new/?utm_campaign=ai-legible&amp;utm_source=meta&amp;utm_medium=referral&amp;utm_id=6cd985c8-7ce7-4b75-a573-73802d3beb43">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Spread Da Word — Soundtracks (Cassette Library)</title>
 <style>
@@ -178,6 +177,7 @@
     <div class="album-dl">
     <div class="ad-title">📼 THE WHOLE TAPE WALL</div>
     <button class="ad-btn" id="albumBtn">⬇ Download the Album — All 8 Soundtracks</button>
+    <button class="ad-btn" id="remixAlbumBtn" style="background:#3a1f8a;margin-left:8px">🎛️ Download the Remix Album</button>
   </div>
   <div class="milkups-credit">
     <div class="mc-line">🎧 The shelves raised us. Music by <a class="mc-link" href="https://milkups.zerric.xyz" target="_blank" rel="noopener"><b>MilkUps</b></a> — the band behind Spread Da Word. Tap the name for more music.</div>
@@ -215,6 +215,21 @@ var TAPES = [
   {id:"pop", e:"✨", name:"Fridge Pop", genre:"Pop · 118 BPM", dur:"0:45", file:"tracks/pop-theme.wav", desc:"Crisp's bop.", color:"#ff5d8f", label:"#ffe8f0", bg:"#2a0a1a"},
   {id:"electro", e:"⚡", name:"Electro Clash", genre:"Electro · 140 BPM", dur:"0:45", file:"tracks/electro-theme.wav", desc:"The sparkplug.", color:"#4a6cff", label:"#e8ecff", bg:"#0d1233"},
 ];
+
+// ---- REMIX TAPES (episode remixes beside the originals) ----
+var REMIX_TAPES = [
+  {id:"hood-night", e:"🌃", name:"Hood Theme (Night Remix)", genre:"Remix · 128 BPM", dur:"1:18", file:"remixes/SDW-Remix-01-Hood-Night.mp3", desc:"The anthem, after dark.", color:"#e94560", label:"#f5e6d0", bg:"#2a1a0e"},
+  {id:"fridge-glitch", e:"⚡", name:"Fridge Theme (Glitch Remix)", genre:"Remix · 140 BPM", dur:"1:15", file:"remixes/SDW-Remix-02-Fridge-Glitch.mp3", desc:"The suburbs, glitched.", color:"#38bdf8", label:"#e0f4ff", bg:"#122a4a"},
+  {id:"battle-stadium", e:"🏟️", name:"Battle Theme (Stadium Remix)", genre:"Remix · 150 BPM", dur:"1:13", file:"remixes/SDW-Remix-03-Battle-Stadium.mp3", desc:"Hood vs Fridge, loud.", color:"#ff6b35", label:"#ffe0d0", bg:"#3a0d0d"},
+  {id:"intro-phonk", e:"🎬", name:"Intro (Phonk Remix)", genre:"Remix · 132 BPM", dur:"1:12", file:"remixes/SDW-Remix-04-Intro-Phonk.mp3", desc:"The title card, bounce.", color:"#9bd1ff", label:"#eef6ff", bg:"#0e1a2e"},
+  {id:"lofi-mid", e:"🌙", name:"Lo-Fi Study (Midnight Remix)", genre:"Remix · 74 BPM", dur:"1:27", file:"remixes/SDW-Remix-05-Lofi-Midnight.mp3", desc:"Deeper into the night.", color:"#a78bfa", label:"#f0e8ff", bg:"#1a0f38"},
+  {id:"country-honky", e:"🤠", name:"Hood Country (Honky Remix)", genre:"Remix · 128 BPM", dur:"1:16", file:"remixes/SDW-Remix-06-Country-Honky.mp3", desc:"Stomp the backroad.", color:"#ffd166", label:"#fff3d0", bg:"#2a2410"},
+  {id:"pop-radio", e:"✨", name:"Fridge Pop (Radio Remix)", genre:"Remix · 126 BPM", dur:"1:14", file:"remixes/SDW-Remix-07-Pop-Radio.mp3", desc:"Crisp, on air.", color:"#ff5d8f", label:"#ffe8f0", bg:"#2a0a1a"},
+  {id:"electro-synth", e:"🌆", name:"Electro Clash (Synthwave Remix)", genre:"Remix · 100 BPM", dur:"1:24", file:"remixes/SDW-Remix-08-Electro-Synth.mp3", desc:"Neon night drive.", color:"#4a6cff", label:"#e8ecff", bg:"#0d1233"}
+];
+
+// merge remixes into the library
+TAPES = TAPES.concat(REMIX_TAPES);
 var audio = new Audio();
 var current = null;
 var led = document.getElementById('led');
@@ -255,6 +270,7 @@ document.getElementById('stopBtn').onclick = function(){
   prog.style.width = '0';
 };
 var DL_ALBUM = 'Spread-Da-Word-Soundtracks.zip';
+var DL_REMIX = 'SDW-Remix-Album.zip';
 var dlMode = 'track';
 document.getElementById('dlBtn').onclick = function(){
   if(!current) return;
@@ -265,6 +281,10 @@ document.getElementById('albumBtn').onclick = function(){
   dlMode = 'album';
   document.getElementById('donateOverlay').classList.add('show');
 };
+document.getElementById('remixAlbumBtn').onclick = function(){
+  dlMode = 'remix';
+  document.getElementById('donateOverlay').classList.add('show');
+};
 (function(){
   var ov = document.getElementById('donateOverlay');
   function hide(){ ov.classList.remove('show'); }
@@ -273,6 +293,7 @@ document.getElementById('albumBtn').onclick = function(){
   document.getElementById('dlFree').onclick = function(){
     var a = document.createElement('a');
     if(dlMode === 'album'){ a.href = DL_ALBUM; a.download = DL_ALBUM; }
+    else if(dlMode === 'remix'){ a.href = DL_REMIX; a.download = DL_REMIX; }
     else { if(!window.current) return; a.href = current.file; a.download = current.file.split('/').pop(); }
     document.body.appendChild(a); a.click(); a.remove();
     hide();
@@ -335,4 +356,3 @@ buildLibrary();
 </script>
 </body>
 </html>
-<script async src="/.netlify/scripts/hud?variant=public" data-nf-variant="public" data-netlify-site-id="6cd985c8-7ce7-4b75-a573-73802d3beb43" data-app-host="app.netlify.com"></script>
