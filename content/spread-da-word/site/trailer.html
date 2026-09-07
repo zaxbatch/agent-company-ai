@@ -18,10 +18,10 @@
   .txt p{color:#6a8aaa;font-size:15px;letter-spacing:5px;margin-top:16px}
   .txt.big h1{font-size:60px}
   /* character shots */
-  .ch{display:flex;align-items:flex-end;justify-content:center;height:100%;position:relative}
+  .ch{display:flex;align-items:flex-end;justify-content:center;height:100%;position:relative;padding-bottom:90px}
   .ch .glow{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:560px;height:420px;background:radial-gradient(ellipse,rgba(40,80,140,.5),transparent 70%)}
   .ch .fig{position:relative;z-index:3}
-  .ch .vo{position:absolute;bottom:56px;left:0;right:0;text-align:center;color:#dce9f5;font-size:22px;font-style:italic;text-shadow:0 0 15px #000;z-index:5}
+  .ch .vo{position:absolute;bottom:12px;left:0;right:0;text-align:center;color:#dce9f5;font-size:22px;font-style:italic;text-shadow:0 0 15px #000;z-index:5}
   .ch .band{position:absolute;top:0;left:0;right:0;height:100%;background:radial-gradient(ellipse at center,transparent 45%,#000 100%)}
   /* quick cut area */
   #quickArea{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
@@ -504,7 +504,7 @@
   <rect x="78" y="262" width="30" height="12" rx="5" fill="#0a0a0a"/>
   <rect x="112" y="262" width="30" height="12" rx="5" fill="#0a0a0a"/>
 </svg></div>
-     <div class="qc" id="qcAji" style="color:#ff5a3a;font-size:72px">🌶️</div>
+     <div class="qc" id="qcAji" style="color:#ff5a3a;font-size:80px">🌶️</div>
      <div class="qc" id="qcSoy" style="color:#8aa0b0;font-size:24px;font-style:italic">"I am not salt. I am experience." — Soy</div>
   </div></div>
   <!-- 11: SPREAD DA WORD -->
@@ -520,7 +520,7 @@
 var shots=document.querySelectorAll('.shot');
 var hum=document.getElementById('hum');
 function show(i){shots.forEach(function(s,x){s.classList.toggle('on',x===i);});}
-var TIMES=[0,2,4.5,8,11,15,19,23,28.5,32,34.5,40,46];;;
+var TIMES=[0,2,4.5,8,10.5,15,19,23,32,36,38,48,56];;;;
 var cur=-1;
 function tick(){
   var t=hum.currentTime;
