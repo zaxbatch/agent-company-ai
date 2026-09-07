@@ -3,10 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MilkUps — Vin's Anthem (Official Music Video)</title>
+<title>MilkUps — Vin's Anthem (Music Video)</title>
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
-  html,body{width:1280px;height:720px;overflow:hidden;background:#000;font-family:monospace}
+  body{background:#0a1220;color:#cfe8ff;font-family:monospace;display:flex;flex-direction:column;align-items:center;min-height:100vh;padding:16px}
+  h1{color:#ffd166;font-size:20px;letter-spacing:3px;text-align:center}
+  .sub{color:#6ea8d8;font-size:12px;text-align:center;margin:4px 0 14px}
+  .player{position:relative;width:960px;height:540px;border:3px solid #d500f9;border-radius:10px;overflow:hidden;box-shadow:0 0 30px #d500f955;background:#0a0310}
+  .controls{display:flex;gap:10px;margin-top:12px}
+  button{background:#3d1a55;color:#e8c0ff;border:1px solid #d500f9;padding:9px 22px;font-family:monospace;cursor:pointer;border-radius:8px;font-size:14px}
+  button:hover{background:#d500f955}
+  .foot{text-align:center;color:#5f7fa0;font-size:11px;margin-top:16px;letter-spacing:1px;line-height:1.6;max-width:900px}
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#0a1220;color:#cfe8ff;font-family:monospace;display:flex;flex-direction:column;align-items:center;min-height:100vh;padding:16px}
+  h1{color:#ffd166;font-size:20px;letter-spacing:3px;text-align:center}
+  .sub{color:#6ea8d8;font-size:12px;text-align:center;margin:4px 0 14px}
+  .player{position:relative;width:960px;height:540px;border:3px solid #d500f9;border-radius:10px;overflow:hidden;box-shadow:0 0 30px #d500f955;background:#0a0310}
+  .stage-inner{position:absolute;top:0;left:0;width:1280px;height:720px;transform:scale(0.75);transform-origin:0 0}
+  .controls{display:flex;gap:10px;margin-top:12px}
+  button{background:#3d1a55;color:#e8c0ff;border:1px solid #d500f9;padding:9px 22px;font-family:monospace;cursor:pointer;border-radius:8px;font-size:14px}
+  button:hover{background:#d500f955}
+  .foot{text-align:center;color:#5f7fa0;font-size:11px;margin-top:16px;letter-spacing:1px;line-height:1.6}
+
+
+  nav{background:#0e1a2e;border-bottom:2px solid #3d5a80;padding:14px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;position:sticky;top:0;z-index:50}
+  nav .logo{color:#9bd1ff;font-size:16px;letter-spacing:2px;font-weight:bold;text-decoration:none}
+  nav .logo span{color:#e94560}
+  nav a.nav{color:#9bd1ff;text-decoration:none;font-size:13px;padding:6px 10px;border-radius:6px}
+  nav a.nav:hover{background:#1c3352;color:#fff}
+  nav a.nav.active{background:#3d5a80;color:#fff}
+  body{background:#0a1220;color:#cfe8ff;font-family:monospace;display:block;min-height:100vh;overflow:auto;width:auto;height:auto}
+  
+  
+  h1{color:#ffd166;font-size:22px;letter-spacing:3px;text-shadow:0 0 14px rgba(255,209,102,.3)}
+  .sub{color:#6ea8d8;font-size:12px;margin:4px 0 14px}
+  
+  
+  .player-controls button{background:#3d1a55;color:#e8c0ff;border:1px solid #d500f9;padding:8px 20px;font-family:monospace;cursor:pointer;border-radius:6px;font-size:13px}
+  .player-controls button:hover{background:#d500f955}
+  
+  
+  @media(max-width:1000px){}
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  
   #stage{position:absolute;top:0;left:0;width:1280px;height:720px;overflow:hidden;background:#0a0310}
 
   /* ===== SCENES ===== */
@@ -62,14 +103,17 @@
   .lyric.chant{color:#ffd166;font-size:72px;text-shadow:0 0 20px #ffd166,0 0 60px #e040fb,0 4px 8px #000}
 
   /* ===== controls (hidden in rec) ===== */
-  .controls{position:absolute;bottom:5px;left:0;right:0;z-index:50;display:none}
+  
   button{background:#3d1a55;color:#fff;border:1px solid #d500f9;padding:10px 20px;font-family:monospace;cursor:pointer;border-radius:8px}
 </style>
 </head>
 <body>
-<div id="stage">
+<h1>🎬 SPREAD DA WORD — VIN'S ANTHEM (MilkUps)</h1>
+<div class="sub">Vin Negar · the realest vinegar you know · music video</div>
 
-  <!-- SCENE 1: CAB-NET -->
+<div class="player">
+  <div class="stage-inner">
+<!-- SCENE 1: CAB-NET -->
   <div class="scene active" id="scene-cabnet">
     <div class="door left"></div><div class="door right"></div>
     <div class="shelf" style="top:80px"></div><div class="shelf" style="top:200px"></div>
@@ -511,13 +555,15 @@
 </svg></div>
   </div>
 
-  <!-- LYRIC LINE -->
-  <div class="lyric" id="lyric"></div>
+    </div>
 </div>
 
+<div class="controls">
+  <button id="playBtn">▶ Play Video</button>
+  <button id="replayBtn">↺ Replay</button>
+</div>
+<div class="foot">MILKUPS · an independent Z-Dot band · 🥛 the shelves raised us 🥛</div>
 <audio id="audio"></audio>
-<div class="controls"><button id="playBtn">▶ Play</button></div>
-
 <script>
 var audio=document.getElementById('audio');
 audio.src='commercial/mv5_audio.mp3';
@@ -591,14 +637,21 @@ document.getElementById('playBtn').onclick=function(){
   requestAnimationFrame(tick);
 };
 
+
+// wire the styled player controls
+(function(){
+  var p2=document.getElementById('playBtn2');
+  if(p2){p2.addEventListener('click',function(){var b=document.getElementById('playBtn');if(b)b.click();});}
+  var rp=document.getElementById('replayBtn');
+  if(rp){rp.addEventListener('click',function(){var a=document.getElementById('audio');a.currentTime=0;a.play();});}
+})();
+
 // Auto-play on load so it's a video, not a frozen frame
 (function(){var tries=0;var iv=setInterval(function(){
   var b=document.getElementById('playBtn');tries++;
   if(b && b.textContent.indexOf('Play')>-1){b.click();clearInterval(iv);}
   if(tries>60)clearInterval(iv);
 },150);})();
-</script>
-
-
+</script><style>.stage-inner{position:relative;width:1280px;height:720px;transform:scale(0.75);transform-origin:0 0}</style>
 </body>
 </html>

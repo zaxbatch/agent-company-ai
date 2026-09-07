@@ -243,7 +243,7 @@
         <button id="queWave">👋 Wave</button>
         <button id="queWalk">🕺 Dance</button>
       </div>
-      <div class="note" id="queNote">Press "Say a line" to hear Que hype.</div>
+      <div class="note" id="queNote">Press "Say a line" to hear Q hype.</div>
     </div>
   </div>
 </div>
@@ -285,7 +285,7 @@ document.getElementById('vinWave').onclick = function(){
   },30);
 };
 document.getElementById('queSay').onclick = function(){
-  document.getElementById('queNote').textContent = 'Que: "Pass the sauce, pass the vibe!"';
+  document.getElementById('queNote').textContent = 'Q: "Pass the sauce, pass the vibe!"';
   queAudio.currentTime=0; queAudio.play();
   var t=0; var iv=setInterval(function(){ t++;
     var bounce = Math.abs(Math.sin(t/4))*6;
