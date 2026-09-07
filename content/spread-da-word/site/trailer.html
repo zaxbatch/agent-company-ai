@@ -511,33 +511,27 @@
 </div>
 <span id="snowSnake">🐍</span>
 <div class="controls"><button id="playBtn">▶ Play Trailer</button></div>
-<audio id="hum" src="commercial/trailer_hum.mp3"></audio>
+<audio id="hum" src="commercial/trailer_audio.mp3"></audio>
 
 <script>
 var shots=document.querySelectorAll('.shot');
 var hum=document.getElementById('hum');
 function show(i){shots.forEach(function(s,x){s.classList.toggle('on',x===i);});}
-var VO={
- vin:new Audio('commercial/t_vin.mp3'),manny:new Audio('commercial/t_manny.mp3'),mira:new Audio('commercial/t_mira.mp3'),
- tom:new Audio('commercial/t_tom.mp3'),jr:new Audio('commercial/t_jr.mp3'),q:new Audio('commercial/t_q.mp3'),
- soy:new Audio('commercial/t_soy.mp3'),aji:new Audio('commercial/t_aji.mp3')
-};
 var TIMES=[0,2,4,8,9.5,13,16.5,20,23.5,27,30,33.5,38];
 var cur=-1;
 function tick(){
   var t=hum.currentTime;
   while(cur+1<TIMES.length&&t>=TIMES[cur+1]){
     cur++; show(cur);
-    if(cur==2)VO.vin.play(); if(cur==4)VO.manny.play(); if(cur==5)VO.mira.play();
-    if(cur==7)VO.tom.play(); if(cur==8)VO.jr.play(); if(cur==10)quickCuts();
+    if(cur==10)quickCuts();
   }
   requestAnimationFrame(tick);
 }
 function quickCuts(){
   var q=document.getElementById('qcQ'),a=document.getElementById('qcAji'),s=document.getElementById('qcSoy');
-  q.classList.add('show'); VO.q.play();
-  setTimeout(function(){q.classList.remove('show');a.classList.add('show');VO.aji.play();},1600);
-  setTimeout(function(){a.classList.remove('show');s.classList.add('show');VO.soy.play();},3200);
+  q.classList.add('show');
+  setTimeout(function(){q.classList.remove('show');a.classList.add('show');},1600);
+  setTimeout(function(){a.classList.remove('show');s.classList.add('show');},3200);
   setTimeout(function(){s.classList.remove('show');},5200);
   var snake=document.getElementById('snowSnake'); var x=-60;
   var iv=setInterval(function(){x+=4;snake.style.left=x+'px';if(x>1300){clearInterval(iv);}},30);
