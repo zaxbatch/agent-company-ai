@@ -20,6 +20,7 @@
   .cereal.green{background:#4a7a3a;border-color:#1a3a1a}
   .cereal .c-name{font-size:9px;letter-spacing:1px}
   .cereal .c-crunch{font-size:7px;font-weight:normal;opacity:.8}
+  .cereal{min-height:80px}
   .cereal .c-crunch{transform:none}
   /* floor */
   .floor{position:absolute;bottom:0;left:0;width:100%;height:36px;background:#150e08;border-top:2px solid #ff9f43}
@@ -64,12 +65,12 @@
   <div style="position:absolute;left:70px;right:70px;top:0;height:6px;background:#5c3317"></div>
 
   <!-- cereal boxes: on the floor, leaning cluster (not stairs) -->
-  <div class="cereal" style="right:150px;width:54px;height:82px"><div class="c-name">CRUNCH</div><div class="c-crunch">frosted</div></div>
-  <div class="cereal blue" style="right:100px;width:48px;height:70px"><div class="c-name">CHOC</div><div class="c-crunch">puffs</div></div>
-  <div class="cereal green" style="right:214px;width:44px;height:76px;transform:rotate(4deg)"><div class="c-name">OAT</div><div class="c-crunch">hoops</div></div>
+  <div class="cereal" style="right:150px;width:54px;height:120px"><div class="c-name">CRUNCH</div><div class="c-crunch">frosted</div></div>
+  <div class="cereal blue" style="right:100px;width:46px;height:100px"><div class="c-name">CHOC</div><div class="c-crunch">puffs</div></div>
+  <div class="cereal green" style="right:214px;width:42px;height:110px;transform:rotate(4deg)"><div class="c-name">OAT</div><div class="c-crunch">hoops</div></div>
 
   <!-- characters -->
-  <div class="char-spot" id="queSpot"><svg id="queRig" viewBox="0 40 220 236" width="150" height="185">
+  <div class="char-spot" id="queSpot"><div style="position:absolute;bottom:-6px;left:10px;width:130px;height:8px;background:#000;border-radius:50%;opacity:.4;filter:blur(3px)"></div><svg id="queRig" viewBox="0 40 220 236" width="150" height="185">
   <defs>
     <linearGradient id="queBody" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#4d0f02"/>
@@ -155,7 +156,7 @@
   <rect x="78" y="262" width="30" height="12" rx="5" fill="#0a0a0a"/>
   <rect x="112" y="262" width="30" height="12" rx="5" fill="#0a0a0a"/>
 </svg></div>
-  <div class="char-spot" id="vinSpot"><svg id="vinRig" viewBox="0 0 220 274" width="160" height="215">
+  <div class="char-spot" id="vinSpot"><div style="position:absolute;bottom:-6px;left:8px;width:140px;height:8px;background:#000;border-radius:50%;opacity:.4;filter:blur(3px)"></div><svg id="vinRig" viewBox="0 0 220 274" width="160" height="215">
   <defs>
     <linearGradient id="vinGlass" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#4f1806"/>
@@ -222,11 +223,11 @@
 </svg></div>
 
   <!-- speech bubbles -->
-  <div class="bubble" id="bubbleQ" style="left:30px;top:8px"><span id="bqText"></span><div class="tail"></div></div>
-  <div class="bubble" id="bubbleV" style="right:30px;top:8px"><span id="bvText"></span><div class="tail"></div></div>
+  <div class="bubble" id="bubbleQ" style="display:none;position:absolute;top:20px;left:110px;z-index:10"><span id="bqText"></span><div class="tail"></div></div>
+  <div class="bubble" id="bubbleV" style="display:none;position:absolute;top:20px;left:330px;z-index:10"><span id="bvText"></span><div class="tail"></div></div>
 
   <!-- roach -->
-  <svg class="roach" id="roach" viewBox="0 0 26 14" x="0" style="bottom:6px">
+  <svg class="roach" id="roach" viewBox="0 0 26 14" style="bottom:6px;left:-40px;z-index:5">
     <ellipse cx="10" cy="7" rx="8" ry="5" fill="#3a2410" stroke="#1a0c02" stroke-width="1"/>
     <ellipse cx="19" cy="6" rx="5" ry="3.5" fill="#4a3018" stroke="#1a0c02" stroke-width="1"/>
     <line x1="4" y1="4" x2="1" y2="0" stroke="#1a0c02" stroke-width="1.2"/>
@@ -337,11 +338,11 @@ function runScene(){
     var x=0; var rIV=setInterval(function(){ x+=3; roach.style.left=x+'px'; if(x>730){clearInterval(rIV);roach.style.display='none';} },30);
   },4700);
   setTimeout(function(){ // Vin reaction
-    hideB(); showV("Que. That was terrible.");
+    hideB(); showV("Q. That was terrible.");
     v1.play(); lipsync('vin',1.3); duck(1.5);
   },7200);
   setTimeout(function(){ // Vin closer
-    hideB(); showV("Get more dad jokes at snowsnakes dot z e r r i c dot x y z.");
+    hideB(); showV("Get more dad jokes at snowsnakes dot z e r r i c dot ex why zee.");
     v2.play(); lipsync('vin',3.7); duck(3.9);
   },9000);
   setTimeout(function(){ // endcard
