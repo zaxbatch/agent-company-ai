@@ -259,12 +259,13 @@
 </div>
 
 <audio id="q1" src="commercial/q1_NEW.mp3"></audio>
-<audio id="q2" src="commercial/q2_NEW.mp3"></audio>
+<audio id="q2" src="commercial/q2_once.mp3"></audio>
+<audio id="q3" src="commercial/q2laugh.mp3"></audio>
 <audio id="v1" src="commercial/v1_NEW.mp3"></audio>
 <audio id="v2" src="commercial/v2_NEW.mp3"></audio>
 <audio id="music" loop src="intro-music.wav"></audio>
 <script>
-var q1=document.getElementById('q1'), q2=document.getElementById('q2'),
+var q1=document.getElementById('q1'), q2=document.getElementById('q2'), q3=document.getElementById('q3'),
     v1=document.getElementById('v1'), v2=document.getElementById('v2'),
     music=document.getElementById('music');
 var bQ=document.getElementById('bubbleQ'), bV=document.getElementById('bubbleV'),
@@ -326,12 +327,16 @@ function runScene(){
     showQ("Yo Vin — check this out. How do you secure your stomach?");
     q1.play(); lipsync('que',2.8); duck(2.9);
   },2000);
-  setTimeout(function(){ // Que punchline
-    showQ("Belly button! Ha! Ha! Ha!"); q2.play(); lipsync('que',1.9); duck(2.0); q2.loop=true;
-    // ROACH CRAWLS during the laugh
-    roach.style.display='block';
-    var x=0; var rIV=setInterval(function(){ x+=3; roach.style.left=x+'px'; if(x>730){clearInterval(rIV);roach.style.display='none';} },30);
-  },4700);
+  setTimeout(function(){ // Que punchline (once, with beat before)
+    showQ("Belly button!"); q2.play(); lipsync('que',0.9);
+    // pause beat, then the laugh
+    setTimeout(function(){
+      showQ("Belly button!"); q3.play(); q3.loop=true; duck(2.5);
+      // ROACH CRAWLS during the laugh
+      roach.style.display='block';
+      var x=0; var rIV=setInterval(function(){ x+=3; roach.style.left=x+'px'; if(x>730){clearInterval(rIV);roach.style.display='none';} },30);
+    },700);
+  },5600);
   // Q keeps laughing until Vin's closer
   setTimeout(function(){ var lt=0; var liv=setInterval(function(){ lt+=60;
     var open=(Math.sin(lt/110)>0);
@@ -340,17 +345,17 @@ function runScene(){
   },60); },8000);
   setTimeout(function(){ // Vin reaction
     hideB(); showV("Q. That was terrible.");
-    q2.pause(); q2.loop=false;
+    q2.pause(); q3.pause(); q3.loop=false;
     v1.play(); lipsync('vin',1.3); duck(1.5);
-  },9500);
+  },10800);
   setTimeout(function(){ // Vin closer
     hideB(); showV("Get more dad jokes — snowsnakes.zerric.xyz");
     v2.play(); lipsync('vin',3.7); duck(3.9);
-  },11200);
+  },12800);
   setTimeout(function(){ // endcard
     hideB(); music.pause();
     ec.classList.add('show');
-  },15800);
+  },17000);
 }
 document.getElementById('playBtn').onclick=function(){
   if(playing) return; playing=true; started=true;
@@ -358,7 +363,7 @@ document.getElementById('playBtn').onclick=function(){
 };
 document.getElementById('replayBtn').onclick=function(){
   // reset all
-  q1.pause();q1.currentTime=0;q2.pause();q2.currentTime=0;v1.pause();v1.currentTime=0;v2.pause();v2.currentTime=0;
+  q1.pause();q1.currentTime=0;q2.pause();q2.currentTime=0;q3.pause();q3.currentTime=0;v1.pause();v1.currentTime=0;v2.pause();v2.currentTime=0;
   stopLip(); hideB(); roach.style.display='none'; ec.classList.remove('show');
   qMouth.innerHTML=qOrig; vMouth.innerHTML=vOrig;
   var vs=document.getElementById('vinRig'); vs.style.transform=''; 
