@@ -514,13 +514,13 @@
 </div>
 <span id="snowSnake">🐍</span>
 <div class="controls"><button id="playBtn">▶ Play Trailer</button></div>
-<audio id="hum" src="commercial/trailer_audio.mp3"></audio>
+<audio id="hum" src="commercial/trailer_audio_v2.mp3"></audio>
 
 <script>
 var shots=document.querySelectorAll('.shot');
 var hum=document.getElementById('hum');
 function show(i){shots.forEach(function(s,x){s.classList.toggle('on',x===i);});}
-var TIMES=[0, 1.2, 2.5, 7.3, 7.8, 12.5, 16, 19.5, 27, 33, 35.5, 45, 53];;;;;;;;
+var TIMES=[0, 1.2, 2.5, 7.3, 7.8, 12.5, 16, 19.5, 25.5, 33, 35.5, 45, 53];;;;;;;;
 var cur=-1;
 function tick(){
   var t=hum.currentTime;
