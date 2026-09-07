@@ -70,3 +70,4 @@ Not a condiment. Not a character. A presence.
 - **Pop (Ketchup Sr.)** — more than half used. Lives UPSIDE-DOWN (standing on his head so the last drops flow). Translucent/see-through glass — only red left is in the neck. Old, tired, bitter, grumpy face. Arms crossed.
 - **RECURRING GAG (Kenny-style):** Pop has no feet. Every episode tells a DIFFERENT story of how he lost them — the war, an accident, a shark bite, etc. Never the same story twice.
 - Shape note: classic Heinz-57-style bottle (wide glass body, smooth short neck, WHITE cap). Ketchup is a squat wide bottle, NOT the tall narrow-neck or hot-sauce shape.
+- **Pop's survival trick:** he always hangs out in the BACK of the fridge so he doesn't get used up and thrown away. That's why he's survived 25+ years — and why he's bitter (he's watched everyone else get finished off). Pairs with the recurring "how he lost his feet" gag.
