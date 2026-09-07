@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spread Da Word — Watch</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#0a1220;color:#cfe8ff;font-family:monospace;min-height:100vh}
+  nav{background:#0e1a2e;border-bottom:2px solid #3d5a80;padding:14px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;position:sticky;top:0;z-index:50}
+  nav .logo{color:#9bd1ff;font-size:16px;letter-spacing:2px;font-weight:bold;text-decoration:none}
+  nav .logo span{color:#e94560}
+  nav a.nav{color:#9bd1ff;text-decoration:none;font-size:13px;padding:6px 10px;border-radius:6px}
+  nav a.nav:hover{background:#1c3352;color:#fff}
+  nav a.nav.active{background:#3d5a80;color:#fff}
+  .watch-dd{position:relative}
+  .watch-btn{color:#9bd1ff;text-decoration:none;font-size:13px;padding:6px 10px;border-radius:6px;cursor:pointer;background:none;border:none;font-family:inherit}
+  .watch-btn:hover{background:#1c3352;color:#fff}
+  .watch-btn.active{background:#3d5a80;color:#fff}
+  .watch-dd .dd-content{display:none;position:absolute;top:100%;left:0;background:#0e1a2e;border:1px solid #3d5a80;border-radius:8px;min-width:250px;box-shadow:0 8px 24px rgba(0,0,0,.5);z-index:200;padding:6px}
+  .watch-dd:hover .dd-content,.watch-dd:focus-within .dd-content{display:block}
+  .dd-content .dd-sec{font-size:9px;letter-spacing:2px;color:#5f7fa0;padding:6px 10px 2px}
+  .dd-content a{display:block;color:#9bd1ff;text-decoration:none;font-size:13px;padding:7px 10px;border-radius:6px}
+  .dd-content a:hover{background:#1c3352;color:#fff}
+  .dd-content a.dd-active{background:#3d5a80;color:#fff}
+
+  .wrap{max-width:1000px;margin:26px auto;padding:0 20px 40px}
+  h1{color:#ffd166;font-size:26px;letter-spacing:3px;text-align:center;text-shadow:0 0 20px rgba(255,209,102,.3)}
+  .sub{color:#6ea8d8;font-size:13px;text-align:center;margin:6px 0 24px}
+  .cat{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:14px}
+  .card{background:#0e1a2e;border:1px solid #3d5a80;border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;transition:transform .15s,border-color .15s;display:flex;flex-direction:column}
+  .card:hover{transform:translateY(-3px);border-color:#4a6cff}
+  .thumb{height:120px;display:flex;align-items:center;justify-content:center;font-size:44px;position:relative}
+  .thumb .play{position:absolute;background:#0009;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff}
+  .thumb.cabnet{background:linear-gradient(180deg,#3a1a08,#1c0e06)}
+  .thumb.ride{background:linear-gradient(180deg,#2a1a4a,#0d0620)}
+  .thumb.ketchup{background:linear-gradient(180deg,#5a0a0a,#200505)}
+  .thumb.neon{background:radial-gradient(circle at 50% 40%,#3a1a55,#0a0310)}
+  .card .meta{padding:12px 14px}
+  .card .meta h3{color:#fff;font-size:14px;margin-bottom:4px}
+  .card .meta p{color:#7fa8d0;font-size:11px;line-height:1.4}
+  .card .tag{display:inline-block;margin-top:6px;font-size:9px;background:#3d5a80;color:#cfe8ff;padding:2px 8px;border-radius:8px;letter-spacing:1px}
+  .card .tag.red{background:#e94560}
+  .card .tag.gold{background:#ffd166;color:#1a1608}
+  .card .tag.green{background:#1a7f37}
+  .cat-title{font-size:13px;letter-spacing:3px;color:#9bd1ff;margin-top:28px;border-bottom:1px solid #3d5a8033;padding-bottom:6px}
+  .cat-title .count{color:#5f7fa0;font-size:11px}
+</style>
+</head>
+<body>
+<nav>
+  <a class='logo' href='/'>SPREAD<span>DA</span>WORD</a>
+  <a class='nav' href='/'>Home</a>
+    <div class="watch-dd">
+    <button class="watch-btn">▶ Watch ▾</button>
+    <div class="dd-content">
+      <div class="dd-sec">ALL VIDEOS</div>
+  <a href='/watch'>📺 Watch Library</a>
+      <div class="dd-sec">MUSIC VIDEOS</div>
+  <a href='/watch#music'>🎵 Music Videos</a>
+      <div class="dd-sec">COMMERCIALS</div>
+  <a href='/watch#commercials'>📢 Commercials</a>
+      <div class="dd-sec">PROMOS</div>
+  <a href='/watch#promos'>▶ Promos</a>
+      <div class="dd-sec">SEASONS</div>
+  <a href='#' class='cs-trigger'>Season 1 (coming soon)</a>
+    </div>
+  </div>
+
+  <a class='nav' href='/soundtracks'>Soundtracks</a>
+  <a class='nav' href='/roster'>The Cast</a>
+  <a class='nav' href='/fridge-teaser'>The Fridge</a>
+  <a class='nav' href='/behind-the-scenes'>Behind the Scenes</a>
+</nav>
+
+<div class="wrap">
+  <h1>📺 WATCH</h1>
+  <div class="sub">The Spread Da Word video library — growing every drop</div>
+
+  <div class="cat-title">🎵 MUSIC VIDEOS <span class="count">(1)</span></div>
+  <div class="cat" id="music">
+    <a class="card" href="/music-video">
+      <div class="thumb neon">🍶<div class="play">▶</div></div>
+      <div class="meta"><h3>Vin's Anthem</h3><p>MilkUps — the realest vinegar you know. Full music video.</p><span class="tag gold">🎵 Music Video</span></div>
+    </a>
+  </div>
+
+  <div class="cat-title">📢 COMMERCIALS <span class="count">(1)</span></div>
+  <div class="cat" id="commercials">
+    <a class="card" href="/commercial">
+      <div class="thumb cabnet">🍖<div class="play">▶</div></div>
+      <div class="meta"><h3>SnowSnakes Commercial</h3><p>Q &amp; Vin at the Cab-net. Belly button! Get more dad jokes at snowsnakes.zerric.xyz.</p><span class="tag red">📢 Commercial</span></div>
+    </a>
+  </div>
+
+  <div class="cat-title">▶ PROMOS <span class="count">(1)</span></div>
+  <div class="cat" id="promos">
+    <a class="card" href="/promo">
+      <div class="thumb cabnet">🍶🍖<div class="play">▶</div></div>
+      <div class="meta"><h3>Promo 1 — Hangin' at the Cab-net</h3><p>Que &amp; Vin kickin' it at the Cab-net.</p><span class="tag">▶ Promo</span></div>
+    </a>
+  </div>
+</div>
+
+<div class="cs-overlay" id="csModal"><div class="cs-modal"><div class="cs-ic">📼</div><h3>Season 1 — Coming Soon</h3><p>Season 1 is in the kitchen. Hang tight!</p><button id="csClose">Got it</button></div></div>
+<style>.cs-overlay{position:fixed;inset:0;background:#000a;display:none;align-items:center;justify-content:center;z-index:999;padding:16px}.cs-overlay.show{display:flex}.cs-modal{background:#0e1a2e;border:2px solid #3d5a80;border-radius:14px;max-width:320px;width:100%;padding:22px;text-align:center}.cs-modal h3{color:#ffd166;margin-bottom:6px}.cs-modal p{color:#7fa8d0;font-size:12px;margin-bottom:12px}.cs-modal button{background:#3d5a80;color:#fff;border:none;padding:8px 18px;border-radius:8px;cursor:pointer;font-family:monospace}</style>
+<script>
+document.getElementById('seasonSoon').addEventListener('click',function(e){e.preventDefault();document.getElementById('csModal').classList.add('show');});
+document.getElementById('csClose').addEventListener('click',function(){document.getElementById('csModal').classList.remove('show');});
+document.getElementById('csModal').addEventListener('click',function(e){if(e.target===this)this.classList.remove('show');});
+</script>
+</body>
+</html>
