@@ -590,6 +590,15 @@ document.getElementById('playBtn').onclick=function(){
   }
   requestAnimationFrame(tick);
 };
+
+// Auto-play on load so it's a video, not a frozen frame
+(function(){var tries=0;var iv=setInterval(function(){
+  var b=document.getElementById('playBtn');tries++;
+  if(b && b.textContent.indexOf('Play')>-1){b.click();clearInterval(iv);}
+  if(tries>60)clearInterval(iv);
+},150);})();
 </script>
+
+
 </body>
 </html>
