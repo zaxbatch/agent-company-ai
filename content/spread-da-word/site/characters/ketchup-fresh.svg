@@ -32,9 +32,10 @@
     <rect x="80" y="152" width="60" height="82" rx="10" fill="#f8e8d8"/>
     <rect x="80" y="152" width="60" height="15" fill="#c0392b"/>
     <text x="110" y="163" text-anchor="middle" font-family="monospace" font-size="7" font-weight="bold" fill="#fff">KETCHUP</text>
-    <text x="110" y="189" text-anchor="middle" font-family="serif" font-size="15" font-weight="bold" fill="#a00d05">Jr.</text>
+    <text x="110" y="189" text-anchor="middle" font-family="serif" font-size="12" font-weight="bold" fill="#a00d05">Tom Jr.</text>
     <text x="110" y="203" text-anchor="middle" font-family="serif" font-size="8" font-style="italic" fill="#d05030">the optimist</text>
-    <text x="110" y="224" text-anchor="middle" font-family="monospace" font-size="5.5" fill="#c06040">GOES W/EVERYTHING</text>
+    <text x="110" y="220" text-anchor="middle" font-family="monospace" font-size="5.5" fill="#c06040">GOES W/EVERYTHING</text>
+    <text x="110" y="231" text-anchor="middle" font-family="monospace" font-size="5" fill="#a05030">14 OZ</text>
   </g>
 
   <!-- ===== KID FACE ===== -->
