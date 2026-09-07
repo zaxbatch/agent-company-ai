@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 290 250" width="220" height="300">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 240" width="300" height="240">
   <defs>
     <linearGradient id="mirGlass" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#c8c0d0"/>
@@ -16,50 +16,54 @@
       <stop offset="0.5" stop-color="#7a3a84"/>
       <stop offset="1" stop-color="#3a183e"/>
     </linearGradient>
-  </defs><g transform="scale(1.18,0.80) translate(2,20)">
+  </defs>
 
-  <!-- ===== WIDE SQUAT GLASS JAR (like Manny - twins) ===== -->
+  <!-- ===== WIDE SQUAT JAR ===== -->
   <!-- gold lid -->
-  <path d="M76 34 L144 34 L144 52 L76 52 Z" fill="url(#mirGold)" stroke="#6a4e0e" stroke-width="1.5"/>
-  <path d="M78 28 L142 28 L142 36 L78 36 Z" fill="#e8d88a"/>
+  <path d="M98 30 L202 30 L202 46 L98 46 Z" fill="url(#mirGold)" stroke="#6a4e0e" stroke-width="1.5"/>
+  <path d="M102 24 L198 24 L198 31 L102 31 Z" fill="#e8d88a"/>
   <!-- jar -->
-  <path d="M80 52 L140 52 L144 74 L144 230 Q144 258 110 260 Q76 258 76 230 L76 74 Z"
+  <path d="M100 46 L200 46 L206 66 L206 196 Q206 224 150 226 Q94 224 94 196 L94 66 Z"
         fill="url(#mirGlass)" stroke="#7a708a" stroke-width="2.5"/>
   <!-- creamy dressing content -->
-  <path d="M80 86 L140 86 L140 222 Q140 250 110 252 Q80 250 80 222 L80 86 Z" fill="#fdf4f0" opacity=".85"/>
+  <path d="M98 78 L202 78 L202 188 Q202 216 150 218 Q98 216 98 188 L98 78 Z" fill="#fdf4f0" opacity=".9"/>
   <!-- gloss -->
-  <rect x="86" y="58" width="9" height="170" rx="4.5" fill="#ffffff77"/>
-
-  <!-- ===== LABEL (contained, gold/purple) ===== -->
-  <g id="mirLabel">
-    <rect x="84" y="104" width="52" height="96" rx="4" fill="#f8f4fc"/>
-    <rect x="84" y="104" width="52" height="16" fill="url(#mirPurple)"/>
-    <text x="110" y="115" text-anchor="middle" font-family="monospace" font-size="7" font-weight="bold" fill="#fff" letter-spacing="0.5">DRESSING</text>
-    <!-- Miracle in cursive (big) -->
-    <text x="110" y="146" text-anchor="middle" font-family="'Brush Script MT','Segoe Script',cursive" font-size="20" font-weight="bold" fill="#4a2050">Miracle</text>
-    <text x="110" y="160" text-anchor="middle" font-family="serif" font-size="7.5" font-style="italic" fill="#8a5a9a">Ayes · est. the fridge</text>
-    <path d="M90 176 L130 176" stroke="#d4af3755" stroke-width="1.2"/>
-    <text x="110" y="190" text-anchor="middle" font-family="monospace" font-size="5.5" fill="#a080b0">I'M NOT MAYO · I'M ME</text>
-  </g>
+  <rect x="104" y="52" width="10" height="150" rx="5" fill="#ffffff99"/>
 
   <!-- ===== FACE ===== -->
   <g id="mirEyes">
-    <ellipse cx="99" cy="68" rx="5.5" ry="5" fill="#fff" stroke="#2a1a30" stroke-width="1.5"/>
-    <ellipse cx="121" cy="68" rx="5.5" ry="5" fill="#fff" stroke="#2a1a30" stroke-width="1.5"/>
-    <circle cx="101" cy="69" r="2.6" fill="#2a1a30"/>
-    <circle cx="123" cy="69" r="2.6" fill="#2a1a30"/>
-    <path d="M93 61 L90 57 M93 60 L91 57" stroke="#2a1a30" stroke-width="1.4"/>
-    <path d="M127 61 L130 57 M127 60 L129 57" stroke="#2a1a30" stroke-width="1.4"/>
-    <path d="M94 62 L102 60 M126 62 L118 60" stroke="#2a1a30" stroke-width="1.6"/>
+    <ellipse cx="136" cy="62" rx="6" ry="5.5" fill="#fff" stroke="#2a1a30" stroke-width="1.8"/>
+    <ellipse cx="164" cy="62" rx="6" ry="5.5" fill="#fff" stroke="#2a1a30" stroke-width="1.8"/>
+    <circle cx="138" cy="63" r="3" fill="#2a1a30"/>
+    <circle cx="166" cy="63" r="3" fill="#2a1a30"/>
+    <path d="M129 53 L126 48 M129 52 L127 49" stroke="#2a1a30" stroke-width="1.6"/>
+    <path d="M171 53 L174 48 M171 52 L173 49" stroke="#2a1a30" stroke-width="1.6"/>
+    <path d="M130 54 L140 51 M170 54 L160 51" stroke="#2a1a30" stroke-width="1.7"/>
   </g>
-  <g id="mirMouth"><path d="M102 82 Q110 86 118 80" stroke="#4a2050" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+  <g id="mirMouth"><path d="M138 78 Q150 83 162 76" stroke="#4a2050" stroke-width="2.2" fill="none" stroke-linecap="round"/></g>
+
+  <!-- ===== LABEL with gold trim ===== -->
+  <g id="mirLabel">
+    <rect x="112" y="92" width="76" height="88" rx="5" fill="#f8f4fc"/>
+    <!-- purple top band -->
+    <rect x="112" y="92" width="76" height="14" fill="url(#mirPurple)"/>
+    <!-- gold trim lines -->
+    <rect x="112" y="106" width="76" height="2.5" fill="#d4af37"/>
+    <rect x="112" y="172" width="76" height="2.5" fill="#d4af37"/>
+    <text x="150" y="103" text-anchor="middle" font-family="serif" font-size="8" font-weight="bold" fill="#fff">DRESSING</text>
+    <!-- Miracle in cursive -->
+    <text x="150" y="133" text-anchor="middle" font-family="'Brush Script MT','Segoe Script',cursive" font-size="26" font-weight="bold" fill="#4a2050">Miracle</text>
+    <!-- gold divider -->
+    <path d="M124 146 L176 146" stroke="#d4af37" stroke-width="1.4"/>
+    <text x="150" y="161" text-anchor="middle" font-family="monospace" font-size="6" fill="#8a5a9a">I'M NOT MAYO · I'M ME</text>
+  </g>
 
   <!-- ===== ARMS ===== -->
-  <g id="mirArmL"><path d="M80 110 Q56 124 52 156" stroke="#3a2a4a" stroke-width="8" stroke-linecap="round" fill="none"/></g>
-  <g id="mirArmR"><path d="M140 110 Q164 124 168 156" stroke="#3a2a4a" stroke-width="8" stroke-linecap="round" fill="none"/></g>
-  <g id="mirBracelet"><rect x="160" y="148" width="7" height="13" rx="3" fill="url(#mirGold)"/></g>
+  <g id="mirArmL"><path d="M98 100 Q70 116 66 148" stroke="#3a2a4a" stroke-width="8" stroke-linecap="round" fill="none"/></g>
+  <g id="mirArmR"><path d="M202 100 Q230 116 234 148" stroke="#3a2a4a" stroke-width="8" stroke-linecap="round" fill="none"/></g>
+  <g id="mirBracelet"><rect x="228" y="140" width="8" height="14" rx="3" fill="url(#mirGold)"/></g>
 
   <!-- ===== heels ===== -->
-  <path d="M90 256 L106 256 L107 263 Q97 267 91 263 Z" fill="#2a1a30"/>
-  <path d="M114 256 L130 256 L129 263 Q119 267 113 263 Z" fill="#2a1a30"/>
-</g></svg>
+  <path d="M124 222 L140 222 L141 230 Q130 234 124 230 Z" fill="#2a1a30"/>
+  <path d="M160 222 L176 222 L175 230 Q164 234 158 230 Z" fill="#2a1a30"/>
+</svg>
