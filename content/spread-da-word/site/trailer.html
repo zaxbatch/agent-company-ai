@@ -418,7 +418,7 @@
   <div class="shot dark" id="sh9"><div class="txt"><h1>And its own legends.</h1><p>THE CAST</p></div></div>
   <!-- 10: quick cuts -->
   <div class="shot dark" id="sh10"><div id="quickArea">
-     <div class="qc" id="qcQ"><svg viewBox="0 0 220 330" width="200" height="300">
+     <div class="qc" id="qcQ" style="flex-direction:column"><div style="color:#ffd166;font-size:20px;margin-bottom:8px;text-shadow:0 0 8px #000">Q — "Pass the sauce, pass the vibe!"</div><svg viewBox="0 0 220 330" width="200" height="300">
   <defs>
     <linearGradient id="queBody" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#4d0f02"/>
@@ -505,8 +505,7 @@
   <rect x="112" y="262" width="30" height="12" rx="5" fill="#0a0a0a"/>
 </svg></div>
      <div class="qc" id="qcAji" style="color:#ff5a3a;font-size:80px">🌶️</div>
-     <div class="qc" id="qcSoy" style="color:#8aa0b0;font-size:24px;font-style:italic">Soy</div>
-  </div></div>
+     </div></div>
   <!-- 11: SPREAD DA WORD -->
   <div class="shot dark" id="sh11"><div class="txt big"><h1>SPREAD DA WORD</h1><p>COMING SOON</p></div></div>
   <!-- 12: door close -->
@@ -520,7 +519,7 @@
 var shots=document.querySelectorAll('.shot');
 var hum=document.getElementById('hum');
 function show(i){shots.forEach(function(s,x){s.classList.toggle('on',x===i);});}
-var TIMES=[0,1.5,4.5,8,10.5,15,19,23,32,36,38,45,54];;;;;
+var TIMES=[0,1.5,3.8,8,9.8,13.2,19,22.2,31.2,36,37.2,45,54];;;;;;
 var cur=-1;
 function tick(){
   var t=hum.currentTime;
@@ -531,14 +530,12 @@ function tick(){
   requestAnimationFrame(tick);
 }
 function quickCuts(){
-  var q=document.getElementById('qcQ'),a=document.getElementById('qcAji'),s=document.getElementById('qcSoy');
+  var q=document.getElementById('qcQ'), a=document.getElementById('qcAji');
   q.classList.add('show');
-  setTimeout(function(){q.classList.remove('show');a.classList.add('show');},2000);
-  setTimeout(function(){a.classList.remove('show');s.classList.add('show');},4000);
-  setTimeout(function(){s.classList.remove('show');},6000);
-  var snake=document.getElementById('snowSnake'); var x=-60;
-  var iv=setInterval(function(){x+=4;snake.style.left=x+'px';if(x>1300){clearInterval(iv);}},30);
+  setTimeout(function(){ q.classList.remove('show'); a.classList.add('show'); },2000);
+  // pepper stays as outro
 }
+
 var started=false;
 document.getElementById('playBtn').onclick=function(){
   if(started)return;started=true;
