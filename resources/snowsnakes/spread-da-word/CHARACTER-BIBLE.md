@@ -64,3 +64,9 @@ Not a condiment. Not a character. A presence.
 
 ## 🔥 CANON LINE (BossLady, 2026-08-24)
 - **"The shelves raised us!"** — THE Hood anthem line. The cabinet (the projects) raised them. This is their origin story in five words.
+
+## 🍅 KETCHUP — FATHER & SON (canon, Zerric 2026-09-07)
+- **Ketchup Jr.** — fresh, full, optimistic kid. Wide Heinz-style bottle, white cap, bright red. "I go with everything."
+- **Pop (Ketchup Sr.)** — more than half used. Lives UPSIDE-DOWN (standing on his head so the last drops flow). Translucent/see-through glass — only red left is in the neck. Old, tired, bitter, grumpy face. Arms crossed.
+- **RECURRING GAG (Kenny-style):** Pop has no feet. Every episode tells a DIFFERENT story of how he lost them — the war, an accident, a shark bite, etc. Never the same story twice.
+- Shape note: classic Heinz-57-style bottle (wide glass body, smooth short neck, WHITE cap). Ketchup is a squat wide bottle, NOT the tall narrow-neck or hot-sauce shape.
