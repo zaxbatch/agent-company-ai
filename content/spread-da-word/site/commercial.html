@@ -30,7 +30,8 @@
   .bubble{position:absolute;display:none;background:#fff;color:#111;border-radius:12px;padding:8px 12px;font-size:12px;max-width:230px;border:2px solid #111}
   .bubble .tail{position:absolute;bottom:-10px;border-top:10px solid #fff;border-bottom:0;left:30px;width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-top:10px solid #fff}
   /* character spots */
-  .char-spot{position:absolute;bottom:36px;display:flex;align-items:flex-end}
+  .char-spot{position:absolute;bottom:36px;display:flex;align-items:flex-end;line-height:0}
+  .char-spot svg{display:block;line-height:0}
   #queSpot{left:70px}
   #vinSpot{left:230px}
   .controls{margin-top:12px;display:flex;gap:10px}
@@ -70,7 +71,7 @@
   <div class="cereal green" style="right:222px;width:54px;height:285px;transform:rotate(4deg)"><div class="c-name">OAT</div><div class="c-crunch">hoops</div></div>
 
   <!-- characters -->
-  <div class="char-spot" id="queSpot"><div style="position:absolute;bottom:-6px;left:10px;width:130px;height:8px;background:#000;border-radius:50%;opacity:.4;filter:blur(3px)"></div><svg id="queRig" viewBox="0 40 220 236" width="150" height="185">
+  <div class="char-spot" id="queSpot"><div style="position:absolute;bottom:-1px;left:8px;width:130px;height:6px;background:#000;border-radius:50%;opacity:.4;filter:blur(3px)"></div><svg id="queRig" viewBox="0 40 220 236" width="150" height="185">
   <defs>
     <linearGradient id="queBody" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#4d0f02"/>
@@ -156,7 +157,7 @@
   <rect x="78" y="262" width="30" height="12" rx="5" fill="#0a0a0a"/>
   <rect x="112" y="262" width="30" height="12" rx="5" fill="#0a0a0a"/>
 </svg></div>
-  <div class="char-spot" id="vinSpot"><div style="position:absolute;bottom:-6px;left:8px;width:140px;height:8px;background:#000;border-radius:50%;opacity:.4;filter:blur(3px)"></div><svg id="vinRig" viewBox="0 0 220 274" width="160" height="215">
+  <div class="char-spot" id="vinSpot"><div style="position:absolute;bottom:-1px;left:8px;width:140px;height:6px;background:#000;border-radius:50%;opacity:.4;filter:blur(3px)"></div><svg id="vinRig" viewBox="0 0 220 274" width="160" height="215">
   <defs>
     <linearGradient id="vinGlass" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#4f1806"/>
@@ -337,12 +338,18 @@ function runScene(){
       var x=0; var rIV=setInterval(function(){ x+=3; roach.style.left=x+'px'; if(x>730){clearInterval(rIV);roach.style.display='none';} },30);
     },700);
   },5600);
-  // Q keeps laughing until Vin's closer
+  // Q keeps laughing + JIGGLES until Vin's closer; repeats "Belly button!" once mid-laugh
   setTimeout(function(){ var lt=0; var liv=setInterval(function(){ lt+=60;
     var open=(Math.sin(lt/110)>0);
     qMouth.innerHTML = open ? '<ellipse cx="110" cy="93" rx="9" ry="6" fill="#1f0500"/><rect x="107" y="89" width="6" height="6" rx="1.5" fill="#ffd700"/>' : qOrig;
-    if(lt>2500){ clearInterval(liv); qMouth.innerHTML=qOrig; }
-  },60); },8000);
+    // jiggle Q's whole rig (side-to-side shake while laughing)
+    var qsvg=document.getElementById('queRig');
+    var jx = Math.sin(lt/55)*4;
+    qsvg.style.transform='rotate('+(jx*0.4)+'deg) translateX('+jx+'px)';
+    if(lt>2900){ clearInterval(liv); qMouth.innerHTML=qOrig; qsvg.style.transform=''; }
+  },60); },7600);
+  // Q says "Belly button!" once more mid-laugh (around 7.8s, after the roach passes)
+  setTimeout(function(){ q2.play(); q2.currentTime=0; },7800);
   setTimeout(function(){ // Vin reaction
     hideB(); showV("Q. That was terrible.");
     q2.pause(); q3.pause(); q3.loop=false;
