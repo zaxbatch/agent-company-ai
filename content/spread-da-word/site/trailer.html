@@ -504,7 +504,7 @@
   <rect x="78" y="262" width="30" height="12" rx="5" fill="#0a0a0a"/>
   <rect x="112" y="262" width="30" height="12" rx="5" fill="#0a0a0a"/>
 </svg>
-<div style="color:#fff;font-size:26px;font-style:italic;text-align:center;text-shadow:0 0 12px #000,0 2px 4px #000">"Pass the sauce, pass the vibe!"</div></div>
+</div>
      <div class="qc" id="qcAji" style="color:#ff5a3a;font-size:80px">🌶️</div>
      </div></div>
   <!-- 11: SPREAD DA WORD -->
@@ -514,7 +514,7 @@
 </div>
 <span id="snowSnake">🐍</span>
 <div class="controls"><button id="playBtn">▶ Play Trailer</button></div>
-<audio id="hum" src="commercial/trailer_audio_v2.mp3"></audio>
+<audio id="hum" src="commercial/trailer_audio_v3.mp3"></audio>
 
 <script>
 var shots=document.querySelectorAll('.shot');
@@ -533,8 +533,8 @@ function tick(){
 function quickCuts(){
   var q=document.getElementById('qcQ'), a=document.getElementById('qcAji');
   q.classList.add('show');
-  setTimeout(function(){ q.classList.remove('show'); a.classList.add('show'); },2000);
-  // pepper stays as outro
+  // Q stays ~4s (audio after appearance), then pepper outro
+  setTimeout(function(){ q.classList.remove('show'); a.classList.add('show'); },4000);
 }
 
 var started=false;
