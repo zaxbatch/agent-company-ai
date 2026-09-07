@@ -33,7 +33,7 @@
     <div class="card">
       <h2>KETCHUP JR.</h2>
       <div class="rel">the kid · optimistic · full of life</div>
-      <div class="stage"><svg id="freshSvg" viewBox="0 0 220 320" width="160" height="232">
+      <div class="stage"><svg id="freshSvg" viewBox="0 0 220 380" width="150" height="259">
   <defs>
     <linearGradient id="kRed" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#a00d05"/>
@@ -43,59 +43,56 @@
     </linearGradient>
   </defs>
 
-  <!-- ===== CLASSIC KETCHUP BOTTLE (squat-ish, wide body, short neck) ===== -->
-  <!-- flip-top cap -->
-  <path d="M96 18 L124 18 L122 28 L98 28 Z" fill="#c0392b"/>
-  <rect x="98" y="12" width="24" height="8" rx="3" fill="#a93226"/>
-  <!-- short neck -->
-  <rect x="94" y="28" width="32" height="22" fill="url(#kRed)"/>
-  <!-- wide shoulders -->
-  <path d="M88 50 L132 50 L138 70 L138 230 Q138 270 110 272 Q82 270 82 230 L82 70 Z"
+  <!-- ===== TALL KETCHUP BOTTLE with LONG NARROW NECK (classic) ===== -->
+  <!-- small cap on top -->
+  <path d="M100 26 L120 26 L119 34 L101 34 Z" fill="#c0392b"/>
+  <rect x="101" y="20" width="18" height="8" rx="3" fill="#a93226"/>
+  <!-- LONG narrow neck -->
+  <rect x="98" y="34" width="24" height="86" fill="url(#kRed)"/>
+  <!-- tapered shoulders into wide body -->
+  <path d="M96 120 L124 120 L132 150 L132 300 Q132 350 110 352 Q88 350 88 300 L88 150 Z"
         fill="url(#kRed)" stroke="#5a0a02" stroke-width="2.5"/>
-  <!-- FULL content (bright, youthful) -->
-  <path d="M84 76 L136 76 L136 224 Q136 264 110 266 Q84 264 84 224 L84 76 Z" fill="#ef2a18" opacity=".7"/>
-  <!-- gloss -->
-  <rect x="88" y="52" width="10" height="190" rx="5" fill="#ffffff44"/>
+  <!-- FULL ketchup content -->
+  <path d="M90 156 L130 156 L130 292 Q130 340 110 344 Q90 340 90 292 L90 156 Z" fill="#ef2a18" opacity=".7"/>
+  <!-- gloss along neck + body -->
+  <rect x="100" y="40" width="6" height="60" rx="3" fill="#ffffff44"/>
+  <rect x="92" y="120" width="9" height="180" rx="4" fill="#ffffff33"/>
 
-  <!-- ===== KID LABEL (bright, fun) ===== -->
+  <!-- ===== KID LABEL (up on the body) ===== -->
   <g id="kLabel">
-    <rect x="76" y="96" width="68" height="96" rx="8" fill="#f8e8d8"/>
-    <rect x="76" y="96" width="68" height="16" fill="#c0392b"/>
-    <text x="110" y="108" text-anchor="middle" font-family="monospace" font-size="8" font-weight="bold" fill="#fff">KETCHUP</text>
-    <text x="110" y="140" text-anchor="middle" font-family="serif" font-size="17" font-weight="bold" fill="#a00d05">Jr.</text>
-    <text x="110" y="155" text-anchor="middle" font-family="serif" font-size="9" font-style="italic" fill="#d05030">the optimist</text>
-    <path d="M86 164 L134 164" stroke="#c0392b33" stroke-width="1"/>
-    <text x="110" y="180" text-anchor="middle" font-family="monospace" font-size="6" fill="#c06040">GOES WITH EVERYTHING</text>
+    <rect x="78" y="170" width="64" height="88" rx="8" fill="#f8e8d8"/>
+    <rect x="78" y="170" width="64" height="15" fill="#c0392b"/>
+    <text x="110" y="181" text-anchor="middle" font-family="monospace" font-size="7.5" font-weight="bold" fill="#fff">KETCHUP</text>
+    <text x="110" y="210" text-anchor="middle" font-family="serif" font-size="16" font-weight="bold" fill="#a00d05">Jr.</text>
+    <text x="110" y="225" text-anchor="middle" font-family="serif" font-size="8.5" font-style="italic" fill="#d05030">the optimist</text>
+    <path d="M88 236 L132 236" stroke="#c0392b33" stroke-width="1"/>
+    <text x="110" y="248" text-anchor="middle" font-family="monospace" font-size="5.5" fill="#c06040">GOES WITH EVERYTHING</text>
   </g>
 
-  <!-- ===== KID FACE (bright eyes, big smile, optimistic) ===== -->
+  <!-- ===== KID FACE (on the tall body, below label is too low; put on upper body/label top area) ===== -->
+  <!-- Face on the body above label -->
   <g id="kEyes">
-    <circle cx="96" cy="76" r="7.5" fill="#fff" stroke="#3a0a02" stroke-width="2.5"/>
-    <circle cx="124" cy="76" r="7.5" fill="#fff" stroke="#3a0a02" stroke-width="2.5"/>
-    <circle cx="98" cy="77" r="4" fill="#3a0a02"/>
-    <circle cx="126" cy="77" r="4" fill="#3a0a02"/>
-    <!-- big kid eyebrows, open -->
-    <path d="M86 66 Q96 60 106 66" stroke="#3a0a02" stroke-width="2.4" fill="none"/>
-    <path d="M114 66 Q124 60 134 66" stroke="#3a0a02" stroke-width="2.4" fill="none"/>
-    <!-- rosy cheeks -->
-    <circle cx="88" cy="92" r="5" fill="#ff8a70" opacity=".5"/>
-    <circle cx="132" cy="92" r="5" fill="#ff8a70" opacity=".5"/>
+    <circle cx="98" cy="150" r="8" fill="#fff" stroke="#3a0a02" stroke-width="2.5"/>
+    <circle cx="122" cy="150" r="8" fill="#fff" stroke="#3a0a02" stroke-width="2.5"/>
+    <circle cx="100" cy="151" r="4" fill="#3a0a02"/>
+    <circle cx="124" cy="151" r="4" fill="#3a0a02"/>
+    <path d="M88 140 Q98 133 108 140" stroke="#3a0a02" stroke-width="2.4" fill="none"/>
+    <path d="M112 140 Q122 133 132 140" stroke="#3a0a02" stroke-width="2.4" fill="none"/>
+    <circle cx="90" cy="166" r="5" fill="#ff8a70" opacity=".5"/>
+    <circle cx="130" cy="166" r="5" fill="#ff8a70" opacity=".5"/>
   </g>
   <g id="kMouth">
-    <!-- big happy open-mouth smile -->
-    <path d="M96 100 Q110 116 124 100 Z" fill="#5a0a02"/>
-    <path d="M98 101 Q110 113 122 101" stroke="#fff" stroke-width="1.5" fill="none"/>
+    <path d="M98 174 Q110 190 122 174 Z" fill="#5a0a02"/>
+    <path d="M100 175 Q110 187 120 175" stroke="#fff" stroke-width="1.5" fill="none"/>
   </g>
 
-  <!-- ===== ARMS (excited kid) ===== -->
-  <g id="kArmL"><path d="M84 120 Q52 138 48 176" stroke="#a00d05" stroke-width="10" stroke-linecap="round" fill="none"/></g>
-  <g id="kArmR"><path d="M136 120 Q168 138 172 176" stroke="#a00d05" stroke-width="10" stroke-linecap="round" fill="none"/></g>
+  <!-- ===== ARMS ===== -->
+  <g id="kArmL"><path d="M90 200 Q58 218 52 258" stroke="#a00d05" stroke-width="10" stroke-linecap="round" fill="none"/></g>
+  <g id="kArmR"><path d="M130 200 Q162 218 168 258" stroke="#a00d05" stroke-width="10" stroke-linecap="round" fill="none"/></g>
 
-  <!-- ===== shoes (bright red sneakers) ===== -->
-  <rect x="90" y="268" width="24" height="12" rx="5" fill="#fff" stroke="#d0d0d0" stroke-width="1.5"/>
-  <rect x="106" y="268" width="24" height="12" rx="5" fill="#fff" stroke="#d0d0d0" stroke-width="1.5"/>
-  <rect x="92" y="276" width="16" height="3" fill="#c0392b"/>
-  <rect x="114" y="276" width="16" height="3" fill="#c0392b"/>
+  <!-- ===== shoes ===== -->
+  <rect x="92" y="348" width="22" height="11" rx="5" fill="#fff" stroke="#d0d0d0" stroke-width="1.5"/>
+  <rect x="106" y="348" width="22" height="11" rx="5" fill="#fff" stroke="#d0d0d0" stroke-width="1.5"/>
 </svg></div>
       <div class="fact"><b>Fresh, full, and brand new.</b> He's got the whole fridge ahead of him. Bright red, sparkling label, clean white sneakers. He believes he'll go with EVERYTHING and everyone will love him.<br><i>Optimistic kid energy — open smile, rosy cheeks, arms out.</i></div>
       <div class="quote">"I'm gonna be on every plate in this house. Just you watch!"</div>
@@ -103,86 +100,66 @@
     <div class="card dad">
       <h2>POP (KETCHUP SR.)</h2>
       <div class="rel">the dad · more than half used · bitter</div>
-      <div class="stage dad"><svg id="oldSvg" viewBox="0 0 220 320" width="160" height="232">
+      <div class="stage dad"><svg id="oldSvg" viewBox="0 0 220 380" width="150" height="259">
   <defs>
-    <!-- translucent glass so you see it's almost empty -->
     <linearGradient id="kGlass" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#c04838" stop-opacity="0.4"/>
-      <stop offset="0.3" stop-color="#e86858" stop-opacity="0.28"/>
-      <stop offset="0.6" stop-color="#f07860" stop-opacity="0.22"/>
-      <stop offset="1" stop-color="#a03028" stop-opacity="0.45"/>
-    </linearGradient>
-    <linearGradient id="kOldRed" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#5a0803"/>
-      <stop offset="0.5" stop-color="#8a0e05"/>
-      <stop offset="1" stop-color="#480502"/>
+      <stop offset="0" stop-color="#c04838" stop-opacity="0.35"/>
+      <stop offset="0.4" stop-color="#e86858" stop-opacity="0.22"/>
+      <stop offset="0.6" stop-color="#f07860" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#a03028" stop-opacity="0.4"/>
     </linearGradient>
   </defs>
 
-  <!-- ===== UPSIDE-DOWN KETCHUP BOTTLE (dad) - standing on his cap ===== -->
-  <!-- cap/nozzle at BOTTOM -->
-  <rect x="96" y="290" width="28" height="20" rx="5" fill="#8a6a3a"/>
-  <rect x="98" y="306" width="24" height="8" rx="3" fill="#a07a40"/>
+  <!-- ===== TALL KETCHUP UPSIDE DOWN (standing on his cap = the long neck points DOWN) ===== -->
+  <!-- Body (wide) is at TOP now -->
+  <path d="M88 40 Q88 90 110 92 Q132 90 132 40 Z" fill="url(#kGlass)" stroke="#a03028" stroke-width="2.5"/>
+  <path d="M88 40 L132 40 L128 70 L92 70 Z" fill="url(#kGlass)" stroke="#a03028" stroke-width="1.5"/>
+  <!-- the long narrow neck descends from the body down to the cap at the bottom -->
+  <path d="M92 70 L128 70 L124 130 Q124 160 110 160 Q96 160 96 130 L92 70 Z" fill="url(#kGlass)" stroke="#a03028" stroke-width="1.5"/>
+  <rect x="98" y="160" width="24" height="120" fill="url(#kGlass)" stroke="#a03028" stroke-width="1.5"/>
+  <!-- cap at very bottom -->
+  <rect x="96" y="280" width="28" height="18" rx="5" fill="#8a6a3a"/>
+  <rect x="98" y="296" width="24" height="7" rx="3" fill="#a07a40"/>
 
-  <!-- TRANSLUCENT body (viewer can see it's almost empty) -->
-  <!-- body: wide at top (bottle bottom) tapering to nozzle at bottom -->
-  <path d="M84 34 Q84 74 110 76 Q136 74 136 34 Z" fill="url(#kGlass)" stroke="#a03028" stroke-width="2.5"/>
-  <path d="M84 34 L136 34 L132 60 L88 60 Z" fill="url(#kGlass)" stroke="#a03028" stroke-width="1.5"/>
-  <!-- main inverted body -->
-  <path d="M88 76 L132 76 L140 100 L140 250 Q140 282 110 286 Q80 282 80 250 L80 100 Z"
-        fill="url(#kGlass)" stroke="#a03028" stroke-width="2.5"/>
+  <!-- translucent: streaks + tiny pool near cap -->
+  <path d="M94 84 L92 200 Q92 214 96 224 L94 84 Z" fill="#a03028" opacity=".5"/>
+  <path d="M126 84 L128 210 Q128 220 124 230 L126 84 Z" fill="#a03028" opacity=".45"/>
+  <!-- last smear pooling at the cap bottom -->
+  <path d="M96 270 L124 270 L124 280 Q124 284 110 286 Q96 284 96 280 L96 270 Z" fill="#b0150c" opacity=".8"/>
+  <!-- glass shine -->
+  <rect x="102" y="60" width="6" height="120" rx="3" fill="#ffffff33"/>
+  <rect x="112" y="170" width="4" height="90" rx="2" fill="#ffffff22"/>
 
-  <!-- nearly-empty: a few remaining streaks + tiny pool near nozzle (bottom) -->
-  <!-- old dried ketchup streaks on walls (visible through glass) -->
-  <path d="M86 90 L84 200 Q84 215 88 222 L86 90 Z" fill="#a03028" opacity=".5"/>
-  <path d="M134 90 L136 210 Q136 220 132 228 L134 90 Z" fill="#a03028" opacity=".45"/>
-  <!-- thin pool at the nozzle bottom -->
-  <path d="M88 250 L132 250 L132 274 Q132 280 110 282 Q88 280 88 274 L88 250 Z" fill="#b0150c" opacity=".85"/>
-
-  <!-- glass shine highlights (empty feel) -->
-  <rect x="92" y="80" width="8" height="150" rx="4" fill="#ffffff44"/>
-  <rect x="120" y="80" width="4" height="120" rx="2" fill="#ffffff22"/>
-
-  <!-- ===== DAD LABEL (faded, near bottom/right side, peeling) ===== -->
+  <!-- ===== DAD LABEL (faded, mid body) ===== -->
   <g id="kDadLabel">
-    <rect x="76" y="120" width="68" height="80" rx="4" fill="#e0c8a8"/>
-    <rect x="76" y="120" width="68" height="13" fill="#8a6a3a"/>
-    <text x="110" y="130" text-anchor="middle" font-family="monospace" font-size="7" fill="#e8d8b8">KETCHUP</text>
-    <text x="110" y="156" text-anchor="middle" font-family="serif" font-size="15" font-weight="bold" fill="#6a3a20">Pop</text>
-    <text x="110" y="169" text-anchor="middle" font-family="serif" font-size="7" font-style="italic" fill="#8a6a50">the original</text>
-    <text x="110" y="190" text-anchor="middle" font-family="monospace" font-size="5.5" fill="#a09070">HALF USED · 25+ YEARS</text>
-    <!-- peeling corner -->
-    <path d="M76 190 L82 190 L76 196 Z" fill="#d8c8a8"/>
+    <rect x="80" y="100" width="60" height="66" rx="4" fill="#e0c8a8"/>
+    <rect x="80" y="100" width="60" height="12" fill="#8a6a3a"/>
+    <text x="110" y="109" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#e8d8b8">KETCHUP</text>
+    <text x="110" y="130" text-anchor="middle" font-family="serif" font-size="14" font-weight="bold" fill="#6a3a20">Pop</text>
+    <text x="110" y="143" text-anchor="middle" font-family="serif" font-size="6.5" font-style="italic" fill="#8a6a50">the original</text>
+    <text x="110" y="158" text-anchor="middle" font-family="monospace" font-size="5" fill="#a09070">25+ YEARS</text>
   </g>
 
-  <!-- ===== FACE: flips so he's upright at the BOTTOM (near nozzle) ===== -->
-  <!-- face placed low on the body, near the nozzle end, right-side-up -->
+  <!-- ===== FACE: upright at the BOTTOM (near the cap) — his world flipped but he stays upright ===== -->
   <g id="kDadEyes">
-    <!-- grumpy, tired eyes low on bottle -->
-    <ellipse cx="98" cy="210" rx="6.5" ry="5.5" fill="#fff" stroke="#3a0501" stroke-width="2"/>
-    <ellipse cx="122" cy="210" rx="6.5" ry="5.5" fill="#fff" stroke="#3a0501" stroke-width="2"/>
-    <circle cx="100" cy="211" r="3" fill="#3a0501"/>
-    <circle cx="124" cy="211" r="3" fill="#3a0501"/>
-    <!-- heavy grumpy brows (slanted down inward) -->
-    <path d="M90 201 L100 205 M92 200 L101 205" stroke="#3a0501" stroke-width="2.5" fill="none"/>
-    <path d="M130 201 L120 205 M128 200 L119 205" stroke="#3a0501" stroke-width="2.5" fill="none"/>
-    <!-- eye bags -->
-    <path d="M92 218 Q98 220 104 218" stroke="#6a3020" stroke-width="1.2" fill="none" opacity=".5"/>
-    <path d="M116 218 Q122 220 128 218" stroke="#6a3020" stroke-width="1.2" fill="none" opacity=".5"/>
+    <ellipse cx="100" cy="248" rx="6.5" ry="5.5" fill="#fff" stroke="#3a0501" stroke-width="2"/>
+    <ellipse cx="120" cy="248" rx="6.5" ry="5.5" fill="#fff" stroke="#3a0501" stroke-width="2"/>
+    <circle cx="102" cy="249" r="3" fill="#3a0501"/>
+    <circle cx="122" cy="249" r="3" fill="#3a0501"/>
+    <path d="M92 239 L102 243 M94 238 L103 243" stroke="#3a0501" stroke-width="2.5" fill="none"/>
+    <path d="M128 239 L118 243 M126 238 L117 243" stroke="#3a0501" stroke-width="2.5" fill="none"/>
+    <path d="M94 256 Q100 258 106 256" stroke="#6a3020" stroke-width="1.2" opacity=".5"/>
+    <path d="M114 256 Q120 258 126 256" stroke="#6a3020" stroke-width="1.2" opacity=".5"/>
   </g>
   <g id="kDadMouth">
-    <!-- bitter downturned mouth -->
-    <path d="M98 234 Q110 228 122 234" stroke="#3a0501" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+    <path d="M100 272 Q110 266 120 272" stroke="#3a0501" stroke-width="2.8" fill="none" stroke-linecap="round"/>
   </g>
-  <!-- grey mustache (grumpy dad) -->
-  <path d="M98 228 Q110 224 122 228" stroke="#8a8a8a" stroke-width="2" fill="none" opacity=".7"/>
+  <!-- grey stubble -->
+  <path d="M100 266 Q110 262 120 266" stroke="#8a8a8a" stroke-width="2" fill="none" opacity=".7"/>
 
-  <!-- ===== ARMS (crossed, bitter) ===== -->
-  <g id="kDadArmL"><path d="M84 150 Q70 170 96 184" stroke="#5a0a03" stroke-width="8" stroke-linecap="round" fill="none"/></g>
-  <g id="kDadArmR"><path d="M136 150 Q150 170 124 184" stroke="#5a0a03" stroke-width="8" stroke-linecap="round" fill="none"/></g>
-
-  <!-- ===== shoes (he stands on his head so his "feet" are up top? He rests cap-down; give him old slippers near his face end) ===== -->
-  <!-- skip shoes - he lives on his head -->
+  <!-- arms crossed, bitter -->
+  <g id="kDadArmL"><path d="M90 180 Q76 200 102 214" stroke="#5a0a03" stroke-width="8" stroke-linecap="round" fill="none"/></g>
+  <g id="kDadArmR"><path d="M130 180 Q144 200 118 214" stroke="#5a0a03" stroke-width="8" stroke-linecap="round" fill="none"/></g>
 </svg></div>
       <div class="fact"><b>Half his life spent standing on his head</b> so the last drops would come out. Now he's translucent — you can see right through him, just a smear left. Faded label, droopy grumpy eyes, grey stubble, arms crossed. He's bitter: he's been squeezed dry by everyone.<br><i>Face stays upright at the bottom even though his world is flipped.</i></div>
       <div class="quote">"You kids think ketchup's a joke. Try being everyone's first squeeze for 25 years. *hmph*"</div>
