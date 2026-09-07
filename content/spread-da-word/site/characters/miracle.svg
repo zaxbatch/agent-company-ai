@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 330" width="220" height="310">
+  <defs>
+    <linearGradient id="mirGlass" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d0c8d8"/>
+      <stop offset="0.35" stop-color="#f4f0f8"/>
+      <stop offset="0.6" stop-color="#eae6f2"/>
+      <stop offset="1" stop-color="#b4acc4"/>
+    </linearGradient>
+    <linearGradient id="mirGold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8a6a1a"/>
+      <stop offset="0.5" stop-color="#d4af37"/>
+      <stop offset="1" stop-color="#8a6a1a"/>
+    </linearGradient>
+    <linearGradient id="mirPurple" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4a2050"/>
+      <stop offset="0.5" stop-color="#7a3a84"/>
+      <stop offset="1" stop-color="#3a183e"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ===== Sleek Fridge jar (taller, narrower = feminine/elite) ===== -->
+  <!-- gold lid with band -->
+  <path d="M88 34 L132 34 L132 50 L88 50 Z" fill="url(#mirGold)" stroke="#6a4e0e" stroke-width="1.5"/>
+  <path d="M90 28 L130 28 L130 36 L90 36 Z" fill="#e8d88a"/>
+  <!-- jar -->
+  <path d="M90 50 L130 50 L136 62 L136 252 Q136 260 110 260 Q84 260 84 252 L84 62 Z"
+        fill="url(#mirGlass)" stroke="#7a708a" stroke-width="2.5"/>
+  <!-- creamy whip content -->
+  <path d="M88 96 L132 96 L134 238 Q134 256 110 256 Q86 256 86 238 L88 96 Z" fill="#fdf4f0" opacity=".85"/>
+  <!-- gloss -->
+  <rect x="92" y="58" width="8" height="180" rx="4" fill="#ffffff66"/>
+
+  <!-- ===== LABEL: elite gold/purple ===== -->
+  <g id="mirLabel">
+    <rect x="76" y="112" width="68" height="104" rx="6" fill="#f8f4fc" stroke="#7a3a84" stroke-width="3"/>
+    <rect x="76" y="112" width="68" height="20" fill="url(#mirPurple)"/>
+    <text x="110" y="126" text-anchor="middle" font-family="serif" font-size="11" font-weight="bold" fill="#fff" letter-spacing="1">Miracle</text>
+    <path d="M84 150 L136 150" stroke="url(#mirGold)" stroke-width="1.5"/>
+    <text x="110" y="165" text-anchor="middle" font-family="monospace" font-size="8" fill="#4a2050" letter-spacing="2">WHIP CO.</text>
+    <text x="110" y="182" text-anchor="middle" font-family="serif" font-size="9" font-style="italic" fill="#8a5a9a">est. the fridge</text>
+    <text x="110" y="200" text-anchor="middle" font-family="monospace" font-size="7" fill="#a080b0">not mayo · me</text>
+  </g>
+
+  <!-- ===== FACE: sharp, ambitious ===== -->
+  <g id="mirEyes">
+    <!-- winged eyeliner look -->
+    <ellipse cx="97" cy="82" rx="6" ry="5.5" fill="#fff" stroke="#2a1a30" stroke-width="1.5"/>
+    <ellipse cx="123" cy="82" rx="6" ry="5.5" fill="#fff" stroke="#2a1a30" stroke-width="1.5"/>
+    <circle cx="99" cy="83" r="2.8" fill="#2a1a30"/>
+    <circle cx="125" cy="83" r="2.8" fill="#2a1a30"/>
+    <!-- lashes -->
+    <path d="M91 78 L88 74 M91 76 L89 73" stroke="#2a1a30" stroke-width="1.5"/>
+    <path d="M129 78 L132 74 M129 76 L131 73" stroke="#2a1a30" stroke-width="1.5"/>
+    <!-- thin sharp brows -->
+    <path d="M92 72 L102 70 M128 72 L118 70" stroke="#2a1a30" stroke-width="1.8"/>
+  </g>
+  <g id="mirMouth">
+    <!-- cool small smirk -->
+    <path d="M101 100 Q110 105 119 98" stroke="#4a2050" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- ===== ARMS (elegant blazer) ===== -->
+  <g id="mirArmL"><path d="M84 140 Q58 156 54 188" stroke="#3a2a4a" stroke-width="8" stroke-linecap="round" fill="none"/></g>
+  <g id="mirArmR"><path d="M136 140 Q162 156 166 188" stroke="#3a2a4a" stroke-width="8" stroke-linecap="round" fill="none"/></g>
+
+  <!-- ===== gold bracelet (twin wealth) ===== -->
+  <g id="mirBracelet"><rect x="158" y="180" width="8" height="14" rx="3" fill="url(#mirGold)"/></g>
+
+  <!-- ===== shoes (heels) ===== -->
+  <path d="M88 258 L106 258 L108 266 Q96 270 90 266 Z" fill="#2a1a30"/>
+  <path d="M114 258 L132 258 L130 266 Q118 270 112 266 Z" fill="#2a1a30"/>
+</svg>
