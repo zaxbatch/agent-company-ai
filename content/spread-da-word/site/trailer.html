@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spread Da Word — Trailer</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1280px;height:720px;overflow:hidden;background:#000;font-family:monospace}
+  #stage{position:absolute;inset:0;background:#000;overflow:hidden}
+  .shot{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .4s}
+  .shot.on{opacity:1}
+  /* fridge dark */
+  .dark{background:radial-gradient(ellipse at 50% 45%,#0c1622,#000 75%)}
+  .dark .shelf{position:absolute;left:0;right:0;height:4px;background:#1a2a3a22}
+  .txt{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center}
+  .txt h1{color:#e0ecf8;font-size:38px;letter-spacing:3px;font-family:serif;text-shadow:0 0 30px #3a6a9a,0 0 60px #1a3a5a}
+  .txt p{color:#6a8aaa;font-size:15px;letter-spacing:5px;margin-top:16px}
+  .txt.big h1{font-size:60px}
+  /* character shots */
+  .ch{display:flex;align-items:flex-end;justify-content:center;height:100%;position:relative}
+  .ch .glow{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:560px;height:420px;background:radial-gradient(ellipse,rgba(40,80,140,.5),transparent 70%)}
+  .ch .fig{position:relative;z-index:3}
+  .ch .vo{position:absolute;bottom:56px;left:0;right:0;text-align:center;color:#dce9f5;font-size:22px;font-style:italic;text-shadow:0 0 15px #000;z-index:5}
+  .ch .band{position:absolute;top:0;left:0;right:0;height:100%;background:radial-gradient(ellipse at center,transparent 45%,#000 100%)}
+  /* quick cut area */
+  #quickArea{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+  .qc{position:absolute;opacity:0;transition:opacity .35s;display:flex;align-items:center;justify-content:center}
+  .qc.show{opacity:1}
+  /* snow */
+  #snowSnake{position:absolute;bottom:6px;left:-60px;font-size:28px;z-index:20}
+  .controls{position:fixed;bottom:10px;left:10px;z-index:99}
+  button{background:#1a3a5a;color:#cfe8ff;border:1px solid #3a6a9a;padding:8px 18px;font-family:monospace;cursor:pointer;border-radius:6px}
+</style>
+</head>
+<body>
+<div id="stage">
+  <!-- 0: dark fridge flicker -->
+  <div class="shot dark on" id="sh0"></div>
+  <!-- 1: text "just food" -->
+  <div class="shot dark" id="sh1"><div class="txt"><h1>They told you it was just food.</h1><p>SPREAD DA WORD</p></div></div>
+  <!-- 2: VIN -->
+  <div class="shot" id="sh2" style="background:radial-gradient(ellipse at 50% 60%,#1a0c06,#000)"><div class="ch"><div class="glow"></div><div class="fig"><svg viewBox="0 0 220 330" width="220" height="330">
+  <defs>
+    <linearGradient id="vinGlass" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4f1806"/>
+      <stop offset="0.3" stop-color="#6e2608"/>
+      <stop offset="0.5" stop-color="#7e2e0a"/>
+      <stop offset="1" stop-color="#3a1003"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ===== WINE BOTTLE (flat bottom) ===== -->
+  <path d="M92 44 L128 44 L128 78 Q128 94 140 106 L142 118 L142 252 Q142 260 135 262 L85 262 Q78 260 78 252 L78 118 L80 106 Q92 94 92 78 Z"
+        fill="url(#vinGlass)" stroke="#200a02" stroke-width="2.5"/>
+
+  <!-- ===== FACE (shades + mouth) on neck/shoulder ===== -->
+  <g id="vinShades">
+    <rect x="86" y="64" width="21" height="15" rx="4" fill="#0b0b0b" stroke="#e8c15a" stroke-width="2"/>
+    <rect x="113" y="64" width="21" height="15" rx="4" fill="#0b0b0b" stroke="#e8c15a" stroke-width="2"/>
+    <path d="M107 71 L113 71" stroke="#e8c15a" stroke-width="2"/>
+    <path d="M86 71 L76 66 M134 71 L144 66" stroke="#1f0a02" stroke-width="3"/>
+  </g>
+  <g id="vinMouth">
+    <path d="M100 92 Q110 101 120 92" stroke="#160a02" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- ===== LABEL (middle of bottle) ===== -->
+  <g id="vinLabelWrap">
+    <rect x="83" y="162" width="54" height="62" rx="3" fill="#f7ead0"/>
+    <rect x="88" y="168" width="44" height="13" fill="#5a1803"/>
+    <text x="110" y="178" text-anchor="middle" font-family="monospace" font-size="9" font-weight="bold" fill="#ffe8d0">VIN NEGAR</text>
+    <text x="110" y="196" text-anchor="middle" font-family="monospace" font-size="10.5" font-weight="bold" fill="#4a1604">REALEST</text>
+    <text x="110" y="207" text-anchor="middle" font-family="monospace" font-size="5.5" fill="#7e4a24">real vinegar</text>
+    <text x="110" y="218" text-anchor="middle" font-family="monospace" font-size="6" fill="#5a2a12">est. cab-nets</text>
+    <rect x="83" y="162" width="6" height="62" fill="#200a02" opacity=".35"/>
+    <rect x="131" y="162" width="6" height="62" fill="#200a02" opacity=".35"/>
+    <rect x="102" y="162" width="5" height="62" fill="#ffffff" opacity=".18"/>
+  </g>
+
+  <!-- ===== ARMS: attach at shoulder (just below taper), drawn before chain ===== -->
+  <g id="vinArmL"><path d="M80 122 Q54 140 48 172" stroke="#1c0f06" stroke-width="11" stroke-linecap="round" fill="none"/></g>
+  <g id="vinArmR"><path d="M140 122 Q166 140 172 172" stroke="#1c0f06" stroke-width="11" stroke-linecap="round" fill="none"/></g>
+
+  <!-- ===== CHAIN: from neck, hangs ABOVE arms and dangles a little past them ===== -->
+  <g id="vinChain">
+    <path d="M82 100 Q110 150 138 100" stroke="#ffd700" stroke-width="4.5" fill="none"/>
+    <path d="M88 106 L96 120 M96 110 L102 118 M124 110 L130 118 M132 106 L140 120" stroke="#ffd700" stroke-width="2.2"/>
+    <circle cx="110" cy="124" r="10" fill="#111" stroke="#ffd700" stroke-width="3.5"/>
+    <text x="110" y="130" text-anchor="middle" font-size="9" font-weight="bold" fill="#ffd700">V</text>
+  </g>
+
+  <!-- ===== CAP: black w/ gold trim + ridges, tilted like a hat, DRAWN LAST (in front) ===== -->
+  <g id="vinCap" transform="rotate(-14 110 46)">
+    <path d="M86 44 Q88 16 110 14 Q132 16 134 44 L136 50 Q110 62 84 50 Z" fill="#0b0b0b"/>
+    <!-- ridges on black -->
+    <path d="M98 18 L98 55 M106 15.5 L106 55 M114 15.5 L114 55 M122 18 L122 55" stroke="#222" stroke-width="1.2"/>
+    <!-- gold bottom trim -->
+    <path d="M84 50 Q110 62 136 50 L136 56 Q110 68 84 56 Z" fill="#ffd700"/>
+    <!-- brim -->
+    <path d="M134 40 Q150 42 154 50 L136 54 Z" fill="#0b0b0b" stroke="#ffd700" stroke-width="1"/>
+  </g>
+
+  <!-- shoes -->
+  <rect x="84" y="260" width="24" height="10" rx="4" fill="#0a0a0a"/>
+  <rect x="112" y="260" width="24" height="10" rx="4" fill="#0a0a0a"/>
+</svg></div><div class="band"></div><div class="vo">"You ain't ready for me, bro."</div></div></div>
+  <!-- 3: kingdom -->
+  <div class="shot dark" id="sh3"><div class="txt"><h1>It's a kingdom.</h1><p>THE FRIDGE</p></div></div>
+  <!-- 4: MANNY -->
+  <div class="shot" id="sh4" style="background:radial-gradient(ellipse at 50% 60%,#0e2233,#000)"><div class="ch"><div class="glow"></div><div class="fig"><svg viewBox="0 0 300 240" width="260" height="208">
+  <defs>
+    <linearGradient id="mayoGlass" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b8c8d0"/>
+      <stop offset="0.3" stop-color="#eef4f6"/>
+      <stop offset="0.6" stop-color="#dfe8ec"/>
+      <stop offset="1" stop-color="#9cb0b8"/>
+    </linearGradient>
+    <linearGradient id="mayoBlue" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1a3a5c"/>
+      <stop offset="0.5" stop-color="#2a5a8c"/>
+      <stop offset="1" stop-color="#16324e"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ===== WIDE SQUAT MAYO JAR ===== -->
+  <!-- silver lid -->
+  <path d="M96 30 L204 30 L204 46 L96 46 Z" fill="#d8dde0" stroke="#8a9298" stroke-width="2"/>
+  <path d="M100 24 L200 24 L200 31 L100 31 Z" fill="#aeb6bc"/>
+  <!-- jar body (very wide) -->
+  <path d="M100 46 L200 46 L206 66 L206 196 Q206 224 150 226 Q94 224 94 196 L94 66 Z"
+        fill="url(#mayoGlass)" stroke="#7a8a92" stroke-width="2.5"/>
+  <!-- mayo content -->
+  <path d="M98 78 L202 78 L202 188 Q202 216 150 218 Q98 216 98 188 L98 78 Z" fill="#fdf6ea" opacity=".9"/>
+  <!-- gloss -->
+  <rect x="104" y="52" width="10" height="150" rx="5" fill="#ffffff99"/>
+
+  <!-- ===== FACE (upper on jar) ===== -->
+  <g id="mayoEyes">
+    <circle cx="136" cy="62" r="6" fill="#fff" stroke="#1a2a3a" stroke-width="2"/>
+    <circle cx="164" cy="62" r="6" fill="#fff" stroke="#1a2a3a" stroke-width="2"/>
+    <circle cx="138" cy="63" r="3" fill="#1a2a3a"/>
+    <circle cx="166" cy="63" r="3" fill="#1a2a3a"/>
+    <path d="M128 53 L136 49 L144 53" stroke="#1a2a3a" stroke-width="2" fill="none"/>
+    <path d="M156 53 L164 49 L172 53" stroke="#1a2a3a" stroke-width="2" fill="none"/>
+  </g>
+  <g id="mayoMouth"><path d="M136 78 Q150 84 164 76" stroke="#1a2a3a" stroke-width="2.4" fill="none" stroke-linecap="round"/></g>
+
+  <!-- ===== LABEL with TRIM (gold lines top/bottom break up white) ===== -->
+  <g id="mayoLabel">
+    <!-- white label panel -->
+    <rect x="112" y="92" width="76" height="88" rx="5" fill="#f4f8fb"/>
+    <!-- top blue band -->
+    
+    <!-- gold trim lines -->
+    <rect x="112" y="106" width="76" height="2.5" fill="#d4af37"/>
+    <rect x="112" y="172" width="76" height="2.5" fill="#d4af37"/>
+    <!-- text -->
+    
+    <text x="150" y="126" text-anchor="middle" font-family="serif" font-size="20" font-weight="bold" fill="#1a3a5c">Manny</text>
+    <text x="150" y="141" text-anchor="middle" font-family="serif" font-size="9" font-style="italic" fill="#3a5a7a">"Da Man's"</text>
+    <!-- gold divider -->
+    <path d="M124 152 L176 152" stroke="#d4af37" stroke-width="1.4"/>
+    <rect x="112" y="162" width="76" height="16" fill="url(#mayoBlue)"/>
+    <text x="150" y="173" text-anchor="middle" font-family="serif" font-size="7.5" font-weight="bold" fill="#fff">MAYONNAISE</text>
+  </g>
+
+  <!-- ===== ARMS (suit sleeves from wide body sides) ===== -->
+  <g id="mayoArmL"><path d="M98 100 Q70 118 66 148" stroke="#2a3a52" stroke-width="10" stroke-linecap="round" fill="none"/></g>
+  <g id="mayoArmR"><path d="M202 100 Q230 118 234 148" stroke="#2a3a52" stroke-width="10" stroke-linecap="round" fill="none"/></g>
+  <g id="mayoWatch"><circle cx="234" cy="142" r="7" fill="#c8d0d8" stroke="#8a9298" stroke-width="2"/><circle cx="234" cy="142" r="3" fill="#1a3a5c"/></g>
+
+  <!-- ===== shoes ===== -->
+  <rect x="118" y="222" width="26" height="11" rx="4" fill="#1a1a1a"/>
+  <rect x="156" y="222" width="26" height="11" rx="4" fill="#1a1a1a"/>
+</svg></div><div class="band"></div><div class="vo">"Let's keep it smooth."</div></div></div>
+  <!-- 5: MIRA -->
+  <div class="shot" id="sh5" style="background:radial-gradient(ellipse at 50% 60%,#1c0f28,#000)"><div class="ch"><div class="glow"></div><div class="fig"><svg viewBox="0 0 300 240" width="260" height="208">
+  <defs>
+    <linearGradient id="mirGlass" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#c8c0d0"/>
+      <stop offset="0.3" stop-color="#f2eef6"/>
+      <stop offset="0.6" stop-color="#e4e0ec"/>
+      <stop offset="1" stop-color="#a8a0b8"/>
+    </linearGradient>
+    <linearGradient id="mirGold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8a6a1a"/>
+      <stop offset="0.5" stop-color="#d4af37"/>
+      <stop offset="1" stop-color="#8a6a1a"/>
+    </linearGradient>
+    <linearGradient id="mirPurple" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4a2050"/>
+      <stop offset="0.5" stop-color="#7a3a84"/>
+      <stop offset="1" stop-color="#3a183e"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ===== WIDE SQUAT JAR ===== -->
+  <!-- gold lid -->
+  <path d="M98 30 L202 30 L202 46 L98 46 Z" fill="url(#mirGold)" stroke="#6a4e0e" stroke-width="1.5"/>
+  <path d="M102 24 L198 24 L198 31 L102 31 Z" fill="#e8d88a"/>
+  <!-- jar -->
+  <path d="M100 46 L200 46 L206 66 L206 196 Q206 224 150 226 Q94 224 94 196 L94 66 Z"
+        fill="url(#mirGlass)" stroke="#7a708a" stroke-width="2.5"/>
+  <!-- creamy dressing content -->
+  <path d="M98 78 L202 78 L202 188 Q202 216 150 218 Q98 216 98 188 L98 78 Z" fill="#fdf4f0" opacity=".9"/>
+  <!-- gloss -->
+  <rect x="104" y="52" width="10" height="150" rx="5" fill="#ffffff99"/>
+
+  <!-- ===== FACE ===== -->
+  <g id="mirEyes">
+    <ellipse cx="136" cy="62" rx="6" ry="5.5" fill="#fff" stroke="#2a1a30" stroke-width="1.8"/>
+    <ellipse cx="164" cy="62" rx="6" ry="5.5" fill="#fff" stroke="#2a1a30" stroke-width="1.8"/>
+    <circle cx="138" cy="63" r="3" fill="#2a1a30"/>
+    <circle cx="166" cy="63" r="3" fill="#2a1a30"/>
+    <path d="M129 53 L126 48 M129 52 L127 49" stroke="#2a1a30" stroke-width="1.6"/>
+    <path d="M171 53 L174 48 M171 52 L173 49" stroke="#2a1a30" stroke-width="1.6"/>
+    <path d="M130 54 L140 51 M170 54 L160 51" stroke="#2a1a30" stroke-width="1.7"/>
+  </g>
+  <g id="mirMouth"><path d="M138 78 Q150 83 162 76" stroke="#4a2050" stroke-width="2.2" fill="none" stroke-linecap="round"/></g>
+
+  <!-- ===== LABEL with gold trim ===== -->
+  <g id="mirLabel">
+    <rect x="112" y="92" width="76" height="88" rx="5" fill="#f8f4fc"/>
+    <!-- purple top band -->
+    
+    <!-- gold trim lines -->
+    <rect x="112" y="106" width="76" height="2.5" fill="#d4af37"/>
+    <rect x="112" y="172" width="76" height="2.5" fill="#d4af37"/>
+    
+    <!-- Miracle in cursive -->
+    <text x="150" y="134" text-anchor="middle" font-family="'Brush Script MT','Segoe Script',cursive" font-size="28" font-weight="bold" fill="#4a2050">Miracle</text>
+    <!-- gold divider -->
+    <path d="M124 146 L176 146" stroke="#d4af37" stroke-width="1.4"/>
+    <rect x="112" y="162" width="76" height="16" fill="url(#mirPurple)"/>
+    <text x="150" y="173" text-anchor="middle" font-family="serif" font-size="7.5" font-weight="bold" fill="#fff">DRESSING</text>
+  </g>
+
+  <!-- ===== ARMS ===== -->
+  <g id="mirArmL"><path d="M98 100 Q70 116 66 148" stroke="#3a2a4a" stroke-width="8" stroke-linecap="round" fill="none"/></g>
+  <g id="mirArmR"><path d="M202 100 Q230 116 234 148" stroke="#3a2a4a" stroke-width="8" stroke-linecap="round" fill="none"/></g>
+  <g id="mirBracelet"><rect x="228" y="140" width="8" height="14" rx="3" fill="url(#mirGold)"/></g>
+
+  <!-- ===== heels ===== -->
+  <path d="M124 222 L140 222 L141 230 Q130 234 124 230 Z" fill="#2a1a30"/>
+  <path d="M160 222 L176 222 L175 230 Q164 234 158 230 Z" fill="#2a1a30"/>
+</svg></div><div class="band"></div><div class="vo">"I'm not Mayo. I'm me."</div></div></div>
+  <!-- 6: class war -->
+  <div class="shot dark" id="sh6"><div class="txt"><h1>With its own class war.</h1><p>CAB-NETS vs FRIDGE</p></div></div>
+  <!-- 7: TOM -->
+  <div class="shot" id="sh7" style="background:radial-gradient(ellipse at 50% 60%,#2a0a06,#000)"><div class="ch"><div class="glow"></div><div class="fig"><svg viewBox="0 0 220 330" width="240" height="360">
+  <defs>
+    <linearGradient id="clearG" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e8d8d0" stop-opacity="0.4"/>
+      <stop offset="0.4" stop-color="#f8f0ea" stop-opacity="0.15"/>
+      <stop offset="0.7" stop-color="#f8f0ea" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#c8a898" stop-opacity="0.32"/>
+    </linearGradient>
+    <clipPath id="bottleClip">
+  <path d="M98 290 L122 290
+           L122 278 Q122 254 144 234 L144 90
+           L144 72 Q144 68 110 68 Q76 68 76 72 L76 90
+           L76 234 Q98 254 98 278 Z"/>
+  </clipPath>
+</defs>
+
+  <!-- ===== POP = JR's EXACT silhouette, FLIPPED (wide body top, smooth neck down to white cap at bottom) ===== -->
+  <!-- white cap at BOTTOM (JR's cap mirrored) -->
+  <rect x="94" y="290" width="32" height="24" rx="6" fill="#f4f4f0" stroke="#c8c8c4" stroke-width="1.5"/>
+  <path d="M96 284 L126 284 L126 290 L96 290 Z" fill="#d8d8d4"/>
+
+  <!-- EXACT JR body path, flipped: use JR's shape mirrored. JR was cap@top neck@40-76 body@76-262.
+       Flip: body becomes top (y330-262=68 to y330-76=254... i.e. bottom of JR at 262 -> top at 68),
+       neck goes to bottom near cap. -->
+  <!-- wide body (this is JR's bottom, now at top, but keep JR's actual flare) -->
+  <!-- To be a TRUE mirror of JR, just draw JR's path but with y inverted: y' = 330 - y -->
+  <!-- JR body: M98 40 L122 40 L122 52 Q122 76 144 96 L144 240 L144 258 Q144 262 110 262 Q76 262 76 258 L76 240 L76 96 Q98 76 98 52 Z
+       flipped y: 40->290, 52->278, 76->254, 96->234, 240->90, 258->72, 262->68, 96(second)->234, 76->254 -->
+  <!-- neck (JR neck 40-76 at top) flipped to bottom near cap: -->
+  <path d="M98 290 L122 290
+           L122 278 Q122 254 144 234 L144 90
+           L144 72 Q144 68 110 68 Q76 68 76 72 L76 90
+           L76 234 Q98 254 98 278 Z"
+        fill="url(#clearG)" stroke="#b88878" stroke-width="2.5"/>
+  <!-- flat base line (was JR's bottom, now top) -->
+  <path d="M76 72 Q92 66 110 66 Q128 66 144 72" fill="none" stroke="#b88878" stroke-width="2"/>
+
+  <!-- RED ketchup in the neck region (now near bottom, before cap) - JR's neck was 52-76 wide section -->
+  
+    <!-- main ketchup: widens following bottle -->
+    
+  <!-- a little red just above cap -->
+  <path d="M96 284 L124 284 L124 288 Q124 292 110 293 Q96 292 96 288 L96 284 Z" fill="#a00d05" opacity="0.9"/>
+  <!-- ketchup follows the bottle: fills neck + flares with the walls -->
+<!-- surface meniscus line (where ketchup meets air) -->
+<path d="M96 216 Q104 212 110 213 Q118 212 124 216" stroke="#f05030" stroke-width="2" fill="none" opacity="0.6"/>
+  
+<!-- ketchup pooled in the neck/lower body (clipped to bottle so it follows the shape) -->
+<g clip-path="url(#bottleClip)">
+  <rect x="70" y="200" width="80" height="100" fill="#d0150c" opacity="0.85"/>
+</g>
+<!-- small solid pool at the cap -->
+<path d="M96 284 L124 284 L124 292 Q124 296 110 297 Q96 296 96 292 Z" fill="#b00d05" opacity="0.9"/>
+  <!-- dried streaks on glass -->
+  <path d="M82 110 L80 200 Q80 212 84 220 L82 110 Z" fill="#c0150c" opacity="0.3"/>
+  <path d="M138 110 L140 190 Q140 202 136 212 L138 110 Z" fill="#c0150c" opacity="0.28"/>
+  <!-- shine -->
+  <rect x="88" y="110" width="7" height="120" rx="3.5" fill="#ffffff88"/>
+
+  <!-- ===== FACE at the NECK (upside-down, near bottom by cap = mirror of JR's face-at-shoulder) ===== -->
+  <!-- JR face was cy 98 upper body. Flipped: near bottom of the wide body above the neck. Put at cy ~205 right above red neck -->
+  <g id="popFace" transform="translate(110,200) rotate(180)">
+    <ellipse cx="-14" cy="-12" rx="6.5" ry="4.5" fill="#fff" stroke="#3a0501" stroke-width="1.8"/>
+    <ellipse cx="14" cy="-12" rx="6.5" ry="4.5" fill="#fff" stroke="#3a0501" stroke-width="1.8"/>
+    <circle cx="-12" cy="-11" r="2.2" fill="#3a0501"/>
+    <circle cx="16" cy="-11" r="2.2" fill="#3a0501"/>
+    <path d="M-24 -20 L-8 -15 M-22 -21 L-8 -15" stroke="#3a0501" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+    <path d="M24 -20 L8 -15 M22 -21 L8 -15" stroke="#3a0501" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+    <path d="M-22 -5 Q-14 -2 -6 -5" stroke="#7a5a40" stroke-width="1.2" fill="none" opacity="0.6"/>
+    <path d="M6 -5 Q14 -2 22 -5" stroke="#7a5a40" stroke-width="1.2" fill="none" opacity="0.6"/>
+    <path d="M-13 4 Q0 -3 13 4" stroke="#3a0501" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+    <path d="M-14 0 Q0 -4 14 0" stroke="#9a9a9a" stroke-width="1.8" fill="none" opacity="0.7"/>
+  </g>
+
+  <!-- ===== faded label upside-down on the body ===== -->
+  <g transform="translate(110,120) rotate(180)">
+    <rect x="-30" y="-42" width="60" height="84" rx="10" fill="#e0c8a8" opacity="0.92"/>
+    <rect x="-30" y="-42" width="60" height="15" fill="#8a6a3a"/>
+    <text x="0" y="-31" text-anchor="middle" font-family="monospace" font-size="7" font-weight="bold" fill="#fff">KETCHUP</text>
+    <text x="0" y="-8" text-anchor="middle" font-family="serif" font-size="15" font-weight="bold" fill="#6a3a20">Tom</text>
+    <text x="0" y="6" text-anchor="middle" font-family="serif" font-size="8" font-style="italic" fill="#8a6a50">hides in the back</text>
+    <text x="0" y="26" text-anchor="middle" font-family="monospace" font-size="5.5" fill="#a08060">GOES W/EVERYTHING</text>
+    <text x="0" y="38" text-anchor="middle" font-family="monospace" font-size="5" fill="#8a6a50">32 OZ</text>
+  </g>
+
+  <!-- arms crossed near top -->
+  <g id="popArmR"><path d="M138 168 Q124 190 94 200" stroke="#5a0a03" stroke-width="8" stroke-linecap="round" fill="none"/></g>
+<g id="popArmL"><path d="M82 168 Q96 190 126 200" stroke="#5a0a03" stroke-width="8" stroke-linecap="round" fill="none"/></g>
+</svg></div><div class="band"></div><div class="vo">"Been everyone's first squeeze for 25 years."</div></div></div>
+  <!-- 8: TOM JR -->
+  <div class="shot" id="sh8" style="background:radial-gradient(ellipse at 50% 60%,#3a1008,#000)"><div class="ch"><div class="glow"></div><div class="fig"><svg viewBox="0 0 220 330" width="150" height="225">
+  <defs>
+    <linearGradient id="kRed" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a00d05"/>
+      <stop offset="0.35" stop-color="#d91a0c"/>
+      <stop offset="0.6" stop-color="#ef2a18"/>
+      <stop offset="1" stop-color="#850a03"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ===== HEINZ-57 STYLE BOTTLE - SMOOTH neck/shoulder, FLAT bottom ===== -->
+  <!-- WHITE CAP -->
+  <rect x="94" y="16" width="32" height="24" rx="6" fill="#f4f4f0" stroke="#c8c8c4" stroke-width="1.5"/>
+  <path d="M96 28 L126 28 L126 34 L96 34 Z" fill="#d8d8d4"/>
+  <!-- neck + shoulders: ONE smooth continuous curve from neck into wide body -->
+  <!-- Use a single path: narrow neck top -> smooth S-curve shoulders out to body -> straight sides -> FLAT bottom -->
+  <path d="M98 40 L122 40
+           L122 52 Q122 76 144 96 L144 240
+           L144 258 Q144 262 110 262 Q76 262 76 258 L76 240
+           L76 96 Q98 76 98 52 Z"
+        fill="url(#kRed)" stroke="#5a0a02" stroke-width="2.5"/>
+  <!-- flat bottom base line -->
+  <path d="M76 258 Q92 264 110 264 Q128 264 144 258" fill="none" stroke="#5a0a02" stroke-width="2.5"/>
+
+  <!-- FULL content -->
+  <path d="M80 104 L140 104 L140 236 L140 252 Q110 260 80 252 L80 236 L80 104 Z" fill="#e02415" opacity=".7"/>
+  <!-- gloss -->
+  <rect x="86" y="98" width="9" height="145" rx="4.5" fill="#ffffff44"/>
+
+  <!-- ===== KID LABEL ===== -->
+  <g id="kLabel">
+    <rect x="80" y="152" width="60" height="82" rx="10" fill="#f8e8d8"/>
+    <rect x="80" y="152" width="60" height="15" fill="#c0392b"/>
+    <text x="110" y="163" text-anchor="middle" font-family="monospace" font-size="7" font-weight="bold" fill="#fff">KETCHUP</text>
+    <text x="110" y="189" text-anchor="middle" font-family="serif" font-size="12" font-weight="bold" fill="#a00d05">Jr.</text>
+    <text x="110" y="203" text-anchor="middle" font-family="serif" font-size="8" font-style="italic" fill="#d05030">the optimist</text>
+    <text x="110" y="220" text-anchor="middle" font-family="monospace" font-size="5.5" fill="#c06040">GOES W/EVERYTHING</text>
+    <text x="110" y="231" text-anchor="middle" font-family="monospace" font-size="5" fill="#a05030">14 OZ</text>
+  </g>
+
+  <!-- ===== KID FACE ===== -->
+  <g id="kEyes">
+    <circle cx="100" cy="98" r="7" fill="#fff" stroke="#3a0a02" stroke-width="2.5"/>
+    <circle cx="120" cy="98" r="7" fill="#fff" stroke="#3a0a02" stroke-width="2.5"/>
+    <circle cx="102" cy="99" r="3.5" fill="#3a0a02"/>
+    <circle cx="122" cy="99" r="3.5" fill="#3a0a02"/>
+    <path d="M92 89 Q100 83 108 89" stroke="#3a0a02" stroke-width="2.2" fill="none"/>
+    <path d="M112 89 Q120 83 128 89" stroke="#3a0a02" stroke-width="2.2" fill="none"/>
+    <circle cx="93" cy="112" r="4.5" fill="#ff8a70" opacity=".5"/>
+    <circle cx="127" cy="112" r="4.5" fill="#ff8a70" opacity=".5"/>
+  </g>
+  <g id="kMouth">
+    <path d="M100 118 Q110 130 120 118 Z" fill="#5a0a02"/>
+    <path d="M102 119 Q110 127 118 119" stroke="#fff" stroke-width="1.4" fill="none"/>
+  </g>
+
+  <!-- ===== ARMS ===== -->
+  <g id="kArmL"><path d="M78 140 Q50 156 44 196" stroke="#a00d05" stroke-width="10" stroke-linecap="round" fill="none"/></g>
+  <g id="kArmR"><path d="M142 140 Q170 156 176 196" stroke="#a00d05" stroke-width="10" stroke-linecap="round" fill="none"/></g>
+
+  <!-- ===== FEET: sneakers with a GAP below the bottle so they read as feet, not another top ===== -->
+  <!-- bottle bottom is at ~260; feet sit BELOW with visible gap -->
+  <rect x="88" y="274" width="20" height="14" rx="4" fill="#fff" stroke="#ccc" stroke-width="1.5"/>
+  <rect x="112" y="274" width="20" height="14" rx="4" fill="#fff" stroke="#ccc" stroke-width="1.5"/>
+  <!-- gap line: dark space between bottle bottom (260) and feet (272) -->
+  <rect x="82" y="263" width="56" height="8" fill="#0a1220" opacity="0"/>
+  <!-- red accents on sneakers -->
+  <rect x="90" y="282" width="13" height="3" fill="#c0392b"/>
+  <rect x="117" y="282" width="13" height="3" fill="#c0392b"/>
+  <!-- soles -->
+  <rect x="88" y="286" width="20" height="3" fill="#e0e0e0"/>
+  <rect x="112" y="286" width="20" height="3" fill="#e0e0e0"/>
+</svg></div><div class="band"></div><div class="vo">"I go with everything!"</div></div></div>
+  <!-- 9: legends -->
+  <div class="shot dark" id="sh9"><div class="txt"><h1>And its own legends.</h1><p>THE CAST</p></div></div>
+  <!-- 10: quick cuts -->
+  <div class="shot dark" id="sh10"><div id="quickArea">
+     <div class="qc" id="qcQ"><svg viewBox="0 0 220 330" width="200" height="300">
+  <defs>
+    <linearGradient id="queBody" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4d0f02"/>
+      <stop offset="0.3" stop-color="#6e1c04"/>
+      <stop offset="0.5" stop-color="#7e2406"/>
+      <stop offset="1" stop-color="#3a0a01"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ===== RANCH/BBQ SQUEEZE BOTTLE ===== -->
+  <!-- flip cap -->
+  <path d="M94 40 L126 40 L124 50 L96 50 Z" fill="#e04040"/>
+  <rect x="98" y="34" width="24" height="7" rx="3" fill="#b83232"/>
+  <!-- long clean neck -->
+  <rect x="92" y="50" width="36" height="64" fill="url(#queBody)" stroke="#2a0a01" stroke-width="2"/>
+  <!-- shoulders + body: flat bottom, sides bulge OUT (round) toward a flat base -->
+  <!-- left side bows out, flat bottom, right side bows out -->
+  <path d="M80 130 C 58 146, 54 196, 58 226 L 60 250 Q 62 256 72 256 L 148 256 Q 158 256 160 250 L 162 226 C 166 196, 162 146, 140 130 Z"
+        fill="url(#queBody)" stroke="#2a0a01" stroke-width="2.5"/>
+  <!-- flat bottom edge line -->
+  <path d="M72 256 L148 256" stroke="#2a0a01" stroke-width="2.5"/>
+  <!-- shoulder cap left (neck to shoulder) -->
+  <path d="M92 116 L84 116 Q80 120 80 130 L84 132 Q90 120 92 118 Z" fill="url(#queBody)"/>
+  <path d="M128 116 L136 116 Q140 120 140 130 L136 132 Q130 120 128 118 Z" fill="url(#queBody)"/>
+  <!-- smooth neck join -->
+  <rect x="92" y="112" width="36" height="6" fill="url(#queBody)"/>
+  <!-- gloss -->
+  <rect x="70" y="176" width="5" height="60" rx="2.5" fill="#ffffff12"/>
+
+  <!-- ===== FACE: sits ON THE NECK ===== -->
+  <!-- eyes (on the neck, narrower) -->
+  <g id="queEyes">
+    <circle cx="99" cy="72" r="6" fill="#fff" stroke="#111" stroke-width="2"/>
+    <circle cx="121" cy="72" r="6" fill="#fff" stroke="#111" stroke-width="2"/>
+    <circle cx="100" cy="73" r="2.8" fill="#111"/>
+    <circle cx="122" cy="73" r="2.8" fill="#111"/>
+  </g>
+  <!-- mouth (on neck, below eyes) -->
+  <g id="queMouth">
+    <path d="M99 88 Q110 97 121 88" stroke="#1f0500" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <rect x="108" y="89" width="6" height="6" rx="1.5" fill="#ffd700"/>
+  </g>
+
+  <g id="queChain">
+    <path d="M88 126 Q110 196 132 126" stroke="#ffd700" stroke-width="4.5" fill="none"/>
+    <path d="M93 132 L102 152 M102 138 L110 148 M118 138 L126 148 M127 132 L136 152" stroke="#ffd700" stroke-width="2.2"/>
+    <path d="M110 158 l-7 18 a7 7 0 0 0 14 0 Z" fill="#ff8a3d" stroke="#ffd700" stroke-width="1.8"/>
+  </g>
+
+  <!-- ===== BANDANA at the neck (BBQ neck-label as gangsta kerchief) ===== -->
+  <g id="queBandana">
+    <!-- wrapped band around the neck -->
+    <path d="M86 104 L134 104 L136 124 Q136 132 110 132 Q84 132 84 124 Z" fill="#8a1a08" stroke="#4a0a02" stroke-width="1.5"/>
+    <!-- polka dots / pattern -->
+    <circle cx="96" cy="112" r="2.2" fill="#ff8a5a"/>
+    <circle cx="110" cy="114" r="2.2" fill="#ff8a5a"/>
+    <circle cx="124" cy="112" r="2.2" fill="#ff8a5a"/>
+    <circle cx="103" cy="124" r="2.2" fill="#ff8a5a"/>
+    <circle cx="117" cy="124" r="2.2" fill="#ff8a5a"/>
+    <!-- knot + hanging tails front-left -->
+    <path d="M104 130 L98 140 L100 142 L108 132 Z" fill="#6e1404"/>
+    <path d="M100 138 Q96 150 92 158 L98 158 Q104 150 108 142 Z" fill="#8a1a08"/>
+    <path d="M102 142 Q108 152 112 156 L116 154 Q110 146 106 140 Z" fill="#6e1404"/>
+  </g>
+
+  <!-- ===== CHAIN: hangs at the BASE of the neck / shoulder ===== -->
+
+  <!-- ===== ARMS: attach at shoulders, over label ===== -->
+  <g id="queArmL"><path d="M74 150 Q54 176 52 206" stroke="#5a1603" stroke-width="12" stroke-linecap="round" fill="none"/></g>
+  <g id="queArmR"><path d="M146 150 Q166 176 168 206" stroke="#5a1603" stroke-width="12" stroke-linecap="round" fill="none"/></g>
+
+  <!-- ===== LABEL: trapezoid matching taper ===== -->
+  <g id="queLabelWrap">
+    <path d="M66 190 L154 190 L152 244 L68 244 Z" fill="#f7ead0"/>
+    <rect x="74" y="196" width="72" height="13" fill="#6e1c04"/>
+    <text x="110" y="205" text-anchor="middle" font-family="monospace" font-size="9.5" font-weight="bold" fill="#ffe8d0">Q'S</text>
+    <text x="110" y="224" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#5a1803">BBQ SAUCE</text>
+    <text x="110" y="236" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#7e4a24">Q · pass the vibe</text>
+    <path d="M66 190 L76 190 L74 244 L68 244 Z" fill="#1f0500" opacity=".4"/>
+    <path d="M144 190 L154 190 L152 244 L146 244 Z" fill="#1f0500" opacity=".4"/>
+  </g>
+
+  <rect x="78" y="262" width="30" height="12" rx="5" fill="#0a0a0a"/>
+  <rect x="112" y="262" width="30" height="12" rx="5" fill="#0a0a0a"/>
+</svg></div>
+     <div class="qc" id="qcAji" style="color:#ff5a3a;font-size:56px">🌶️ AJI</div>
+     <div class="qc" id="qcSoy" style="color:#8aa0b0;font-size:24px;font-style:italic">"I am not salt. I am experience." — Soy</div>
+  </div></div>
+  <!-- 11: SPREAD DA WORD -->
+  <div class="shot dark" id="sh11"><div class="txt big"><h1>SPREAD DA WORD</h1><p>COMING SOON</p></div></div>
+  <!-- 12: door close -->
+  <div class="shot dark" id="sh12"><div class="txt"><h1 style="font-size:40px">🔒</h1><p style="margin-top:6px">...click.</p></div></div>
+</div>
+<span id="snowSnake">🐍</span>
+<div class="controls"><button id="playBtn">▶ Play Trailer</button></div>
+<audio id="hum" src="commercial/trailer_hum.mp3"></audio>
+
+<script>
+var shots=document.querySelectorAll('.shot');
+var hum=document.getElementById('hum');
+function show(i){shots.forEach(function(s,x){s.classList.toggle('on',x===i);});}
+var VO={
+ vin:new Audio('commercial/t_vin.mp3'),manny:new Audio('commercial/t_manny.mp3'),mira:new Audio('commercial/t_mira.mp3'),
+ tom:new Audio('commercial/t_tom.mp3'),jr:new Audio('commercial/t_jr.mp3'),q:new Audio('commercial/t_q.mp3'),
+ soy:new Audio('commercial/t_soy.mp3'),aji:new Audio('commercial/t_aji.mp3')
+};
+var TIMES=[0,2,4,8,9.5,13,16.5,20,23.5,27,30,33.5,38];
+var cur=-1;
+function tick(){
+  var t=hum.currentTime;
+  while(cur+1<TIMES.length&&t>=TIMES[cur+1]){
+    cur++; show(cur);
+    if(cur==2)VO.vin.play(); if(cur==4)VO.manny.play(); if(cur==5)VO.mira.play();
+    if(cur==7)VO.tom.play(); if(cur==8)VO.jr.play(); if(cur==10)quickCuts();
+  }
+  requestAnimationFrame(tick);
+}
+function quickCuts(){
+  var q=document.getElementById('qcQ'),a=document.getElementById('qcAji'),s=document.getElementById('qcSoy');
+  q.classList.add('show'); VO.q.play();
+  setTimeout(function(){q.classList.remove('show');a.classList.add('show');VO.aji.play();},1600);
+  setTimeout(function(){a.classList.remove('show');s.classList.add('show');VO.soy.play();},3200);
+  setTimeout(function(){s.classList.remove('show');},5200);
+  var snake=document.getElementById('snowSnake'); var x=-60;
+  var iv=setInterval(function(){x+=4;snake.style.left=x+'px';if(x>1300){clearInterval(iv);}},30);
+}
+var started=false;
+document.getElementById('playBtn').onclick=function(){
+  if(started)return;started=true;
+  show(0); hum.play(); requestAnimationFrame(tick);
+};
+</script>
+</body></html>
