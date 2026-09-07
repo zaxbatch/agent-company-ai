@@ -1,82 +1,69 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 330" width="220" height="330">
-<g transform="translate(0,330) scale(1,-1)">
-
   <defs>
-    <linearGradient id="kRed" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#a00d05"/>
-      <stop offset="0.35" stop-color="#d91a0c"/>
-      <stop offset="0.6" stop-color="#ef2a18"/>
-      <stop offset="1" stop-color="#850a03"/>
+    <!-- CLEAR GLASS (see-through) -->
+    <linearGradient id="clearGlass" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e8d8d0" stop-opacity="0.35"/>
+      <stop offset="0.3" stop-color="#f8f0ea" stop-opacity="0.15"/>
+      <stop offset="0.7" stop-color="#f8f0ea" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#c8a898" stop-opacity="0.3"/>
     </linearGradient>
   </defs>
 
-  <!-- ===== HEINZ-57 STYLE BOTTLE - SMOOTH neck/shoulder, FLAT bottom ===== -->
-  <!-- WHITE CAP -->
-  <rect x="94" y="16" width="32" height="24" rx="6" fill="#f4f4f0" stroke="#c8c8c4" stroke-width="1.5"/>
-  <path d="M96 28 L126 28 L126 34 L96 34 Z" fill="#d8d8d4"/>
-  <!-- neck + shoulders: ONE smooth continuous curve from neck into wide body -->
-  <!-- Use a single path: narrow neck top -> smooth S-curve shoulders out to body -> straight sides -> FLAT bottom -->
-  <path d="M98 40 L122 40
-           L122 52 Q122 76 144 96 L144 240
-           L144 258 Q144 262 110 262 Q76 262 76 258 L76 240
-           L76 96 Q98 76 98 52 Z"
-        fill="url(#kRed)" stroke="#5a0a02" stroke-width="2.5"/>
-  <!-- flat bottom base line -->
-  <path d="M76 258 Q92 264 110 264 Q128 264 144 258" fill="none" stroke="#5a0a02" stroke-width="2.5"/>
+  <!-- ===== POP - UPSIDE DOWN, CLEAR GLASS, RED ONLY IN THE NECK ===== -->
+  <!-- white cap at BOTTOM -->
+  <rect x="94" y="288" width="32" height="26" rx="6" fill="#f4f4f0" stroke="#c8c8c4" stroke-width="1.5"/>
+  <path d="M96 280 L126 280 L126 288 L96 288 Z" fill="#d8d8d4"/>
 
-  <!-- FULL content -->
-  <path d="M80 104 L140 104 L140 236 L140 252 Q110 260 80 252 L80 236 L80 104 Z" fill="#e02415" opacity=".7"/>
-  <!-- gloss -->
-  <rect x="86" y="98" width="9" height="145" rx="4.5" fill="#ffffff44"/>
+  <!-- Wide bottle base (was bottom) at TOP - clear glass -->
+  <path d="M78 34 Q78 6 110 4 Q142 6 142 34 L142 58 L78 58 Z"
+        fill="url(#clearGlass)" stroke="#b88878" stroke-width="2"/>
+  <!-- body - clear glass, descends, smooth into neck going DOWN -->
+  <path d="M78 58 L142 58 L142 200 L142 250 Q142 280 110 282 Q78 280 78 250 L78 200 Z"
+        fill="url(#clearGlass)" stroke="#b88878" stroke-width="2"/>
 
-  <!-- ===== KID LABEL ===== -->
-  <g id="kLabel">
-    <rect x="80" y="152" width="60" height="82" rx="10" fill="#f8e8d8"/>
-    <rect x="80" y="152" width="60" height="15" fill="#c0392b"/>
-    <text x="110" y="163" text-anchor="middle" font-family="monospace" font-size="7" font-weight="bold" fill="#fff">KETCHUP</text>
-    <text x="110" y="189" text-anchor="middle" font-family="serif" font-size="15" font-weight="bold" fill="#a00d05">Jr.</text>
-    <text x="110" y="203" text-anchor="middle" font-family="serif" font-size="8" font-style="italic" fill="#d05030">the optimist</text>
-    <text x="110" y="224" text-anchor="middle" font-family="monospace" font-size="5.5" fill="#c06040">GOES W/EVERYTHING</text>
+  <!-- RED KETCHUP ONLY IN THE NECK (the long middle that was JR's neck now hangs down; red pooled there) -->
+  <!-- the "neck" region when upside down = the narrow middle. Fill red from ~y120 to the cap -->
+  <path d="M96 120 L124 120 L124 268 Q124 278 110 280 Q96 278 96 268 L96 120 Z" fill="#d0150c" opacity="0.85"/>
+  <!-- red also just inside the cap -->
+  <path d="M96 270 L124 270 L124 282 Q124 286 110 288 Q96 286 96 282 L96 270 Z" fill="#a00d05" opacity="0.9"/>
+
+  <!-- dried red streaks on the CLEAR glass walls (remnants) -->
+  <path d="M80 70 L78 160 Q78 170 82 176 L80 70 Z" fill="#c0150c" opacity="0.35"/>
+  <path d="M140 70 L142 150 Q142 162 138 170 L140 70 Z" fill="#c0150c" opacity="0.3"/>
+  <!-- glass shine -->
+  <rect x="86" y="70" width="6" height="170" rx="3" fill="#ffffff88"/>
+  <rect x="130" y="70" width="3" height="140" rx="1.5" fill="#ffffff66"/>
+
+  <!-- ===== LABEL - faded, near the wide top (upside-down) ===== -->
+  <g id="popLabel" transform="translate(110,96) rotate(180)">
+    <rect x="-26" y="-30" width="52" height="30" rx="5" fill="#e0c8a8" opacity="0.9"/>
+    <text x="0" y="-18" text-anchor="middle" font-family="serif" font-size="11" font-weight="bold" fill="#6a3a20">Pop</text>
+    <text x="0" y="-6" text-anchor="middle" font-family="monospace" font-size="5" fill="#8a6a50">25+ YEARS</text>
   </g>
 
-  <!-- ===== KID FACE ===== -->
-  <g id="kEyes">
-    <circle cx="100" cy="98" r="7" fill="#fff" stroke="#3a0a02" stroke-width="2.5"/>
-    <circle cx="120" cy="98" r="7" fill="#fff" stroke="#3a0a02" stroke-width="2.5"/>
-    <circle cx="102" cy="99" r="3.5" fill="#3a0a02"/>
-    <circle cx="122" cy="99" r="3.5" fill="#3a0a02"/>
-    <path d="M92 89 Q100 83 108 89" stroke="#3a0a02" stroke-width="2.2" fill="none"/>
-    <path d="M112 89 Q120 83 128 89" stroke="#3a0a02" stroke-width="2.2" fill="none"/>
-    <circle cx="93" cy="112" r="4.5" fill="#ff8a70" opacity=".5"/>
-    <circle cx="127" cy="112" r="4.5" fill="#ff8a70" opacity=".5"/>
+  <!-- ===== FACE - OLD/TIRED/ANGRY, upside-down near the top wide area ===== -->
+  <g id="popFace" transform="translate(110,78) rotate(180)">
+    <!-- droopy tired eyes -->
+    <ellipse cx="-14" cy="-14" rx="6.5" ry="4.5" fill="#fff" stroke="#3a0501" stroke-width="1.8"/>
+    <ellipse cx="14" cy="-14" rx="6.5" ry="4.5" fill="#fff" stroke="#3a0501" stroke-width="1.8"/>
+    <!-- pupils small, tired -->
+    <circle cx="-12" cy="-13" r="2.2" fill="#3a0501"/>
+    <circle cx="16" cy="-13" r="2.2" fill="#3a0501"/>
+    <!-- heavy angry slanted brows -->
+    <path d="M-24 -22 L-8 -17 M-22 -23 L-8 -17" stroke="#3a0501" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+    <path d="M24 -22 L8 -17 M22 -23 L8 -17" stroke="#3a0501" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+    <!-- eye bags / wrinkles -->
+    <path d="M-22 -8 Q-14 -5 -6 -8" stroke="#7a5a40" stroke-width="1.2" fill="none" opacity="0.6"/>
+    <path d="M6 -8 Q14 -5 22 -8" stroke="#7a5a40" stroke-width="1.2" fill="none" opacity="0.6"/>
+    <!-- forehead wrinkles -->
+    <path d="M-8 -30 Q0 -33 8 -30" stroke="#7a5a40" stroke-width="1" fill="none" opacity="0.5"/>
+    <!-- downturned angry frown -->
+    <path d="M-13 2 Q0 -5 13 2" stroke="#3a0501" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+    <!-- grey stubble -->
+    <path d="M-14 -2 Q0 -6 14 -2" stroke="#9a9a9a" stroke-width="1.8" fill="none" opacity="0.7"/>
   </g>
-  <g id="kMouth">
-    <path d="M100 118 Q110 130 120 118 Z" fill="#5a0a02"/>
-    <path d="M102 119 Q110 127 118 119" stroke="#fff" stroke-width="1.4" fill="none"/>
-  </g>
 
-  <!-- ===== ARMS ===== -->
-  <g id="kArmL"><path d="M78 140 Q50 156 44 196" stroke="#a00d05" stroke-width="10" stroke-linecap="round" fill="none"/></g>
-  <g id="kArmR"><path d="M142 140 Q170 156 176 196" stroke="#a00d05" stroke-width="10" stroke-linecap="round" fill="none"/></g>
-
-  <!-- ===== FEET: sneakers with a GAP below the bottle so they read as feet, not another top ===== -->
-  <!-- bottle bottom is at ~260; feet sit BELOW with visible gap -->
-  <rect x="88" y="274" width="20" height="14" rx="4" fill="#fff" stroke="#ccc" stroke-width="1.5"/>
-  <rect x="112" y="274" width="20" height="14" rx="4" fill="#fff" stroke="#ccc" stroke-width="1.5"/>
-  <!-- gap line: dark space between bottle bottom (260) and feet (272) -->
-  <rect x="82" y="263" width="56" height="8" fill="#0a1220" opacity="0"/>
-  <!-- red accents on sneakers -->
-  <rect x="90" y="282" width="13" height="3" fill="#c0392b"/>
-  <rect x="117" y="282" width="13" height="3" fill="#c0392b"/>
-  <!-- soles -->
-  <rect x="88" y="286" width="20" height="3" fill="#e0e0e0"/>
-  <rect x="112" y="286" width="20" height="3" fill="#e0e0e0"/>
-
-</g>
-
-<!-- translucent veil: makes the flipped bottle read almost-empty -->
-<rect x="76" y="40" width="68" height="230" rx="16" fill="#ffffff" opacity="0.55"/>
-<path d="M78 96 L84 96 L84 250 L78 250 Z" fill="#d0150c" opacity="0.18"/>
-<path d="M136 96 L142 96 L142 250 L136 250 Z" fill="#d0150c" opacity="0.18"/>
-<path d="M86 258 L134 258 L134 272 Q134 278 110 280 Q86 278 86 272 L86 258 Z" fill="#d0150c" opacity="0.55"/>
+  <!-- ===== arms crossed (near top since flipped) ===== -->
+  <g id="popArmL"><path d="M80 130 Q66 156 98 172" stroke="#5a0a03" stroke-width="8" stroke-linecap="round" fill="none"/></g>
+  <g id="popArmR"><path d="M140 130 Q154 156 122 172" stroke="#5a0a03" stroke-width="8" stroke-linecap="round" fill="none"/></g>
 </svg>
