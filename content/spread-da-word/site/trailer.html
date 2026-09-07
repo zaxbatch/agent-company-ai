@@ -505,7 +505,7 @@
   <rect x="112" y="262" width="30" height="12" rx="5" fill="#0a0a0a"/>
 </svg></div>
      <div class="qc" id="qcAji" style="color:#ff5a3a;font-size:80px">🌶️</div>
-     <div class="qc" id="qcSoy" style="color:#8aa0b0;font-size:24px;font-style:italic">"I am not salt. I am experience." — Soy</div>
+     <div class="qc" id="qcSoy" style="color:#8aa0b0;font-size:24px;font-style:italic">Soy</div>
   </div></div>
   <!-- 11: SPREAD DA WORD -->
   <div class="shot dark" id="sh11"><div class="txt big"><h1>SPREAD DA WORD</h1><p>COMING SOON</p></div></div>
@@ -520,7 +520,7 @@
 var shots=document.querySelectorAll('.shot');
 var hum=document.getElementById('hum');
 function show(i){shots.forEach(function(s,x){s.classList.toggle('on',x===i);});}
-var TIMES=[0,2,4.5,8,10.5,15,19,23,32,36,38,48,56];;;;
+var TIMES=[0,1.5,4.5,8,10.5,15,19,23,32,36,38,45,54];;;;;
 var cur=-1;
 function tick(){
   var t=hum.currentTime;
@@ -533,9 +533,9 @@ function tick(){
 function quickCuts(){
   var q=document.getElementById('qcQ'),a=document.getElementById('qcAji'),s=document.getElementById('qcSoy');
   q.classList.add('show');
-  setTimeout(function(){q.classList.remove('show');a.classList.add('show');},1600);
-  setTimeout(function(){a.classList.remove('show');s.classList.add('show');},3200);
-  setTimeout(function(){s.classList.remove('show');},5200);
+  setTimeout(function(){q.classList.remove('show');a.classList.add('show');},2000);
+  setTimeout(function(){a.classList.remove('show');s.classList.add('show');},4000);
+  setTimeout(function(){s.classList.remove('show');},6000);
   var snake=document.getElementById('snowSnake'); var x=-60;
   var iv=setInterval(function(){x+=4;snake.style.left=x+'px';if(x>1300){clearInterval(iv);}},30);
 }
