@@ -29,7 +29,10 @@
   .qc.show{opacity:1}
   /* snow */
   #snowSnake{position:absolute;bottom:6px;left:-60px;font-size:28px;z-index:20}
-  .controls{position:fixed;bottom:10px;left:10px;z-index:99}
+  
+  .subtitle{position:absolute;bottom:14px;left:0;right:0;text-align:center;color:#fff;font-size:24px;font-weight:bold;letter-spacing:1px;text-shadow:0 0 10px #000,0 2px 4px #000;z-index:6;font-family:'Arial Black',Arial,sans-serif}
+  .subtitle small{display:block;color:#9bd1ff;font-size:12px;letter-spacing:2px;margin-top:2px;font-family:monospace;font-weight:normal}
+.controls{position:fixed;bottom:10px;left:10px;z-index:99}
   button{background:#1a3a5a;color:#cfe8ff;border:1px solid #3a6a9a;padding:8px 18px;font-family:monospace;cursor:pointer;border-radius:6px}
 </style>
 </head>
@@ -104,7 +107,7 @@
   <!-- shoes -->
   <rect x="84" y="260" width="24" height="10" rx="4" fill="#0a0a0a"/>
   <rect x="112" y="260" width="24" height="10" rx="4" fill="#0a0a0a"/>
-</svg></div><div class="band"></div><div class="vo">"You ain't ready for me, bro."</div></div></div>
+</svg></div><div class="band"></div><div class="vo" style="font-size:26px;font-weight:bold;text-shadow:0 0 12px #000,0 2px 4px #000">"I'm the realest vinegar you know." <small style="display:block;color:#9bd1ff;font-size:12px">VIN</small></div></div></div>
   <!-- 3: kingdom -->
   <div class="shot dark" id="sh3"><div class="txt"><h1>It's a kingdom.</h1><p>THE FRIDGE</p></div></div>
   <!-- 4: MANNY -->
@@ -173,7 +176,7 @@
   <!-- ===== shoes ===== -->
   <rect x="118" y="222" width="26" height="11" rx="4" fill="#1a1a1a"/>
   <rect x="156" y="222" width="26" height="11" rx="4" fill="#1a1a1a"/>
-</svg></div><div class="band"></div><div class="vo">"Let's keep it smooth."</div></div></div>
+</svg></div><div class="band"></div><div class="vo" style="font-size:26px;font-weight:bold;text-shadow:0 0 12px #000,0 2px 4px #000">"Let's keep it smooth." <small style="display:block;color:#9bd1ff;font-size:12px">MANNY</small></div></div></div>
   <!-- 5: MIRA -->
   <div class="shot" id="sh5" style="background:radial-gradient(ellipse at 50% 60%,#1c0f28,#000)"><div class="ch"><div class="glow"></div><div class="fig"><svg viewBox="0 0 300 240" width="260" height="208">
   <defs>
@@ -244,7 +247,7 @@
   <!-- ===== heels ===== -->
   <path d="M124 222 L140 222 L141 230 Q130 234 124 230 Z" fill="#2a1a30"/>
   <path d="M160 222 L176 222 L175 230 Q164 234 158 230 Z" fill="#2a1a30"/>
-</svg></div><div class="band"></div><div class="vo">"I'm not Mayo. I'm me."</div></div></div>
+</svg></div><div class="band"></div><div class="vo" style="font-size:26px;font-weight:bold;text-shadow:0 0 12px #000,0 2px 4px #000">"I'm not Mayo. I'm me." <small style="display:block;color:#9bd1ff;font-size:12px">MIRACLE</small></div></div></div>
   <!-- 6: class war -->
   <div class="shot dark" id="sh6"><div class="txt"><h1>With its own class war.</h1><p>CAB-NETS vs FRIDGE</p></div></div>
   <!-- 7: TOM -->
@@ -336,7 +339,7 @@
   <!-- arms crossed near top -->
   <g id="popArmR"><path d="M138 168 Q124 190 94 200" stroke="#5a0a03" stroke-width="8" stroke-linecap="round" fill="none"/></g>
 <g id="popArmL"><path d="M82 168 Q96 190 126 200" stroke="#5a0a03" stroke-width="8" stroke-linecap="round" fill="none"/></g>
-</svg></div><div class="band"></div><div class="vo">"Been everyone's first squeeze for 25 years."</div></div></div>
+</svg></div><div class="band"></div><div class="vo" style="font-size:26px;font-weight:bold;text-shadow:0 0 12px #000,0 2px 4px #000">"Been everyone's first squeeze for 25 years." <small style="display:block;color:#9bd1ff;font-size:12px">TOM</small></div></div></div>
   <!-- 8: TOM JR -->
   <div class="shot" id="sh8" style="background:radial-gradient(ellipse at 50% 60%,#3a1008,#000)"><div class="ch"><div class="glow"></div><div class="fig"><svg viewBox="0 0 220 330" width="150" height="225">
   <defs>
@@ -410,7 +413,7 @@
   <!-- soles -->
   <rect x="88" y="286" width="20" height="3" fill="#e0e0e0"/>
   <rect x="112" y="286" width="20" height="3" fill="#e0e0e0"/>
-</svg></div><div class="band"></div><div class="vo">"I go with everything!"</div></div></div>
+</svg></div><div class="band"></div><div class="vo" style="font-size:26px;font-weight:bold;text-shadow:0 0 12px #000,0 2px 4px #000">"I go with everything!" <small style="display:block;color:#9bd1ff;font-size:12px">TOM JR.</small></div></div></div>
   <!-- 9: legends -->
   <div class="shot dark" id="sh9"><div class="txt"><h1>And its own legends.</h1><p>THE CAST</p></div></div>
   <!-- 10: quick cuts -->
@@ -517,7 +520,7 @@
 var shots=document.querySelectorAll('.shot');
 var hum=document.getElementById('hum');
 function show(i){shots.forEach(function(s,x){s.classList.toggle('on',x===i);});}
-var TIMES=[0,2,4,8.5,10,14,18,21.5,26,29.5,30,34,39];
+var TIMES=[0,2,4,7,10,12.5,16,19.5,23,28,31.5,35,40,46];;
 var cur=-1;
 function tick(){
   var t=hum.currentTime;
