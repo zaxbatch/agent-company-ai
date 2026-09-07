@@ -30,7 +30,13 @@
   <path d="M76 72 Q92 66 110 66 Q128 66 144 72" fill="none" stroke="#b88878" stroke-width="2"/>
 
   <!-- RED ketchup in the neck region (now near bottom, before cap) - JR's neck was 52-76 wide section -->
-  <path d="M96 232 L124 232 L124 276 Q124 282 110 284 Q96 282 96 276 L96 232 Z" fill="#d0150c" opacity="0.85"/>
+  <path d="M96 278 L124 278 L124 288 Q124 292 110 293 Q96 292 96 288 Z" fill="#d0150c" opacity="0.9"/>
+    <!-- main ketchup: widens following bottle -->
+    <path d="M94 226 Q94 224 98 222 L122 222 Q126 224 126 226
+             L126 240 L136 246 Q142 252 138 258 L136 268
+             Q134 278 122 282 L118 278 L102 278 L98 282
+             Q86 278 84 268 L82 258 Q78 252 84 246 L94 240 Z"
+          fill="#d0150c" opacity="0.85"/>
   <!-- a little red just above cap -->
   <path d="M96 284 L124 284 L124 288 Q124 292 110 293 Q96 292 96 288 L96 284 Z" fill="#a00d05" opacity="0.9"/>
   <!-- dried streaks on glass -->
