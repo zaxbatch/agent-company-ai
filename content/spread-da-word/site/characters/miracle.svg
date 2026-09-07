@@ -50,12 +50,12 @@
     <!-- gold trim lines -->
     <rect x="112" y="106" width="76" height="2.5" fill="#d4af37"/>
     <rect x="112" y="172" width="76" height="2.5" fill="#d4af37"/>
-    <text x="150" y="103" text-anchor="middle" font-family="serif" font-size="8" font-weight="bold" fill="#fff">DRESSING</text>
+    
     <!-- Miracle in cursive -->
-    <text x="150" y="133" text-anchor="middle" font-family="'Brush Script MT','Segoe Script',cursive" font-size="26" font-weight="bold" fill="#4a2050">Miracle</text>
+    <text x="150" y="134" text-anchor="middle" font-family="'Brush Script MT','Segoe Script',cursive" font-size="28" font-weight="bold" fill="#4a2050">Miracle</text>
     <!-- gold divider -->
     <path d="M124 146 L176 146" stroke="#d4af37" stroke-width="1.4"/>
-    <text x="150" y="161" text-anchor="middle" font-family="monospace" font-size="6" fill="#8a5a9a">I'M NOT MAYO · I'M ME</text>
+    <text x="150" y="166" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#8a5a9a">DRESSING</text>
   </g>
 
   <!-- ===== ARMS ===== -->

@@ -46,12 +46,12 @@
     <rect x="112" y="106" width="76" height="2.5" fill="#d4af37"/>
     <rect x="112" y="172" width="76" height="2.5" fill="#d4af37"/>
     <!-- text -->
-    <text x="150" y="103" text-anchor="middle" font-family="serif" font-size="8" font-weight="bold" fill="#fff">MAYONNAISE</text>
-    <text x="150" y="128" text-anchor="middle" font-family="serif" font-size="19" font-weight="bold" fill="#1a3a5c">Manny</text>
-    <text x="150" y="142" text-anchor="middle" font-family="serif" font-size="8.5" font-style="italic" fill="#3a5a7a">"Da Man's"</text>
+    
+    <text x="150" y="126" text-anchor="middle" font-family="serif" font-size="20" font-weight="bold" fill="#1a3a5c">Manny</text>
+    <text x="150" y="141" text-anchor="middle" font-family="serif" font-size="9" font-style="italic" fill="#3a5a7a">"Da Man's"</text>
     <!-- gold divider -->
     <path d="M124 152 L176 152" stroke="#d4af37" stroke-width="1.4"/>
-    <text x="150" y="166" text-anchor="middle" font-family="monospace" font-size="6" fill="#5a7a9a">PREMIUM · SMOOTH</text>
+    <text x="150" y="166" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#5a7a9a">MAYONNAISE</text>
   </g>
 
   <!-- ===== ARMS (suit sleeves from wide body sides) ===== -->
