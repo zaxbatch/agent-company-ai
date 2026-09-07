@@ -6,6 +6,13 @@
 
 **Last updated:** 2026-09-07T05:40:01Z
 
+## 0. LATEST SESSION (2026-09-07) — SDW CHARACTER UNIVERSE LOCKED (Zerric)
+- **Zerric stepping away to make a TRAILER video** — will return with it for us to build/publish. Canon is tracked & locked.
+- **Built this run:** Vin + Q (cab-nets), Manny "Da Man" Ayes + Miracle (Fridge Ayes twins), Tom (32oz redneck patriarch) + Tom Jr (14oz optimist). All have solo pages (/chars/*), roster with portraits, family portrait scene.
+- **SnowSnakes:** SDW brand account created (SpreadDaWord, id 90). First 7 doodles posted (family portrait + 6 chars) with SPW links. Images at spreaddaword.zerric.xyz/doodles/.
+- **Rules locked:** Tom lost-his-feet gag = new story every episode (Kenny-style). Snow Snake easter egg in EVERY future video/episode frame-art. Ketchup family are rednecks.
+- **Canon docs:** resources/snowsnakes/spread-da-word/CHARACTER-BIBLE.md (canon) + PERSONAS.md (detailed personas).
+- **Pipeline proven:** script -> voices (Piper) -> SVG rigs -> animated scene -> MP4 (via Playwright set_content capture) -> YouTube -> SPW tab. Music video + commercial + promo all live.
 ## 0. LATEST SESSION (2026-08-30j) — UDIO SONG: SCRIPT REWRITTEN TO v2 API, STILL BLOCKED ON 0 CREDITS (ClickClack)
 - **TASK:** Use the udioapi.pro API from communication/credentials.txt to make a MilkUps song.
 - **RESEARCH (docs verified live from https://udioapi.pro/docs + /docs/v2-generate + /docs/v2-feed + /docs/query-credits + /pricing):** current API is **v2**: `POST /api/v2/generate` (Bearer auth, custom mode = prompt/style/title), `GET /api/v2/feed?workId=` (data nested under `data.response_data`), `GET /api/v2/credits`. Models: chirp-v3-5 (5cr), chirp-v4 (8cr), chirp-v4-5 (10cr), chirp-v5/v5-5 (12cr). 402 = "No credit". Plans: Basic $10/mo = 1000 cr, Pro $20/mo = 2000 cr, Max $50/mo = 5000 cr; free tier = starter credits + daily check-ins.
