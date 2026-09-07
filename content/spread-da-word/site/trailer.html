@@ -528,8 +528,17 @@ function tick(){
     cur++; show(cur);
     if(cur==10)quickCuts();
   }
+  // Snow Snake easter egg: slithers across bottom during the quick-cuts
+  if(cur===10 && !window._snakeDone){ window._snakeDone=true; snowSlither(); }
   requestAnimationFrame(tick);
 }
+function snowSlither(){
+  var snake=document.getElementById('snowSnake');
+  if(!snake) return;
+  snake.style.left='-80px'; snake.style.display='block';
+  var x=-80; var iv=setInterval(function(){ x+=3; snake.style.left=x+'px'; if(x>1350){ clearInterval(iv); snake.style.display='none'; } },33);
+}
+
 function quickCuts(){
   var q=document.getElementById('qcQ'), a=document.getElementById('qcAji');
   q.classList.add('show');
