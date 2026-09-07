@@ -258,10 +258,10 @@
   <button id="replayBtn">↺ Replay</button>
 </div>
 
-<audio id="q1" src="commercial/q1.mp3"></audio>
-<audio id="q2" src="commercial/q2.mp3"></audio>
-<audio id="v1" src="commercial/v1.mp3"></audio>
-<audio id="v2" src="commercial/v2.mp3"></audio>
+<audio id="q1" src="commercial/q1_NEW.mp3"></audio>
+<audio id="q2" src="commercial/q2_NEW.mp3"></audio>
+<audio id="v1" src="commercial/v1_NEW.mp3"></audio>
+<audio id="v2" src="commercial/v2_NEW.mp3"></audio>
 <audio id="music" loop src="intro-music.wav"></audio>
 <script>
 var q1=document.getElementById('q1'), q2=document.getElementById('q2'),
@@ -327,29 +327,30 @@ function runScene(){
     q1.play(); lipsync('que',2.8); duck(2.9);
   },2000);
   setTimeout(function(){ // Que punchline
-    showQ("Belly button! Ha! Ha! Ha!"); q2.play(); lipsync('que',2.3); duck(2.4);
+    showQ("Belly button! Ha! Ha! Ha!"); q2.play(); lipsync('que',1.9); duck(2.0); q2.loop=true;
     // ROACH CRAWLS during the laugh
     roach.style.display='block';
     var x=0; var rIV=setInterval(function(){ x+=3; roach.style.left=x+'px'; if(x>730){clearInterval(rIV);roach.style.display='none';} },30);
   },4700);
-  // Q keeps laughing in the background until Vin reacts
+  // Q keeps laughing until Vin's closer
   setTimeout(function(){ var lt=0; var liv=setInterval(function(){ lt+=60;
     var open=(Math.sin(lt/110)>0);
     qMouth.innerHTML = open ? '<ellipse cx="110" cy="93" rx="9" ry="6" fill="#1f0500"/><rect x="107" y="89" width="6" height="6" rx="1.5" fill="#ffd700"/>' : qOrig;
-    if(lt>2200){ clearInterval(liv); qMouth.innerHTML=qOrig; }
-  },60); },7200);
+    if(lt>2500){ clearInterval(liv); qMouth.innerHTML=qOrig; }
+  },60); },8000);
   setTimeout(function(){ // Vin reaction
     hideB(); showV("Q. That was terrible.");
+    q2.pause(); q2.loop=false;
     v1.play(); lipsync('vin',1.3); duck(1.5);
-  },7200);
+  },9500);
   setTimeout(function(){ // Vin closer
     hideB(); showV("Get more dad jokes — snowsnakes.zerric.xyz");
     v2.play(); lipsync('vin',3.7); duck(3.9);
-  },9000);
+  },11200);
   setTimeout(function(){ // endcard
     hideB(); music.pause();
     ec.classList.add('show');
-  },13600);
+  },15800);
 }
 document.getElementById('playBtn').onclick=function(){
   if(playing) return; playing=true; started=true;
