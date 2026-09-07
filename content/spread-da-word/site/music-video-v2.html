@@ -581,28 +581,30 @@
 
 <script>
 var audio=document.getElementById('audio');
-audio.src='commercial/mv2_audio.mp3';
+audio.src='commercial/mv3_audio.mp3';
 var scenes={cabnet:document.getElementById('scene-cabnet'),ride:document.getElementById('scene-ride'),
             ketchup:document.getElementById('scene-ketchup'),finale:document.getElementById('scene-finale')};
 var lyric=document.getElementById('lyric');
 var car=document.getElementById('cerealCar');
 function showScene(name){Object.keys(scenes).forEach(function(k){scenes[k].classList.toggle('active',k===name);});}
 var BEATS=[
- {t:4.2, scene:'cabnet', text:"Yo Vin Vin!", chant:false},
- {t:5.3, scene:'cabnet', text:"He's the realest, realest!", chant:false},
- {t:6.4, scene:'cabnet', text:"Yo Vin Vin!", chant:false},
- {t:7.5, scene:'cabnet', text:"He's the realest, the realest!", chant:false},
- {t:8.5, scene:'ride', text:"Yo Vin Vin!", chant:false},
- {t:9.6, scene:'ride', text:"He's the realest, realest!", chant:false},
- {t:10.7, scene:'ride', text:"Ridin' through the cab-nets!", chant:false},
- {t:11.8, scene:'ride', text:"The realest vinegar you know!", chant:false},
- {t:13.0, scene:'ketchup', text:"Yo Vin Vin!", chant:false},
- {t:14.1, scene:'ketchup', text:"He's the realest, realest!", chant:false},
- {t:15.2, scene:'ketchup', text:"Even the ketchup knows!", chant:false},
- {t:16.3, scene:'ketchup', text:"He's the realest!", chant:false},
- {t:16.6, scene:'finale', text:"YOU KNOW!", chant:true},
- {t:18.2, scene:'finale', text:"YOU KNOW!", chant:true},
- {t:19.4, scene:'finale', text:"The shelves raised us!", chant:true}
+ {t:3.0, scene:'cabnet', text:"Yo Vin Vin!", chant:false},
+ {t:4.1, scene:'cabnet', text:"He's the realest-realest!", chant:false},
+ {t:5.2, scene:'cabnet', text:"Yo Vin Vin!", chant:false},
+ {t:6.3, scene:'cabnet', text:"He's the realest, the realest!", chant:false},
+ {t:7.4, scene:'ride', text:"Yo Vin Vin!", chant:false},
+ {t:8.5, scene:'ride', text:"He's the realest-realest!", chant:false},
+ {t:9.6, scene:'ride', text:"Ridin' through the cab-nets!", chant:false},
+ {t:10.7, scene:'ride', text:"The realest vinegar you know!", chant:false},
+ {t:12.0, scene:'ketchup', text:"Yo Vin Vin!", chant:false},
+ {t:13.1, scene:'ketchup', text:"He's the realest-realest!", chant:false},
+ {t:14.2, scene:'ketchup', text:"Even the ketchup knows!", chant:false},
+ {t:15.3, scene:'ketchup', text:"He's the realest!", chant:false},
+ {t:16.5, scene:'cabnet', text:"Yo Vin Vin!", chant:false},
+ {t:17.6, scene:'cabnet', text:"He's the realest, the realest!", chant:false},
+ {t:18.5, scene:'finale', text:"YOU KNOW!", chant:true},
+ {t:21.0, scene:'finale', text:"YOU KNOW!", chant:true},
+ {t:22.2, scene:'finale', text:"The shelves raised us!", chant:true}
 ];
 var cur=-1;
 function tick(){
@@ -621,6 +623,15 @@ function tick(){
     var p=(audio.currentTime-8.5)/4;
     car.style.left = Math.min(900, -200 + p*1300)+'px';
   }
+  // beat-sync pulse: Vin scales with 808 hits (140bpm = ~2.14s/bar, pulse each half-bar)
+  var bt=audio.currentTime % 1.07;
+  if(bt<0.05){
+    var sw=document.getElementById('vinWrap1');
+    if(sw && cur>=0 && cur<11){ sw.style.transform='scale(1.24)'; }
+  } else {
+    var sw2=document.getElementById('vinWrap1');
+    if(sw2 && cur>=0 && cur<11){ sw2.style.transform='scale(1.2)'; }
+  }
   requestAnimationFrame(tick);
 }
 function pulseChar(){var s=document.getElementById('vinWrap1');if(s){s.style.transition='transform .1s';s.style.transform='scale(1.22)';setTimeout(function(){s.style.transform='scale(1.2)';},100);}}
@@ -629,6 +640,15 @@ document.getElementById('playBtn').onclick=function(){
   if(running) return; running=true;
   audio.currentTime=0; audio.play();
   showScene('cabnet'); cur=-1;
+  // beat-sync pulse: Vin scales with 808 hits (140bpm = ~2.14s/bar, pulse each half-bar)
+  var bt=audio.currentTime % 1.07;
+  if(bt<0.05){
+    var sw=document.getElementById('vinWrap1');
+    if(sw && cur>=0 && cur<11){ sw.style.transform='scale(1.24)'; }
+  } else {
+    var sw2=document.getElementById('vinWrap1');
+    if(sw2 && cur>=0 && cur<11){ sw2.style.transform='scale(1.2)'; }
+  }
   requestAnimationFrame(tick);
 };
 </script>
