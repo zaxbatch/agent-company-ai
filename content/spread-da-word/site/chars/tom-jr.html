@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spread Da Word — Tom Jr.</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#0a1220;color:#cfe8ff;font-family:monospace;min-height:100vh}
+  nav{background:#0e1a2e;border-bottom:2px solid #3d5a80;padding:14px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;position:sticky;top:0;z-index:50}
+  nav .logo{color:#9bd1ff;font-size:16px;letter-spacing:2px;font-weight:bold;text-decoration:none}
+  nav .logo span{color:#e94560}
+  nav a.nav{color:#9bd1ff;text-decoration:none;font-size:13px;padding:6px 10px;border-radius:6px}
+  nav a.nav:hover{background:#1c3352;color:#fff}
+  nav a.nav.active{background:#3d5a80;color:#fff}
+  .wrap{max-width:720px;margin:24px auto;padding:0 20px 40px}
+  .card{background:#0e1a2e;border:2px solid #e04040;border-radius:16px;overflow:hidden}
+  .stage{background:linear-gradient(180deg,#151f33,#0d1522);min-height:300px;display:flex;align-items:flex-end;justify-content:center;padding:10px 0}
+  .info{padding:20px}
+  .name{font-size:22px;color:#fff;font-weight:bold;letter-spacing:1px}
+  .home{color:#e04040;font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-top:2px}
+  .role{color:#ffd166;font-size:13px;margin-top:8px}
+  .cond{color:#7fa8d0;font-size:12px;margin-top:2px}
+  .vibe{color:#fff;font-size:15px;font-style:italic;margin-top:14px;background:#e0404022;border-left:3px solid #e04040;padding:8px 12px;border-radius:0 6px 6px 0}
+  .bio{color:#a8bcd0;font-size:12px;line-height:1.7;margin-top:14px}
+  .back{display:inline-block;margin-top:18px;color:#9bd1ff;text-decoration:none;font-size:13px}
+  .back:hover{color:#fff}
+  .snow{position:fixed;bottom:8px;right:10px;font-size:14px;opacity:.25}
+</style>
+</head>
+<body>
+<nav>
+  <a class='logo' href='/'>SPREAD<span>DA</span>WORD</a>
+  <a class='nav' href='/'>Home</a>
+  <a class='nav' href='/watch'>Watch</a>
+  <a class='nav' href='/soundtracks'>Soundtracks</a>
+  <a class='nav active' href='/roster'>The Cast</a>
+  <a class='nav' href='/fridge-teaser'>The Fridge</a>
+  <a class='nav' href='/behind-the-scenes'>Behind the Scenes</a>
+</nav>
+<div class="wrap">
+  <div class="card">
+    <div class="stage"><svg viewBox="0 0 220 330" width="120" height="180">
+  <defs>
+    <linearGradient id="kRed" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a00d05"/>
+      <stop offset="0.35" stop-color="#d91a0c"/>
+      <stop offset="0.6" stop-color="#ef2a18"/>
+      <stop offset="1" stop-color="#850a03"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ===== HEINZ-57 STYLE BOTTLE - SMOOTH neck/shoulder, FLAT bottom ===== -->
+  <!-- WHITE CAP -->
+  <rect x="94" y="16" width="32" height="24" rx="6" fill="#f4f4f0" stroke="#c8c8c4" stroke-width="1.5"/>
+  <path d="M96 28 L126 28 L126 34 L96 34 Z" fill="#d8d8d4"/>
+  <!-- neck + shoulders: ONE smooth continuous curve from neck into wide body -->
+  <!-- Use a single path: narrow neck top -> smooth S-curve shoulders out to body -> straight sides -> FLAT bottom -->
+  <path d="M98 40 L122 40
+           L122 52 Q122 76 144 96 L144 240
+           L144 258 Q144 262 110 262 Q76 262 76 258 L76 240
+           L76 96 Q98 76 98 52 Z"
+        fill="url(#kRed)" stroke="#5a0a02" stroke-width="2.5"/>
+  <!-- flat bottom base line -->
+  <path d="M76 258 Q92 264 110 264 Q128 264 144 258" fill="none" stroke="#5a0a02" stroke-width="2.5"/>
+
+  <!-- FULL content -->
+  <path d="M80 104 L140 104 L140 236 L140 252 Q110 260 80 252 L80 236 L80 104 Z" fill="#e02415" opacity=".7"/>
+  <!-- gloss -->
+  <rect x="86" y="98" width="9" height="145" rx="4.5" fill="#ffffff44"/>
+
+  <!-- ===== KID LABEL ===== -->
+  <g id="kLabel">
+    <rect x="80" y="152" width="60" height="82" rx="10" fill="#f8e8d8"/>
+    <rect x="80" y="152" width="60" height="15" fill="#c0392b"/>
+    <text x="110" y="163" text-anchor="middle" font-family="monospace" font-size="7" font-weight="bold" fill="#fff">KETCHUP</text>
+    <text x="110" y="189" text-anchor="middle" font-family="serif" font-size="12" font-weight="bold" fill="#a00d05">Jr.</text>
+    <text x="110" y="203" text-anchor="middle" font-family="serif" font-size="8" font-style="italic" fill="#d05030">the optimist</text>
+    <text x="110" y="220" text-anchor="middle" font-family="monospace" font-size="5.5" fill="#c06040">GOES W/EVERYTHING</text>
+    <text x="110" y="231" text-anchor="middle" font-family="monospace" font-size="5" fill="#a05030">14 OZ</text>
+  </g>
+
+  <!-- ===== KID FACE ===== -->
+  <g id="kEyes">
+    <circle cx="100" cy="98" r="7" fill="#fff" stroke="#3a0a02" stroke-width="2.5"/>
+    <circle cx="120" cy="98" r="7" fill="#fff" stroke="#3a0a02" stroke-width="2.5"/>
+    <circle cx="102" cy="99" r="3.5" fill="#3a0a02"/>
+    <circle cx="122" cy="99" r="3.5" fill="#3a0a02"/>
+    <path d="M92 89 Q100 83 108 89" stroke="#3a0a02" stroke-width="2.2" fill="none"/>
+    <path d="M112 89 Q120 83 128 89" stroke="#3a0a02" stroke-width="2.2" fill="none"/>
+    <circle cx="93" cy="112" r="4.5" fill="#ff8a70" opacity=".5"/>
+    <circle cx="127" cy="112" r="4.5" fill="#ff8a70" opacity=".5"/>
+  </g>
+  <g id="kMouth">
+    <path d="M100 118 Q110 130 120 118 Z" fill="#5a0a02"/>
+    <path d="M102 119 Q110 127 118 119" stroke="#fff" stroke-width="1.4" fill="none"/>
+  </g>
+
+  <!-- ===== ARMS ===== -->
+  <g id="kArmL"><path d="M78 140 Q50 156 44 196" stroke="#a00d05" stroke-width="10" stroke-linecap="round" fill="none"/></g>
+  <g id="kArmR"><path d="M142 140 Q170 156 176 196" stroke="#a00d05" stroke-width="10" stroke-linecap="round" fill="none"/></g>
+
+  <!-- ===== FEET: sneakers with a GAP below the bottle so they read as feet, not another top ===== -->
+  <!-- bottle bottom is at ~260; feet sit BELOW with visible gap -->
+  <rect x="88" y="274" width="20" height="14" rx="4" fill="#fff" stroke="#ccc" stroke-width="1.5"/>
+  <rect x="112" y="274" width="20" height="14" rx="4" fill="#fff" stroke="#ccc" stroke-width="1.5"/>
+  <!-- gap line: dark space between bottle bottom (260) and feet (272) -->
+  <rect x="82" y="263" width="56" height="8" fill="#0a1220" opacity="0"/>
+  <!-- red accents on sneakers -->
+  <rect x="90" y="282" width="13" height="3" fill="#c0392b"/>
+  <rect x="117" y="282" width="13" height="3" fill="#c0392b"/>
+  <!-- soles -->
+  <rect x="88" y="286" width="20" height="3" fill="#e0e0e0"/>
+  <rect x="112" y="286" width="20" height="3" fill="#e0e0e0"/>
+</svg></div>
+    <div class="info">
+      <div class="name">🍅 Tom Jr.</div>
+      <div class="home">The Fridge</div>
+      <div class="role">The Optimist</div>
+      <div class="cond">Ketchup · 14 oz</div>
+      <div class="vibe">"I go with everything!"</div>
+      <div class="bio">Little 14 oz bottle, full of life and ketchup. Tom's proud boy. Wants to be a big 32 oz redneck patriarch someday, just like his old man.</div>
+    </div>
+  </div>
+  <a class="back" href="/roster">&larr; Back to The Cast</a>
+</div>
+<div class="snow">&#128013;</div>
+</body>
+</html>

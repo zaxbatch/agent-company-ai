@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spread Da Word — Tom</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#0a1220;color:#cfe8ff;font-family:monospace;min-height:100vh}
+  nav{background:#0e1a2e;border-bottom:2px solid #3d5a80;padding:14px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;position:sticky;top:0;z-index:50}
+  nav .logo{color:#9bd1ff;font-size:16px;letter-spacing:2px;font-weight:bold;text-decoration:none}
+  nav .logo span{color:#e94560}
+  nav a.nav{color:#9bd1ff;text-decoration:none;font-size:13px;padding:6px 10px;border-radius:6px}
+  nav a.nav:hover{background:#1c3352;color:#fff}
+  nav a.nav.active{background:#3d5a80;color:#fff}
+  .wrap{max-width:720px;margin:24px auto;padding:0 20px 40px}
+  .card{background:#0e1a2e;border:2px solid #c0392b;border-radius:16px;overflow:hidden}
+  .stage{background:linear-gradient(180deg,#151f33,#0d1522);min-height:300px;display:flex;align-items:flex-end;justify-content:center;padding:10px 0}
+  .info{padding:20px}
+  .name{font-size:22px;color:#fff;font-weight:bold;letter-spacing:1px}
+  .home{color:#c0392b;font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-top:2px}
+  .role{color:#ffd166;font-size:13px;margin-top:8px}
+  .cond{color:#7fa8d0;font-size:12px;margin-top:2px}
+  .vibe{color:#fff;font-size:15px;font-style:italic;margin-top:14px;background:#c0392b22;border-left:3px solid #c0392b;padding:8px 12px;border-radius:0 6px 6px 0}
+  .bio{color:#a8bcd0;font-size:12px;line-height:1.7;margin-top:14px}
+  .back{display:inline-block;margin-top:18px;color:#9bd1ff;text-decoration:none;font-size:13px}
+  .back:hover{color:#fff}
+  .snow{position:fixed;bottom:8px;right:10px;font-size:14px;opacity:.25}
+</style>
+</head>
+<body>
+<nav>
+  <a class='logo' href='/'>SPREAD<span>DA</span>WORD</a>
+  <a class='nav' href='/'>Home</a>
+  <a class='nav' href='/watch'>Watch</a>
+  <a class='nav' href='/soundtracks'>Soundtracks</a>
+  <a class='nav active' href='/roster'>The Cast</a>
+  <a class='nav' href='/fridge-teaser'>The Fridge</a>
+  <a class='nav' href='/behind-the-scenes'>Behind the Scenes</a>
+</nav>
+<div class="wrap">
+  <div class="card">
+    <div class="stage"><svg viewBox="0 0 220 330" width="190" height="285">
+  <defs>
+    <linearGradient id="clearG" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e8d8d0" stop-opacity="0.4"/>
+      <stop offset="0.4" stop-color="#f8f0ea" stop-opacity="0.15"/>
+      <stop offset="0.7" stop-color="#f8f0ea" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#c8a898" stop-opacity="0.32"/>
+    </linearGradient>
+    <clipPath id="bottleClip">
+  <path d="M98 290 L122 290
+           L122 278 Q122 254 144 234 L144 90
+           L144 72 Q144 68 110 68 Q76 68 76 72 L76 90
+           L76 234 Q98 254 98 278 Z"/>
+  </clipPath>
+</defs>
+
+  <!-- ===== POP = JR's EXACT silhouette, FLIPPED (wide body top, smooth neck down to white cap at bottom) ===== -->
+  <!-- white cap at BOTTOM (JR's cap mirrored) -->
+  <rect x="94" y="290" width="32" height="24" rx="6" fill="#f4f4f0" stroke="#c8c8c4" stroke-width="1.5"/>
+  <path d="M96 284 L126 284 L126 290 L96 290 Z" fill="#d8d8d4"/>
+
+  <!-- EXACT JR body path, flipped: use JR's shape mirrored. JR was cap@top neck@40-76 body@76-262.
+       Flip: body becomes top (y330-262=68 to y330-76=254... i.e. bottom of JR at 262 -> top at 68),
+       neck goes to bottom near cap. -->
+  <!-- wide body (this is JR's bottom, now at top, but keep JR's actual flare) -->
+  <!-- To be a TRUE mirror of JR, just draw JR's path but with y inverted: y' = 330 - y -->
+  <!-- JR body: M98 40 L122 40 L122 52 Q122 76 144 96 L144 240 L144 258 Q144 262 110 262 Q76 262 76 258 L76 240 L76 96 Q98 76 98 52 Z
+       flipped y: 40->290, 52->278, 76->254, 96->234, 240->90, 258->72, 262->68, 96(second)->234, 76->254 -->
+  <!-- neck (JR neck 40-76 at top) flipped to bottom near cap: -->
+  <path d="M98 290 L122 290
+           L122 278 Q122 254 144 234 L144 90
+           L144 72 Q144 68 110 68 Q76 68 76 72 L76 90
+           L76 234 Q98 254 98 278 Z"
+        fill="url(#clearG)" stroke="#b88878" stroke-width="2.5"/>
+  <!-- flat base line (was JR's bottom, now top) -->
+  <path d="M76 72 Q92 66 110 66 Q128 66 144 72" fill="none" stroke="#b88878" stroke-width="2"/>
+
+  <!-- RED ketchup in the neck region (now near bottom, before cap) - JR's neck was 52-76 wide section -->
+  
+    <!-- main ketchup: widens following bottle -->
+    
+  <!-- a little red just above cap -->
+  <path d="M96 284 L124 284 L124 288 Q124 292 110 293 Q96 292 96 288 L96 284 Z" fill="#a00d05" opacity="0.9"/>
+  <!-- ketchup follows the bottle: fills neck + flares with the walls -->
+<!-- surface meniscus line (where ketchup meets air) -->
+<path d="M96 216 Q104 212 110 213 Q118 212 124 216" stroke="#f05030" stroke-width="2" fill="none" opacity="0.6"/>
+  
+<!-- ketchup pooled in the neck/lower body (clipped to bottle so it follows the shape) -->
+<g clip-path="url(#bottleClip)">
+  <rect x="70" y="200" width="80" height="100" fill="#d0150c" opacity="0.85"/>
+</g>
+<!-- small solid pool at the cap -->
+<path d="M96 284 L124 284 L124 292 Q124 296 110 297 Q96 296 96 292 Z" fill="#b00d05" opacity="0.9"/>
+  <!-- dried streaks on glass -->
+  <path d="M82 110 L80 200 Q80 212 84 220 L82 110 Z" fill="#c0150c" opacity="0.3"/>
+  <path d="M138 110 L140 190 Q140 202 136 212 L138 110 Z" fill="#c0150c" opacity="0.28"/>
+  <!-- shine -->
+  <rect x="88" y="110" width="7" height="120" rx="3.5" fill="#ffffff88"/>
+
+  <!-- ===== FACE at the NECK (upside-down, near bottom by cap = mirror of JR's face-at-shoulder) ===== -->
+  <!-- JR face was cy 98 upper body. Flipped: near bottom of the wide body above the neck. Put at cy ~205 right above red neck -->
+  <g id="popFace" transform="translate(110,200) rotate(180)">
+    <ellipse cx="-14" cy="-12" rx="6.5" ry="4.5" fill="#fff" stroke="#3a0501" stroke-width="1.8"/>
+    <ellipse cx="14" cy="-12" rx="6.5" ry="4.5" fill="#fff" stroke="#3a0501" stroke-width="1.8"/>
+    <circle cx="-12" cy="-11" r="2.2" fill="#3a0501"/>
+    <circle cx="16" cy="-11" r="2.2" fill="#3a0501"/>
+    <path d="M-24 -20 L-8 -15 M-22 -21 L-8 -15" stroke="#3a0501" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+    <path d="M24 -20 L8 -15 M22 -21 L8 -15" stroke="#3a0501" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+    <path d="M-22 -5 Q-14 -2 -6 -5" stroke="#7a5a40" stroke-width="1.2" fill="none" opacity="0.6"/>
+    <path d="M6 -5 Q14 -2 22 -5" stroke="#7a5a40" stroke-width="1.2" fill="none" opacity="0.6"/>
+    <path d="M-13 4 Q0 -3 13 4" stroke="#3a0501" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+    <path d="M-14 0 Q0 -4 14 0" stroke="#9a9a9a" stroke-width="1.8" fill="none" opacity="0.7"/>
+  </g>
+
+  <!-- ===== faded label upside-down on the body ===== -->
+  <g transform="translate(110,120) rotate(180)">
+    <rect x="-30" y="-42" width="60" height="84" rx="10" fill="#e0c8a8" opacity="0.92"/>
+    <rect x="-30" y="-42" width="60" height="15" fill="#8a6a3a"/>
+    <text x="0" y="-31" text-anchor="middle" font-family="monospace" font-size="7" font-weight="bold" fill="#fff">KETCHUP</text>
+    <text x="0" y="-8" text-anchor="middle" font-family="serif" font-size="15" font-weight="bold" fill="#6a3a20">Tom</text>
+    <text x="0" y="6" text-anchor="middle" font-family="serif" font-size="8" font-style="italic" fill="#8a6a50">hides in the back</text>
+    <text x="0" y="26" text-anchor="middle" font-family="monospace" font-size="5.5" fill="#a08060">GOES W/EVERYTHING</text>
+    <text x="0" y="38" text-anchor="middle" font-family="monospace" font-size="5" fill="#8a6a50">32 OZ</text>
+  </g>
+
+  <!-- arms crossed near top -->
+  <g id="popArmR"><path d="M138 168 Q124 190 94 200" stroke="#5a0a03" stroke-width="8" stroke-linecap="round" fill="none"/></g>
+<g id="popArmL"><path d="M82 168 Q96 190 126 200" stroke="#5a0a03" stroke-width="8" stroke-linecap="round" fill="none"/></g>
+</svg></div>
+    <div class="info">
+      <div class="name">🍅 Tom</div>
+      <div class="home">The Fridge (back shelf)</div>
+      <div class="role">The Redneck Patriarch</div>
+      <div class="cond">Ketchup · 32 oz</div>
+      <div class="vibe">"Been everyone's first squeeze for 25 years."</div>
+      <div class="bio">Big 32 oz bottle, more than half used, lives upside-down so the last drops flow. Hides in the back so he won't get thrown away. Has a story for how he lost his feet — different every time.</div>
+    </div>
+  </div>
+  <a class="back" href="/roster">&larr; Back to The Cast</a>
+</div>
+<div class="snow">&#128013;</div>
+</body>
+</html>

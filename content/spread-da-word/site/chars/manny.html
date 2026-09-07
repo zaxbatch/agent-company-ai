@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spread Da Word — Manny "Da Man" Ayes</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#0a1220;color:#cfe8ff;font-family:monospace;min-height:100vh}
+  nav{background:#0e1a2e;border-bottom:2px solid #3d5a80;padding:14px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;position:sticky;top:0;z-index:50}
+  nav .logo{color:#9bd1ff;font-size:16px;letter-spacing:2px;font-weight:bold;text-decoration:none}
+  nav .logo span{color:#e94560}
+  nav a.nav{color:#9bd1ff;text-decoration:none;font-size:13px;padding:6px 10px;border-radius:6px}
+  nav a.nav:hover{background:#1c3352;color:#fff}
+  nav a.nav.active{background:#3d5a80;color:#fff}
+  .wrap{max-width:720px;margin:24px auto;padding:0 20px 40px}
+  .card{background:#0e1a2e;border:2px solid #7fd1ff;border-radius:16px;overflow:hidden}
+  .stage{background:linear-gradient(180deg,#151f33,#0d1522);min-height:300px;display:flex;align-items:flex-end;justify-content:center;padding:10px 0}
+  .info{padding:20px}
+  .name{font-size:22px;color:#fff;font-weight:bold;letter-spacing:1px}
+  .home{color:#7fd1ff;font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-top:2px}
+  .role{color:#ffd166;font-size:13px;margin-top:8px}
+  .cond{color:#7fa8d0;font-size:12px;margin-top:2px}
+  .vibe{color:#fff;font-size:15px;font-style:italic;margin-top:14px;background:#7fd1ff22;border-left:3px solid #7fd1ff;padding:8px 12px;border-radius:0 6px 6px 0}
+  .bio{color:#a8bcd0;font-size:12px;line-height:1.7;margin-top:14px}
+  .back{display:inline-block;margin-top:18px;color:#9bd1ff;text-decoration:none;font-size:13px}
+  .back:hover{color:#fff}
+  .snow{position:fixed;bottom:8px;right:10px;font-size:14px;opacity:.25}
+</style>
+</head>
+<body>
+<nav>
+  <a class='logo' href='/'>SPREAD<span>DA</span>WORD</a>
+  <a class='nav' href='/'>Home</a>
+  <a class='nav' href='/watch'>Watch</a>
+  <a class='nav' href='/soundtracks'>Soundtracks</a>
+  <a class='nav active' href='/roster'>The Cast</a>
+  <a class='nav' href='/fridge-teaser'>The Fridge</a>
+  <a class='nav' href='/behind-the-scenes'>Behind the Scenes</a>
+</nav>
+<div class="wrap">
+  <div class="card">
+    <div class="stage"><svg viewBox="0 0 300 240" width="210" height="168">
+  <defs>
+    <linearGradient id="mayoGlass" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b8c8d0"/>
+      <stop offset="0.3" stop-color="#eef4f6"/>
+      <stop offset="0.6" stop-color="#dfe8ec"/>
+      <stop offset="1" stop-color="#9cb0b8"/>
+    </linearGradient>
+    <linearGradient id="mayoBlue" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1a3a5c"/>
+      <stop offset="0.5" stop-color="#2a5a8c"/>
+      <stop offset="1" stop-color="#16324e"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ===== WIDE SQUAT MAYO JAR ===== -->
+  <!-- silver lid -->
+  <path d="M96 30 L204 30 L204 46 L96 46 Z" fill="#d8dde0" stroke="#8a9298" stroke-width="2"/>
+  <path d="M100 24 L200 24 L200 31 L100 31 Z" fill="#aeb6bc"/>
+  <!-- jar body (very wide) -->
+  <path d="M100 46 L200 46 L206 66 L206 196 Q206 224 150 226 Q94 224 94 196 L94 66 Z"
+        fill="url(#mayoGlass)" stroke="#7a8a92" stroke-width="2.5"/>
+  <!-- mayo content -->
+  <path d="M98 78 L202 78 L202 188 Q202 216 150 218 Q98 216 98 188 L98 78 Z" fill="#fdf6ea" opacity=".9"/>
+  <!-- gloss -->
+  <rect x="104" y="52" width="10" height="150" rx="5" fill="#ffffff99"/>
+
+  <!-- ===== FACE (upper on jar) ===== -->
+  <g id="mayoEyes">
+    <circle cx="136" cy="62" r="6" fill="#fff" stroke="#1a2a3a" stroke-width="2"/>
+    <circle cx="164" cy="62" r="6" fill="#fff" stroke="#1a2a3a" stroke-width="2"/>
+    <circle cx="138" cy="63" r="3" fill="#1a2a3a"/>
+    <circle cx="166" cy="63" r="3" fill="#1a2a3a"/>
+    <path d="M128 53 L136 49 L144 53" stroke="#1a2a3a" stroke-width="2" fill="none"/>
+    <path d="M156 53 L164 49 L172 53" stroke="#1a2a3a" stroke-width="2" fill="none"/>
+  </g>
+  <g id="mayoMouth"><path d="M136 78 Q150 84 164 76" stroke="#1a2a3a" stroke-width="2.4" fill="none" stroke-linecap="round"/></g>
+
+  <!-- ===== LABEL with TRIM (gold lines top/bottom break up white) ===== -->
+  <g id="mayoLabel">
+    <!-- white label panel -->
+    <rect x="112" y="92" width="76" height="88" rx="5" fill="#f4f8fb"/>
+    <!-- top blue band -->
+    
+    <!-- gold trim lines -->
+    <rect x="112" y="106" width="76" height="2.5" fill="#d4af37"/>
+    <rect x="112" y="172" width="76" height="2.5" fill="#d4af37"/>
+    <!-- text -->
+    
+    <text x="150" y="126" text-anchor="middle" font-family="serif" font-size="20" font-weight="bold" fill="#1a3a5c">Manny</text>
+    <text x="150" y="141" text-anchor="middle" font-family="serif" font-size="9" font-style="italic" fill="#3a5a7a">"Da Man's"</text>
+    <!-- gold divider -->
+    <path d="M124 152 L176 152" stroke="#d4af37" stroke-width="1.4"/>
+    <rect x="112" y="162" width="76" height="16" fill="url(#mayoBlue)"/>
+    <text x="150" y="173" text-anchor="middle" font-family="serif" font-size="7.5" font-weight="bold" fill="#fff">MAYONNAISE</text>
+  </g>
+
+  <!-- ===== ARMS (suit sleeves from wide body sides) ===== -->
+  <g id="mayoArmL"><path d="M98 100 Q70 118 66 148" stroke="#2a3a52" stroke-width="10" stroke-linecap="round" fill="none"/></g>
+  <g id="mayoArmR"><path d="M202 100 Q230 118 234 148" stroke="#2a3a52" stroke-width="10" stroke-linecap="round" fill="none"/></g>
+  <g id="mayoWatch"><circle cx="234" cy="142" r="7" fill="#c8d0d8" stroke="#8a9298" stroke-width="2"/><circle cx="234" cy="142" r="3" fill="#1a3a5c"/></g>
+
+  <!-- ===== shoes ===== -->
+  <rect x="118" y="222" width="26" height="11" rx="4" fill="#1a1a1a"/>
+  <rect x="156" y="222" width="26" height="11" rx="4" fill="#1a1a1a"/>
+</svg></div>
+    <div class="info">
+      <div class="name">🥚 Manny "Da Man" Ayes</div>
+      <div class="home">The Fridge</div>
+      <div class="role">The Diplomat</div>
+      <div class="cond">Mayonnaise</div>
+      <div class="vibe">"Let's keep it smooth."</div>
+      <div class="bio">The smooth face of the Ayes twins. Premium mayo in a wide glass jar, silver watch, country club manners. He makes the Cab-Nets offers they can't refuse — politely.</div>
+    </div>
+  </div>
+  <a class="back" href="/roster">&larr; Back to The Cast</a>
+</div>
+<div class="snow">&#128013;</div>
+</body>
+</html>

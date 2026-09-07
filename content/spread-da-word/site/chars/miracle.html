@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spread Da Word — Miracle</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#0a1220;color:#cfe8ff;font-family:monospace;min-height:100vh}
+  nav{background:#0e1a2e;border-bottom:2px solid #3d5a80;padding:14px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;position:sticky;top:0;z-index:50}
+  nav .logo{color:#9bd1ff;font-size:16px;letter-spacing:2px;font-weight:bold;text-decoration:none}
+  nav .logo span{color:#e94560}
+  nav a.nav{color:#9bd1ff;text-decoration:none;font-size:13px;padding:6px 10px;border-radius:6px}
+  nav a.nav:hover{background:#1c3352;color:#fff}
+  nav a.nav.active{background:#3d5a80;color:#fff}
+  .wrap{max-width:720px;margin:24px auto;padding:0 20px 40px}
+  .card{background:#0e1a2e;border:2px solid #d4af37;border-radius:16px;overflow:hidden}
+  .stage{background:linear-gradient(180deg,#151f33,#0d1522);min-height:300px;display:flex;align-items:flex-end;justify-content:center;padding:10px 0}
+  .info{padding:20px}
+  .name{font-size:22px;color:#fff;font-weight:bold;letter-spacing:1px}
+  .home{color:#d4af37;font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-top:2px}
+  .role{color:#ffd166;font-size:13px;margin-top:8px}
+  .cond{color:#7fa8d0;font-size:12px;margin-top:2px}
+  .vibe{color:#fff;font-size:15px;font-style:italic;margin-top:14px;background:#d4af3722;border-left:3px solid #d4af37;padding:8px 12px;border-radius:0 6px 6px 0}
+  .bio{color:#a8bcd0;font-size:12px;line-height:1.7;margin-top:14px}
+  .back{display:inline-block;margin-top:18px;color:#9bd1ff;text-decoration:none;font-size:13px}
+  .back:hover{color:#fff}
+  .snow{position:fixed;bottom:8px;right:10px;font-size:14px;opacity:.25}
+</style>
+</head>
+<body>
+<nav>
+  <a class='logo' href='/'>SPREAD<span>DA</span>WORD</a>
+  <a class='nav' href='/'>Home</a>
+  <a class='nav' href='/watch'>Watch</a>
+  <a class='nav' href='/soundtracks'>Soundtracks</a>
+  <a class='nav active' href='/roster'>The Cast</a>
+  <a class='nav' href='/fridge-teaser'>The Fridge</a>
+  <a class='nav' href='/behind-the-scenes'>Behind the Scenes</a>
+</nav>
+<div class="wrap">
+  <div class="card">
+    <div class="stage"><svg viewBox="0 0 300 240" width="210" height="168">
+  <defs>
+    <linearGradient id="mirGlass" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#c8c0d0"/>
+      <stop offset="0.3" stop-color="#f2eef6"/>
+      <stop offset="0.6" stop-color="#e4e0ec"/>
+      <stop offset="1" stop-color="#a8a0b8"/>
+    </linearGradient>
+    <linearGradient id="mirGold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8a6a1a"/>
+      <stop offset="0.5" stop-color="#d4af37"/>
+      <stop offset="1" stop-color="#8a6a1a"/>
+    </linearGradient>
+    <linearGradient id="mirPurple" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4a2050"/>
+      <stop offset="0.5" stop-color="#7a3a84"/>
+      <stop offset="1" stop-color="#3a183e"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ===== WIDE SQUAT JAR ===== -->
+  <!-- gold lid -->
+  <path d="M98 30 L202 30 L202 46 L98 46 Z" fill="url(#mirGold)" stroke="#6a4e0e" stroke-width="1.5"/>
+  <path d="M102 24 L198 24 L198 31 L102 31 Z" fill="#e8d88a"/>
+  <!-- jar -->
+  <path d="M100 46 L200 46 L206 66 L206 196 Q206 224 150 226 Q94 224 94 196 L94 66 Z"
+        fill="url(#mirGlass)" stroke="#7a708a" stroke-width="2.5"/>
+  <!-- creamy dressing content -->
+  <path d="M98 78 L202 78 L202 188 Q202 216 150 218 Q98 216 98 188 L98 78 Z" fill="#fdf4f0" opacity=".9"/>
+  <!-- gloss -->
+  <rect x="104" y="52" width="10" height="150" rx="5" fill="#ffffff99"/>
+
+  <!-- ===== FACE ===== -->
+  <g id="mirEyes">
+    <ellipse cx="136" cy="62" rx="6" ry="5.5" fill="#fff" stroke="#2a1a30" stroke-width="1.8"/>
+    <ellipse cx="164" cy="62" rx="6" ry="5.5" fill="#fff" stroke="#2a1a30" stroke-width="1.8"/>
+    <circle cx="138" cy="63" r="3" fill="#2a1a30"/>
+    <circle cx="166" cy="63" r="3" fill="#2a1a30"/>
+    <path d="M129 53 L126 48 M129 52 L127 49" stroke="#2a1a30" stroke-width="1.6"/>
+    <path d="M171 53 L174 48 M171 52 L173 49" stroke="#2a1a30" stroke-width="1.6"/>
+    <path d="M130 54 L140 51 M170 54 L160 51" stroke="#2a1a30" stroke-width="1.7"/>
+  </g>
+  <g id="mirMouth"><path d="M138 78 Q150 83 162 76" stroke="#4a2050" stroke-width="2.2" fill="none" stroke-linecap="round"/></g>
+
+  <!-- ===== LABEL with gold trim ===== -->
+  <g id="mirLabel">
+    <rect x="112" y="92" width="76" height="88" rx="5" fill="#f8f4fc"/>
+    <!-- purple top band -->
+    
+    <!-- gold trim lines -->
+    <rect x="112" y="106" width="76" height="2.5" fill="#d4af37"/>
+    <rect x="112" y="172" width="76" height="2.5" fill="#d4af37"/>
+    
+    <!-- Miracle in cursive -->
+    <text x="150" y="134" text-anchor="middle" font-family="'Brush Script MT','Segoe Script',cursive" font-size="28" font-weight="bold" fill="#4a2050">Miracle</text>
+    <!-- gold divider -->
+    <path d="M124 146 L176 146" stroke="#d4af37" stroke-width="1.4"/>
+    <rect x="112" y="162" width="76" height="16" fill="url(#mirPurple)"/>
+    <text x="150" y="173" text-anchor="middle" font-family="serif" font-size="7.5" font-weight="bold" fill="#fff">DRESSING</text>
+  </g>
+
+  <!-- ===== ARMS ===== -->
+  <g id="mirArmL"><path d="M98 100 Q70 116 66 148" stroke="#3a2a4a" stroke-width="8" stroke-linecap="round" fill="none"/></g>
+  <g id="mirArmR"><path d="M202 100 Q230 116 234 148" stroke="#3a2a4a" stroke-width="8" stroke-linecap="round" fill="none"/></g>
+  <g id="mirBracelet"><rect x="228" y="140" width="8" height="14" rx="3" fill="url(#mirGold)"/></g>
+
+  <!-- ===== heels ===== -->
+  <path d="M124 222 L140 222 L141 230 Q130 234 124 230 Z" fill="#2a1a30"/>
+  <path d="M160 222 L176 222 L175 230 Q164 234 158 230 Z" fill="#2a1a30"/>
+</svg></div>
+    <div class="info">
+      <div class="name">🥫 Miracle</div>
+      <div class="home">The Fridge</div>
+      <div class="role">The Operator</div>
+      <div class="cond">Dressing</div>
+      <div class="vibe">"I'm not Mayo. I'm me."</div>
+      <div class="bio">The sharper Ayes twin. Gold-trimmed jar, winged eyeliner, does the math while Manny does the smiling. Holds the Cab-Nets down from the boardroom.</div>
+    </div>
+  </div>
+  <a class="back" href="/roster">&larr; Back to The Cast</a>
+</div>
+<div class="snow">&#128013;</div>
+</body>
+</html>
