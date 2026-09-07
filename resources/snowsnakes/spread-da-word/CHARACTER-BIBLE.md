@@ -68,7 +68,7 @@ Not a condiment. Not a character. A presence.
 ## 🍅 KETCHUP — FATHER & SON (canon, Zerric 2026-09-07)
 - **Tom Jr.** (14 oz · short bottle) — fresh, full, optimistic kid. Wide Heinz-style bottle, white cap, bright red. "I go with everything."
 - **Tom** (32 oz · big bottle) — more than half used. Lives UPSIDE-DOWN (standing on his head so the last drops flow). Translucent/see-through glass — only red left is in the neck. Old, tired, bitter, grumpy face. Arms crossed.
-- **RECURRING GAG (Kenny-style):** Pop has no feet. Every episode tells a DIFFERENT story of how he lost them — the war, an accident, a shark bite, etc. Never the same story twice.
+- **RECURRING GAG (Kenny-style):** Tom has no feet. Every episode tells a DIFFERENT story of how he lost them — the war, an accident, a shark bite, etc. Never the same story twice.
 - Shape note: classic Heinz-57-style bottle (wide glass body, smooth short neck, WHITE cap). Ketchup is a squat wide bottle, NOT the tall narrow-neck or hot-sauce shape.
-- **Pop's survival trick:** he always hangs out in the BACK of the fridge so he doesn't get used up and thrown away. That's why he's survived 25+ years — and why he's bitter (he's watched everyone else get finished off). Pairs with the recurring "how he lost his feet" gag.
+- **Tom's survival trick:** he always hangs out in the BACK of the fridge so he doesn't get used up and thrown away. That's why he's survived 25+ years — and why he's bitter (he's watched everyone else get finished off). Pairs with the recurring "how he lost his feet" gag.
 - **THE KETCHUP FAMILY ARE REDNECKS.** Tom (Sr, 32oz) and Tom Jr (Jr, 14oz) are trailer-park ketchup from the back of the fridge. Drawl, "y'all", camouflage-adjacent, proud of their big bottle, protective of the last few squeezes. Tom's got a shotgun (ketchup-squirter) and tells tall tales about how he lost his feet. Tom Jr looks up to his old man and wants to be a big 32oz someday.
