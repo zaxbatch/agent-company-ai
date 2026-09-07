@@ -30,7 +30,7 @@
   .bubble{position:absolute;display:none;background:#fff;color:#111;border-radius:12px;padding:8px 12px;font-size:12px;max-width:230px;border:2px solid #111}
   .bubble .tail{position:absolute;bottom:-10px;border-top:10px solid #fff;border-bottom:0;left:30px;width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-top:10px solid #fff}
   /* character spots */
-  .char-spot{position:absolute;bottom:32px;display:flex;align-items:flex-end}
+  .char-spot{position:absolute;bottom:36px;display:flex;align-items:flex-end}
   #queSpot{left:70px}
   #vinSpot{left:230px}
   .controls{margin-top:12px;display:flex;gap:10px}
@@ -298,12 +298,7 @@ function stopLip(){ if(lipsIV) clearInterval(lipsIV); qMouth.innerHTML=qOrig; vM
 
 // bob animation for characters (idle vibe)
 var bobIV=null; var tBob=0;
-function startBob(){ if(bobIV) return; bobIV=setInterval(function(){ tBob+=0.06;
-  var qb=Math.sin(tBob)*3, vb=Math.sin(tBob+1.4)*3;
-  var qs=document.getElementById('queRig'), vs=document.getElementById('vinRig');
-  if(qs) qs.style.transform='translateY('+(-qb)+'px)';
-  if(vs) vs.style.transform='translateY('+(-vb)+'px)';
-},50); }
+function startBob(){ /* characters stay still, planted on shelf */ }
 
 // timeline: total ~17s
 var TIMELINE=[];
@@ -332,11 +327,17 @@ function runScene(){
     q1.play(); lipsync('que',2.8); duck(2.9);
   },2000);
   setTimeout(function(){ // Que punchline
-    showQ("Belly button! Ha! Ha!"); q2.play(); lipsync('que',1.0); duck(1.2);
+    showQ("Belly button! Ha! Ha! Ha!"); q2.play(); lipsync('que',2.3); duck(2.4);
     // ROACH CRAWLS during the laugh
     roach.style.display='block';
     var x=0; var rIV=setInterval(function(){ x+=3; roach.style.left=x+'px'; if(x>730){clearInterval(rIV);roach.style.display='none';} },30);
   },4700);
+  // Q keeps laughing in the background until Vin reacts
+  setTimeout(function(){ var lt=0; var liv=setInterval(function(){ lt+=60;
+    var open=(Math.sin(lt/110)>0);
+    qMouth.innerHTML = open ? '<ellipse cx="110" cy="93" rx="9" ry="6" fill="#1f0500"/><rect x="107" y="89" width="6" height="6" rx="1.5" fill="#ffd700"/>' : qOrig;
+    if(lt>2200){ clearInterval(liv); qMouth.innerHTML=qOrig; }
+  },60); },7200);
   setTimeout(function(){ // Vin reaction
     hideB(); showV("Q. That was terrible.");
     v1.play(); lipsync('vin',1.3); duck(1.5);
