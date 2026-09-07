@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 300" width="220" height="300">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 260" width="220" height="300">
   <defs>
     <linearGradient id="mirGlass" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#c8c0d0"/>
@@ -16,7 +16,7 @@
       <stop offset="0.5" stop-color="#7a3a84"/>
       <stop offset="1" stop-color="#3a183e"/>
     </linearGradient>
-  </defs>
+  </defs><g transform="scale(1.1,0.84) translate(2,20)">
 
   <!-- ===== WIDE SQUAT GLASS JAR (like Manny - twins) ===== -->
   <!-- gold lid -->
@@ -62,4 +62,4 @@
   <!-- ===== heels ===== -->
   <path d="M90 256 L106 256 L107 263 Q97 267 91 263 Z" fill="#2a1a30"/>
   <path d="M114 256 L130 256 L129 263 Q119 267 113 263 Z" fill="#2a1a30"/>
-</svg>
+</g></svg>

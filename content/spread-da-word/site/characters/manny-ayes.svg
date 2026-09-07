@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 300" width="220" height="300">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 260" width="220" height="300">
   <defs>
     <linearGradient id="mayoGlass" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#b8c8d0"/>
@@ -11,7 +11,7 @@
       <stop offset="0.5" stop-color="#2a5a8c"/>
       <stop offset="1" stop-color="#16324e"/>
     </linearGradient>
-  </defs>
+  </defs><g transform="scale(1.1,0.84) translate(2,20)">
 
   <!-- ===== WIDE SQUAT GLASS MAYO JAR (not a bottle) ===== -->
   <!-- silver screw lid (wide) -->
@@ -56,4 +56,4 @@
   <!-- ===== shoes ===== -->
   <rect x="86" y="256" width="22" height="10" rx="4" fill="#1a1a1a"/>
   <rect x="112" y="256" width="22" height="10" rx="4" fill="#1a1a1a"/>
-</svg>
+</g></svg>
