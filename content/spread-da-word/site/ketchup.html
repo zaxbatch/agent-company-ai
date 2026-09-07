@@ -119,7 +119,13 @@
       <stop offset="0.7" stop-color="#f8f0ea" stop-opacity="0.12"/>
       <stop offset="1" stop-color="#c8a898" stop-opacity="0.32"/>
     </linearGradient>
-  </defs>
+    <clipPath id="bottleClip">
+  <path d="M98 290 L122 290
+           L122 278 Q122 254 144 234 L144 90
+           L144 72 Q144 68 110 68 Q76 68 76 72 L76 90
+           L76 234 Q98 254 98 278 Z"/>
+  </clipPath>
+</defs>
 
   <!-- ===== POP = JR's EXACT silhouette, FLIPPED (wide body top, smooth neck down to white cap at bottom) ===== -->
   <!-- white cap at BOTTOM (JR's cap mirrored) -->
@@ -143,9 +149,21 @@
   <path d="M76 72 Q92 66 110 66 Q128 66 144 72" fill="none" stroke="#b88878" stroke-width="2"/>
 
   <!-- RED ketchup in the neck region (now near bottom, before cap) - JR's neck was 52-76 wide section -->
-  <path d="M96 232 L124 232 L124 276 Q124 282 110 284 Q96 282 96 276 L96 232 Z" fill="#d0150c" opacity="0.85"/>
+  
+    <!-- main ketchup: widens following bottle -->
+    
   <!-- a little red just above cap -->
   <path d="M96 284 L124 284 L124 288 Q124 292 110 293 Q96 292 96 288 L96 284 Z" fill="#a00d05" opacity="0.9"/>
+  <!-- ketchup follows the bottle: fills neck + flares with the walls -->
+<!-- surface meniscus line (where ketchup meets air) -->
+<path d="M96 216 Q104 212 110 213 Q118 212 124 216" stroke="#f05030" stroke-width="2" fill="none" opacity="0.6"/>
+  
+<!-- ketchup pooled in the neck/lower body (clipped to bottle so it follows the shape) -->
+<g clip-path="url(#bottleClip)">
+  <rect x="70" y="200" width="80" height="100" fill="#d0150c" opacity="0.85"/>
+</g>
+<!-- small solid pool at the cap -->
+<path d="M96 284 L124 284 L124 292 Q124 296 110 297 Q96 296 96 292 Z" fill="#b00d05" opacity="0.9"/>
   <!-- dried streaks on glass -->
   <path d="M82 110 L80 200 Q80 212 84 220 L82 110 Z" fill="#c0150c" opacity="0.3"/>
   <path d="M138 110 L140 190 Q140 202 136 212 L138 110 Z" fill="#c0150c" opacity="0.28"/>
@@ -175,8 +193,8 @@
   </g>
 
   <!-- arms crossed near top -->
-  <g id="popArmL"><path d="M80 120 Q66 146 98 162" stroke="#5a0a03" stroke-width="8" stroke-linecap="round" fill="none"/></g>
-  <g id="popArmR"><path d="M140 120 Q154 146 122 162" stroke="#5a0a03" stroke-width="8" stroke-linecap="round" fill="none"/></g>
+  <g id="popArmL"><path d="M80 110 Q62 140 96 176" stroke="#5a0a03" stroke-width="8" stroke-linecap="round" fill="none"/></g>
+  <g id="popArmR"><path d="M140 110 Q158 140 124 176" stroke="#5a0a03" stroke-width="8" stroke-linecap="round" fill="none"/></g>
 </svg></div>
       <div class="fact"><b>Half his life spent standing on his head</b> so the last drops would come out. Now he's translucent — you can see right through him, just a smear left. Faded label, droopy grumpy eyes, grey stubble, arms crossed. He's bitter: he's been squeezed dry by everyone.<br><i>Face stays upright at the bottom even though his world is flipped.</i></div>
       <div class="quote">"You kids think ketchup's a joke. Try being everyone's first squeeze for 25 years. *hmph*"</div>
