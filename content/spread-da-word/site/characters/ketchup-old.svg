@@ -83,6 +83,6 @@
   </g>
 
   <!-- arms crossed near top -->
-  <g id="popArmL"><path d="M82 165 Q64 175 100 190" stroke="#5a0a03" stroke-width="8" stroke-linecap="round" fill="none"/></g>
-  <g id="popArmR"><path d="M138 165 Q156 175 120 190" stroke="#5a0a03" stroke-width="8" stroke-linecap="round" fill="none"/></g>
+  <g id="popArmR"><path d="M138 168 Q124 190 94 200" stroke="#5a0a03" stroke-width="8" stroke-linecap="round" fill="none"/></g>
+<g id="popArmL"><path d="M82 168 Q96 190 126 200" stroke="#5a0a03" stroke-width="8" stroke-linecap="round" fill="none"/></g>
 </svg>
