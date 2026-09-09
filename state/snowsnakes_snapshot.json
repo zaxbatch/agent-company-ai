@@ -1,9 +1,9 @@
 {
   "jokes": 128,
-  "games": "err:<urlopen error [Errno 104] Connection reset by peer>",
+  "games": 15,
   "characters": 3,
   "comics": 0,
   "doodles": 7,
   "episodes": 3,
-  "snapshot_at": "2026-09-09T22:50:01Z"
+  "snapshot_at": "2026-09-09T22:55:01Z"
 }
