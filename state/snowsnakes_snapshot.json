@@ -1,9 +1,9 @@
 {
-  "jokes": "err:IncompleteRead(0 bytes read)",
-  "games": 15,
+  "jokes": 128,
+  "games": "err:The read operation timed out",
   "characters": 3,
   "comics": 0,
   "doodles": 7,
   "episodes": 3,
-  "snapshot_at": "2026-09-10T05:05:01Z"
+  "snapshot_at": "2026-09-10T05:10:01Z"
 }
