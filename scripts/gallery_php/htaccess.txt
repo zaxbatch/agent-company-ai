@@ -1,0 +1,10 @@
+DirectoryIndex index.php index.html
+AddType text/html .php
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow"
+</IfModule>
+<FilesMatch "\.(json)$">
+  <IfModule mod_headers.c>
+    Header set Cache-Control "no-store"
+  </IfModule>
+</FilesMatch>
