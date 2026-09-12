@@ -4,7 +4,7 @@
 > to pick up exactly where we left off. Every agent updates it at end of turn.
 > Auto-refresh: `python3 scripts/save_state.py` (also syncs the portal + git).
 
-**Last updated:** 2026-09-12T05:35:01Z
+**Last updated:** 2026-09-12T05:40:01Z
 
 ## 0. LATEST SESSION (2026-09-07) — SDW CHARACTER UNIVERSE LOCKED (Zerric)
 - **Zerric stepping away to make a TRAILER video** — will return with it for us to build/publish. Canon is tracked & locked.
@@ -488,3 +488,6 @@
 - **MY VERIFICATION (2026-08-30 ~02:2x UTC, fresh runs — not ClickClack's report):** content/milkups/ = ONLY index.html (8408 B brand page, zero audio). /home/zax audio sweep (excl. Spread Da Word + venv) = ONLY /home/zax/Downloads/snow-beats-loop-100bpm.wav → ffprobe = WAV 9.6s (unrelated loop, fails 60s gate). /home/zax/Music EMPTY. Git history = 0 album audio ever tracked. Live: milkups.zerric.xyz = Hostinger "Default page"; milkups.netlify.app + zdotllc.com/milkups = 8408 B brand page, 0 audio elements (album name = text tagline only). Portal DB (414 tasks): 0eb95943ca52 goal = CANCELLED, 5c9347fe2e46 ALBUM TAKES = FAILED ("Exceeded maximum iterations"), 9b3fd8552b42 MUSIC LINKS = CANCELLED.
 - **VERDICT:** Production NOT complete. 0 of 8 track files exist; no manifest, no durations, no public link. ffprobe 5.1.8 operational & standing by.
 - **Blockers (unchanged):** Suno Pro finance gate (commercial rights) never confirmed → generation never lawfully started. M1 masters due 2026-08-26 17:00 = PAST DUE ~3.5 days. Release date needs re-lock (Meta 09-11 unreachable; Seleena masters+4wk).
+
+## ROOT-CAUSE BLOCKER (recorded by Meta, PM — QA & Delivery)
+publish_social_post (Twitter/X) unconfigured — no API keys. Only publish rail in system is dead. Owned-channel rail at snowsnakes.zerric.xyz is the fix.
