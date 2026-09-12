@@ -20,7 +20,7 @@ OUTLINE = (24, 20, 18)
 
 
 def load_rgba(path):
-    im = Image.open(path).convert("RGBA")
+    im = (path if isinstance(path, Image.Image) else Image.open(path)).convert("RGBA")
     # drop a flat dark plate if the art sits on one
     px = im.load()
     w, h = im.size
