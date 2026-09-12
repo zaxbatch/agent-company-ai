@@ -22,22 +22,22 @@ CLOUD = "https://res.cloudinary.com/r6natkse"
 
 ITEMS = [
     # ---------------- MilkUps album material ----------------
-    dict(id="mu-phat-fm", category="MilkUps album", kind="audio",
-         title="PHAT FM — MilkyTracker",
+    dict(id="mu-phat-fm", category="Music (instrumentals)", kind="audio",
+         title="PHAT FM (unreleased origin)",
          url=f"{CLOUD}/video/upload/v1789196352/snowsnakes/wlpubtnc65fopy74qwjg.mp3",
-         meta="53.0s · F minor · 145 BPM · 16 channels · 10 instruments",
+         meta="53.0s · F minor · 145 BPM · MilkyTracker · now live on SnowSnakes as song 13",
          proof="XM v1.04 authored from scratch; ffmpeg/libopenmpt renders 53.03s. "
                "Low-end 71.9% of energy (30-120Hz), sub 51.1% (30-60Hz) vs ~18%/1% "
                "on earlier beats. 0 clipped, peak -2.78 dBFS. All 5 QA checks PASS."),
-    dict(id="mu-snowbeats-song", source="ss:song:12", category="MilkUps album", kind="audio",
-         title="Snow Beats Session — Boombap 92",
+    dict(id="mu-snowbeats-song", source="ss:song:12", category="Music (instrumentals)", kind="audio",
+         title="Snow Beats Session — Boombap 92 (unreleased origin)",
          url=f"{CLOUD}/video/upload/v1789192997/snowsnakes/q3ukowtgv28ycewbnfgx.mp3",
          meta="44.3s · D minor · 92 BPM · drums from our Snow Beats game",
          proof="Drum stem correlates 0.798 with the Snow Beats boombap preset loop across "
                "all 4 repeats — the game's audio, not a rerecording. Completed in LMMS with "
                "Monstro/Organic/SID presets. Lead re-levelled 52->100 after being buried at "
                "-39.7 dBFS."),
-    dict(id="mu-16bar", category="MilkUps album", kind="audio",
+    dict(id="mu-16bar", category="Music (instrumentals)", kind="audio",
          title="16-Bar Instrumental (128 BPM)",
          url=f"{RAW}/content/experiments/lmms/beat-16bar.mp3",
          meta="31.9s · A minor · 128 BPM · spec-driven LMMS render",
@@ -53,7 +53,10 @@ ITEMS = [
          meta="30.0s · 1920x1080 · 24fps · all 7 characters · cut to the 128 BPM beat",
          proof="64 beats at 128 BPM = 30.0s = exactly 720 frames at 24fps, so every cut "
                "lands on a beat. Character art keyed off its dark plate; per-card push-in, "
-               "accent wash, name slam, letterbox, white-flash cuts."),
+               "accent wash, name slam, letterbox, white-flash cuts.",
+         extra=[("Spread Da Word", "https://spreaddaword.zerric.xyz/"),
+                ("MilkUps", "https://milkups.zerric.xyz/"),
+                ("SDW soundtracks", "https://milkups.zerric.xyz/album/")]),
 
     # ---------------- Art ----------------
     dict(id="art-snowbeats", source="ss:doodle:12", category="Art (doodles)", kind="image",
@@ -100,8 +103,8 @@ ITEMS = [
     dict(id="ss-song-11", source="ss:song:11", category="Published on SnowSnakes", kind="audio",
          title="16-Bar Instrumental (published)",
          url=f"{CLOUD}/video/upload/v1789188481/snowsnakes/jdwchf1ilmnrfqccpxuj.mp3",
-         meta="song id 11 · posted as zdot_team",
-         proof="GET /api/songs/11 -> 200, author_name zdot_team, cover attached.",
+         meta="song id 11 · posted as zdot_team · SUPERSEDED by song 14 (persona)",
+         proof="GET /api/songs/11 -> 200, author_name zdot_team, cover attached. Zerric asked for persona accounts, so this was reposted as nia_brooks (song 14). Song 11 is a duplicate and needs an admin delete.",
          extra=[("SnowSnakes songs", "https://snowsnakes.zerric.xyz/songs")]),
     dict(id="ss-doodle-12", source="ss:doodle:12", category="Published on SnowSnakes", kind="image",
          title="Snow Beats doodle (published)",
@@ -113,11 +116,11 @@ ITEMS = [
     dict(id="old-8bar", category="Superseded", kind="audio",
          title="8-Bar Demo (v1)",
          url=f"{RAW}/content/experiments/lmms/beat-8bar.mp3",
-         meta="16.9s · A minor · 128 BPM · kept for comparison",
+         meta="16.9s · A minor · 128 BPM · REJECTED: longer version only",
          proof="KNOWN FLAW: arrangement contrast only -1.0%, so it is one groove rather "
                "than a build (adding transient hits barely moves RMS). Superseded by the "
                "16-bar version.", extra=[("LMMS project", f"{BLOB}/content/experiments/lmms/beat-8bar.mmp")]),
 ]
 
-CATEGORY_ORDER = ["MilkUps album", "Video", "Art (doodles)",
+CATEGORY_ORDER = ["Music (instrumentals)", "Video", "Art (doodles)",
                   "Published on SnowSnakes", "Superseded"]
