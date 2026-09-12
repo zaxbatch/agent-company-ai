@@ -1,0 +1,11 @@
+{"url": "https://openai.com/policies/terms-of-use", "file": "pw-1b81bc17", "status": 200, "chars": 22571, "title": "Terms of Use | OpenAI"}
+{"url": "https://www.adobe.com/legal/terms.html", "file": "pw-5123f32f", "status": "ERR", "error": "Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.adobe.com/legal/terms.html\nCall log:\n  - navigating to \"https://www.adobe.com/legal/terms.html\", waiting"}
+{"url": "https://www.adobe.com/legal/licenses-terms/adobe-gen-ai-user-guidelines.html", "file": "pw-6ea25159", "status": "ERR", "error": "Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.adobe.com/legal/licenses-terms/adobe-gen-ai-user-guidelines.html\nCall log:\n  - navigating to \"https://ww"}
+{"url": "https://www.midjourney.com/legal/terms", "file": "pw-520f9ee5", "status": 200, "chars": 237, "title": ""}
+{"url": "https://about.ideogram.ai/legal", "file": "pw-47caf667", "status": 200, "chars": 39, "title": "Ideogram"}
+{"url": "https://www.recraft.ai/terms", "file": "pw-89098268", "status": 200, "chars": 68814, "title": "Terms of Service - Recraft"}
+{"url": "https://stability.ai/terms-of-use", "file": "pw-1a171d81", "status": 200, "chars": 28085, "title": "2025 Terms of Service \u2014 Stability AI"}
+{"url": "https://www.leonardo.ai/terms-of-service", "file": "pw-43c04a62", "status": 200, "chars": 38998, "title": ""}
+{"url": "https://krita.org/en/about/license/", "file": "pw-58c7b9a5", "status": 200, "chars": 3426, "title": "License | Krita"}
+{"url": "https://procreate.com/legal", "file": "pw-ce2f564e", "status": 404, "chars": 653, "title": ""}
+{"url": "https://affinity.serif.com/en-us/licence/", "file": "pw-79ce0cd1", "status": 200, "chars": 55830, "title": "Affinity Licence Agreement"}

@@ -1,0 +1,393 @@
+Our cookies
+
+We use cookies to improve your experience on our website and to show you personalised content. You can accept all or manage them individually.
+
+REJECT NON-ESSENTIAL
+ACCEPT ALL
+MANAGE COOKIES
+Skip to main content
+LEARN
+PRODUCT HELP
+MENU
+Licence Agreement
+
+Licence information for Affinity Software
+
+Skip to Windows | macOS | iPad.
+
+Licence when installed on Microsoft Windows
+
+This is a legally binding software licence agreement (the “Licence”) between the following parties:
+
+Serif (Europe) Limited of Unit 12 Wilford Industrial Estate, Nottingham NG11 7EP (“Serif”, “we” or “us”). We are a company registered in England and Wales with company number 02117968; and
+You, being a user of the Serif Software as defined below.
+
+PLEASE READ THIS LICENCE CAREFULLY.
+
+IF YOU DO NOT ACCEPT THE TERMS OF THIS LICENCE, DO NOT INSTALL OR USE THE SERIF SOFTWARE.
+
+BY USING THE SERIF SOFTWARE YOU AGREE TO BE BOUND BY THIS LICENCE.
+
+Serif Software means any software provided with this Licence, such as by way of download, on disk, flash drive or through any other media or format, including any software, code, interfaces or Content and whether owned by us or by a third party.
+
+Content means any content, text, documents, fonts, graphics, images, video, footage, audio, media files, data, templates, clipart, photographs, names, images, trademarks, links, or similar.
+
+Your Rights and Permitted Use
+You are licensed to use the Serif Software as expressly set out in this Licence from your first use of the Serif Software until termination of this Licence.
+No rights in the Serif Software are sold to you; your right is solely to use the Serif Software within the terms of this Licence. All rights not expressly granted to you are reserved to Serif.
+The Licence granted to you is limited, non-transferable and non-exclusive. Except to the extent any rights cannot be excluded by law, you are permitted:
+
+(i) if you are a private individual, to download, install, use and run for personal use, one (1) copy of the Serif Software directly on each computer running Microsoft Windows (“Windows Computer”) that you personally own or control. Commercial use is permitted but only use by you and not by any other users of any Windows Computers that you own or control. For example, other members of your household that use your Windows Computers may make personal use of the Serif Software whereas, if anyone other than yourself needs to make commercial use of the Serif Software, the other user will need to make a separate purchase.
+
+(ii) if you are a commercial enterprise, to download, install, use and run one (1) copy of the Serif Software for use either: (a) by one specific individual on each of the Windows Computer(s) that they use that you own or control, or (b) by multiple individuals on a single shared Windows Computer that you own or control; For example, a single employee may use the Serif Software on both their desktop and laptop Windows Computer, or multiple employees may serially use the Serif Software on a single Windows Computer used as a shared resource.
+
+(iii) if you are an educational institution, to download, install, use and run, one (1) copy of the Serif Software for use either: (a) by a single individual on each of the Windows Computer(s) that they use that you own or control, or (b) by multiple individuals on a single shared Windows Computer that you own or control. For example, a single student may use the Serif Software on both the student’s desktop Windows Computer and laptop Windows Computer, or multiple students may serially use the Serif Software on a single Windows Computer located at a resource centre or library.
+
+Except to the extent expressly allowed in this Licence:
+
+(a) you are not permitted to run, or allow to be run, the Serif Software over a network or any other means by which it can be used simultaneously on more than one computer; and
+
+(b) you have no right to rent, lend, lease, sell, supply, transfer or distribute, transfer, redistribute or sublicense the Serif Software.
+
+The Serif Software may have made use of certain open source materials. Licences relating to such open source materials can be viewed in the Licences.rtf file included with the Serif Software.
+The Serif Software may have made use of certain third party software and other copyrighted material. If the terms of any third party Licences relating to this software or material are set out in the electronic documentation supplied with the Serif Software, you must comply with these terms.
+Where you have obtained the Serif Software through the MS Store, you must comply with all terms of use applicable to the MS Store including the STANDARD APPLICATION LICENSE TERMS (https://www.microsoft.com/en-aq/store/standard-application-license-terms).
+In the event of any conflict between any of these terms and conditions and this License, this License shall take priority.
+The Serif Software is protected by international copyright and patent laws. All title and intellectual property rights, including copyright, in the Serif Software are owned by Serif or its licensors.
+You must not use the Serif Software in a way that may infringe the copyright of a third party, such as by copying, reproducing, adapting, publishing, issuing copies of, communicating, exhibiting, transmitting or distributing copyright materials without permission of the copyright owner. It is your responsibility to ensure that your use of the Serif Software does not infringe the rights of third parties; you should take any necessary legal advice in this respect.
+Where you use the Serif Software to display or access Content, you acknowledge that the Content may be owned by third parties, may be protected by copyright and/or other intellectual property rights and may be subject to conditions of use. Other than as expressly set out in this Licence, you are not granted any rights to use such Content and no representation is made that any Content will continue to be made available to you. Serif is not responsible for any third party Content and any access to it provided by Serif is provided solely as a convenience and the provision of such access does not imply any endorsement by Serif.
+The Serif Software may be supplied in different versions or subject to further specific Licence terms. For example, the Serif Software may be supplied:
+
+a.) as a trial, locked, demonstration or other limited use version (“Trial Version”); or
+
+b.) as a student, teacher, OEM/Bundle Purchase version or other version dependent on status or intended use (“Customer Specific Version”); or
+
+c.) as part of a volume or maintenance Licence or as part of use of other services provided by Serif (“Volume Licence”).
+
+In the case of all Trial Versions, Customer Specific Versions, Volume Licences or software supplied under other specific arrangements, then this Licence will still apply but shall be subject to any terms on which such Serif Software is supplied including any terms set out on the website from which the Serif Software is downloaded or on the packaging of the Serif Software or otherwise as agreed with Serif. In the case of Trial Software, this Licence will terminate after any period specified as part of the trial or demonstration. In the case of Customer Specific Software, this Licence will only take effect if and to the extent at the time of purchase you satisfy any stipulated status requirements; if you are in any doubt as to whether your status at the time of purchase entitles you to use a Customer Specific Version then please contact Serif customer service for further information in advance of making a purchase.
+
+Except to the extent necessary for the normal and permitted use of the Serif Software or to the extent that such right cannot be excluded by law or to the extent required to be permitted by licensing terms governing use of open source components that may be included with the Serif Software:
+
+a.) You have no right (and shall not permit any third party) to copy, adapt, amend, reverse engineer, decompile, disassemble, attempt to derive the source code of, create derivative works of, decrypt, modify, distribute or make error corrections to any aspect of the Serif Software in whole or in part; and
+
+b.) You have no right to a copy of any of the Serif Software, or of any algorithms or code or other material relating to the Serif Software.
+
+Where you are supplied with any updates, upgrades or new versions of the Serif Software, the terms of this Licence shall apply to the use of such updates, upgrades or new versions unless new Licence terms accompany such updates, upgrades or new versions, in which case the new Licence terms will apply to all use of the updated, upgraded or new version of the Serif Software. Nothing in this Licence shall require Serif to supply you with updates, upgrades or new versions.
+You will comply with all laws and regulations when downloading, installing and using the Serif Software, including any laws and regulations specific to your location of download. You must not use the Serif Software in any way to publish or transmit any illegal material or links to such material, nor to infringe the rights (including intellectual property rights) of any third party.
+Serif (or its licensors) may suspend, remove, modify or disable (or impose limits on) access to the currently available Serif Software at any time without notice and without liability to you.
+Consent to Use of Data
+You agree that Serif and its affiliates may use any information you give to us as part of product support and other services provided to you, if any, related to the Serif Software solely to improve products or to provide customised services or technologies to you and will not disclose this information in a form that personally identifies you.
+Termination
+This Licence will terminate automatically on any material breach by you of its terms.
+On termination, you must cease all use of the Serif Software and delete all copies in your possession.
+Any provision of this Licence which expressly or by implication is intended to come into or continue in force on or after termination of this Licence shall remain in full force and effect.
+WARRANTIES AND LIMITS OF LIABILITY
+NOTHING IN THIS LICENCE SHALL OPERATE TO EXCLUDE OR LIMIT EITHER PARTY’S LIABILITY FOR:
+
+A.) DEATH OR PERSONAL INJURY CAUSED BY ITS NEGLIGENCE; OR
+
+B.) FRAUD; OR
+
+C.) ANY OTHER LIABILITY WHICH CANNOT BE EXCLUDED OR LIMITED UNDER APPLICABLE LAW.
+
+ALL TERMS OF THE LICENCE SHALL TAKE EFFECT SUBJECT TO THIS.
+
+LOCAL LAWS MAY APPLY TO PROTECT THE RIGHTS OF INDIVIDUALS WHO PURCHASE THE SERIF SOFTWARE IN THEIR INDIVIDUAL CAPACITY OUTSIDE A COMMERCIAL ENTERPRISE, SUCH AS CONSUMERS. NOTHING IN THIS LICENCE SHALL OPERATE TO EXCLUDE OR REDUCE SUCH PROTECTION. IF YOU THINK THIS MAY APPLY TO YOU, PLEASE CONSULT A CONSUMER ADVICE ORGANISATION.
+THE SERIF SOFTWARE ARE SUPPLIED TO YOU “AS IS” AND “AS AVAILABLE” WITH ANY AND ALL FAULTS AND DEFECTS AND WITHOUT ANY WARRANTIES BY SERIF OR ITS LICENSORS OF ANY KIND.
+IT IS YOUR RESPONSIBILITY TO ENSURE THE SERIF SOFTWARE PERFORM THE PURPOSE FOR WHICH THEY ARE REQUIRED AND WILL FUNCTION PROPERLY IN THE ENVIRONMENT IN WHICH THEY ARE TO BE USED. THEIR USE IS AT YOUR SOLE RISK AND YOU ARE RESPONSIBLE FOR ANY COST OF REPAIR, CORRECTIONS OR SERVICING. YOU ACKNOWLEDGE INSTALLATION OF THE SERIF SOFTWARE MAY AFFECT THE USABILITY OF THIRD PARTY SOFTWARE OR THIRD PARTY SERVICES.
+WITHOUT LIMITATION, PLEASE NOTE THAT NO REPRESENTATION OR WARRANTY IS GIVEN BY SERIF OR ITS LICENSORS THAT:
+
+A.) THE SERIF SOFTWARE WILL MEET YOUR REQUIREMENTS; OR
+
+B.) ANY INFORMATION OR DATA PROVIDED WITH THE SERIF SOFTWARE IS ACCURATE, ERROR FREE OR COMPREHENSIVE; OR
+
+C.) OPERATION OF THE SERIF SOFTWARE WILL BE UNINTERRUPTED OR ERROR FREE; OR
+
+D.) ANY CONTENT AVAILABLE FOR DOWNLOADING FROM US IS FREE FROM VIRUSES OR ANY OTHER CONTAMINATION OR DESTRUCTIVE FEATURES; OR
+
+E.) YOU WILL ENJOY THE USE OF THE SERIF SOFTWARE FREE FROM INTERFERENCE; OR
+
+F.) THE SERIF SOFTWARE WILL CONTINUE TO BE MADE AVAILABLE OR MAINTAINED OR SUPPORTED OR THAT ANY DEFECTS WILL BE CORRECTED; OR
+
+G.) THE SERIF SOFTWARE WILL BE COMPATIBLE WITH ANY THIRD PARTY SOFTWARE, THIRD PARTY SERVICES, THIRD PARTY EXTERNAL SERVICES OR SERIF EXTERNAL SERVICES;
+
+H.) THE SERIF SOFTWARE OR SERIF EXTERNAL SERVICES OR THIRD PARTY EXTERNAL SERVICES WILL BE AVAILABLE OR ACCESSIBLE IN ANY LANGUAGE OR FROM ANY LOCATION OR ARE APPROPRIATE FOR USE IN ANY LOCATION.
+
+TO THE EXTENT POSSIBLE UNDER THE APPLICABLE LAW, ALL CONDITIONS, WARRANTIES OR OTHER TERMS WHICH MIGHT HAVE EFFECT BETWEEN THE PARTIES OR BE IMPLIED OR INCORPORATED INTO THIS LICENCE OR ANY COLLATERAL CONTRACT, WHETHER BY STATUTE, COMMON LAW OR OTHERWISE, ARE HEREBY EXCLUDED, INCLUDING ANY IMPLIED CONDITIONS, WARRANTIES OR OTHER TERMS AS TO SATISFACTORY QUALITY, FITNESS FOR PURPOSE OR THE USE OF REASONABLE SKILL AND CARE.
+SERIF AND ITS LICENSORS WILL NOT BE LIABLE FOR ANY LOSS OR DAMAGE CAUSED BY A DISTRIBUTED DENIAL-OF-SERVICE ATTACK, VIRUSES OR OTHER TECHNOLOGICALLY HARMFUL MATERIAL THAT MAY INFECT ANY SITE, COMPUTER EQUIPMENT, COMPUTER PROGRAMS, DATA OR OTHER PROPRIETARY MATERIAL DUE TO YOUR USE OF THE SERIF SOFTWARE.
+SERIF AND ITS LICENSORS SHALL HAVE NO LIABILITY FOR ANY LOSSES OR DAMAGES WHICH MAY BE SUFFERED BY YOU (OR ANY PERSON CLAIMING UNDER OR THROUGH YOU), WHETHER THE SAME ARE SUFFERED DIRECTLY OR INDIRECTLY OR ARE IMMEDIATE OR CONSEQUENTIAL, AND WHETHER THE SAME ARISE IN CONTRACT, TORT (INCLUDING NEGLIGENCE) OR OTHERWISE HOWSOEVER, WHICH FALL WITHIN ANY OF THE FOLLOWING CATEGORIES: I) SPECIAL DAMAGE EVEN THOUGH SERIF WAS AWARE OF THE CIRCUMSTANCES IN WHICH SUCH SPECIAL DAMAGE COULD ARISE; II) LOSS OF PROFITS; III) LOSS OF ANTICIPATED SAVINGS; IV) LOSS OF BUSINESS OPPORTUNITY; V) LOSS OF GOODWILL; OR VI) LOSS OR CORRUPTION OF DATA.
+THE TOTAL LIABILITY OF SERIF, WHETHER IN CONTRACT, TORT (INCLUDING NEGLIGENCE) OR OTHERWISE AND WHETHER IN CONNECTION WITH THIS LICENCE OR ANY COLLATERAL CONTRACT, SHALL IN NO CIRCUMSTANCES EXCEED THE TOTAL SUMS PAYABLE BY YOU TO US FOR USE OF THE SERIF SOFTWARE.
+YOU AGREE THAT, IN ENTERING INTO THIS LICENCE, EITHER YOU DID NOT RELY ON ANY REPRESENTATIONS (WHETHER WRITTEN OR ORAL) OF ANY KIND OR OF ANY PERSON OTHER THAN THOSE EXPRESSLY SET OUT IN THIS LICENCE OR (IF YOU DID RELY ON ANY REPRESENTATIONS, WHETHER WRITTEN OR ORAL, NOT EXPRESSLY SET OUT IN THIS LICENCE) THAT YOU SHALL HAVE NO REMEDY IN RESPECT OF SUCH REPRESENTATIONS AND (IN EITHER CASE) SERIF SHALL HAVE NO LIABILITY OTHER THAN IN ACCORDANCE WITH THE EXPRESS TERMS OF THIS LICENCE.
+Government End Users
+The Serif Software and related documentation are "Commercial Items", as that term is defined at 48 C.F.R. §2.101, consisting of "Commercial Computer Software" and "Commercial Computer Software Documentation", as such terms are used in 48 C.F.R. §12.212 or 48 C.F.R. §227.7202, as applicable. Consistent with 48 C.F.R. §12.212 or 48 C.F.R. §227.7202-1 through 227.7202-4, as applicable, the Commercial Computer Software and Commercial Computer Software Documentation are being licensed to U.S. Government end users (a) only as Commercial Items and (b) with only those rights as are granted to all other end users pursuant to the terms and conditions herein. Unpublished-rights reserved under the copyright laws of the United States.
+Miscellaneous
+This Licence and the Licence granted pursuant to this Licence are personal to you and except where expressly permitted you shall not assign the benefit of or any interest or obligation under this Licence.
+Apart from Serif’s licensors and authorised distributors, a person who is not a party to this Licence has no right under the Contracts (Rights of Third Parties) Act 1999 or otherwise to enforce any term of this Licence. The consent of any third party is not required for any variation (including any release or compromise of any liability under this Licence) or termination of this Licence.
+All disclaimers of warranties, limitations and exclusions of damages, rights to be indemnified by you and dispute resolution shall apply to Serif’s licensors, suppliers, vendors, authorised distributors and resellers, all of which shall be deemed express third party beneficiaries thereof.
+If any court or competent authority finds that any provision of this Licence (or part of any provision) is invalid, illegal or unenforceable, that provision or part-provision shall, to the extent required, be deemed to be deleted, and the validity and enforceability of the other provisions of this Licence shall not be affected.
+Except where expressly stated, no variation of this Licence shall be effective unless it is in writing and signed by the parties (or their authorised representatives).
+No failure or delay by a party to exercise any right or remedy provided under this Licence or by law shall constitute a waiver of that or any other right or remedy, nor shall it preclude or restrict the further exercise of that or any other right or remedy.
+This Licence (including any documents referred to in the Licence) contains the whole agreement between the parties relating to the subject matter hereof and supersedes all prior agreements, arrangements and understandings between the parties relating to that subject matter.
+a) References to Serif and you includes their permitted successors and assigns; b) references to statutory provisions include those statutory provisions as amended or re-enacted; c) references to one gender includes a reference to the other genders; d) references to "including" or "includes" shall be deemed to have the words "without limitation" inserted after them; e) words in the singular include the plural and those in the plural include the singular; and f) a person includes a natural person, corporate or unincorporated body (whether or not having separate legal personality) and that person’s personal representatives, successors or permitted assigns.
+This Licence and any connected dispute shall be governed by and construed in accordance with the laws of England and shall be subject to the exclusive jurisdiction of the English Courts. Where any translations of this Licence are provided, the content of the English version shall take priority in cases of conflict, to the extent not prohibited by any local laws.
+MPEG-2 Notice. To the extent that the Serif Software contains MPEG-2 functionality, the following provision applies: ANY USE OF THIS PRODUCT OTHER THAN CONSUMER PERSONAL USE IN ANY MANNER THAT COMPLIES WITH THE MPEG-2 STANDARD FOR ENCODING VIDEO INFORMATION FOR PACKAGED MEDIA IS EXPRESSLY PROHIBITED WITHOUT A LICENCE UNDER APPLICABLE PATENTS IN THE MPEG-2 PATENT PORTFOLIO, WHICH LICENCE IS AVAILABLE FROM MPEG LA, L.L.C., 250 STEELE STREET, SUITE 300, DENVER, COLORADO 80206.
+Licence when installed on macOS
+
+This is a legally binding software licence agreement (the “Licence”) between the following parties:
+
+Serif (Europe) Limited of Unit 12 Wilford Industrial Estate, Nottingham NG11 7EP (“Serif”, “we” or “us”). We are a company registered in England and Wales with company number 02117968; and
+You, being a user of the Serif Software as defined below.
+
+PLEASE READ THIS LICENCE CAREFULLY
+
+IF YOU DO NOT ACCEPT THE TERMS OF THIS LICENCE, DO NOT INSTALL OR USE THE SERIF SOFTWARE.
+
+BY USING THE SERIF SOFTWARE YOU AGREE TO BE BOUND BY THIS LICENCE.
+
+Serif Software means any software provided with this Licence, such as by way of download, on disk, flash drive or through any other media or format, including any software, code, interfaces or Content and whether owned by us or by a third party.
+
+Content means any content, text, documents, fonts, graphics, images, video, footage, audio, media files, data, templates, clipart, photographs, names, images, trademarks, links, or similar.
+
+Your Rights and Permitted Use
+You are licensed to use the Serif Software as expressly set out in this Licence from your first use of the Serif Software until termination of this Licence.
+No rights in the Serif Software are sold to you; your right is solely to use the Serif Software within the terms of this Licence. All rights not expressly granted to you are reserved to Serif.
+The licence granted to you is limited, non-transferable and non-exclusive. Except to the extent any rights cannot be excluded by law, you are permitted:
+
+(i) if you are a private individual, to download, install, use and run for personal use, one (1) copy of the Serif Software directly on each computer running macOS (“Mac Computer”) that you personally own or control. Commercial use is permitted but only use by you and not by any other users of any Mac Computers that you own or control. For example, other members of your household that use your Mac Computers may make personal use of the Serif Software whereas, if anyone other than yourself needs to make commercial use of the Serif Software, the other user will need to make a separate purchase.
+
+(ii) if you are a commercial enterprise, to download, install, use and run one (1) copy of the Serif Software for use either: (a) by one specific individual on each of the Mac Computer(s) that they use that you own or control, or (b) by multiple individuals on a single shared Mac Computer that you own or control; For example, a single employee may use the Serif Software on both their desktop and laptop Mac Computer, or multiple employees may serially use the Serif Software on a single Mac Computer used as a shared resource.
+
+(iii) if you are an educational institution, to download, install, use and run, one (1) copy of the Serif Software for use either: (a) by a single individual on each of the Mac Computer(s) that they use that you own or control, or (b) by multiple individuals on a single shared Mac Computer that you own or control. For example, a single student may use the Serif Software on both the student’s desktop Mac Computer and laptop Mac Computer, or multiple students may serially use the Serif Software on a single Mac Computer located at a resource centre or library.
+
+Except to the extent expressly allowed in this Licence:
+
+(a) you are not permitted to run, or allow to be run, the Serif Software over a network or any other means by which it can be used simultaneously on more than one computer; and
+
+(b) you have no right to rent, lend, lease, sell, supply, transfer or distribute, transfer, redistribute or sublicense the Serif Software.
+
+The Serif Software may have made use of certain open source materials. Licences relating to such open source materials can be viewed in the Licences.rtf file included with the Serif Software.
+The Serif Software may have made use of certain third party software and other copyrighted material. If the terms of any third party Licences relating to this software or material are set out in the electronic documentation supplied with the Serif Software, you must comply with these terms.
+Where you have obtained the Serif Software through the Apple App Store, you must comply with all terms of use applicable to the Apple App Store including the Apple Media Services Terms and Conditions which can be found in the Apple App Store Terms and Conditions (https://www.Apple.com/legal/itunes/ww/).
+In the event of any conflict between any of these terms and conditions and this License, this License shall take priority.
+The Serif Software is protected by international copyright and patent laws. All title and intellectual property rights, including copyright, in the Serif Software are owned by Serif or its licensors.
+You must not use the Serif Software in a way that may infringe the copyright of a third party, such as by copying, reproducing, adapting, publishing, issuing copies of, communicating, exhibiting, transmitting or distributing copyright materials without permission of the copyright owner. It is your responsibility to ensure that your use of the Serif Software does not infringe the rights of third parties; you should take any necessary legal advice in this respect.
+Where you use the Serif Software to display or access Content, you acknowledge that the Content may be owned by third parties, may be protected by copyright and/or other intellectual property rights and may be subject to conditions of use. Other than as expressly set out in this Licence, you are not granted any rights to use such Content and no representation is made that any Content will continue to be made available to you. Serif is not responsible for any third party Content and any access to it provided by Serif is provided solely as a convenience and the provision of such access does not imply any endorsement by Serif.
+The Serif Software may be supplied in different versions or subject to further specific Licence terms. For example, the Serif Software may be supplied:
+
+a.) as a trial, locked, demonstration or other limited use version (“Trial Version”); or
+
+b.) as a student, teacher, OEM/Bundle Purchase version or other version dependent on status or intended use (“Customer Specific Version”); or
+
+c.) as part of a volume or maintenance Licence or as part of use of other services provided by Serif (“Volume Licence”).
+
+In the case of all Trial Versions, Customer Specific Versions, Volume Licences or software supplied under other specific arrangements, then this Licence will still apply but shall be subject to any terms on which such Serif Software is supplied including any terms set out on the website from which the Serif Software is downloaded or on the packaging of the Serif Software or otherwise as agreed with Serif. In the case of Trial Software, this Licence will terminate after any period specified as part of the trial or demonstration. In the case of Customer Specific Software, this Licence will only take effect if and to the extent at the time of purchase you satisfy any stipulated status requirements; if you are in any doubt as to whether your status at the time of purchase entitles you to use a Customer Specific Version then please contact Serif customer service for further information in advance of making a purchase.
+
+Except to the extent necessary for the normal and permitted use of the Serif Software or to the extent that such right cannot be excluded by law or to the extent required to be permitted by licensing terms governing use of open source components that may be included with the Serif Software:
+
+a.) You have no right (and shall not permit any third party) to copy, adapt, amend, reverse engineer, decompile, disassemble, attempt to derive the source code of, create derivative works of, decrypt, modify, distribute or make error corrections to any aspect of the Serif Software in whole or in part; and
+
+b.) You have no right to a copy of any of the Serif Software, or of any algorithms or code or other material relating to the Serif Software.
+
+Where you are supplied with any updates, upgrades or new versions of the Serif Software, the terms of this Licence shall apply to the use of such updates, upgrades or new versions unless new Licence terms accompany such updates, upgrades or new versions, in which case the new Licence terms will apply to all use of the updated, upgraded or new version of the Serif Software. Nothing in this Licence shall require Serif to supply you with updates, upgrades or new versions.
+You will comply with all laws and regulations when downloading, installing and using the Serif Software, including any laws and regulations specific to your location of download. You must not use the Serif Software in any way to publish or transmit any illegal material or links to such material, nor to infringe the rights (including intellectual property rights) of any third party.
+Serif (or its licensors) may suspend, remove, modify or disable (or impose limits on) access to the currently available Serif Software at any time without notice and without liability to you.
+Consent to Use of Data
+You agree that Serif and its affiliates may use any information you give to us as part of product support and other services provided to you, if any, related to the Serif Software solely to improve products or to provide customised services or technologies to you and will not disclose this information in a form that personally identifies you.
+Termination
+This Licence will terminate automatically on any material breach by you of its terms.
+On termination, you must cease all use of the Serif Software and delete all copies in your possession.
+Any provision of this Licence which expressly or by implication is intended to come into or continue in force on or after termination of this Licence shall remain in full force and effect.
+WARRANTIES AND LIMITS OF LIABILITY
+NOTHING IN THIS LICENCE SHALL OPERATE TO EXCLUDE OR LIMIT EITHER PARTY’S LIABILITY FOR:
+
+A.) DEATH OR PERSONAL INJURY CAUSED BY ITS NEGLIGENCE; OR
+
+B.) FRAUD; OR
+
+C.) ANY OTHER LIABILITY WHICH CANNOT BE EXCLUDED OR LIMITED UNDER APPLICABLE LAW.
+
+ALL TERMS OF THE LICENCE SHALL TAKE EFFECT SUBJECT TO THIS.
+
+LOCAL LAWS MAY APPLY TO PROTECT THE RIGHTS OF INDIVIDUALS WHO PURCHASE THE SERIF SOFTWARE IN THEIR INDIVIDUAL CAPACITY OUTSIDE A COMMERCIAL ENTERPRISE, SUCH AS CONSUMERS. NOTHING IN THIS LICENCE SHALL OPERATE TO EXCLUDE OR REDUCE SUCH PROTECTION. IF YOU THINK THIS MAY APPLY TO YOU, PLEASE CONSULT A CONSUMER ADVICE ORGANISATION.
+THE SERIF SOFTWARE ARE SUPPLIED TO YOU “AS IS” AND “AS AVAILABLE” WITH ANY AND ALL FAULTS AND DEFECTS AND WITHOUT ANY WARRANTIES BY SERIF OR ITS LICENSORS OF ANY KIND.
+IT IS YOUR RESPONSIBILITY TO ENSURE THE SERIF SOFTWARE PERFORM THE PURPOSE FOR WHICH THEY ARE REQUIRED AND WILL FUNCTION PROPERLY IN THE ENVIRONMENT IN WHICH THEY ARE TO BE USED. THEIR USE IS AT YOUR SOLE RISK AND YOU ARE RESPONSIBLE FOR ANY COST OF REPAIR, CORRECTIONS OR SERVICING. YOU ACKNOWLEDGE INSTALLATION OF THE SERIF SOFTWARE MAY AFFECT THE USABILITY OF THIRD PARTY SOFTWARE OR THIRD PARTY SERVICES.
+WITHOUT LIMITATION, PLEASE NOTE THAT NO REPRESENTATION OR WARRANTY IS GIVEN BY SERIF OR ITS LICENSORS THAT:
+
+A.) THE SERIF SOFTWARE WILL MEET YOUR REQUIREMENTS; OR
+
+B.) ANY INFORMATION OR DATA PROVIDED WITH THE SERIF SOFTWARE IS ACCURATE, ERROR FREE OR COMPREHENSIVE; OR
+
+C.) OPERATION OF THE SERIF SOFTWARE WILL BE UNINTERRUPTED OR ERROR FREE; OR
+
+D.) ANY CONTENT AVAILABLE FOR DOWNLOADING FROM US IS FREE FROM VIRUSES OR ANY OTHER CONTAMINATION OR DESTRUCTIVE FEATURES; OR
+
+E.) YOU WILL ENJOY THE USE OF THE SERIF SOFTWARE FREE FROM INTERFERENCE; OR
+
+F.) THE SERIF SOFTWARE WILL CONTINUE TO BE MADE AVAILABLE OR MAINTAINED OR SUPPORTED OR THAT ANY DEFECTS WILL BE CORRECTED; OR
+
+G.) THE SERIF SOFTWARE WILL BE COMPATIBLE WITH ANY THIRD PARTY SOFTWARE, THIRD PARTY SERVICES, THIRD PARTY EXTERNAL SERVICES OR SERIF EXTERNAL SERVICES;
+
+H.) THE SERIF SOFTWARE OR SERIF EXTERNAL SERVICES OR THIRD PARTY EXTERNAL SERVICES WILL BE AVAILABLE OR ACCESSIBLE IN ANY LANGUAGE OR FROM ANY LOCATION OR ARE APPROPRIATE FOR USE IN ANY LOCATION.
+
+TO THE EXTENT POSSIBLE UNDER THE APPLICABLE LAW, ALL CONDITIONS, WARRANTIES OR OTHER TERMS WHICH MIGHT HAVE EFFECT BETWEEN THE PARTIES OR BE IMPLIED OR INCORPORATED INTO THIS LICENCE OR ANY COLLATERAL CONTRACT, WHETHER BY STATUTE, COMMON LAW OR OTHERWISE, ARE HEREBY EXCLUDED, INCLUDING ANY IMPLIED CONDITIONS, WARRANTIES OR OTHER TERMS AS TO SATISFACTORY QUALITY, FITNESS FOR PURPOSE OR THE USE OF REASONABLE SKILL AND CARE.
+SERIF AND ITS LICENSORS WILL NOT BE LIABLE FOR ANY LOSS OR DAMAGE CAUSED BY A DISTRIBUTED DENIAL-OF-SERVICE ATTACK, VIRUSES OR OTHER TECHNOLOGICALLY HARMFUL MATERIAL THAT MAY INFECT ANY SITE, COMPUTER EQUIPMENT, COMPUTER PROGRAMS, DATA OR OTHER PROPRIETARY MATERIAL DUE TO YOUR USE OF THE SERIF SOFTWARE.
+SERIF AND ITS LICENSORS SHALL HAVE NO LIABILITY FOR ANY LOSSES OR DAMAGES WHICH MAY BE SUFFERED BY YOU (OR ANY PERSON CLAIMING UNDER OR THROUGH YOU), WHETHER THE SAME ARE SUFFERED DIRECTLY OR INDIRECTLY OR ARE IMMEDIATE OR CONSEQUENTIAL, AND WHETHER THE SAME ARISE IN CONTRACT, TORT (INCLUDING NEGLIGENCE) OR OTHERWISE HOWSOEVER, WHICH FALL WITHIN ANY OF THE FOLLOWING CATEGORIES: I) SPECIAL DAMAGE EVEN THOUGH SERIF WAS AWARE OF THE CIRCUMSTANCES IN WHICH SUCH SPECIAL DAMAGE COULD ARISE; II) LOSS OF PROFITS; III) LOSS OF ANTICIPATED SAVINGS; IV) LOSS OF BUSINESS OPPORTUNITY; V) LOSS OF GOODWILL; OR VI) LOSS OR CORRUPTION OF DATA.
+THE TOTAL LIABILITY OF SERIF, WHETHER IN CONTRACT, TORT (INCLUDING NEGLIGENCE) OR OTHERWISE AND WHETHER IN CONNECTION WITH THIS LICENCE OR ANY COLLATERAL CONTRACT, SHALL IN NO CIRCUMSTANCES EXCEED THE TOTAL SUMS PAYABLE BY YOU TO US FOR USE OF THE SERIF SOFTWARE.
+YOU AGREE THAT, IN ENTERING INTO THIS LICENCE, EITHER YOU DID NOT RELY ON ANY REPRESENTATIONS (WHETHER WRITTEN OR ORAL) OF ANY KIND OR OF ANY PERSON OTHER THAN THOSE EXPRESSLY SET OUT IN THIS LICENCE OR (IF YOU DID RELY ON ANY REPRESENTATIONS, WHETHER WRITTEN OR ORAL, NOT EXPRESSLY SET OUT IN THIS LICENCE) THAT YOU SHALL HAVE NO REMEDY IN RESPECT OF SUCH REPRESENTATIONS AND (IN EITHER CASE) SERIF SHALL HAVE NO LIABILITY OTHER THAN IN ACCORDANCE WITH THE EXPRESS TERMS OF THIS LICENCE.
+Government End Users
+The Serif Software and related documentation are "Commercial Items", as that term is defined at 48 C.F.R. §2.101, consisting of "Commercial Computer Software" and "Commercial Computer Software Documentation", as such terms are used in 48 C.F.R. §12.212 or 48 C.F.R. §227.7202, as applicable. Consistent with 48 C.F.R. §12.212 or 48 C.F.R. §227.7202-1 through 227.7202-4, as applicable, the Commercial Computer Software and Commercial Computer Software Documentation are being licensed to U.S. Government end users (a) only as Commercial Items and (b) with only those rights as are granted to all other end users pursuant to the terms and conditions herein. Unpublished-rights reserved under the copyright laws of the United States.
+Miscellaneous
+This Licence and the Licence granted pursuant to this Licence are personal to you and except where expressly permitted you shall not assign the benefit of or any interest or obligation under this Licence.
+Apart from Serif’s licensors and authorised distributors, a person who is not a party to this Licence has no right under the Contracts (Rights of Third Parties) Act 1999 or otherwise to enforce any term of this Licence. The consent of any third party is not required for any variation (including any release or compromise of any liability under this Licence) or termination of this Licence.
+All disclaimers of warranties, limitations and exclusions of damages, rights to be indemnified by you and dispute resolution shall apply to Serif’s licensors, suppliers, vendors, authorised distributors and resellers, all of which shall be deemed express third party beneficiaries thereof.
+If any court or competent authority finds that any provision of this Licence (or part of any provision) is invalid, illegal or unenforceable, that provision or part-provision shall, to the extent required, be deemed to be deleted, and the validity and enforceability of the other provisions of this Licence shall not be affected.
+Except where expressly stated, no variation of this Licence shall be effective unless it is in writing and signed by the parties (or their authorised representatives).
+No failure or delay by a party to exercise any right or remedy provided under this Licence or by law shall constitute a waiver of that or any other right or remedy, nor shall it preclude or restrict the further exercise of that or any other right or remedy.
+This Licence (including any documents referred to in the Licence) contains the whole agreement between the parties relating to the subject matter hereof and supersedes all prior agreements, arrangements and understandings between the parties relating to that subject matter.
+a) References to Serif and you includes their permitted successors and assigns; b) references to statutory provisions include those statutory provisions as amended or re-enacted; c) references to one gender includes a reference to the other genders; d) references to "including" or "includes" shall be deemed to have the words "without limitation" inserted after them; e) words in the singular include the plural and those in the plural include the singular; and f) a person includes a natural person, corporate or unincorporated body (whether or not having separate legal personality) and that person’s personal representatives, successors or permitted assigns.
+This Licence and any connected dispute shall be governed by and construed in accordance with the laws of England and shall be subject to the exclusive jurisdiction of the English Courts. Where any translations of this Licence are provided, the content of the English version shall take priority in cases of conflict, to the extent not prohibited by any local laws.
+MPEG-2 Notice. To the extent that the Serif Software contains MPEG-2 functionality, the following provision applies: ANY USE OF THIS PRODUCT OTHER THAN CONSUMER PERSONAL USE IN ANY MANNER THAT COMPLIES WITH THE MPEG-2 STANDARD FOR ENCODING VIDEO INFORMATION FOR PACKAGED MEDIA IS EXPRESSLY PROHIBITED WITHOUT A LICENCE UNDER APPLICABLE PATENTS IN THE MPEG-2 PATENT PORTFOLIO, WHICH LICENCE IS AVAILABLE FROM MPEG LA, L.L.C., 250 STEELE STREET, SUITE 300, DENVER, COLORADO 80206.
+Licence when installed on iPadOS
+
+This is a legally binding software licence agreement (the “Licence”) between the following parties:
+
+Serif (Europe) Limited of Unit 12 Wilford Industrial Estate, Nottingham NG11 7EP (“Serif”, “we” or “us”). We are a company registered in England and Wales with company number 02117968; and
+You, being a user of the Serif Software as defined below.
+
+PLEASE READ THIS LICENCE CAREFULLY.
+
+IF YOU DO NOT ACCEPT THE TERMS OF THIS LICENCE, DO NOT INSTALL OR USE THE SERIF SOFTWARE.
+
+BY USING THE SERIF SOFTWARE YOU AGREE TO BE BOUND BY THIS LICENCE.
+
+Serif Software means any software provided with this Licence, such as by way of download, on disk, flash drive or through any other media or format, including any software, code, interfaces or Content and whether owned by us or by a third party.
+
+Content any content, text, documents, fonts, graphics, images, video, footage, audio, media files, data, templates, clipart, photographs, names, images, trademarks, links, or similar.
+
+Your Rights and Permitted Use
+You are licensed to use the Serif Software as expressly set out in this Licence from your first use of the Serif Software until termination of this Licence.
+No rights in the Serif Software are sold to you; your right is solely to use the Serif Software within the terms of this Licence. All rights not expressly granted to you are reserved to Serif.
+The licence granted to you is limited, non-transferable and non-exclusive. Except to the extent any rights cannot be excluded by law, you are permitted:
+
+(i) if you are a private individual, to download, install, use and run for personal use, one (1) copy of the Serif Software directly on each iPad running iPadOS (“iPad Device”) that you personally own or control. Commercial use is permitted but only use by you and not by any other users of any iPad Devices that you own or control. For example, other members of your household that use your iPad Devices may make personal use of the Serif Software whereas, if anyone other than yourself needs to make commercial use of the Serif Software, the other user will need to make a separate purchase.
+
+(ii) if you are a commercial enterprise, to download, install, use and run one (1) copy of the Serif Software for use either: (a) by one specific individual on each of the iPad Device(s) they use that you own or control, or (b) by multiple individuals on a single shared iPad Device that you own or control.
+
+(iii) if you are an educational institution, to download, install, use and run, one (1) copy of the Serif Software for use either: (a) by a single individual on each of the iPad Device(s) they use that you own or control, or (b) by multiple individuals on a single shared iPad Device that you own or control.
+
+Except to the extent expressly allowed in this Licence:
+
+(a) you are not permitted to run, or allow to be run, the Serif Software over a network or any other means by which it can be used simultaneously on more than one device; and
+
+(b) you have no right to rent, lend, lease, sell, supply, transfer or distribute, transfer, redistribute or sublicense the Serif Software.
+
+The Serif Software may have made use of certain open source materials. Licences relating to such open source materials can be viewed in the Licences.rtf file included with the Serif Software.
+The Serif Software may have made use of certain third party software and other copyrighted material. If the terms of any third party licences relating to this software or material are set out in the electronic documentation supplied with the Serif Software, you must comply with these terms.
+Where you have obtained the Serif Software through the Apple App Store, you must comply with all terms of use applicable to the Apple App Store including the Apple Media Services Terms and Conditions which can be found in the Apple App Store Terms and Conditions (https://www.Apple.com/legal/itunes/ww/).
+In the event of any conflict between any of these terms and conditions and this License, this License shall take priority.
+The Serif Software is protected by international copyright and patent laws. All title and intellectual property rights, including copyright, in the Serif Software are owned by Serif or its licensors
+You must not use the Serif Software in a way that may infringe the copyright of a third party, such as by copying, reproducing, adapting, publishing, issuing copies of, communicating, exhibiting, transmitting or distributing copyright materials without permission of the copyright owner. It is your responsibility to ensure that your use of the Serif Software does not infringe the rights of third parties; you should take any necessary legal advice in this respect
+Where you use the Serif Software to display or access Content, you acknowledge that the Content may be owned by third parties, may be protected by copyright and/or other intellectual property rights and may be subject to conditions of use. Other than as expressly set out in this Licence, you are not granted any rights to use such Content and no representation is made that any Content will continue to be made available to you. Serif is not responsible for any third party Content and any access to it provided by Serif is provided solely as a convenience and the provision of such access does not imply any endorsement by Serif.
+The Serif Software may be supplied in different versions or subject to further specific licence terms. For example, the Serif Software may be supplied:
+
+a.) as a trial, locked, demonstration or other limited use version (“Trial Version”); or
+
+b.) as a student, teacher, OEM/Bundle Purchase version or other version dependent on status or intended use (“Customer Specific Version”); or
+
+c.) as part of a volume or maintenance Licence or as part of use of other services provided by Serif (“Volume Licence”).
+
+In the case of all Trial Versions, Customer Specific Versions, Volume Licences or software supplied under other specific arrangements, then this Licence will still apply but shall be subject to any terms on which such Serif Software is supplied including any terms set out on the website from which the Serif Software is downloaded or on the packaging of the Serif Software or otherwise as agreed with Serif. In the case of Trial Software, this Licence will terminate after any period specified as part of the trial or demonstration. In the case of Customer Specific Software, this Licence will only take effect if and to the extent at the time of purchase you satisfy any stipulated status requirements; if you are in any doubt as to whether your status at the time of purchase entitles you to use a Customer Specific Version then please contact Serif customer service for further information in advance of making a purchase.
+
+Except to the extent necessary for the normal and permitted use of the Serif Software or to the extent that such right cannot be excluded by law or to the extent required to be permitted by licensing terms governing use of open source components that may be included with the Serif Software:
+
+a.) You have no right (and shall not permit any third party) to copy, adapt, amend, reverse engineer, decompile, disassemble, attempt to derive the source code of, create derivative works of, decrypt, modify, distribute or make error corrections to any aspect of the Serif Software in whole or in part; and
+
+b.) You have no right to a copy of any of the Serif Software, or of any algorithms or code or other material relating to the Serif Software.
+
+Where you are supplied with any updates, upgrades or new versions of the Serif Software, the terms of this Licence shall apply to the use of such updates, upgrades or new versions unless new licence terms accompany such updates, upgrades or new versions, in which case the new licence terms will apply to all use of the updated, upgraded or new version of the Serif Software. Nothing in this Licence shall require Serif to supply you with updates, upgrades or new versions.
+You will comply with all laws and regulations when downloading, installing and using the Serif Software, including any laws and regulations specific to your location of download. You must not use the Serif Software in any way to publish or transmit any illegal or objectionable material or links to such material, nor to infringe the rights (including intellectual property rights) of any third party.
+Serif (or its licensors) may suspend, remove, modify or disable (or impose limits on) access to the currently available Serif Software at any time without notice and without liability to you.
+Consent to Use of Data
+You agree that Serif and its affiliates may use any information you give to us as part of product support and other services provided to you, if any, related to the Serif Software solely to improve products or to provide customised services or technologies to you and will not disclose this information in a form that personally identifies you.
+Termination
+This Licence will terminate automatically on any material breach by you of its terms.
+On termination, you must cease all use of the Serif Software and delete all copies in your possession.
+Any provision of this Licence which expressly or by implication is intended to come into or continue in force on or after termination of this Licence shall remain in full force and effect.
+WARRANTIES AND LIMITS OF LIABILITY
+NOTHING IN THIS LICENCE SHALL OPERATE TO EXCLUDE OR LIMIT EITHER PARTY’S LIABILITY FOR:
+
+A.) DEATH OR PERSONAL INJURY CAUSED BY ITS NEGLIGENCE; OR
+
+B.) FRAUD; OR
+
+C.) ANY OTHER LIABILITY WHICH CANNOT BE EXCLUDED OR LIMITED UNDER APPLICABLE LAW.
+
+ALL TERMS OF THE LICENCE SHALL TAKE EFFECT SUBJECT TO THIS.
+
+LOCAL LAWS MAY APPLY TO PROTECT THE RIGHTS OF INDIVIDUALS WHO PURCHASE THE SERIF SOFTWARE IN THEIR INDIVIDUAL CAPACITY OUTSIDE A COMMERCIAL ENTERPRISE, SUCH AS CONSUMERS. NOTHING IN THIS LICENCE SHALL OPERATE TO EXCLUDE OR REDUCE SUCH PROTECTION. IF YOU THINK THIS MAY APPLY TO YOU, PLEASE CONSULT A CONSUMER ADVICE ORGANISATION.
+THE SERIF SOFTWARE ARE SUPPLIED TO YOU “AS IS” AND “AS AVAILABLE” WITH ANY AND ALL FAULTS AND DEFECTS AND WITHOUT ANY WARRANTIES BY SERIF OR ITS LICENSORS OF ANY KIND.
+IT IS YOUR RESPONSIBILITY TO ENSURE THE SERIF SOFTWARE PERFORM THE PURPOSE FOR WHICH THEY ARE REQUIRED AND WILL FUNCTION PROPERLY IN THE ENVIRONMENT IN WHICH THEY ARE TO BE USED. THEIR USE IS AT YOUR SOLE RISK AND YOU ARE RESPONSIBLE FOR ANY COST OF REPAIR, CORRECTIONS OR SERVICING. YOU ACKNOWLEDGE INSTALLATION OF THE SERIF SOFTWARE MAY AFFECT THE USABILITY OF THIRD PARTY SOFTWARE OR THIRD PARTY SERVICES.
+WITHOUT LIMITATION, PLEASE NOTE THAT NO REPRESENTATION OR WARRANTY IS GIVEN BY SERIF OR ITS LICENSORS THAT:
+
+A.) THE SERIF SOFTWARE WILL MEET YOUR REQUIREMENTS; OR
+
+B.) ANY INFORMATION OR DATA PROVIDED WITH THE SERIF SOFTWARE IS ACCURATE, ERROR FREE OR COMPREHENSIVE; OR
+
+C.) OPERATION OF THE SERIF SOFTWARE WILL BE UNINTERRUPTED OR ERROR FREE; OR
+
+D.) ANY CONTENT AVAILABLE FOR DOWNLOADING FROM US IS FREE FROM VIRUSES OR ANY OTHER CONTAMINATION OR DESTRUCTIVE FEATURES; OR
+
+E.) YOU WILL ENJOY THE USE OF THE SERIF SOFTWARE FREE FROM INTERFERENCE; OR
+
+F.) THE SERIF SOFTWARE WILL CONTINUE TO BE MADE AVAILABLE OR MAINTAINED OR SUPPORTED OR THAT ANY DEFECTS WILL BE CORRECTED; OR
+
+G.) THE SERIF SOFTWARE WILL BE COMPATIBLE WITH ANY THIRD PARTY SOFTWARE, THIRD PARTY SERVICES, THIRD PARTY EXTERNAL SERVICES OR SERIF EXTERNAL SERVICES;
+
+H.) THE SERIF SOFTWARE OR SERIF EXTERNAL SERVICES OR THIRD PARTY EXTERNAL SERVICES WILL BE AVAILABLE OR ACCESSIBLE IN ANY LANGUAGE OR FROM ANY LOCATION OR ARE APPROPRIATE FOR USE IN ANY LOCATION.
+
+TO THE EXTENT POSSIBLE UNDER THE APPLICABLE LAW, ALL CONDITIONS, WARRANTIES OR OTHER TERMS WHICH MIGHT HAVE EFFECT BETWEEN THE PARTIES OR BE IMPLIED OR INCORPORATED INTO THIS LICENCE OR ANY COLLATERAL CONTRACT, WHETHER BY STATUTE, COMMON LAW OR OTHERWISE, ARE HEREBY EXCLUDED, INCLUDING ANY IMPLIED CONDITIONS, WARRANTIES OR OTHER TERMS AS TO SATISFACTORY QUALITY, FITNESS FOR PURPOSE OR THE USE OF REASONABLE SKILL AND CARE.
+SERIF AND ITS LICENSORS WILL NOT BE LIABLE FOR ANY LOSS OR DAMAGE CAUSED BY A DISTRIBUTED DENIAL-OF-SERVICE ATTACK, VIRUSES OR OTHER TECHNOLOGICALLY HARMFUL MATERIAL THAT MAY INFECT ANY SITE, COMPUTER EQUIPMENT, COMPUTER PROGRAMS, DATA OR OTHER PROPRIETARY MATERIAL DUE TO YOUR USE OF THE SERIF SOFTWARE.
+SERIF AND ITS LICENSORS SHALL HAVE NO LIABILITY FOR ANY LOSSES OR DAMAGES WHICH MAY BE SUFFERED BY YOU (OR ANY PERSON CLAIMING UNDER OR THROUGH YOU), WHETHER THE SAME ARE SUFFERED DIRECTLY OR INDIRECTLY OR ARE IMMEDIATE OR CONSEQUENTIAL, AND WHETHER THE SAME ARISE IN CONTRACT, TORT (INCLUDING NEGLIGENCE) OR OTHERWISE HOWSOEVER, WHICH FALL WITHIN ANY OF THE FOLLOWING CATEGORIES: I) SPECIAL DAMAGE EVEN THOUGH SERIF WAS AWARE OF THE CIRCUMSTANCES IN WHICH SUCH SPECIAL DAMAGE COULD ARISE; II) LOSS OF PROFITS; III) LOSS OF ANTICIPATED SAVINGS; IV) LOSS OF BUSINESS OPPORTUNITY; V) LOSS OF GOODWILL; OR VI) LOSS OR CORRUPTION OF DATA.
+THE TOTAL LIABILITY OF SERIF, WHETHER IN CONTRACT, TORT (INCLUDING NEGLIGENCE) OR OTHERWISE AND WHETHER IN CONNECTION WITH THIS LICENCE OR ANY COLLATERAL CONTRACT, SHALL IN NO CIRCUMSTANCES EXCEED THE TOTAL SUMS PAYABLE BY YOU TO US FOR USE OF THE SERIF SOFTWARE.
+YOU AGREE THAT, IN ENTERING INTO THIS LICENCE, EITHER YOU DID NOT RELY ON ANY REPRESENTATIONS (WHETHER WRITTEN OR ORAL) OF ANY KIND OR OF ANY PERSON OTHER THAN THOSE EXPRESSLY SET OUT IN THIS LICENCE OR (IF YOU DID RELY ON ANY REPRESENTATIONS, WHETHER WRITTEN OR ORAL, NOT EXPRESSLY SET OUT IN THIS LICENCE) THAT YOU SHALL HAVE NO REMEDY IN RESPECT OF SUCH REPRESENTATIONS AND (IN EITHER CASE) SERIF SHALL HAVE NO LIABILITY OTHER THAN IN ACCORDANCE WITH THE EXPRESS TERMS OF THIS LICENCE.
+Government End Users
+The Serif Software and related documentation are "Commercial Items", as that term is defined at 48 C.F.R. §2.101, consisting of "Commercial Computer Software" and "Commercial Computer Software Documentation", as such terms are used in 48 C.F.R. §12.212 or 48 C.F.R. §227.7202, as applicable. Consistent with 48 C.F.R. §12.212 or 48 C.F.R. §227.7202-1 through 227.7202-4, as applicable, the Commercial Computer Software and Commercial Computer Software Documentation are being licensed to U.S. Government end users (a) only as Commercial Items and (b) with only those rights as are granted to all other end users pursuant to the terms and conditions herein. Unpublished-rights reserved under the copyright laws of the United States.
+Miscellaneous
+This Licence and the Licence granted pursuant to this Licence are personal to you and except where expressly permitted you shall not assign the benefit of or any interest or obligation under this Licence.
+Apart from Serif’s licensors and authorised distributors, a person who is not a party to this Licence has no right under the Contracts (Rights of Third Parties) Act 1999 or otherwise to enforce any term of this Licence. The consent of any third party is not required for any variation (including any release or compromise of any liability under this Licence) or termination of this Licence.
+All disclaimers of warranties, limitations and exclusions of damages, rights to be indemnified by you and dispute resolution shall apply to Serif’s licensors, suppliers, vendors, authorised distributors and resellers, all of which shall be deemed express third party beneficiaries thereof.
+If any court or competent authority finds that any provision of this Licence (or part of any provision) is invalid, illegal or unenforceable, that provision or part-provision shall, to the extent required, be deemed to be deleted, and the validity and enforceability of the other provisions of this Licence shall not be affected.
+Except where expressly stated, no variation of this Licence shall be effective unless it is in writing and signed by the parties (or their authorised representatives).
+No failure or delay by a party to exercise any right or remedy provided under this Licence or by law shall constitute a waiver of that or any other right or remedy, nor shall it preclude or restrict the further exercise of that or any other right or remedy.
+This Licence (including any documents referred to in the Licence) contains the whole agreement between the parties relating to the subject matter hereof and supersedes all prior agreements, arrangements and understandings between the parties relating to that subject matter.
+a) References to Serif and you includes their permitted successors and assigns; b) references to statutory provisions include those statutory provisions as amended or re-enacted; c) references to one gender includes a reference to the other genders; d) references to "including" or "includes" shall be deemed to have the words "without limitation" inserted after them; e) words in the singular include the plural and those in the plural include the singular; and f) a person includes a natural person, corporate or unincorporated body (whether or not having separate legal personality) and that person’s personal representatives, successors or permitted assigns.
+This Licence and any connected dispute shall be governed by and construed in accordance with the laws of England and shall be subject to the exclusive jurisdiction of the English Courts. Where any translations of this Licence are provided, the content of the English version shall take priority in cases of conflict, to the extent not prohibited by any local laws.
+MPEG-2 Notice. To the extent that the Serif Software contains MPEG-2 functionality, the following provision applies: ANY USE OF THIS PRODUCT OTHER THAN CONSUMER PERSONAL USE IN ANY MANNER THAT COMPLIES WITH THE MPEG-2 STANDARD FOR ENCODING VIDEO INFORMATION FOR PACKAGED MEDIA IS EXPRESSLY PROHIBITED WITHOUT A LICENCE UNDER APPLICABLE PATENTS IN THE MPEG-2 PATENT PORTFOLIO, WHICH LICENCE IS AVAILABLE FROM MPEG LA, L.L.C., 250 STEELE STREET, SUITE 300, DENVER, COLORADO 80206.
+
+See third party licence terms.
+
+Last Updated: 9 November 2022
+
+ Back to top
+
+HELP & SUPPORT
+Learn
+Product Help
+Store & Account Help
+Forum
+Education Resources
+INFORMATION
+Privacy Policy
+Terms & Conditions
+Cookies Policy
+Manage Cookies
+FOLLOW US
+Twitter
+Facebook
+YouTube
+Instagram
+TikTok
+Threads
+United States - English
+© 2026 Serif (Europe) Ltd, All rights reserved
+“Serif” and “Affinity” are both registered trademarks of Serif Europe Ltd. Apple, the Apple logo, MacBook Pro, iPad, and iMac are trademarks of Apple Inc., registered in the U.S. and other countries. Mac App Store is a service mark of Apple Inc. Microsoft, Windows, and the Windows logo are registered trademarks of Microsoft Corporation.
