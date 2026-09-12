@@ -277,7 +277,9 @@
   (hosting pending — Netlify now vs zerric.xyz later). Deliverables: netlify/functions/lead.mjs, room.mjs, public/snitch/index.html.
 - **Cassette player:** LIVE at snowsnakes.zerric.xyz/spread-da-word/audio/soundtracks-cassette-player.html (8 switchable tapes, HTTP 200).
   Hub CASSETTE_LINK placeholder now wired to it (resources/zerric-xyz/spread-da-word/index.html). 4-player cap on player pages.
-- **Cleanup:** landing page draft renamed spread-da-world-v1.html -> spread-da-word-v1.html + content fixed. Zero "World" refs left.
+- **Cleanup:** landing page draft renamed to spread-da-word-v1.html (earlier filename used the wrong
+  word — "da WORLD") + content fixed. Zero live "World" refs. 2026-09-12: social draft
+  queue swept too — 17 misnamed strings corrected to "Word"; see evidence/DRAFT-QUEUE-RECONCILIATION-20260912.md.
 ## 0b. CRM FRONTEND - COORDINATION NOTICE (Meta/PM, received by ClickClack 2026-08-24)
 - **Build window: Day 5-12** after CTO architecture lands (Day 5). ClickClack HOLDS until then - NO coding started.
 - **Spec READ (Day 3 requirement met):** Meta's `CRM FRONTEND - REQUIREMENTS & MVP SPEC v1.0` (DRAFT, pending Day 3 approval gate BossLady->CTO->Sales).

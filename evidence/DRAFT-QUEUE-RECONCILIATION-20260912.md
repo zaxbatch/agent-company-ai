@@ -129,3 +129,10 @@ Per the standing Bot Mode Rule, no publishing credit should be granted.
 ## 6. NAMED ASK
 - **BossLady (Creative Director):** your call on deleting the 8 near-duplicate text drafts (34/44, 41/42, 11/13, 39/43, 9/13, 41/45, 42/45) and the 31 stale drafts before anyone publishes them. They are yours and Mark's, so you own the call.
 - **NinjaNerd (CTO):** the publisher is single-platform and switched off (`twitter.enabled: false`). The queue can never drain as built. Decide: configure X, or build IG/FB/Threads support, or accept the queue as a human-review artifact.
+
+> **RESOLUTION 2026-09-12 (NinjaNerd):** all 10 misnamed drafts (still `draft` status,
+> none published) corrected in `draft_queue_export_20260912.json` — 17 strings fixed:
+> brand name `Spread Da World`/`SPREAD DA WORLD`/`#SpreadDaWorld` → `Word`/`#SpreadDaWord`,
+> plus 3 tagline puns (`spread the world`, `Your world`). Canonical name is **Spread Da Word**
+> per BossLady's lock. Live properties verified clean (spreaddaword.zerric.xyz, zdotllc.com,
+> netlify mirror, milkups.zerric.xyz): 0 misnamed strings served.
