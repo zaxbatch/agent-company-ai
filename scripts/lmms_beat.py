@@ -21,9 +21,10 @@ MASTER_FADER = "0.5"   # hard-won: >0.5 clips when 8 tracks sum
 
 
 class Track:
-    def __init__(self, name, instrument_xml, vol=100, pan=0):
+    def __init__(self, name, instrument_xml, vol=100, pan=0, basenote=57):
         self.name, self.instrument_xml = name, instrument_xml
         self.vol, self.pan = vol, pan
+        self.basenote = basenote
         self.notes = []
 
     def n(self, pos, key=57, vol=100, length=12):
@@ -35,7 +36,7 @@ class Track:
             f'\n                <note pos="{p}" key="{k}" vol="{v}" len="{l}" pan="0"/>'
             for p, k, v, l in sorted(self.notes))
         return f'''            <track muted="0" name={quoteattr(self.name)} solo="0" type="0">
-              <instrumenttrack pitch="0" fxch="0" basenote="57" usemasterpitch="1" pitchrange="1" vol="{self.vol}" pan="{self.pan}">
+              <instrumenttrack pitch="0" fxch="0" basenote="{self.basenote}" usemasterpitch="1" pitchrange="1" vol="{self.vol}" pan="{self.pan}">
                 {self.instrument_xml}
                 <eldata ftype="0" fres="0.5" fcut="14000" fwet="0">
                   <elvol latt="0" dec="0.5" lamt="0" lspd_numerator="1" att="0" sustain="0.5" amt="0" userwavefile="" ctlenvamt="0" lshp="0" lspd_denominator="1" x100="0" lpdel="0" lspd="0.1" pdel="0" hold="0.5" syncmode="0" rel="0.1"/>

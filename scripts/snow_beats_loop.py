@@ -15,16 +15,23 @@ from playwright.sync_api import sync_playwright
 LOCAL_GAME = "resources/snowsnakes/games-posted/snow-beats-loop-download.html"
 TRACKS = ["kick", "snare", "hat", "clap", "ohat", "bass", "lead", "noise"]
 
-# drums only — bass/lead/noise stay empty so synths can be layered in LMMS
-DRUM_PATTERN = {
-    "kick":  [0, 4, 8, 12, 14],
-    "snare": [4, 12],
-    "hat":   [0, 2, 4, 6, 8, 10, 12, 14],
-    "clap":  [4, 12],
-    "ohat":  [6, 14],
-    "bass":  [],
-    "lead":  [],
-    "noise": [],
+# The game's OWN presets — this is the game generating the loop, not us.
+GAME_PRESETS = {
+    "classic": {"kick": [0, 4, 8, 12], "snare": [4, 12],
+                "hat": [0, 2, 4, 6, 8, 10, 12, 14], "clap": [], "ohat": [10],
+                "bass": [0, 8], "lead": [], "noise": []},
+    "boombap": {"kick": [0, 8, 10], "snare": [4, 12],
+                "hat": [0, 2, 4, 6, 8, 10, 12, 14], "clap": [4], "ohat": [14],
+                "bass": [0, 10], "lead": [], "noise": []},
+    "trap":    {"kick": [0, 4, 6, 8, 12], "snare": [4, 12],
+                "hat": [0, 2, 4, 6, 8, 10, 12, 14, 15], "clap": [], "ohat": [2, 10],
+                "bass": [0, 6, 12], "lead": [], "noise": [15]},
+    "lofi":    {"kick": [0, 8], "snare": [4, 12],
+                "hat": [2, 6, 10, 14], "clap": [8], "ohat": [],
+                "bass": [0, 8], "lead": [4, 12], "noise": []},
+    "8bit":    {"kick": [0, 4, 8, 12], "snare": [4, 12],
+                "hat": [0, 2, 4, 6, 8, 10, 12, 14], "clap": [8], "ohat": [],
+                "bass": [0, 3, 8, 11], "lead": [0, 4, 8, 12], "noise": []},
 }
 
 
@@ -47,8 +54,18 @@ def live_game_url(game_id=97):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--bpm", type=int, default=128)
+    ap.add_argument("--preset", default="classic", choices=sorted(GAME_PRESETS),
+                    help="the game's own preset to render")
+    ap.add_argument("--swing", type=int, default=0)
+    ap.add_argument("--exclude", default="bass,lead,noise",
+                    help="tracks to leave out (the game's bass/lead are fixed-pitch)")
     ap.add_argument("--out", default="content/experiments/lmms/snow-beats-drums-128.wav")
     a = ap.parse_args()
+
+    rows = GAME_PRESETS[a.preset]
+    skip = {x.strip() for x in a.exclude.split(",") if x.strip()}
+    rows = [[k, v] for k, v in rows.items() if k not in skip]
+    print(f"preset: {a.preset}  bpm={a.bpm}  swing={a.swing}")
 
     url = live_game_url()
     target = url or "file://" + os.path.abspath(LOCAL_GAME)
@@ -69,6 +86,11 @@ def main():
 
         applied = page.evaluate("""(spec) => {
             bpm = spec.bpm;
+            if (typeof swing !== 'undefined') {
+                swing = spec.swing;
+                const sw = document.getElementById('swing');
+                if (sw) { sw.value = spec.swing; sw.dispatchEvent(new Event('input')); }
+            }
             const el = document.getElementById('bpm');
             if (el) { el.value = spec.bpm; el.dispatchEvent(new Event('input')); }
             for (let t = 0; t < TRACKS.length; t++)
@@ -83,7 +105,7 @@ def main():
             for (let t = 0; t < TRACKS.length; t++)
                 for (let s = 0; s < STEPS; s++) if (pattern[t][s]) on++;
             return {bpm: bpm, stepsOn: on};
-        }""", {"bpm": a.bpm, "rows": [[k, v] for k, v in DRUM_PATTERN.items()]})
+        }""", {"bpm": a.bpm, "swing": a.swing, "rows": rows})
         print(f"  in-page: bpm={applied['bpm']} steps_on={applied['stepsOn']}")
 
         with page.expect_download(timeout=60000) as dl:
