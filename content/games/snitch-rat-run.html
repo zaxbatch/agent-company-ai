@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<title>SNITCH: RAT RUN</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;background:#07090d;overflow:hidden;font-family:"Courier New",monospace}
+#wrap{position:relative;width:100vw;height:100vh;display:flex;align-items:center;justify-content:center}
+canvas{image-rendering:pixelated;touch-action:none;max-width:100%;max-height:100%}
+#ov{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    background:rgba(4,6,10,.92);color:#e8f4ff;text-align:center;padding:24px;gap:10px}
+#ov h1{font-size:clamp(22px,6.4vw,40px);letter-spacing:3px;color:#8ef0a0;text-shadow:0 0 14px #1d7a3a}
+#ov p{font-size:clamp(12px,3.6vw,16px);line-height:1.6;max-width:440px;color:#b9d4c8}
+#ov b{color:#ffd166}
+#btn{margin-top:8px;padding:14px 34px;font:inherit;font-size:17px;letter-spacing:2px;cursor:pointer;
+     background:#1d6b3a;color:#eafff0;border:3px solid #8ef0a0;border-radius:8px}
+#btn:hover{background:#28884a}
+.hide{display:none!important}
+</style>
+</head>
+<body>
+<div id="wrap"><canvas id="c" width="480" height="720"></canvas></div>
+<div id="ov">
+  <h1>SNITCH: RAT RUN</h1>
+  <p>Snitch is loose — the dumpster to the Rat King's lair.<br>
+     Grab the cheese. Dodge the cats. Trust nobody.<br><br>
+     <b>SPACE</b> / <b>TAP</b> to jump &nbsp;·&nbsp; hold for higher</p>
+  <p id="hs"></p>
+  <button id="btn">RUN</button>
+</div>
+<script>
+const cv=document.getElementById('c'),ctx=cv.getContext('2d');
+const W=480,H=720,ov=document.getElementById('ov'),btn=document.getElementById('btn'),hsEl=document.getElementById('hs');
+const KY='snitchRatRunHi',GROUND=H-110;
+let G,hold=false;
+function fit(){const s=Math.min(innerWidth/W,innerHeight/H);cv.style.width=(W*s)+'px';cv.style.height=(H*s)+'px';}
+addEventListener('resize',fit);fit();
+addEventListener('keydown',e=>{const k=e.key.toLowerCase();if(k===' '||k==='arrowup'||k==='w'){e.preventDefault();hold=true;if(!G.run)start();}});
+addEventListener('keyup',e=>{const k=e.key.toLowerCase();if(k===' '||k==='arrowup'||k==='w')hold=false;});
+cv.addEventListener('pointerdown',e=>{e.preventDefault();hold=true;if(!G.run)start();});
+cv.addEventListener('pointerup',()=>{hold=false;});
+cv.addEventListener('pointercancel',()=>{hold=false;});
+
+function reset(){G={run:true,y:GROUND-30,vy:0,onGround:true,jumps:0,obs:[],cheese:[],spawn:0,cs:0,t:0,speed:5.4,score:0,bg:[],tilt:0};
+  for(let i=0;i<14;i++)G.bg.push({x:Math.random()*W,y:60+Math.random()*(GROUND-140),s:18+Math.random()*30,a:.06+Math.random()*.08});}
+function start(){reset();ov.classList.add('hide');last=0;requestAnimationFrame(loop);}
+function die(){G.run=false;const hi=+(localStorage.getItem(KY)||0);if(G.score>hi)localStorage.setItem(KY,G.score);
+  ov.classList.remove('hide');ov.querySelector('h1').textContent='CAUGHT';
+  ov.querySelector('p').innerHTML=`Distance <b>${G.score}</b> &nbsp;·&nbsp; Best <b>${localStorage.getItem(KY)||0}</b><br><br>The cat got Snitch. Rats never win clean.`;
+  btn.textContent='RUN AGAIN';}
+
+function update(){
+  if(!G.run)return;G.t++;
+  G.speed=5.4+Math.min(7,G.t*0.004);
+  G.score+=1;
+  // physics
+  reveal: {
+    if(hold&&G.y<=GROUND-30){G.vy-=0.62;}
+    G.vy+=0.62;G.y+=G.vy;
+    if(G.y>=GROUND-24){G.y=GROUND-24;G.vy=0;G.onGround=true;}else G.onGround=false;
+    G.tilt=Math.max(-.35,Math.min(.35,G.vy*0.03));
+  }
+  // spawn obstacles (cats) + cheese
+  G.spawn-=1;if(G.spawn<=0){G.spawn=Math.max(42,86-G.t*0.09);
+    G.obs.push({x:W+40,e:Math.random()<.4?'🐈':'🪤',w:40});}
+  G.cs-=1;if(G.cs<=0){G.cs=40+Math.random()*50;
+    G.cheese.push({x:W+40,y:GROUND-70-Math.random()*150,r:18,got:false});}
+  const rx=110,ry=G.y,rw=52,rh=40;
+  for(let i=G.obs.length-1;i>=0;i--){const o=G.obs[i];o.x-=G.speed;
+    if(Math.abs(o.x-rx)<(rw/2+o.w/2)*0.68 && Math.abs((GROUND-16)-ry)<rh*0.72){die();return;}
+    if(o.x<-60)G.obs.splice(i,1);}
+  for(let i=G.cheese.length-1;i>=0;i--){const c=G.cheese[i];c.x-=G.speed;
+    if(!c.got&&Math.hypot(c.x-rx,c.y-ry)<rw*0.8){c.got=true;G.score+=25;blip(880,.05);G.cheese.splice(i,1);continue;}
+    if(c.x<-40)G.cheese.splice(i,1);}
+  for(const b of G.bg){b.x-=G.speed*0.22;if(b.x<-40)b.x=W+30;}
+  // ground scroll
+  if(!G.gx)G.gx=0;G.gx=(G.gx-G.speed)%80;
+}
+function draw(){
+  // sky: dumpster -> sewer -> city -> lair, shifting hue with distance
+  const ph=Math.min(1,G.t/5200);
+  const top=mix([26,34,54],[58,26,44],ph), bot=mix([14,20,32],[30,16,10],ph);
+  const g=ctx.createLinearGradient(0,0,0,GROUND);g.addColorStop(0,`rgb(${top})`);g.addColorStop(1,`rgb(${bot})`);
+  ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+  for(const b of G.bg){ctx.fillStyle=`rgba(142,240,160,${b.a})`;ctx.beginPath();ctx.arc(b.x,b.y,b.s,0,7);ctx.fill();}
+  // ground
+  ctx.fillStyle='#151a12';ctx.fillRect(0,GROUND,W,H-GROUND);
+  ctx.fillStyle='#24301c';ctx.fillRect(0,GROUND,W,10);
+  ctx.fillStyle='#3a4a2a';for(let x=G.gx||0;x<W;x+=80){ctx.fillRect(x,GROUND+14,44,4);}
+  // cheese
+  for(const c of G.cheese){ctx.font='34px serif';ctx.textAlign='center';ctx.textBaseline='middle';
+    const bob=Math.sin((G.t+c.x)*0.08)*4;ctx.fillText('🧀',c.x,c.y+bob);}
+  // obstacles
+  for(const o of G.obs){ctx.font=(o.e==='🐈'?'46px':'38px')+' serif';ctx.textAlign='center';ctx.textBaseline='alphabetic';
+    ctx.fillText(o.e,o.x,GROUND+4);}
+  // rat
+  const rx=110,ry=G.y;
+  ctx.fillStyle='rgba(0,0,0,.4)';ctx.beginPath();ctx.ellipse(rx,GROUND+6,22,6,0,0,7);ctx.fill();
+  ctx.save();ctx.translate(rx,ry);ctx.rotate(G.tilt);ctx.font='52px serif';ctx.textAlign='center';ctx.textBaseline='middle';
+  if(!G.onGround)ctx.fillText('🐀',0,0);else ctx.fillText('🐀',0,Math.sin(G.t*0.3)*2);
+  ctx.restore();
+  // hud
+  ctx.textAlign='left';ctx.textBaseline='top';ctx.font='bold 22px "Courier New",monospace';
+  ctx.fillStyle='#8ef0a0';ctx.fillText(G.score,18,16);
+  ctx.fillStyle='#b9d4c8';ctx.font='13px "Courier New",monospace';
+  ctx.fillText(ph<.33?'THE DUMPSTER':ph<.66?'THE SEWER':'RAT KING’S LAIR',18,46);
+}
+function mix(a,b,t){return a.map((v,i)=>Math.round(v+(b[i]-v)*t)).join(',');}
+let last=0;
+function loop(ts){const dt=ts?Math.min(2.2,(ts-last)/16.7):0;last=ts;update();draw();if(G.run)requestAnimationFrame(loop);}
+let AC;function blip(f,d){try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();const o=AC.createOscillator(),g=AC.createGain();
+  o.type='square';o.frequency.value=f;g.gain.value=.04;o.connect(g);g.connect(AC.destination);o.start();o.stop(AC.currentTime+d);}catch(e){}}
+hsEl.innerHTML='Best: <b>'+(localStorage.getItem(KY)||0)+'</b>';
+btn.onclick=start;
+reset();G.run=false;draw();
+</script>
+</body>
+</html>
