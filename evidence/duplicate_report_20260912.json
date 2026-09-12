@@ -1,0 +1,208 @@
+{
+ "generated_at": "2026-09-12",
+ "source": "social_drafts @ .agent-company-ai/default/company.db",
+ "queue_total": 99,
+ "claimed_total_in_pm_task": "~50",
+ "historical_counts": {
+  "2026-08-25_backup": 70,
+  "2026-08-30_backup": 83,
+  "2026-09-12_live": 99
+ },
+ "status_all": "draft (99/99)",
+ "scheduled_all": "NULL (99/99)",
+ "media_all": "empty (99/99)",
+ "published_id_all": "EMPTY (99/99)",
+ "published_count": 0,
+ "live_url_count": 0,
+ "draft_71_72": {
+  "same_table": "social_drafts (TEXT posts, not games)",
+  "platform": "twitter",
+  "created_by": "BossLady",
+  "created_at": "2026-08-26 04:55:38 (identical second)",
+  "byte_identical": false,
+  "sha256_71": "786c374a945222cea43ee89bc17524fb5e9e141692be42cbce38f249ae489363",
+  "sha256_72": "da1441f900c6a0f7ab1f0ec6c6bdb0b8fdeff1e990fbe22e11947a67b5652422",
+  "content_len_71": 190,
+  "content_len_72": 166,
+  "asset_file_path_71": "NONE (media_urls='')",
+  "asset_file_path_72": "NONE (media_urls='')",
+  "conclusion": "No asset files exist for either draft. They are two differently-worded TEXT posts on the same topic (SnowSnakes LIGHT drop). Not byte-identical; not near-identical text either. The 'duplicate pair' premise is incorrect: they share no asset.",
+  "actual_duplicate_shape": "A 5-draft burst created in the same second: #71 #72 #73 #74 (twitter) + #75 (instagram), all SnowSnakes LIGHT drop."
+ },
+ "draft_near_duplicate_pairs": [
+  {
+   "a": 34,
+   "b": 44,
+   "platform": "twitter",
+   "ratio": 0.998,
+   "sha256_a": "95bdb36540b0d0fa3d785feac98b7adfcf7df7c5a33ea3cbe30d96250e218b1d",
+   "sha256_b": "d220105a9166ce46504e01e56297bc32c2000ad4a32a8c6c00ca6057ee46dceb"
+  },
+  {
+   "a": 41,
+   "b": 42,
+   "platform": "twitter",
+   "ratio": 0.997,
+   "sha256_a": "8f4469a6429cf98104dd82ffc97cb19d836ad05e81515c045f432d9c1597a5a9",
+   "sha256_b": "2229cbd00bd3c6a0ff38141704b594f1350189f622670d518fc8a22127c0d734"
+  },
+  {
+   "a": 11,
+   "b": 13,
+   "platform": "twitter",
+   "ratio": 0.962,
+   "sha256_a": "490c2c71ccc24d0ac3c06cceb1bc600e1078f16516d5974292bb972269d7f86c",
+   "sha256_b": "f5fe0addbbcc4402f8ce96b3d858f50e5d951151c21dd1d4d9e01cfbb264e151"
+  },
+  {
+   "a": 39,
+   "b": 43,
+   "platform": "instagram",
+   "ratio": 0.83,
+   "sha256_a": "3c8f2b1af7fb75764b6f36e917a3c3c41b3711f111c4bc718eb518310bc1cb1a",
+   "sha256_b": "3984e46f4c7fe4a34c3424e8b204354fb7101f33301f2ad5bbd87b1d96325824"
+  },
+  {
+   "a": 9,
+   "b": 11,
+   "platform": "twitter",
+   "ratio": 0.652,
+   "sha256_a": "3fbb8f8ec9abadd2b3c4f1795db386e689baf781cef25b32ca83ce8c65149497",
+   "sha256_b": "490c2c71ccc24d0ac3c06cceb1bc600e1078f16516d5974292bb972269d7f86c"
+  },
+  {
+   "a": 9,
+   "b": 13,
+   "platform": "twitter",
+   "ratio": 0.652,
+   "sha256_a": "3fbb8f8ec9abadd2b3c4f1795db386e689baf781cef25b32ca83ce8c65149497",
+   "sha256_b": "f5fe0addbbcc4402f8ce96b3d858f50e5d951151c21dd1d4d9e01cfbb264e151"
+  },
+  {
+   "a": 42,
+   "b": 45,
+   "platform": "twitter",
+   "ratio": 0.612,
+   "sha256_a": "2229cbd00bd3c6a0ff38141704b594f1350189f622670d518fc8a22127c0d734",
+   "sha256_b": "f9eb41e37a90947e52b5cdb170a9bdf448c01d6a2dce2eaa7af91bd113504cc8"
+  },
+  {
+   "a": 41,
+   "b": 45,
+   "platform": "twitter",
+   "ratio": 0.605,
+   "sha256_a": "8f4469a6429cf98104dd82ffc97cb19d836ad05e81515c045f432d9c1597a5a9",
+   "sha256_b": "f9eb41e37a90947e52b5cdb170a9bdf448c01d6a2dce2eaa7af91bd113504cc8"
+  }
+ ],
+ "other_duplicate_findings": {
+  "live_game_duplicate": {
+   "status": "Games 71-75 NO LONGER EXIST in the live API (confirmed: live ids = 23,70,76,78,79,80,81,83,85,91,94,96,97,99,100)",
+   "historical": "TEAM-STATE records Food Truck Frenzy ids 71-75 with keeper id75; the 4 dupes have since been removed.",
+   "local_source_assets_that_back_them": {
+    "resources/games/food-truck-frenzy.html": "45b3039a58444291e6e6b211c9094d4e3466b0483f32c7b014412979b58f23b0",
+    "resources/games/family-food-truck.html": "b17dd169c46e598d268879d25df3d4242f8ce13c951169020cad8771255d7b14",
+    "pair_text_similarity": 0.9679,
+    "verdict": "Two near-identical local game files (96.8% similar) remain in repo = residual duplicate risk if either is re-posted."
+   },
+   "current_live_near_duplicate": {
+    "pair": [
+     97,
+     99
+    ],
+    "titles": [
+     "SNOW BEATS \u2014 loop download",
+     "SNOW BEATS 2 \u2014 loop download (fixed)"
+    ],
+    "author_id": 72,
+    "author_name": "sam_rivera",
+    "title_similarity": 0.839,
+    "description_similarity": 0.634,
+    "assets": {
+     "resources/snowsnakes/games-posted/snow-beats-download.html": "36c287d5fc0ee90e664d28fad5217c0340a3d7c25e10d6fdccbb81f73af32c32",
+     "resources/snowsnakes/games-posted/snow-beats-loop-download.html": "11b3d535f99d7c11aaa27972b3dfd59dfc8c42d950971333638ceca5446d79fd"
+    },
+    "asset_similarity": 0.6047,
+    "byte_identical": false,
+    "reason": "Same author, same feature, same download-loop mechanic. 99 is a 'fixed' re-upload of 97. Live duplicate pair still on the site."
+   }
+  },
+  "live_duplicate_jokes": {
+   "total_live": 133,
+   "unique": 107,
+   "redundant_records": 26,
+   "duplicate_groups": 18,
+   "examples": [
+    {
+     "content": "what do you call a train full of bubble gum?",
+     "ids": [
+      212,
+      200,
+      156,
+      121
+     ],
+     "count": 4
+    },
+    {
+     "content": "why did the astronomer break up with his telescope?",
+     "ids": [
+      217,
+      196,
+      145
+     ],
+     "count": 3
+    },
+    {
+     "content": "why did the snowman go to the store?",
+     "ids": [
+      205,
+      134,
+      123
+     ],
+     "count": 3
+    }
+   ]
+  },
+  "asset_mirror_duplication": {
+   "groups": 126,
+   "detail": "Every doodle SVG exists twice with identical sha256: resources/snowsnakes/doodles-comics-under-review/<f> and hostinger_tasks/doodle_media/<f>. Repo-hygiene duplication, not content duplication (0 same-directory duplicates, 0 cross-dir different-name duplicates)."
+  }
+ },
+ "stale_drafts": {
+  "count": 31,
+  "ids": [
+   9,
+   10,
+   11,
+   13,
+   15,
+   19,
+   20,
+   22,
+   24,
+   25,
+   27,
+   28,
+   32,
+   37,
+   40,
+   41,
+   42,
+   45,
+   47,
+   50,
+   51,
+   54,
+   55,
+   71,
+   73,
+   76,
+   81,
+   82,
+   83,
+   86,
+   87
+  ],
+  "reason": "Time-sensitive wording that is now factually stale or contradicts live state: 'coming soon'/'is coming' for games already live, or 'is LIVE'/'just dropped' claims for content that has never been posted to any social platform."
+ }
+}

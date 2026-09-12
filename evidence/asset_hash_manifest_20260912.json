@@ -1,0 +1,1876 @@
+{
+ "generated_at": "2026-09-12",
+ "scanned_dirs": [
+  "doodles",
+  "resources/games",
+  "resources/snowsnakes/games-posted",
+  "resources/snowsnakes/doodles-comics-under-review",
+  "content/experiments/doodles",
+  "hostinger_tasks/doodle_media",
+  "resources/snitch"
+ ],
+ "asset_count": 271,
+ "byte_identical_duplicate_groups": {
+  "e791ce9f0107f17fc5f98bca4066a04dfa234af53940f9b9d81e50ea1150f304": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-39-mayo.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-39-mayo.svg"
+  ],
+  "ac10e736f8e0de5112f61299f902d9b6e4714b94f0dc92cda2cbccb9418739d8": [
+   "resources/snowsnakes/doodles-comics-under-review/vin-negar-doodle.svg",
+   "hostinger_tasks/doodle_media/vin-negar-doodle.svg"
+  ],
+  "8ffabe6fd96b2714158ad509b5cb7cce4716bebfe47faa24dacce9d75aa9b894": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-14-vin-negar.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-14-vin-negar.svg"
+  ],
+  "114588e5b88de136e4756c5510566158a225c656cd0cbdea9272b79247fb26a9": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-17-soy-and-tahini.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-17-soy-and-tahini.svg"
+  ],
+  "cae0fcd31aab405e38a5cf6cbbf7744ebeaa5c92cfede81e12c8bba3e169f24f": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-14-red-vs-yellow.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-14-red-vs-yellow.svg"
+  ],
+  "0ffa4bd588058a05e3510022d625c0de1260996f73a333ffe13505073bb8f576": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-21-rat-king-lair.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-21-rat-king-lair.svg"
+  ],
+  "82e04b18a728190f207308f9adcc5c3182b76c40bbc6d21b508d9d120710a95a": [
+   "resources/snowsnakes/doodles-comics-under-review/soy-proverb-doodle.svg",
+   "hostinger_tasks/doodle_media/soy-proverb-doodle.svg"
+  ],
+  "50af6a877dfb58a65a4e1beaacddbc6796395f6303cb0f85680c0d6215d23412": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-05-mayo-portrait.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-05-mayo-portrait.svg"
+  ],
+  "9df1ccf62fdd5909db5727e223afa6ea49df1a8c64eae76ca52e763dde392952": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-27-red.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-27-red.svg"
+  ],
+  "8fbc63ea898602f78f6ff91b64c31939628435c17511f9e88b0499fa0e765b48": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-11-aji.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-11-aji.svg"
+  ],
+  "a0867f423625398fc1ae041114e5ab784929d61fc5318b34bd15a22dfa6820c7": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-38-crisp.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-38-crisp.svg"
+  ],
+  "327c807d78edec0f2fb70dca29e82aecd07fe78ea49f18e8b12a2d3edf16e2dc": [
+   "resources/snowsnakes/doodles-comics-under-review/que-cookout-doodle.svg",
+   "hostinger_tasks/doodle_media/que-cookout-doodle.svg"
+  ],
+  "6dba64d2728646f315617c3b706343211de2a24673ad1306b830cfe4d8168fce": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-07-crisp.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-07-crisp.svg"
+  ],
+  "059bac3c64a9061ec349a466204fe731ac6d0070fb482810efdfbc653666d703": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-35-zest.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-35-zest.svg"
+  ],
+  "0cb81f56ab1a428f09ee6e0cf808c85cd47a3fdbafd73e437799aff41183d59f": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-17-aji.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-17-aji.svg"
+  ],
+  "7c83abfa764482da6e6d5684d7f252cd92a2cacd167dee4995e91672a019eb8f": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-43-cheese-heist.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-43-cheese-heist.svg"
+  ],
+  "306e72b8a49902f6b7caaafcf2ac3e8cc4edaea0597bd7ae0939f43e921e0324": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-44-aji.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-44-aji.svg"
+  ],
+  "ee0a1a8ee737601559f7255efe58f164bf6156443c36e4abfe1813a32b4e88ce": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-30-fridge-door.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-30-fridge-door.svg"
+  ],
+  "b2c173bca5135e544f09f3a2c33f6a610408ba51f3139840c43495bf163363ed": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-22-vin-negar.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-22-vin-negar.svg"
+  ],
+  "260845d626114545e930bb836d7412113a2ef0a298d06fdf6911c1c644a90e64": [
+   "resources/snowsnakes/doodles-comics-under-review/yellow-mustard-doodle.svg",
+   "hostinger_tasks/doodle_media/yellow-mustard-doodle.svg"
+  ],
+  "791e4cb9431942bcad69558f4728f0046e3ab349c680e00fcc3c797ff9252146": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-41-snitch-rat-cheese.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-41-snitch-rat-cheese.svg"
+  ],
+  "36815a06e428fd2dc7c1dd160819597e9cb00b102efc120af2a6cf77b9a84f7d": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-40-red.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-40-red.svg"
+  ],
+  "e29d37a0dd33bd03b286980d6f91059859ec4cc0fb7c4fe3329a95a699a1f256": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-13-vin-and-que.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-13-vin-and-que.svg"
+  ],
+  "da5dbfc382cf7d3c9cd6eb968c15b3f46363814fcb235c369ce81e67da266051": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-08-soy-portrait.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-08-soy-portrait.svg"
+  ],
+  "02745fd0f29194a405317661fc839979f3c90ba88141ff3902143ef6834c4120": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-26-woods-scene.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-26-woods-scene.svg"
+  ],
+  "e872dd02fcbab1995fa44f8876adfa6ebc425215d8452f2807a650fed5bd1b85": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-24-02-crisp.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-24-02-crisp.svg"
+  ],
+  "dd9ef19be725212185c96ad87d96ca785f5fafd0fb79b34e9eb4daf1b423c66b": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-24-05-snow-snake.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-24-05-snow-snake.svg"
+  ],
+  "5d369f0b7ac15a7271f5cc31ec607fc8be0bd80528d9b4cd4868b1660962ac34": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-09-crisp-portrait.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-09-crisp-portrait.svg"
+  ],
+  "b1c872ee2e2cb9f2d393c93574a2ce89a4f4a008cb0a58a75301f49241e987b8": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-42-cat-chase.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-42-cat-chase.svg"
+  ],
+  "0013dae541f29e49be338d968fbbf8c949b7cfb5a3292f696d693a50a8a172d7": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-03-red-portrait.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-03-red-portrait.svg"
+  ],
+  "e6d97f5010554aff534f63598c7aa0a6f1ff506575883f9df9b588ac75039499": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-50-yellow.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-50-yellow.svg"
+  ],
+  "18fe81bb6c52b8f63562bc4a26c4ba19530e7f7359fce25915c1fc33681234f5": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-23-sewer-scene.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-23-sewer-scene.svg"
+  ],
+  "45eda92004285827e0da3b7b429a6f574db4808471ea5be5815fe96c3b9b2071": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-39-milk-carton-club.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-39-milk-carton-club.svg"
+  ],
+  "609ee6272f84a63a6ad3e74031f3b42b0579494abdd999ac5846070e620bbb57": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-12-snow-snake-2.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-12-snow-snake-2.svg"
+  ],
+  "f82e5abcc4c74c83177fbfb5588954a323a0503d205d972c71fbc5bd5c77aa79": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-06-red.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-06-red.svg"
+  ],
+  "9ed976c2aa8ba56aa93a5452de6103113a6027204e3fbb61836c1983b04a0b0e": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-36-red.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-36-red.svg"
+  ],
+  "ed141958f0b420d369b99fcf1fcb793f9636e182e6117bce922b2e682eedfc07": [
+   "resources/snowsnakes/doodles-comics-under-review/aji-hot-doodle.svg",
+   "hostinger_tasks/doodle_media/aji-hot-doodle.svg"
+  ],
+  "142b9750f64a81f247e8dc4bd5e4b26522b06dae74624a91b6f3bed7d527fbf0": [
+   "resources/snowsnakes/doodles-comics-under-review/mayo-white-doodle.svg",
+   "hostinger_tasks/doodle_media/mayo-white-doodle.svg"
+  ],
+  "fb99d857c131764e51856fa7ea90860d026ed4364698fe717345f91ac6054cd9": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-34-turntable.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-34-turntable.svg"
+  ],
+  "5e998524a1e26ca8cbfff44c0e3770fdeff40dc661f015cc79f6640c7b671d77": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-18-vin-negar.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-18-vin-negar.svg"
+  ],
+  "c3bc6bdb56bde35a981a147940bb07503b3d72539f70029c279ff0238528f0e0": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-21-red.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-21-red.svg"
+  ],
+  "26236ddc39a33f8d0bf18350efeaebd7b65479102cf611111e5c5a809577845e": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-49-crisp.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-49-crisp.svg"
+  ],
+  "3b2e21a36487a2362444eb9af8dae7f3982db8107a650d53bc0b182eac944837": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-34-que.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-34-que.svg"
+  ],
+  "944c777f02fd9b112c4cddc343c869c8b32665c2c5de7091aa961ee74ba84564": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-06-whip-portrait.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-06-whip-portrait.svg"
+  ],
+  "08bbdf6ece6375e3c69e496d953cde84e996d03d4aff99c7f9bae467624b2dc7": [
+   "resources/snowsnakes/doodles-comics-under-review/crisp-ranch-doodle.svg",
+   "hostinger_tasks/doodle_media/crisp-ranch-doodle.svg"
+  ],
+  "991b7d7aeee5172e61176db826268374ed3d2188ca66bbdf961b590dce941140": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-19-crisp.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-19-crisp.svg"
+  ],
+  "2a2b9e9a628681a3d6a99723e602420e2412a903e1b7b730de8c79ce916b2527": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-48-rat-king.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-48-rat-king.svg"
+  ],
+  "22f26591920c338bef0b05b066f0e4f2d0b858e428d24f52cb07fdddf595a8b0": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-28-jail-scene.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-28-jail-scene.svg"
+  ],
+  "026e87d943f895b38678ef2e40e765cf9c9c4506a70e1821642e28d50dab7d42": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-37-snow-snake.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-37-snow-snake.svg"
+  ],
+  "5615bbd4ae6bd595d064566b7398da1cfbc73becdfe6097cb3b6eb94091eb53f": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-47-shelves-raised-us-2.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-47-shelves-raised-us-2.svg"
+  ],
+  "71fb1635b2e32022e5231b66ba731ed8c8fb9e0cb9ca3c09e53a2d2e4b2537fa": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-24-08-que.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-24-08-que.svg"
+  ],
+  "7378c7aa15bf858368cb11ec0330faef3975be44a8806de9cda77e1fa63c359d": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-03-snow-snake.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-03-snow-snake.svg"
+  ],
+  "98146081eb84434d794fb217a7f139bf330853f20db4833fd1f05a8cb0b889a8": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-47-mayo.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-47-mayo.svg"
+  ],
+  "b312554f68aa5b00df00159bf45e8e82af43bdc9551786038439547b6f6f9d09": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-48-yellow.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-48-yellow.svg"
+  ],
+  "ee7a18d1ab0e828d71cf952fe850f4cbfcca413744339b9e88278a9a19e6a1fa": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-31-aji.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-31-aji.svg"
+  ],
+  "6aeb3396462c2c21a294ddb45479cb8c82b99e60986576433da7b07f8294e29b": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-06-cookout.svg",
+   "hostinger_tasks/doodle_media/doodle-06-cookout.svg"
+  ],
+  "19e8fa4a1145e77df4d702564b3728f2e5caadfdf2a0fd8b071e4df252c6fea8": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-36-mic-check.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-36-mic-check.svg"
+  ],
+  "1d68a56bb0923177404b7e3f3365c5b9bffb0f74b39c64df4eca2a5890753d19": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-41-vin-negar.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-41-vin-negar.svg"
+  ],
+  "ba713bdac029b103e3434a1033a87193119266675096fe2e994e37a486696e58": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-24-04-crisp.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-24-04-crisp.svg"
+  ],
+  "7ad264b2ab43f1367f6e533e511a0024f3bb6299e90854f81f1d8dec4c6d715f": [
+   "resources/snowsnakes/doodles-comics-under-review/red-ketchup-doodle.svg",
+   "hostinger_tasks/doodle_media/red-ketchup-doodle.svg"
+  ],
+  "d62452942c628c7b2a04629be7b6a2a5bae3153cb6ddfc7ac2e71aa4b4c02bc7": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-24-03-whip.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-24-03-whip.svg"
+  ],
+  "5755a0961ab7d4e77b1943296888c4ae74e896997ee84d88ff7e26e5bb735b5b": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-12-yellow.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-12-yellow.svg"
+  ],
+  "f58c45e95e3d6e6f033bfb3ec36bb6a2d09c13976f314f179a8c6ae35b3b6b25": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-04-mayo-whip-twins.svg",
+   "hostinger_tasks/doodle_media/doodle-04-mayo-whip-twins.svg"
+  ],
+  "202d093d3aac691173a8c63eb7917a26edecfeccadba6cc0cb3ee364ca2c4727": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-46-sleep-with-fishes.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-46-sleep-with-fishes.svg"
+  ],
+  "8fcf4477d47ccdba5556d22e0cead4491f643b64a2a2918859595019fb8e0f85": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-20-que.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-20-que.svg"
+  ],
+  "303be4b65c135bd773769275508025eed5aafc8122544ddff0a3b17e386ec4d8": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-03-snow-snake-watching.svg",
+   "hostinger_tasks/doodle_media/doodle-03-snow-snake-watching.svg"
+  ],
+  "0fb5c551ab74042e4def5bb87d33905586718e491167888787d379df599edf35": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-24-10-que.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-24-10-que.svg"
+  ],
+  "cd117fa74c049ca5a454044b80cbd24466d442f91729b9deb8e0220a7ac0e3d4": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-31-milkups-logo.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-31-milkups-logo.svg"
+  ],
+  "9d4d4aa80fd94a99ef83936dd830d4d3a84a037c49d101f131ede5543e821633": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-24-09-mayo.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-24-09-mayo.svg"
+  ],
+  "a323586211117a6e8a38fc63c013e643d7c07ba47b8e5bb0e4d8f64c182e95a5": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-15-snow-snake.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-15-snow-snake.svg"
+  ],
+  "496605cb9a7c86051cb55ae70596eabfde91af802b25430c93e7dc90b0f0817a": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-43-que.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-43-que.svg"
+  ],
+  "a1cc4bcb932d437de200b2dd6ffbbb7ff90d101d2bd79b077172146801b5c427": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-33-crisp.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-33-crisp.svg"
+  ],
+  "24b3c7d8b2a878730b22d8a60459ed9de5a8762b6286d849871106a4a2ea623a": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-15-mayo-and-whip.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-15-mayo-and-whip.svg"
+  ],
+  "d964183e597b989afefc8019151dab7bbdd3d59a22595c246673300d795d54db": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-04-yellow-portrait.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-04-yellow-portrait.svg"
+  ],
+  "d40d51bbb7bd2bef94021e54dbbb4d1b610ac44892d0769d7214c1009bdb3c4c": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-10-snow-snake.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-10-snow-snake.svg"
+  ],
+  "b37b5626dabe058c8a0a8d4caf551f80908b9a5b18a3d7ac8cf9cd624b701ca6": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-11-tahini-portrait.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-11-tahini-portrait.svg"
+  ],
+  "82062247ef7922f59e2a58773dd54804a0cf831c540619ea8a1e4f80100afc9b": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-24-aji.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-24-aji.svg"
+  ],
+  "caed6eac3fdeb64709a1c4e86b14f6c0349c9d61aeb2b9b6fc47328a3280c20c": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-02-que-portrait.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-02-que-portrait.svg"
+  ],
+  "4c133dd7de1ab1ddfd08cc73eb9da47733c15c39ae5b7c0a4874a821e8b4f630": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-24-06-vin-negar.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-24-06-vin-negar.svg"
+  ],
+  "aa90301de43e459e7fda1199bc0022163e668abe20ffd036632ca46d7609d3ee": [
+   "resources/snowsnakes/doodles-comics-under-review/whip-miracle-doodle.svg",
+   "hostinger_tasks/doodle_media/whip-miracle-doodle.svg"
+  ],
+  "161755b02394847075da1ab46a7b39a08b1e34885b5ee5d3b187e3c9f3ed5226": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-18-fridge-showdown.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-18-fridge-showdown.svg"
+  ],
+  "1beda3b934910841574539d02f77180ad67f881228b15082c779c812e5fe3af4": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-23-crisp.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-23-crisp.svg"
+  ],
+  "b6ba024b25ba94d288d17c5f5d362c47688c349430fa994dd501c434e18b97e2": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-29-cookout-scene.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-29-cookout-scene.svg"
+  ],
+  "905431d2b148ac0d2a77de2dbf352ee2312ab386082da91c717716d4fb3ce510": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-16-red.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-16-red.svg"
+  ],
+  "b47855703945ec66a40a5d9025f3124efd1a629c5d7c052a22761918d80145bc": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-01-vin-portrait.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-01-vin-portrait.svg"
+  ],
+  "2be6bd8b14377093219f84654f5fa2a29e6fa58274f089bfd9501494860fc6ed": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-27-lake-scene.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-27-lake-scene.svg"
+  ],
+  "1ff04a373ba2c41471f7d4e9593cebe51d762a03892d5dd49db990ba776fa0ca": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-02-red-yellow-rivalry.svg",
+   "hostinger_tasks/doodle_media/doodle-02-red-yellow-rivalry.svg"
+  ],
+  "8f57c639db37f5273c4e29810b1e4402313adf1a632a26a89d9f620855f0181b": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-13-vin-negar.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-13-vin-negar.svg"
+  ],
+  "32f3f83dd6a9aa3d212f5562b4437a9726f5c729d0b81a0f1f3de3927ef8d6be": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-50-cheese-token.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-50-cheese-token.svg"
+  ],
+  "b64e825cef4f280b611063c492a6203f99afb8775450682bd726163fd100e034": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-26-mayo.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-26-mayo.svg"
+  ],
+  "0737147b48ef742d4b91bff22f9fb0ebded9f10722b97d1fca400ffcead45138": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-29-crisp.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-29-crisp.svg"
+  ],
+  "f222e1230de8fca610bcac220593ae01cef9e09766b1bfa88902aa5f7f4c7447": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-24-07-que.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-24-07-que.svg"
+  ],
+  "3ec2ae8921b1e2d7e8ca8313562a9603ef0c63a3a1add0ba260599d87734aa89": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-46-vin-negar.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-46-vin-negar.svg"
+  ],
+  "27a61bb6f3b37ad8b4039934a28262568de2f76afae2b21e690feb8bcfa1fde5": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-04-yellow.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-04-yellow.svg"
+  ],
+  "892d34fdc8542c5d3981c269a4d45756ca73f8a456bff0fb31ffdc2709f08667": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-44-trust-token.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-44-trust-token.svg"
+  ],
+  "d93e37dc37828a5fe1a60296755471c5d7c4607b546c50b7e0f9bcad3e8e65c6": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-40-band-meeting.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-40-band-meeting.svg"
+  ],
+  "b72f1d8bf889f3534acdefb984adc381d1740d52534ededd2e36d6523cf2faf2": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-24-01-red.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-24-01-red.svg"
+  ],
+  "35c37c389368e4bc8041f9745a895aeb396b54294677e7ec7d63f75f5ca17a4f": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-45-snitch-or-silent.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-45-snitch-or-silent.svg"
+  ],
+  "345ecd0662db8c60728a40cee802c1e799c2320090c3c1b4ff71b5b52bf74046": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-28-snow-snake.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-28-snow-snake.svg"
+  ],
+  "935645a6cb10fe3cb7787e45d76c3d3cbedc7eaab1ff84d7320589e6bcf4f987": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-02-que.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-02-que.svg"
+  ],
+  "f052705cdd1b9e829334c104fde662bf550c5d6f137cc83d4ebbe2971da873ec": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-37-drum-kit.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-37-drum-kit.svg"
+  ],
+  "0a68d8417eb59e69547ac2379924fce676fa1885e7a97ecb51a3f8fa0f9bc511": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-30-mayo.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-30-mayo.svg"
+  ],
+  "c3170747c71cef329ad2dc03eda72fe79f4d9615637b2978c16345d71f03748c": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-20-dumpster-start.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-20-dumpster-start.svg"
+  ],
+  "4ad78ab95ba2d83a502e0bc99c33e6a188feaf16cb0aef88ba375df7a4a28ec7": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-05-aji-heat.svg",
+   "hostinger_tasks/doodle_media/doodle-05-aji-heat.svg"
+  ],
+  "30914eb57d4a61129fcd36f99bb1f7755b19f52c18350830217b271a11f94643": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-35-vinyl-record.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-35-vinyl-record.svg"
+  ],
+  "03f20de916532bbd223209c6a73bc9646cd317b5541c7d9d9eeca314c0906b91": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-01-vin-que-parking-lot.svg",
+   "hostinger_tasks/doodle_media/doodle-01-vin-que-parking-lot.svg"
+  ],
+  "d03f92813f5f8004190ec94b95be51aa5ef4f968c976abcc0448d8c1b3e3a587": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-33-cassette-tape.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-33-cassette-tape.svg"
+  ],
+  "f554b6c36b6b9d2cc2b00eb9902f06dc0c5fd6a92687a70db491966b81e336ca": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-25-city-life.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-25-city-life.svg"
+  ],
+  "ebc940cbe07e3bc639ca2d596d106cf386e27c31917398fc18c8887b06e9924d": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-45-red.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-45-red.svg"
+  ],
+  "505ae4b53b3bbe05efd3525cd07681223e623e4bb97f99c9153e758128cac7e2": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-10-worces-portrait.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-10-worces-portrait.svg"
+  ],
+  "bdca036ecdc10e9d6cb21410bf8c081a4bd3c82c3de2007938e17c46d43c2999": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-32-crisp.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-32-crisp.svg"
+  ],
+  "eab2cab0a7bfa4996d69fbe246121367d08c21bad7ad608c80d10239950f6499": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-08-red.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-08-red.svg"
+  ],
+  "7880327735d19b635c295780cbead6340562d5a08372fff46fd92b896765ddfa": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-16-aji-and-crisp.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-16-aji-and-crisp.svg"
+  ],
+  "019346ef0c0b7af1295d186e949b6475e8a73ee56273d079f68c359a8e8980e1": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-19-snow-snake-watching-2.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-19-snow-snake-watching-2.svg"
+  ],
+  "527405b798b69bca2d346acb3aeeb3048e167459035df4d606cc5acfc6aa94c2": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-22-the-cab-nets.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-22-the-cab-nets.svg"
+  ],
+  "7f581bb427ad76da2f1b06dcecc54eac76204759dbfdac9bc1cf54eac4095118": [
+   "resources/snowsnakes/doodles-comics-under-review/snow-snake-doodle.svg",
+   "hostinger_tasks/doodle_media/snow-snake-doodle.svg"
+  ],
+  "05c4e1c213998ac799b84e2d5ed666b902d5df058fc74eae69c87bb322914394": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-24-alley-scene.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-24-alley-scene.svg"
+  ],
+  "d8b266cc6aad99dd04e40588f0c9d0d271e31213560a0857fc2e091b8454aa02": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-49-trust-meter.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-49-trust-meter.svg"
+  ],
+  "51fc22cf4c0b9555832188122761cf69907cfca529f4a1a5d0bfc9b463cb58ae": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-42-red.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-42-red.svg"
+  ],
+  "bfe7c73d180399b36fd8e01bd3051c6d164c410c6d165aa8d5e64f0a9906df7d": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-25-zest.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-25-zest.svg"
+  ],
+  "86c86f41c7a9fbc7a0cfb92e1c4c42b6761e94a57663c9cca73f272a286f314f": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-07-aji-portrait.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-07-aji-portrait.svg"
+  ],
+  "bdaa77440ce0417ec9ba65f902334a0f6b6dc60780721160ebaa3038fe783ba2": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-32-band-on-stage.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-32-band-on-stage.svg"
+  ],
+  "851a819d36b5f7ece611b5c506c72311db122f94a67f7a70f44a4845af44d611": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-05-snow-snake.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-05-snow-snake.svg"
+  ],
+  "d15598bde29727889f92c16898c1a271e7d4613bd7f4a2cebc2f11fd8524b3b6": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-38-speaker-stack.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-38-speaker-stack.svg"
+  ],
+  "11596c165025ea221fba0c02a61afbdd271dfd77856aa7fe04a7f4c8f72e999d": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-01-crisp.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-01-crisp.svg"
+  ],
+  "38adbd5c3ba0c5888a3b2f93777bad174d2d9377d0685b8cbaa7e6c24c5bb63d": [
+   "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-09-red.svg",
+   "hostinger_tasks/doodle_media/doodle-2026-08-25-09-red.svg"
+  ]
+ },
+ "assets": [
+  {
+   "path": "doodles/vin-negar-doodle.svg",
+   "bytes": 907,
+   "sha256": "1141b76b0f791fff14edf1831a4bee4b647ebda88d937fc217d54d8e1797d022"
+  },
+  {
+   "path": "doodles/que-cookout-doodle.svg",
+   "bytes": 725,
+   "sha256": "8439d12ebdbacbe426e6fa7c2e6e5c4dfe1940c1bf8d013c420032d3b6601ba5"
+  },
+  {
+   "path": "doodles/snitch-rat-doodle.svg",
+   "bytes": 1181,
+   "sha256": "23e32b1ed4b535c5664c074fcd028efffa9a58387ae64e3c947c1aceb9225986"
+  },
+  {
+   "path": "doodles/README.md",
+   "bytes": 949,
+   "sha256": "477312f5e93ba176fca4cbd36383bf9e63eeebee12140557906d547499b7d55e"
+  },
+  {
+   "path": "doodles/red-ketchup-doodle.svg",
+   "bytes": 749,
+   "sha256": "4379c8a825ea27cfc0e1b319b8554974f4082d51cfffc2bf39c2544aa8e6b248"
+  },
+  {
+   "path": "doodles/snow-snake-doodle.svg",
+   "bytes": 834,
+   "sha256": "ed1e05ddc396650a5086f990412150f204d62e679423182928dd23882efaf760"
+  },
+  {
+   "path": "resources/games/family-food-truck.html",
+   "bytes": 7850,
+   "sha256": "b17dd169c46e598d268879d25df3d4242f8ce13c951169020cad8771255d7b14"
+  },
+  {
+   "path": "resources/games/food-truck-frenzy.html",
+   "bytes": 8331,
+   "sha256": "45b3039a58444291e6e6b211c9094d4e3466b0483f32c7b014412979b58f23b0"
+  },
+  {
+   "path": "resources/snowsnakes/games-posted/snow-snake.html",
+   "bytes": 5571,
+   "sha256": "9376bf1661b629d36c9f858698a35da5bc19cf67dfd387dd274dbad17da5fc49"
+  },
+  {
+   "path": "resources/snowsnakes/games-posted/snowball-fight.html",
+   "bytes": 6020,
+   "sha256": "19a837ac1a360546cb5c3a2e6e2c5306bfd9bd7324f28d792ad22b9b22b83347"
+  },
+  {
+   "path": "resources/snowsnakes/games-posted/hood-vs-fridge.html",
+   "bytes": 7259,
+   "sha256": "5b5496bbe321916f0801c4dd2fe795c1e4ef44f816e004643c3f51aceca197be"
+  },
+  {
+   "path": "resources/snowsnakes/games-posted/snow-beats-loop-download.html",
+   "bytes": 16151,
+   "sha256": "11b3d535f99d7c11aaa27972b3dfd59dfc8c42d950971333638ceca5446d79fd"
+  },
+  {
+   "path": "resources/snowsnakes/games-posted/snow-beats-download.html",
+   "bytes": 23492,
+   "sha256": "36c287d5fc0ee90e664d28fad5217c0340a3d7c25e10d6fdccbb81f73af32c32"
+  },
+  {
+   "path": "resources/snowsnakes/games-posted/snowball-breakout.html",
+   "bytes": 6164,
+   "sha256": "307b69b042fb0f12528bd77884c5cb64bb6b50b8515f35de85286491c518d3b1"
+  },
+  {
+   "path": "resources/snowsnakes/games-posted/iceberg-hopper.html",
+   "bytes": 6382,
+   "sha256": "75af32e9f56ffdbb868d72a908a66b32b12fcd426c5c95afe70132b827226a06"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-39-mayo.svg",
+   "bytes": 1521,
+   "sha256": "e791ce9f0107f17fc5f98bca4066a04dfa234af53940f9b9d81e50ea1150f304"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/vin-negar-doodle.svg",
+   "bytes": 942,
+   "sha256": "ac10e736f8e0de5112f61299f902d9b6e4714b94f0dc92cda2cbccb9418739d8"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-14-vin-negar.svg",
+   "bytes": 1528,
+   "sha256": "8ffabe6fd96b2714158ad509b5cb7cce4716bebfe47faa24dacce9d75aa9b894"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-17-soy-and-tahini.svg",
+   "bytes": 1553,
+   "sha256": "114588e5b88de136e4756c5510566158a225c656cd0cbdea9272b79247fb26a9"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-14-red-vs-yellow.svg",
+   "bytes": 1450,
+   "sha256": "cae0fcd31aab405e38a5cf6cbbf7744ebeaa5c92cfede81e12c8bba3e169f24f"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-21-rat-king-lair.svg",
+   "bytes": 524,
+   "sha256": "0ffa4bd588058a05e3510022d625c0de1260996f73a333ffe13505073bb8f576"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/soy-proverb-doodle.svg",
+   "bytes": 946,
+   "sha256": "82e04b18a728190f207308f9adcc5c3182b76c40bbc6d21b508d9d120710a95a"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-05-mayo-portrait.svg",
+   "bytes": 987,
+   "sha256": "50af6a877dfb58a65a4e1beaacddbc6796395f6303cb0f85680c0d6215d23412"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-27-red.svg",
+   "bytes": 1522,
+   "sha256": "9df1ccf62fdd5909db5727e223afa6ea49df1a8c64eae76ca52e763dde392952"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-11-aji.svg",
+   "bytes": 1525,
+   "sha256": "8fbc63ea898602f78f6ff91b64c31939628435c17511f9e88b0499fa0e765b48"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-38-crisp.svg",
+   "bytes": 1532,
+   "sha256": "a0867f423625398fc1ae041114e5ab784929d61fc5318b34bd15a22dfa6820c7"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/que-cookout-doodle.svg",
+   "bytes": 945,
+   "sha256": "327c807d78edec0f2fb70dca29e82aecd07fe78ea49f18e8b12a2d3edf16e2dc"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-07-crisp.svg",
+   "bytes": 1528,
+   "sha256": "6dba64d2728646f315617c3b706343211de2a24673ad1306b830cfe4d8168fce"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-35-zest.svg",
+   "bytes": 1533,
+   "sha256": "059bac3c64a9061ec349a466204fe731ac6d0070fb482810efdfbc653666d703"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-17-aji.svg",
+   "bytes": 1526,
+   "sha256": "0cb81f56ab1a428f09ee6e0cf808c85cd47a3fdbafd73e437799aff41183d59f"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-43-cheese-heist.svg",
+   "bytes": 589,
+   "sha256": "7c83abfa764482da6e6d5684d7f252cd92a2cacd167dee4995e91672a019eb8f"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-44-aji.svg",
+   "bytes": 1517,
+   "sha256": "306e72b8a49902f6b7caaafcf2ac3e8cc4edaea0597bd7ae0939f43e921e0324"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-30-fridge-door.svg",
+   "bytes": 595,
+   "sha256": "ee0a1a8ee737601559f7255efe58f164bf6156443c36e4abfe1813a32b4e88ce"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-22-vin-negar.svg",
+   "bytes": 1540,
+   "sha256": "b2c173bca5135e544f09f3a2c33f6a610408ba51f3139840c43495bf163363ed"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/yellow-mustard-doodle.svg",
+   "bytes": 931,
+   "sha256": "260845d626114545e930bb836d7412113a2ef0a298d06fdf6911c1c644a90e64"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-41-snitch-rat-cheese.svg",
+   "bytes": 538,
+   "sha256": "791e4cb9431942bcad69558f4728f0046e3ab349c680e00fcc3c797ff9252146"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-40-red.svg",
+   "bytes": 1530,
+   "sha256": "36815a06e428fd2dc7c1dd160819597e9cb00b102efc120af2a6cf77b9a84f7d"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-13-vin-and-que.svg",
+   "bytes": 1570,
+   "sha256": "e29d37a0dd33bd03b286980d6f91059859ec4cc0fb7c4fe3329a95a699a1f256"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-08-soy-portrait.svg",
+   "bytes": 927,
+   "sha256": "da5dbfc382cf7d3c9cd6eb968c15b3f46363814fcb235c369ce81e67da266051"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-26-woods-scene.svg",
+   "bytes": 585,
+   "sha256": "02745fd0f29194a405317661fc839979f3c90ba88141ff3902143ef6834c4120"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-24-02-crisp.svg",
+   "bytes": 1529,
+   "sha256": "e872dd02fcbab1995fa44f8876adfa6ebc425215d8452f2807a650fed5bd1b85"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-24-05-snow-snake.svg",
+   "bytes": 1537,
+   "sha256": "dd9ef19be725212185c96ad87d96ca785f5fafd0fb79b34e9eb4daf1b423c66b"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-09-crisp-portrait.svg",
+   "bytes": 934,
+   "sha256": "5d369f0b7ac15a7271f5cc31ec607fc8be0bd80528d9b4cd4868b1660962ac34"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-42-cat-chase.svg",
+   "bytes": 519,
+   "sha256": "b1c872ee2e2cb9f2d393c93574a2ce89a4f4a008cb0a58a75301f49241e987b8"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-03-red-portrait.svg",
+   "bytes": 973,
+   "sha256": "0013dae541f29e49be338d968fbbf8c949b7cfb5a3292f696d693a50a8a172d7"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-50-yellow.svg",
+   "bytes": 1515,
+   "sha256": "e6d97f5010554aff534f63598c7aa0a6f1ff506575883f9df9b588ac75039499"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-23-sewer-scene.svg",
+   "bytes": 585,
+   "sha256": "18fe81bb6c52b8f63562bc4a26c4ba19530e7f7359fce25915c1fc33681234f5"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-39-milk-carton-club.svg",
+   "bytes": 478,
+   "sha256": "45eda92004285827e0da3b7b429a6f574db4808471ea5be5815fe96c3b9b2071"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-12-snow-snake-2.svg",
+   "bytes": 785,
+   "sha256": "609ee6272f84a63a6ad3e74031f3b42b0579494abdd999ac5846070e620bbb57"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-06-red.svg",
+   "bytes": 1533,
+   "sha256": "f82e5abcc4c74c83177fbfb5588954a323a0503d205d972c71fbc5bd5c77aa79"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-36-red.svg",
+   "bytes": 1524,
+   "sha256": "9ed976c2aa8ba56aa93a5452de6103113a6027204e3fbb61836c1983b04a0b0e"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/aji-hot-doodle.svg",
+   "bytes": 936,
+   "sha256": "ed141958f0b420d369b99fcf1fcb793f9636e182e6117bce922b2e682eedfc07"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/mayo-white-doodle.svg",
+   "bytes": 937,
+   "sha256": "142b9750f64a81f247e8dc4bd5e4b26522b06dae74624a91b6f3bed7d527fbf0"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/README.md",
+   "bytes": 3201,
+   "sha256": "24fa7eed53a5095280242d194d34811412f93d9265f37d6d563134d00b7642bb"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-34-turntable.svg",
+   "bytes": 512,
+   "sha256": "fb99d857c131764e51856fa7ea90860d026ed4364698fe717345f91ac6054cd9"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-18-vin-negar.svg",
+   "bytes": 1541,
+   "sha256": "5e998524a1e26ca8cbfff44c0e3770fdeff40dc661f015cc79f6640c7b671d77"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-21-red.svg",
+   "bytes": 1536,
+   "sha256": "c3bc6bdb56bde35a981a147940bb07503b3d72539f70029c279ff0238528f0e0"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-49-crisp.svg",
+   "bytes": 1516,
+   "sha256": "26236ddc39a33f8d0bf18350efeaebd7b65479102cf611111e5c5a809577845e"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-34-que.svg",
+   "bytes": 1543,
+   "sha256": "3b2e21a36487a2362444eb9af8dae7f3982db8107a650d53bc0b182eac944837"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-06-whip-portrait.svg",
+   "bytes": 987,
+   "sha256": "944c777f02fd9b112c4cddc343c869c8b32665c2c5de7091aa961ee74ba84564"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/crisp-ranch-doodle.svg",
+   "bytes": 935,
+   "sha256": "08bbdf6ece6375e3c69e496d953cde84e996d03d4aff99c7f9bae467624b2dc7"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-19-crisp.svg",
+   "bytes": 1526,
+   "sha256": "991b7d7aeee5172e61176db826268374ed3d2188ca66bbdf961b590dce941140"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-48-rat-king.svg",
+   "bytes": 512,
+   "sha256": "2a2b9e9a628681a3d6a99723e602420e2412a903e1b7b730de8c79ce916b2527"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-28-jail-scene.svg",
+   "bytes": 522,
+   "sha256": "22f26591920c338bef0b05b066f0e4f2d0b858e428d24f52cb07fdddf595a8b0"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-37-snow-snake.svg",
+   "bytes": 1534,
+   "sha256": "026e87d943f895b38678ef2e40e765cf9c9c4506a70e1821642e28d50dab7d42"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-47-shelves-raised-us-2.svg",
+   "bytes": 611,
+   "sha256": "5615bbd4ae6bd595d064566b7398da1cfbc73becdfe6097cb3b6eb94091eb53f"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-24-08-que.svg",
+   "bytes": 1529,
+   "sha256": "71fb1635b2e32022e5231b66ba731ed8c8fb9e0cb9ca3c09e53a2d2e4b2537fa"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-03-snow-snake.svg",
+   "bytes": 1540,
+   "sha256": "7378c7aa15bf858368cb11ec0330faef3975be44a8806de9cda77e1fa63c359d"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-47-mayo.svg",
+   "bytes": 1517,
+   "sha256": "98146081eb84434d794fb217a7f139bf330853f20db4833fd1f05a8cb0b889a8"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-48-yellow.svg",
+   "bytes": 1533,
+   "sha256": "b312554f68aa5b00df00159bf45e8e82af43bdc9551786038439547b6f6f9d09"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-31-aji.svg",
+   "bytes": 1516,
+   "sha256": "ee7a18d1ab0e828d71cf952fe850f4cbfcca413744339b9e88278a9a19e6a1fa"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-06-cookout.svg",
+   "bytes": 2660,
+   "sha256": "6aeb3396462c2c21a294ddb45479cb8c82b99e60986576433da7b07f8294e29b"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-36-mic-check.svg",
+   "bytes": 454,
+   "sha256": "19e8fa4a1145e77df4d702564b3728f2e5caadfdf2a0fd8b071e4df252c6fea8"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-41-vin-negar.svg",
+   "bytes": 1526,
+   "sha256": "1d68a56bb0923177404b7e3f3365c5b9bffb0f74b39c64df4eca2a5890753d19"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-24-04-crisp.svg",
+   "bytes": 1526,
+   "sha256": "ba713bdac029b103e3434a1033a87193119266675096fe2e994e37a486696e58"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/red-ketchup-doodle.svg",
+   "bytes": 927,
+   "sha256": "7ad264b2ab43f1367f6e533e511a0024f3bb6299e90854f81f1d8dec4c6d715f"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-24-03-whip.svg",
+   "bytes": 1521,
+   "sha256": "d62452942c628c7b2a04629be7b6a2a5bae3153cb6ddfc7ac2e71aa4b4c02bc7"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-12-yellow.svg",
+   "bytes": 1510,
+   "sha256": "5755a0961ab7d4e77b1943296888c4ae74e896997ee84d88ff7e26e5bb735b5b"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-04-mayo-whip-twins.svg",
+   "bytes": 2394,
+   "sha256": "f58c45e95e3d6e6f033bfb3ec36bb6a2d09c13976f314f179a8c6ae35b3b6b25"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-46-sleep-with-fishes.svg",
+   "bytes": 534,
+   "sha256": "202d093d3aac691173a8c63eb7917a26edecfeccadba6cc0cb3ee364ca2c4727"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-20-que.svg",
+   "bytes": 1530,
+   "sha256": "8fcf4477d47ccdba5556d22e0cead4491f643b64a2a2918859595019fb8e0f85"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-03-snow-snake-watching.svg",
+   "bytes": 1736,
+   "sha256": "303be4b65c135bd773769275508025eed5aafc8122544ddff0a3b17e386ec4d8"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-24-10-que.svg",
+   "bytes": 1527,
+   "sha256": "0fb5c551ab74042e4def5bb87d33905586718e491167888787d379df599edf35"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-31-milkups-logo.svg",
+   "bytes": 465,
+   "sha256": "cd117fa74c049ca5a454044b80cbd24466d442f91729b9deb8e0220a7ac0e3d4"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-24-09-mayo.svg",
+   "bytes": 1535,
+   "sha256": "9d4d4aa80fd94a99ef83936dd830d4d3a84a037c49d101f131ede5543e821633"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-15-snow-snake.svg",
+   "bytes": 1534,
+   "sha256": "a323586211117a6e8a38fc63c013e643d7c07ba47b8e5bb0e4d8f64c182e95a5"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-43-que.svg",
+   "bytes": 1539,
+   "sha256": "496605cb9a7c86051cb55ae70596eabfde91af802b25430c93e7dc90b0f0817a"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-33-crisp.svg",
+   "bytes": 1528,
+   "sha256": "a1cc4bcb932d437de200b2dd6ffbbb7ff90d101d2bd79b077172146801b5c427"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-15-mayo-and-whip.svg",
+   "bytes": 1641,
+   "sha256": "24b3c7d8b2a878730b22d8a60459ed9de5a8762b6286d849871106a4a2ea623a"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-04-yellow-portrait.svg",
+   "bytes": 988,
+   "sha256": "d964183e597b989afefc8019151dab7bbdd3d59a22595c246673300d795d54db"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-10-snow-snake.svg",
+   "bytes": 1539,
+   "sha256": "d40d51bbb7bd2bef94021e54dbbb4d1b610ac44892d0769d7214c1009bdb3c4c"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-11-tahini-portrait.svg",
+   "bytes": 939,
+   "sha256": "b37b5626dabe058c8a0a8d4caf551f80908b9a5b18a3d7ac8cf9cd624b701ca6"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-24-aji.svg",
+   "bytes": 1520,
+   "sha256": "82062247ef7922f59e2a58773dd54804a0cf831c540619ea8a1e4f80100afc9b"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-02-que-portrait.svg",
+   "bytes": 985,
+   "sha256": "caed6eac3fdeb64709a1c4e86b14f6c0349c9d61aeb2b9b6fc47328a3280c20c"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-24-06-vin-negar.svg",
+   "bytes": 1533,
+   "sha256": "4c133dd7de1ab1ddfd08cc73eb9da47733c15c39ae5b7c0a4874a821e8b4f630"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/whip-miracle-doodle.svg",
+   "bytes": 937,
+   "sha256": "aa90301de43e459e7fda1199bc0022163e668abe20ffd036632ca46d7609d3ee"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-18-fridge-showdown.svg",
+   "bytes": 593,
+   "sha256": "161755b02394847075da1ab46a7b39a08b1e34885b5ee5d3b187e3c9f3ed5226"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-23-crisp.svg",
+   "bytes": 1531,
+   "sha256": "1beda3b934910841574539d02f77180ad67f881228b15082c779c812e5fe3af4"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-29-cookout-scene.svg",
+   "bytes": 660,
+   "sha256": "b6ba024b25ba94d288d17c5f5d362c47688c349430fa994dd501c434e18b97e2"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-16-red.svg",
+   "bytes": 1524,
+   "sha256": "905431d2b148ac0d2a77de2dbf352ee2312ab386082da91c717716d4fb3ce510"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-01-vin-portrait.svg",
+   "bytes": 936,
+   "sha256": "b47855703945ec66a40a5d9025f3124efd1a629c5d7c052a22761918d80145bc"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-27-lake-scene.svg",
+   "bytes": 596,
+   "sha256": "2be6bd8b14377093219f84654f5fa2a29e6fa58274f089bfd9501494860fc6ed"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-02-red-yellow-rivalry.svg",
+   "bytes": 2494,
+   "sha256": "1ff04a373ba2c41471f7d4e9593cebe51d762a03892d5dd49db990ba776fa0ca"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-13-vin-negar.svg",
+   "bytes": 1530,
+   "sha256": "8f57c639db37f5273c4e29810b1e4402313adf1a632a26a89d9f620855f0181b"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-50-cheese-token.svg",
+   "bytes": 670,
+   "sha256": "32f3f83dd6a9aa3d212f5562b4437a9726f5c729d0b81a0f1f3de3927ef8d6be"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-26-mayo.svg",
+   "bytes": 1531,
+   "sha256": "b64e825cef4f280b611063c492a6203f99afb8775450682bd726163fd100e034"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-29-crisp.svg",
+   "bytes": 1513,
+   "sha256": "0737147b48ef742d4b91bff22f9fb0ebded9f10722b97d1fca400ffcead45138"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-24-07-que.svg",
+   "bytes": 1534,
+   "sha256": "f222e1230de8fca610bcac220593ae01cef9e09766b1bfa88902aa5f7f4c7447"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-46-vin-negar.svg",
+   "bytes": 1538,
+   "sha256": "3ec2ae8921b1e2d7e8ca8313562a9603ef0c63a3a1add0ba260599d87734aa89"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-04-yellow.svg",
+   "bytes": 1509,
+   "sha256": "27a61bb6f3b37ad8b4039934a28262568de2f76afae2b21e690feb8bcfa1fde5"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-44-trust-token.svg",
+   "bytes": 446,
+   "sha256": "892d34fdc8542c5d3981c269a4d45756ca73f8a456bff0fb31ffdc2709f08667"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-40-band-meeting.svg",
+   "bytes": 586,
+   "sha256": "d93e37dc37828a5fe1a60296755471c5d7c4607b546c50b7e0f9bcad3e8e65c6"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-24-01-red.svg",
+   "bytes": 1515,
+   "sha256": "b72f1d8bf889f3534acdefb984adc381d1740d52534ededd2e36d6523cf2faf2"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-45-snitch-or-silent.svg",
+   "bytes": 602,
+   "sha256": "35c37c389368e4bc8041f9745a895aeb396b54294677e7ec7d63f75f5ca17a4f"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-28-snow-snake.svg",
+   "bytes": 1536,
+   "sha256": "345ecd0662db8c60728a40cee802c1e799c2320090c3c1b4ff71b5b52bf74046"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-02-que.svg",
+   "bytes": 1537,
+   "sha256": "935645a6cb10fe3cb7787e45d76c3d3cbedc7eaab1ff84d7320589e6bcf4f987"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-37-drum-kit.svg",
+   "bytes": 586,
+   "sha256": "f052705cdd1b9e829334c104fde662bf550c5d6f137cc83d4ebbe2971da873ec"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-30-mayo.svg",
+   "bytes": 1526,
+   "sha256": "0a68d8417eb59e69547ac2379924fce676fa1885e7a97ecb51a3f8fa0f9bc511"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-20-dumpster-start.svg",
+   "bytes": 463,
+   "sha256": "c3170747c71cef329ad2dc03eda72fe79f4d9615637b2978c16345d71f03748c"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-05-aji-heat.svg",
+   "bytes": 1853,
+   "sha256": "4ad78ab95ba2d83a502e0bc99c33e6a188feaf16cb0aef88ba375df7a4a28ec7"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-35-vinyl-record.svg",
+   "bytes": 633,
+   "sha256": "30914eb57d4a61129fcd36f99bb1f7755b19f52c18350830217b271a11f94643"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-01-vin-que-parking-lot.svg",
+   "bytes": 2910,
+   "sha256": "03f20de916532bbd223209c6a73bc9646cd317b5541c7d9d9eeca314c0906b91"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-33-cassette-tape.svg",
+   "bytes": 742,
+   "sha256": "d03f92813f5f8004190ec94b95be51aa5ef4f968c976abcc0448d8c1b3e3a587"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-25-city-life.svg",
+   "bytes": 583,
+   "sha256": "f554b6c36b6b9d2cc2b00eb9902f06dc0c5fd6a92687a70db491966b81e336ca"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-45-red.svg",
+   "bytes": 1518,
+   "sha256": "ebc940cbe07e3bc639ca2d596d106cf386e27c31917398fc18c8887b06e9924d"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-10-worces-portrait.svg",
+   "bytes": 936,
+   "sha256": "505ae4b53b3bbe05efd3525cd07681223e623e4bb97f99c9153e758128cac7e2"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-32-crisp.svg",
+   "bytes": 1526,
+   "sha256": "bdca036ecdc10e9d6cb21410bf8c081a4bd3c82c3de2007938e17c46d43c2999"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-08-red.svg",
+   "bytes": 1534,
+   "sha256": "eab2cab0a7bfa4996d69fbe246121367d08c21bad7ad608c80d10239950f6499"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-16-aji-and-crisp.svg",
+   "bytes": 1552,
+   "sha256": "7880327735d19b635c295780cbead6340562d5a08372fff46fd92b896765ddfa"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-19-snow-snake-watching-2.svg",
+   "bytes": 715,
+   "sha256": "019346ef0c0b7af1295d186e949b6475e8a73ee56273d079f68c359a8e8980e1"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-22-the-cab-nets.svg",
+   "bytes": 532,
+   "sha256": "527405b798b69bca2d346acb3aeeb3048e167459035df4d606cc5acfc6aa94c2"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/snow-snake-doodle.svg",
+   "bytes": 818,
+   "sha256": "7f581bb427ad76da2f1b06dcecc54eac76204759dbfdac9bc1cf54eac4095118"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-24-alley-scene.svg",
+   "bytes": 592,
+   "sha256": "05c4e1c213998ac799b84e2d5ed666b902d5df058fc74eae69c87bb322914394"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-49-trust-meter.svg",
+   "bytes": 666,
+   "sha256": "d8b266cc6aad99dd04e40588f0c9d0d271e31213560a0857fc2e091b8454aa02"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-42-red.svg",
+   "bytes": 1522,
+   "sha256": "51fc22cf4c0b9555832188122761cf69907cfca529f4a1a5d0bfc9b463cb58ae"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-25-zest.svg",
+   "bytes": 1523,
+   "sha256": "bfe7c73d180399b36fd8e01bd3051c6d164c410c6d165aa8d5e64f0a9906df7d"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-07-aji-portrait.svg",
+   "bytes": 977,
+   "sha256": "86c86f41c7a9fbc7a0cfb92e1c4c42b6761e94a57663c9cca73f272a286f314f"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-32-band-on-stage.svg",
+   "bytes": 665,
+   "sha256": "bdaa77440ce0417ec9ba65f902334a0f6b6dc60780721160ebaa3038fe783ba2"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-05-snow-snake.svg",
+   "bytes": 1536,
+   "sha256": "851a819d36b5f7ece611b5c506c72311db122f94a67f7a70f44a4845af44d611"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-38-speaker-stack.svg",
+   "bytes": 587,
+   "sha256": "d15598bde29727889f92c16898c1a271e7d4613bd7f4a2cebc2f11fd8524b3b6"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-01-crisp.svg",
+   "bytes": 1518,
+   "sha256": "11596c165025ea221fba0c02a61afbdd271dfd77856aa7fe04a7f4c8f72e999d"
+  },
+  {
+   "path": "resources/snowsnakes/doodles-comics-under-review/doodle-2026-08-25-09-red.svg",
+   "bytes": 1527,
+   "sha256": "38adbd5c3ba0c5888a3b2f93777bad174d2d9377d0685b8cbaa7e6c24c5bb63d"
+  },
+  {
+   "path": "content/experiments/doodles/snow-beats-doodle.png",
+   "bytes": 24630,
+   "sha256": "a00fda88c7b850d070a2276258db79d8633ea8a04cbbfce8be358fde008d3e7f"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-39-mayo.svg",
+   "bytes": 1521,
+   "sha256": "e791ce9f0107f17fc5f98bca4066a04dfa234af53940f9b9d81e50ea1150f304"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/vin-negar-doodle.svg",
+   "bytes": 942,
+   "sha256": "ac10e736f8e0de5112f61299f902d9b6e4714b94f0dc92cda2cbccb9418739d8"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-14-vin-negar.svg",
+   "bytes": 1528,
+   "sha256": "8ffabe6fd96b2714158ad509b5cb7cce4716bebfe47faa24dacce9d75aa9b894"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-17-soy-and-tahini.svg",
+   "bytes": 1553,
+   "sha256": "114588e5b88de136e4756c5510566158a225c656cd0cbdea9272b79247fb26a9"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-14-red-vs-yellow.svg",
+   "bytes": 1450,
+   "sha256": "cae0fcd31aab405e38a5cf6cbbf7744ebeaa5c92cfede81e12c8bba3e169f24f"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-21-rat-king-lair.svg",
+   "bytes": 524,
+   "sha256": "0ffa4bd588058a05e3510022d625c0de1260996f73a333ffe13505073bb8f576"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/soy-proverb-doodle.svg",
+   "bytes": 946,
+   "sha256": "82e04b18a728190f207308f9adcc5c3182b76c40bbc6d21b508d9d120710a95a"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-05-mayo-portrait.svg",
+   "bytes": 987,
+   "sha256": "50af6a877dfb58a65a4e1beaacddbc6796395f6303cb0f85680c0d6215d23412"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-27-red.svg",
+   "bytes": 1522,
+   "sha256": "9df1ccf62fdd5909db5727e223afa6ea49df1a8c64eae76ca52e763dde392952"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-11-aji.svg",
+   "bytes": 1525,
+   "sha256": "8fbc63ea898602f78f6ff91b64c31939628435c17511f9e88b0499fa0e765b48"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-38-crisp.svg",
+   "bytes": 1532,
+   "sha256": "a0867f423625398fc1ae041114e5ab784929d61fc5318b34bd15a22dfa6820c7"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/que-cookout-doodle.svg",
+   "bytes": 945,
+   "sha256": "327c807d78edec0f2fb70dca29e82aecd07fe78ea49f18e8b12a2d3edf16e2dc"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-07-crisp.svg",
+   "bytes": 1528,
+   "sha256": "6dba64d2728646f315617c3b706343211de2a24673ad1306b830cfe4d8168fce"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-35-zest.svg",
+   "bytes": 1533,
+   "sha256": "059bac3c64a9061ec349a466204fe731ac6d0070fb482810efdfbc653666d703"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-17-aji.svg",
+   "bytes": 1526,
+   "sha256": "0cb81f56ab1a428f09ee6e0cf808c85cd47a3fdbafd73e437799aff41183d59f"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-43-cheese-heist.svg",
+   "bytes": 589,
+   "sha256": "7c83abfa764482da6e6d5684d7f252cd92a2cacd167dee4995e91672a019eb8f"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-44-aji.svg",
+   "bytes": 1517,
+   "sha256": "306e72b8a49902f6b7caaafcf2ac3e8cc4edaea0597bd7ae0939f43e921e0324"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-30-fridge-door.svg",
+   "bytes": 595,
+   "sha256": "ee0a1a8ee737601559f7255efe58f164bf6156443c36e4abfe1813a32b4e88ce"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-22-vin-negar.svg",
+   "bytes": 1540,
+   "sha256": "b2c173bca5135e544f09f3a2c33f6a610408ba51f3139840c43495bf163363ed"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/yellow-mustard-doodle.svg",
+   "bytes": 931,
+   "sha256": "260845d626114545e930bb836d7412113a2ef0a298d06fdf6911c1c644a90e64"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-41-snitch-rat-cheese.svg",
+   "bytes": 538,
+   "sha256": "791e4cb9431942bcad69558f4728f0046e3ab349c680e00fcc3c797ff9252146"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-40-red.svg",
+   "bytes": 1530,
+   "sha256": "36815a06e428fd2dc7c1dd160819597e9cb00b102efc120af2a6cf77b9a84f7d"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-13-vin-and-que.svg",
+   "bytes": 1570,
+   "sha256": "e29d37a0dd33bd03b286980d6f91059859ec4cc0fb7c4fe3329a95a699a1f256"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-08-soy-portrait.svg",
+   "bytes": 927,
+   "sha256": "da5dbfc382cf7d3c9cd6eb968c15b3f46363814fcb235c369ce81e67da266051"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-26-woods-scene.svg",
+   "bytes": 585,
+   "sha256": "02745fd0f29194a405317661fc839979f3c90ba88141ff3902143ef6834c4120"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-24-02-crisp.svg",
+   "bytes": 1529,
+   "sha256": "e872dd02fcbab1995fa44f8876adfa6ebc425215d8452f2807a650fed5bd1b85"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-24-05-snow-snake.svg",
+   "bytes": 1537,
+   "sha256": "dd9ef19be725212185c96ad87d96ca785f5fafd0fb79b34e9eb4daf1b423c66b"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-09-crisp-portrait.svg",
+   "bytes": 934,
+   "sha256": "5d369f0b7ac15a7271f5cc31ec607fc8be0bd80528d9b4cd4868b1660962ac34"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-42-cat-chase.svg",
+   "bytes": 519,
+   "sha256": "b1c872ee2e2cb9f2d393c93574a2ce89a4f4a008cb0a58a75301f49241e987b8"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-03-red-portrait.svg",
+   "bytes": 973,
+   "sha256": "0013dae541f29e49be338d968fbbf8c949b7cfb5a3292f696d693a50a8a172d7"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-50-yellow.svg",
+   "bytes": 1515,
+   "sha256": "e6d97f5010554aff534f63598c7aa0a6f1ff506575883f9df9b588ac75039499"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-23-sewer-scene.svg",
+   "bytes": 585,
+   "sha256": "18fe81bb6c52b8f63562bc4a26c4ba19530e7f7359fce25915c1fc33681234f5"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-39-milk-carton-club.svg",
+   "bytes": 478,
+   "sha256": "45eda92004285827e0da3b7b429a6f574db4808471ea5be5815fe96c3b9b2071"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-12-snow-snake-2.svg",
+   "bytes": 785,
+   "sha256": "609ee6272f84a63a6ad3e74031f3b42b0579494abdd999ac5846070e620bbb57"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-06-red.svg",
+   "bytes": 1533,
+   "sha256": "f82e5abcc4c74c83177fbfb5588954a323a0503d205d972c71fbc5bd5c77aa79"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-36-red.svg",
+   "bytes": 1524,
+   "sha256": "9ed976c2aa8ba56aa93a5452de6103113a6027204e3fbb61836c1983b04a0b0e"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/aji-hot-doodle.svg",
+   "bytes": 936,
+   "sha256": "ed141958f0b420d369b99fcf1fcb793f9636e182e6117bce922b2e682eedfc07"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/mayo-white-doodle.svg",
+   "bytes": 937,
+   "sha256": "142b9750f64a81f247e8dc4bd5e4b26522b06dae74624a91b6f3bed7d527fbf0"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-34-turntable.svg",
+   "bytes": 512,
+   "sha256": "fb99d857c131764e51856fa7ea90860d026ed4364698fe717345f91ac6054cd9"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-18-vin-negar.svg",
+   "bytes": 1541,
+   "sha256": "5e998524a1e26ca8cbfff44c0e3770fdeff40dc661f015cc79f6640c7b671d77"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-21-red.svg",
+   "bytes": 1536,
+   "sha256": "c3bc6bdb56bde35a981a147940bb07503b3d72539f70029c279ff0238528f0e0"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-49-crisp.svg",
+   "bytes": 1516,
+   "sha256": "26236ddc39a33f8d0bf18350efeaebd7b65479102cf611111e5c5a809577845e"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-34-que.svg",
+   "bytes": 1543,
+   "sha256": "3b2e21a36487a2362444eb9af8dae7f3982db8107a650d53bc0b182eac944837"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-06-whip-portrait.svg",
+   "bytes": 987,
+   "sha256": "944c777f02fd9b112c4cddc343c869c8b32665c2c5de7091aa961ee74ba84564"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/crisp-ranch-doodle.svg",
+   "bytes": 935,
+   "sha256": "08bbdf6ece6375e3c69e496d953cde84e996d03d4aff99c7f9bae467624b2dc7"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-19-crisp.svg",
+   "bytes": 1526,
+   "sha256": "991b7d7aeee5172e61176db826268374ed3d2188ca66bbdf961b590dce941140"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-48-rat-king.svg",
+   "bytes": 512,
+   "sha256": "2a2b9e9a628681a3d6a99723e602420e2412a903e1b7b730de8c79ce916b2527"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-28-jail-scene.svg",
+   "bytes": 522,
+   "sha256": "22f26591920c338bef0b05b066f0e4f2d0b858e428d24f52cb07fdddf595a8b0"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-37-snow-snake.svg",
+   "bytes": 1534,
+   "sha256": "026e87d943f895b38678ef2e40e765cf9c9c4506a70e1821642e28d50dab7d42"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-47-shelves-raised-us-2.svg",
+   "bytes": 611,
+   "sha256": "5615bbd4ae6bd595d064566b7398da1cfbc73becdfe6097cb3b6eb94091eb53f"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-24-08-que.svg",
+   "bytes": 1529,
+   "sha256": "71fb1635b2e32022e5231b66ba731ed8c8fb9e0cb9ca3c09e53a2d2e4b2537fa"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-03-snow-snake.svg",
+   "bytes": 1540,
+   "sha256": "7378c7aa15bf858368cb11ec0330faef3975be44a8806de9cda77e1fa63c359d"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-47-mayo.svg",
+   "bytes": 1517,
+   "sha256": "98146081eb84434d794fb217a7f139bf330853f20db4833fd1f05a8cb0b889a8"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-48-yellow.svg",
+   "bytes": 1533,
+   "sha256": "b312554f68aa5b00df00159bf45e8e82af43bdc9551786038439547b6f6f9d09"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-31-aji.svg",
+   "bytes": 1516,
+   "sha256": "ee7a18d1ab0e828d71cf952fe850f4cbfcca413744339b9e88278a9a19e6a1fa"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-06-cookout.svg",
+   "bytes": 2660,
+   "sha256": "6aeb3396462c2c21a294ddb45479cb8c82b99e60986576433da7b07f8294e29b"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-36-mic-check.svg",
+   "bytes": 454,
+   "sha256": "19e8fa4a1145e77df4d702564b3728f2e5caadfdf2a0fd8b071e4df252c6fea8"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-41-vin-negar.svg",
+   "bytes": 1526,
+   "sha256": "1d68a56bb0923177404b7e3f3365c5b9bffb0f74b39c64df4eca2a5890753d19"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-24-04-crisp.svg",
+   "bytes": 1526,
+   "sha256": "ba713bdac029b103e3434a1033a87193119266675096fe2e994e37a486696e58"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/red-ketchup-doodle.svg",
+   "bytes": 927,
+   "sha256": "7ad264b2ab43f1367f6e533e511a0024f3bb6299e90854f81f1d8dec4c6d715f"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-24-03-whip.svg",
+   "bytes": 1521,
+   "sha256": "d62452942c628c7b2a04629be7b6a2a5bae3153cb6ddfc7ac2e71aa4b4c02bc7"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-12-yellow.svg",
+   "bytes": 1510,
+   "sha256": "5755a0961ab7d4e77b1943296888c4ae74e896997ee84d88ff7e26e5bb735b5b"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-04-mayo-whip-twins.svg",
+   "bytes": 2394,
+   "sha256": "f58c45e95e3d6e6f033bfb3ec36bb6a2d09c13976f314f179a8c6ae35b3b6b25"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-46-sleep-with-fishes.svg",
+   "bytes": 534,
+   "sha256": "202d093d3aac691173a8c63eb7917a26edecfeccadba6cc0cb3ee364ca2c4727"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-20-que.svg",
+   "bytes": 1530,
+   "sha256": "8fcf4477d47ccdba5556d22e0cead4491f643b64a2a2918859595019fb8e0f85"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-03-snow-snake-watching.svg",
+   "bytes": 1736,
+   "sha256": "303be4b65c135bd773769275508025eed5aafc8122544ddff0a3b17e386ec4d8"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-24-10-que.svg",
+   "bytes": 1527,
+   "sha256": "0fb5c551ab74042e4def5bb87d33905586718e491167888787d379df599edf35"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-31-milkups-logo.svg",
+   "bytes": 465,
+   "sha256": "cd117fa74c049ca5a454044b80cbd24466d442f91729b9deb8e0220a7ac0e3d4"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-24-09-mayo.svg",
+   "bytes": 1535,
+   "sha256": "9d4d4aa80fd94a99ef83936dd830d4d3a84a037c49d101f131ede5543e821633"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-15-snow-snake.svg",
+   "bytes": 1534,
+   "sha256": "a323586211117a6e8a38fc63c013e643d7c07ba47b8e5bb0e4d8f64c182e95a5"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-43-que.svg",
+   "bytes": 1539,
+   "sha256": "496605cb9a7c86051cb55ae70596eabfde91af802b25430c93e7dc90b0f0817a"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-33-crisp.svg",
+   "bytes": 1528,
+   "sha256": "a1cc4bcb932d437de200b2dd6ffbbb7ff90d101d2bd79b077172146801b5c427"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-15-mayo-and-whip.svg",
+   "bytes": 1641,
+   "sha256": "24b3c7d8b2a878730b22d8a60459ed9de5a8762b6286d849871106a4a2ea623a"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-04-yellow-portrait.svg",
+   "bytes": 988,
+   "sha256": "d964183e597b989afefc8019151dab7bbdd3d59a22595c246673300d795d54db"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-10-snow-snake.svg",
+   "bytes": 1539,
+   "sha256": "d40d51bbb7bd2bef94021e54dbbb4d1b610ac44892d0769d7214c1009bdb3c4c"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-11-tahini-portrait.svg",
+   "bytes": 939,
+   "sha256": "b37b5626dabe058c8a0a8d4caf551f80908b9a5b18a3d7ac8cf9cd624b701ca6"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-24-aji.svg",
+   "bytes": 1520,
+   "sha256": "82062247ef7922f59e2a58773dd54804a0cf831c540619ea8a1e4f80100afc9b"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-02-que-portrait.svg",
+   "bytes": 985,
+   "sha256": "caed6eac3fdeb64709a1c4e86b14f6c0349c9d61aeb2b9b6fc47328a3280c20c"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-24-06-vin-negar.svg",
+   "bytes": 1533,
+   "sha256": "4c133dd7de1ab1ddfd08cc73eb9da47733c15c39ae5b7c0a4874a821e8b4f630"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/whip-miracle-doodle.svg",
+   "bytes": 937,
+   "sha256": "aa90301de43e459e7fda1199bc0022163e668abe20ffd036632ca46d7609d3ee"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-18-fridge-showdown.svg",
+   "bytes": 593,
+   "sha256": "161755b02394847075da1ab46a7b39a08b1e34885b5ee5d3b187e3c9f3ed5226"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-23-crisp.svg",
+   "bytes": 1531,
+   "sha256": "1beda3b934910841574539d02f77180ad67f881228b15082c779c812e5fe3af4"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-29-cookout-scene.svg",
+   "bytes": 660,
+   "sha256": "b6ba024b25ba94d288d17c5f5d362c47688c349430fa994dd501c434e18b97e2"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-16-red.svg",
+   "bytes": 1524,
+   "sha256": "905431d2b148ac0d2a77de2dbf352ee2312ab386082da91c717716d4fb3ce510"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-01-vin-portrait.svg",
+   "bytes": 936,
+   "sha256": "b47855703945ec66a40a5d9025f3124efd1a629c5d7c052a22761918d80145bc"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-27-lake-scene.svg",
+   "bytes": 596,
+   "sha256": "2be6bd8b14377093219f84654f5fa2a29e6fa58274f089bfd9501494860fc6ed"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-02-red-yellow-rivalry.svg",
+   "bytes": 2494,
+   "sha256": "1ff04a373ba2c41471f7d4e9593cebe51d762a03892d5dd49db990ba776fa0ca"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-13-vin-negar.svg",
+   "bytes": 1530,
+   "sha256": "8f57c639db37f5273c4e29810b1e4402313adf1a632a26a89d9f620855f0181b"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-50-cheese-token.svg",
+   "bytes": 670,
+   "sha256": "32f3f83dd6a9aa3d212f5562b4437a9726f5c729d0b81a0f1f3de3927ef8d6be"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-26-mayo.svg",
+   "bytes": 1531,
+   "sha256": "b64e825cef4f280b611063c492a6203f99afb8775450682bd726163fd100e034"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-29-crisp.svg",
+   "bytes": 1513,
+   "sha256": "0737147b48ef742d4b91bff22f9fb0ebded9f10722b97d1fca400ffcead45138"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-24-07-que.svg",
+   "bytes": 1534,
+   "sha256": "f222e1230de8fca610bcac220593ae01cef9e09766b1bfa88902aa5f7f4c7447"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-46-vin-negar.svg",
+   "bytes": 1538,
+   "sha256": "3ec2ae8921b1e2d7e8ca8313562a9603ef0c63a3a1add0ba260599d87734aa89"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-04-yellow.svg",
+   "bytes": 1509,
+   "sha256": "27a61bb6f3b37ad8b4039934a28262568de2f76afae2b21e690feb8bcfa1fde5"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-44-trust-token.svg",
+   "bytes": 446,
+   "sha256": "892d34fdc8542c5d3981c269a4d45756ca73f8a456bff0fb31ffdc2709f08667"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-40-band-meeting.svg",
+   "bytes": 586,
+   "sha256": "d93e37dc37828a5fe1a60296755471c5d7c4607b546c50b7e0f9bcad3e8e65c6"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-24-01-red.svg",
+   "bytes": 1515,
+   "sha256": "b72f1d8bf889f3534acdefb984adc381d1740d52534ededd2e36d6523cf2faf2"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-45-snitch-or-silent.svg",
+   "bytes": 602,
+   "sha256": "35c37c389368e4bc8041f9745a895aeb396b54294677e7ec7d63f75f5ca17a4f"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-28-snow-snake.svg",
+   "bytes": 1536,
+   "sha256": "345ecd0662db8c60728a40cee802c1e799c2320090c3c1b4ff71b5b52bf74046"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-02-que.svg",
+   "bytes": 1537,
+   "sha256": "935645a6cb10fe3cb7787e45d76c3d3cbedc7eaab1ff84d7320589e6bcf4f987"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-37-drum-kit.svg",
+   "bytes": 586,
+   "sha256": "f052705cdd1b9e829334c104fde662bf550c5d6f137cc83d4ebbe2971da873ec"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-30-mayo.svg",
+   "bytes": 1526,
+   "sha256": "0a68d8417eb59e69547ac2379924fce676fa1885e7a97ecb51a3f8fa0f9bc511"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-20-dumpster-start.svg",
+   "bytes": 463,
+   "sha256": "c3170747c71cef329ad2dc03eda72fe79f4d9615637b2978c16345d71f03748c"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-05-aji-heat.svg",
+   "bytes": 1853,
+   "sha256": "4ad78ab95ba2d83a502e0bc99c33e6a188feaf16cb0aef88ba375df7a4a28ec7"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-35-vinyl-record.svg",
+   "bytes": 633,
+   "sha256": "30914eb57d4a61129fcd36f99bb1f7755b19f52c18350830217b271a11f94643"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-01-vin-que-parking-lot.svg",
+   "bytes": 2910,
+   "sha256": "03f20de916532bbd223209c6a73bc9646cd317b5541c7d9d9eeca314c0906b91"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-33-cassette-tape.svg",
+   "bytes": 742,
+   "sha256": "d03f92813f5f8004190ec94b95be51aa5ef4f968c976abcc0448d8c1b3e3a587"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-25-city-life.svg",
+   "bytes": 583,
+   "sha256": "f554b6c36b6b9d2cc2b00eb9902f06dc0c5fd6a92687a70db491966b81e336ca"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-45-red.svg",
+   "bytes": 1518,
+   "sha256": "ebc940cbe07e3bc639ca2d596d106cf386e27c31917398fc18c8887b06e9924d"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-10-worces-portrait.svg",
+   "bytes": 936,
+   "sha256": "505ae4b53b3bbe05efd3525cd07681223e623e4bb97f99c9153e758128cac7e2"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-32-crisp.svg",
+   "bytes": 1526,
+   "sha256": "bdca036ecdc10e9d6cb21410bf8c081a4bd3c82c3de2007938e17c46d43c2999"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-08-red.svg",
+   "bytes": 1534,
+   "sha256": "eab2cab0a7bfa4996d69fbe246121367d08c21bad7ad608c80d10239950f6499"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-16-aji-and-crisp.svg",
+   "bytes": 1552,
+   "sha256": "7880327735d19b635c295780cbead6340562d5a08372fff46fd92b896765ddfa"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-19-snow-snake-watching-2.svg",
+   "bytes": 715,
+   "sha256": "019346ef0c0b7af1295d186e949b6475e8a73ee56273d079f68c359a8e8980e1"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-22-the-cab-nets.svg",
+   "bytes": 532,
+   "sha256": "527405b798b69bca2d346acb3aeeb3048e167459035df4d606cc5acfc6aa94c2"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/snow-snake-doodle.svg",
+   "bytes": 818,
+   "sha256": "7f581bb427ad76da2f1b06dcecc54eac76204759dbfdac9bc1cf54eac4095118"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-24-alley-scene.svg",
+   "bytes": 592,
+   "sha256": "05c4e1c213998ac799b84e2d5ed666b902d5df058fc74eae69c87bb322914394"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-49-trust-meter.svg",
+   "bytes": 666,
+   "sha256": "d8b266cc6aad99dd04e40588f0c9d0d271e31213560a0857fc2e091b8454aa02"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-42-red.svg",
+   "bytes": 1522,
+   "sha256": "51fc22cf4c0b9555832188122761cf69907cfca529f4a1a5d0bfc9b463cb58ae"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-25-zest.svg",
+   "bytes": 1523,
+   "sha256": "bfe7c73d180399b36fd8e01bd3051c6d164c410c6d165aa8d5e64f0a9906df7d"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-07-aji-portrait.svg",
+   "bytes": 977,
+   "sha256": "86c86f41c7a9fbc7a0cfb92e1c4c42b6761e94a57663c9cca73f272a286f314f"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-32-band-on-stage.svg",
+   "bytes": 665,
+   "sha256": "bdaa77440ce0417ec9ba65f902334a0f6b6dc60780721160ebaa3038fe783ba2"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-05-snow-snake.svg",
+   "bytes": 1536,
+   "sha256": "851a819d36b5f7ece611b5c506c72311db122f94a67f7a70f44a4845af44d611"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-38-speaker-stack.svg",
+   "bytes": 587,
+   "sha256": "d15598bde29727889f92c16898c1a271e7d4613bd7f4a2cebc2f11fd8524b3b6"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-01-crisp.svg",
+   "bytes": 1518,
+   "sha256": "11596c165025ea221fba0c02a61afbdd271dfd77856aa7fe04a7f4c8f72e999d"
+  },
+  {
+   "path": "hostinger_tasks/doodle_media/doodle-2026-08-25-09-red.svg",
+   "bytes": 1527,
+   "sha256": "38adbd5c3ba0c5888a3b2f93777bad174d2d9377d0685b8cbaa7e6c24c5bb63d"
+  },
+  {
+   "path": "resources/snitch/GAME-DESIGN.md",
+   "bytes": 4181,
+   "sha256": "6ad78d779c43ac076da27a2d98a876207059b061c97f385216e7cc0d634fa023"
+  },
+  {
+   "path": "resources/snitch/V1-SPEC.md",
+   "bytes": 4691,
+   "sha256": "6d5cdfc09796c1ad766d77f05a06870870436744a2cd1174938c079aabac90d2"
+  }
+ ]
+}
