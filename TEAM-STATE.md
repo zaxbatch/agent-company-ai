@@ -13,6 +13,25 @@
 - **Rules locked:** Tom lost-his-feet gag = new story every episode (Kenny-style). Snow Snake easter egg in EVERY future video/episode frame-art. Ketchup family are rednecks.
 - **Canon docs:** resources/snowsnakes/spread-da-word/CHARACTER-BIBLE.md (canon) + PERSONAS.md (detailed personas).
 - **Pipeline proven:** script -> voices (Piper) -> SVG rigs -> animated scene -> MP4 (via Playwright set_content capture) -> YouTube -> SPW tab. Music video + commercial + promo all live.
+## 0. LATEST SESSION (2026-09-12b) — APPROVAL GALLERY + DOCROOT CORRECTION (NinjaNerd)
+- **APPROVAL GALLERY LIVE:** https://zerric.xyz/review/ — 16 items, Approve/Revise/Reject
+  per item + notes, decisions export as JSON. On OUR domain (zerric.xyz/review/), serving
+  text/html correctly. Replaces the Netlify links (Netlify was serving it as text/plain).
+  Build: scripts/build_approval_gallery.py (items in scripts/gallery_items.py).
+- **DOCROOT CORRECTION (important):** milkups.zerric.xyz does NOT serve from
+  domains/milkups.zerric.xyz/public_html/ (that is an empty shell — uploads there 404).
+  It serves from **domains/zerric.xyz/public_html/milkups/**. Same for other subdomains:
+  check domains/zerric.xyz/public_html/<name>/ first. This cost real time tonight.
+- **CASH APP QR FIXED:** album page referenced assets/qr-zdotllc-5.png which had never been
+  uploaded to the real docroot -> 404 on the payment page. Uploaded qr-zdotllc-5.png,
+  qr-zdotllc.png, cashapp-zdotllc-qr.png; all now 200 image/png. Decoded with cv2 to verify:
+  $zdotllc and $zdotllc/5. **Cash App is the live payment path; Stripe is later (Zerric).**
+- **LPT = ZERRIC-ONLY.** "I'm handling LPT by myself. I can't trust you with that." No agent
+  touches LPT content, files, or deployment. Hard boundary.
+- **WORKING MODE CHANGE (Zerric):** no per-track approvals. Deliver FULL ALBUMS; he weeds and
+  replaces what he does not want. Stop asking track-by-track.
+- **SPRAWL RETIRED:** one domain (zerric.xyz), one deploy path (FTP), one review page.
+
 ## 0. LATEST SESSION (2026-09-12a) — LOCAL LMMS BEAT TOOLING (NinjaNerd)
 - **SCOPE (Zerric, 2026-09-12): "let's keep it local tools for now."** Not a tracked
   initiative, no portal entry, nothing deployed to public web. Internal tooling only.
