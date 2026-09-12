@@ -15,12 +15,22 @@ CREDS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "communic
 PRESET = {"image": "snowsnakes_unsigned", "video": "snowsnakes_audio"}
 
 
+DUMMY_JSON = os.path.join(os.path.dirname(CREDS), "..", ".snowsnakes_real_users.json")
+
+
 def creds(user="zdot_team"):
-    for line in open(CREDS):
-        if user in line:
-            m = re.search(r'password:\s*([^\s|]+)', line)
-            if m:
-                return user, m.group(1)
+    """Look in credentials.txt first (team/brand accounts), then the dummy
+    persona roster in .snowsnakes_real_users.json (@zdot-dummy.com accounts)."""
+    if os.path.exists(CREDS):
+        for line in open(CREDS):
+            if user in line:
+                m = re.search(r'password:\s*([^\s|]+)', line)
+                if m:
+                    return user, m.group(1)
+    if os.path.exists(DUMMY_JSON):
+        for a in json.load(open(DUMMY_JSON)):
+            if a.get("username") == user:
+                return user, a["password"]
     raise SystemExit(f"no credential for {user}")
 
 

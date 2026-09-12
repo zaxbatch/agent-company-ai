@@ -116,7 +116,7 @@
               </pattern>
             </track>
             <track muted="0" name="Pad (Organic)" solo="0" type="0">
-              <instrumenttrack pitch="0" fxch="0" basenote="57" usemasterpitch="1" pitchrange="1" vol="46" pan="14">
+              <instrumenttrack pitch="0" fxch="0" basenote="57" usemasterpitch="1" pitchrange="1" vol="62" pan="14">
                 <instrument name="organic">
                   <organic detune0="1" detune1="0" detune2="0" detune3="0" detune4="0" detune5="0" detune6="0" detune7="0" vol0="100" vol1="100" vol2="100" vol3="100" vol4="100" vol5="100" wavetype0="4" vol6="100" wavetype1="2" vol7="0" wavetype2="5" num_osc="8" wavetype3="1" harmonic0="0.5" wavetype4="2" wavetype5="5" harmonic1="0.75" wavetype6="0" harmonic2="1" wavetype7="0" pan0="0" harmonic3="2" harmonic4="3" pan1="0" harmonic5="4" pan2="0" foldback="0.26" harmonic6="5" pan3="0" harmonic7="6" pan4="0" pan5="0" pan6="0" pan7="0" vol="100"/>
                 </instrument>
@@ -158,7 +158,7 @@
               </pattern>
             </track>
             <track muted="0" name="Lead (SID)" solo="0" type="0">
-              <instrumenttrack pitch="0" fxch="0" basenote="57" usemasterpitch="1" pitchrange="1" vol="52" pan="-12">
+              <instrumenttrack pitch="0" fxch="0" basenote="57" usemasterpitch="1" pitchrange="1" vol="100" pan="-12">
                 <instrument name="sid">
         <sid sync0="0" sync1="0" sync2="0" voice3Off="0" attack0="0" attack1="0" attack2="0" filterFC="1782" chipModel="1" decay0="8" decay1="8" decay2="8" volume="15" filtered0="0" filterResonance="0" filtered1="0" sustain0="15" filtered2="0" sustain1="15" sustain2="15" waveform0="1" ringmod0="1" waveform1="1" ringmod1="0" waveform2="2" ringmod2="0" filterMode="2" test0="0" test1="0" test2="0" coarse0="0" coarse1="12" coarse2="0" release0="8" release1="8" release2="8" pulsewidth0="2048" pulsewidth1="2048" pulsewidth2="0"/>
       </instrument>

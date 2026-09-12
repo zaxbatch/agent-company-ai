@@ -52,9 +52,9 @@ def build(loop_path, total_bars, bpm, loop_bars=4):
     bass = Track("Bass (Monstro)", instrument_from_preset(find("Monstro", "Phat")),
                  vol=86, basenote=57)
     pad = Track("Pad (Organic)", instrument_from_preset(find("Organic", "pad_rich")),
-                vol=46, pan=14, basenote=57)
+                vol=62, pan=14, basenote=57)
     lead = Track("Lead (SID)", instrument_from_preset(find("SID", "Lead")),
-                 vol=52, pan=-12, basenote=57)
+                 vol=100, pan=-12, basenote=57)
 
     for b in range(total_bars):
         bar0 = b * BAR
