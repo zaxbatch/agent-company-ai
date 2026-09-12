@@ -30,12 +30,11 @@ MINT = (126, 206, 178)
 
 CARDS = [
     # start_s, end_s, kind, payload
-    (0.0,  2.0, "brand",   None),
-    (2.0,  5.0, "char",    ("vin",     "Raised on the shelves.")),
-    (5.0,  8.0, "char",    ("q",       "Every tape hits.")),
-    (8.0,  11.0, "char",   ("vin",     "Your sound. Your shelf.")),
-    (11.0, 13.0, "album",  None),
-    (13.0, 15.0, "end",    None),
+    (0.0,   2.0,  "brand", None),
+    (2.0,   5.5,  "char",  ("vin", "Raised on the shelves.")),
+    (5.5,   9.0,  "char",  ("q",   "Every tape hits.")),
+    (9.0,   12.0, "album", None),
+    (12.0,  15.0, "end",   None),
 ]
 
 
