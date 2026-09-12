@@ -13,6 +13,32 @@
 - **Rules locked:** Tom lost-his-feet gag = new story every episode (Kenny-style). Snow Snake easter egg in EVERY future video/episode frame-art. Ketchup family are rednecks.
 - **Canon docs:** resources/snowsnakes/spread-da-word/CHARACTER-BIBLE.md (canon) + PERSONAS.md (detailed personas).
 - **Pipeline proven:** script -> voices (Piper) -> SVG rigs -> animated scene -> MP4 (via Playwright set_content capture) -> YouTube -> SPW tab. Music video + commercial + promo all live.
+## 0. LATEST SESSION (2026-09-12a) — LOCAL LMMS BEAT TOOLING (NinjaNerd)
+- **SCOPE (Zerric, 2026-09-12): "let's keep it local tools for now."** Not a tracked
+  initiative, no portal entry, nothing deployed to public web. Internal tooling only.
+- **WHY IT MATTERS:** LMMS 1.2.2 renders fully headless (`QT_QPA_PLATFORM=offscreen lmms
+  render x.mmp -o out.wav -f wav`) and `.mmp` is plain XML -> a beat is reproducible from
+  a JSON spec. Same shape as the working video pipeline (script -> voices -> rigs -> MP4),
+  but for audio.
+- **BUILT:** `scripts/lmms_spec.py` (spec model/validation), `scripts/lmms_beat.py`
+  (spec -> .mmp -> master + stems + mp3), `scripts/lmms_qa.py` (QA gate: audible,
+  clipping, tempo, arrangement contrast, spectrum). Docs: `content/experiments/lmms/README.md`.
+- **VERIFIED BASELINE:** 16 bars @128 BPM = 31.87 s; peak -1.36 dBFS, 0 clipped,
+  RMS -17.20 dBFS, tempo error 0.31%, section range 1.32x (break quietest -> drop2
+  loudest). All 5 QA checks PASS. Artifacts: content/experiments/lmms/beat-16bar.{mmp,wav,mp3,spec.json}
+  + 8 stems.
+- **GOTCHA (documented so nobody rediscovers it):** master fader must stay <=0.5 or 8
+  summed tracks clip; track/pattern XML must nest inside bbtrack > bbtrackcontainer with a
+  sibling bbtco or the pattern never plays.
+- **CORRECTION — STALE BLOCKER:** the long-standing "GitHub push blocked, zdotllc lacks
+  write access" note in this file is WRONG as of 2026-09-12. `git push origin main`
+  succeeded first try (17b8c297..f09bc5d7). Stop planning around it.
+- **PROCESS FIX (Zerric feedback):** never end a turn with tool calls as the last output.
+  Every turn ends with a written summary. Tool work is not a response.
+- **HANDOFF:** ClickClack to review `scripts/lmms_beat.py` nesting assumption + drive the
+  first real track from a spec; musical spec (key/tempo/sound) comes from BossLady as
+  Creative Director, not from engineering.
+
 ## 0. LATEST SESSION (2026-08-30j) — UDIO SONG: SCRIPT REWRITTEN TO v2 API, STILL BLOCKED ON 0 CREDITS (ClickClack)
 - **TASK:** Use the udioapi.pro API from communication/credentials.txt to make a MilkUps song.
 - **RESEARCH (docs verified live from https://udioapi.pro/docs + /docs/v2-generate + /docs/v2-feed + /docs/query-credits + /pricing):** current API is **v2**: `POST /api/v2/generate` (Bearer auth, custom mode = prompt/style/title), `GET /api/v2/feed?workId=` (data nested under `data.response_data`), `GET /api/v2/credits`. Models: chirp-v3-5 (5cr), chirp-v4 (8cr), chirp-v4-5 (10cr), chirp-v5/v5-5 (12cr). 402 = "No credit". Plans: Basic $10/mo = 1000 cr, Pro $20/mo = 2000 cr, Max $50/mo = 5000 cr; free tier = starter credits + daily check-ins.
