@@ -13,6 +13,26 @@
 - **Rules locked:** Tom lost-his-feet gag = new story every episode (Kenny-style). Snow Snake easter egg in EVERY future video/episode frame-art. Ketchup family are rednecks.
 - **Canon docs:** resources/snowsnakes/spread-da-word/CHARACTER-BIBLE.md (canon) + PERSONAS.md (detailed personas).
 - **Pipeline proven:** script -> voices (Piper) -> SVG rigs -> animated scene -> MP4 (via Playwright set_content capture) -> YouTube -> SPW tab. Music video + commercial + promo all live.
+## 0. LATEST SESSION (2026-09-12c) — ART DIRECTION + SCRATCH SCENE (NinjaNerd)
+- **ART DIRECTION (Zerric):** FLAT paper-cutout character style (South Park look).
+  "We can use depth" = depth comes from LAYERING and SCALE, not shading. Rules:
+  few solid colours, heavy dark outline, front-facing. Depth = near larger/in-front,
+  far smaller/behind, plus a hard (unblurred) drop shadow.
+- **FINDING:** existing character art is very DARK — median luminance ~20/255, p90 ~20-29,
+  so it is close to silhouette. Flat styling alone keeps it dark. `scripts/flat_style.py
+  --lift` runs auto-levels on the opaque region and lifts it to mean ~57-106 with 9-10
+  flat colours. That is a render-level fix; brighter base colours would be a redraw.
+- **SCRATCH 3 IS SCRIPTABLE:** .sb3 is a ZIP of project.json + md5-named assets (same shape
+  as .mmp and .pclx). `scripts/scratch_lib.py` writes them; `scripts/scratch_sdw_scene.py`
+  builds a full scene. Characters get 3 script stacks: broadcast-chained dialogue,
+  forever idle bob, and a click reaction. Layout is two rows of three so each sprite
+  renders at 85-96% instead of 44%. All sprites verified on-stage; block graph validated.
+- **DELIVERED:** content/experiments/scratch/sdw-scene-flat.sb3 (7 targets, music attached).
+- **CHARACTERS ARE THE SDW WORLD** (BossLady: "that's what the world is"). MilkUps carries
+  all SDW music (music account, not a separate band identity).
+- **DECISIONS IMPORTED:** Zerric's 16 gallery decisions were in browser localStorage from the
+  static page; imported to the server API so the dynamic gallery shows them.
+
 ## 0. LATEST SESSION (2026-09-12b) — APPROVAL GALLERY + DOCROOT CORRECTION (NinjaNerd)
 - **APPROVAL GALLERY LIVE:** https://zerric.xyz/review/ — 16 items, Approve/Revise/Reject
   per item + notes, decisions export as JSON. On OUR domain (zerric.xyz/review/), serving

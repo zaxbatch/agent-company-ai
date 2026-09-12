@@ -142,10 +142,9 @@ class Project:
         return target["sounds"][-1]
 
     def save(self, path):
-        # keep the broadcast table in sync everywhere
+        # keep the broadcast table in sync everywhere, stage included
         for t in self.targets:
-            if not t["isStage"]:
-                t["broadcasts"] = dict(self.broadcasts)
+            t["broadcasts"] = dict(self.broadcasts)
         doc = {"targets": self.targets, "monitors": [], "extensions": [],
                "meta": self.meta}
         os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
