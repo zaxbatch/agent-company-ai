@@ -1,9 +1,9 @@
 {
   "jokes": "err:The read operation timed out",
-  "games": "err:HTTP Error 500: Internal Server Error",
-  "characters": "err:The read operation timed out",
+  "games": 17,
+  "characters": 3,
   "comics": "err:Expecting value: line 1 column 1 (char 0)",
-  "doodles": "err:The read operation timed out",
-  "episodes": "err:The read operation timed out",
-  "snapshot_at": "2026-09-12T21:50:01Z"
+  "doodles": 9,
+  "episodes": 3,
+  "snapshot_at": "2026-09-12T21:55:01Z"
 }
