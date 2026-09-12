@@ -1,0 +1,66 @@
+{
+  "title": "beat-16bar",
+  "bpm": 128,
+  "progression": [
+    "Am",
+    "F",
+    "C",
+    "G"
+  ],
+  "sections": [
+    {
+      "name": "intro",
+      "bars": 2,
+      "layers": [
+        "kick",
+        "bass"
+      ]
+    },
+    {
+      "name": "build",
+      "bars": 2,
+      "layers": [
+        "kick",
+        "snare",
+        "hat",
+        "bass"
+      ]
+    },
+    {
+      "name": "drop",
+      "bars": 4,
+      "layers": [
+        "kick",
+        "snare",
+        "hat",
+        "openhat",
+        "bass",
+        "stab"
+      ]
+    },
+    {
+      "name": "break",
+      "bars": 2,
+      "layers": [
+        "hat",
+        "bass",
+        "stab"
+      ]
+    },
+    {
+      "name": "drop2",
+      "bars": 6,
+      "fill": true,
+      "layers": [
+        "kick",
+        "snare",
+        "clap",
+        "hat",
+        "openhat",
+        "bass",
+        "stab"
+      ]
+    }
+  ],
+  "total_bars": 16
+}
