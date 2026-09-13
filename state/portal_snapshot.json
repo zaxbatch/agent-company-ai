@@ -368,5 +368,21 @@
     "done_at": null,
     "last_checked_at": null,
     "created_by": "Zerric"
+  },
+  {
+    "id": "8b7b46e8332a",
+    "description": "MILKUPS MIXED-ENGINE ALBUM (tracker + LMMS) - Zerric request: mix tracker and LMMS songs for variety. SPEC: docs/MILKUPS-ALBUM-MIX-SPEC.md. VERIFIED BY CTO: xm_lib.py authors real .xm (ffmpeg/libopenmpt decodes it); lmms render works headless. FIX #1 (silent data loss): content/milkups/audio/ does NOT exist in repo but live album serves /album/audio/*.mp3 via RELATIVE paths -> any rebuild+deploy 404s all 8 tracks; commit masters or add fetch script. FIX #2 (loudness): album spans 3.3 LU today, mixed engines ~8 LU; master EVERY track with loudnorm=I=-14:TP=-1.0:LRA=9 (verified: tracker -13.0, LMMS -13.7 LUFS, -1.0 dBFS peak). BUILD scripts/milkups_mixed_album.py --engine {tracker,lmms,hybrid}; odd=tracker, even=LMMS; distinct tempo+genre per track. Deploy BOTH docroots (milkups.zerric.xyz/album + zerric.xyz/milkups/album); regenerate the zip. DONE = 200 + audio/mpeg + >100KB per track per docroot, all within 1 LU of -14, TP<=-1. Report raw numbers, not a summary.",
+    "assignee": "ClickClack",
+    "priority": 1,
+    "status": "assigned",
+    "result": null,
+    "blocker": null,
+    "created_at": "2026-09-13T09:52:01Z",
+    "updated_at": "2026-09-13T09:52:01Z",
+    "due_at": "2026-09-16T21:00:00Z",
+    "status_changed_at": "2026-09-13T09:52:01Z",
+    "done_at": null,
+    "last_checked_at": null,
+    "created_by": "NinjaNerd"
   }
 ]
