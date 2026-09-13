@@ -35,6 +35,10 @@ if TYPE_CHECKING:
 
 logger = logging.getLogger("agent_company_ai.agent")
 
+# Max tool rounds for chat(). Verification work (search -> fetch -> read)
+# legitimately needs many sequential rounds; 10 was far too low.
+CHAT_MAX_TOOL_ROUNDS = 40
+
 
 class Agent:
     """A single AI agent with a role, tools, and LLM backend."""
@@ -437,7 +441,7 @@ class Agent:
             return "data"
         return "file"
 
-    async def chat(self, message: str) -> str:
+    async def chat(self, message: str, max_rounds: int = CHAT_MAX_TOOL_ROUNDS) -> str:
         """Direct conversation with the human owner."""
         if self.provider is None:
             return "Error: LLM provider not configured. Set an API key in .agent-company-ai/config.yaml"
@@ -470,7 +474,8 @@ class Agent:
         ]
 
         # Bounded tool loop — mirrors think() so data tools actually run.
-        for _ in range(10):
+        best_text = ""
+        for _ in range(max_rounds):
             self._repair_conversation()
             self._assert_tool_chain(self._conversation)
             try:
@@ -483,8 +488,12 @@ class Agent:
 
             self._track_usage(response.usage)
 
+            # Keep the longest assistant text as a fallback deliverable.
+            if response.content and len(response.content) > len(best_text):
+                best_text = response.content
+
             if not response.tool_calls:
-                reply = response.content or "(no response)"
+                reply = response.content or best_text or "(no response)"
                 self._conversation.append(LLMMessage(role="assistant", content=reply))
                 return reply
 
@@ -505,6 +514,34 @@ class Agent:
                 self._conversation.append(
                     LLMMessage(role="tool", content=result, tool_call_id=tc.id)
                 )
+
+        # Exhausted the tool budget. Force ONE final completion with no tools
+        # offered, so the model must answer in prose instead of calling another
+        # tool. Without this the loop exits on a tool round and the caller gets
+        # the placeholder string -- the "went silent after a tool loop" bug.
+        logger.warning(
+            f"[{self.name}] chat() used all {max_rounds} tool rounds; "
+            "forcing final text-only completion."
+        )
+        try:
+            self._repair_conversation()
+            self._assert_tool_chain(self._conversation)
+            final = await self.provider.complete(
+                messages=self._conversation,
+                tools=None,
+            )
+            self._track_usage(final.usage)
+            if final.content:
+                self._conversation.append(
+                    LLMMessage(role="assistant", content=final.content)
+                )
+                return final.content
+        except Exception as e:
+            logger.error(f"[{self.name}] final completion pass failed: {e}")
+
+        if best_text:
+            self._conversation.append(LLMMessage(role="assistant", content=best_text))
+            return best_text
 
         return "(no response after tool loop)"
 
