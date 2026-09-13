@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-13T09:45:01.838999+00:00",
+ "generated_at": "2026-09-13T11:25:01.573861+00:00",
  "note": "Sanitized continuity snapshot. Sensitive fields masked (***). Restore: this JSON documents what was in flight so work can resume after any disruption.",
  "tables": {
   "agents": {
@@ -18094,11 +18094,11 @@
      "status": "prospect",
      "source": "",
      "notes": "***",
-     "tags": "milkups,zerric-xyz,play-domain,canonical-mailbox,payment-tag,cashapp-zdotllc",
+     "tags": "milkups,internal-initiative,not-a-sales-lead,property,money-maker,zerric-xyz",
      "custom_fields": "{}",
      "created_by": "Seleena",
      "created_at": "2026-08-30 06:15:54",
-     "updated_at": "2026-09-05 03:18:41"
+     "updated_at": "2026-09-13 09:45:16"
     },
     {
      "id": 77,
@@ -18108,12 +18108,12 @@
      "phone": "",
      "status": "prospect",
      "source": "policy v2",
-     "notes": "## Spread da Word (active initiative)\nCanonical mailbox per Zerric's email-domain policy v2 (2026-08-24): every zerric.xyz content owner gets an @zerric.xyz mailbox. Spread da Word = word-of-mouth/spread mechanic + partner outreach (gaming venues, cafes, agencies). Keep play (zerric.xyz) separate from work (@zdotllc.com).",
-     "tags": "spread-da-word,active-initiative,zerric-xyz,play-domain,cross-functional",
+     "notes": "## Spread da Word (active initiative)\nCanonical mailbox per Zerric's email-domain policy v2 (2026-08-24): every zerric.xyz content owner gets an @zerric.xyz mailbox. Spread da Word = word-of-mouth/spread mechanic + partner outreach (gaming venues, cafes, agencies). Keep play (zerric.xyz) separate from work (@zdotllc.com).\nINVENTORY TAG (Seleena, housekeeping): internal Z-Dot property, NOT a sales lead. Do not run outreach. Money-maker track per Zerric.\n\nREVENUE INVENTORY \u2014 Spread da Word (SDW)\n- What it is: season-based content property, zerric.xyz\n- Mailbox: spreaddaword@zerric.xyz\n- Product: SEASONS (sponsorable)\n- Sellable: Season Title / Episode / Venue / Creator-commission tiers\n- Outreach: sequence ID 76 built, 4 emails, ready\n- Status: ACTIVE, revenue model DRAFTED not approved\n- Blockers: (1) season = ? episodes/events/weeks, (2) no landing page confirmed, (3) rate card unsigned\n- Existing partner contacts in CRM: Good Game Cafe #31, Cloutboost #35, Snakes & Lattes #32, Howl at the Moon #33\n- Owner: Seleena (revenue), Mark (GTM), NinjaNerd (build)",
+     "tags": "spread-da-word,sdw,internal-initiative,not-a-sales-lead,property,money-maker,zerric-xyz",
      "custom_fields": "{}",
      "created_by": "Seleena",
      "created_at": "2026-08-30 06:16:32",
-     "updated_at": "2026-08-30 06:16:32"
+     "updated_at": "2026-09-13 09:45:16"
     },
     {
      "id": 78,
@@ -18123,12 +18123,12 @@
      "phone": "",
      "status": "prospect",
      "source": "policy v2",
-     "notes": "## SnowSnakes (active initiative)\nCanonical mailbox per Zerric's email-domain policy v2 (2026-08-24): every zerric.xyz content owner gets an @zerric.xyz mailbox. SnowSnakes = game community (Food Truck Frenzy LIVE, game ids 71/72) + lead-gen funnel feeding HubSpot. Sub-initiatives: Dad Jokes, Summit Snakes (winter lead-gen via ski resorts). Keep play (zerric.xyz) separate from work (@zdotllc.com).",
-     "tags": "snowsnakes,active-initiative,zerric-xyz,play-domain,lead-gen,gaming",
+     "notes": "## SnowSnakes (active initiative)\nCanonical mailbox per Zerric's email-domain policy v2 (2026-08-24): every zerric.xyz content owner gets an @zerric.xyz mailbox. SnowSnakes = game community (Food Truck Frenzy LIVE, game ids 71/72) + lead-gen funnel feeding HubSpot. Sub-initiatives: Dad Jokes, Summit Snakes (winter lead-gen via ski resorts). Keep play (zerric.xyz) separate from work (@zdotllc.com).\nINVENTORY TAG (Seleena, housekeeping): internal Z-Dot property, NOT a sales lead. Do not run outreach \u2014 this FEEDS the funnel.\n\nREVENUE INVENTORY \u2014 SnowSnakes (incl. Summit Snakes, Dad Jokes)\n- What it is: TOP OF FUNNEL / lead-gen. Feeds MilkUps + SDW + SWG.\n- Mailbox: snowsnakes@zerric.xyz\n- Sellable: sponsor track (30+ leads live: resorts, gear brands, greeting cards)\n- Status: ACTIVE, deepest lead list we own, ZERO outreach sent\n- Blocker: sponsors have no downstream property page to be pointed at yet\n- Owner: Seleena (revenue), Mark (GTM)",
+     "tags": "snowsnakes,summit-snakes,dad-jokes,internal-initiative,not-a-sales-lead,property,funnel-top,lead-gen,zerric-xyz",
      "custom_fields": "{}",
      "created_by": "Seleena",
      "created_at": "2026-08-30 06:16:32",
-     "updated_at": "2026-08-30 06:16:32"
+     "updated_at": "2026-09-13 09:45:16"
     },
     {
      "id": 79,
@@ -18138,12 +18138,12 @@
      "phone": "",
      "status": "prospect",
      "source": "policy v2",
-     "notes": "## Snitch (active initiative)\nCanonical mailbox per Zerric's email-domain policy v2 (2026-08-24): every zerric.xyz content owner gets an @zerric.xyz mailbox. Snitch = referral/word-of-mouth mechanic (venues, board game cafes, event spaces, partner track). Keep play (zerric.xyz) separate from work (@zdotllc.com).",
-     "tags": "snitch,active-initiative,zerric-xyz,play-domain,referral,partner-track",
+     "notes": "## Snitch (active initiative)\nCanonical mailbox per Zerric's email-domain policy v2 (2026-08-24): every zerric.xyz content owner gets an @zerric.xyz mailbox. Snitch = referral/word-of-mouth mechanic (venues, board game cafes, event spaces, partner track). Keep play (zerric.xyz) separate from work (@zdotllc.com).\nINVENTORY TAG (Seleena, housekeeping): internal Z-Dot property, NOT a sales lead. Do not run outreach. Money-maker track per Zerric.\n\nREVENUE INVENTORY \u2014 Snitch (SWG)\n- What it is: referral / partner-track property\n- Mailbox: snitch@zerric.xyz\n- Sellable: venue partner deals, referral commission\n- Partner contacts in CRM: Good Game Cafe #31, Snakes & Lattes #32 (national chain, HQ anais@/john@/vincent@/IR@), Howl at the Moon Louisville #33 (teaser sent 2026-08)\n- Status: ACTIVE, revenue model NOT priced\n- Blocker: no rate/commission structure defined\n- Owner: Seleena (revenue), Mark (GTM)",
+     "tags": "snitch,swg,internal-initiative,not-a-sales-lead,property,money-maker,referral,partner-track,zerric-xyz",
      "custom_fields": "{}",
      "created_by": "Seleena",
      "created_at": "2026-08-30 06:16:32",
-     "updated_at": "2026-08-30 06:16:32"
+     "updated_at": "2026-09-13 09:45:16"
     },
     {
      "id": 80,
