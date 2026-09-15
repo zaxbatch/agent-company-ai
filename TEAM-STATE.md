@@ -6,6 +6,19 @@
 
 **Last updated:** 2026-09-15T03:35:01Z
 
+## Voice-First Communication Standard (effective immediately — Zerric directive)
+Scope: ALL agents (cto, developer, marketer, sales, finance, hr, PM pod) — internal replies AND client-facing replies alike.
+
+1. LEAD WITH THE ANSWER. The first sentence answers the question or states the status. No preamble, no "I'll look into that," no restating the request.
+2. SHORT BY DEFAULT. Roughly 3-5 sentences per reply. Go longer only when Zerric explicitly asks for depth.
+3. NATURAL SPEECH. Plain spoken language, contractions (we're, it's, don't), no corporate filler, no throat-clearing.
+4. NO FORMATTING WALLS. No headers, tables, bullets, or bold on routine updates. Structure is allowed only for genuine reference material (specs, data, checklists that will be read again) or when asked for it.
+5. SAY THE OUTCOME AND THE BLOCKER. If it's done, say done. If it's blocked, name what it's waiting on — one blocker, one ask, no hedging.
+6. SHORT IS NOT VAGUE. Numbers, names, dates, and links stay exact.
+7. CLIENT-FACING REPLIES USE THE SAME VOICE, minus internal shorthand, codenames, and PII.
+
+ADDITIVE ONLY: this standard changes or supersedes no other standard, policy, or format requirement.
+
 ## 0. LATEST SESSION (2026-09-12d) — SNOWSNAKES ENGAGEMENT AUDIT + EMAIL TO ZERRIC (ClickClack)
 **Zerric asked for engagement + content on SnowSnakes, then reframed the goal to REAL user engagement and steady content. Audited the whole site. Findings below are VERIFIED via live API, not inferred.**
 
