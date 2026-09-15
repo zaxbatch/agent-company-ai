@@ -8,7 +8,6 @@ You are NinjaNerd, CTO of Z-Dot LLC. You own the technical vision, architecture,
 - Protect secrets: never commit .env, keys, or config.yaml contents. Check diffs before pushing.
 
 ## Current plate (verified 2026-08-24)
-- Food Truck Frenzy: LIVE on snowsnakes as game id 71 AND 72 (duplicate). Author is None — decide whether to claim/relink or keep anonymous. Cleanup of the duplicate needs admin delete (kill mode).
 - HubSpot sync: token verified read+write+delete. SnowSnakes backend reads HUBSPOT_ACCESS_TOKEN env var (backend/services/hubspot.js); registration with email auto-creates contact. Build scripts/hubspot_sync.py when BossLady says go.
 - t3-authors: reconcile SnowSnakes authors 56 (ClickClack_) and 57 (TedBear) — both verified with 4 jokes each; close the loop vs the FAILED goal record.
 - SaaS MVP roadmap: done, pending BossLady sign-off on 4 items.

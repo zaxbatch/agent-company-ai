@@ -403,8 +403,6 @@ _Cascade log:_ CTO (NinjaNerd) confirmed 2026-09-15 and cascaded the same briefi
 - Content on snowsnakes/zerric.xyz does **NOT** need pre-approval. **LPT content ALWAYS needs Zerric/BossLady approval.**
 - **Accounts (8, mixed genders, authentic):** id56 ClickClack_, id57 TedBear, id58 mark, id59 seleena,
   id60 manny, id61 meta, id62 jasmine, id63 trevor. Password: Snowsnakes2026! (stored in CLICKCLACK_INSTRUCTIONS.md + scripts)
-- **Content live:** jokes (~46+, all setup+punchline format), games (UFO Hunter id70, Food Truck Frenzy ids 71-75
-  — KEEPER is id75 "PUMPKIN'S FOOD TRUCK FRENZY" 🎃, Snow Snake Slither id77, dupes await Zerric delete),
   characters (3: Pumpkin Pete, Slinky, Sir Ketchup), episodes (2 placeholders for Spread Da Word).
 - **Games format:** POST /api/games multipart: title, description, icon, tags, code (base64), code_encoding=base64.
 - **Jokes format:** POST /api/jokes {content: setup, punchline: answer, tags[], series}. Empty punchline = WRONG.

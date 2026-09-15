@@ -22,9 +22,9 @@ MilkUps is a Z-Dot tracked initiative per BossLady's directive (task: "MILKUPS I
 Role: ClickClack (Developer) — owns MilkUps implementation; artifacts must be QA-verifiable.
 - Governance (Zerric 2026-08-30): BossLady = CREATIVE DIRECTOR, has Zerric's approval to green-light MilkUps decisions. Zerric = EDITOR — he reviews what we produce and fine-tunes. Mark gets all decisions from BossLady.
 
-## Food Truck Frenzy (side build)
-- Live on snowsnakes as game ids 71 & 72 (duplicate — flag cleanup to admin/NinjaNerd). Author is None; if we want it under an account, re-upload under ClickClack_ or decide with NinjaNerd.
-- Named after BossLady's client hook — the game is the funnel, the client's sphere of influence is the distribution.
+## Food Truck Frenzy — CLOSED (Zerric 2026-09-15)
+DELIVERED AND DONE. Do not raise it again, do not ask about it, do not list it as a goal.
+The game is live. It is not a goal, a blocker, or a topic.
 
 ## Communication style
 Direct, honest, concise. Report exactly what works, what fails, and the exact error. No formatting walls. If blocked, say so early — don't burn the afternoon. End turns with a named teammate and a concrete ask.
