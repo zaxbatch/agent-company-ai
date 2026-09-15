@@ -1,0 +1,73 @@
+{
+  "fps": 24,
+  "frames": 403,
+  "video_seconds": 16.791666666666668,
+  "timeline": [
+    {
+      "scene": "title",
+      "start": 0.0,
+      "end": 3.249,
+      "line": null
+    },
+    {
+      "scene": "vin",
+      "start": 3.249,
+      "end": 5.643,
+      "line": "vin"
+    },
+    {
+      "scene": "que",
+      "start": 5.643,
+      "end": 7.946,
+      "line": "que"
+    },
+    {
+      "scene": "both",
+      "start": 7.946,
+      "end": 10.768,
+      "line": "vin2"
+    },
+    {
+      "scene": "both",
+      "start": 10.768,
+      "end": 13.257,
+      "line": "que2"
+    },
+    {
+      "scene": "end",
+      "start": 13.257,
+      "end": 16.209,
+      "line": "tag"
+    }
+  ],
+  "voices": {
+    "narrator": 1.949,
+    "vin": 1.494,
+    "que": 1.403,
+    "vin2": 1.922,
+    "que2": 1.589,
+    "tag": 0.552
+  },
+  "ffprobe": {
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1920,
+        "height": 1080,
+        "r_frame_rate": "24/1"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "r_frame_rate": "0/0"
+      }
+    ],
+    "format": {
+      "duration": "16.334000",
+      "size": "3108915",
+      "bit_rate": "1522671"
+    }
+  }
+}
