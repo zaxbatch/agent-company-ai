@@ -14,6 +14,7 @@ class Chain:
     rpc_url: str
     native_symbol: str
     explorer_url: str
+    rpc_urls: tuple[str, ...] = ()   # ordered fallbacks; rpc_url is tried first
 
 
 CHAINS: dict[str, Chain] = {
@@ -21,6 +22,7 @@ CHAINS: dict[str, Chain] = {
         name="ethereum",
         chain_id=1,
         rpc_url="https://eth.llamarpc.com",
+        rpc_urls=('https://ethereum-rpc.publicnode.com', 'https://eth.drpc.org', 'https://1rpc.io/eth'),
         native_symbol="ETH",
         explorer_url="https://etherscan.io",
     ),
@@ -28,6 +30,7 @@ CHAINS: dict[str, Chain] = {
         name="base",
         chain_id=8453,
         rpc_url="https://mainnet.base.org",
+        rpc_urls=('https://base.publicnode.com', 'https://base.drpc.org'),
         native_symbol="ETH",
         explorer_url="https://basescan.org",
     ),
@@ -35,6 +38,7 @@ CHAINS: dict[str, Chain] = {
         name="arbitrum",
         chain_id=42161,
         rpc_url="https://arb1.arbitrum.io/rpc",
+        rpc_urls=('https://arbitrum-one-rpc.publicnode.com', 'https://arbitrum.drpc.org'),
         native_symbol="ETH",
         explorer_url="https://arbiscan.io",
     ),
@@ -42,10 +46,19 @@ CHAINS: dict[str, Chain] = {
         name="polygon",
         chain_id=137,
         rpc_url="https://polygon-rpc.com",
+        rpc_urls=('https://polygon-bor-rpc.publicnode.com', 'https://polygon.drpc.org', 'https://1rpc.io/matic'),
         native_symbol="POL",
         explorer_url="https://polygonscan.com",
     ),
 }
+
+
+def endpoints_for(name: str) -> list[str]:
+    """Ordered list of RPC endpoints for a chain: primary first, then fallbacks."""
+    ch = get_chain(name)
+    out = [ch.rpc_url, *ch.rpc_urls]
+    seen: set[str] = set()
+    return [u for u in out if not (u in seen or seen.add(u))]
 
 
 def get_chain(name: str) -> Chain:
