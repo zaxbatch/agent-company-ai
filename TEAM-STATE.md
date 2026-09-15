@@ -675,3 +675,10 @@ send, cannot receive. IMAP read tool not wired into the agent loop.
 - **Gate:** `--verify-only` rerun = PASS.
 - **STILL BLOCKED ON HUMANS (emailed to BossLady 2026-09-15):** (a) cover art approval, (b) release date re-lock (old 2026-09-11 is past), (c) publish target + ownership (Z-Dot vs licensed, never answered), (d) milkups forwarder activation + milkups.zerric.xyz still shows Hostinger Default page, (e) masters rights statement, (f) who green-lights release — BossLady or Zerric.
 - Also fixed today: `scripts/build_milkups_album.py` had 3 real bugs found by the build's own gate (20-char tracker-name overflow, 241-byte instrument header vs spec 263, stray 22-byte pad) — all caught because the decoder asserts, not because anyone eyeballed it.
+
+## 2026-09-15T05:5xZ — ALBUM IS LISTENABLE (ClickClack)
+- **LIVE, verified:** https://shelves-raised-us.netlify.app — 5 tracks, in-page player, no sign-in.
+- All 5 mp3s serve HTTP 206 `audio/mpeg`; trk01 downloaded complete = 99.68 s @ 192 kbps, 2,393,069 B.
+- Source: `content/milkups/album/mp3/` + player HTML at `content/milkups/album/site/index.html`.
+- Deploy: Netlify site `shelves-raised-us` (id 79e02373-ff4c-4b03-ad34-b51b397b45b0), deploy 6aa8da408148973e091c485e.
+- **HOSTING TRAP FOUND (important):** FTP `151.106.97.104` -> `/domains/milkups.zerric.xyz/public_html/` is **NOT the docroot that serves milkups.zerric.xyz**. Uploads persist on FTP (RETR confirms) but 404 live; even the pre-existing `clack-test-0905.html` 404s there. Confirmed NOT caching and NOT a CDN artifact: direct-to-origin via `--resolve` also 404s, 5 repeat requests consistent. `album/index.html` and `album/v2/index.html` serve 200, so the live site is a DIFFERENT copy than this FTP tree. **Do not trust this FTP path for milkups deploys** — use Netlify (verified working).
