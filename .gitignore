@@ -40,3 +40,6 @@ dashboard_users.json
 
 # Milkups tracker cut: WAV intermediates are build artifacts (regenerate from .xm)
 content/milkups/tracker/wav/
+
+# Milkups promo: rendered PNG frame sequences are intermediates
+content/milkups/promo/frames/

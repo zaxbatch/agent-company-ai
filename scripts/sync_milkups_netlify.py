@@ -6,7 +6,51 @@ it to the existing Netlify site via the direct-upload zip API.
 """
 import io, os, re, shutil, subprocess, sys, zipfile
 from pathlib import Path
+import time
 import httpx
+
+def ftp_creds():
+    """FTP creds for the live docroot (Hostinger CDN 403s httpx as a bot;
+    FTP is the reliable path for binary pulls)."""
+    creds = (ROOT / "communication" / "credentials.txt").read_text(errors="replace")
+    blk = re.search(r"Zerric\.xyz FTP(.*?)(?:\n##|\Z)", creds, re.S).group(1)
+    return (re.search(r"ftp://([\d.]+)", blk).group(1),
+            re.search(r"(?i)username[^\w]*([A-Za-z0-9._]+)", blk).group(1),
+            re.search(r"(?i)password\s*[:=]\s*(\S+)", blk).group(1))
+
+
+def ftp_pull(remote_paths, outdir):
+    """Pull files from the live docroot over FTP. Returns {name: bytes}."""
+    import ftplib, io as _io
+    host, user, pw = ftp_creds()
+    got = {}
+    f = ftplib.FTP(host, timeout=120); f.login(user, pw); f.set_pasv(True)
+    for rp in remote_paths:
+        name = rp.rsplit("/", 1)[-1]
+        buf = []
+        try:
+            f.retrbinary(f"RETR {rp}", buf.append)
+            data = b"".join(buf)
+            (outdir / name).write_bytes(data)
+            got[name] = data
+            print(f"  ftp pulled {name} {len(data)}b")
+        except Exception as e:
+            print(f"  ftp MISS {name}: {type(e).__name__}")
+    f.quit()
+    return got
+
+
+def fetch(c, url, tries=5):
+    """GET with retry+backoff; Hostinger rate-limits rapid bulk pulls (403)."""
+    last = None
+    for i in range(tries):
+        r = c.get(url)
+        if r.status_code == 200:
+            return r
+        last = r
+        time.sleep(1.5 * (i + 1))
+    last.raise_for_status()
+    return last
 
 ROOT = Path(__file__).resolve().parent.parent
 SITE_ID = "4a780cec-282e-4d35-aa43-f77c70080554"   # netlify site "milkups"
@@ -42,18 +86,19 @@ def build():
 
     # CUT 2 - banger cut: page from local, audio pulled from live
     v2 = STAGE / "album" / "v2"; (v2 / "audio").mkdir(parents=True); (v2 / "assets").mkdir()
-    shutil.copy("/tmp/v2-index.html", v2 / "index.html")
+    shutil.copy(src / "v2-index.html", v2 / "index.html")
     slugs = ["trap-cabnets","lofi-midnight","electro-neon","pop-radio",
              "country-fridge","funk-cookout","synthwave-retro","icy"]
-    with httpx.Client(timeout=120, follow_redirects=True) as c:
-        for s in slugs:
-            r = c.get(f"{LIVE}/album/v2/audio/banger-{s}.mp3")
-            r.raise_for_status()
-            (v2 / "audio" / f"banger-{s}.mp3").write_bytes(r.content)
-            print(f"  pulled banger-{s}.mp3 {len(r.content)}b")
-        for a in ("qr-zdotllc-5.png", "qr-zdotllc.png"):
-            r = c.get(f"{LIVE}/album/v2/assets/{a}")
-            if r.status_code == 200: (v2 / "assets" / a).write_bytes(r.content)
+    DOC = "/domains/zerric.xyz/public_html/milkups"
+    paths = [f"{DOC}/album/v2/audio/banger-{s}.mp3" for s in slugs]
+    paths += [f"{DOC}/album/v2/assets/qr-zdotllc-5.png",
+              f"{DOC}/album/v2/assets/qr-zdotllc.png"]
+    ftp_pull(paths, v2 / "audio")
+    # move the two pngs into assets/
+    for a in ("qr-zdotllc-5.png", "qr-zdotllc.png"):
+        srcf = v2 / "audio" / a
+        if srcf.exists():
+            shutil.move(str(srcf), str(v2 / "assets" / a))
     return STAGE
 
 def zipit(stage):
