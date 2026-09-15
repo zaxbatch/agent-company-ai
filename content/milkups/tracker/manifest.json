@@ -1,0 +1,120 @@
+{
+  "artist": "MilkUps",
+  "cut": "tracker",
+  "engine": "FastTracker II (.xm) -> libopenmpt",
+  "master": {
+    "target_lufs": -14.0,
+    "target_tp": -1.0,
+    "target_lra": 9.0
+  },
+  "tracks": [
+    {
+      "no": 1,
+      "title": "Cold Aisle Chip",
+      "slug": "01-cold-aisle-chip",
+      "bpm": 168,
+      "xm_bytes": 10657,
+      "seconds": 97.25,
+      "lufs": -14.0,
+      "true_peak_dbtp": -8.62,
+      "lra": 0.4,
+      "mp3_bytes": 3891012,
+      "sha256": "5e07ce6859b469ff63035d7e0bd663b54873ee4376fd144f512f31455bed62a6"
+    },
+    {
+      "no": 2,
+      "title": "Carton Static",
+      "slug": "02-carton-static",
+      "bpm": 152,
+      "xm_bytes": 10137,
+      "seconds": 101.14,
+      "lufs": -14.0,
+      "true_peak_dbtp": -8.51,
+      "lra": 0.4,
+      "mp3_bytes": 4046530,
+      "sha256": "8da30a8f032ac4bd951ba1b49c28d2610e8e98e230f531da49d6c2784e8d5d2d"
+    },
+    {
+      "no": 3,
+      "title": "Expiration Date",
+      "slug": "03-expiration-date",
+      "bpm": 140,
+      "xm_bytes": 9067,
+      "seconds": 96.12,
+      "lufs": -14.0,
+      "true_peak_dbtp": -8.34,
+      "lra": 0.4,
+      "mp3_bytes": 3845892,
+      "sha256": "0fd48e7d06b5f0e023a5994d1d35df0758750d4672d256dde2e6d998ce403042"
+    },
+    {
+      "no": 4,
+      "title": "Dairy Case Dreams",
+      "slug": "04-dairy-case-dreams",
+      "bpm": 176,
+      "xm_bytes": 11165,
+      "seconds": 98.21,
+      "lufs": -14.0,
+      "true_peak_dbtp": -8.05,
+      "lra": 0.6,
+      "mp3_bytes": 3929414,
+      "sha256": "cb3e632a7023fb06b4b945ae2c3f4332c80f21f3cacbbf3c63d1df67fde5f4b5"
+    },
+    {
+      "no": 5,
+      "title": "2% Signal",
+      "slug": "05-2pct-signal",
+      "bpm": 132,
+      "xm_bytes": 9031,
+      "seconds": 101.95,
+      "lufs": -14.0,
+      "true_peak_dbtp": -8.29,
+      "lra": 0.4,
+      "mp3_bytes": 4079166,
+      "sha256": "eecbcc2ac7cb432da2dbe7f5e82ea1e41a843b82b9b1b3511c46a79a1157c210"
+    },
+    {
+      "no": 6,
+      "title": "Shelf Life",
+      "slug": "06-shelf-life",
+      "bpm": 160,
+      "xm_bytes": 10113,
+      "seconds": 96.14,
+      "lufs": -14.01,
+      "true_peak_dbtp": -8.95,
+      "lra": 0.6,
+      "mp3_bytes": 3846847,
+      "sha256": "f4f0b8475c8b10ff6323c0e7f263f0aa01744fd29be41b6e307b7c49e383fe3e"
+    },
+    {
+      "no": 7,
+      "title": "Homogenized",
+      "slug": "07-homogenized",
+      "bpm": 128,
+      "xm_bytes": 8538,
+      "seconds": 97.58,
+      "lufs": -14.0,
+      "true_peak_dbtp": -8.43,
+      "lra": 0.4,
+      "mp3_bytes": 3904448,
+      "sha256": "c88a8671aa24ccef75e737098f094ee5ab58b966dda8c22050227a5b5ec36c74"
+    },
+    {
+      "no": 8,
+      "title": "Last Carton",
+      "slug": "08-last-carton",
+      "bpm": 184,
+      "xm_bytes": 11652,
+      "seconds": 99.24,
+      "lufs": -14.0,
+      "true_peak_dbtp": -8.65,
+      "lra": 0.6,
+      "mp3_bytes": 3970688,
+      "sha256": "f0bdb5874b05b75d16acf5bbf029d53ee9df73a481c968f731729e66a1d547ba"
+    }
+  ],
+  "gate": {
+    "passed": true,
+    "failures": []
+  }
+}

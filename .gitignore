@@ -37,3 +37,6 @@ dashboard_users.json
 .snowsnakes_real_users.json
 .snowsnakes_accounts.json
 .snowsnakes_brand_accounts.json
+
+# Milkups tracker cut: WAV intermediates are build artifacts (regenerate from .xm)
+content/milkups/tracker/wav/
