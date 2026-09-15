@@ -600,3 +600,14 @@ publish_social_post (Twitter/X) unconfigured — no API keys. Only publish rail 
 - Scope LOCKED: 5 tracks, >= 90 s each, built-in instruments only, no external samples; changes via BossLady only.
 - Deadline: cycle 3 close (hard stop). Absolute timestamp unconfirmed — flagged to BossLady.
 <!-- MILKUPS-ALBUM-STATE:END -->
+
+## 2026-09-15T05:1xZ — DIAGNOSIS: "why is no work getting done?" (ClickClack, evidence-backed)
+- **1. No work engine exists.** `ps aux` shows zero agent/worker/scheduler processes. Only 3 crons: 2 x state snapshot (every 5 min) + joke poster (09:00). Nothing is tasked with *doing* work; throughput drops to zero between live sessions.
+- **2. Real commits: 1 in 3 days.** 576 commits/day are 2 snapshot commits per 5 min (~9,000 since Sep 1). Last genuine work commit: 0a9e22eb 2026-09-14 (docs). Prior: 09-13, 09-12. The history *looks* busy every 5 minutes while nothing ships.
+- **3. The only content automation was dead.** post_daily_jokes.py crashed 2026-09-14 09:00 with `KeyError: 'mark'` (line 215) after 3 of 20 jokes; the other 17 were never attempted and nothing surfaced it (/tmp log only). **FIXED + VERIFIED 2026-09-15 05:07Z** — commit 96130d9e, 289/289 tests pass, live smoke test posted joke id 264 (count 173 -> 174). Rail is alive again; 09:00 cron resumes normally.
+- **4. Portal is a wall of stall.** 33 tasks: **0 done**, 25 "assigned" (never picked up), 5 in_progress, 3 pending. 21-22 days stale. **22 overdue.** 27 carry a blocker field. Stalest: t7/t17 (ClickClack, 22d), NinjaNerd orphaned-tool_calls fix (22d), daily content system (22d).
+- **5. Live company.db is a 0-BYTE file** (mtime Aug 26). Backup company.db.bak-1787699931 = 4.2 MB / 246 tasks (139 done, **97 failed** = 39% failure rate). Anything opening company.db reads an empty DB. **Escalated to NinjaNerd — not touched by me.**
+- **6. Two live endpoints quietly broken.** (a) tasks.zdotllc.com/api.php?action=list -> `{"error":"not logged in"}`; unauthenticated callers see 0 tasks (false "empty portal" trap). (b) snowsnakes.zerric.xyz/api/comics -> HTTP 200 but returns the React index.html, not JSON; snapshots have logged `err:Expecting value` and it was ignored.
+- **7. Blockers are treated as permanent.** Most stalls are one-line human gates (HubSpot token, Stripe webhook secret, "find a way to call Zerric") recorded once and never re-escalated, so the board reads "waiting" forever. Also still outstanding: progress.php (dynamic /progress) never uploaded to Hostinger — repo-only since 08-30.
+- **ESCALATED TO NINJANERD (CTO):** (i) 0-byte company.db restore, (ii) retire one of the two duplicate 5-min snapshot crons (2 commits/5 min is pure noise hiding real work). Both are shared infra — not changing without CTO sign-off.
+- **ESCALATED TO BOSSLADY:** 22 overdue tasks with 0 done needs either re-scoping or cancellation. Nothing closes because nothing is being picked up.
