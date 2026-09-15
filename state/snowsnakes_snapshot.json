@@ -1,9 +1,9 @@
 {
   "jokes": 194,
-  "games": 17,
+  "games": 19,
   "characters": 3,
   "comics": "err:Expecting value: line 1 column 1 (char 0)",
-  "doodles": 9,
+  "doodles": 12,
   "episodes": 3,
-  "snapshot_at": "2026-09-15T23:25:01Z"
+  "snapshot_at": "2026-09-15T23:30:01Z"
 }

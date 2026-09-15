@@ -1,0 +1,30 @@
+{
+  "artist": "SnowSnakes",
+  "engine": "FastTracker II (.xm) -> libopenmpt",
+  "tracks": [
+    {
+      "title": "Frozen Cab-Nets",
+      "slug": "frozen-cab-nets",
+      "bpm": 150,
+      "seconds": 96.14,
+      "lufs": -14.0,
+      "tp": -7.21,
+      "mp3": "content/snowsnakes/songs/audio/frozen-cab-nets.mp3",
+      "mp3_bytes": 3846852,
+      "cover": "content/snowsnakes/songs/art/frozen-cab-nets.png",
+      "sha256": "6085a5b7adb9a4a56c0d985c931a88acdcea9c981124a3d48ed3f5a1ceee79ae"
+    },
+    {
+      "title": "Snowflake Static",
+      "slug": "snowflake-static",
+      "bpm": 172,
+      "seconds": 100.51,
+      "lufs": -14.0,
+      "tp": -8.52,
+      "mp3": "content/snowsnakes/songs/audio/snowflake-static.mp3",
+      "mp3_bytes": 4021573,
+      "cover": "content/snowsnakes/songs/art/snowflake-static.png",
+      "sha256": "fe52320a113c1dbb4625939245507590c99a0eef379640e08f92d1505b973762"
+    }
+  ]
+}

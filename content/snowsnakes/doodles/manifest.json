@@ -1,0 +1,78 @@
+{
+  "engine": "scripts/doodle_maker.py (SnowSnakes Doodle Maker emulation)",
+  "canvas_logical": "900x700",
+  "palette": [
+    "#003399",
+    "#ff00ff",
+    "#ffcc00",
+    "#e63946",
+    "#ff7f11",
+    "#2ecc71",
+    "#8e44ad",
+    "#6d4c41",
+    "#ff9ecb",
+    "#00ccff",
+    "#ffffff",
+    "#000000"
+  ],
+  "scale": 2,
+  "doodles": [
+    {
+      "slug": "too-cold-to-stop",
+      "title": "Too Cold To Stop \u2014 Snow Snake",
+      "path": "content/snowsnakes/doodles/too-cold-to-stop.png",
+      "bytes": 322228,
+      "sha256": "1a5331f7044b0a423666fdfa9234fcb8edf1b5e1c0a7ff882fa7c4ea147d734e",
+      "tools_used": [
+        "brush",
+        "marker",
+        "spray",
+        "fill",
+        "stamp",
+        "dot",
+        "poly",
+        "rect",
+        "ellipse",
+        "hand_text"
+      ]
+    },
+    {
+      "slug": "snow-cone-season",
+      "title": "Snow Cone Season \u2014 Pumpkin Pete's Lot",
+      "path": "content/snowsnakes/doodles/snow-cone-season.png",
+      "bytes": 317449,
+      "sha256": "ba1ffc6b1d823412e9a4b59f20bceabd3e75132ccca3cfc702650ef0c46dfdd7",
+      "tools_used": [
+        "brush",
+        "marker",
+        "spray",
+        "fill",
+        "stamp",
+        "dot",
+        "poly",
+        "rect",
+        "ellipse",
+        "hand_text"
+      ]
+    },
+    {
+      "slug": "snow-beats-cassette",
+      "title": "Snow Beats \u2014 Cassette Doodle",
+      "path": "content/snowsnakes/doodles/snow-beats-cassette.png",
+      "bytes": 214977,
+      "sha256": "55be5def9ac3868f68d5a3d5b8e9c7d283b58f65eb482292a30ac411027e7381",
+      "tools_used": [
+        "brush",
+        "marker",
+        "spray",
+        "fill",
+        "stamp",
+        "dot",
+        "poly",
+        "rect",
+        "ellipse",
+        "hand_text"
+      ]
+    }
+  ]
+}
