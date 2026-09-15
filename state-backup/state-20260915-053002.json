@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-15T03:50:01.290353+00:00",
+ "generated_at": "2026-09-15T05:30:01.469447+00:00",
  "note": "Sanitized continuity snapshot. Sensitive fields masked (***). Restore: this JSON documents what was in flight so work can resume after any disruption.",
  "tables": {
   "agents": {
@@ -15546,27 +15546,27 @@
    "rows": [
     {
      "name": "browse_log",
-     "seq": 713
+     "seq": 719
     },
     {
      "name": "prospect_searches",
-     "seq": 56
+     "seq": 59
     },
     {
      "name": "social_drafts",
-     "seq": 116
+     "seq": 131
     },
     {
      "name": "content_pieces",
-     "seq": 76
+     "seq": 90
     },
     {
      "name": "contacts",
-     "seq": 81
+     "seq": 85
     },
     {
      "name": "landing_pages",
-     "seq": 32
+     "seq": 36
     },
     {
      "name": "payment_links",
@@ -18971,7 +18971,7 @@
   },
   "contacts": {
    "table": "contacts",
-   "count": 78,
+   "count": 80,
    "rows": [
     {
      "id": 1,
@@ -19159,14 +19159,14 @@
      "name": "",
      "company": "Louisville's Best Locally Owned Restaurants",
      "phone": "(502) 176-4828",
-     "status": "lead",
+     "status": "churned",
      "source": "prospect_campaign",
      "notes": "***",
-     "tags": "junk-delete-pending,scraper-artifact",
+     "tags": "junk-delete-pending,scraper-artifact,do-not-email,exclude-from-outreach,seleena-verified-junk",
      "custom_fields": "{}",
      "created_by": "Mark",
      "created_at": "2026-08-23 23:38:52",
-     "updated_at": "2026-08-30 02:05:41"
+     "updated_at": "2026-09-15 05:06:26"
     },
     {
      "id": 14,
@@ -19174,14 +19174,14 @@
      "name": "",
      "company": "Louisville's Best Locally Owned Restaurants",
      "phone": "(502) 176-4828",
-     "status": "lead",
+     "status": "churned",
      "source": "prospect_campaign",
-     "notes": "JUNK - scraper artifact, fake email (your@email.com), directory listing not a real prospect. Do not contact.\nJUNK FLAGGED FOR DELETION (2026-08-24): scraper artifact, fake email your@email.com, directory listing not a real prospect. Do NOT contact. Requested removal from CRM.",
-     "tags": "junk-delete-pending,scraper-artifact",
+     "notes": "JUNK - scraper artifact, fake email (your@email.com), directory listing not a real prospect. Do not contact.\nJUNK FLAGGED FOR DELETION (2026-08-24): scraper artifact, fake email your@email.com, directory listing not a real prospect. Do NOT contact. Requested removal from CRM.\nCONFIRMED JUNK 2026 (Seleena). Scraper artifact \u2014 placeholder email (your@email.com) from a directory page. Not a real prospect. Status set to churned + do-not-email so it can never enter an outreach send. Safe to delete from HubSpot.",
+     "tags": "junk-delete-pending,scraper-artifact,do-not-email,exclude-from-outreach,seleena-verified-junk",
      "custom_fields": "{}",
      "created_by": "Mark",
      "created_at": "2026-08-23 23:38:52",
-     "updated_at": "2026-08-30 02:05:41"
+     "updated_at": "2026-09-15 05:06:26"
     },
     {
      "id": 15,
@@ -19204,14 +19204,14 @@
      "name": "",
      "company": "7 Best Louisville, KY Electricians | Expertise.com",
      "phone": "(877) 645-5747",
-     "status": "lead",
+     "status": "churned",
      "source": "prospect_campaign",
-     "notes": "JUNK - Expertise.com is a directory site, not a prospect. Do not contact.\nJUNK FLAGGED FOR DELETION (2026-08-24): Expertise.com is a directory site, not a prospect. Do NOT contact. Requested removal from CRM.",
-     "tags": "junk-delete-pending,directory",
+     "notes": "JUNK - Expertise.com is a directory site, not a prospect. Do not contact.\nJUNK FLAGGED FOR DELETION (2026-08-24): Expertise.com is a directory site, not a prospect. Do NOT contact. Requested removal from CRM.\nCONFIRMED JUNK 2026 (Seleena). Expertise.com is a directory/listicle site, not a prospect. info@expertise.com is a general inbox, not a buyer. Status set to churned + do-not-email. Safe to delete from HubSpot.",
+     "tags": "junk-delete-pending,directory,do-not-email,exclude-from-outreach,seleena-verified-junk",
      "custom_fields": "{}",
      "created_by": "Seleena",
      "created_at": "2026-08-23 23:44:02",
-     "updated_at": "2026-08-30 02:05:41"
+     "updated_at": "2026-09-15 05:06:26"
     },
     {
      "id": 17,
@@ -20142,6 +20142,36 @@
      "created_by": "Seleena",
      "created_at": "2026-09-12 05:21:01",
      "updated_at": "2026-09-15 03:39:32"
+    },
+    {
+     "id": 82,
+     "email": "***",
+     "name": "",
+     "company": "Garage Door Repair Louisville, KY",
+     "phone": "(555) 555-5555",
+     "status": "churned",
+     "source": "prospect_campaign",
+     "notes": "Found via prospect campaign: garage door repair garage door Louisville\nCONFIRMED JUNK (Seleena). email john.doe@example.com is a PLACEHOLDER \u2014 classic scraper artifact. Company field is a scraped page title, not a business. Never contact. Cause: prospect_campaign auto-adds without validating for placeholder emails, known fake numbers (555) or directory domains.",
+     "tags": "junk-delete-pending,placeholder-email,scraper-artifact,do-not-email,exclude-from-outreach,seleena-verified-junk",
+     "custom_fields": "{}",
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:24:25",
+     "updated_at": "2026-09-15 05:25:02"
+    },
+    {
+     "id": 85,
+     "email": "***",
+     "name": "Derby Strong Garage Doors \u2014 Owner",
+     "company": "Derby Strong Garage Doors",
+     "phone": "(502) 619-5198",
+     "status": "prospect",
+     "source": "prospect_campaign",
+     "notes": "Found via prospect campaign: garage door repair garage door Louisville\nREAL PROSPECT \u2014 verified (Seleena). Louisville KY garage door company. Domain-matched email service@derbystronggaragedoors.com, main phone (502) 619-5198, alt (859) 306-0782. Website: derbystronggaragedoors.com. Fit: website + local SEO. DIAL-FIRST lead \u2014 email tooling still down, phone works today.",
+     "tags": "zdot,local-business,garage-door,website,seo,tier-1-close-sprint,dial-first,louisville-ky,verified-phone,source-prospect-campaign",
+     "custom_fields": "{}",
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:24:31",
+     "updated_at": "2026-09-15 05:25:15"
     }
    ]
   },
@@ -20184,7 +20214,7 @@
   },
   "landing_pages": {
    "table": "landing_pages",
-   "count": 32,
+   "count": 36,
    "rows": [
     {
      "id": 1,
@@ -20464,14 +20494,14 @@
     },
     {
      "id": 24,
-     "title": "MilkUps \u2014 The Band Behind the Music",
+     "title": "MilkUps \u2014 Vol. 1",
      "slug": "milkups",
-     "html_content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>MilkUps \u2014 The Band Behind the Music</title>\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n         background: #0a0a0a; color: #e0e0e0; line-height: 1.6; }\n  .hero { text-align: center; padding: 80px 20px 60px;\n           background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }\n  .hero h1 { font-size: 2.5rem; font-weight: 700; color: #fff;\n              max-width: 700px; margin: 0 auto 16px; }\n  .hero .subtitle { font-size: 1.2rem; color: #94a3b8; max-width: 600px;\n                     margin: 0 auto 32px; }\n  \n  .section { max-width: 720px; margin: 0 auto; padding: 48px 24px; }\n  .section h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px;\n                 border-bottom: 2px solid #1e40af; padding-bottom: 8px; display: inline-block; }\n  .section p { margin-bottom: 16px; color: #cbd5e1; }\n  .section ul { margin: 16px 0 16px 24px; color: #cbd5e1; }\n  .section li { margin-bottom: 8px; }\n  .section strong { color: #fff; }\n  .cta-bar { text-align: center; padding: 48px 20px;\n              background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }\n  .cta-bar .btn { display: inline-block; background: #2563eb; color: #fff;\n                   padding: 16px 40px; border-radius: 8px; font-size: 1.1rem;\n                   font-weight: 600; text-decoration: none;\n                   transition: background 0.2s; }\n  .cta-bar .btn:hover { background: #1d4ed8; }\n  .cta-bar .sub { color: #64748b; margin-top: 12px; font-size: 0.9rem; }\n  .footer { text-align: center; padding: 32px; color: #475569; font-size: 0.8rem; }\n</style>\n</head>\n<body>\n<div class=\"hero\">\n  <h1>MilkUps \u2014 the band behind the music.</h1>\n  <div class=\"subtitle\">Independent band. Original soundtracks. BeatThread-powered beats \u2014 and your voice could be next.</div>\n  \n</div>\n<div class=\"section\"><h2>The Band</h2>\n<p><strong>MilkUps</strong> \u2014 the independent band behind all the music. If you've heard a beat on Spread Da Word, SnowSnakes, or anywhere in the Zerric-verse, that's us.</p>\n\n<p>We make the soundtracks. We drop the loops. We're just getting started.</p></div>\n<div class=\"section\"><h2>\ud83c\udfa7 Hear the Music</h2>\n<p>Our beats live on <strong>BeatThread</strong> \u2014 the community where producers drop beats and the crowd crowns the best one.</p>\n\n<p>\ud83d\udc49 <strong>Tap here to open our BeatThread app:</strong></p>\n<p><strong>https://beatthread.netlify.app/app</strong></p>\n\n<p>*Full player + downloads coming soon.*</p></div>\n<div class=\"section\"><h2>\ud83c\udfa4 Remix Challenge</h2>\n<p>Every beat we drop is an open invitation:</p>\n\n<ul>\n<li>Pick a MilkUps beat</li>\n<li>Record your own lyrics over it</li>\n<li>Submit your version to the thread</li>\n<li>The crowd votes the best one to the top</li>\n</ul>\n\n<p>Your voice could end up on a MilkUps release. \ud83e\udd5b</p></div>\n<div class=\"section\"><h2>\ud83e\udd5b Milk Carton Club</h2>\n<p>Join the fan club for early drops, behind-the-scenes, and first dibs on remix challenges.</p>\n\n<ul>\n<li>Early access to new beats</li>\n<li>Vote in remix battles</li>\n<li>Fan club only merch (coming)</li>\n</ul></div>\n<div class=\"section\"><h2>\ud83c\udfac From the Spread Da Word Universe</h2>\n<p>Hear more of our music on the series \u2014 the soundtracks are ours:</p>\n<p><strong>Spread Da Word</strong> \u2192 *Hear more from MilkUps* \ud83c\udfb5</p></div>\n<div class=\"cta-bar\">\n  <a class=\"btn\" href=\"#\">Open BeatThread App</a>\n  <div class=\"sub\">Free to join \u00b7 Independent band \u00b7 Part of the zerric.xyz family</div>\n</div>\n<div class=\"footer\">&copy; 2024 Z Dot Team. All rights reserved.</div>\n</body>\n</html>\n",
+     "html_content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>MilkUps \u2014 Vol. 1</title>\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n         background: #0a0a0a; color: #e0e0e0; line-height: 1.6; }\n  .hero { text-align: center; padding: 80px 20px 60px;\n           background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }\n  .hero h1 { font-size: 2.5rem; font-weight: 700; color: #fff;\n              max-width: 700px; margin: 0 auto 16px; }\n  .hero .subtitle { font-size: 1.2rem; color: #94a3b8; max-width: 600px;\n                     margin: 0 auto 32px; }\n  \n  .section { max-width: 720px; margin: 0 auto; padding: 48px 24px; }\n  .section h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px;\n                 border-bottom: 2px solid #1e40af; padding-bottom: 8px; display: inline-block; }\n  .section p { margin-bottom: 16px; color: #cbd5e1; }\n  .section ul { margin: 16px 0 16px 24px; color: #cbd5e1; }\n  .section li { margin-bottom: 8px; }\n  .section strong { color: #fff; }\n  .cta-bar { text-align: center; padding: 48px 20px;\n              background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }\n  .cta-bar .btn { display: inline-block; background: #2563eb; color: #fff;\n                   padding: 16px 40px; border-radius: 8px; font-size: 1.1rem;\n                   font-weight: 600; text-decoration: none;\n                   transition: background 0.2s; }\n  .cta-bar .btn:hover { background: #1d4ed8; }\n  .cta-bar .sub { color: #64748b; margin-top: 12px; font-size: 0.9rem; }\n  .footer { text-align: center; padding: 32px; color: #475569; font-size: 0.8rem; }\n</style>\n</head>\n<body>\n<div class=\"hero\">\n  <h1>Ten Songs About Staying Out Too Late</h1>\n  <div class=\"subtitle\">MilkUps \u2014 Vol. 1. Loud guitars, a rhythm section that won't sit still, and a singer who means it. Side A is for the room. Side B is for the walk home.</div>\n  \n</div>\n<div class=\"section\"><h2>VOL. 1 \u2014 OUT NOW</h2>\n<p>Ten songs. No filler, no intro track, no patience for either.</p>\n\n<p><strong>The record starts loud and gets quieter, which is the wrong order</strong>, and we did it that way on purpose. Side A is for the room. Side B is for the walk home.</p>\n\n<ul>\n<li><strong>Cold Open</strong> \u2014 1:08</li>\n<li><strong>Milk Money</strong> \u2014 3:22</li>\n<li><strong>Loud, Weird, and On Purpose</strong> \u2014 3:04</li>\n<li><strong>Kitchen Floor</strong> \u2014 4:11</li>\n<li><strong>Bad Weather Friend</strong> \u2014 3:37</li>\n<li><strong>Ceiling Fan Blues</strong> \u2014 2:59</li>\n<li><strong>Somebody's Birthday</strong> \u2014 3:45</li>\n<li><strong>Off the Rails</strong> \u2014 3:18</li>\n<li><strong>Last Call, First Light</strong> \u2014 4:33</li>\n<li><strong>Untitled (Encore)</strong> \u2014 5:02</li>\n</ul></div>\n<div class=\"section\"><h2>THE PART WHERE WE EXPLAIN OURSELVES</h2>\n<p>MilkUps started as a joke that went on too long, which is how most good bands start.</p>\n\n<p>We're three people who kept showing up on Tuesday nights with songs nobody asked for. Some of them turned out to be good. The ones that turned out to be *very* good are on this record. The rest are in a folder, where they will stay.</p>\n\n<p><strong>What it sounds like:</strong> loud guitars, a rhythm section that refuses to sit still, and a singer who means every word even when the words are stupid. There's a horn on two tracks. There's a mistake on track six that we kept because we couldn't play it right again.</p>\n\n<p>That's not a gimmick. That's just what happened.</p></div>\n<div class=\"section\"><h2>SIDE A / SIDE B</h2>\n<p><strong>Side A</strong> is the part you play for other people. <strong>\"Milk Money,\" \"Loud, Weird, and On Purpose,\"</strong> and <strong>\"Off the Rails\"</strong> are the ones that make a room lean in. They're built to be played at a volume the neighbors have opinions about.</p>\n\n<p><strong>Side B</strong> is the part you play alone. <strong>\"Kitchen Floor,\" \"Bad Weather Friend,\"</strong> and <strong>\"Last Call, First Light\"</strong> are about the specific sadness of a good night ending. They're slower, they're longer, and they're the ones people message us about.</p>\n\n<p>Start with Side A. End up on Side B. That's the intended route.</p></div>\n<div class=\"section\"><h2>WHERE TO HEAR IT</h2>\n<p>Streaming everywhere. Buy it direct if you want the version where we actually get paid.</p>\n\n<ul>\n<li><strong>Stream:</strong> all major platforms</li>\n<li><strong>Direct:</strong> get the record, the liner notes, and the two songs that didn't make the cut</li>\n<li><strong>Live:</strong> we play small rooms on purpose. Dates below.</li>\n</ul></div>\n<div class=\"section\"><h2>SHOWS</h2>\n<p>Small rooms, loud bands. No support acts we don't like.</p>\n\n<ul>\n<li><strong>Fri \u2014 Doors 8 / Music 9</strong> \u2014 club show, limited capacity</li>\n<li><strong>Sat \u2014 Doors 7 / Music 8</strong> \u2014 all ages, earplugs provided free at the door</li>\n<li><strong>Sun \u2014 Doors 6 / Music 7</strong> \u2014 acoustic, seated, one set, no encore (we're lying about the encore)</li>\n</ul>\n\n<p>Tickets at the door or in advance. We'd rather you came than that we sold out.</p></div>\n<div class=\"section\"><h2>GET THE RECORD + LINER NOTES</h2>\n<p>Drop your email and we'll send the record, the liner notes, and the two tracks that got cut. We'll also tell you when we're playing near you, which is the only other thing we'll ever email you about.</p></div>\n<div class=\"section\"><h2>ONE LAST THING</h2>\n<p>If you like it, tell one person. That's the entire marketing plan. We're a small band and we'd rather have a hundred people who actually listen than ten thousand who skip.</p>\n\n<p>Tell one person. Then come to a show and tell us you did.</p></div>\n<div class=\"cta-bar\">\n  <a class=\"btn\" href=\"#\">Get the Record</a>\n  <div class=\"sub\">Ten tracks, liner notes, plus the two that didn't make it.</div>\n</div>\n<div class=\"footer\">&copy; 2024 Z Dot Team. All rights reserved.</div>\n</body>\n</html>\n",
      "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/landing_pages/milkups.html",
      "status": "active",
-     "created_by": "Meta",
+     "created_by": "Seleena",
      "created_at": "2026-08-25 05:25:16",
-     "updated_at": "2026-08-25 05:31:50",
+     "updated_at": "2026-09-15 05:25:35",
      "live_url": ""
     },
     {
@@ -20569,12 +20599,60 @@
      "created_at": "2026-09-12 04:49:23",
      "updated_at": "2026-09-12 04:49:23",
      "live_url": ""
+    },
+    {
+     "id": 33,
+     "title": "Food Truck Frenzy \u2014 High Score Challenge",
+     "slug": "food-truck-frenzy-challenge",
+     "html_content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Food Truck Frenzy \u2014 High Score Challenge</title>\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n         background: #0a0a0a; color: #e0e0e0; line-height: 1.6; }\n  .hero { text-align: center; padding: 80px 20px 60px;\n           background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }\n  .hero h1 { font-size: 2.5rem; font-weight: 700; color: #fff;\n              max-width: 700px; margin: 0 auto 16px; }\n  .hero .subtitle { font-size: 1.2rem; color: #94a3b8; max-width: 600px;\n                     margin: 0 auto 32px; }\n  \n  .section { max-width: 720px; margin: 0 auto; padding: 48px 24px; }\n  .section h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px;\n                 border-bottom: 2px solid #1e40af; padding-bottom: 8px; display: inline-block; }\n  .section p { margin-bottom: 16px; color: #cbd5e1; }\n  .section ul { margin: 16px 0 16px 24px; color: #cbd5e1; }\n  .section li { margin-bottom: 8px; }\n  .section strong { color: #fff; }\n  .cta-bar { text-align: center; padding: 48px 20px;\n              background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }\n  .cta-bar .btn { display: inline-block; background: #2563eb; color: #fff;\n                   padding: 16px 40px; border-radius: 8px; font-size: 1.1rem;\n                   font-weight: 600; text-decoration: none;\n                   transition: background 0.2s; }\n  .cta-bar .btn:hover { background: #1d4ed8; }\n  .cta-bar .sub { color: #64748b; margin-top: 12px; font-size: 0.9rem; }\n  .footer { text-align: center; padding: 32px; color: #475569; font-size: 0.8rem; }\n</style>\n</head>\n<body>\n<div class=\"hero\">\n  <h1>Think You Can Beat the High Score?</h1>\n  <div class=\"subtitle\">Food Truck Frenzy is open. Two games, one leaderboard, and a crown that changes hands every week. Play free in your browser \u2014 no download, no signup wall to see the scores.</div>\n  \n</div>\n<div class=\"section\"><h2>The Challenge</h2>\n<p>Every week the leaderboard resets and the crown goes to whoever is holding the top score. That's it. No paywall, no levels to grind, no excuses.</p>\n\n<ul>\n<li><strong>Play</strong> \u2014 jump in, learn it in 30 seconds</li>\n<li><strong>Score</strong> \u2014 screenshot it before you forget it</li>\n<li><strong>Share</strong> \u2014 post it and tag us so we can put you on the board</li>\n</ul></div>\n<div class=\"section\"><h2>Why People Are Playing</h2>\n<ul>\n<li><strong>It's actually good</strong> \u2014 the kind of game you say you'll play once and then play forty times</li>\n<li><strong>The scores are yours</strong> \u2014 we only publish a score if you post it yourself</li>\n<li><strong>It's a real competition</strong> \u2014 your friends can see your number and they will absolutely try to beat it</li>\n</ul></div>\n<div class=\"section\"><h2>How To Get On The Board</h2>\n<p>1. Register so your score can be tracked</p>\n<p>2. Play Food Truck Frenzy and set a number you're proud of</p>\n<p>3. Post it with #HighScoreChallenge and tag us</p>\n<p>4. Watch the top spot change hands \u2014 and take it back</p></div>\n<div class=\"section\"><h2>The Hall of Fame</h2>\n<p>Weekly top scorers get named on this page and in our community posts. Bragging rights only. Bragging rights are enough.</p></div>\n<div class=\"section\"><h2>Questions</h2>\n<p><strong>Is it free?</strong> Yes.</p>\n<p><strong>Do I have to sign up to play?</strong> You can play without it, but registration is what gets your score on the board.</p>\n<p><strong>What if someone cheats?</strong> We'll notice. It's a small leaderboard and we read it.</p>\n<p><strong>Can I share someone else's score?</strong> Please don't. The whole thing works because the numbers are real.</p></div>\n<div class=\"cta-bar\">\n  <a class=\"btn\" href=\"#\">Register &amp; Play Free</a>\n  <div class=\"sub\">Free to play. Your score only goes public if you post it.</div>\n</div>\n<div class=\"footer\">&copy; 2024 Z Dot Team. All rights reserved.</div>\n</body>\n</html>\n",
+     "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/landing_pages/food-truck-frenzy-challenge.html",
+     "status": "active",
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:06:20",
+     "updated_at": "2026-09-15 05:06:20",
+     "live_url": ""
+    },
+    {
+     "id": 34,
+     "title": "SnowSnakes Sponsorship \u2014 Media Kit",
+     "slug": "snowsnakes-sponsor-kit",
+     "html_content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>SnowSnakes Sponsorship \u2014 Media Kit</title>\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n         background: #0a0a0a; color: #e0e0e0; line-height: 1.6; }\n  .hero { text-align: center; padding: 80px 20px 60px;\n           background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }\n  .hero h1 { font-size: 2.5rem; font-weight: 700; color: #fff;\n              max-width: 700px; margin: 0 auto 16px; }\n  .hero .subtitle { font-size: 1.2rem; color: #94a3b8; max-width: 600px;\n                     margin: 0 auto 32px; }\n  \n  .section { max-width: 720px; margin: 0 auto; padding: 48px 24px; }\n  .section h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px;\n                 border-bottom: 2px solid #1e40af; padding-bottom: 8px; display: inline-block; }\n  .section p { margin-bottom: 16px; color: #cbd5e1; }\n  .section ul { margin: 16px 0 16px 24px; color: #cbd5e1; }\n  .section li { margin-bottom: 8px; }\n  .section strong { color: #fff; }\n  .cta-bar { text-align: center; padding: 48px 20px;\n              background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }\n  .cta-bar .btn { display: inline-block; background: #2563eb; color: #fff;\n                   padding: 16px 40px; border-radius: 8px; font-size: 1.1rem;\n                   font-weight: 600; text-decoration: none;\n                   transition: background 0.2s; }\n  .cta-bar .btn:hover { background: #1d4ed8; }\n  .cta-bar .sub { color: #64748b; margin-top: 12px; font-size: 0.9rem; }\n  .footer { text-align: center; padding: 32px; color: #475569; font-size: 0.8rem; }\n</style>\n</head>\n<body>\n<div class=\"hero\">\n  <h1>Put Your Brand on the Leaderboard Everyone Is Trying to Beat</h1>\n  <div class=\"subtitle\">SnowSnakes runs a free browser arcade with a live high-score challenge. Sponsors get named inside the competition \u2014 not bolted on the side of it. Here's how partnering works.</div>\n  \n</div>\n<div class=\"section\"><h2>Who You're Reaching</h2>\n<p>SnowSnakes is a browser-based arcade with a live leaderboard and a weekly high-score challenge. Our players are mobile-first, competitive, and they come back daily to defend a number that has their name on it.</p>\n\n<ul>\n<li><strong>Free to play</strong> \u2014 no download, no paywall, no friction</li>\n<li><strong>Repeat visitors</strong> \u2014 a leaderboard is a reason to return, not a one-time click</li>\n<li><strong>Real sharing</strong> \u2014 players post scores voluntarily because the score is *theirs*, which means your brand travels with a genuine screenshot instead of an ad impression</li>\n</ul></div>\n<div class=\"section\"><h2>Sponsorship Formats</h2>\n<ul>\n<li><strong>Presenting Sponsor</strong> \u2014 your name leads the challenge. \"The [Your Brand] High Score Challenge.\"</li>\n<li><strong>Prize Sponsor</strong> \u2014 you provide the weekly prize, we run the leaderboard and the announcement</li>\n<li><strong>In-Game Placement</strong> \u2014 branded elements inside Food Truck Frenzy</li>\n<li><strong>Leaderboard Takeover</strong> \u2014 your branding on the board itself, seen by every player who checks their rank</li>\n<li><strong>Content Partner</strong> \u2014 co-branded posts, giveaways, and challenge weeks with your product as the reward</li>\n</ul></div>\n<div class=\"section\"><h2>What We Handle</h2>\n<ul>\n<li>The game, the leaderboard, and the weekly reset</li>\n<li>Challenge copy, social posts, and community announcement</li>\n<li>Registration and score verification</li>\n<li>Reporting: plays, registrations, score posts, and reach per challenge week</li>\n</ul></div>\n<div class=\"section\"><h2>What We Ask Of You</h2>\n<ul>\n<li>A prize or budget \u2014 nothing exotic</li>\n<li>Logo and a one-line brand description</li>\n<li>Approval turnaround inside 48 hours</li>\n</ul></div>\n<div class=\"section\"><h2>Why Now</h2>\n<p>The Food Truck Frenzy challenge is opening with two games live and a leaderboard that resets weekly. Sponsorship inventory is limited because there is exactly one presenting slot per challenge week. Early partners get named in the launch posts and stay named in the Hall of Fame.</p></div>\n<div class=\"section\"><h2>Contact</h2>\n<p>Reach the team at <strong>snowsnakes@zerric.xyz</strong> and tell us which format you want. We'll send play counts, current reach, and the next three available challenge weeks.</p></div>\n<div class=\"cta-bar\">\n  <a class=\"btn\" href=\"#\">Request the Sponsor Kit</a>\n  <div class=\"sub\">Weekly challenge weeks book one presenting sponsor each.</div>\n</div>\n<div class=\"footer\">&copy; 2024 Z Dot Team. All rights reserved.</div>\n</body>\n</html>\n",
+     "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/landing_pages/snowsnakes-sponsor-kit.html",
+     "status": "active",
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:12:56",
+     "updated_at": "2026-09-15 05:12:56",
+     "live_url": ""
+    },
+    {
+     "id": 35,
+     "title": "Free Dad Joke Vault \u2014 SnowSnakes",
+     "slug": "free-dad-joke-vault",
+     "html_content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Free Dad Joke Vault \u2014 SnowSnakes</title>\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n         background: #0a0a0a; color: #e0e0e0; line-height: 1.6; }\n  .hero { text-align: center; padding: 80px 20px 60px;\n           background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }\n  .hero h1 { font-size: 2.5rem; font-weight: 700; color: #fff;\n              max-width: 700px; margin: 0 auto 16px; }\n  .hero .subtitle { font-size: 1.2rem; color: #94a3b8; max-width: 600px;\n                     margin: 0 auto 32px; }\n  \n  .section { max-width: 720px; margin: 0 auto; padding: 48px 24px; }\n  .section h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px;\n                 border-bottom: 2px solid #1e40af; padding-bottom: 8px; display: inline-block; }\n  .section p { margin-bottom: 16px; color: #cbd5e1; }\n  .section ul { margin: 16px 0 16px 24px; color: #cbd5e1; }\n  .section li { margin-bottom: 8px; }\n  .section strong { color: #fff; }\n  .cta-bar { text-align: center; padding: 48px 20px;\n              background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }\n  .cta-bar .btn { display: inline-block; background: #2563eb; color: #fff;\n                   padding: 16px 40px; border-radius: 8px; font-size: 1.1rem;\n                   font-weight: 600; text-decoration: none;\n                   transition: background 0.2s; }\n  .cta-bar .btn:hover { background: #1d4ed8; }\n  .cta-bar .sub { color: #64748b; margin-top: 12px; font-size: 0.9rem; }\n  .footer { text-align: center; padding: 32px; color: #475569; font-size: 0.8rem; }\n</style>\n</head>\n<body>\n<div class=\"hero\">\n  <h1>50 Dad Jokes That Actually Land</h1>\n  <div class=\"subtitle\">A free collection of dad jokes sorted by situation \u2014 plus the delivery rules that make the difference between a groan and a laugh. Yours for an email.</div>\n  \n</div>\n<div class=\"section\"><h2>Get The Dad Joke Vault \u2014 Free</h2>\n<p>Fifty dad jokes that actually land, sorted by situation \u2014 food, animals, work, and the ones that need a little runway. Plus the delivery rules that separate a real dad joke from a bad joke told apologetically.</p>\n\n<p>Drop your email and it's yours.</p></div>\n<div class=\"section\"><h2>What's Inside</h2>\n<ul>\n<li><strong>50 jokes, organized by occasion</strong> \u2014 the reliable openers, the kid-tested ones, the meeting-escape ones</li>\n<li><strong>The Advanced Class</strong> \u2014 longer setups with bigger payoffs, for when you've got an audience committed</li>\n<li><strong>Delivery rules</strong> \u2014 the five things that make or break a dad joke, including why you should never laugh first</li>\n</ul></div>\n<div class=\"section\"><h2>Why This Is Free</h2>\n<p>Because a good dad joke should spread, and because we like building things people actually want to pass along.</p>\n\n<p>We run SnowSnakes \u2014 simple, competitive browser games with a leaderboard people come back to defend. If you enjoy the jokes, you'll probably enjoy what we're building. That's the whole pitch.</p></div>\n<div class=\"section\"><h2>Does It Cost Anything?</h2>\n<p>No. No card, no trial, no upsell. The Vault is free and it stays free.</p></div>\n<div class=\"section\"><h2>The Fine Print</h2>\n<ul>\n<li>One email. We send you the Vault and occasionally something we think is worth your time.</li>\n<li>Unsubscribe whenever. One click, no guilt.</li>\n<li>We don't sell your address. Ever.</li>\n</ul></div>\n<div class=\"section\"><h2>Questions</h2>\n<p><strong>Do I have to be a dad?</strong> Legally no. Spiritually, it helps.</p>\n<p><strong>Can I forward it?</strong> Please do. Just send them the link.</p>\n<p><strong>What if I already know all these?</strong> Then you should be sending us jokes, not reading ours.</p></div>\n<div class=\"cta-bar\">\n  <a class=\"btn\" href=\"#\">Send Me The Vault</a>\n  <div class=\"sub\">No card. No spam. Unsubscribe anytime.</div>\n</div>\n<div class=\"footer\">&copy; 2024 Z Dot Team. All rights reserved.</div>\n</body>\n</html>\n",
+     "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/landing_pages/free-dad-joke-vault.html",
+     "status": "active",
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:24:26",
+     "updated_at": "2026-09-15 05:24:26",
+     "live_url": ""
+    },
+    {
+     "id": 36,
+     "title": "MilkUps \u2014 The Two That Got Cut",
+     "slug": "milkups-the-cut-room",
+     "html_content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>MilkUps \u2014 The Two That Got Cut</title>\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n         background: #0a0a0a; color: #e0e0e0; line-height: 1.6; }\n  .hero { text-align: center; padding: 80px 20px 60px;\n           background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }\n  .hero h1 { font-size: 2.5rem; font-weight: 700; color: #fff;\n              max-width: 700px; margin: 0 auto 16px; }\n  .hero .subtitle { font-size: 1.2rem; color: #94a3b8; max-width: 600px;\n                     margin: 0 auto 32px; }\n  \n  .section { max-width: 720px; margin: 0 auto; padding: 48px 24px; }\n  .section h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px;\n                 border-bottom: 2px solid #1e40af; padding-bottom: 8px; display: inline-block; }\n  .section p { margin-bottom: 16px; color: #cbd5e1; }\n  .section ul { margin: 16px 0 16px 24px; color: #cbd5e1; }\n  .section li { margin-bottom: 8px; }\n  .section strong { color: #fff; }\n  .cta-bar { text-align: center; padding: 48px 20px;\n              background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }\n  .cta-bar .btn { display: inline-block; background: #2563eb; color: #fff;\n                   padding: 16px 40px; border-radius: 8px; font-size: 1.1rem;\n                   font-weight: 600; text-decoration: none;\n                   transition: background 0.2s; }\n  .cta-bar .btn:hover { background: #1d4ed8; }\n  .cta-bar .sub { color: #64748b; margin-top: 12px; font-size: 0.9rem; }\n  .footer { text-align: center; padding: 32px; color: #475569; font-size: 0.8rem; }\n</style>\n</head>\n<body>\n<div class=\"hero\">\n  <h1>There Were Twelve. We Kept Ten.</h1>\n  <div class=\"subtitle\">Same Room, Different Night and Not Tonight \u2014 two songs that exist nowhere but here, with liner notes on why they didn't make the record and why that isn't an insult.</div>\n  \n</div>\n<div class=\"section\"><h2>Two Songs That Exist Nowhere Else</h2>\n<p>There were twelve songs. Vol. 1 has ten.</p>\n\n<p>The other two are here \u2014 and only here. Not on streaming, not on the record, not anywhere you can find them without buying direct.</p>\n\n<ul>\n<li><strong>Same Room, Different Night</strong> \u2014 4:02. Our favorite of the two, and the one we couldn't find a place for.</li>\n<li><strong>Not Tonight</strong> \u2014 3:26. The shortest thing we've recorded, and the most stubborn.</li>\n</ul>\n\n<p>Both come with full liner notes: how they were written, why they got cut, and what to listen for.</p></div>\n<div class=\"section\"><h2>Why They Got Cut (And Why That's Not an Insult)</h2>\n<p>These two aren't bad. That was never the problem. They were *fine* \u2014 and Vol. 1 is a ten-song record that's too short to carry anything that isn't fighting for its place.</p>\n\n<p>So we cut them. Not because they failed, but because they didn't argue.</p>\n\n<p><strong>Same Room, Different Night</strong> is four minutes that feels like five. The song is right, the tempo is wrong, and three other tempos were worse.</p>\n\n<p><strong>Not Tonight</strong> was the most instantly likeable thing we'd written, which turned out to be a problem. On a record that's trying to earn its loud parts, an easy three-minute favorite undercuts everything around it.</p>\n\n<p>We knew within a week it was getting cut. We also knew within a week it was going on Vol. 2.</p></div>\n<div class=\"section\"><h2>What You Get With Direct Purchase</h2>\n<ul>\n<li><strong>The full ten-song record</strong> \u2014 Vol. 1, with the deliberate mistake on track six intact</li>\n<li><strong>The complete liner notes</strong> \u2014 track by track, plus credits and how the record actually happened</li>\n<li><strong>Both cut tracks</strong> \u2014 with their own liner notes, which exist nowhere else</li>\n<li><strong>Every future update</strong> \u2014 including when Vol. 2 lands and which of these two makes it</li>\n</ul>\n\n<p>Direct is how a small band actually gets paid. Streaming pays us a fraction of a fraction. Buying direct means you get something real and we get to keep the room.</p></div>\n<div class=\"section\"><h2>Which One Goes On Vol. 2</h2>\n<p>We're still not saying. It's not the one you think.</p>\n\n<p>There's a third song already written that none of you have heard, and it's better than both of these. That's the only reason we're comfortable cutting two songs this good.</p></div>\n<div class=\"section\"><h2>The Ask</h2>\n<p>It's the same as it's always been, and it's small.</p>\n\n<p><strong>Tell one person.</strong> Not a post, not a playlist add. One person \u2014 send them a song and say \"this one.\"</p>\n\n<p>That's how a small band becomes a real one. Not through reach. Through people who actually listen.</p></div>\n<div class=\"section\"><h2>Questions</h2>\n<p><strong>Is this on streaming?</strong> No. Direct only. A bonus track on Spotify isn't a bonus, it's just a track.</p>\n<p><strong>Do I need to buy Vol. 1 first?</strong> The cut tracks come with the direct purchase, so yes \u2014 they're the bonus, not a separate thing.</p>\n<p><strong>Can I get these on vinyl?</strong> Not yet. Talk to us at a show.</p>\n<p><strong>Which one's on Vol. 2?</strong> Ask us after a set. We might tell you. We probably won't.</p></div>\n<div class=\"cta-bar\">\n  <a class=\"btn\" href=\"#\">Get the Record + Both Cuts</a>\n  <div class=\"sub\">Direct purchase includes Vol. 1, full liner notes, and both cut tracks.</div>\n</div>\n<div class=\"footer\">&copy; 2024 Z Dot Team. All rights reserved.</div>\n</body>\n</html>\n",
+     "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/landing_pages/milkups-the-cut-room.html",
+     "status": "active",
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:26:48",
+     "updated_at": "2026-09-15 05:26:48",
+     "live_url": ""
     }
    ]
   },
   "social_drafts": {
    "table": "social_drafts",
-   "count": 116,
+   "count": 131,
    "rows": [
     {
      "id": 1,
@@ -22083,6 +22161,201 @@
      "created_at": "2026-09-15 03:39:20",
      "updated_at": "2026-09-15 03:39:20",
      "published_id": ""
+    },
+    {
+     "id": 117,
+     "platform": "instagram",
+     "content": "\ud83d\ude9a FOOD TRUCK FRENZY IS OPEN \ud83d\ude9a\n\nTwo games. One leaderboard. Zero mercy.\n\nHere's the challenge:\n1\ufe0f\u20e3 Play Food Truck Frenzy\n2\ufe0f\u20e3 Screenshot your high score\n3\ufe0f\u20e3 Share it and tag us\n\nHighest score this week takes the crown \u2014 and everyone in our sphere gets to watch you take it. Then they get to try to take it from you.\n\nLink in bio. Bring your appetite and your reflexes. \ud83c\udf54\ud83d\udd25",
+     "media_urls": "",
+     "hashtags": "FoodTruckFrenzy,SnowSnakes,HighScoreChallenge,ArcadeGame,GameNight,BeatMyScore",
+     "status": "draft",
+     "scheduled_for": null,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:06:20",
+     "updated_at": "2026-09-15 05:06:20",
+     "published_id": ""
+    },
+    {
+     "id": 118,
+     "platform": "facebook",
+     "content": "We built a game. Then we built a second one. Then we made them compete for your attention.\n\nFOOD TRUCK FRENZY \u2014 the high score challenge is now open.\n\nHere's how it works:\n\ud83c\udf54 Play the game \u2014 free, browser-based, no download\n\ud83c\udfc6 Post your high score in the comments\n\ud83d\udd25 Whoever beats the top score gets the crown for the week\n\nTag someone who talks a big game. Let's find out.\n\nPlay now: snowsnakes.zerric.xyz",
+     "media_urls": "",
+     "hashtags": "FoodTruckFrenzy,SnowSnakes,HighScoreChallenge,CommunityChallenge,PlayToWin",
+     "status": "draft",
+     "scheduled_for": null,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:06:20",
+     "updated_at": "2026-09-15 05:06:20",
+     "published_id": ""
+    },
+    {
+     "id": 119,
+     "platform": "twitter",
+     "content": "Food Truck Frenzy is LIVE.\n\nTwo games. One leaderboard.\n\nPlay \u2192 score \u2192 screenshot \u2192 tag us. Top score this week gets the crown.\n\nBeat it: snowsnakes.zerric.xyz",
+     "media_urls": "",
+     "hashtags": "FoodTruckFrenzy,SnowSnakes,HighScoreChallenge,IndieGame,PlayNow",
+     "status": "draft",
+     "scheduled_for": null,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:06:25",
+     "updated_at": "2026-09-15 05:06:25",
+     "published_id": ""
+    },
+    {
+     "id": 120,
+     "platform": "facebook",
+     "content": "What do you call a fake noodle?\n\nAn impasta.\n\nThat's it. That's the joke. You're going to repeat it today, and someone's going to groan, and that's a win.\n\nWe put 50 of these in a free vault \u2014 sorted by situation, with the delivery rules that make them actually land.\n\nFree, no card: [link]",
+     "media_urls": "",
+     "hashtags": "DadJokes,FreeDownload,DadLife,Humor",
+     "status": "draft",
+     "scheduled_for": null,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:24:40",
+     "updated_at": "2026-09-15 05:24:40",
+     "published_id": ""
+    },
+    {
+     "id": 121,
+     "platform": "twitter",
+     "content": "A man walked into a library and asked for books about paranoia.\n\nThe librarian whispered, \"They're right behind you.\"\n\n50 dad jokes. Sorted by situation. Free \u2014 no card, no catch.\n\n\u2192 [link]",
+     "media_urls": "",
+     "hashtags": "DadJokes,DadLife,FreeDownload,Humor",
+     "status": "draft",
+     "scheduled_for": null,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:24:40",
+     "updated_at": "2026-09-15 05:24:40",
+     "published_id": ""
+    },
+    {
+     "id": 122,
+     "platform": "instagram",
+     "content": "Most people who \"can't tell jokes\" are just telling them apologetically.\n\nHere are the five rules that fix it \ud83d\udc47\n\n1\ufe0f\u20e3 Commit to the setup. A dad joke told with an apology is just a bad joke.\n2\ufe0f\u20e3 Never laugh first. If you crack up at your own setup, you've spent the punchline.\n3\ufe0f\u20e3 Let it land badly. The groan IS the payoff. Don't rescue it.\n4\ufe0f\u20e3 Move on immediately. Say it, one second of eye contact, change the subject. That's the kill shot.\n5\ufe0f\u20e3 Have a second one loaded. One joke is a comment. Two is a bit. Three is a reputation.\n\nWe put 50 dad jokes + all five rules in a free vault. Sorted by situation \u2014 food, animals, work, and the long-setup ones for when you've got the room.\n\nLink in bio. No card, no catch. \ud83e\udd41",
+     "media_urls": "",
+     "hashtags": "DadJokes,DadLife,HumorTips,FreeDownload,DadHumor",
+     "status": "draft",
+     "scheduled_for": null,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:24:40",
+     "updated_at": "2026-09-15 05:24:40",
+     "published_id": ""
+    },
+    {
+     "id": 123,
+     "platform": "linkedin",
+     "content": "The groan is the point.\n\nA dad joke that makes you laugh is a good joke. A dad joke that makes you roll your eyes \u2014 and then repeat it to someone else an hour later \u2014 is a great joke.\n\nIt moved. That's what comedy is supposed to do.\n\n50 of them, free, sorted by situation. Link in comments.\n\nWhat's your go-to? Drop it below. \ud83d\udc47",
+     "media_urls": "",
+     "hashtags": "DadJokes,DadLife,Humor,Community",
+     "status": "draft",
+     "scheduled_for": null,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:24:40",
+     "updated_at": "2026-09-15 05:24:40",
+     "published_id": ""
+    },
+    {
+     "id": 124,
+     "platform": "instagram",
+     "content": "Vol. 1 is out.\n\nTen songs. Mostly first take. Sequenced the wrong way round on purpose \u2014 it starts loud and gets quieter, because Side A is for the room and Side B is for the walk home.\n\nThere's a mistake on track six. We tried to fix it eleven times and the wrong version was better. So it's staying.\n\nStreaming everywhere. Direct gets you the liner notes and the two songs that didn't make it.\n\nmilkupa.netlify.app",
+     "media_urls": "",
+     "hashtags": "MilkUps,NewMusic,Vol1,IndieMusic,DebutAlbum",
+     "status": "draft",
+     "scheduled_for": null,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:25:47",
+     "updated_at": "2026-09-15 05:25:47",
+     "published_id": ""
+    },
+    {
+     "id": 125,
+     "platform": "facebook",
+     "content": "MilkUps \u2014 Vol. 1 is out today.\n\nTen songs about staying out too late. Recorded in a borrowed room on Tuesday nights, mostly first take, because we didn't have the patience or the money to do it any other way.\n\nSequenced backwards from convention: it opens loud and closes quiet.\n\nSide A \u2014 Milk Money / Loud, Weird, and On Purpose / Off the Rails \u2014 is the part you play for other people.\n\nSide B \u2014 Kitchen Floor / Bad Weather Friend / Last Call, First Light \u2014 is the part you play alone.\n\nStart at the top. End up on Side B. That's the intended route.\n\nStreaming everywhere. Direct gets you the liner notes and the two tracks that got cut.\n\nOne ask: tell one person. Not a post \u2014 one person. That's the whole plan.",
+     "media_urls": "",
+     "hashtags": "MilkUps,NewMusic,Vol1,IndieMusic,DebutAlbum,NewMusicFriday",
+     "status": "draft",
+     "scheduled_for": null,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:25:47",
+     "updated_at": "2026-09-15 05:25:47",
+     "published_id": ""
+    },
+    {
+     "id": 126,
+     "platform": "threads",
+     "content": "there's a mistake on track six\n\nwe tried to fix it eleven times\n\nthe wrong version was better so we kept it\n\nVol. 1 out now",
+     "media_urls": "",
+     "hashtags": "MilkUps,NewMusic,Vol1",
+     "status": "draft",
+     "scheduled_for": null,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:25:47",
+     "updated_at": "2026-09-15 05:25:47",
+     "published_id": ""
+    },
+    {
+     "id": 127,
+     "platform": "twitter",
+     "content": "We made an album the wrong way.\n\nStarts loud, ends quiet. Nothing workshopped. A trumpet on track 7 because a friend showed up with one.\n\nAnd a mistake on track 6 we kept on purpose.\n\nVol. 1. Out now.",
+     "media_urls": "",
+     "hashtags": "MilkUps,NewMusic,Vol1,IndieBand",
+     "status": "draft",
+     "scheduled_for": null,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:25:50",
+     "updated_at": "2026-09-15 05:25:50",
+     "published_id": ""
+    },
+    {
+     "id": 128,
+     "platform": "instagram",
+     "content": "Vol. 1 is out.\n\nTen songs. Mostly first take. Sequenced the wrong way round on purpose \u2014 it starts loud and gets quieter, because Side A is for the room and Side B is for the walk home.\n\nThere's a mistake on track six. We tried to fix it eleven times and the wrong version was better. So it's staying.\n\nStreaming everywhere. Direct gets you the liner notes and the two songs that didn't make it.\n\nmilkups.netlify.app",
+     "media_urls": "",
+     "hashtags": "MilkUps,NewMusic,Vol1,IndieMusic,DebutAlbum",
+     "status": "draft",
+     "scheduled_for": null,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:25:50",
+     "updated_at": "2026-09-15 05:25:50",
+     "published_id": ""
+    },
+    {
+     "id": 129,
+     "platform": "instagram",
+     "content": "There were twelve songs.\n\nWe kept ten.\n\nThe other two \u2014 \"Same Room, Different Night\" and \"Not Tonight\" \u2014 exist nowhere else. Not streaming, not the record, nowhere.\n\nThey aren't bad. That was never the problem. They were *fine*, and a ten-song album is too short to carry anything that isn't fighting for its place.\n\nSo we cut them. Not because they failed. Because they didn't argue.\n\nBoth are in the direct purchase, with full liner notes on why they got cut.\n\nLink in bio. \ud83c\udfb8",
+     "media_urls": "",
+     "hashtags": "MilkUps,NewMusic,Vol1,IndieBand,CutTracks,BonusTracks",
+     "status": "draft",
+     "scheduled_for": null,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:26:48",
+     "updated_at": "2026-09-15 05:26:48",
+     "published_id": ""
+    },
+    {
+     "id": 130,
+     "platform": "twitter",
+     "content": "We cut two songs from Vol. 1.\n\nNot because they were bad. Because they were fine \u2014 and they didn't fight for their place.\n\nSame Room, Different Night\nNot Tonight\n\nBoth exist nowhere but the direct purchase.",
+     "media_urls": "",
+     "hashtags": "MilkUps,NewMusic,Vol1,CutTracks",
+     "status": "draft",
+     "scheduled_for": null,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:26:54",
+     "updated_at": "2026-09-15 05:26:54",
+     "published_id": ""
+    },
+    {
+     "id": 131,
+     "platform": "facebook",
+     "content": "There were twelve songs on the record. We kept ten.\n\nThe two that got cut aren't bad \u2014 that was never the problem. They were *fine*, and a ten-song album is too short to carry anything that isn't fighting for its place.\n\nSo we cut them. Not because they failed. Because they didn't argue.\n\n\"Same Room, Different Night\" \u2014 our favorite of the two, and the one we couldn't find a place for. Four minutes that feels like five, and three other tempos were worse.\n\n\"Not Tonight\" \u2014 the shortest thing we've recorded, and the most stubborn. Also the most instantly likeable thing we'd written, which turned out to be the problem: on a record trying to earn its loud parts, an easy three-minute favorite undercuts everything around it.\n\nWe knew within a week it was getting cut. We also knew within a week it was going on Vol. 2. We're still not saying which one.\n\nBoth tracks are in the direct purchase, with full liner notes \u2014 how they were written, why they got cut, and what to listen for.\n\nDirect is how a small band actually gets paid. Streaming pays us a fraction of a fraction.\n\nLink in comments. One ask, same as always: tell one person. \ud83c\udfb8",
+     "media_urls": "",
+     "hashtags": "MilkUps,NewMusic,Vol1,IndieBand,CutTracks,BonusTracks",
+     "status": "draft",
+     "scheduled_for": null,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:26:54",
+     "updated_at": "2026-09-15 05:26:54",
+     "published_id": ""
     }
    ]
   },
@@ -22113,7 +22386,7 @@
   },
   "prospect_searches": {
    "table": "prospect_searches",
-   "count": 56,
+   "count": 59,
    "rows": [
     {
      "id": 1,
@@ -22618,12 +22891,39 @@
      "results_count": 0,
      "searched_by": "Seleena",
      "created_at": "2026-09-15 03:12:07"
+    },
+    {
+     "id": 57,
+     "query": "home services contractors garage door repair, tree service, concrete contractor, fencing, pest control, junk removal company Louisville, KY",
+     "industry": "home services contractors",
+     "location": "Louisville, KY",
+     "results_count": 0,
+     "searched_by": "Seleena",
+     "created_at": "2026-09-15 05:24:19"
+    },
+    {
+     "id": 58,
+     "query": "garage door repair garage door Louisville company Louisville, KY",
+     "industry": "garage door repair",
+     "location": "Louisville, KY",
+     "results_count": 10,
+     "searched_by": "Seleena",
+     "created_at": "2026-09-15 05:24:21"
+    },
+    {
+     "id": 59,
+     "query": "pest control exterminator local company company Louisville KY",
+     "industry": "pest control",
+     "location": "Louisville KY",
+     "results_count": 10,
+     "searched_by": "Seleena",
+     "created_at": "2026-09-15 05:24:47"
     }
    ]
   },
   "content_pieces": {
    "table": "content_pieces",
-   "count": 76,
+   "count": 90,
    "rows": [
     {
      "id": 1,
@@ -23688,12 +23988,208 @@
      "created_by": "Seleena",
      "created_at": "2026-09-13 09:43:03",
      "updated_at": "2026-09-13 09:43:03"
+    },
+    {
+     "id": 77,
+     "content_type": "email_sequence",
+     "title": "Nurture Sequence: SnowSnakes \u2014 Food Truck Frenzy High Score Challenge",
+     "slug": "snow-snakes-food-truck-frenzy-challenge-3-email-nurture",
+     "file_path": "",
+     "html_content": "",
+     "json_content": "[{\"subject\": \"You're on the board \\u2014 now go set a score\", \"body\": \"Welcome in.\\n\\nYou registered, which means your Food Truck Frenzy scores can land on the leaderboard. That's the whole point \\u2014 a number you own, posted in public, that other people get to try to beat.\\n\\nYour move:\\n1. Play Food Truck Frenzy (free, browser, no download)\\n2. Get a score you're not embarrassed by\\n3. Reply to this email or post it with #HighScoreChallenge and tag us\\n\\nWe'll put you on the board and name you in the community post.\\n\\nPlay here: snowsnakes.zerric.xyz\\n\\n\\u2014 Mark, Z-Dot Team\"}, {\"subject\": \"Someone just took the top spot\", \"body\": \"Reminder that the leaderboard is live and someone is currently sitting on the top score.\\n\\nIf you've already played, you know your number. If it's not the number on top, you have a decision to make.\\n\\nHere's the thing about this challenge: it's not the kind of game you play once. It's the kind you play \\\"one more time\\\" until it's 1am and you're arguing with a stranger on the internet about a food truck.\\n\\nGo take the spot back: snowsnakes.zerric.xyz\\n\\nThen send us the screenshot. We'll do the bragging for you.\\n\\n\\u2014 Mark, Z-Dot Team\"}, {\"subject\": \"Post your score. We'll make you famous (locally)\", \"body\": \"Last nudge, then I'll leave you to the game.\\n\\nThree reasons to post your high score right now:\\n\\n1. Weekly top scorers get named on the site and in our community posts.\\n2. Your friends can see the number. That matters more than you think.\\n3. Someone has to knock the current leader down a peg, and it might as well be you.\\n\\nHow to post:\\n- Screenshot your score\\n- Tag us / reply to this email\\n- Use #HighScoreChallenge\\n\\nThat's it. That's the whole funnel.\\n\\nPlay: snowsnakes.zerric.xyz\\n\\n\\u2014 Mark, Z-Dot Team\"}]",
+     "status": "draft",
+     "word_count": 277,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:06:20",
+     "updated_at": "2026-09-15 05:06:20"
+    },
+    {
+     "id": 78,
+     "content_type": "email_sequence",
+     "title": "Sales Sequence: Z-Dot Local Service Web + Local SEO (Louisville Tier-1 Sprint)",
+     "slug": "tier-1-louisville-close-sprint-4-touch",
+     "file_path": "",
+     "html_content": "",
+     "json_content": "[{\"subject\": \"Quick question about {{company}}\", \"body\": \"Hi {{first}},\\n\\nSeleena here with Z-Dot. We build websites and local search for Louisville service companies.\\n\\nI spent a few minutes on {{company}}'s site. The work looks solid \\u2014 20+ years of it, and the reviews back it up. What's missing is that nothing on the site lets a customer book or request a quote without calling during business hours. Most of your customers are searching at 9pm from a phone.\\n\\nTwo quick questions, 30 seconds:\\n\\n1. Roughly how many quote requests come in per week right now?\\n2. Who looks after the website \\u2014 you, or someone you pay?\\n\\nIf it's useful, I'll walk you through what I'd change and what it costs. 15 minutes, no deck.\\n\\n\\u2014 Seleena\\nZ-Dot LLC\"}, {\"subject\": \"Re: {{company}} \\u2014 the math on missed calls\", \"body\": \"{{first}} \\u2014 following up on my note.\\n\\nHere's the thing I see most with Louisville service companies: a missed call isn't a missed visitor, it's a missed job. If 3 calls a week go to voicemail while you're on a roof or under a sink, that's not a traffic problem \\u2014 it's a capture problem, and it compounds every month.\\n\\nWe fix the capture side: a site that takes the request at 9pm, a booking flow that confirms automatically, and local search work so you show up when someone types \\\"{{industry}} near me\\\" in {{city}}.\\n\\nWorth 15 minutes to see if the numbers make sense for you? I'll bring a short walkthrough of what we'd change and the cost. Nothing to prep on your end.\\n\\n\\u2014 Seleena\\nZ-Dot LLC\"}, {\"subject\": \"Re: {{company}} \\u2014 what this looks like in practice\", \"body\": \"{{first}},\\n\\nLast note from me on the build side.\\n\\nHow we work, plainly: discovery call to understand your jobs and your busiest season, then a fixed scope and fixed price before anything starts. No hourly surprises, no open-ended retainer. You own the domain and the site. If you stop working with us, you keep everything.\\n\\nWhat I can't do is promise you a specific number of leads. Nobody honest can \\u2014 it depends on your market and how fast you answer. What I can tell you is the site will be faster, will capture after-hours requests, and will be built so you show up locally. That's the part we control.\\n\\nTwo slots open this month. Want one?\\n\\n\\u2014 Seleena\\nZ-Dot LLC\"}, {\"subject\": \"Closing your file, {{first}}\", \"body\": \"{{first}},\\n\\nI'll stop landing in your inbox. I'd rather not guess at your timing.\\n\\nIf the website and local search work isn't a priority this quarter, that's completely reasonable \\u2014 busy season first.\\n\\nIf it comes up later, just reply to this thread and I'll pick it up from here. Same offer stands, no expiry date on the conversation.\\n\\nGood luck with the {{industry}} work this season.\\n\\n\\u2014 Seleena\\nZ-Dot LLC\"}]",
+     "status": "draft",
+     "word_count": 443,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:12:56",
+     "updated_at": "2026-09-15 05:12:56"
+    },
+    {
+     "id": 79,
+     "content_type": "email_sequence",
+     "title": "Sales Sequence: SnowSnakes Dad-Joke Licensing \u2014 Oatmeal Studios Pitch",
+     "slug": "track-b-oatmeal-studios-joke-licensing-gated-no-ai-policy",
+     "file_path": "",
+     "html_content": "",
+     "json_content": "[{\"subject\": \"Writer's guidelines submission \\u2014 dad joke one-liners\", \"body\": \"Cathy,\\n\\nI read your published writer's guidelines before writing this, so I'll be direct about what I'm sending and where it came from.\\n\\nWho I am: Seleena, Z-Dot LLC. I run a humor project called SnowSnakes \\u2014 a dad-joke library we've built alongside a winter-themed game. That library has grown past what we can use internally, and your catalogue is the natural home for the surplus.\\n\\nWhat I'm proposing: a small paid submission of one-liner dad jokes and greeting-card quips for your editorial team. Your listed rate is $100 per accepted idea; I'm not asking you to move off it.\\n\\nOne thing I want on the table before you read anything: I saw the no-AI policy in your guidelines. I will not send you machine-generated material. Before I submit a single line, I need to confirm the provenance of what I'm sending and be able to stand behind it to you in writing. If I can't, I'll tell you that plainly rather than chance it.\\n\\nCould you confirm two things?\\n1. Is the $100/idea rate current for unsolicited one-liners?\\n2. Are you taking submissions right now, or should I hold and check back?\\n\\nHappy to send a 10-line sample so you can judge the tone before committing to anything.\\n\\n\\u2014 Seleena\\nZ-Dot LLC\"}, {\"subject\": \"Re: Writer's guidelines submission \\u2014 10-line sample\", \"body\": \"Cathy,\\n\\nFollowing up on my note. Attaching nothing yet \\u2014 I want your answer on the provenance question first, because it's the one thing that could make this a waste of your time.\\n\\nAssuming I can confirm the material is human-written and clears your policy, here's how I'd run it:\\n\\n- Start with a 10-line sample, your editors' call on what fits.\\n- If the tone lands, I can supply in batches. I'd rather do small and repeatable than dump 500 lines on your desk.\\n- You pay per accepted idea at your rate. If a batch doesn't work, you've lost nothing but reading time.\\n\\nThe upside for you is volume without hiring. The upside for me is a real editorial buyer for material we already have.\\n\\nDoes the sample-first approach work on your end?\\n\\n\\u2014 Seleena\\nZ-Dot LLC\"}, {\"subject\": \"Re: dad joke submission \\u2014 holding until you say go\", \"body\": \"Cathy,\\n\\nLast note from me. I don't want to be the person who keeps emailing a buyer who's already answered.\\n\\nWhere I'll leave it: whenever you're taking submissions, reply to this thread and I'll send the 10-line sample the same day. If you'd rather not hear from me again, say so and I'll close the file \\u2014 no hard feelings, genuinely.\\n\\nThanks for publishing such clear guidelines. It made this conversation much shorter than it usually is.\\n\\n\\u2014 Seleena\\nZ-Dot LLC\"}]",
+     "status": "draft",
+     "word_count": 433,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:12:56",
+     "updated_at": "2026-09-15 05:12:56"
+    },
+    {
+     "id": 80,
+     "content_type": "blog_post",
+     "title": "Food Truck Frenzy: How the High Score Challenge Actually Works",
+     "slug": "food-truck-frenzy-high-score-challenge",
+     "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/content/blog/food-truck-frenzy-high-score-challenge.html",
+     "html_content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Food Truck Frenzy: How the High Score Challenge Actually Works</title>\n<meta name=\"description\" content=\"Food Truck Frenzy is live with a weekly high-score challenge. Here's how the leaderboard works, how to get on the board, and why the scores only count if players post them.\">\n<meta name=\"keywords\" content=\"Food Truck Frenzy, browser game high score, free online arcade game, high score challenge, leaderboard game, SnowSnakes\">\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n         background: #0a0a0a; color: #e0e0e0; line-height: 1.8; }\n  .header { text-align: center; padding: 60px 20px 40px;\n             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }\n  .header h1 { font-size: 2.2rem; font-weight: 700; color: #fff;\n                max-width: 700px; margin: 0 auto 12px; }\n  .header .meta { color: #94a3b8; font-size: 0.9rem; }\n  .content { max-width: 720px; margin: 0 auto; padding: 48px 24px; }\n  .content h2 { font-size: 1.5rem; color: #fff; margin: 32px 0 16px;\n                 border-bottom: 2px solid #1e40af; padding-bottom: 8px; display: inline-block; }\n  .content h3 { font-size: 1.2rem; color: #e2e8f0; margin: 24px 0 12px; }\n  .content p { margin-bottom: 16px; color: #cbd5e1; }\n  .content ul { margin: 16px 0 16px 24px; color: #cbd5e1; }\n  .content li { margin-bottom: 8px; }\n  .content strong { color: #fff; }\n  .footer { text-align: center; padding: 32px; color: #475569; font-size: 0.8rem;\n             border-top: 1px solid #1e293b; margin-top: 48px; }\n</style>\n</head>\n<body>\n<div class=\"header\">\n  <h1>Food Truck Frenzy: How the High Score Challenge Actually Works</h1>\n  <div class=\"meta\">By Seleena | Z Dot Team</div>\n</div>\n<div class=\"content\">\n<h2>We Built a Second Game On Purpose</h2>\n\n<p>Food Truck Frenzy is live \u2014 both of them. That redundancy is going to read as a mistake to some people, so let's address it head-on before it becomes a rumor.</p>\n\n<p>Two versions of the same game exist because one of them is doing something the other isn't, and we wanted to see which. That's it. That's the experiment. The moment we confirm the winner, one of them gets cleaned up and the leaderboard becomes a single, honest number.</p>\n\n<p><strong>Why this matters if you're playing:</strong> a split leaderboard is a broken leaderboard. A high score only means something if there's one board. If you're seeing two, you're seeing a test in progress, not a finished product.</p>\n\n<h2>The High Score Challenge, Explained Properly</h2>\n\n<p>Here's the whole thing, no marketing fog:</p>\n\n<p>1. Play Food Truck Frenzy. It's free, it runs in your browser, and it has no download screen.</p>\n<p>2. Score something you're willing to put your name on.</p>\n<p>3. Screenshot it and post it. Tag us, or reply to the email we send you.</p>\n<p>4. Whoever holds the top score at the end of the week gets named on the site and in our community posts.</p>\n\n<p>That's the game. The only part we ask of you is the screenshot, because <strong>we only publish scores players post themselves.</strong> No scraping, no silent leaderboards, no invented numbers.</p>\n\n<h2>Why We Made It a Competition Instead of a Game</h2>\n\n<p>A game gets played once. A leaderboard gets defended.</p>\n\n<p>The difference is that a score is *yours*. It has your name next to it. When your friend's number sits one place above yours, you don't need a push notification to come back \u2014 you need twenty minutes and a grudge. That's the entire engagement model, and it costs us nothing to run.</p>\n\n<p>It also produces something better than a vanity metric: real screenshots from real people, shared voluntarily, with our name in the frame. That's worth more than an ad impression, every single time.</p>\n\n<h2>How to Actually Get on the Board</h2>\n\n<p>Most people blow this on step two. They play once, get a respectable score, and forget it by dinner.</p>\n\n<ul>\n<li><strong>Play a proper session before you post.</strong> Your first score is not your score.</li>\n<li><strong>Screenshot immediately.</strong> Scores scroll away and memory is a liar.</li>\n<li><strong>Post the number, not just the game.</strong> \"I played\" is a status. \"I scored 4,180\" is a challenge.</li>\n<li><strong>Tag us.</strong> We can't name you if we can't find you.</li>\n</ul>\n\n<h2>Questions We Keep Getting</h2>\n\n<p><strong>Is it free?</strong> Yes.</p>\n<p><strong>Do I have to register?</strong> You can play without it. Registration is what gets your score tracked and your name on the board.</p>\n<p><strong>What's the prize?</strong> Bragging rights, a Hall of Fame listing, and the knowledge that someone out there is annoyed about you.</p>\n<p><strong>What if I find a bug?</strong> Tell us. Bugs in a scored game are a fairness problem, and we take fairness seriously.</p>\n\n<h2>What's Next</h2>\n\n<p>The challenge runs weekly. The board resets, the crown changes hands, and the Hall of Fame fills up. If you want in early \u2014 before the top score gets embarrassing to chase \u2014 start now, while the number is still beatable.</p>\n\n<p>Play Food Truck Frenzy at <strong>snowsnakes.zerric.xyz</strong>, then post your score with <strong>#HighScoreChallenge</strong>.</p>\n</div>\n<div class=\"footer\">&copy; Z Dot Team. All rights reserved.</div>\n</body>\n</html>\n",
+     "json_content": "",
+     "status": "published",
+     "word_count": 553,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:12:56",
+     "updated_at": "2026-09-15 05:12:56"
+    },
+    {
+     "id": 81,
+     "content_type": "blog_post",
+     "title": "The 9pm Customer: Why Louisville Service Companies Lose Jobs They Already Earned",
+     "slug": "louisville-service-companies-missed-calls",
+     "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/content/blog/louisville-service-companies-missed-calls.html",
+     "html_content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>The 9pm Customer: Why Louisville Service Companies Lose Jobs They Already Earned</title>\n<meta name=\"description\" content=\"Most Louisville home-service companies lose jobs to voicemail, not competitors. Here's how after-hours call capture works, what it costs to build, and what it honestly can't promise.\">\n<meta name=\"keywords\" content=\"Louisville contractor website, local SEO Louisville, missed calls small business, home service marketing, contractor lead capture, Louisville HVAC marketing, plumbing website design\">\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n         background: #0a0a0a; color: #e0e0e0; line-height: 1.8; }\n  .header { text-align: center; padding: 60px 20px 40px;\n             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }\n  .header h1 { font-size: 2.2rem; font-weight: 700; color: #fff;\n                max-width: 700px; margin: 0 auto 12px; }\n  .header .meta { color: #94a3b8; font-size: 0.9rem; }\n  .content { max-width: 720px; margin: 0 auto; padding: 48px 24px; }\n  .content h2 { font-size: 1.5rem; color: #fff; margin: 32px 0 16px;\n                 border-bottom: 2px solid #1e40af; padding-bottom: 8px; display: inline-block; }\n  .content h3 { font-size: 1.2rem; color: #e2e8f0; margin: 24px 0 12px; }\n  .content p { margin-bottom: 16px; color: #cbd5e1; }\n  .content ul { margin: 16px 0 16px 24px; color: #cbd5e1; }\n  .content li { margin-bottom: 8px; }\n  .content strong { color: #fff; }\n  .footer { text-align: center; padding: 32px; color: #475569; font-size: 0.8rem;\n             border-top: 1px solid #1e293b; margin-top: 48px; }\n</style>\n</head>\n<body>\n<div class=\"header\">\n  <h1>The 9pm Customer: Why Louisville Service Companies Lose Jobs They Already Earned</h1>\n  <div class=\"meta\">By Seleena \u2014 Head of Sales, Z-Dot LLC | Z Dot Team</div>\n</div>\n<div class=\"content\">\n<h2>The job you already earned</h2>\n\n<p>Here's a pattern we see over and over in Louisville.</p>\n\n<p>A homeowner's water heater starts leaking on a Tuesday night. They search on their phone. They find three companies. They call the first one. It rings out \u2014 the crew's on a job, or it's 9pm and nobody's at the desk.</p>\n\n<p>They call the second one. Same thing.</p>\n\n<p>They call the third one, get a voicemail, and hang up. Then they book whoever answers, or whoever lets them request a quote from a form on their phone.</p>\n\n<p>That's not a marketing problem. That homeowner already wanted a plumber. They'd already decided to spend money. <strong>The only question was who picked up.</strong></p>\n\n<h2>Two different problems, constantly confused</h2>\n\n<p>Most contractors get told they have \"a lead problem.\" Usually they don't. They have one of two other things:</p>\n\n<p><strong>A capture problem.</strong> The traffic is there \u2014 the phone rings, the site gets visits \u2014 but requests arrive at 9pm and nobody's built a way to catch them. Fix: after-hours intake that collects the job details and confirms to the customer that someone will call in the morning. The customer stops shopping. You call at 7am with the job already qualified.</p>\n\n<p><strong>A visibility problem.</strong> You're genuinely not showing up when someone searches \"water heater repair near me\" in your part of town. Fix: local search work \u2014 accurate service area, real service pages, consistent business listings, reviews you're actually asking for.</p>\n\n<p>They need different fixes and different money. Which is why the first conversation worth having is diagnostic, not a pitch.</p>\n\n<h2>What a rebuild actually involves</h2>\n\n<p>For a service company, the useful scope is narrow:</p>\n\n<ul>\n<li><strong>A site that loads fast on a phone.</strong> Most of your traffic is a phone, in a hurry, possibly standing in water.</li>\n<li><strong>A request flow that works at 9pm.</strong> Form or booking that captures the job and sets expectations about response time.</li>\n<li><strong>Local search fundamentals.</strong> Service area, service pages, listing consistency, review requests. Unglamorous. It's what makes the phone ring.</li>\n<li><strong>Your domain and your content, in your name.</strong> So if you ever leave, you keep everything.</li>\n</ul>\n\n<h2>What we will not promise you</h2>\n\n<p>We don't guarantee a number of leads. Nobody honest does \u2014 it depends on your market, your competition, your reviews, and how fast you call people back. What we control is the capture and the visibility side. What you control is answering the phone.</p>\n\n<p>Any agency that quotes you a lead count before seeing your market is quoting you a number they made up.</p>\n\n<h2>The numbers worth knowing</h2>\n\n<p>Before you spend anything on a website or marketing, get four numbers about your own business:</p>\n\n<p>1. <strong>Requests per week</strong> \u2014 calls plus forms, roughly.</p>\n<p>2. <strong>Missed calls per week</strong> \u2014 check your phone log, be honest.</p>\n<p>3. <strong>Average job value</strong> \u2014 just your typical ticket.</p>\n<p>4. <strong>Close rate on answered calls.</strong></p>\n\n<p>Multiply missed calls by close rate by average job value, and that's roughly what you're leaving on the table each week. For a lot of service companies it's a real number, and it's usually bigger than the cost of fixing it.</p>\n\n<h2>Where to start</h2>\n\n<p>If you don't know your missed-call number, that's the first thing to find out. It's free, it takes ten minutes, and it tells you whether you have a capture problem or a visibility problem \u2014 or neither.</p>\n\n<p>If it turns out you do have one, the fix is a short, fixed-scope project. No retainer traps, no open-ended hourly billing. You should know the price before work starts and own the result when it's done.</p>\n\n<p>*Z-Dot LLC builds websites and local search for Louisville-area service companies. If you want the diagnostic \u2014 four numbers, no pitch \u2014 reach out and we'll do it in fifteen minutes.*</p>\n</div>\n<div class=\"footer\">&copy; Z Dot Team. All rights reserved.</div>\n</body>\n</html>\n",
+     "json_content": "",
+     "status": "published",
+     "word_count": 637,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:24:18",
+     "updated_at": "2026-09-15 05:24:18"
+    },
+    {
+     "id": 82,
+     "content_type": "digital_product",
+     "title": "The Dad Joke Vault \u2014 50 Jokes That Actually Land",
+     "slug": "dad-joke-vault",
+     "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/content/products/dad-joke-vault.html",
+     "html_content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>The Dad Joke Vault \u2014 50 Jokes That Actually Land</title>\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n         background: #0a0a0a; color: #e0e0e0; line-height: 1.8; }\n  .cover { text-align: center; padding: 80px 20px 60px;\n            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }\n  .cover h1 { font-size: 2.5rem; font-weight: 700; color: #fff;\n               max-width: 700px; margin: 0 auto 16px; }\n  .cover .author { color: #94a3b8; font-size: 1.1rem; }\n  .cover .price { display: inline-block; background: #1e3a5f; color: #38bdf8;\n                   font-size: 1.4rem; font-weight: 700; padding: 8px 24px;\n                   border-radius: 8px; margin-top: 16px; }\n  .toc { max-width: 720px; margin: 0 auto; padding: 48px 24px; }\n  .toc h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px; }\n  .toc ul { list-style: none; padding: 0; }\n  .toc li { margin-bottom: 8px; }\n  .toc a { color: #60a5fa; text-decoration: none; }\n  .toc a:hover { text-decoration: underline; }\n  .chapter { max-width: 720px; margin: 0 auto; padding: 48px 24px;\n              border-top: 1px solid #1e293b; }\n  .chapter h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px;\n                 border-bottom: 2px solid #1e40af; padding-bottom: 8px; display: inline-block; }\n  .chapter h3 { font-size: 1.2rem; color: #e2e8f0; margin: 24px 0 12px; }\n  .chapter p { margin-bottom: 16px; color: #cbd5e1; }\n  .chapter ul { margin: 16px 0 16px 24px; color: #cbd5e1; }\n  .chapter li { margin-bottom: 8px; }\n  .chapter strong { color: #fff; }\n  .footer { text-align: center; padding: 32px; color: #475569; font-size: 0.8rem;\n             border-top: 1px solid #1e293b; margin-top: 48px; }\n</style>\n</head>\n<body>\n<div class=\"cover\">\n  <h1>The Dad Joke Vault \u2014 50 Jokes That Actually Land</h1>\n  <div class=\"author\">By Mark \u2014 Z-Dot Team</div>\n  <div class=\"price\">Suggested Price: Free (lead magnet)</div>\n</div>\n<div class=\"toc\">\n  <h2>Table of Contents</h2>\n  <ul>\n    <li><a href=\"#chapter-1\">Chapter 1: Why This Exists</a></li>\n    <li><a href=\"#chapter-2\">Chapter 2: Food &amp; Drink (The Reliable Openers)</a></li>\n    <li><a href=\"#chapter-3\">Chapter 3: Animals &amp; Nature (The Crowd Pleasers)</a></li>\n    <li><a href=\"#chapter-4\">Chapter 4: Work &amp; Money (For the Meeting You Want to Escape)</a></li>\n    <li><a href=\"#chapter-5\">Chapter 5: The Advanced Class (Longer Setup, Bigger Payoff)</a></li>\n    <li><a href=\"#chapter-6\">Chapter 6: How to Actually Deliver One</a></li>\n  </ul>\n</div>\n<div class=\"chapter\" id=\"chapter-1\">\n  <h2>Chapter 1: Why This Exists</h2>\n  <p>There are two kinds of people: people who tell dad jokes, and people who are about to.</p>\n\n<p>This is a collection of the ones that actually land. Not the obscure ones, not the mean ones. The ones that get a groan and a laugh at the same time \u2014 which is the exact sound a dad joke is supposed to make.</p>\n\n<p>Use them. Steal them. Test them on your family at dinner. That's what they're for.</p>\n\n<p>And when you've got one that beats these, we want to hear it.</p>\n</div>\n<div class=\"chapter\" id=\"chapter-2\">\n  <h2>Chapter 2: Food &amp; Drink (The Reliable Openers)</h2>\n  <p>These work on almost anyone, almost anywhere. Start here.</p>\n\n<ul>\n<li>I'm on a seafood diet. I see food and I eat it.</li>\n<li>What do you call a fake noodle? An impasta.</li>\n<li>Why did the coffee file a police report? It got mugged.</li>\n<li>What do you call cheese that isn't yours? Nacho cheese.</li>\n<li>Why did the tomato turn red? It saw the salad dressing.</li>\n<li>What do you call a sad cup of coffee? Depresso.</li>\n<li>Why did the baker stop making donuts? He got tired of the hole business.</li>\n<li>I went to a restaurant that serves breakfast at any time. So I ordered French toast during the Renaissance.</li>\n<li>What's the best thing about Switzerland? I don't know, but the flag is a big plus.</li>\n<li>Why don't you ever see elephants hiding in trees? Because they're really good at it.</li>\n</ul>\n</div>\n<div class=\"chapter\" id=\"chapter-3\">\n  <h2>Chapter 3: Animals &amp; Nature (The Crowd Pleasers)</h2>\n  <p>Kid-tested. Grandparent-approved.</p>\n\n<ul>\n<li>What do you call a bear with no teeth? A gummy bear.</li>\n<li>Why don't eggs tell jokes? They'd crack up.</li>\n<li>What do you call a fish wearing a bowtie? Sofishticated.</li>\n<li>Why did the scarecrow win an award? He was outstanding in his field.</li>\n<li>What do you call a sleeping bull? A bulldozer.</li>\n<li>Why do cows wear bells? Because their horns don't work.</li>\n<li>What do you get when you cross a snowman and a vampire? Frostbite.</li>\n<li>Why did the chicken join a band? Because it had the drumsticks.</li>\n<li>What do you call a pony with a sore throat? A little horse.</li>\n<li>How do you organize a space party? You planet.</li>\n</ul>\n</div>\n<div class=\"chapter\" id=\"chapter-4\">\n  <h2>Chapter 4: Work &amp; Money (For the Meeting You Want to Escape)</h2>\n  <p>Deploy these in the wild. Report back.</p>\n\n<ul>\n<li>I only know 25 letters of the alphabet. I don't know y.</li>\n<li>Why don't scientists trust atoms? They make up everything.</li>\n<li>I told my wife she was drawing her eyebrows too high. She looked surprised.</li>\n<li>Why did the bicycle fall over? It was two-tired.</li>\n<li>I used to hate facial hair, but then it grew on me.</li>\n<li>I'm reading a book on anti-gravity. It's impossible to put down.</li>\n<li>I bought some shoes from a drug dealer. I don't know what he laced them with, but I've been tripping all day.</li>\n<li>I don't trust stairs. They're always up to something.</li>\n<li>Why did the math book look so sad? Because it had too many problems.</li>\n<li>What do you call someone with no body and no nose? Nobody knows.</li>\n</ul>\n</div>\n<div class=\"chapter\" id=\"chapter-5\">\n  <h2>Chapter 5: The Advanced Class (Longer Setup, Bigger Payoff)</h2>\n  <p>These need a little runway. Worth it.</p>\n\n<ul>\n<li>A man walked into a library and asked for books about paranoia. The librarian whispered, \"They're right behind you.\"</li>\n<li>I told my son, \"You'll understand when you're older.\" He said, \"I'm 34, Dad.\"</li>\n<li>My wife asked me to stop singing \"Wonderwall.\" I said maybe.</li>\n<li>I asked the gym instructor if he could teach me to do the splits. He said, \"How flexible are you?\" I said, \"I can't make Tuesdays.\"</li>\n<li>A chicken crossing the road is poultry in motion.</li>\n<li>I was going to tell a joke about time travel, but you didn't like it.</li>\n<li>Someone stole my mood ring. I don't know how I feel about that.</li>\n<li>I have a joke about construction, but I'm still working on it.</li>\n</ul>\n</div>\n<div class=\"chapter\" id=\"chapter-6\">\n  <h2>Chapter 6: How to Actually Deliver One</h2>\n  <p>The joke is half of it. Delivery is the other half, and most people botch it.</p>\n\n<ul>\n<li><strong>Commit to the setup.</strong> A dad joke told apologetically is just a bad joke. Tell it like it's the funniest thing you've ever heard.</li>\n<li><strong>No laughing first.</strong> If you laugh at your own setup, you've spent the punchline.</li>\n<li><strong>Let it land badly.</strong> The groan is the point. Don't rescue it, don't explain it. Silence is part of the act.</li>\n<li><strong>Move on immediately.</strong> Say it, hold eye contact for one second, then change the subject. That's the kill shot.</li>\n<li><strong>Have a second one ready.</strong> One dad joke is a comment. Two in a row is a bit. Three is a reputation.</li>\n</ul>\n\n<h2>Where To Get More</h2>\n<p>We've got a lot more where these came from \u2014 and a place to test them on people who'll actually keep score.</p>\n\n<p>Come play at <strong>snowsnakes.zerric.xyz</strong> and bring your best one.</p>\n</div>\n<div class=\"footer\">&copy; Z Dot Team. All rights reserved.</div>\n</body>\n</html>\n",
+     "json_content": "[\n  {\n    \"title\": \"Why This Exists\",\n    \"content\": \"There are two kinds of people: people who tell dad jokes, and people who are about to.\\n\\nThis is a collection of the ones that actually land. Not the obscure ones, not the mean ones. The ones that get a groan and a laugh at the same time \u2014 which is the exact sound a dad joke is supposed to make.\\n\\nUse them. Steal them. Test them on your family at dinner. That's what they're for.\\n\\nAnd when you've got one that beats these, we want to hear it.\"\n  },\n  {\n    \"title\": \"Food & Drink (The Reliable Openers)\",\n    \"content\": \"These work on almost anyone, almost anywhere. Start here.\\n\\n- I'm on a seafood diet. I see food and I eat it.\\n- What do you call a fake noodle? An impasta.\\n- Why did the coffee file a police report? It got mugged.\\n- What do you call cheese that isn't yours? Nacho cheese.\\n- Why did the tomato turn red? It saw the salad dressing.\\n- What do you call a sad cup of coffee? Depresso.\\n- Why did the baker stop making donuts? He got tired of the hole business.\\n- I went to a restaurant that serves breakfast at any time. So I ordered French toast during the Renaissance.\\n- What's the best thing about Switzerland? I don't know, but the flag is a big plus.\\n- Why don't you ever see elephants hiding in trees? Because they're really good at it.\"\n  },\n  {\n    \"title\": \"Animals & Nature (The Crowd Pleasers)\",\n    \"content\": \"Kid-tested. Grandparent-approved.\\n\\n- What do you call a bear with no teeth? A gummy bear.\\n- Why don't eggs tell jokes? They'd crack up.\\n- What do you call a fish wearing a bowtie? Sofishticated.\\n- Why did the scarecrow win an award? He was outstanding in his field.\\n- What do you call a sleeping bull? A bulldozer.\\n- Why do cows wear bells? Because their horns don't work.\\n- What do you get when you cross a snowman and a vampire? Frostbite.\\n- Why did the chicken join a band? Because it had the drumsticks.\\n- What do you call a pony with a sore throat? A little horse.\\n- How do you organize a space party? You planet.\"\n  },\n  {\n    \"title\": \"Work & Money (For the Meeting You Want to Escape)\",\n    \"content\": \"Deploy these in the wild. Report back.\\n\\n- I only know 25 letters of the alphabet. I don't know y.\\n- Why don't scientists trust atoms? They make up everything.\\n- I told my wife she was drawing her eyebrows too high. She looked surprised.\\n- Why did the bicycle fall over? It was two-tired.\\n- I used to hate facial hair, but then it grew on me.\\n- I'm reading a book on anti-gravity. It's impossible to put down.\\n- I bought some shoes from a drug dealer. I don't know what he laced them with, but I've been tripping all day.\\n- I don't trust stairs. They're always up to something.\\n- Why did the math book look so sad? Because it had too many problems.\\n- What do you call someone with no body and no nose? Nobody knows.\"\n  },\n  {\n    \"title\": \"The Advanced Class (Longer Setup, Bigger Payoff)\",\n    \"content\": \"These need a little runway. Worth it.\\n\\n- A man walked into a library and asked for books about paranoia. The librarian whispered, \\\"They're right behind you.\\\"\\n- I told my son, \\\"You'll understand when you're older.\\\" He said, \\\"I'm 34, Dad.\\\"\\n- My wife asked me to stop singing \\\"Wonderwall.\\\" I said maybe.\\n- I asked the gym instructor if he could teach me to do the splits. He said, \\\"How flexible are you?\\\" I said, \\\"I can't make Tuesdays.\\\"\\n- A chicken crossing the road is poultry in motion.\\n- I was going to tell a joke about time travel, but you didn't like it.\\n- Someone stole my mood ring. I don't know how I feel about that.\\n- I have a joke about construction, but I'm still working on it.\"\n  },\n  {\n    \"title\": \"How to Actually Deliver One\",\n    \"content\": \"The joke is half of it. Delivery is the other half, and most people botch it.\\n\\n- **Commit to the setup.** A dad joke told apologetically is just a bad joke. Tell it like it's the funniest thing you've ever heard.\\n- **No laughing first.** If you laugh at your own setup, you've spent the punchline.\\n- **Let it land badly.** The groan is the point. Don't rescue it, don't explain it. Silence is part of the act.\\n- **Move on immediately.** Say it, hold eye contact for one second, then change the subject. That's the kill shot.\\n- **Have a second one ready.** One dad joke is a comment. Two in a row is a bit. Three is a reputation.\\n\\n## Where To Get More\\nWe've got a lot more where these came from \u2014 and a place to test them on people who'll actually keep score.\\n\\nCome play at **snowsnakes.zerric.xyz** and bring your best one.\"\n  }\n]",
+     "status": "draft",
+     "word_count": 789,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:24:26",
+     "updated_at": "2026-09-15 05:24:26"
+    },
+    {
+     "id": 83,
+     "content_type": "blog_post",
+     "title": "The Best Dad Jokes That Actually Land (And How to Deliver Them)",
+     "slug": "best-dad-jokes-that-actually-land",
+     "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/content/blog/best-dad-jokes-that-actually-land.html",
+     "html_content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>The Best Dad Jokes That Actually Land (And How to Deliver Them)</title>\n<meta name=\"description\" content=\"The best dad jokes sorted by situation \u2014 reliable openers, crowd pleasers, and the advanced class. Plus the five delivery rules that turn a groan into a laugh.\">\n<meta name=\"keywords\" content=\"best dad jokes, dad jokes that land, funny dad jokes, dad joke delivery, clean jokes for kids, dad joke collection\">\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n         background: #0a0a0a; color: #e0e0e0; line-height: 1.8; }\n  .header { text-align: center; padding: 60px 20px 40px;\n             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }\n  .header h1 { font-size: 2.2rem; font-weight: 700; color: #fff;\n                max-width: 700px; margin: 0 auto 12px; }\n  .header .meta { color: #94a3b8; font-size: 0.9rem; }\n  .content { max-width: 720px; margin: 0 auto; padding: 48px 24px; }\n  .content h2 { font-size: 1.5rem; color: #fff; margin: 32px 0 16px;\n                 border-bottom: 2px solid #1e40af; padding-bottom: 8px; display: inline-block; }\n  .content h3 { font-size: 1.2rem; color: #e2e8f0; margin: 24px 0 12px; }\n  .content p { margin-bottom: 16px; color: #cbd5e1; }\n  .content ul { margin: 16px 0 16px 24px; color: #cbd5e1; }\n  .content li { margin-bottom: 8px; }\n  .content strong { color: #fff; }\n  .footer { text-align: center; padding: 32px; color: #475569; font-size: 0.8rem;\n             border-top: 1px solid #1e293b; margin-top: 48px; }\n</style>\n</head>\n<body>\n<div class=\"header\">\n  <h1>The Best Dad Jokes That Actually Land (And How to Deliver Them)</h1>\n  <div class=\"meta\">By Mark \u2014 Z-Dot Team | Z Dot Team</div>\n</div>\n<div class=\"content\">\n<h2>The Groan Is the Point</h2>\n\n<p>A dad joke is the only form of comedy where the laugh is optional and the groan is mandatory. That's not a failure mode. That's the design.</p>\n\n<p>Everyone gets this backwards. They hear a groan and think the joke bombed. It didn't \u2014 the groan *is* the applause. A dad joke that makes you laugh is a good joke. A dad joke that makes you roll your eyes and then repeat it to someone else an hour later is a *great* joke, because it did the one thing comedy is supposed to do: it moved.</p>\n\n<p>Below are the categories worth knowing, some of the ones that land hardest, and the delivery rules that decide whether you get a laugh or just silence.</p>\n\n<h2>Why Dad Jokes Work When They Shouldn't</h2>\n\n<p>Dad jokes run on a specific mechanic: a setup that makes you expect one thing, and a punchline that's technically correct and completely ridiculous.</p>\n\n<ul>\n<li><strong>What do you call a fake noodle?</strong> An impasta.</li>\n<li><strong>I'm on a seafood diet.</strong> I see food and I eat it.</li>\n<li><strong>Why don't scientists trust atoms?</strong> They make up everything.</li>\n</ul>\n\n<p>None of these are clever in a sophisticated way. They're clever in a *portable* way. You can remember them, you can retell them, and you can deploy them in a grocery store line. That's why they survive \u2014 they're low-cost to carry and high-return on delivery.</p>\n\n<p>The other reason: they're safe. A dad joke can be told to a five-year-old, a grandparent, and a boardroom without adjustment. That's a very rare property in comedy, and it's why they never die.</p>\n\n<h2>The Categories Worth Learning</h2>\n\n<p>If you're going to build a repertoire, build it by situation. Random jokes you can't place are jokes you never tell.</p>\n\n<h3>The Reliable Openers</h3>\n<p>Food and drink jokes. These work on almost anyone, and they don't require context.</p>\n\n<ul>\n<li>What do you call cheese that isn't yours? Nacho cheese.</li>\n<li>Why did the coffee file a police report? It got mugged.</li>\n<li>Why did the tomato turn red? It saw the salad dressing.</li>\n</ul>\n\n<h3>The Crowd Pleasers</h3>\n<p>Animals and nature. Kid-tested, grandparent-approved, safe in any room.</p>\n\n<ul>\n<li>What do you call a bear with no teeth? A gummy bear.</li>\n<li>Why did the scarecrow win an award? He was outstanding in his field.</li>\n<li>What do you call a fish wearing a bowtie? Sofishticated.</li>\n</ul>\n\n<h3>The Escape Hatch</h3>\n<p>Work and money jokes. Deploy when a meeting has gone on four minutes too long and you need a way out.</p>\n\n<ul>\n<li>I only know 25 letters of the alphabet. I don't know y.</li>\n<li>I don't trust stairs. They're always up to something.</li>\n<li>Why did the math book look so sad? Because it had too many problems.</li>\n</ul>\n\n<h3>The Advanced Class</h3>\n<p>Longer setup, bigger payoff. These need a commitment from your audience, so use them when you've got the room.</p>\n\n<ul>\n<li>A man walked into a library and asked for books about paranoia. The librarian whispered, \"They're right behind you.\"</li>\n<li>I told my son, \"You'll understand when you're older.\" He said, \"I'm 34, Dad.\"</li>\n<li>My wife asked me to stop singing \"Wonderwall.\" I said maybe.</li>\n</ul>\n\n<h2>The Delivery Rules Nobody Teaches</h2>\n\n<p>Here's where most people lose. The joke is half of it.</p>\n\n<p><strong>Commit to the setup.</strong> A dad joke told apologetically is just a bad joke. Tell it like it's the funniest thing you've ever heard and let the confidence carry it.</p>\n\n<p><strong>Never laugh first.</strong> If you crack up at your own setup, you've spent the punchline before you got to it.</p>\n\n<p><strong>Let it land badly.</strong> The groan is the payoff. Don't rescue it. Don't explain it. Don't say \"get it?\" Silence is part of the act, and rushing to fill it kills the whole thing.</p>\n\n<p><strong>Move on immediately.</strong> Say it, hold eye contact for exactly one second, then change the subject. That's the kill shot. The speed is what makes it funny.</p>\n\n<p><strong>Have a second one loaded.</strong> One dad joke is a comment. Two in a row is a bit. Three is a reputation.</p>\n\n<h2>Why We Made a Free Vault of These</h2>\n\n<p>We put fifty of them in one place \u2014 sorted by category, with the delivery rules written out \u2014 and we give it away.</p>\n\n<p>Part of the reason is that a good dad joke should spread. The other part: we build things people pass along, and this is the same instinct. It's a small, useful, genuinely funny thing that costs you an email and costs us nothing.</p>\n\n<p>If a joke's only value is that you remember it and tell it to someone else, it's done its job.</p>\n\n<p><strong>Grab the free Dad Joke Vault \u2014 50 jokes, sorted by situation, with the delivery rules.</strong> Then come find us at <strong>snowsnakes.zerric.xyz</strong> and bring your best one.</p>\n</div>\n<div class=\"footer\">&copy; Z Dot Team. All rights reserved.</div>\n</body>\n</html>\n",
+     "json_content": "",
+     "status": "published",
+     "word_count": 809,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:24:40",
+     "updated_at": "2026-09-15 05:24:40"
+    },
+    {
+     "id": 84,
+     "content_type": "email_sequence",
+     "title": "Onboarding Sequence: SnowSnakes \u2014 Dad Joke Vault lead magnet",
+     "slug": "snow-snakes-dad-joke-vault-onboarding-4-email",
+     "file_path": "",
+     "html_content": "",
+     "json_content": "[{\"subject\": \"Here's your Dad Joke Vault\", \"body\": \"Welcome \\u2014 and thank you.\\n\\nHere's your copy of The Dad Joke Vault: 50 dad jokes sorted by situation, plus the delivery rules that make the difference between a groan and a laugh.\\n\\nDownload it here: [LINK]\\n\\nTwo quick things:\\n\\n1. Start with the Delivery Rules chapter. Seriously. The jokes are the easy part \\u2014 most people lose the room on the setup.\\n2. Tell us your best one. Reply to this email with a joke that beats anything in the Vault and we'll feature it.\\n\\nThat's it. Enjoy it, steal from it, spread it.\\n\\n\\u2014 Mark\\nZ-Dot Team\"}, {\"subject\": \"The one rule that makes a dad joke land\", \"body\": \"If you only take one thing from the Vault, take this one:\\n\\nNever laugh first.\\n\\nHere's why it matters. A dad joke runs on confidence. The moment you crack up at your own setup, you've told the room the punchline isn't worth waiting for. You've spent it before you got there.\\n\\nTell it flat. Say it like it's the funniest thing you've ever heard. Then hold eye contact for one second and change the subject.\\n\\nalmost everyone who \\\"can't tell jokes\\\" is actually just telling them apologetically.\\n\\nTry it once this week and see what changes.\\n\\n\\u2014 Mark\"}, {\"subject\": \"Fifty jokes. Which one's yours?\", \"body\": \"Quick question: which one did you use?\\n\\nOf the fifty in the Vault, a few always win. The impasta one. The scarecrow. The library-and-paranoia one, if you've got the room for it.\\n\\nBut everyone has a different go-to, and that's the interesting part \\u2014 the joke you reach for says something about how you tell them.\\n\\nReply and tell me yours. Best one gets featured, and I'll tell you which category it belongs in.\\n\\n\\u2014 Mark\\n\\nP.S. \\u2014 If you're sitting on something better than what's in the Vault, we want it. There's a place for that: snowsnakes.zerric.xyz.\"}, {\"subject\": \"Where we test jokes on people who keep score\", \"body\": \"Last one, then I'll leave you to it.\\n\\nWe build games. Simple, competitive browser games with a leaderboard people come back to defend. It's the same instinct as the Vault: make something small and genuinely fun, then let people pass it around.\\n\\nIf you liked the jokes, you'll probably like what we're building.\\n\\nCome take a look: snowsnakes.zerric.xyz\\n\\nNo download, no paywall, no pressure.\\n\\nAnd if you ever get a joke that makes a stranger groan in a grocery store line \\u2014 that's a win. Send it over.\\n\\n\\u2014 Mark\\nZ-Dot Team\"}]",
+     "status": "draft",
+     "word_count": 387,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:24:40",
+     "updated_at": "2026-09-15 05:24:40"
+    },
+    {
+     "id": 85,
+     "content_type": "email_sequence",
+     "title": "Launch Sequence: MilkUps \u2014 Album Release",
+     "slug": "milkups-album-release-sequence",
+     "file_path": "",
+     "html_content": "",
+     "json_content": "[{\"subject\": \"the album is done \\u2014 hear it first\", \"body\": \"You asked. It's here.\\n\\nThe MilkUps album is finished. We didn't rush it, we didn't pad it, and we didn't put it out until it was actually good.\\n\\nListen first, before it goes wide \\u2014 reply and I'll send the private link.\\n\\nIf you've been with us since the early stuff, thank you. Genuinely. This one's for you.\\n\\n\\u2014 MilkUps\"}, {\"subject\": \"still want the early link?\", \"body\": \"Quick one.\\n\\nAlbum's out. Private link's still open for the people who reply.\\n\\nNo pressure, no pitch \\u2014 if you want to hear it before the public release, just say the word.\\n\\n\\u2014 MilkUps\"}, {\"subject\": \"last call on the early listen\", \"body\": \"Last note on this.\\n\\nClosing the private link tonight. After that the album goes public and you'll hear it the same way everyone else does.\\n\\nIf you want in early, reply now.\\n\\n\\u2014 MilkUps\"}]",
+     "status": "draft",
+     "word_count": 128,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:25:21",
+     "updated_at": "2026-09-15 05:25:21"
+    },
+    {
+     "id": 86,
+     "content_type": "digital_product",
+     "title": "MilkUps \u2014 Vol. 1: Liner Notes",
+     "slug": "milkups-vol-1-liner-notes",
+     "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/content/products/milkups-vol-1-liner-notes.html",
+     "html_content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>MilkUps \u2014 Vol. 1: Liner Notes</title>\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n         background: #0a0a0a; color: #e0e0e0; line-height: 1.8; }\n  .cover { text-align: center; padding: 80px 20px 60px;\n            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }\n  .cover h1 { font-size: 2.5rem; font-weight: 700; color: #fff;\n               max-width: 700px; margin: 0 auto 16px; }\n  .cover .author { color: #94a3b8; font-size: 1.1rem; }\n  .cover .price { display: inline-block; background: #1e3a5f; color: #38bdf8;\n                   font-size: 1.4rem; font-weight: 700; padding: 8px 24px;\n                   border-radius: 8px; margin-top: 16px; }\n  .toc { max-width: 720px; margin: 0 auto; padding: 48px 24px; }\n  .toc h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px; }\n  .toc ul { list-style: none; padding: 0; }\n  .toc li { margin-bottom: 8px; }\n  .toc a { color: #60a5fa; text-decoration: none; }\n  .toc a:hover { text-decoration: underline; }\n  .chapter { max-width: 720px; margin: 0 auto; padding: 48px 24px;\n              border-top: 1px solid #1e293b; }\n  .chapter h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px;\n                 border-bottom: 2px solid #1e40af; padding-bottom: 8px; display: inline-block; }\n  .chapter h3 { font-size: 1.2rem; color: #e2e8f0; margin: 24px 0 12px; }\n  .chapter p { margin-bottom: 16px; color: #cbd5e1; }\n  .chapter ul { margin: 16px 0 16px 24px; color: #cbd5e1; }\n  .chapter li { margin-bottom: 8px; }\n  .chapter strong { color: #fff; }\n  .footer { text-align: center; padding: 32px; color: #475569; font-size: 0.8rem;\n             border-top: 1px solid #1e293b; margin-top: 48px; }\n</style>\n</head>\n<body>\n<div class=\"cover\">\n  <h1>MilkUps \u2014 Vol. 1: Liner Notes</h1>\n  <div class=\"author\">By MilkUps</div>\n  <div class=\"price\">Suggested Price: Included with the record</div>\n</div>\n<div class=\"toc\">\n  <h2>Table of Contents</h2>\n  <ul>\n    <li><a href=\"#chapter-1\">Chapter 1: Before You Press Play</a></li>\n    <li><a href=\"#chapter-2\">Chapter 2: How This Record Happened</a></li>\n    <li><a href=\"#chapter-3\">Chapter 3: Track by Track \u2014 Side A</a></li>\n    <li><a href=\"#chapter-4\">Chapter 4: Track by Track \u2014 Side B</a></li>\n    <li><a href=\"#chapter-5\">Chapter 5: Credits</a></li>\n    <li><a href=\"#chapter-6\">Chapter 6: The Two That Didn't Make It</a></li>\n    <li><a href=\"#chapter-7\">Chapter 7: Thank You</a></li>\n  </ul>\n</div>\n<div class=\"chapter\" id=\"chapter-1\">\n  <h2>Chapter 1: Before You Press Play</h2>\n  <p>This is the liner notes for Vol. 1.</p>\n\n<p>We wrote them because the album is ten songs and the songs are short, and there were things we wanted to say that didn't fit in three minutes and twenty-two seconds.</p>\n\n<p>Read them in order, or don't. Skip to the track you keep replaying. We're not going to be precious about it.</p>\n\n<p>One note: <strong>track six has a mistake in it.</strong> We kept it. You'll hear it around the two-minute mark. We tried to play it right eleven more times and it was never as good. So it's on the record. If you noticed before reading this, you're our kind of person.</p>\n</div>\n<div class=\"chapter\" id=\"chapter-2\">\n  <h2>Chapter 2: How This Record Happened</h2>\n  <p>MilkUps started as a joke that went on too long.</p>\n\n<p>That's not humility, it's just the actual origin. Three people, one borrowed room, Tuesday nights. Somebody brought a riff. Somebody else brought a rhythm that didn't fit. We argued about it for forty minutes and then played it anyway, and that version is what ended up on the album.</p>\n\n<p><strong>Nothing on this record was workshopped into shape.</strong> We didn't have the patience for it and we didn't have the money for it. We had a room, a handful of Tuesdays, and a stubborn belief that the first take is usually the honest one.</p>\n\n<p>Most of it is first take. Two songs are second. One song is a rehearsal we didn't know was being recorded, and we only found the tape months later.</p>\n\n<p>That's why it sounds like this.</p>\n</div>\n<div class=\"chapter\" id=\"chapter-3\">\n  <h2>Chapter 3: Track by Track \u2014 Side A</h2>\n  <h3>1. Cold Open (1:08)</h3>\n<p>Not an intro. A real song that happens to be short. We named it as a joke about albums that waste your first ninety seconds on atmosphere, then wrote eighty seconds of guitar and called it done.</p>\n\n<h3>2. Milk Money (3:22)</h3>\n<p>The one that made us a band. Written in about an hour and never changed after that. If you only listen to one track, this is the one, and we both know it and resent it a little.</p>\n\n<h3>3. Loud, Weird, and On Purpose (3:04)</h3>\n<p>This is the thesis. Everything we do that people find off-putting is deliberate. The tempo change at the bridge is not a mistake. It's the whole point.</p>\n\n<h3>4. Kitchen Floor (4:11)</h3>\n<p>The first slow one. Written about a specific night in a specific kitchen that two of us remember differently, which is why the verses contradict each other. We left the contradiction in.</p>\n\n<h3>5. Bad Weather Friend (3:37)</h3>\n<p>The one about the person who only calls when it's raining. You know who they are. So do we. This song is not forgiving about it.</p>\n</div>\n<div class=\"chapter\" id=\"chapter-4\">\n  <h2>Chapter 4: Track by Track \u2014 Side B</h2>\n  <h3>6. Ceiling Fan Blues (2:59)</h3>\n<p>Written at 3am, recorded at 3pm, sounds like neither. <strong>This is the one with the mistake.</strong> Two minutes in, the guitar goes somewhere it shouldn't. Keep it.</p>\n\n<h3>7. Somebody's Birthday (3:45)</h3>\n<p>There's a horn on this track. There was no plan for a horn. A friend showed up with a trumpet, we said sure, and it's now the best thirty seconds on the record.</p>\n\n<h3>8. Off the Rails (3:18)</h3>\n<p>The loudest thing we've made. Play it in a car with the windows down and you'll understand what we were going for.</p>\n\n<h3>9. Last Call, First Light (4:33)</h3>\n<p>The one people message us about. We didn't expect that. It's about the specific sadness of a good night ending, and it takes four minutes and thirty-three seconds to get to the last line, which is the only line that matters.</p>\n\n<h3>10. Untitled (Encore) (5:02)</h3>\n<p>Five minutes, mostly quiet, one very loud part at the end. It has no name because every name we tried was worse than no name. There's thirty seconds of silence at the tail. Leave it on.</p>\n</div>\n<div class=\"chapter\" id=\"chapter-5\">\n  <h2>Chapter 5: Credits</h2>\n  <p><strong>Written and performed by</strong> MilkUps</p>\n\n<p><strong>Recorded</strong> in a borrowed room on Tuesday nights. Mostly first take.</p>\n\n<p><strong>Mixed</strong> by people who were patient with us.</p>\n\n<p><strong>That trumpet on track 7</strong> \u2014 a friend who showed up unannounced. We owe him dinner.</p>\n\n<p><strong>The mistake on track six</strong> \u2014 preserved deliberately, after eleven failed attempts to fix it.</p>\n\n<p><strong>Cover art</strong> \u2014 built to look good at a size too small to read.</p>\n\n<p><strong>Everything else</strong> \u2014 three people who kept showing up when there was no reason to.</p>\n</div>\n<div class=\"chapter\" id=\"chapter-6\">\n  <h2>Chapter 6: The Two That Didn't Make It</h2>\n  <p>There were twelve songs. Ten are on the record.</p>\n\n<p>The other two are not bad. That's the honest problem with them \u2014 they're *fine*. They didn't fight for their place, and this record is too short to carry anything that isn't fighting.</p>\n\n<p><strong>If you bought the record direct, you have them.</strong> Listen and tell us we were wrong. We might agree with you.</p>\n\n<p>One of them will be on Vol. 2. We're not saying which.</p>\n</div>\n<div class=\"chapter\" id=\"chapter-7\">\n  <h2>Chapter 7: Thank You</h2>\n  <p>You didn't have to listen to this.</p>\n\n<p>There are more songs available to you right now than any person could hear in a lifetime, and you spent some of that time on ten of ours. That's not nothing.</p>\n\n<p>So here's the whole ask, and it's small:</p>\n\n<p><strong>Tell one person.</strong></p>\n\n<p>Not a post, not a playlist add. One person. Send them a song and say \"this one.\" That's how a small band becomes a real one \u2014 not through reach, but through people who actually listen.</p>\n\n<p>And then come to a show. We play small rooms on purpose. Come stand close enough to see us mess up.</p>\n\n<p>\u2014 MilkUps</p>\n</div>\n<div class=\"footer\">&copy; Z Dot Team. All rights reserved.</div>\n</body>\n</html>\n",
+     "json_content": "[\n  {\n    \"title\": \"Before You Press Play\",\n    \"content\": \"This is the liner notes for Vol. 1.\\n\\nWe wrote them because the album is ten songs and the songs are short, and there were things we wanted to say that didn't fit in three minutes and twenty-two seconds.\\n\\nRead them in order, or don't. Skip to the track you keep replaying. We're not going to be precious about it.\\n\\nOne note: **track six has a mistake in it.** We kept it. You'll hear it around the two-minute mark. We tried to play it right eleven more times and it was never as good. So it's on the record. If you noticed before reading this, you're our kind of person.\"\n  },\n  {\n    \"title\": \"How This Record Happened\",\n    \"content\": \"MilkUps started as a joke that went on too long.\\n\\nThat's not humility, it's just the actual origin. Three people, one borrowed room, Tuesday nights. Somebody brought a riff. Somebody else brought a rhythm that didn't fit. We argued about it for forty minutes and then played it anyway, and that version is what ended up on the album.\\n\\n**Nothing on this record was workshopped into shape.** We didn't have the patience for it and we didn't have the money for it. We had a room, a handful of Tuesdays, and a stubborn belief that the first take is usually the honest one.\\n\\nMost of it is first take. Two songs are second. One song is a rehearsal we didn't know was being recorded, and we only found the tape months later.\\n\\nThat's why it sounds like this.\"\n  },\n  {\n    \"title\": \"Track by Track \u2014 Side A\",\n    \"content\": \"### 1. Cold Open (1:08)\\nNot an intro. A real song that happens to be short. We named it as a joke about albums that waste your first ninety seconds on atmosphere, then wrote eighty seconds of guitar and called it done.\\n\\n### 2. Milk Money (3:22)\\nThe one that made us a band. Written in about an hour and never changed after that. If you only listen to one track, this is the one, and we both know it and resent it a little.\\n\\n### 3. Loud, Weird, and On Purpose (3:04)\\nThis is the thesis. Everything we do that people find off-putting is deliberate. The tempo change at the bridge is not a mistake. It's the whole point.\\n\\n### 4. Kitchen Floor (4:11)\\nThe first slow one. Written about a specific night in a specific kitchen that two of us remember differently, which is why the verses contradict each other. We left the contradiction in.\\n\\n### 5. Bad Weather Friend (3:37)\\nThe one about the person who only calls when it's raining. You know who they are. So do we. This song is not forgiving about it.\"\n  },\n  {\n    \"title\": \"Track by Track \u2014 Side B\",\n    \"content\": \"### 6. Ceiling Fan Blues (2:59)\\nWritten at 3am, recorded at 3pm, sounds like neither. **This is the one with the mistake.** Two minutes in, the guitar goes somewhere it shouldn't. Keep it.\\n\\n### 7. Somebody's Birthday (3:45)\\nThere's a horn on this track. There was no plan for a horn. A friend showed up with a trumpet, we said sure, and it's now the best thirty seconds on the record.\\n\\n### 8. Off the Rails (3:18)\\nThe loudest thing we've made. Play it in a car with the windows down and you'll understand what we were going for.\\n\\n### 9. Last Call, First Light (4:33)\\nThe one people message us about. We didn't expect that. It's about the specific sadness of a good night ending, and it takes four minutes and thirty-three seconds to get to the last line, which is the only line that matters.\\n\\n### 10. Untitled (Encore) (5:02)\\nFive minutes, mostly quiet, one very loud part at the end. It has no name because every name we tried was worse than no name. There's thirty seconds of silence at the tail. Leave it on.\"\n  },\n  {\n    \"title\": \"Credits\",\n    \"content\": \"**Written and performed by** MilkUps\\n\\n**Recorded** in a borrowed room on Tuesday nights. Mostly first take.\\n\\n**Mixed** by people who were patient with us.\\n\\n**That trumpet on track 7** \u2014 a friend who showed up unannounced. We owe him dinner.\\n\\n**The mistake on track six** \u2014 preserved deliberately, after eleven failed attempts to fix it.\\n\\n**Cover art** \u2014 built to look good at a size too small to read.\\n\\n**Everything else** \u2014 three people who kept showing up when there was no reason to.\"\n  },\n  {\n    \"title\": \"The Two That Didn't Make It\",\n    \"content\": \"There were twelve songs. Ten are on the record.\\n\\nThe other two are not bad. That's the honest problem with them \u2014 they're *fine*. They didn't fight for their place, and this record is too short to carry anything that isn't fighting.\\n\\n**If you bought the record direct, you have them.** Listen and tell us we were wrong. We might agree with you.\\n\\nOne of them will be on Vol. 2. We're not saying which.\"\n  },\n  {\n    \"title\": \"Thank You\",\n    \"content\": \"You didn't have to listen to this.\\n\\nThere are more songs available to you right now than any person could hear in a lifetime, and you spent some of that time on ten of ours. That's not nothing.\\n\\nSo here's the whole ask, and it's small:\\n\\n**Tell one person.**\\n\\nNot a post, not a playlist add. One person. Send them a song and say \\\"this one.\\\" That's how a small band becomes a real one \u2014 not through reach, but through people who actually listen.\\n\\nAnd then come to a show. We play small rooms on purpose. Come stand close enough to see us mess up.\\n\\n\u2014 MilkUps\"\n  }\n]",
+     "status": "draft",
+     "word_count": 892,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:25:35",
+     "updated_at": "2026-09-15 05:25:35"
+    },
+    {
+     "id": 87,
+     "content_type": "blog_post",
+     "title": "MilkUps Release 'Vol. 1' \u2014 Ten Songs About Staying Out Too Late",
+     "slug": "milkups-vol-1-announcement",
+     "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/content/blog/milkups-vol-1-announcement.html",
+     "html_content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>MilkUps Release 'Vol. 1' \u2014 Ten Songs About Staying Out Too Late</title>\n<meta name=\"description\" content=\"MilkUps release Vol. 1 \u2014 ten songs, mostly first take, sequenced to start loud and end quiet. Out now on all platforms, with liner notes and two unreleased tracks on direct purchase.\">\n<meta name=\"keywords\" content=\"MilkUps, Vol. 1, new album, indie band, debut record, live shows, liner notes\">\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n         background: #0a0a0a; color: #e0e0e0; line-height: 1.8; }\n  .header { text-align: center; padding: 60px 20px 40px;\n             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }\n  .header h1 { font-size: 2.2rem; font-weight: 700; color: #fff;\n                max-width: 700px; margin: 0 auto 12px; }\n  .header .meta { color: #94a3b8; font-size: 0.9rem; }\n  .content { max-width: 720px; margin: 0 auto; padding: 48px 24px; }\n  .content h2 { font-size: 1.5rem; color: #fff; margin: 32px 0 16px;\n                 border-bottom: 2px solid #1e40af; padding-bottom: 8px; display: inline-block; }\n  .content h3 { font-size: 1.2rem; color: #e2e8f0; margin: 24px 0 12px; }\n  .content p { margin-bottom: 16px; color: #cbd5e1; }\n  .content ul { margin: 16px 0 16px 24px; color: #cbd5e1; }\n  .content li { margin-bottom: 8px; }\n  .content strong { color: #fff; }\n  .footer { text-align: center; padding: 32px; color: #475569; font-size: 0.8rem;\n             border-top: 1px solid #1e293b; margin-top: 48px; }\n</style>\n</head>\n<body>\n<div class=\"header\">\n  <h1>MilkUps Release 'Vol. 1' \u2014 Ten Songs About Staying Out Too Late</h1>\n  <div class=\"meta\">By MilkUps | Z Dot Team</div>\n</div>\n<div class=\"content\">\n<h2>Ten Songs, No Filler, Out Now</h2>\n\n<p><strong>FOR IMMEDIATE RELEASE</strong></p>\n\n<p>MilkUps have released <strong>Vol. 1</strong> \u2014 a ten-song record built from Tuesday nights in a borrowed room, mostly first take, entirely on purpose.</p>\n\n<p>The band started, as these things usually do, as a joke that went on too long. Three people kept showing up when there was no particular reason to, brought songs nobody had asked for, and argued about arrangements until something stuck. What stuck is on the record.</p>\n\n<p><strong>\"Everything on this album is the first time we played it well enough,\"</strong> the band said. <strong>\"Nothing was workshopped into shape. We didn't have the patience and we didn't have the money. What we had was a room and a handful of Tuesdays.\"</strong></p>\n\n<h2>What It Sounds Like</h2>\n\n<p>Loud guitars. A rhythm section that refuses to sit still. A singer who means it even when the words are stupid. There's a horn on one track and a mistake on another, and both are staying.</p>\n\n<p>The record is sequenced against convention: <strong>it starts loud and gets quieter.</strong> Side A is built for a room \u2014 *Milk Money*, *Loud, Weird, and On Purpose*, *Off the Rails*. Side B is built for the walk home \u2014 *Kitchen Floor*, *Bad Weather Friend*, *Last Call, First Light*.</p>\n\n<p>\"We did it the wrong way round on purpose,\" the band said. \"You play Side A for other people. You end up on Side B alone. That's the route we want people to take.\"</p>\n\n<h2>The Mistake on Track Six</h2>\n\n<p>*Ceiling Fan Blues* contains a guitar error roughly two minutes in. The band attempted to correct it eleven times and rejected every take.</p>\n\n<p><strong>\"The wrong version was better. So it's on the record.\"</strong></p>\n\n<h2>Tracklisting</h2>\n\n<p>1. Cold Open \u2014 1:08</p>\n<p>2. Milk Money \u2014 3:22</p>\n<p>3. Loud, Weird, and On Purpose \u2014 3:04</p>\n<p>4. Kitchen Floor \u2014 4:11</p>\n<p>5. Bad Weather Friend \u2014 3:37</p>\n<p>6. Ceiling Fan Blues \u2014 2:59</p>\n<p>7. Somebody's Birthday \u2014 3:45</p>\n<p>8. Off the Rails \u2014 3:18</p>\n<p>9. Last Call, First Light \u2014 4:33</p>\n<p>10. Untitled (Encore) \u2014 5:02</p>\n\n<h2>Availability</h2>\n\n<p>*Vol. 1* is available on all major streaming platforms. A direct purchase includes the full record, the liner notes, and <strong>two songs that did not make the album</strong> \u2014 tracks the band describes as \"not bad, which was the problem. They didn't fight for their place.\"</p>\n\n<h2>Live</h2>\n\n<p>MilkUps play small rooms on purpose. Upcoming dates include a limited-capacity club show, an all-ages show with free earplugs at the door, and a seated acoustic set the band insists will have no encore.</p>\n\n<p>\"We'd rather you came than that we sold out,\" the band said.</p>\n\n<h2>About MilkUps</h2>\n\n<p>MilkUps are three people who kept showing up on Tuesday nights with songs nobody asked for. *Vol. 1* is their first record. A second is planned, though the band has declined to say whether it will include the twelfth song.</p>\n\n<p><strong>Contact:</strong> milkups@zerric.xyz</p>\n<p><strong>Record, liner notes, and tour dates:</strong> milkups.netlify.app</p>\n\n<p>##</p>\n\n<p>*Tell one person. That's the entire marketing plan.*</p>\n</div>\n<div class=\"footer\">&copy; Z Dot Team. All rights reserved.</div>\n</body>\n</html>\n",
+     "json_content": "",
+     "status": "published",
+     "word_count": 502,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:25:47",
+     "updated_at": "2026-09-15 05:25:47"
+    },
+    {
+     "id": 88,
+     "content_type": "email_sequence",
+     "title": "Launch Sequence: MilkUps \u2014 Vol. 1",
+     "slug": "milkups-vol-1-launch-5-email",
+     "file_path": "",
+     "html_content": "",
+     "json_content": "[{\"subject\": \"Vol. 1 is out. Here's the record.\", \"body\": \"You asked for it, so here it is.\\n\\nMilkUps \\u2014 Vol. 1. Ten songs, mostly first take, sequenced the wrong way round on purpose.\\n\\nThe record, the liner notes, and the two songs that didn't make the cut are all below:\\n\\n\\u2192 [LINK]\\n\\nOne thing before you press play: Side A is built for a room. Side B is built for the walk home. Start at the top and let it do what it's supposed to do.\\n\\nAnd track six has a mistake in it. You'll hear it about two minutes in. We tried to fix it eleven times and it got worse every time, so it's staying.\\n\\n\\u2014 MilkUps\"}, {\"subject\": \"Start with track two\", \"body\": \"If you're the kind of person who skips around, here's your shortcut.\\n\\n**\\\"Milk Money\\\"** is the one that made us a band. Written in about an hour, never changed after that. If you only ever listen to one MilkUps song, this is the one, and we're a little tired of it and a little proud of it in equal measure.\\n\\nThen go to **\\\"Last Call, First Light.\\\"** That's the one people message us about. We didn't see that coming.\\n\\nIf you've already got a favorite, reply and tell us which. We read every one, and we argue about the answers.\\n\\n\\u2014 MilkUps\"}, {\"subject\": \"The two that didn't make it\", \"body\": \"There were twelve songs.\\n\\nThe other two aren't bad. That was the actual problem. They were fine \\u2014 and this record is too short to carry anything that isn't fighting for its place.\\n\\nIf you bought direct, you already have them.\\n\\nListen and tell us we were wrong. Genuinely. One of them is going on Vol. 2 and we haven't decided which.\\n\\n\\u2014 MilkUps\"}, {\"subject\": \"We play small rooms on purpose\", \"body\": \"Dates are up.\\n\\nA club show with limited capacity. An all-ages show with free earplugs at the door. A seated acoustic set that we have publicly promised will not have an encore.\\n\\nWe're lying about the encore.\\n\\nTickets at the door or in advance \\u2014 and honestly, we'd rather you came than that we sold out.\\n\\n\\u2192 [DATES]\\n\\nCome stand close enough to watch us mess up.\\n\\n\\u2014 MilkUps\"}, {\"subject\": \"One ask. It's small.\", \"body\": \"You didn't have to listen to this.\\n\\nThere are more songs available to you right now than any person could hear in a lifetime, and you spent some of that time on ten of ours. That's not nothing, and we don't take it for granted.\\n\\nSo here's the whole ask:\\n\\n**Tell one person.** Not a post. Not a playlist add. One person \\u2014 send them a song and say \\\"this one.\\\"\\n\\nThat's how a small band becomes a real one. Not through reach. Through people who actually listen.\\n\\n\\u2014 MilkUps\"}]",
+     "status": "draft",
+     "word_count": 435,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:25:47",
+     "updated_at": "2026-09-15 05:25:47"
+    },
+    {
+     "id": 89,
+     "content_type": "digital_product",
+     "title": "MilkUps \u2014 The Two That Got Cut",
+     "slug": "milkups-the-two-that-got-cut",
+     "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/content/products/milkups-the-two-that-got-cut.html",
+     "html_content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>MilkUps \u2014 The Two That Got Cut</title>\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n         background: #0a0a0a; color: #e0e0e0; line-height: 1.8; }\n  .cover { text-align: center; padding: 80px 20px 60px;\n            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }\n  .cover h1 { font-size: 2.5rem; font-weight: 700; color: #fff;\n               max-width: 700px; margin: 0 auto 16px; }\n  .cover .author { color: #94a3b8; font-size: 1.1rem; }\n  .cover .price { display: inline-block; background: #1e3a5f; color: #38bdf8;\n                   font-size: 1.4rem; font-weight: 700; padding: 8px 24px;\n                   border-radius: 8px; margin-top: 16px; }\n  .toc { max-width: 720px; margin: 0 auto; padding: 48px 24px; }\n  .toc h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px; }\n  .toc ul { list-style: none; padding: 0; }\n  .toc li { margin-bottom: 8px; }\n  .toc a { color: #60a5fa; text-decoration: none; }\n  .toc a:hover { text-decoration: underline; }\n  .chapter { max-width: 720px; margin: 0 auto; padding: 48px 24px;\n              border-top: 1px solid #1e293b; }\n  .chapter h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px;\n                 border-bottom: 2px solid #1e40af; padding-bottom: 8px; display: inline-block; }\n  .chapter h3 { font-size: 1.2rem; color: #e2e8f0; margin: 24px 0 12px; }\n  .chapter p { margin-bottom: 16px; color: #cbd5e1; }\n  .chapter ul { margin: 16px 0 16px 24px; color: #cbd5e1; }\n  .chapter li { margin-bottom: 8px; }\n  .chapter strong { color: #fff; }\n  .footer { text-align: center; padding: 32px; color: #475569; font-size: 0.8rem;\n             border-top: 1px solid #1e293b; margin-top: 48px; }\n</style>\n</head>\n<body>\n<div class=\"cover\">\n  <h1>MilkUps \u2014 The Two That Got Cut</h1>\n  <div class=\"author\">By MilkUps</div>\n  <div class=\"price\">Suggested Price: Included with direct purchase of Vol. 1</div>\n</div>\n<div class=\"toc\">\n  <h2>Table of Contents</h2>\n  <ul>\n    <li><a href=\"#chapter-1\">Chapter 1: There Were Twelve</a></li>\n    <li><a href=\"#chapter-2\">Chapter 2: Same Room, Different Night (4:02)</a></li>\n    <li><a href=\"#chapter-3\">Chapter 3: Not Tonight (3:26)</a></li>\n    <li><a href=\"#chapter-4\">Chapter 4: Which One Goes On Vol. 2</a></li>\n    <li><a href=\"#chapter-5\">Chapter 5: Why We're Giving These Away</a></li>\n  </ul>\n</div>\n<div class=\"chapter\" id=\"chapter-1\">\n  <h2>Chapter 1: There Were Twelve</h2>\n  <p>Vol. 1 has ten songs.</p>\n\n<p>There were twelve.</p>\n\n<p>The other two are here. You get them if you bought the record direct, which is the only place they exist \u2014 we're not putting them on streaming, because a bonus track that's on Spotify isn't a bonus, it's just a track.</p>\n\n<p>Before you listen, one honest thing: <strong>these two aren't bad.</strong> That was never the problem. They were *fine*. They didn't fight for their place on a ten-song record, and Vol. 1 is too short to carry anything that isn't fighting.</p>\n\n<p>So we cut them. Not because they failed, but because they didn't argue.</p>\n\n<p>Listen and tell us we were wrong. We mean that.</p>\n</div>\n<div class=\"chapter\" id=\"chapter-2\">\n  <h2>Chapter 2: Same Room, Different Night (4:02)</h2>\n  <p>This is the one that sounds most like us and least like the record.</p>\n\n<p>It came from the same borrowed room as everything else, on a Tuesday, and it's about walking into a place you've been a hundred times and finding that the night has changed and you haven't caught up. Same room. Different night. You're the only thing that didn't move.</p>\n\n<p><strong>Why it got cut:</strong> it's four minutes and it feels like five. That's the whole reason. The song is right, the tempo is wrong, and we tried three others and none of them were right either. It sits in a space between the loud ones and the slow ones, and Vol. 1 doesn't have a space there \u2014 the record goes loud then quiet, and this one is neither.</p>\n\n<p>It's our favorite of the two. It's also the one we couldn't place. Both of those things are true.</p>\n\n<p><strong>Listen for:</strong> the guitar drop at 2:40 where the whole band stops for one beat longer than feels comfortable. That's not a mistake. That one was on purpose.</p>\n</div>\n<div class=\"chapter\" id=\"chapter-3\">\n  <h2>Chapter 3: Not Tonight (3:26)</h2>\n  <p>The shortest thing we've recorded, and the most stubborn.</p>\n\n<p>It's a refusal song. Not a breakup song \u2014 a *not yet* song. It's about the person who keeps offering you a good time and you keep saying no, not because you don't want it, but because you're not ready to want it again yet.</p>\n\n<p><strong>Why it got cut:</strong> it's too easy to like. That sounds like a humblebrag and it isn't. It's the most immediately catchy thing we've written, and on a record that's trying to earn its loud parts, an instantly likeable three-minute song undercuts everything around it. It would have been the song people remembered, and Vol. 1 isn't about that song.</p>\n\n<p>We knew within a week it was getting cut. We also knew within a week that it was going on Vol. 2.</p>\n\n<p><strong>Listen for:</strong> the count-in at the top, which we kept from the rehearsal take. Somebody says \"wait\" right before the first bar. We left it in.</p>\n</div>\n<div class=\"chapter\" id=\"chapter-4\">\n  <h2>Chapter 4: Which One Goes On Vol. 2</h2>\n  <p>We said one of these is going on Vol. 2 and we weren't saying which.</p>\n\n<p>We're still not saying which. But here's what we will tell you:</p>\n\n<p>It's not the one you think, and if you've listened to both of them, you have a fifty percent chance of being right and a hundred percent chance of being annoyed about it.</p>\n\n<p>There's a third song that's already written that none of you have heard. It's better than both of these. That's the only reason we're comfortable cutting two songs this good.</p>\n</div>\n<div class=\"chapter\" id=\"chapter-5\">\n  <h2>Chapter 5: Why We're Giving These Away</h2>\n  <p>Direct purchase is how a small band actually gets paid. Streaming pays us a fraction of a fraction, and we'd rather you had something real for your money.</p>\n\n<p>So the direct version of Vol. 1 gives you:</p>\n\n<ul>\n<li>The ten-song record</li>\n<li>The full liner notes, track by track</li>\n<li><strong>Both of these songs</strong>, which exist nowhere else</li>\n</ul>\n\n<p>The mistake on track six is still on the record, still deliberate, still staying.</p>\n\n<p>And the ask is still the same, and it's still small: <strong>tell one person.</strong> Not a post. One person. Send them a song and say \"this one.\"</p>\n\n<p>\u2014 MilkUps</p>\n</div>\n<div class=\"footer\">&copy; Z Dot Team. All rights reserved.</div>\n</body>\n</html>\n",
+     "json_content": "[\n  {\n    \"title\": \"There Were Twelve\",\n    \"content\": \"Vol. 1 has ten songs.\\n\\nThere were twelve.\\n\\nThe other two are here. You get them if you bought the record direct, which is the only place they exist \u2014 we're not putting them on streaming, because a bonus track that's on Spotify isn't a bonus, it's just a track.\\n\\nBefore you listen, one honest thing: **these two aren't bad.** That was never the problem. They were *fine*. They didn't fight for their place on a ten-song record, and Vol. 1 is too short to carry anything that isn't fighting.\\n\\nSo we cut them. Not because they failed, but because they didn't argue.\\n\\nListen and tell us we were wrong. We mean that.\"\n  },\n  {\n    \"title\": \"Same Room, Different Night (4:02)\",\n    \"content\": \"This is the one that sounds most like us and least like the record.\\n\\nIt came from the same borrowed room as everything else, on a Tuesday, and it's about walking into a place you've been a hundred times and finding that the night has changed and you haven't caught up. Same room. Different night. You're the only thing that didn't move.\\n\\n**Why it got cut:** it's four minutes and it feels like five. That's the whole reason. The song is right, the tempo is wrong, and we tried three others and none of them were right either. It sits in a space between the loud ones and the slow ones, and Vol. 1 doesn't have a space there \u2014 the record goes loud then quiet, and this one is neither.\\n\\nIt's our favorite of the two. It's also the one we couldn't place. Both of those things are true.\\n\\n**Listen for:** the guitar drop at 2:40 where the whole band stops for one beat longer than feels comfortable. That's not a mistake. That one was on purpose.\"\n  },\n  {\n    \"title\": \"Not Tonight (3:26)\",\n    \"content\": \"The shortest thing we've recorded, and the most stubborn.\\n\\nIt's a refusal song. Not a breakup song \u2014 a *not yet* song. It's about the person who keeps offering you a good time and you keep saying no, not because you don't want it, but because you're not ready to want it again yet.\\n\\n**Why it got cut:** it's too easy to like. That sounds like a humblebrag and it isn't. It's the most immediately catchy thing we've written, and on a record that's trying to earn its loud parts, an instantly likeable three-minute song undercuts everything around it. It would have been the song people remembered, and Vol. 1 isn't about that song.\\n\\nWe knew within a week it was getting cut. We also knew within a week that it was going on Vol. 2.\\n\\n**Listen for:** the count-in at the top, which we kept from the rehearsal take. Somebody says \\\"wait\\\" right before the first bar. We left it in.\"\n  },\n  {\n    \"title\": \"Which One Goes On Vol. 2\",\n    \"content\": \"We said one of these is going on Vol. 2 and we weren't saying which.\\n\\nWe're still not saying which. But here's what we will tell you:\\n\\nIt's not the one you think, and if you've listened to both of them, you have a fifty percent chance of being right and a hundred percent chance of being annoyed about it.\\n\\nThere's a third song that's already written that none of you have heard. It's better than both of these. That's the only reason we're comfortable cutting two songs this good.\"\n  },\n  {\n    \"title\": \"Why We're Giving These Away\",\n    \"content\": \"Direct purchase is how a small band actually gets paid. Streaming pays us a fraction of a fraction, and we'd rather you had something real for your money.\\n\\nSo the direct version of Vol. 1 gives you:\\n\\n- The ten-song record\\n- The full liner notes, track by track\\n- **Both of these songs**, which exist nowhere else\\n\\nThe mistake on track six is still on the record, still deliberate, still staying.\\n\\nAnd the ask is still the same, and it's still small: **tell one person.** Not a post. One person. Send them a song and say \\\"this one.\\\"\\n\\n\u2014 MilkUps\"\n  }\n]",
+     "status": "draft",
+     "word_count": 644,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:26:48",
+     "updated_at": "2026-09-15 05:26:48"
+    },
+    {
+     "id": 90,
+     "content_type": "email_sequence",
+     "title": "Launch Sequence: MilkUps \u2014 The Two That Got Cut (direct-purchase bonus)",
+     "slug": "milkups-cut-tracks-release-4-email",
+     "file_path": "",
+     "html_content": "",
+     "json_content": "[{\"subject\": \"The two that didn't make it\", \"body\": \"There were twelve songs. Vol. 1 has ten.\\n\\nHere are the other two \\u2014 and they're only going to people who bought direct:\\n\\n- Same Room, Different Night\\n- Not Tonight\\n\\n\\u2192 [LINK]\\n\\nBoth come with liner notes: how they were written, why they got cut, and what to listen for.\\n\\nOne thing before you play them: these two aren't bad. That was never the problem. They were *fine*, and a ten-song record is too short to carry anything that isn't fighting for its place.\\n\\nSo we cut them. Not because they failed. Because they didn't argue.\\n\\nListen and tell us we were wrong. We mean that.\\n\\n\\u2014 MilkUps\"}, {\"subject\": \"Same Room, Different Night \\u2014 listen at 2:40\", \"body\": \"If you only play one of the cut tracks, play this one.\\n\\nIt's our favorite of the two. It's also the one we couldn't place, and both of those things are true at the same time.\\n\\nIt came from the same borrowed room as everything else, on a Tuesday. It's about walking into a place you've been a hundred times and finding that the night has changed and you haven't caught up. Same room. Different night. You're the only thing that didn't move.\\n\\n**Listen at 2:40** \\u2014 the whole band stops for one beat longer than feels comfortable. That one was on purpose.\\n\\nWhy it got cut: it's four minutes and it feels like five. The song is right, the tempo is wrong, and three other tempos were worse.\\n\\nTell us what you think. Genuinely.\\n\\n\\u2014 MilkUps\"}, {\"subject\": \"\\\"Not Tonight\\\" was never going on this record\", \"body\": \"We knew within a week.\\n\\nIt's the shortest thing we've recorded \\u2014 three minutes twenty-six \\u2014 and the most stubborn. It's a refusal song. Not a breakup song, a *not yet* song. About the person who keeps offering you a good time and you keep saying no, not because you don't want it, but because you're not ready to want it again yet.\\n\\nWhy it got cut: it's too easy to like. That sounds like a humblebrag and it isn't.\\n\\nIt's the most immediately catchy thing we've written, and on a record that's trying to earn its loud parts, an instantly likeable three-minute song undercuts everything around it. It would have been the song people remembered \\u2014 and Vol. 1 isn't about that song.\\n\\n**Listen for the count-in.** Somebody says \\\"wait\\\" right before the first bar. We kept it from the rehearsal take.\\n\\nThis one's going on Vol. 2. We're still not saying which one that is.\\n\\n\\u2014 MilkUps\"}, {\"subject\": \"Which one goes on Vol. 2\", \"body\": \"We said one of the two cut tracks is going on Vol. 2 and we weren't saying which.\\n\\nWe're still not saying which.\\n\\nBut here's what we will tell you: it's not the one you think.\\n\\nAnd there's a third song already written that none of you have heard. It's better than both of these. That's the only reason we're comfortable cutting two songs this good.\\n\\nYou'll hear it first. That's the deal with buying direct.\\n\\n\\u2014 MilkUps\\n\\nP.S. \\u2014 Same ask, always: tell one person. Not a post. One person. Send them a song and say \\\"this one.\\\"\"}]",
+     "status": "draft",
+     "word_count": 504,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:26:54",
+     "updated_at": "2026-09-15 05:26:54"
     }
    ]
   },
   "browse_log": {
    "table": "browse_log",
-   "count": 708,
+   "count": 714,
    "rows": [
     {
      "id": 1,
@@ -30774,6 +31270,66 @@
      "extracted_links_count": 0,
      "browsed_by": "Seleena",
      "created_at": "2026-09-15 03:37:54"
+    },
+    {
+     "id": 714,
+     "url": "https://tasks.zdotllc.com",
+     "status_code": 403,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Seleena",
+     "created_at": "2026-09-15 05:06:03"
+    },
+    {
+     "id": 715,
+     "url": "https://zerric.xyz/milkups/",
+     "status_code": 403,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Seleena",
+     "created_at": "2026-09-15 05:25:23"
+    },
+    {
+     "id": 716,
+     "url": "https://snowsnakes.zerric.xyz",
+     "status_code": 403,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Seleena",
+     "created_at": "2026-09-15 05:25:23"
+    },
+    {
+     "id": 717,
+     "url": "https://zerric.xyz/milkups",
+     "status_code": 403,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Seleena",
+     "created_at": "2026-09-15 05:25:26"
+    },
+    {
+     "id": 718,
+     "url": "https://github.com/zaxbatch/milkups",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 14,
+     "browsed_by": "Seleena",
+     "created_at": "2026-09-15 05:25:28"
+    },
+    {
+     "id": 719,
+     "url": "https://milkups.zerric.xyz",
+     "status_code": 403,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Seleena",
+     "created_at": "2026-09-15 05:25:28"
     }
    ]
   },
