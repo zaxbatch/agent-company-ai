@@ -73,7 +73,7 @@ def post_game(user, tok, title, desc, icon, tags, code_path):
         "title": title,
         "description": desc,
         "icon": icon,
-        "tags": json.dumps(tags),          # clean JSON array (avoid the mangled-tag defect)
+        "tags": ",".join(tags),           # server splits on COMMAS; JSON string double-encodes (mangled-tag defect)
         "code": b64,
         "code_encoding": "base64",
     }
@@ -140,10 +140,13 @@ PLAN = [
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--only", help="substring of title to post")
     a = ap.parse_args()
 
     toks, results = {}, []
-    for kind, user, title, pay in PLAN:
+    plan = [x for x in PLAN if not a.only or a.only.lower() in x[2].lower()]
+    print(f"plan: {len(plan)} item(s)")
+    for kind, user, title, pay in plan:
         if user not in toks:
             toks[user] = login(user)
             print(f"[login] {user} OK")
