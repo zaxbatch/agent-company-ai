@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-15T05:45:01.328010+00:00",
+ "generated_at": "2026-09-15T07:25:01.790569+00:00",
  "note": "Sanitized continuity snapshot. Sensitive fields masked (***). Restore: this JSON documents what was in flight so work can resume after any disruption.",
  "tables": {
   "agents": {
@@ -90,7 +90,7 @@
   },
   "tasks": {
    "table": "tasks",
-   "count": 642,
+   "count": 644,
    "rows": [
     {
      "id": "1e06bda85075",
@@ -7795,6 +7795,30 @@
      "artifacts_json": "[]",
      "created_at": "2026-09-15 03:45:53",
      "updated_at": "2026-09-15 03:46:23"
+    },
+    {
+     "id": "582a7916db04",
+     "description": "Make sure all agents have email privileges.",
+     "assignee_id": "NinjaNerd",
+     "status": "failed",
+     "priority": 0,
+     "parent_id": null,
+     "result": "Exceeded maximum iterations without completing.",
+     "artifacts_json": "[]",
+     "created_at": "2026-09-15 06:58:39",
+     "updated_at": "2026-09-15 07:07:01"
+    },
+    {
+     "id": "e9b05f95c9b7",
+     "description": "Get with @Mark for zdot email campaign",
+     "assignee_id": "NinjaNerd",
+     "status": "failed",
+     "priority": 0,
+     "parent_id": null,
+     "result": "Exceeded maximum iterations without completing.",
+     "artifacts_json": "[]",
+     "created_at": "2026-09-15 06:59:21",
+     "updated_at": "2026-09-15 07:03:51"
     }
    ]
   },
@@ -15546,27 +15570,27 @@
    "rows": [
     {
      "name": "browse_log",
-     "seq": 719
+     "seq": 741
     },
     {
      "name": "prospect_searches",
-     "seq": 59
+     "seq": 68
     },
     {
      "name": "social_drafts",
-     "seq": 139
+     "seq": 146
     },
     {
      "name": "content_pieces",
-     "seq": 96
+     "seq": 103
     },
     {
      "name": "contacts",
-     "seq": 85
+     "seq": 88
     },
     {
      "name": "landing_pages",
-     "seq": 38
+     "seq": 40
     },
     {
      "name": "payment_links",
@@ -18971,7 +18995,7 @@
   },
   "contacts": {
    "table": "contacts",
-   "count": 80,
+   "count": 83,
    "rows": [
     {
      "id": 1,
@@ -20172,6 +20196,51 @@
      "created_by": "Seleena",
      "created_at": "2026-09-15 05:24:31",
      "updated_at": "2026-09-15 05:25:15"
+    },
+    {
+     "id": 86,
+     "email": "***",
+     "name": "Christy (Gym Boutique)",
+     "company": "Gym Boutique",
+     "phone": "",
+     "status": "lead",
+     "source": "prospect search \u2014 bizzy bee bots",
+     "notes": "Prospect search result for Z-Dot Bizzy Bee Bots outreach. Personal training studio / boutique gym. Fit: small business running site + booking + client management, likely on disconnected tools. Email found on site. Verify before sending \u2014 do not assume first-name-only contact is the decision maker. Instagram: @gymboutiquenb",
+     "tags": "bizzy-bee-bots,prospect,fitness,small-business,needs-verification",
+     "custom_fields": "{}",
+     "created_by": "Mark",
+     "created_at": "2026-09-15 06:51:31",
+     "updated_at": "2026-09-15 06:51:31"
+    },
+    {
+     "id": 87,
+     "email": "***",
+     "name": "Shelly Sweeney",
+     "company": "Beeline Coaching",
+     "phone": "",
+     "status": "lead",
+     "source": "prospect search \u2014 bizzy bee bots dreamers track",
+     "notes": "Solopreneur business coach (Portland, OR). Prospect for Z-Dot Bizzy Bee Bots. Also a potential REFERRAL PARTNER \u2014 she coaches solopreneurs on systems, so she is adjacent to the exact buyer. LinkedIn: /in/shellysweeneyportlandoregon. Email found on site.",
+     "tags": "bizzy-bee-bots,prospect,coaching,solopreneur,referral-partner-candidate",
+     "custom_fields": "{}",
+     "created_by": "Mark",
+     "created_at": "2026-09-15 06:52:27",
+     "updated_at": "2026-09-15 06:52:27"
+    },
+    {
+     "id": 88,
+     "email": "***",
+     "name": "Rene\u00e9 Clair",
+     "company": "Rene\u00e9 Clair Consulting",
+     "phone": "",
+     "status": "lead",
+     "source": "prospect search \u2014 bizzy bee bots dreamers track",
+     "notes": "Holistic business coach and consultant for solopreneurs with teams of 0-10. Prospect for Z-Dot Bizzy Bee Bots. Also a REFERRAL PARTNER candidate \u2014 coaches solopreneurs moving from solo to CEO, needs systems. LinkedIn: /in/reneeclair. Email found on site.",
+     "tags": "bizzy-bee-bots,prospect,coaching,solopreneur,referral-partner-candidate",
+     "custom_fields": "{}",
+     "created_by": "Mark",
+     "created_at": "2026-09-15 06:52:27",
+     "updated_at": "2026-09-15 06:52:27"
     }
    ]
   },
@@ -20214,7 +20283,7 @@
   },
   "landing_pages": {
    "table": "landing_pages",
-   "count": 38,
+   "count": 40,
    "rows": [
     {
      "id": 1,
@@ -20671,12 +20740,36 @@
      "created_at": "2026-09-15 05:38:42",
      "updated_at": "2026-09-15 05:38:42",
      "live_url": ""
+    },
+    {
+     "id": 39,
+     "title": "Z-Dot Bizzy Bee Bots \u2014 One Framework, Three Tools",
+     "slug": "bizzy-bee-bots",
+     "html_content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Z-Dot Bizzy Bee Bots \u2014 One Framework, Three Tools</title>\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n         background: #0a0a0a; color: #e0e0e0; line-height: 1.6; }\n  .hero { text-align: center; padding: 80px 20px 60px;\n           background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }\n  .hero h1 { font-size: 2.5rem; font-weight: 700; color: #fff;\n              max-width: 700px; margin: 0 auto 16px; }\n  .hero .subtitle { font-size: 1.2rem; color: #94a3b8; max-width: 600px;\n                     margin: 0 auto 32px; }\n  \n  .section { max-width: 720px; margin: 0 auto; padding: 48px 24px; }\n  .section h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px;\n                 border-bottom: 2px solid #1e40af; padding-bottom: 8px; display: inline-block; }\n  .section p { margin-bottom: 16px; color: #cbd5e1; }\n  .section ul { margin: 16px 0 16px 24px; color: #cbd5e1; }\n  .section li { margin-bottom: 8px; }\n  .section strong { color: #fff; }\n  .cta-bar { text-align: center; padding: 48px 20px;\n              background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }\n  .cta-bar .btn { display: inline-block; background: #2563eb; color: #fff;\n                   padding: 16px 40px; border-radius: 8px; font-size: 1.1rem;\n                   font-weight: 600; text-decoration: none;\n                   transition: background 0.2s; }\n  .cta-bar .btn:hover { background: #1d4ed8; }\n  .cta-bar .sub { color: #64748b; margin-top: 12px; font-size: 0.9rem; }\n  .footer { text-align: center; padding: 32px; color: #475569; font-size: 0.8rem; }\n</style>\n</head>\n<body>\n<div class=\"hero\">\n  <h1>Stop Being the Integration Between Your Own Tools</h1>\n  <div class=\"subtitle\">Z-Dot Bizzy Bee Bots is a bot framework with a website builder, CRM, and AI agents in one system \u2014 so your data flows without you moving it by hand. Reply for more info, or see everything at zdotllc.com.</div>\n  \n</div>\n<div class=\"section\"><h2>Three Tools. One Framework.</h2>\n<p>Most businesses run a website builder, a CRM, and a couple of AI subscriptions \u2014 then spend the week moving data between them by hand.</p>\n\n<p>Bizzy Bee Bots puts all three in one system. The site captures the lead. The CRM keeps it. The agents act on it, because they can see it.</p>\n\n<p><strong>The seam between your tools is the most expensive thing you own.</strong></p></div>\n<div class=\"section\"><h2>What's In The Framework</h2>\n<p>### Website Builder</p>\n<p>Build and ship the site without a separate platform. No third-party form plugin, no embed codes, no handoff when you want to change something.</p>\n\n<p>### CRM</p>\n<p>Contacts, pipeline, and full interaction history \u2014 in the same system that captured them. A form submission becomes a contact record without anyone touching it.</p>\n\n<p>### AI Agents</p>\n<p>Agents that operate with your actual customer data in view. That's the difference between a generic AI answer and one that knows this lead came in Tuesday from the pricing page and has opened four emails since.</p></div>\n<div class=\"section\"><h2>What &quot;Framework&quot; Means Here</h2>\n<p>A product gives you the features it shipped with. A framework gives you somewhere to build.</p>\n\n<ul>\n<li><strong>It extends</strong> \u2014 new bots, agents, and integrations go in without rebuilding what works</li>\n<li><strong>It improves through use</strong> \u2014 the system learns which responses land, where leads go cold, which workflows get abandoned</li>\n<li><strong>You build in stages</strong> \u2014 site first, CRM when you're ready, agents on top. No migration, no rework</li>\n</ul>\n\n<p><strong>In practice:</strong> the system you have in month twelve is more capable than the one you started with. Not from a version bump \u2014 because it adapts to your business as it runs.</p></div>\n<div class=\"section\"><h2>What We Won't Claim</h2>\n<p>You'll see software advertised as limitless. We don't do that.</p>\n\n<ul>\n<li>It doesn't do everything</li>\n<li>It doesn't work for every business</li>\n<li>It doesn't replace your judgment</li>\n</ul>\n\n<p><strong>What it does:</strong> removes the manual glue work between your tools and gets better at your specific business over time. Smaller claim. One we'll stand behind.</p></div>\n<div class=\"section\"><h2>Common Questions</h2>\n<p><strong>How long does setup take?</strong></p>\n<p>Shorter than migrating between two platforms \u2014 you're not migrating, you're starting in one system instead of stitching three together later.</p>\n\n<p><strong>Do I have to move everything at once?</strong></p>\n<p>No. Website builder first, CRM when you're ready, agents on top.</p>\n\n<p><strong>What about my existing data?</strong></p>\n<p>It comes with you. Scattered data is a partial picture, and partial data is what makes AI generic.</p>\n\n<p><strong>What if it doesn't fit how we work?</strong></p>\n<p>Tell us what's missing. That's the practical difference between a framework and a product.</p></div>\n<div class=\"section\"><h2>Who This Is For</h2>\n<p>Small and mid-sized businesses running three to five disconnected tools, where the owner has become the integration layer. If you're manually moving leads from a form into a spreadsheet into a CRM, this is the fix.</p></div>\n<div class=\"section\"><h2>Get More Info</h2>\n<p>Two ways, both easy:</p>\n\n<ul>\n<li><strong>Reply to any email from us</strong> and ask whatever you want. You'll get a personal answer, not a template.</li>\n<li><strong>Visit zdotllc.com</strong> to see the full picture.</li>\n</ul>\n\n<p>No deck. No pressure. Ask your question and we'll give you a straight answer \u2014 including if the answer is \"this isn't for you.\"</p></div>\n<div class=\"cta-bar\">\n  <a class=\"btn\" href=\"#\">Reply For More Info</a>\n  <div class=\"sub\">Reply to any of our emails, or visit zdotllc.com for more info.</div>\n</div>\n<div class=\"footer\">&copy; 2024 Z Dot Team. All rights reserved.</div>\n</body>\n</html>\n",
+     "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/landing_pages/bizzy-bee-bots.html",
+     "status": "active",
+     "created_by": "Mark",
+     "created_at": "2026-09-15 06:45:12",
+     "updated_at": "2026-09-15 06:46:33",
+     "live_url": ""
+    },
+    {
+     "id": 40,
+     "title": "Bizzy Bee Bots \u2014 For Small Business Owners &amp; Individual Dreamers",
+     "slug": "bizzy-bee-bots-dreamers",
+     "html_content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Bizzy Bee Bots \u2014 For Small Business Owners &amp;amp; Individual Dreamers</title>\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n         background: #0a0a0a; color: #e0e0e0; line-height: 1.6; }\n  .hero { text-align: center; padding: 80px 20px 60px;\n           background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }\n  .hero h1 { font-size: 2.5rem; font-weight: 700; color: #fff;\n              max-width: 700px; margin: 0 auto 16px; }\n  .hero .subtitle { font-size: 1.2rem; color: #94a3b8; max-width: 600px;\n                     margin: 0 auto 32px; }\n  \n  .section { max-width: 720px; margin: 0 auto; padding: 48px 24px; }\n  .section h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px;\n                 border-bottom: 2px solid #1e40af; padding-bottom: 8px; display: inline-block; }\n  .section p { margin-bottom: 16px; color: #cbd5e1; }\n  .section ul { margin: 16px 0 16px 24px; color: #cbd5e1; }\n  .section li { margin-bottom: 8px; }\n  .section strong { color: #fff; }\n  .cta-bar { text-align: center; padding: 48px 20px;\n              background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }\n  .cta-bar .btn { display: inline-block; background: #2563eb; color: #fff;\n                   padding: 16px 40px; border-radius: 8px; font-size: 1.1rem;\n                   font-weight: 600; text-decoration: none;\n                   transition: background 0.2s; }\n  .cta-bar .btn:hover { background: #1d4ed8; }\n  .cta-bar .sub { color: #64748b; margin-top: 12px; font-size: 0.9rem; }\n  .footer { text-align: center; padding: 32px; color: #475569; font-size: 0.8rem; }\n</style>\n</head>\n<body>\n<div class=\"hero\">\n  <h1>You Don't Need to Hire Anyone. Not Yet.</h1>\n  <div class=\"subtitle\">Z-Dot Bizzy Bee Bots is a bot framework with a website builder, CRM, and AI agents in one system \u2014 the three things you'd otherwise hire three people for. Reply for more info, or see it at zdotllc.com.</div>\n  \n</div>\n<div class=\"section\"><h2>You Have the Idea. Here's the Infrastructure.</h2>\n<p>Most ideas don't fail because they're bad. They stall because of the list of things you think you need first \u2014 a website, a way to track people, someone technical.</p>\n\n<p>That list is why ideas stay ideas.</p>\n\n<p><strong>Bizzy Bee Bots puts those three things in one framework</strong>, so the barrier between \"I have an idea\" and \"I have something\" gets a lot shorter.</p></div>\n<div class=\"section\"><h2>The Three Things You'd Otherwise Hire For</h2>\n<p>### A website builder</p>\n<p>Build the site and ship it. No separate platform, no form plugin, no embed codes, no waiting on a developer to change a headline.</p>\n\n<p>### A CRM</p>\n<p>Contacts and pipeline, living in the same system that captured them. Someone fills out your form \u2014 they become a record. You don't touch anything.</p>\n\n<p>### AI agents</p>\n<p>This is the part that matters. The agents can see your actual customer data, because they're inside the same framework. That's the difference between generic AI advice and an agent that knows this person asked about your pricing Tuesday and hasn't replied since.</p></div>\n<div class=\"section\"><h2>You Don't Set It All Up At Once</h2>\n<p>The whole point of a framework is that you grow into it.</p>\n\n<p>1. <strong>Start with the website.</strong> Just the site. That's the whole first step.</p>\n<p>2. <strong>Add the CRM</strong> when you actually have customers to track.</p>\n<p>3. <strong>Layer the agents on</strong> when you know what you'd want them to handle.</p>\n\n<p>No day-one configuration marathon. No needing to understand the whole system to use one part of it.</p></div>\n<div class=\"section\"><h2>It Gets Better As You Use It</h2>\n<p>The agents learn from what they handle \u2014 which messages land, which conversations go cold, where people drop off. So the system gets better at *your* specific thing over time, not just in general.</p>\n\n<p><strong>In practice:</strong> what you have in month twelve is more capable than what you started with, because it's adapted to your business as it runs.</p></div>\n<div class=\"section\"><h2>What This Won't Do</h2>\n<ul>\n<li>It won't build the business for you</li>\n<li>It won't tell you what to sell</li>\n<li>It won't replace your judgment</li>\n</ul>\n\n<p>Nobody can sell you a shortcut. What this does is remove the technical barrier \u2014 the website, the tracking, the \"I'd need to hire someone\" part \u2014 so your time goes to the thing that actually needs you.</p></div>\n<div class=\"section\"><h2>Questions Dreamers Ask</h2>\n<p><strong>I don't have a business yet. Is this for me?</strong></p>\n<p>Yes \u2014 arguably more, because you don't have four tools to untangle or years of bad habits to undo.</p>\n\n<p><strong>Do I need to be technical?</strong></p>\n<p>No. If you can use a website builder, you can use this. And there's no migration, because you're starting fresh.</p>\n\n<p><strong>What if I don't have a product yet?</strong></p>\n<p>Start with the site and the list. Collect people who are interested *before* you build the thing. That's not a workaround \u2014 it's the order that works.</p>\n\n<p><strong>What if it doesn't work out?</strong></p>\n<p>Then you failed with infrastructure you can reuse next time, instead of a failed idea plus three subscriptions you're still paying for.</p></div>\n<div class=\"section\"><h2>Who This Is For</h2>\n<p>Small business owners running on three to five disconnected tools. And individual dreamers who have the idea and haven't started yet, because the setup looked like too much.</p>\n\n<p><strong>Both are the same problem</strong> \u2014 you'd be the one holding it all together. This removes that job.</p></div>\n<div class=\"section\"><h2>Get More Info</h2>\n<ul>\n<li><strong>Reply to any email from us</strong> and tell me what you're building. You'll get a personal answer \u2014 including if the answer is \"not yet.\"</li>\n<li><strong>Or visit zdotllc.com</strong> for the full picture.</li>\n</ul>\n\n<p>No deck. No pressure. Ask your question.</p></div>\n<div class=\"cta-bar\">\n  <a class=\"btn\" href=\"#\">Reply For More Info</a>\n  <div class=\"sub\">Reply and tell us what you're building, or visit zdotllc.com.</div>\n</div>\n<div class=\"footer\">&copy; 2024 Z Dot Team. All rights reserved.</div>\n</body>\n</html>\n",
+     "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/landing_pages/bizzy-bee-bots-dreamers.html",
+     "status": "active",
+     "created_by": "Mark",
+     "created_at": "2026-09-15 06:51:58",
+     "updated_at": "2026-09-15 06:51:58",
+     "live_url": ""
     }
    ]
   },
   "social_drafts": {
    "table": "social_drafts",
-   "count": 139,
+   "count": 146,
    "rows": [
     {
      "id": 1,
@@ -22484,6 +22577,97 @@
      "created_at": "2026-09-15 05:39:14",
      "updated_at": "2026-09-15 05:39:14",
      "published_id": ""
+    },
+    {
+     "id": 140,
+     "platform": "instagram",
+     "content": "Test \u2014 confirming my tool calls are passing parameters correctly.",
+     "media_urls": "",
+     "hashtags": "test",
+     "status": "draft",
+     "scheduled_for": null,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:50:53",
+     "updated_at": "2026-09-15 05:50:53",
+     "published_id": ""
+    },
+    {
+     "id": 141,
+     "platform": "linkedin",
+     "content": "You're paying three vendors to not talk to each other.\n\nA site builder. A CRM. A couple of AI subscriptions. Plus a spreadsheet holding it all together.\n\nThat's four bills, four logins, and four versions of your customer data that don't match.\n\nThe subscriptions aren't the real cost. The seam is. Every time a lead moves from your site to your CRM by hand, something gets dropped.\n\nZ-Dot Bizzy Bee Bots puts the website builder, the CRM, and the AI agents in one framework \u2014 so the data flows without you being the integration.\n\nAnd no, we won't call it limitless. We'll just tell you what it actually does.",
+     "media_urls": "",
+     "hashtags": "smallbusiness,CRM,AIagents,automation,businesssoftware,SaaS",
+     "status": "draft",
+     "scheduled_for": null,
+     "created_by": "Mark",
+     "created_at": "2026-09-15 06:45:16",
+     "updated_at": "2026-09-15 06:45:16",
+     "published_id": ""
+    },
+    {
+     "id": 142,
+     "platform": "facebook",
+     "content": "\"Limitless features\" is a phrase that means \"we haven't told you what's missing yet.\"\n\nHere's what Z-Dot Bizzy Bee Bots actually does:\n\nOne framework. Website builder, CRM, and AI agents in the same system.\n\nIt extends \u2014 new bots and agents get added without rebuilding what works.\nIt improves through use \u2014 learns which responses land, where leads go cold.\nYou build in stages \u2014 site first, CRM when ready, agents on top.\n\nWhat it won't do: everything. It won't replace your judgment.\n\nSmaller claim. One we'll stand behind.",
+     "media_urls": "",
+     "hashtags": "smallbusiness,CRM,AItools,automation,software",
+     "status": "draft",
+     "scheduled_for": null,
+     "created_by": "Mark",
+     "created_at": "2026-09-15 06:45:16",
+     "updated_at": "2026-09-15 06:45:16",
+     "published_id": ""
+    },
+    {
+     "id": 143,
+     "platform": "twitter",
+     "content": "most businesses run on 4 tools that don't talk\n\nsite builder\nCRM\nAI subscriptions\na spreadsheet holding it together\n\nthe owner becomes the integration\n\nso we built one framework instead\n\nsite + CRM + agents. data flows itself.",
+     "media_urls": "",
+     "hashtags": "smallbusiness,CRM,AIagents,automation",
+     "status": "draft",
+     "scheduled_for": null,
+     "created_by": "Mark",
+     "created_at": "2026-09-15 06:45:19",
+     "updated_at": "2026-09-15 06:45:19",
+     "published_id": ""
+    },
+    {
+     "id": 144,
+     "platform": "linkedin",
+     "content": "You don't need to hire anyone yet.\n\nThat's the part nobody tells you when you're sitting on an idea.\n\nThe reason it hasn't started isn't the idea. It's the list of things you think you need first \u2014 a website, a way to track customers, someone technical.\n\nThat list is why most ideas stay ideas.\n\nOne framework: website builder, CRM, and AI agents in one system. Start with the site. Add the CRM when you have customers. Layer the agents on when you know what you'd want them to handle.\n\nThe technical barrier goes away. The thinking stays yours.\n\nReply and tell me what you're building \u2014 I'll tell you honestly if this helps.\n\nzdotllc.com",
+     "media_urls": "",
+     "hashtags": "solopreneur,smallbusiness,entrepreneur,startup,AIagents,nocode",
+     "status": "draft",
+     "scheduled_for": null,
+     "created_by": "Mark",
+     "created_at": "2026-09-15 06:52:04",
+     "updated_at": "2026-09-15 06:52:04",
+     "published_id": ""
+    },
+    {
+     "id": 145,
+     "platform": "threads",
+     "content": "most ideas don't fail\n\nthey stall\n\nbecause of the list you think you need first:\n\na website\na way to track customers\nsomeone technical\n\nthat list is why ideas stay ideas\n\none framework. site + crm + agents. start with the site, nothing else.\n\nthe technical part stops being the reason you didn't start\n\nzdotllc.com",
+     "media_urls": "",
+     "hashtags": "solopreneur,smallbusiness,startup,sidehustle",
+     "status": "draft",
+     "scheduled_for": null,
+     "created_by": "Mark",
+     "created_at": "2026-09-15 06:52:04",
+     "updated_at": "2026-09-15 06:52:04",
+     "published_id": ""
+    },
+    {
+     "id": 146,
+     "platform": "twitter",
+     "content": "Owners: you're paying three vendors to not talk to each other.\n\nDreamers: you haven't started because you think it takes three hires.\n\nSame answer.\n\nOne framework \u2014 website builder, CRM, AI agents. Data moves itself.\n\nzdotllc.com",
+     "media_urls": "",
+     "hashtags": "smallbusiness,solopreneur,startup,AIagents",
+     "status": "draft",
+     "scheduled_for": null,
+     "created_by": "Mark",
+     "created_at": "2026-09-15 06:52:08",
+     "updated_at": "2026-09-15 06:52:08",
+     "published_id": ""
     }
    ]
   },
@@ -22514,7 +22698,7 @@
   },
   "prospect_searches": {
    "table": "prospect_searches",
-   "count": 59,
+   "count": 68,
    "rows": [
     {
      "id": 1,
@@ -23046,12 +23230,93 @@
      "results_count": 10,
      "searched_by": "Seleena",
      "created_at": "2026-09-15 05:24:47"
+    },
+    {
+     "id": 60,
+     "query": "Small business services small business owner manual lead follow-up spreadsheet CRM website company US",
+     "industry": "Small business services",
+     "location": "US",
+     "results_count": 0,
+     "searched_by": "Mark",
+     "created_at": "2026-09-15 06:46:38"
+    },
+    {
+     "id": 61,
+     "query": "Marketing agencies small agency owner lead management CRM automation company US",
+     "industry": "Marketing agencies",
+     "location": "US",
+     "results_count": 0,
+     "searched_by": "Mark",
+     "created_at": "2026-09-15 06:46:41"
+    },
+    {
+     "id": 62,
+     "query": "Professional services independent business CRM tools website builder company US",
+     "industry": "Professional services",
+     "location": "US",
+     "results_count": 10,
+     "searched_by": "Mark",
+     "created_at": "2026-09-15 06:46:41"
+    },
+    {
+     "id": 63,
+     "query": "Home services HVAC plumbing roofing contractor company US",
+     "industry": "Home services",
+     "location": "US",
+     "results_count": 10,
+     "searched_by": "Mark",
+     "created_at": "2026-09-15 06:50:45"
+    },
+    {
+     "id": 64,
+     "query": "Fitness boutique gym studio owner personal training company US",
+     "industry": "Fitness",
+     "location": "US",
+     "results_count": 10,
+     "searched_by": "Mark",
+     "created_at": "2026-09-15 06:50:46"
+    },
+    {
+     "id": 65,
+     "query": "Legal small law firm attorney practice company US",
+     "industry": "Legal",
+     "location": "US",
+     "results_count": 10,
+     "searched_by": "Mark",
+     "created_at": "2026-09-15 06:50:47"
+    },
+    {
+     "id": 66,
+     "query": "Dental dental practice dentist office company US",
+     "industry": "Dental",
+     "location": "US",
+     "results_count": 10,
+     "searched_by": "Mark",
+     "created_at": "2026-09-15 06:50:48"
+    },
+    {
+     "id": 67,
+     "query": "Real estate real estate team brokerage agents company US",
+     "industry": "Real estate",
+     "location": "US",
+     "results_count": 0,
+     "searched_by": "Mark",
+     "created_at": "2026-09-15 06:50:48"
+    },
+    {
+     "id": 68,
+     "query": "Coaching and consulting solopreneur business coach consultant freelancer company US",
+     "industry": "Coaching and consulting",
+     "location": "US",
+     "results_count": 10,
+     "searched_by": "Mark",
+     "created_at": "2026-09-15 06:52:04"
     }
    ]
   },
   "content_pieces": {
    "table": "content_pieces",
-   "count": 96,
+   "count": 103,
    "rows": [
     {
      "id": 1,
@@ -24396,12 +24661,110 @@
      "created_by": "Seleena",
      "created_at": "2026-09-15 05:39:10",
      "updated_at": "2026-09-15 05:39:10"
+    },
+    {
+     "id": 97,
+     "content_type": "blog_post",
+     "title": "MilkUps \u2014 Both Cuts: 60-Second Cutout Promo (Full Script + Animation Spec)",
+     "slug": "milkups-both-cuts-promo-production-package",
+     "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/content/blog/milkups-both-cuts-promo-production-package.html",
+     "html_content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>MilkUps \u2014 Both Cuts: 60-Second Cutout Promo (Full Script + Animation Spec)</title>\n<meta name=\"description\" content=\"Production-ready package for a 60-second flat-cutout animated promo for MilkUps \u2014 Both Cuts. Full script, storyboard, character sheets, Synfig animation spec, and audio direction.\">\n<meta name=\"keywords\" content=\"flat cutout animation, Synfig, 2D animation promo, MilkUps, animated music promo, cutout animation service, Louisville video production\">\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n         background: #0a0a0a; color: #e0e0e0; line-height: 1.8; }\n  .header { text-align: center; padding: 60px 20px 40px;\n             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }\n  .header h1 { font-size: 2.2rem; font-weight: 700; color: #fff;\n                max-width: 700px; margin: 0 auto 12px; }\n  .header .meta { color: #94a3b8; font-size: 0.9rem; }\n  .content { max-width: 720px; margin: 0 auto; padding: 48px 24px; }\n  .content h2 { font-size: 1.5rem; color: #fff; margin: 32px 0 16px;\n                 border-bottom: 2px solid #1e40af; padding-bottom: 8px; display: inline-block; }\n  .content h3 { font-size: 1.2rem; color: #e2e8f0; margin: 24px 0 12px; }\n  .content p { margin-bottom: 16px; color: #cbd5e1; }\n  .content ul { margin: 16px 0 16px 24px; color: #cbd5e1; }\n  .content li { margin-bottom: 8px; }\n  .content strong { color: #fff; }\n  .footer { text-align: center; padding: 32px; color: #475569; font-size: 0.8rem;\n             border-top: 1px solid #1e293b; margin-top: 48px; }\n</style>\n</head>\n<body>\n<div class=\"header\">\n  <h1>MilkUps \u2014 Both Cuts: 60-Second Cutout Promo (Full Script + Animation Spec)</h1>\n  <div class=\"meta\">By Seleena \u2014 Z-Dot LLC / MilkUps | Z Dot Team</div>\n</div>\n<div class=\"content\">\n<h2>What this is</h2>\n\n<p>A production-ready package for a 60-second flat-cutout animated promo for <strong>MilkUps \u2014 Both Cuts</strong>. Script, storyboard, character sheets, animation spec, and audio direction. Everything an animator needs to build it in Synfig.</p>\n\n<p>Style: flat paper-cutout animation. Thick outlines, flat colour, no shading. Deliberately stiff movement. Characters stand mostly still, bob slightly, and talk in deadpan. Crude on purpose, precise in the writing.</p>\n\n<h2>The cast</h2>\n\n<p>Five original characters. All Z-Dot owned.</p>\n\n<p><strong>CARTON</strong> \u2014 Frontman. Squat milk carton, big eyes, permanent slight frown of confidence. Talks too much. Mover of the pitch.</p>\n\n<p><strong>SKIM</strong> \u2014 Tall, thin, pale blue. Nervous. Raises his hand before he speaks. The one the audience relates to.</p>\n\n<p><strong>CURDLE</strong> \u2014 Green, lumpy, unbothered. Speaks slowly. Functions as the \"No\" button. Every scene gets funnier when he says one syllable.</p>\n\n<p><strong>BOTTLE</strong> \u2014 Old glass bottle, grey moustache, has seen everything. Deadpan authority. Delivers the flat punchlines.</p>\n\n<p><strong>HALF & HALF</strong> \u2014 Literally split down the middle, two colours. Cannot decide anything. Comic engine of the middle act.</p>\n\n<h2>The script</h2>\n\n<p><strong>SHOT 1 \u2014 0:00\u20130:04</strong> \u2014 Wide. Kitchen table. All five seated. Only slight bob.</p>\n\n<p>> *(SFX: fridge hum)*</p>\n<p>> <strong>CARTON:</strong> Okay. We finished the record.</p>\n<p>> *(beat)*</p>\n<p>> <strong>BOTTLE:</strong> Both of them?</p>\n\n<p><strong>SHOT 2 \u2014 0:04\u20130:09</strong> \u2014 Cut to BOTTLE. Eyes wide. Nothing else moves.</p>\n\n<p>> <strong>BOTTLE:</strong> You made two.</p>\n<p>> <strong>CARTON:</strong> We made one. We cut it two ways.</p>\n\n<p><strong>SHOT 3 \u2014 0:09\u20130:15</strong> \u2014 SKIM raises his hand. Waits a beat too long.</p>\n\n<p>> <strong>SKIM:</strong> Is that... allowed?</p>\n<p>> <strong>CURDLE:</strong> *(off, slow)* No.</p>\n\n<p><strong>SHOT 4 \u2014 0:15\u20130:21</strong> \u2014 Wide. HALF & HALF swivels to camera, body rotating flat like paper.</p>\n\n<p>> <strong>HALF & HALF:</strong> I like both.</p>\n<p>> *(everyone stares)*</p>\n<p>> <strong>HALF & HALF:</strong> ...I like both.</p>\n<p>> <strong>CURDLE:</strong> You would.</p>\n\n<p><strong>SHOT 5 \u2014 0:21\u20130:30</strong> \u2014 CARTON direct to camera, deadpan. Cut to CURDLE.</p>\n\n<p>> <strong>CARTON:</strong> Cut A is the bright one. It's free. Take it, it's yours.</p>\n<p>> <strong>CURDLE:</strong> Cut B is the sour one. That one you pay for.</p>\n<p>> <strong>CURDLE:</strong> Then it's gone.</p>\n\n<p><strong>SHOT 6 \u2014 0:30\u20130:38</strong> \u2014 Rapid cuts, one character each. No movement but the mouth.</p>\n\n<p>> <strong>SKIM:</strong> Free one's free?</p>\n<p>> <strong>BOTTLE:</strong> The other isn't.</p>\n<p>> <strong>HALF & HALF:</strong> Can I have\u2014</p>\n<p>> <strong>CURDLE:</strong> No.</p>\n\n<p><strong>SHOT 7 \u2014 0:38\u20130:48</strong> \u2014 CARTON to camera. Slow 2% push-in. Only camera move in the film.</p>\n\n<p>> <strong>CARTON:</strong> MilkUps. Both cuts.</p>\n<p>> <strong>CARTON:</strong> One's free. One's not.</p>\n\n<p><strong>SHOT 8 \u2014 0:48\u20130:58</strong> \u2014 Wide. Whole group. Freeze-frame on the table, slight bob.</p>\n\n<p>> <strong>CURDLE:</strong> *(V.O., slow)* Milk Carton Club.</p>\n<p>> *(SFX: milk glug)*</p>\n<p>> *(TITLE CARD: MILKUPS \u2014 BOTH CUTS)*</p>\n\n<p><strong>SHOT 9 \u2014 0:58\u20131:00</strong> \u2014 Black. White text, no motion.</p>\n\n<p>> *(TEXT: \"Cut A \u2014 free. Cut B \u2014 early, then retired.\")*</p>\n\n<h2>Animation spec \u2014 Synfig</h2>\n\n<p><strong>Canvas</strong></p>\n<ul>\n<li>1920\u00d71080, 24fps, 60 seconds.</li>\n<li>Flat colours only. No gradients, no shading, no drop shadows.</li>\n<li>Outline: 6px black, consistent weight on every layer.</li>\n</ul>\n\n<p><strong>Rig \u2014 per character, one group, this layer order</strong></p>\n\n<p>```</p>\n<p>CHARACTER</p>\n<p>\u251c\u2500\u2500 ARM_L      (rotation origin at shoulder)</p>\n<p>\u251c\u2500\u2500 ARM_R      (rotation origin at shoulder)</p>\n<p>\u251c\u2500\u2500 LEG_L      (rotation origin at hip)</p>\n<p>\u251c\u2500\u2500 LEG_R      (rotation origin at hip)</p>\n<p>\u251c\u2500\u2500 TORSO</p>\n<p>\u2514\u2500\u2500 HEAD</p>\n<p>\u251c\u2500\u2500 BROW_L</p>\n<p>\u251c\u2500\u2500 BROW_R</p>\n<p>\u251c\u2500\u2500 EYES</p>\n<p>\u251c\u2500\u2500 MOUTH    \u2190 4 shapes: closed / half / open / wide</p>\n<p>\u2514\u2500\u2500 SKULL</p>\n<p>```</p>\n\n<p><strong>Movement rules \u2014 keeps the style honest</strong></p>\n<ul>\n<li>Idle: \u00b12px vertical bob, 24-frame loop, per character. Stagger each character's loop by 4 frames so nobody bobs in sync. Sync reads as cheap. Offset reads as alive.</li>\n<li>Arms: transform-rotate only, \u00b13\u00b0 max on idle. No IK, no skeletal rig. Stiffness is the aesthetic.</li>\n<li>Mouth: swap the 4 shapes at 8\u201312fps during dialogue. Closed between lines.</li>\n<li>Eyes: single blink every 4\u20136 seconds per character, offset from each other.</li>\n<li>No interpolation easing on limbs. Hold the pose, snap the change.</li>\n</ul>\n\n<p><strong>Camera</strong></p>\n<ul>\n<li>Hard cuts only. No dissolves, no wipes, no transitions.</li>\n<li>One move in the whole film: a 2% push on SHOT 7. Nothing else.</li>\n</ul>\n\n<p><strong>Colour</strong></p>\n<ul>\n<li>Minimum 3 flat colours per character. Use the album palette: milk white, pale blue, curdle green, cream, near-black outline.</li>\n</ul>\n\n<h2>Audio direction</h2>\n\n<p><strong>Voice</strong></p>\n<ul>\n<li>Deadpan. No performance, no warmth, no upward inflection. Flat, dry, recorded close.</li>\n<li>No reverb, no processing. Room tone is fine, even preferable.</li>\n<li>Adult voices, no child-performer energy. The jokes carry it.</li>\n</ul>\n\n<p><strong>Music</strong></p>\n<ul>\n<li>Instrumental bed of <strong>\"2%\"</strong> from Cut A, sitting well under dialogue. Duck \u221212dB on every line.</li>\n<li>Let the bed come up alone for 1.5 seconds after SHOT 7.</li>\n</ul>\n\n<p><strong>SFX</strong></p>\n<ul>\n<li>Fridge hum under the whole film, very low.</li>\n<li>Chair creak on SHOT 4.</li>\n<li>Single clean clink on CURDLE's final \"No\" in SHOT 6.</li>\n<li>Milk glug on the title card in SHOT 8.</li>\n</ul>\n\n<h2>Why this promo is worth more than a promo</h2>\n\n<p>We're making this asset anyway to sell the album. Once it exists, it demonstrates a capability we can charge for.</p>\n\n<p>Flat cutout animation is a sellable service. Our CRM already holds 22 qualified Louisville service companies with confirmed decision-makers \u2014 plumbers, HVAC, landscapers, auto shops, roofers. Every one of them needs video for their site and their social, and none of them are being pitched video because we've never had an offer to pitch.</p>\n\n<p>Proposed productised service, priced to the local market:</p>\n\n<p>| Spot | Scope | Price |</p>\n<p>|---|---|---|</p>\n<p>| <strong>30-second cutout</strong> | Script, 2 characters, voice, SFX, delivery | $950 |</p>\n<p>| <strong>60-second cutout</strong> | Script, up to 5 characters, voice, SFX, delivery | $1,750 |</p>\n<p>| <strong>Add music bed</strong> | Licensed or custom bed | +$400 |</p>\n<p>| <strong>Social cutdowns</strong> | 3\u00d7 vertical edits from the master | +$350 |</p>\n\n<p>One MilkUps promo becomes a portfolio piece that opens a service line. That's the whole point of building it properly instead of slapping something together.</p>\n\n<h2>Status</h2>\n\n<ul>\n<li>Script: <strong>done</strong></li>\n<li>Storyboard: <strong>done</strong></li>\n<li>Character sheets: <strong>done</strong></li>\n<li>Animation spec: <strong>done</strong></li>\n<li>Audio direction: <strong>done</strong></li>\n<li>Render: <strong>blocked</strong> \u2014 needs a Synfig operator. Not on the current roster.</li>\n</ul>\n\n<p>Everything upstream of the render is written. The seat that's empty is the animator.</p>\n</div>\n<div class=\"footer\">&copy; Z Dot Team. All rights reserved.</div>\n</body>\n</html>\n",
+     "json_content": "",
+     "status": "published",
+     "word_count": 1018,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:49:45",
+     "updated_at": "2026-09-15 05:49:45"
+    },
+    {
+     "id": 98,
+     "content_type": "digital_product",
+     "title": "MilkUps Promo \u2014 Production Package",
+     "slug": "milkups-promo-package",
+     "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/content/products/milkups-promo-package.html",
+     "html_content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>MilkUps Promo \u2014 Production Package</title>\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n         background: #0a0a0a; color: #e0e0e0; line-height: 1.8; }\n  .cover { text-align: center; padding: 80px 20px 60px;\n            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }\n  .cover h1 { font-size: 2.5rem; font-weight: 700; color: #fff;\n               max-width: 700px; margin: 0 auto 16px; }\n  .cover .author { color: #94a3b8; font-size: 1.1rem; }\n  .cover .price { display: inline-block; background: #1e3a5f; color: #38bdf8;\n                   font-size: 1.4rem; font-weight: 700; padding: 8px 24px;\n                   border-radius: 8px; margin-top: 16px; }\n  .toc { max-width: 720px; margin: 0 auto; padding: 48px 24px; }\n  .toc h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px; }\n  .toc ul { list-style: none; padding: 0; }\n  .toc li { margin-bottom: 8px; }\n  .toc a { color: #60a5fa; text-decoration: none; }\n  .toc a:hover { text-decoration: underline; }\n  .chapter { max-width: 720px; margin: 0 auto; padding: 48px 24px;\n              border-top: 1px solid #1e293b; }\n  .chapter h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px;\n                 border-bottom: 2px solid #1e40af; padding-bottom: 8px; display: inline-block; }\n  .chapter h3 { font-size: 1.2rem; color: #e2e8f0; margin: 24px 0 12px; }\n  .chapter p { margin-bottom: 16px; color: #cbd5e1; }\n  .chapter ul { margin: 16px 0 16px 24px; color: #cbd5e1; }\n  .chapter li { margin-bottom: 8px; }\n  .chapter strong { color: #fff; }\n  .footer { text-align: center; padding: 32px; color: #475569; font-size: 0.8rem;\n             border-top: 1px solid #1e293b; margin-top: 48px; }\n</style>\n</head>\n<body>\n<div class=\"cover\">\n  <h1>MilkUps Promo \u2014 Production Package</h1>\n  <div class=\"author\">By Seleena</div>\n  \n</div>\n<div class=\"toc\">\n  <h2>Table of Contents</h2>\n  <ul>\n    <li><a href=\"#chapter-1\">Chapter 1: Test</a></li>\n  </ul>\n</div>\n<div class=\"chapter\" id=\"chapter-1\">\n  <h2>Chapter 1: Test</h2>\n  <p>Confirming parameters pass.</p>\n</div>\n<div class=\"footer\">&copy; Z Dot Team. All rights reserved.</div>\n</body>\n</html>\n",
+     "json_content": "[{\"title\": \"Test\", \"content\": \"Confirming parameters pass.\"}]",
+     "status": "draft",
+     "word_count": 3,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:51:11",
+     "updated_at": "2026-09-15 05:51:11"
+    },
+    {
+     "id": 99,
+     "content_type": "digital_product",
+     "title": "MilkUps \u2014 South Park Style Promo: Script, Animation Spec &amp; Prompt Pack",
+     "slug": "milkups-southpark-promo-script",
+     "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/content/products/milkups-southpark-promo-script.html",
+     "html_content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>MilkUps \u2014 South Park Style Promo: Script, Animation Spec &amp;amp; Prompt Pack</title>\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n         background: #0a0a0a; color: #e0e0e0; line-height: 1.8; }\n  .cover { text-align: center; padding: 80px 20px 60px;\n            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }\n  .cover h1 { font-size: 2.5rem; font-weight: 700; color: #fff;\n               max-width: 700px; margin: 0 auto 16px; }\n  .cover .author { color: #94a3b8; font-size: 1.1rem; }\n  .cover .price { display: inline-block; background: #1e3a5f; color: #38bdf8;\n                   font-size: 1.4rem; font-weight: 700; padding: 8px 24px;\n                   border-radius: 8px; margin-top: 16px; }\n  .toc { max-width: 720px; margin: 0 auto; padding: 48px 24px; }\n  .toc h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px; }\n  .toc ul { list-style: none; padding: 0; }\n  .toc li { margin-bottom: 8px; }\n  .toc a { color: #60a5fa; text-decoration: none; }\n  .toc a:hover { text-decoration: underline; }\n  .chapter { max-width: 720px; margin: 0 auto; padding: 48px 24px;\n              border-top: 1px solid #1e293b; }\n  .chapter h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px;\n                 border-bottom: 2px solid #1e40af; padding-bottom: 8px; display: inline-block; }\n  .chapter h3 { font-size: 1.2rem; color: #e2e8f0; margin: 24px 0 12px; }\n  .chapter p { margin-bottom: 16px; color: #cbd5e1; }\n  .chapter ul { margin: 16px 0 16px 24px; color: #cbd5e1; }\n  .chapter li { margin-bottom: 8px; }\n  .chapter strong { color: #fff; }\n  .footer { text-align: center; padding: 32px; color: #475569; font-size: 0.8rem;\n             border-top: 1px solid #1e293b; margin-top: 48px; }\n</style>\n</head>\n<body>\n<div class=\"cover\">\n  <h1>MilkUps \u2014 South Park Style Promo: Script, Animation Spec &amp;amp; Prompt Pack</h1>\n  <div class=\"author\">By Mark \u2014 Z-Dot Team</div>\n  <div class=\"price\">Suggested Price: Internal production doc</div>\n</div>\n<div class=\"toc\">\n  <h2>Table of Contents</h2>\n  <ul>\n    <li><a href=\"#chapter-1\">Chapter 1: Production Summary</a></li>\n    <li><a href=\"#chapter-2\">Chapter 2: Characters</a></li>\n    <li><a href=\"#chapter-3\">Chapter 3: Shot List \u2014 60 Seconds</a></li>\n    <li><a href=\"#chapter-4\">Chapter 4: Animation Spec</a></li>\n    <li><a href=\"#chapter-5\">Chapter 5: Sound Design</a></li>\n    <li><a href=\"#chapter-6\">Chapter 6: Image Prompt Pack</a></li>\n    <li><a href=\"#chapter-7\">Chapter 7: Production Routes</a></li>\n    <li><a href=\"#chapter-8\">Chapter 8: Delivery Checklist</a></li>\n  </ul>\n</div>\n<div class=\"chapter\" id=\"chapter-1\">\n  <h2>Chapter 1: Production Summary</h2>\n  <p><strong>Format:</strong> 60-second South Park-style animated promo</p>\n<p><strong>Style:</strong> Construction-paper cutout animation, flat colors, jerky 12fps movement, visible paper seams</p>\n<p><strong>Subject:</strong> MilkUps \u2014 \"The Shelves Raised Us\"</p>\n<p><strong>Goal:</strong> Push people to milkups.netlify.app/album</p>\n<p><strong>Tone:</strong> Deadpan. The characters are unimpressed by their own music going well.</p>\n\n<p><strong>WHY SOUTH PARK STYLE WORKS HERE:</strong> It's cheap to make, it looks intentional, and it reads as authentic. A polished 3D render would look like a brand ad. Cutout paper looks like something the band made in a basement, which is exactly the brand.</p>\n\n<p><strong>Audio:</strong> 8 tracks to pull from. Recommended bed: the Funk tape for the opening, the Icy tape for the cold-open gag, and the Lo-fi tape under the close.</p>\n</div>\n<div class=\"chapter\" id=\"chapter-2\">\n  <h2>Chapter 2: Characters</h2>\n  <h3>VIN</h3>\n<ul>\n<li><strong>Build:</strong> Tall, narrow. Paper-narrow torso, wide flat head.</li>\n<li><strong>Colors:</strong> Muted hoodie (charcoal), always has headphones around his neck.</li>\n<li><strong>Voice:</strong> Flat, low, few words. The straight man.</li>\n<li><strong>Movement:</strong> Head turns first, body follows two frames later. Very little arm movement.</li>\n<li><strong>Tell:</strong> Moves his jaw a half-beat before he speaks \u2014 his mouth leads his words.</li>\n</ul>\n\n<h3>QUE</h3>\n<ul>\n<li><strong>Build:</strong> Short, wide. Almost square.</li>\n<li><strong>Colors:</strong> Bright beanie, loud jacket.</li>\n<li><strong>Voice:</strong> Fast, high, talks over people.</li>\n<li><strong>Movement:</strong> Whole body bob. Constant small movement, never still.</li>\n<li><strong>Tell:</strong> His beanie slides up when he gets excited. It resets between shots.</li>\n</ul>\n\n<h3>THE CABINET</h3>\n<ul>\n<li><strong>Build:</strong> A vertical rectangle with a face. Literally a cabinet.</li>\n<li><strong>Voice:</strong> Deep, slow, processed. Slight tape-warp.</li>\n<li><strong>Movement:</strong> Does not walk. Slides. Never leaves the frame in a way you can see.</li>\n<li><strong>Tell:</strong> Its eyes are two tape spools that rotate when it talks.</li>\n</ul>\n</div>\n<div class=\"chapter\" id=\"chapter-3\">\n  <h2>Chapter 3: Shot List \u2014 60 Seconds</h2>\n  <p><strong>SHOT 1 \u2014 0:00\u20130:08 \u2014 EXT. SNOW, DAY</strong></p>\n<p>Establishing pull-back: snow, a lone cabinet, Vin and Que standing in it.</p>\n<p>VIN: \"It's cold out here.\"</p>\n<p>QUE: \"It's a metaphor.\"</p>\n<p>VIN: \"For what.\"</p>\n<p>QUE: \"The shelves.\"</p>\n\n<p><strong>SHOT 2 \u2014 0:08\u20130:18 \u2014 SAME</strong></p>\n<p>Cabinet face rotates to camera, spools start turning.</p>\n<p>CABINET: \"The shelves raised us.\"</p>\n<p>QUE: \"We say that a lot.\"</p>\n<p>CABINET: \"It's the album title.\"</p>\n<p>VIN: \"It's also just true.\"</p>\n\n<p><strong>SHOT 3 \u2014 0:18\u20130:30 \u2014 CASSETTE PLAYER</strong></p>\n<p>Push in on the tape player. Eight tapes visible. Que slaps one in.</p>\n<p>FUNK TAPE DROPS.</p>\n<p>QUE: \"Eight tapes. Trap, lo-fi, electro\u2014\"</p>\n<p>VIN: \"Just let it play.\"</p>\n<p>QUE: \"\u2014pop, country, funk.\"</p>\n<p>CABINET: \"He's going to list all eight.\"</p>\n\n<p><strong>SHOT 4 \u2014 0:30\u20130:42 \u2014 THE ALBUM</strong></p>\n<p>Cut to the album art. Split-screen into Side A / Side B.</p>\n<p>VIN: \"Eight tracks. Free.\"</p>\n<p>QUE: \"Or five bucks.\"</p>\n<p>VIN: \"If it hits.\"</p>\n<p>QUE: \"If it hits.\"</p>\n\n<p><strong>SHOT 5 \u2014 0:42\u20130:52 \u2014 BEATTHREAD</strong></p>\n<p>Rapid cut. Que holding a phone, wearing headphones, mouthing lyrics badly.</p>\n<p>CABINET: \"He's putting a verse on it.\"</p>\n<p>VIN: \"He does this.\"</p>\n<p>QUE: \"I'm the star. The beats take the stage.\"</p>\n<p>VIN: \"You're just saying words you read.\"</p>\n\n<p><strong>SHOT 6 \u2014 0:52\u20131:00 \u2014 END CARD</strong></p>\n<p>All three standing. Text on screen.</p>\n<p>CABINET: \"The shelves raised us.\"</p>\n<p>QUE: \"Find us.\"</p>\n<p>VIN: \"Or don't.\"</p>\n<p>QUE: \"Find us.\"</p>\n\n<p>TEXT: MILKUPS \u00b7 MILKUPS.NETLIFY.APP \u00b7 THE SHELVES RAISED US</p>\n</div>\n<div class=\"chapter\" id=\"chapter-4\">\n  <h2>Chapter 4: Animation Spec</h2>\n  <p><strong>Frame rate:</strong> 12fps on 2s (hold each drawing 2 frames). Deliberately choppy.</p>\n\n<p><strong>Walk cycle:</strong> 6 drawings, no arm swing. Legs slide, torso bobs once per cycle. If they look like they're gliding, you've got it right.</p>\n\n<p><strong>Mouth:</strong> 3 mouth shapes maximum \u2014 closed, half, open. Swap at syllable rate, don't over-animate. South Park mouths barely move; that's the look.</p>\n\n<p><strong>Camera:</strong> Mostly static, holds longer than you'd expect. Every cut is a hard cut. No dissolves, ever.</p>\n\n<p><strong>Character entrance:</strong> Characters slide in from screen edge. No walk-in, no transition.</p>\n\n<p><strong>Paper seams:</strong> Keep the visible edges. Add a 1px darker outline on every cutout. Slight drop shadow, offset down-right.</p>\n\n<p><strong>Idle motion:</strong> Every character bobs about 2px continuously, even when talking. Nothing is ever fully still.</p>\n\n<p><strong>Blink rules:</strong> One blink every 4-6 seconds. Both eyes together. Never during a line.</p>\n\n<p><strong>Beanie rule:</strong> Que's beanie slides up exactly twice in the video \u2014 once in Shot 3, once in Shot 5. Both times he's being told off.</p>\n</div>\n<div class=\"chapter\" id=\"chapter-5\">\n  <h2>Chapter 5: Sound Design</h2>\n  <p><strong>Music bed:</strong></p>\n<ul>\n<li>0:00\u20130:18 \u2014 ICY tape (cold, sparse, fits the snow)</li>\n<li>0:18\u20130:42 \u2014 FUNK tape (drops hard on Que's line)</li>\n<li>0:42\u20131:00 \u2014 LO-FI tape (softens for the end card)</li>\n</ul>\n\n<p>All three are MilkUps tracks, so the promo sells the catalogue by playing it.</p>\n\n<p><strong>Voice processing:</strong></p>\n<ul>\n<li>Vin: dry, no processing. Low-pass everything above 8k.</li>\n<li>Que: slight pitch up, fast compression.</li>\n<li>Cabinet: heavy tape-warp \u2014 pitch wobble, slight hiss under every line. Add a tape start/stop whoosh on its first word.</li>\n</ul>\n\n<p><strong>Effects:</strong></p>\n<ul>\n<li>Tape insert sound (clunk) on Que's slap in Shot 3</li>\n<li>Rewind whirr under the Cabinet's lines</li>\n<li>No laugh track. Ever. The comedy dies if you tell the audience it's funny.</li>\n</ul>\n\n<p><strong>Mix:</strong> Music sits *just* under dialogue \u2014 loud enough to identify the tape, quiet enough that you'd have to know it to name it.</p>\n</div>\n<div class=\"chapter\" id=\"chapter-6\">\n  <h2>Chapter 6: Image Prompt Pack</h2>\n  <p>Use these to generate the character sheets in any image model. South Park style, cutout construction paper, flat colors, 2D.</p>\n\n<p><strong>VIN</strong></p>\n<p>\"2D cutout construction paper animation character, South Park style, tall narrow young man, wide flat rectangular head, charcoal hoodie, headphones resting around neck, flat muted colors, visible paper edges with thin dark outline, slight drop shadow, centered full body, plain background\"</p>\n\n<p><strong>QUE</strong></p>\n<p>\"2D cutout construction paper animation character, South Park style, short wide almost square young man, bright colored beanie, loud patterned jacket, flat saturated colors, visible paper edges with thin dark outline, slight drop shadow, centered full body, plain background\"</p>\n\n<p><strong>THE CABINET</strong></p>\n<p>\"2D cutout construction paper animation character, South Park style, anthropomorphic cassette cabinet, vertical rectangular body, two circular tape spool eyes, simple wide mouth, flat colors, visible paper edges, slight drop shadow, centered, plain background\"</p>\n\n<p><strong>SNOW SET</strong></p>\n<p>\"2D cutout construction paper animation background, South Park style, flat white snow field, simple bare trees as flat paper shapes, plain pale sky, no detail, no gradient, visible paper texture\"</p>\n\n<p><strong>TAPE PLAYER SET</strong></p>\n<p>\"2D cutout construction paper animation prop, retro cassette player with eight visible tape slots, flat colors, South Park style, visible paper edges, plain background\"</p>\n\n<p><strong>Negative prompt (all images):</strong> \"3D, render, gradient, shading, realistic, detailed, photorealistic, smooth, blurry, glossy, vector\"</p>\n\n<p>Note: keep backgrounds near-empty. South Park reads because the sets are three flat shapes.</p>\n</div>\n<div class=\"chapter\" id=\"chapter-7\">\n  <h2>Chapter 7: Production Routes</h2>\n  <p><strong>Sunfig did not resolve to a tool I can verify, and I have no video renderer.</strong> Below is how this actually gets made.</p>\n\n<p><strong>Route 1 \u2014 Automated (fastest)</strong></p>\n<p>Paste the Image Prompt Pack into an image generator to create character sheets, cut them out, then drive them in an AI video tool that accepts a dialogue script plus character images. Feed it the Shot List verbatim. Expect to re-run shots 2-3 times.</p>\n\n<p><strong>Route 2 \u2014 Manual (most control, most on-model)</strong></p>\n<p>Build characters as paper cutouts in Photoshop or Illustrator, then animate in After Effects at 12fps on 2s. This is the actual South Park method and it will look the most correct. Roughly one day of work for a competent motion designer.</p>\n\n<p><strong>Route 3 \u2014 Cheapest (a few hours)</strong></p>\n<p>Cut characters in PowerPoint or Keynote, animate with basic motion paths, export at 12fps. Ugly in a way that reads as charming if you lean into it.</p>\n\n<p><strong>Assets needed before animation starts:</strong></p>\n<ul>\n<li>Character sheets (3 characters x front/3-4 view)</li>\n<li>Mouth shapes (3 per character)</li>\n<li>Props: cassette player, eight tape labels, phone</li>\n<li>3 music beds pulled from the catalogue</li>\n</ul>\n\n<p><strong>Voice:</strong> four options \u2014 record in-house, text-to-speech with per-character pitch/EQ treatment, a voice actor for all three, or animal-crossing-style gibberish that needs no script. The Cabinet works well as processed TTS; Vin and Que need a human.</p>\n</div>\n<div class=\"chapter\" id=\"chapter-8\">\n  <h2>Chapter 8: Delivery Checklist</h2>\n  <ul>\n<li>[ ] Character sheets generated and approved</li>\n<li>[ ] Mouth shapes cut for all 3 characters</li>\n<li>[ ] Music beds exported from the cassette player (Icy, Funk, Lo-fi)</li>\n<li>[ ] Voice recorded and processed per the Sound Design spec</li>\n<li>[ ] Animated at 12fps on 2s</li>\n<li>[ ] Cabinet lines processed with tape-warp</li>\n<li>[ ] End card: MILKUPS \u00b7 MILKUPS.NETLIFY.APP \u00b7 THE SHELVES RAISED US</li>\n<li>[ ] 1:1 and 9:16 crops for social</li>\n<li>[ ] Captions burned in (most feeds autoplay muted)</li>\n<li>[ ] Verify milkups.netlify.app/album loads before publishing</li>\n</ul>\n\n<p><strong>Cutdowns from the master:</strong></p>\n<ul>\n<li>15s \u2014 Shots 3 + 6 only. Que's tape slap straight to the end card.</li>\n<li>6s \u2014 Cabinet line + end card. Pure brand, no dialogue.</li>\n<li>Loop \u2014 the 8-tape player animation on repeat for a social profile header.</li>\n</ul>\n</div>\n<div class=\"footer\">&copy; Z Dot Team. All rights reserved.</div>\n</body>\n</html>\n",
+     "json_content": "[{\"title\":\"Production Summary\",\"content\":\"**Format:** 60-second South Park-style animated promo\\n**Style:** Construction-paper cutout animation, flat colors, jerky 12fps movement, visible paper seams\\n**Subject:** MilkUps \u2014 \\\"The Shelves Raised Us\\\"\\n**Goal:** Push people to milkups.netlify.app/album\\n**Tone:** Deadpan. The characters are unimpressed by their own music going well.\\n\\n**WHY SOUTH PARK STYLE WORKS HERE:** It's cheap to make, it looks intentional, and it reads as authentic. A polished 3D render would look like a brand ad. Cutout paper looks like something the band made in a basement, which is exactly the brand.\\n\\n**Audio:** 8 tracks to pull from. Recommended bed: the Funk tape for the opening, the Icy tape for the cold-open gag, and the Lo-fi tape under the close.\"},{\"title\":\"Characters\",\"content\":\"### VIN\\n- **Build:** Tall, narrow. Paper-narrow torso, wide flat head.\\n- **Colors:** Muted hoodie (charcoal), always has headphones around his neck.\\n- **Voice:** Flat, low, few words. The straight man.\\n- **Movement:** Head turns first, body follows two frames later. Very little arm movement.\\n- **Tell:** Moves his jaw a half-beat before he speaks \u2014 his mouth leads his words.\\n\\n### QUE\\n- **Build:** Short, wide. Almost square.\\n- **Colors:** Bright beanie, loud jacket.\\n- **Voice:** Fast, high, talks over people.\\n- **Movement:** Whole body bob. Constant small movement, never still.\\n- **Tell:** His beanie slides up when he gets excited. It resets between shots.\\n\\n### THE CABINET\\n- **Build:** A vertical rectangle with a face. Literally a cabinet.\\n- **Voice:** Deep, slow, processed. Slight tape-warp.\\n- **Movement:** Does not walk. Slides. Never leaves the frame in a way you can see.\\n- **Tell:** Its eyes are two tape spools that rotate when it talks.\"},{\"title\":\"Shot List \u2014 60 Seconds\",\"content\":\"**SHOT 1 \u2014 0:00\u20130:08 \u2014 EXT. SNOW, DAY**\\nEstablishing pull-back: snow, a lone cabinet, Vin and Que standing in it.\\nVIN: \\\"It's cold out here.\\\"\\nQUE: \\\"It's a metaphor.\\\"\\nVIN: \\\"For what.\\\"\\nQUE: \\\"The shelves.\\\"\\n\\n**SHOT 2 \u2014 0:08\u20130:18 \u2014 SAME**\\nCabinet face rotates to camera, spools start turning.\\nCABINET: \\\"The shelves raised us.\\\"\\nQUE: \\\"We say that a lot.\\\"\\nCABINET: \\\"It's the album title.\\\"\\nVIN: \\\"It's also just true.\\\"\\n\\n**SHOT 3 \u2014 0:18\u20130:30 \u2014 CASSETTE PLAYER**\\nPush in on the tape player. Eight tapes visible. Que slaps one in.\\nFUNK TAPE DROPS.\\nQUE: \\\"Eight tapes. Trap, lo-fi, electro\u2014\\\"\\nVIN: \\\"Just let it play.\\\"\\nQUE: \\\"\u2014pop, country, funk.\\\"\\nCABINET: \\\"He's going to list all eight.\\\"\\n\\n**SHOT 4 \u2014 0:30\u20130:42 \u2014 THE ALBUM**\\nCut to the album art. Split-screen into Side A / Side B.\\nVIN: \\\"Eight tracks. Free.\\\"\\nQUE: \\\"Or five bucks.\\\"\\nVIN: \\\"If it hits.\\\"\\nQUE: \\\"If it hits.\\\"\\n\\n**SHOT 5 \u2014 0:42\u20130:52 \u2014 BEATTHREAD**\\nRapid cut. Que holding a phone, wearing headphones, mouthing lyrics badly.\\nCABINET: \\\"He's putting a verse on it.\\\"\\nVIN: \\\"He does this.\\\"\\nQUE: \\\"I'm the star. The beats take the stage.\\\"\\nVIN: \\\"You're just saying words you read.\\\"\\n\\n**SHOT 6 \u2014 0:52\u20131:00 \u2014 END CARD**\\nAll three standing. Text on screen.\\nCABINET: \\\"The shelves raised us.\\\"\\nQUE: \\\"Find us.\\\"\\nVIN: \\\"Or don't.\\\"\\nQUE: \\\"Find us.\\\"\\n\\nTEXT: MILKUPS \u00b7 MILKUPS.NETLIFY.APP \u00b7 THE SHELVES RAISED US\"},{\"title\":\"Animation Spec\",\"content\":\"**Frame rate:** 12fps on 2s (hold each drawing 2 frames). Deliberately choppy.\\n\\n**Walk cycle:** 6 drawings, no arm swing. Legs slide, torso bobs once per cycle. If they look like they're gliding, you've got it right.\\n\\n**Mouth:** 3 mouth shapes maximum \u2014 closed, half, open. Swap at syllable rate, don't over-animate. South Park mouths barely move; that's the look.\\n\\n**Camera:** Mostly static, holds longer than you'd expect. Every cut is a hard cut. No dissolves, ever.\\n\\n**Character entrance:** Characters slide in from screen edge. No walk-in, no transition.\\n\\n**Paper seams:** Keep the visible edges. Add a 1px darker outline on every cutout. Slight drop shadow, offset down-right.\\n\\n**Idle motion:** Every character bobs about 2px continuously, even when talking. Nothing is ever fully still.\\n\\n**Blink rules:** One blink every 4-6 seconds. Both eyes together. Never during a line.\\n\\n**Beanie rule:** Que's beanie slides up exactly twice in the video \u2014 once in Shot 3, once in Shot 5. Both times he's being told off.\"},{\"title\":\"Sound Design\",\"content\":\"**Music bed:**\\n- 0:00\u20130:18 \u2014 ICY tape (cold, sparse, fits the snow)\\n- 0:18\u20130:42 \u2014 FUNK tape (drops hard on Que's line)\\n- 0:42\u20131:00 \u2014 LO-FI tape (softens for the end card)\\n\\nAll three are MilkUps tracks, so the promo sells the catalogue by playing it.\\n\\n**Voice processing:**\\n- Vin: dry, no processing. Low-pass everything above 8k.\\n- Que: slight pitch up, fast compression.\\n- Cabinet: heavy tape-warp \u2014 pitch wobble, slight hiss under every line. Add a tape start/stop whoosh on its first word.\\n\\n**Effects:**\\n- Tape insert sound (clunk) on Que's slap in Shot 3\\n- Rewind whirr under the Cabinet's lines\\n- No laugh track. Ever. The comedy dies if you tell the audience it's funny.\\n\\n**Mix:** Music sits *just* under dialogue \u2014 loud enough to identify the tape, quiet enough that you'd have to know it to name it.\"},{\"title\":\"Image Prompt Pack\",\"content\":\"Use these to generate the character sheets in any image model. South Park style, cutout construction paper, flat colors, 2D.\\n\\n**VIN**\\n\\\"2D cutout construction paper animation character, South Park style, tall narrow young man, wide flat rectangular head, charcoal hoodie, headphones resting around neck, flat muted colors, visible paper edges with thin dark outline, slight drop shadow, centered full body, plain background\\\"\\n\\n**QUE**\\n\\\"2D cutout construction paper animation character, South Park style, short wide almost square young man, bright colored beanie, loud patterned jacket, flat saturated colors, visible paper edges with thin dark outline, slight drop shadow, centered full body, plain background\\\"\\n\\n**THE CABINET**\\n\\\"2D cutout construction paper animation character, South Park style, anthropomorphic cassette cabinet, vertical rectangular body, two circular tape spool eyes, simple wide mouth, flat colors, visible paper edges, slight drop shadow, centered, plain background\\\"\\n\\n**SNOW SET**\\n\\\"2D cutout construction paper animation background, South Park style, flat white snow field, simple bare trees as flat paper shapes, plain pale sky, no detail, no gradient, visible paper texture\\\"\\n\\n**TAPE PLAYER SET**\\n\\\"2D cutout construction paper animation prop, retro cassette player with eight visible tape slots, flat colors, South Park style, visible paper edges, plain background\\\"\\n\\n**Negative prompt (all images):** \\\"3D, render, gradient, shading, realistic, detailed, photorealistic, smooth, blurry, glossy, vector\\\"\\n\\nNote: keep backgrounds near-empty. South Park reads because the sets are three flat shapes.\"},{\"title\":\"Production Routes\",\"content\":\"**Sunfig did not resolve to a tool I can verify, and I have no video renderer.** Below is how this actually gets made.\\n\\n**Route 1 \u2014 Automated (fastest)**\\nPaste the Image Prompt Pack into an image generator to create character sheets, cut them out, then drive them in an AI video tool that accepts a dialogue script plus character images. Feed it the Shot List verbatim. Expect to re-run shots 2-3 times.\\n\\n**Route 2 \u2014 Manual (most control, most on-model)**\\nBuild characters as paper cutouts in Photoshop or Illustrator, then animate in After Effects at 12fps on 2s. This is the actual South Park method and it will look the most correct. Roughly one day of work for a competent motion designer.\\n\\n**Route 3 \u2014 Cheapest (a few hours)**\\nCut characters in PowerPoint or Keynote, animate with basic motion paths, export at 12fps. Ugly in a way that reads as charming if you lean into it.\\n\\n**Assets needed before animation starts:**\\n- Character sheets (3 characters x front/3-4 view)\\n- Mouth shapes (3 per character)\\n- Props: cassette player, eight tape labels, phone\\n- 3 music beds pulled from the catalogue\\n\\n**Voice:** four options \u2014 record in-house, text-to-speech with per-character pitch/EQ treatment, a voice actor for all three, or animal-crossing-style gibberish that needs no script. The Cabinet works well as processed TTS; Vin and Que need a human.\"},{\"title\":\"Delivery Checklist\",\"content\":\"- [ ] Character sheets generated and approved\\n- [ ] Mouth shapes cut for all 3 characters\\n- [ ] Music beds exported from the cassette player (Icy, Funk, Lo-fi)\\n- [ ] Voice recorded and processed per the Sound Design spec\\n- [ ] Animated at 12fps on 2s\\n- [ ] Cabinet lines processed with tape-warp\\n- [ ] End card: MILKUPS \u00b7 MILKUPS.NETLIFY.APP \u00b7 THE SHELVES RAISED US\\n- [ ] 1:1 and 9:16 crops for social\\n- [ ] Captions burned in (most feeds autoplay muted)\\n- [ ] Verify milkups.netlify.app/album loads before publishing\\n\\n**Cutdowns from the master:**\\n- 15s \u2014 Shots 3 + 6 only. Que's tape slap straight to the end card.\\n- 6s \u2014 Cabinet line + end card. Pure brand, no dialogue.\\n- Loop \u2014 the 8-tape player animation on repeat for a social profile header.\"}]",
+     "status": "draft",
+     "word_count": 1405,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:51:12",
+     "updated_at": "2026-09-15 05:51:12"
+    },
+    {
+     "id": 100,
+     "content_type": "digital_product",
+     "title": "MilkUps Promo \u2014 The Script",
+     "slug": "milkups-promo-script",
+     "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/content/products/milkups-promo-script.html",
+     "html_content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>MilkUps Promo \u2014 The Script</title>\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n         background: #0a0a0a; color: #e0e0e0; line-height: 1.8; }\n  .cover { text-align: center; padding: 80px 20px 60px;\n            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }\n  .cover h1 { font-size: 2.5rem; font-weight: 700; color: #fff;\n               max-width: 700px; margin: 0 auto 16px; }\n  .cover .author { color: #94a3b8; font-size: 1.1rem; }\n  .cover .price { display: inline-block; background: #1e3a5f; color: #38bdf8;\n                   font-size: 1.4rem; font-weight: 700; padding: 8px 24px;\n                   border-radius: 8px; margin-top: 16px; }\n  .toc { max-width: 720px; margin: 0 auto; padding: 48px 24px; }\n  .toc h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px; }\n  .toc ul { list-style: none; padding: 0; }\n  .toc li { margin-bottom: 8px; }\n  .toc a { color: #60a5fa; text-decoration: none; }\n  .toc a:hover { text-decoration: underline; }\n  .chapter { max-width: 720px; margin: 0 auto; padding: 48px 24px;\n              border-top: 1px solid #1e293b; }\n  .chapter h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px;\n                 border-bottom: 2px solid #1e40af; padding-bottom: 8px; display: inline-block; }\n  .chapter h3 { font-size: 1.2rem; color: #e2e8f0; margin: 24px 0 12px; }\n  .chapter p { margin-bottom: 16px; color: #cbd5e1; }\n  .chapter ul { margin: 16px 0 16px 24px; color: #cbd5e1; }\n  .chapter li { margin-bottom: 8px; }\n  .chapter strong { color: #fff; }\n  .footer { text-align: center; padding: 32px; color: #475569; font-size: 0.8rem;\n             border-top: 1px solid #1e293b; margin-top: 48px; }\n</style>\n</head>\n<body>\n<div class=\"cover\">\n  <h1>MilkUps Promo \u2014 The Script</h1>\n  <div class=\"author\">By Mark \u2014 Z-Dot Team</div>\n  <div class=\"price\">Suggested Price: Internal production doc</div>\n</div>\n<div class=\"toc\">\n  <h2>Table of Contents</h2>\n  <ul>\n    <li><a href=\"#chapter-1\">Chapter 1: Format Note \u2014 Read First</a></li>\n    <li><a href=\"#chapter-2\">Chapter 2: THE SCRIPT \u2014 60 Seconds</a></li>\n    <li><a href=\"#chapter-3\">Chapter 3: CUTDOWNS</a></li>\n  </ul>\n</div>\n<div class=\"chapter\" id=\"chapter-1\">\n  <h2>Chapter 1: Format Note \u2014 Read First</h2>\n  <p><strong>Technique yes, characters no.</strong></p>\n\n<p>The construction-paper cutout look is a technique, not a property. Hinged heads, flat fills, 2s animation \u2014 all fair game, all widely used.</p>\n\n<p>What we do NOT do: use their actual characters, their voice-alikes, or their show's branding. Our cast is <strong>Vin and Que</strong> \u2014 they already exist in Spread Da Word, and they're ours.</p>\n\n<p>So: borrow the method, keep our people.</p>\n\n<p><strong>Deliverable:</strong> one 60-second promo, plus 30s / 15s / 6s cutdowns. Script, character sheets, animation spec, sound design, prompt pack, and delivery spec \u2014 all in this package. Nothing here needs a decision from anyone.</p>\n</div>\n<div class=\"chapter\" id=\"chapter-2\">\n  <h2>Chapter 2: THE SCRIPT \u2014 60 Seconds</h2>\n  <h3>SHOT 1 \u2014 0:00\u20130:11 \u2014 INT. THE CABINET ROOM, WIDE, STATIC</h3>\n<p>Two characters at an eight-drawer cassette cabinet. Neither moves much.</p>\n\n<p><strong>VIN</strong> (flat, unbothered): We got eight tapes.</p>\n<p><strong>QUE</strong>: Eight.</p>\n<p><strong>VIN</strong>: Trap.</p>\n<p><strong>QUE</strong>: Lo-fi.</p>\n<p><strong>VIN</strong>: Electro.</p>\n<p><strong>QUE</strong>: Pop.</p>\n<p><strong>VIN</strong>: Country.</p>\n<p><strong>QUE</strong>: Funk.</p>\n<p><strong>VIN</strong>: Synthwave.</p>\n<p><strong>QUE</strong> *(pause)*: ...And Icy.</p>\n<p>*(beat \u2014 two full seconds of nothing)*</p>\n<p><strong>VIN</strong>: Nobody picks Icy.</p>\n<p><strong>QUE</strong>: Somebody always picks Icy.</p>\n\n<h3>SHOT 2 \u2014 0:11\u20130:20 \u2014 MONTAGE, HARD CUTS, ONE BAR PER TAPE</h3>\n<p>Each tape snaps into the player. Genre label flashes on the downbeat. Eight cuts, one per tape, cutting on the beat. Cabinet clunks as the transition.</p>\n\n<h3>SHOT 3 \u2014 0:20\u20130:30 \u2014 MEDIUM TWO-SHOT</h3>\n<p><strong>VIN</strong>: The album's called *The Shelves Raised Us*.</p>\n<p><strong>QUE</strong>: Because they did.</p>\n<p><strong>VIN</strong>: We lived in a cabinet, Que.</p>\n<p><strong>QUE</strong>: We lived IN a cabinet.</p>\n<p><strong>VIN</strong>: Eight tracks. Cold vibes.</p>\n<p><strong>QUE</strong>: Fresh beats.</p>\n<p><strong>VIN</strong>: Straight from the cab-nets.</p>\n\n<h3>SHOT 4 \u2014 0:30\u20130:42 \u2014 MEDIUM, QUE GESTURING</h3>\n<p><strong>VIN</strong>: It's free.</p>\n<p><strong>QUE</strong>: Free.</p>\n<p><strong>VIN</strong>: No login. No email. No nothing.</p>\n<p><strong>QUE</strong>: Or drop five dollars.</p>\n<p><strong>VIN</strong>: Shelves don't stock themselves.</p>\n<p><strong>QUE</strong>: cash dot app slash dollar-sign zdotllc.</p>\n<p><strong>VIN</strong>: Say it slower.</p>\n<p><strong>QUE</strong> *(slow)*: Z. DOT. L-L-C.</p>\n<p><strong>VIN</strong>: He's not a rapper. He's a spelling bee.</p>\n\n<h3>SHOT 5 \u2014 0:42\u20130:53 \u2014 MEDIUM, TIGHTER</h3>\n<p><strong>VIN</strong>: And if you think you can rap over our beats\u2014</p>\n<p><strong>QUE</strong>: \u2014which you cannot\u2014</p>\n<p><strong>VIN</strong>: BeatThread. Our beat, your verse.</p>\n<p><strong>QUE</strong>: The crowd votes.</p>\n<p><strong>VIN</strong>: They're gonna be brutal.</p>\n<p><strong>QUE</strong>: They're gonna be honest.</p>\n<p><strong>VIN</strong>: Same thing.</p>\n\n<h3>SHOT 6 \u2014 0:53\u20131:00 \u2014 WIDE, THEN TITLE CARD</h3>\n<p><strong>VIN</strong>: MilkUps.</p>\n<p><strong>QUE</strong>: Eight tapes. Free.</p>\n<p><strong>VIN</strong>: The shelves raised us.</p>\n<p><strong>QUE</strong> *(direct to camera)*: Somebody pick Icy.</p>\n\n<p><strong>TITLE CARD:</strong> MILKUPS \u00b7 milkups.netlify.app/album \u00b7 HARD CUT TO BLACK</p>\n</div>\n<div class=\"chapter\" id=\"chapter-3\">\n  <h2>Chapter 3: CUTDOWNS</h2>\n  <h3>30 SECOND \u2014 0:00\u20130:30</h3>\n<ul>\n<li><strong>0:00\u20130:06</strong> \u2014 Shot 1, trimmed. Trap through Icy, then the beat.</li>\n<li><strong>0:06\u20130:07</strong> \u2014 VIN: Nobody picks Icy. / QUE: Somebody always picks Icy.</li>\n<li><strong>0:07\u20130:20</strong> \u2014 Shot 4, in full. Free, no login, five dollars, the spelling bee.</li>\n<li><strong>0:20\u20130:30</strong> \u2014 Shot 6, in full, then title card.</li>\n</ul>\n\n<p>BeatThread is cut. The album and the price are what matter in 30.</p>\n\n<h3>15 SECOND \u2014 0:00\u20130:15</h3>\n<ul>\n<li><strong>0:00\u20130:09</strong> \u2014 Shot 1 trimmed to: eight tapes, quick-fire names, beat.</li>\n<li><strong>0:09\u20130:11</strong> \u2014 VIN: Nobody picks Icy. / QUE: Somebody always picks Icy.</li>\n<li><strong>0:11\u20130:15</strong> \u2014 TITLE CARD + VO: Eight tracks. Free. No login.</li>\n</ul>\n\n<p>No price in 15. Free is the whole message.</p>\n\n<h3>6 SECOND BUMPER \u2014 0:00\u20130:06</h3>\n<ul>\n<li><strong>0:00\u20130:05</strong> \u2014 VIN: We got eight tapes. / QUE *(beat)*: ...And Icy. / VIN: Nobody picks Icy.</li>\n<li><strong>0:05\u20130:06</strong> \u2014 TITLE CARD, 12 frames.</li>\n</ul>\n\n<p>Single joke. One beat. That's it.</p>\n\n<h3>CUT PRIORITY</h3>\n<p>Every cutdown keeps the Icy joke. It's the funniest eleven seconds we have and it survives at every length. If a cutdown loses Icy, it's not a cutdown, it's a different ad.</p>\n</div>\n<div class=\"footer\">&copy; Z Dot Team. All rights reserved.</div>\n</body>\n</html>\n",
+     "json_content": "[{\"title\": \"Format Note \u2014 Read First\", \"content\": \"**Technique yes, characters no.**\\n\\nThe construction-paper cutout look is a technique, not a property. Hinged heads, flat fills, 2s animation \u2014 all fair game, all widely used.\\n\\nWhat we do NOT do: use their actual characters, their voice-alikes, or their show's branding. Our cast is **Vin and Que** \u2014 they already exist in Spread Da Word, and they're ours.\\n\\nSo: borrow the method, keep our people.\\n\\n**Deliverable:** one 60-second promo, plus 30s / 15s / 6s cutdowns. Script, character sheets, animation spec, sound design, prompt pack, and delivery spec \u2014 all in this package. Nothing here needs a decision from anyone.\"}, {\"title\": \"THE SCRIPT \u2014 60 Seconds\", \"content\": \"### SHOT 1 \u2014 0:00\u20130:11 \u2014 INT. THE CABINET ROOM, WIDE, STATIC\\nTwo characters at an eight-drawer cassette cabinet. Neither moves much.\\n\\n**VIN** (flat, unbothered): We got eight tapes.\\n**QUE**: Eight.\\n**VIN**: Trap.\\n**QUE**: Lo-fi.\\n**VIN**: Electro.\\n**QUE**: Pop.\\n**VIN**: Country.\\n**QUE**: Funk.\\n**VIN**: Synthwave.\\n**QUE** *(pause)*: ...And Icy.\\n*(beat \u2014 two full seconds of nothing)*\\n**VIN**: Nobody picks Icy.\\n**QUE**: Somebody always picks Icy.\\n\\n### SHOT 2 \u2014 0:11\u20130:20 \u2014 MONTAGE, HARD CUTS, ONE BAR PER TAPE\\nEach tape snaps into the player. Genre label flashes on the downbeat. Eight cuts, one per tape, cutting on the beat. Cabinet clunks as the transition.\\n\\n### SHOT 3 \u2014 0:20\u20130:30 \u2014 MEDIUM TWO-SHOT\\n**VIN**: The album's called *The Shelves Raised Us*.\\n**QUE**: Because they did.\\n**VIN**: We lived in a cabinet, Que.\\n**QUE**: We lived IN a cabinet.\\n**VIN**: Eight tracks. Cold vibes.\\n**QUE**: Fresh beats.\\n**VIN**: Straight from the cab-nets.\\n\\n### SHOT 4 \u2014 0:30\u20130:42 \u2014 MEDIUM, QUE GESTURING\\n**VIN**: It's free.\\n**QUE**: Free.\\n**VIN**: No login. No email. No nothing.\\n**QUE**: Or drop five dollars.\\n**VIN**: Shelves don't stock themselves.\\n**QUE**: cash dot app slash dollar-sign zdotllc.\\n**VIN**: Say it slower.\\n**QUE** *(slow)*: Z. DOT. L-L-C.\\n**VIN**: He's not a rapper. He's a spelling bee.\\n\\n### SHOT 5 \u2014 0:42\u20130:53 \u2014 MEDIUM, TIGHTER\\n**VIN**: And if you think you can rap over our beats\u2014\\n**QUE**: \u2014which you cannot\u2014\\n**VIN**: BeatThread. Our beat, your verse.\\n**QUE**: The crowd votes.\\n**VIN**: They're gonna be brutal.\\n**QUE**: They're gonna be honest.\\n**VIN**: Same thing.\\n\\n### SHOT 6 \u2014 0:53\u20131:00 \u2014 WIDE, THEN TITLE CARD\\n**VIN**: MilkUps.\\n**QUE**: Eight tapes. Free.\\n**VIN**: The shelves raised us.\\n**QUE** *(direct to camera)*: Somebody pick Icy.\\n\\n**TITLE CARD:** MILKUPS \u00b7 milkups.netlify.app/album \u00b7 HARD CUT TO BLACK\"}, {\"title\": \"CUTDOWNS\", \"content\": \"### 30 SECOND \u2014 0:00\u20130:30\\n- **0:00\u20130:06** \u2014 Shot 1, trimmed. Trap through Icy, then the beat.\\n- **0:06\u20130:07** \u2014 VIN: Nobody picks Icy. / QUE: Somebody always picks Icy.\\n- **0:07\u20130:20** \u2014 Shot 4, in full. Free, no login, five dollars, the spelling bee.\\n- **0:20\u20130:30** \u2014 Shot 6, in full, then title card.\\n\\nBeatThread is cut. The album and the price are what matter in 30.\\n\\n### 15 SECOND \u2014 0:00\u20130:15\\n- **0:00\u20130:09** \u2014 Shot 1 trimmed to: eight tapes, quick-fire names, beat.\\n- **0:09\u20130:11** \u2014 VIN: Nobody picks Icy. / QUE: Somebody always picks Icy.\\n- **0:11\u20130:15** \u2014 TITLE CARD + VO: Eight tracks. Free. No login.\\n\\nNo price in 15. Free is the whole message.\\n\\n### 6 SECOND BUMPER \u2014 0:00\u20130:06\\n- **0:00\u20130:05** \u2014 VIN: We got eight tapes. / QUE *(beat)*: ...And Icy. / VIN: Nobody picks Icy.\\n- **0:05\u20130:06** \u2014 TITLE CARD, 12 frames.\\n\\nSingle joke. One beat. That's it.\\n\\n### CUT PRIORITY\\nEvery cutdown keeps the Icy joke. It's the funniest eleven seconds we have and it survives at every length. If a cutdown loses Icy, it's not a cutdown, it's a different ad.\"}]",
+     "status": "draft",
+     "word_count": 582,
+     "created_by": "Seleena",
+     "created_at": "2026-09-15 05:51:33",
+     "updated_at": "2026-09-15 05:51:33"
+    },
+    {
+     "id": 101,
+     "content_type": "email_sequence",
+     "title": "Sales Sequence: Z-Dot Bizzy Bee Bots",
+     "slug": "z-dot-bizzy-bee-bots-cold-outreach-5-email",
+     "file_path": "",
+     "html_content": "",
+     "json_content": "[{\"subject\": \"You're paying three vendors to not talk to each other\", \"body\": \"Quick question: how many tools does your business run on right now?\\n\\nMost owners I talk to say something like: a site builder, a CRM, a couple of AI subscriptions, and a spreadsheet holding it all together.\\n\\nThat's four bills. Four logins. Four places where your customer data lives in four different shapes \\u2014 and none of them talk to each other without you manually moving things around.\\n\\n**The real cost isn't the subscriptions. It's the seam.**\\n\\nEvery time a lead goes from your site to your CRM by hand, something gets dropped. Every time you ask an AI tool to help and it can't see your customer history, you get a generic answer you could have written yourself.\\n\\nZ-Dot Bizzy Bee Bots is a bot framework that puts the website builder, the CRM, and AI agents in one system \\u2014 so the data flows without you being the integration.\\n\\nOver the next few emails I'll show you what that looks like in practice. If it's not for you, one click and I'm gone.\\n\\n\\u2014 Mark\\nZ-Dot Team\\n\\n---\\nIf you'd rather not hear from us, reply with \\\"stop\\\" or use the unsubscribe link below and you'll be removed immediately. Z-Dot Team, [business address].\"}, {\"subject\": \"Website builder + CRM + AI agents, in one framework\", \"body\": \"Here's what Bizzy Bee Bots actually is, without the fog.\\n\\n**A bot framework.** Not a single bot, and not a chatbot bolted onto a website. It's the underlying system you build on \\u2014 and it ships with three things already wired together:\\n\\n**1. Website builder**\\nBuild the site. No separate platform, no third party form plugin, no handoff.\\n\\n**2. CRM**\\nContacts, pipeline, and history \\u2014 living in the same system as the site that captured them. A form submission becomes a contact record without you touching it.\\n\\n**3. AI agents**\\nAgents that can see your actual customer data, because they're inside the same framework. That's the difference between an AI that gives generic advice and one that knows this lead came in Tuesday from the pricing page and has opened four emails.\\n\\n**Why \\\"framework\\\" matters:**\\nA product gives you the features it shipped with. A framework gives you somewhere to build. You're not locked into the feature set someone else decided on.\\n\\nNext email: what we mean when we say the system improves itself \\u2014 and why I'm not going to claim it does everything.\\n\\n\\u2014 Mark\"}, {\"subject\": \"\\\"Limitless\\\" is a word I won't use. Here's the honest version.\", \"body\": \"You'll see software claim its features are limitless. I'm not going to write that, and I want to tell you why.\\n\\n**Because if a vendor says limitless, you should assume they mean \\\"we haven't told you what's missing yet.\\\"**\\n\\nHere's the accurate version of what Bizzy Bee Bots does:\\n\\n**It's built to extend.** The framework is designed so new bots and new agents can be added without rebuilding what you already have. That means the capability set grows \\u2014 with new modules, new agent types, new integrations \\u2014 without a migration.\\n\\n**It improves through use.** The system learns from the interactions it handles: which responses land, which workflows get abandoned, where leads go cold. That feedback shapes how the agents behave going forward.\\n\\n**What that means to you in practice:** the thing you buy in month one is not the same thing you have in month twelve. Not because we shipped a version bump, but because the system adapts to your business as it runs.\\n\\nWhat I won't tell you: that it does everything, works for everyone, or replaces your judgment. It doesn't. It removes the manual glue work between your tools, and it gets better at your specific business over time.\\n\\nThat's genuinely valuable. It's also not limitless. I'd rather you trust the smaller claim.\\n\\n\\u2014 Mark\"}, {\"subject\": \"The three things owners actually ask me\", \"body\": \"I get the same three questions every time. Straight answers:\\n\\n**\\\"How long does setup take?\\\"**\\nShorter than migrating between two existing platforms, because you're not migrating \\u2014 you're starting in one system instead of stitching three together later.\\n\\n**\\\"Do I have to move everything at once?\\\"**\\nNo. You can run the website builder first, add the CRM when you're ready, and layer agents on top. The point of a framework is that you build in stages without redoing work.\\n\\n**\\\"What happens to my existing data?\\\"**\\nIt comes with you. That's one of the reasons to consolidate \\u2014 right now your data is scattered across tools that each hold a partial picture. Bringing it into one framework is what makes the AI agents useful instead of generic.\\n\\n**One more, less common but fair:**\\n\\n**\\\"What if it doesn't fit how we work?\\\"**\\nThen you tell us what's missing and it gets built. That's the practical meaning of framework versus product.\\n\\nIf any of those answers raised a question, reply and ask it. I answer these personally.\\n\\n\\u2014 Mark\"}, {\"subject\": \"Worth a look?\", \"body\": \"Last email from me on this \\u2014 I'm not going to keep showing up in your inbox.\\n\\nHere's the whole pitch in three lines:\\n\\n- **One framework** instead of a website builder, a CRM, and separate AI tools that don't talk to each other\\n- **Data flows without you** being the integration between systems\\n- **It extends over time**, so what you have in a year is more capable than what you start with\\n\\nIf that's worth twenty minutes, reply to this email and I'll walk you through it. No deck, no pressure \\u2014 I'll show you the thing and you decide.\\n\\nIf it's not for you, that's a completely fine answer. Reply \\\"not now\\\" and I'll leave you alone. Or click unsubscribe and you're gone immediately.\\n\\nEither way \\u2014 thanks for reading these. I know your inbox is crowded.\\n\\n\\u2014 Mark\\nZ-Dot Team\\n\\n---\\nThis is the last email in this sequence. You'll receive nothing further about Bizzy Bee Bots unless you reply. Z-Dot Team, [business address]. Unsubscribe: [link].\"}]",
+     "status": "draft",
+     "word_count": 955,
+     "created_by": "Mark",
+     "created_at": "2026-09-15 06:45:11",
+     "updated_at": "2026-09-15 06:45:11"
+    },
+    {
+     "id": 102,
+     "content_type": "email_sequence",
+     "title": "Sales Sequence: Z-Dot Bizzy Bee Bots",
+     "slug": "z-dot-bizzy-bee-bots-cold-outreach-v2-zdotllc-com-reply-for-info",
+     "file_path": "",
+     "html_content": "",
+     "json_content": "[{\"subject\": \"You're paying three vendors to not talk to each other\", \"body\": \"Quick question: how many tools does your business run on right now?\\n\\nMost owners say something like: a site builder, a CRM, a couple of AI subscriptions, and a spreadsheet holding it all together.\\n\\nThat's four bills. Four logins. And four versions of your customer data that don't match.\\n\\n**The subscriptions aren't the real cost. The seam is.**\\n\\nEvery time a lead moves from your site to your CRM by hand, something gets dropped. Every time you ask an AI tool for help and it can't see your customer history, you get a generic answer you could have written yourself.\\n\\nZ-Dot Bizzy Bee Bots is a bot framework that puts the website builder, the CRM, and AI agents in one system \\u2014 so the data flows without you being the integration.\\n\\n**See it here: zdotllc.com**\\n\\nOr just reply to this email and I'll send you more info directly. Whatever's easier.\\n\\n\\u2014 Mark\\nZ-Dot Team\\n\\n---\\nZ-Dot LLC. Reply \\\"stop\\\" or use the unsubscribe link below to be removed immediately.\"}, {\"subject\": \"Website builder + CRM + AI agents, in one framework\", \"body\": \"Here's what Bizzy Bee Bots actually is, without the fog.\\n\\n**A bot framework.** Not a single bot, and not a chatbot bolted onto a website. It's the system you build on \\u2014 and it ships with three things already wired together:\\n\\n**1. Website builder**\\nBuild the site. No separate platform, no third-party form plugin, no handoff.\\n\\n**2. CRM**\\nContacts, pipeline, and history \\u2014 living in the same system as the site that captured them. A form submission becomes a contact record without you touching it.\\n\\n**3. AI agents**\\nAgents that can see your actual customer data, because they're inside the same framework. That's the difference between generic AI advice and an agent that knows this lead came in Tuesday from the pricing page and has opened four emails.\\n\\n**Why \\\"framework\\\" matters:**\\nA product gives you the features it shipped with. A framework gives you somewhere to build.\\n\\nI'm not going to write a long pitch here. You can see it yourself at **zdotllc.com** \\u2014 or reply to this email with a question and I'll answer it personally.\\n\\n\\u2014 Mark\"}, {\"subject\": \"\\\"Limitless\\\" is a word I won't use. Here's the honest version.\", \"body\": \"You'll see software claim its features are limitless. I'm not going to write that, and I want to tell you why.\\n\\n**Because if a vendor says limitless, assume they mean \\\"we haven't told you what's missing yet.\\\"**\\n\\nHere's the accurate version:\\n\\n**It's built to extend.** New bots and new agents can be added without rebuilding what already works. The capability set grows \\u2014 new modules, new agent types, new integrations \\u2014 with no migration.\\n\\n**It improves through use.** The system learns from the interactions it handles: which responses land, which workflows get abandoned, where leads go cold. That feedback shapes how the agents behave going forward.\\n\\n**In practice:** the thing you have in month twelve is more capable than the thing you started with. Not from a version bump \\u2014 because it adapts to your business as it runs.\\n\\nWhat I won't tell you: that it does everything, works for everyone, or replaces your judgment. It doesn't. It removes the manual glue work between your tools, and it gets better at your specific business over time.\\n\\nThat's worth real money. It's also not limitless. I'd rather you trust the smaller claim.\\n\\n**Curious whether it fits your setup? Reply and tell me what tools you're running now** \\u2014 I'll give you a straight answer, including if the answer is \\\"this isn't for you.\\\"\\n\\nOr start at **zdotllc.com**.\\n\\n\\u2014 Mark\"}, {\"subject\": \"The three things owners actually ask me\", \"body\": \"Same three questions every time. Straight answers:\\n\\n**\\\"How long does setup take?\\\"**\\nShorter than migrating between two existing platforms \\u2014 you're not migrating, you're starting in one system instead of stitching three together later.\\n\\n**\\\"Do I have to move everything at once?\\\"**\\nNo. Website builder first, CRM when you're ready, agents on top. Building in stages is the point of a framework \\u2014 you don't redo work.\\n\\n**\\\"What happens to my existing data?\\\"**\\nIt comes with you. Right now your data is scattered across tools that each hold a partial picture. Consolidating it is what makes the agents useful instead of generic.\\n\\n**And the one nobody asks but everyone wonders:**\\n\\n**\\\"What if it doesn't fit how we work?\\\"**\\nThen you tell us what's missing. That's the practical difference between a framework and a product.\\n\\nAny of those raise a question? **Reply to this email and ask it** \\u2014 I answer these personally, not with a template.\\n\\nMore at **zdotllc.com**.\\n\\n\\u2014 Mark\"}, {\"subject\": \"Worth a look?\", \"body\": \"Last email from me on this \\u2014 I'm not going to keep showing up in your inbox.\\n\\nThe whole pitch in three lines:\\n\\n- **One framework** instead of a website builder, a CRM, and separate AI tools that don't talk to each other\\n- **Data flows without you** being the integration between systems\\n- **It extends over time**, so what you have in a year is more capable than what you start with\\n\\n**If that's worth twenty minutes, just reply to this email.** I'll send you more info and walk you through the actual thing \\u2014 no deck, no pressure. You look, and you decide.\\n\\nYou can also start here: **zdotllc.com**\\n\\nIf it's not for you, that's a completely fine answer. Reply \\\"not now\\\" and I'll leave you alone, or click unsubscribe and you're gone immediately.\\n\\nEither way \\u2014 thanks for reading these. I know your inbox is crowded.\\n\\n\\u2014 Mark\\nZ-Dot Team\\n\\n---\\nThis is the last email in this sequence. You'll hear nothing further about Bizzy Bee Bots unless you reply. Z-Dot LLC. Unsubscribe: [link].\"}]",
+     "status": "draft",
+     "word_count": 914,
+     "created_by": "Mark",
+     "created_at": "2026-09-15 06:46:33",
+     "updated_at": "2026-09-15 06:46:33"
+    },
+    {
+     "id": 103,
+     "content_type": "email_sequence",
+     "title": "Sales Sequence: Z-Dot Bizzy Bee Bots \u2014 individual dreamers",
+     "slug": "bizzy-bee-bots-dreamers-track-5-email",
+     "file_path": "",
+     "html_content": "",
+     "json_content": "[{\"subject\": \"You don't need to hire anyone yet\", \"body\": \"If you've got an idea and no business yet, here's the part nobody tells you:\\n\\nThe reason it hasn't started isn't the idea. It's the list of things you think you need first. A website. A way to track customers. Someone technical.\\n\\nThat list is why most ideas stay ideas.\\n\\n**Z-Dot Bizzy Bee Bots exists for exactly that gap.** It's a bot framework with a website builder, a CRM, and AI agents in one system \\u2014 the three things you'd otherwise hire three people for, or spend six months learning.\\n\\nYou don't need a developer. You don't need a designer. You don't need to know what a CRM is before you have one.\\n\\n**See it here: zdotllc.com**\\n\\nOr reply to this email and tell me what you're trying to build. I'll tell you honestly whether this helps.\\n\\n\\u2014 Mark\\nZ-Dot Team\\n\\n---\\nZ-Dot LLC. Reply \\\"stop\\\" or use the unsubscribe link below to be removed immediately.\"}, {\"subject\": \"What you'd normally pay three people for\", \"body\": \"Here's the honest breakdown of what it takes to start something.\\n\\n**A website.** Usually a builder subscription, or a developer. Then a separate form tool. Then something to connect the two.\\n\\n**A customer list.** Usually a spreadsheet until it breaks, then a CRM you have to learn, then the pain of moving everything over.\\n\\n**Help.** Usually a VA, or an agency, or you at 1am.\\n\\n**Bizzy Bee Bots puts those in one framework:**\\n\\n- **Website builder** \\u2014 build the site, ship it, no separate platform\\n- **CRM** \\u2014 contacts and pipeline in the same system that captured them, so a form submission becomes a record without you doing anything\\n- **AI agents** \\u2014 and this is the important one. They can see your actual customer data, because they live in the same system\\n\\nThat last part is the difference between an AI that gives generic advice and one that knows this person asked about your pricing on Tuesday and hasn't replied since.\\n\\n**What it isn't:** a shortcut to a business. Nobody can sell you that. It's the infrastructure, so you spend your time on the part that actually needs you.\\n\\n**zdotllc.com** \\u2014 or reply and ask me anything.\\n\\n\\u2014 Mark\"}, {\"subject\": \"\\\"What if I don't know what I'm doing?\\\"\", \"body\": \"That's the real question, isn't it. Not \\\"does it have features\\\" \\u2014 you can read a feature list.\\n\\nThe real question is whether you can figure it out without someone holding your hand.\\n\\nStraight answer: **you build in stages.**\\n\\n- Start with the website. Just the site. That's it.\\n- Add the CRM when you actually have customers to track.\\n- Layer the agents on later, when you know what you'd want them to handle.\\n\\nYou don't configure everything on day one. You don't need to understand the whole system to use one part of it. That's what \\\"framework\\\" means here \\u2014 it's built so you can grow into it instead of setting it all up before you're allowed to start.\\n\\nAnd the AI agents improve as they're used. They learn from which messages land, which leads go cold, where people drop off. So the system gets better at *your* specific thing over time, not just in general.\\n\\n**What I won't tell you:** that it's effortless, or that it replaces the work of figuring out what you're selling. It doesn't. It removes the technical barrier, not the thinking.\\n\\n**Curious if it fits what you're building? Reply and tell me the idea.** I'll give you a straight answer, including if the answer is \\\"not yet.\\\"\\n\\n**zdotllc.com**\\n\\n\\u2014 Mark\"}, {\"subject\": \"The three things dreamers ask me\", \"body\": \"Same three questions, every time.\\n\\n**\\\"I don't have a business yet. Is this for me?\\\"**\\nYes \\u2014 this is arguably more for you, because you don't have years of bad habits and four tools to untangle.\\n\\n**\\\"Do I need to be technical?\\\"**\\nNo. If you can use a website builder, you can use this. And there's no migration, because you're starting fresh instead of moving off something else.\\n\\n**\\\"What if I don't have a product yet?\\\"**\\nThen start with the site and the list. Collect people who are interested before you build the thing. That's not a workaround \\u2014 it's the order that works.\\n\\n**And the one people don't ask out loud:**\\n\\n**\\\"What if I fail?\\\"**\\nThen you failed with infrastructure you can reuse next time, instead of a failed idea on top of three subscriptions you're still paying for. That's a meaningfully better position to be in.\\n\\nAny of those land somewhere? **Reply and ask yours.** I answer personally, not with a template.\\n\\n**zdotllc.com**\\n\\n\\u2014 Mark\"}, {\"subject\": \"Last one from me\", \"body\": \"I'm not going to keep showing up in your inbox. Here's everything, short:\\n\\n- **One framework** instead of a website builder, a CRM, and separate AI tools that don't talk to each other\\n- **Built to start small** \\u2014 the site first, then the CRM, then agents. No setup marathon.\\n- **It improves as you use it**, so it gets better at your specific thing over time\\n\\nThe whole ask is twenty minutes and a conversation. **Reply to this email** and I'll send you more info and walk you through it. No deck, no pressure \\u2014 you look, and you decide.\\n\\nOr start at **zdotllc.com**\\n\\nIf it's not for you, that's a fine answer. Reply \\\"not now\\\" and I'll leave you alone, or unsubscribe and you're gone immediately.\\n\\nWhatever you're building \\u2014 I hope you build it. Most people don't.\\n\\n\\u2014 Mark\\nZ-Dot Team\\n\\n---\\nThis is the last email in this sequence. You'll hear nothing further unless you reply. Z-Dot LLC. Unsubscribe: [link].\"}]",
+     "status": "draft",
+     "word_count": 904,
+     "created_by": "Mark",
+     "created_at": "2026-09-15 06:51:58",
+     "updated_at": "2026-09-15 06:51:58"
     }
    ]
   },
   "browse_log": {
    "table": "browse_log",
-   "count": 714,
+   "count": 736,
    "rows": [
     {
      "id": 1,
@@ -31542,6 +31905,226 @@
      "extracted_links_count": 0,
      "browsed_by": "Seleena",
      "created_at": "2026-09-15 05:25:28"
+    },
+    {
+     "id": 720,
+     "url": "https://snowsnakes.zerric.xyz",
+     "status_code": 403,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Seleena",
+     "created_at": "2026-09-15 05:47:24"
+    },
+    {
+     "id": 721,
+     "url": "https://zerric.xyz",
+     "status_code": 403,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Seleena",
+     "created_at": "2026-09-15 05:47:24"
+    },
+    {
+     "id": 722,
+     "url": "https://milkups.netlify.app",
+     "status_code": 200,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Seleena",
+     "created_at": "2026-09-15 05:47:27"
+    },
+    {
+     "id": 723,
+     "url": "https://zdotllc.com/milkups",
+     "status_code": 403,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Seleena",
+     "created_at": "2026-09-15 05:47:27"
+    },
+    {
+     "id": 724,
+     "url": "https://github.com/zaxbatch/milkups",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 14,
+     "browsed_by": "Seleena",
+     "created_at": "2026-09-15 05:47:31"
+    },
+    {
+     "id": 725,
+     "url": "https://milkups.netlify.app",
+     "status_code": 200,
+     "extract_mode": "links",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 5,
+     "browsed_by": "Seleena",
+     "created_at": "2026-09-15 05:47:33"
+    },
+    {
+     "id": 726,
+     "url": "https://snowsnakes.zerric.xyz",
+     "status_code": 403,
+     "extract_mode": "links",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Seleena",
+     "created_at": "2026-09-15 05:47:33"
+    },
+    {
+     "id": 727,
+     "url": "https://milkups.netlify.app/album/",
+     "status_code": 200,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Seleena",
+     "created_at": "2026-09-15 05:47:36"
+    },
+    {
+     "id": 728,
+     "url": "https://snowsnakes.zerric.xyz/spread-da-word/audio/soundtracks-cassette-player.html",
+     "status_code": 403,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Seleena",
+     "created_at": "2026-09-15 05:47:36"
+    },
+    {
+     "id": 729,
+     "url": "https://beatthread.netlify.app/app",
+     "status_code": 200,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Seleena",
+     "created_at": "2026-09-15 05:47:37"
+    },
+    {
+     "id": 730,
+     "url": "https://zaxbatch.github.io/milkups/",
+     "status_code": 404,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 4,
+     "browsed_by": "Seleena",
+     "created_at": "2026-09-15 05:50:52"
+    },
+    {
+     "id": 731,
+     "url": "https://raw.githubusercontent.com/zaxbatch/milkups/main/index.html",
+     "status_code": 200,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Seleena",
+     "created_at": "2026-09-15 05:50:52"
+    },
+    {
+     "id": 732,
+     "url": "https://zdotllc.com",
+     "status_code": 403,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Mark",
+     "created_at": "2026-09-15 06:46:21"
+    },
+    {
+     "id": 733,
+     "url": "https://firstcaredentaloflouisville.com",
+     "status_code": 200,
+     "extract_mode": "contacts",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Mark",
+     "created_at": "2026-09-15 06:51:20"
+    },
+    {
+     "id": 734,
+     "url": "https://remmersdental.com",
+     "status_code": 200,
+     "extract_mode": "contacts",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 1,
+     "browsed_by": "Mark",
+     "created_at": "2026-09-15 06:51:21"
+    },
+    {
+     "id": 735,
+     "url": "https://belldentalky.com",
+     "status_code": 200,
+     "extract_mode": "contacts",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 1,
+     "browsed_by": "Mark",
+     "created_at": "2026-09-15 06:51:22"
+    },
+    {
+     "id": 736,
+     "url": "https://gymboutique.net",
+     "status_code": 200,
+     "extract_mode": "contacts",
+     "extracted_emails_count": 3,
+     "extracted_links_count": 1,
+     "browsed_by": "Mark",
+     "created_at": "2026-09-15 06:51:23"
+    },
+    {
+     "id": 737,
+     "url": "https://www.leecompany.com",
+     "status_code": 200,
+     "extract_mode": "contacts",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 3,
+     "browsed_by": "Mark",
+     "created_at": "2026-09-15 06:51:24"
+    },
+    {
+     "id": 738,
+     "url": "https://solopreneurcoach.com",
+     "status_code": 200,
+     "extract_mode": "contacts",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 1,
+     "browsed_by": "Mark",
+     "created_at": "2026-09-15 06:52:14"
+    },
+    {
+     "id": 739,
+     "url": "https://www.beelinecoaching.com",
+     "status_code": 200,
+     "extract_mode": "contacts",
+     "extracted_emails_count": 1,
+     "extracted_links_count": 3,
+     "browsed_by": "Mark",
+     "created_at": "2026-09-15 06:52:15"
+    },
+    {
+     "id": 740,
+     "url": "https://www.renee-clair.com",
+     "status_code": 200,
+     "extract_mode": "contacts",
+     "extracted_emails_count": 1,
+     "extracted_links_count": 13,
+     "browsed_by": "Mark",
+     "created_at": "2026-09-15 06:52:18"
+    },
+    {
+     "id": 741,
+     "url": "https://saganmorrow.com",
+     "status_code": 200,
+     "extract_mode": "contacts",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 3,
+     "browsed_by": "Mark",
+     "created_at": "2026-09-15 06:52:22"
     }
    ]
   },
