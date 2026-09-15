@@ -1,0 +1,180 @@
+{
+  "album": "The Shelves Raised Us",
+  "artist": "MilkUps",
+  "scope": "5 tracks, each >= 90 s, built-in/synthesized only, no external samples",
+  "cuts": [
+    "lmms",
+    "xm"
+  ],
+  "tracks": [
+    {
+      "no": 1,
+      "title": "Shelves Raised Us",
+      "bpm": 118,
+      "patterns": 12,
+      "channels": 4,
+      "cut_lmms": {
+        "project": "content/milkups/album/lmms/trk01.mmp",
+        "render": {
+          "bytes": 8788650,
+          "seconds": 99.644,
+          "channels": 1,
+          "samplerate": 44100,
+          "peak": 0.73264,
+          "peak_dbfs": -2.7,
+          "rms": 0.11538,
+          "sha256": "1070d3e1ac2da91e667d76666d3a57aafb6c381553600cb4de4f0177a1f9c30f"
+        }
+      },
+      "cut_xm": {
+        "module": "content/milkups/album/xm/trk01.xm",
+        "render": {
+          "bytes": 8788650,
+          "seconds": 99.644,
+          "channels": 1,
+          "samplerate": 44100,
+          "peak": 0.73264,
+          "peak_dbfs": -2.7,
+          "rms": 0.16564,
+          "sha256": "be1ec88101e432f457f2db29cacf9468d52baa0b18b757f445123d675f3df04e"
+        }
+      }
+    },
+    {
+      "no": 2,
+      "title": "Milk Carton Club",
+      "bpm": 126,
+      "patterns": 13,
+      "channels": 4,
+      "cut_lmms": {
+        "project": "content/milkups/album/lmms/trk02.mmp",
+        "render": {
+          "bytes": 8908244,
+          "seconds": 101.0,
+          "channels": 1,
+          "samplerate": 44100,
+          "peak": 0.73264,
+          "peak_dbfs": -2.7,
+          "rms": 0.12782,
+          "sha256": "d8e70ff78a30882a14d122a588fd518c301f1557025db4c0b01c566a68cd5468"
+        }
+      },
+      "cut_xm": {
+        "module": "content/milkups/album/xm/trk02.xm",
+        "render": {
+          "bytes": 8908244,
+          "seconds": 101.0,
+          "channels": 1,
+          "samplerate": 44100,
+          "peak": 0.73264,
+          "peak_dbfs": -2.7,
+          "rms": 0.16504,
+          "sha256": "1f82655f86269a62b66103b69101cb14b7509aa1548e7f215fb3235612d99b9f"
+        }
+      }
+    },
+    {
+      "no": 3,
+      "title": "Aisle of Echoes",
+      "bpm": 104,
+      "patterns": 11,
+      "channels": 4,
+      "cut_lmms": {
+        "project": "content/milkups/album/lmms/trk03.mmp",
+        "render": {
+          "bytes": 9145704,
+          "seconds": 103.692,
+          "channels": 1,
+          "samplerate": 44100,
+          "peak": 0.73264,
+          "peak_dbfs": -2.7,
+          "rms": 0.11632,
+          "sha256": "50d2497c312a2aef44eb777e30898e008a79b2cd00c8298bb25b300dd9749b1f"
+        }
+      },
+      "cut_xm": {
+        "module": "content/milkups/album/xm/trk03.xm",
+        "render": {
+          "bytes": 9145704,
+          "seconds": 103.692,
+          "channels": 1,
+          "samplerate": 44100,
+          "peak": 0.73264,
+          "peak_dbfs": -2.7,
+          "rms": 0.15993,
+          "sha256": "1121960e115327026e398fb25700bd4e20986fc423f29b5417ae4c988a6f2388"
+        }
+      }
+    },
+    {
+      "no": 4,
+      "title": "Cooler Than Cool",
+      "bpm": 132,
+      "patterns": 14,
+      "channels": 4,
+      "cut_lmms": {
+        "project": "content/milkups/album/lmms/trk04.mmp",
+        "render": {
+          "bytes": 9148788,
+          "seconds": 103.727,
+          "channels": 1,
+          "samplerate": 44100,
+          "peak": 0.73264,
+          "peak_dbfs": -2.7,
+          "rms": 0.11642,
+          "sha256": "bf3e62149b9f7149112a4f36de371d5dc77a642c6b3e7d74149a09fa2e6dfd13"
+        }
+      },
+      "cut_xm": {
+        "module": "content/milkups/album/xm/trk04.xm",
+        "render": {
+          "bytes": 9148788,
+          "seconds": 103.727,
+          "channels": 1,
+          "samplerate": 44100,
+          "peak": 0.73264,
+          "peak_dbfs": -2.7,
+          "rms": 0.15561,
+          "sha256": "a331cc359f8f781a9e4a142f826169aa60ea8fcd1a193767bed57478febcbe69"
+        }
+      }
+    },
+    {
+      "no": 5,
+      "title": "Best Before Forever",
+      "bpm": 96,
+      "patterns": 10,
+      "channels": 4,
+      "cut_lmms": {
+        "project": "content/milkups/album/lmms/trk05.mmp",
+        "render": {
+          "bytes": 9018494,
+          "seconds": 102.25,
+          "channels": 1,
+          "samplerate": 44100,
+          "peak": 0.73264,
+          "peak_dbfs": -2.7,
+          "rms": 0.11481,
+          "sha256": "a180f2874c00d6a0ec953f01515ed3a3ffe42c1e66054eda9d69b06cb47a5f90"
+        }
+      },
+      "cut_xm": {
+        "module": "content/milkups/album/xm/trk05.xm",
+        "render": {
+          "bytes": 9018494,
+          "seconds": 102.25,
+          "channels": 1,
+          "samplerate": 44100,
+          "peak": 0.73264,
+          "peak_dbfs": -2.7,
+          "rms": 0.1602,
+          "sha256": "6b1d2028fef3f1c1553d2ca06898b26003af1379d32281e42aa1f4c9bc94e5a9"
+        }
+      }
+    }
+  ],
+  "gate": {
+    "passed": true,
+    "failures": []
+  }
+}
