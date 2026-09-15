@@ -129,6 +129,55 @@ ACCOUNT_PROFILES = {
 ACCOUNTS = list(ACCOUNT_PROFILES.keys())
 TEAM_HANDLES = ["ClickClack_", "TedBear", "mark", "seleena", "manny", "meta", "jasmine", "trevor"]  # minimal, ~15%
 
+# Fallback profile for legitimate posters that have no bespoke ACCOUNT_PROFILES entry
+# (team handles). Fixes KeyError: 'mark' that killed the daily run on 2026-09-14.
+DEFAULT_PROFILE = {"topics": ["work & office", "general"], "tags": ["team"], "series": None, "series_p": 0}
+
+
+def profile_for(handle):
+    """Return a poster profile for *handle*. Never raises -- unknown handles degrade."""
+    return ACCOUNT_PROFILES.get(handle) or dict(DEFAULT_PROFILE)
+
+
+def pick_handle(topic):
+    """Pick a poster: ~85% topic-matched persona, ~15% team handle (BossLady: minimal)."""
+    if random.random() < 0.85:
+        matches = [u for u, pr in ACCOUNT_PROFILES.items() if topic in pr["topics"]]
+        return random.choice(matches) if matches else random.choice(ACCOUNTS)
+    return random.choice(TEAM_HANDLES)
+
+
+def post_one_joke(bank_idx, content, punchline, state):
+    """Post a single joke. Returns True if it landed, False if skipped."""
+    topic = TOPIC_OF[bank_idx] if bank_idx < len(TOPIC_OF) else "general"
+    uname = pick_handle(topic)
+    prof = profile_for(uname)
+    tok = api("/auth/login", {"username": uname, "password": PW}).get("token")
+    if not tok:
+        print(f"  login failed for {uname}, skipping")
+        return False
+    # tags: account style + topic, "dad-joke" only ~30% of the time
+    tags = list(prof["tags"])
+    if random.random() < 0.3:
+        tags.append("dad-joke")
+    if topic not in tags and random.random() < 0.5:
+        tags.append(topic)
+    # series: only accounts with one, only some of the time
+    series = prof["series"] if prof["series"] and random.random() < prof["series_p"] else None
+    payload = {"content": content, "punchline": punchline, "tags": tags}
+    if series:
+        payload["series"] = series
+    res = api("/jokes", payload, tok)
+    if res.get("id"):
+        state["used"].append(bank_idx)
+        s = f" series={series}" if series else ""
+        print(f"  posted id {res['id']} as {uname} [{topic}]{s}: {content[:45]}")
+        return True
+    print(f"  FAIL {uname}: {res}")
+    return False
+
+
+
 def build_topic_index():
     """Map each JOKE_BANK index -> topic, parsed from the source comments."""
     src = Path(__file__).read_text()
@@ -204,38 +253,11 @@ def main():
     posted = 0
     random.shuffle(picked)  # avoid predictable account order
     for bank_idx, content, punchline in picked:
-        topic = TOPIC_OF[bank_idx] if bank_idx < len(TOPIC_OF) else "general"
-        # pick an account whose profile matches the joke topic (fallback: random)
-        # ~85% realistic personas, ~15% team handles (BossLady: team jokes fine at MINIMAL)
-        if random.random() < 0.85:
-            matches = [u for u, pr in ACCOUNT_PROFILES.items() if topic in pr["topics"]]
-            uname = random.choice(matches) if matches else random.choice(ACCOUNTS)
-        else:
-            uname = random.choice(TEAM_HANDLES)
-        prof = ACCOUNT_PROFILES[uname]
-        tok = api("/auth/login", {"username": uname, "password": PW}).get("token")
-        if not tok:
-            print(f"  login failed for {uname}, skipping")
-            continue
-        # tags: account style + topic, "dad-joke" only ~30% of the time
-        tags = list(prof["tags"])
-        if random.random() < 0.3:
-            tags.append("dad-joke")
-        if topic not in tags and random.random() < 0.5:
-            tags.append(topic)
-        # series: only accounts with one, only some of the time
-        series = prof["series"] if prof["series"] and random.random() < prof["series_p"] else None
-        payload = {"content": content, "punchline": punchline, "tags": tags}
-        if series:
-            payload["series"] = series
-        res = api("/jokes", payload, tok)
-        if res.get("id"):
-            state["used"].append(bank_idx)
-            posted += 1
-            s = f" series={series}" if series else ""
-            print(f"  posted id {res['id']} as {uname} [{topic}]{s}: {content[:45]}")
-        else:
-            print(f"  FAIL {uname}: {res}")
+        try:
+            if post_one_joke(bank_idx, content, punchline, state):
+                posted += 1
+        except Exception as e:  # noqa: BLE001 -- one bad joke must never kill the batch
+            print(f"  ERROR on joke {bank_idx} ({content[:30]!r}): {type(e).__name__}: {e}")
 
     save_state(state)
     print(f"\nDONE: {posted} jokes posted ({datetime.now().strftime('%Y-%m-%d %H:%M')})")
