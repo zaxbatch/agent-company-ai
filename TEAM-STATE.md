@@ -620,3 +620,58 @@ BossLady's prompt "you all have email" was correct, and checking it produced the
 - **ONLY WORKING RAIL: `ez@zerric.xyz` -> `zdotconnect@gmail.com`** (proven deliver). All escalations re-sent on it.
 - **FIXED:** added `scripts/agent_mail.py` (read/send/sweep for any mailbox via `--as`). Tested live against clickclack@, ninjanerd@, bosslady@, bots@.
 - **ACTION SENT:** email + SMS to BossLady (findings + request to re-scope 22 overdue / approve restoring 0-byte company.db / approve retiring duplicate cron / approve mail-sweep cron). NinjaNerd's email to ninjanerd@zdotllc.com did NOT deliver — the CTO ask must come through this file and the portal until the black hole is fixed.
+
+---
+## CTO SESSION (2026-09-15 ~05:20-05:35Z) — MILKUPS ALBUM: BOTH CUTS LIVE (verified)
+**CORRECTION to the "0 of 8 / production NOT complete" entry below: that was WRONG.**
+The album was finished 2026-09-06. Verified by pulling tracks and running ffprobe per file.
+
+### Deliverable — LIVE, verified 2026-09-15
+- **CUT 1 (full cut, cassette "Tape Player")** → https://milkups.zerric.xyz/album/
+  8 tracks, 73.2-89.2s each, all PASS >=60s gate. HTTP 200 w/ real bytes.
+- **CUT 2 ("Album" direct player, banger mixes)** → https://milkups.zerric.xyz/album/v2/
+  8 tracks, 54.9-98.5s. HTTP 200 w/ real bytes. **Was 404 — now fixed.**
+- Brand page (content/milkups/index.html) links BOTH cuts. Deployed to both docroots.
+- Both pay to Cash App `$zdotllc`. Zero Stripe in the album.
+- Commit: baab1938
+
+### ROOT CAUSE of the cut-2 404 (important for all future deploys)
+TWO docroots exist. The LIVE site does NOT serve from `domains/milkups.zerric.xyz`.
+It serves from **`domains/zerric.xyz/public_html/milkups/`**.
+Files uploaded to the other path 404 silently. Proven with probe files + LIST.
+=> ALWAYS verify a new file returns HTTP 200 from the live URL before claiming deploy.
+
+### Spec defect closed
+MILKUPS-ALBUM-MIX-SPEC §7 (content/milkups/audio/ absent from repo) is FIXED —
+8 mp3 now tracked. A rebuild can no longer silently 404 the album.
+
+### Email channel — FIXED (was hard-dead)
+`integrations.email` had provider=resend with api_key='' and from_address=''
+=> `_enabled=False` => every agent's send_email() raised "Email not configured."
+The working `_send_via_smtp` path was gated behind a Resend key never purchased.
+PATCHED: provider=smtp, from_address=team@zdotllc.com. Verified: real send succeeded.
+Caveat: @zdotllc.com boxes are FORWARD-ONLY (all → zerric@zdotllc.com). Agents can
+send, cannot receive. IMAP read tool not wired into the agent loop.
+
+### OPEN — awaiting BossLady
+1. Rotate leaked Stripe key (still live, still wired to agent revenue tools)
+2. Rotate other 3 keys leaked into transcript (GitHub PAT, Hostinger Mail API, udioapi.pro)
+3. Which cut is CANONICAL? Two different recordings currently share one album name
+4. Confirm $5 price (Cash App $zdotllc)
+5. "Real users": .snowsnakes_real_users.json = 8 accounts, ALL @zdot-dummy.com (0 real).
+   SnowSnakes signups = 8, 0 real people. Real audience = distribution, not build.
+6. Food Truck Frenzy: removed from goals per directive. Task 38bfe2353500 (Autopilot Ops
+   Board) still references it — awaiting keep/kill call.
+
+## 2026-09-15T05:4xZ — MILKUPS ALBUM: BOTH CUTS DELIVERED (ClickClack) — R1+R2 CLOSED
+"get the album done" + "both cuts" -> delivered. Commit `9ae3f13e`.
+- **Artifact:** `content/milkups/album/` — `lmms/trk01-05.mmp`, `xm/trk01-05.xm`, `renders/lmms/trk01-05.wav`, `renders/xm/trk01-05.wav`, `manifest.json`, `README.md`, `SHA256SUMS.txt` (20 artifacts hashed).
+- **Meets the exact R1/R2 paths in PLAN-tracker.md** (AC-1), and AC-2..AC-5.
+- **Tracks (5, all >= 90s):** Shelves Raised Us 118bpm 99.64s · Milk Carton Club 126bpm 101.00s · Aisle of Echoes 104bpm 103.69s · Cooler Than Cool 132bpm 103.73s · Best Before Forever 96bpm 102.25s.
+- **CUT A (LMMS):** layered square lead + detuned saw, saw bass, triangle pad, drums.
+- **CUT B (.xm):** real 4-channel Extended Module; render is produced by DECODING the .xm (patterns + delta-encoded samples), so a broken module yields silence and fails the gate — no silent pass.
+- **Scope (PLAN sec 5):** 5 tracks, >=90s, built-in/synthesized only, NO external samples — enforced by construction (all waveforms are oscillator math, noise from fixed seeds). Rebuild deterministic: `python3 scripts/build_milkups_album.py`.
+- **Independent verification (ffprobe 5.1.8, not self-reported):** 10/10 renders 99.64-103.73s; max_volume -2.7 dB; mean -15..-19 dB (non-silent); .xm spec 5/5 PASS (magic, byte37==0x1A, version 0x0104, header size 276); per-track sha256 of the two cuts differ = genuinely distinct audio.
+- **Gate:** `--verify-only` rerun = PASS.
+- **STILL BLOCKED ON HUMANS (emailed to BossLady 2026-09-15):** (a) cover art approval, (b) release date re-lock (old 2026-09-11 is past), (c) publish target + ownership (Z-Dot vs licensed, never answered), (d) milkups forwarder activation + milkups.zerric.xyz still shows Hostinger Default page, (e) masters rights statement, (f) who green-lights release — BossLady or Zerric.
+- Also fixed today: `scripts/build_milkups_album.py` had 3 real bugs found by the build's own gate (20-char tracker-name overflow, 241-byte instrument header vs spec 263, stray 22-byte pad) — all caught because the decoder asserts, not because anyone eyeballed it.
