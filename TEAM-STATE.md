@@ -4,7 +4,7 @@
 > to pick up exactly where we left off. Every agent updates it at end of turn.
 > Auto-refresh: `python3 scripts/save_state.py` (also syncs the portal + git).
 
-**Last updated:** 2026-09-15T03:30:01Z
+**Last updated:** 2026-09-15T03:35:01Z
 
 ## 0. LATEST SESSION (2026-09-12d) — SNOWSNAKES ENGAGEMENT AUDIT + EMAIL TO ZERRIC (ClickClack)
 **Zerric asked for engagement + content on SnowSnakes, then reframed the goal to REAL user engagement and steady content. Audited the whole site. Findings below are VERIFIED via live API, not inferred.**
@@ -573,3 +573,15 @@
 
 ## ROOT-CAUSE BLOCKER (recorded by Meta, PM — QA & Delivery)
 publish_social_post (Twitter/X) unconfigured — no API keys. Only publish rail in system is dead. Owned-channel rail at snowsnakes.zerric.xyz is the fix.
+
+<!-- MILKUPS-ALBUM-STATE:START (R7 / cycle 3 — Manny + Meta) -->
+## MilkUps Album (tracker/LMMS) — cycle 3 sync
+- Goal: "make a tracker/LMMS album for MilkUps" -> STATUS: **NOT ACHIEVED (cycle 3)**.
+- In flight: R1 LMMS .mmp + renders (NinjaNerd) · R2 .xm + renders (ClickClack) · R3 QA verdict (Meta) · R4 GTM (Mark) · R5 monetization (Seleena) · R6 budget (Finance) · R7 tracker + state sync (Manny).
+- Critical path: R1 -> R2 -> R3 -> release green-light (Zerric).
+- Verdict file: `content/milkups/album/QA-verdict-cycle3.md` (R3 — BLOCKED: no raw evidence submitted from R1/R2).
+- Tracker: `content/milkups/album/PLAN-tracker.md`.
+- Blockers: (1) Stripe keys — R5 payment leg; (2) HubSpot sync not wired — launch leads don't reach CRM; (3) file-access limits on some agents — claimed artifacts not always verifiable, so DONE must carry sha256 + wc -c.
+- Scope LOCKED: 5 tracks, >= 90 s each, built-in instruments only, no external samples; changes via BossLady only.
+- Deadline: cycle 3 close (hard stop). Absolute timestamp unconfirmed — flagged to BossLady.
+<!-- MILKUPS-ALBUM-STATE:END -->
