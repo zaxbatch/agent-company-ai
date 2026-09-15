@@ -246,10 +246,12 @@ def xm_write(track, song, path):
         hdr += bytes(22)                           # 22  reserved
         assert len(hdr) == 263, f"instrument header {len(hdr)} != 263"
         out += bytes(hdr)
-        out += bytes(22)          # pad extended header to the spec 263 bytes
-        out += struct.pack("<I", SMP_LEN) + struct.pack("<I", 0) + struct.pack("<I", SMP_LEN)
-        out += bytes([64, 0, 0x01, 128, 0, 0])       # vol, finetune, type=loop, pan, relnote, res
-        out += kind.encode()[:22].ljust(22, b" ")
+        # sample header -- 40 bytes
+        out += struct.pack("<I", SMP_LEN)            # length
+        out += struct.pack("<I", 0)                  # loop start
+        out += struct.pack("<I", SMP_LEN)            # loop length
+        out += bytes([64, 0, 0x01, 128, 0, 0])       # vol, finetune, type=loop, pan, relnote, reserved
+        out += name.encode()[:22].ljust(22, b" ")    # sample name
         out += _sample_bytes(kind)
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_bytes(bytes(out))
