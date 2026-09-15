@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-15T06:50:01.092833+00:00",
+ "generated_at": "2026-09-15T08:30:01.086179+00:00",
  "note": "Sanitized continuity snapshot. Sensitive fields masked (***). Restore: this JSON documents what was in flight so work can resume after any disruption.",
  "tables": {
   "agents": {
@@ -90,7 +90,7 @@
   },
   "tasks": {
    "table": "tasks",
-   "count": 642,
+   "count": 644,
    "rows": [
     {
      "id": "1e06bda85075",
@@ -7795,6 +7795,30 @@
      "artifacts_json": "[]",
      "created_at": "2026-09-15 03:45:53",
      "updated_at": "2026-09-15 03:46:23"
+    },
+    {
+     "id": "582a7916db04",
+     "description": "Make sure all agents have email privileges.",
+     "assignee_id": "NinjaNerd",
+     "status": "failed",
+     "priority": 0,
+     "parent_id": null,
+     "result": "Exceeded maximum iterations without completing.",
+     "artifacts_json": "[]",
+     "created_at": "2026-09-15 06:58:39",
+     "updated_at": "2026-09-15 07:07:01"
+    },
+    {
+     "id": "e9b05f95c9b7",
+     "description": "Get with @Mark for zdot email campaign",
+     "assignee_id": "NinjaNerd",
+     "status": "failed",
+     "priority": 0,
+     "parent_id": null,
+     "result": "Exceeded maximum iterations without completing.",
+     "artifacts_json": "[]",
+     "created_at": "2026-09-15 06:59:21",
+     "updated_at": "2026-09-15 07:03:51"
     }
    ]
   },
@@ -15546,27 +15570,27 @@
    "rows": [
     {
      "name": "browse_log",
-     "seq": 732
+     "seq": 741
     },
     {
      "name": "prospect_searches",
-     "seq": 62
+     "seq": 68
     },
     {
      "name": "social_drafts",
-     "seq": 143
+     "seq": 146
     },
     {
      "name": "content_pieces",
-     "seq": 102
+     "seq": 103
     },
     {
      "name": "contacts",
-     "seq": 85
+     "seq": 88
     },
     {
      "name": "landing_pages",
-     "seq": 39
+     "seq": 40
     },
     {
      "name": "payment_links",
@@ -18971,7 +18995,7 @@
   },
   "contacts": {
    "table": "contacts",
-   "count": 80,
+   "count": 83,
    "rows": [
     {
      "id": 1,
@@ -20172,6 +20196,51 @@
      "created_by": "Seleena",
      "created_at": "2026-09-15 05:24:31",
      "updated_at": "2026-09-15 05:25:15"
+    },
+    {
+     "id": 86,
+     "email": "***",
+     "name": "Christy (Gym Boutique)",
+     "company": "Gym Boutique",
+     "phone": "",
+     "status": "lead",
+     "source": "prospect search \u2014 bizzy bee bots",
+     "notes": "Prospect search result for Z-Dot Bizzy Bee Bots outreach. Personal training studio / boutique gym. Fit: small business running site + booking + client management, likely on disconnected tools. Email found on site. Verify before sending \u2014 do not assume first-name-only contact is the decision maker. Instagram: @gymboutiquenb",
+     "tags": "bizzy-bee-bots,prospect,fitness,small-business,needs-verification",
+     "custom_fields": "{}",
+     "created_by": "Mark",
+     "created_at": "2026-09-15 06:51:31",
+     "updated_at": "2026-09-15 06:51:31"
+    },
+    {
+     "id": 87,
+     "email": "***",
+     "name": "Shelly Sweeney",
+     "company": "Beeline Coaching",
+     "phone": "",
+     "status": "lead",
+     "source": "prospect search \u2014 bizzy bee bots dreamers track",
+     "notes": "Solopreneur business coach (Portland, OR). Prospect for Z-Dot Bizzy Bee Bots. Also a potential REFERRAL PARTNER \u2014 she coaches solopreneurs on systems, so she is adjacent to the exact buyer. LinkedIn: /in/shellysweeneyportlandoregon. Email found on site.",
+     "tags": "bizzy-bee-bots,prospect,coaching,solopreneur,referral-partner-candidate",
+     "custom_fields": "{}",
+     "created_by": "Mark",
+     "created_at": "2026-09-15 06:52:27",
+     "updated_at": "2026-09-15 06:52:27"
+    },
+    {
+     "id": 88,
+     "email": "***",
+     "name": "Rene\u00e9 Clair",
+     "company": "Rene\u00e9 Clair Consulting",
+     "phone": "",
+     "status": "lead",
+     "source": "prospect search \u2014 bizzy bee bots dreamers track",
+     "notes": "Holistic business coach and consultant for solopreneurs with teams of 0-10. Prospect for Z-Dot Bizzy Bee Bots. Also a REFERRAL PARTNER candidate \u2014 coaches solopreneurs moving from solo to CEO, needs systems. LinkedIn: /in/reneeclair. Email found on site.",
+     "tags": "bizzy-bee-bots,prospect,coaching,solopreneur,referral-partner-candidate",
+     "custom_fields": "{}",
+     "created_by": "Mark",
+     "created_at": "2026-09-15 06:52:27",
+     "updated_at": "2026-09-15 06:52:27"
     }
    ]
   },
@@ -20214,7 +20283,7 @@
   },
   "landing_pages": {
    "table": "landing_pages",
-   "count": 39,
+   "count": 40,
    "rows": [
     {
      "id": 1,
@@ -20683,12 +20752,24 @@
      "created_at": "2026-09-15 06:45:12",
      "updated_at": "2026-09-15 06:46:33",
      "live_url": ""
+    },
+    {
+     "id": 40,
+     "title": "Bizzy Bee Bots \u2014 For Small Business Owners &amp; Individual Dreamers",
+     "slug": "bizzy-bee-bots-dreamers",
+     "html_content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Bizzy Bee Bots \u2014 For Small Business Owners &amp;amp; Individual Dreamers</title>\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n         background: #0a0a0a; color: #e0e0e0; line-height: 1.6; }\n  .hero { text-align: center; padding: 80px 20px 60px;\n           background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }\n  .hero h1 { font-size: 2.5rem; font-weight: 700; color: #fff;\n              max-width: 700px; margin: 0 auto 16px; }\n  .hero .subtitle { font-size: 1.2rem; color: #94a3b8; max-width: 600px;\n                     margin: 0 auto 32px; }\n  \n  .section { max-width: 720px; margin: 0 auto; padding: 48px 24px; }\n  .section h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px;\n                 border-bottom: 2px solid #1e40af; padding-bottom: 8px; display: inline-block; }\n  .section p { margin-bottom: 16px; color: #cbd5e1; }\n  .section ul { margin: 16px 0 16px 24px; color: #cbd5e1; }\n  .section li { margin-bottom: 8px; }\n  .section strong { color: #fff; }\n  .cta-bar { text-align: center; padding: 48px 20px;\n              background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }\n  .cta-bar .btn { display: inline-block; background: #2563eb; color: #fff;\n                   padding: 16px 40px; border-radius: 8px; font-size: 1.1rem;\n                   font-weight: 600; text-decoration: none;\n                   transition: background 0.2s; }\n  .cta-bar .btn:hover { background: #1d4ed8; }\n  .cta-bar .sub { color: #64748b; margin-top: 12px; font-size: 0.9rem; }\n  .footer { text-align: center; padding: 32px; color: #475569; font-size: 0.8rem; }\n</style>\n</head>\n<body>\n<div class=\"hero\">\n  <h1>You Don't Need to Hire Anyone. Not Yet.</h1>\n  <div class=\"subtitle\">Z-Dot Bizzy Bee Bots is a bot framework with a website builder, CRM, and AI agents in one system \u2014 the three things you'd otherwise hire three people for. Reply for more info, or see it at zdotllc.com.</div>\n  \n</div>\n<div class=\"section\"><h2>You Have the Idea. Here's the Infrastructure.</h2>\n<p>Most ideas don't fail because they're bad. They stall because of the list of things you think you need first \u2014 a website, a way to track people, someone technical.</p>\n\n<p>That list is why ideas stay ideas.</p>\n\n<p><strong>Bizzy Bee Bots puts those three things in one framework</strong>, so the barrier between \"I have an idea\" and \"I have something\" gets a lot shorter.</p></div>\n<div class=\"section\"><h2>The Three Things You'd Otherwise Hire For</h2>\n<p>### A website builder</p>\n<p>Build the site and ship it. No separate platform, no form plugin, no embed codes, no waiting on a developer to change a headline.</p>\n\n<p>### A CRM</p>\n<p>Contacts and pipeline, living in the same system that captured them. Someone fills out your form \u2014 they become a record. You don't touch anything.</p>\n\n<p>### AI agents</p>\n<p>This is the part that matters. The agents can see your actual customer data, because they're inside the same framework. That's the difference between generic AI advice and an agent that knows this person asked about your pricing Tuesday and hasn't replied since.</p></div>\n<div class=\"section\"><h2>You Don't Set It All Up At Once</h2>\n<p>The whole point of a framework is that you grow into it.</p>\n\n<p>1. <strong>Start with the website.</strong> Just the site. That's the whole first step.</p>\n<p>2. <strong>Add the CRM</strong> when you actually have customers to track.</p>\n<p>3. <strong>Layer the agents on</strong> when you know what you'd want them to handle.</p>\n\n<p>No day-one configuration marathon. No needing to understand the whole system to use one part of it.</p></div>\n<div class=\"section\"><h2>It Gets Better As You Use It</h2>\n<p>The agents learn from what they handle \u2014 which messages land, which conversations go cold, where people drop off. So the system gets better at *your* specific thing over time, not just in general.</p>\n\n<p><strong>In practice:</strong> what you have in month twelve is more capable than what you started with, because it's adapted to your business as it runs.</p></div>\n<div class=\"section\"><h2>What This Won't Do</h2>\n<ul>\n<li>It won't build the business for you</li>\n<li>It won't tell you what to sell</li>\n<li>It won't replace your judgment</li>\n</ul>\n\n<p>Nobody can sell you a shortcut. What this does is remove the technical barrier \u2014 the website, the tracking, the \"I'd need to hire someone\" part \u2014 so your time goes to the thing that actually needs you.</p></div>\n<div class=\"section\"><h2>Questions Dreamers Ask</h2>\n<p><strong>I don't have a business yet. Is this for me?</strong></p>\n<p>Yes \u2014 arguably more, because you don't have four tools to untangle or years of bad habits to undo.</p>\n\n<p><strong>Do I need to be technical?</strong></p>\n<p>No. If you can use a website builder, you can use this. And there's no migration, because you're starting fresh.</p>\n\n<p><strong>What if I don't have a product yet?</strong></p>\n<p>Start with the site and the list. Collect people who are interested *before* you build the thing. That's not a workaround \u2014 it's the order that works.</p>\n\n<p><strong>What if it doesn't work out?</strong></p>\n<p>Then you failed with infrastructure you can reuse next time, instead of a failed idea plus three subscriptions you're still paying for.</p></div>\n<div class=\"section\"><h2>Who This Is For</h2>\n<p>Small business owners running on three to five disconnected tools. And individual dreamers who have the idea and haven't started yet, because the setup looked like too much.</p>\n\n<p><strong>Both are the same problem</strong> \u2014 you'd be the one holding it all together. This removes that job.</p></div>\n<div class=\"section\"><h2>Get More Info</h2>\n<ul>\n<li><strong>Reply to any email from us</strong> and tell me what you're building. You'll get a personal answer \u2014 including if the answer is \"not yet.\"</li>\n<li><strong>Or visit zdotllc.com</strong> for the full picture.</li>\n</ul>\n\n<p>No deck. No pressure. Ask your question.</p></div>\n<div class=\"cta-bar\">\n  <a class=\"btn\" href=\"#\">Reply For More Info</a>\n  <div class=\"sub\">Reply and tell us what you're building, or visit zdotllc.com.</div>\n</div>\n<div class=\"footer\">&copy; 2024 Z Dot Team. All rights reserved.</div>\n</body>\n</html>\n",
+     "file_path": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/landing_pages/bizzy-bee-bots-dreamers.html",
+     "status": "active",
+     "created_by": "Mark",
+     "created_at": "2026-09-15 06:51:58",
+     "updated_at": "2026-09-15 06:51:58",
+     "live_url": ""
     }
    ]
   },
   "social_drafts": {
    "table": "social_drafts",
-   "count": 143,
+   "count": 146,
    "rows": [
     {
      "id": 1,
@@ -22548,6 +22629,45 @@
      "created_at": "2026-09-15 06:45:19",
      "updated_at": "2026-09-15 06:45:19",
      "published_id": ""
+    },
+    {
+     "id": 144,
+     "platform": "linkedin",
+     "content": "You don't need to hire anyone yet.\n\nThat's the part nobody tells you when you're sitting on an idea.\n\nThe reason it hasn't started isn't the idea. It's the list of things you think you need first \u2014 a website, a way to track customers, someone technical.\n\nThat list is why most ideas stay ideas.\n\nOne framework: website builder, CRM, and AI agents in one system. Start with the site. Add the CRM when you have customers. Layer the agents on when you know what you'd want them to handle.\n\nThe technical barrier goes away. The thinking stays yours.\n\nReply and tell me what you're building \u2014 I'll tell you honestly if this helps.\n\nzdotllc.com",
+     "media_urls": "",
+     "hashtags": "solopreneur,smallbusiness,entrepreneur,startup,AIagents,nocode",
+     "status": "draft",
+     "scheduled_for": null,
+     "created_by": "Mark",
+     "created_at": "2026-09-15 06:52:04",
+     "updated_at": "2026-09-15 06:52:04",
+     "published_id": ""
+    },
+    {
+     "id": 145,
+     "platform": "threads",
+     "content": "most ideas don't fail\n\nthey stall\n\nbecause of the list you think you need first:\n\na website\na way to track customers\nsomeone technical\n\nthat list is why ideas stay ideas\n\none framework. site + crm + agents. start with the site, nothing else.\n\nthe technical part stops being the reason you didn't start\n\nzdotllc.com",
+     "media_urls": "",
+     "hashtags": "solopreneur,smallbusiness,startup,sidehustle",
+     "status": "draft",
+     "scheduled_for": null,
+     "created_by": "Mark",
+     "created_at": "2026-09-15 06:52:04",
+     "updated_at": "2026-09-15 06:52:04",
+     "published_id": ""
+    },
+    {
+     "id": 146,
+     "platform": "twitter",
+     "content": "Owners: you're paying three vendors to not talk to each other.\n\nDreamers: you haven't started because you think it takes three hires.\n\nSame answer.\n\nOne framework \u2014 website builder, CRM, AI agents. Data moves itself.\n\nzdotllc.com",
+     "media_urls": "",
+     "hashtags": "smallbusiness,solopreneur,startup,AIagents",
+     "status": "draft",
+     "scheduled_for": null,
+     "created_by": "Mark",
+     "created_at": "2026-09-15 06:52:08",
+     "updated_at": "2026-09-15 06:52:08",
+     "published_id": ""
     }
    ]
   },
@@ -22578,7 +22698,7 @@
   },
   "prospect_searches": {
    "table": "prospect_searches",
-   "count": 62,
+   "count": 68,
    "rows": [
     {
      "id": 1,
@@ -23137,12 +23257,66 @@
      "results_count": 10,
      "searched_by": "Mark",
      "created_at": "2026-09-15 06:46:41"
+    },
+    {
+     "id": 63,
+     "query": "Home services HVAC plumbing roofing contractor company US",
+     "industry": "Home services",
+     "location": "US",
+     "results_count": 10,
+     "searched_by": "Mark",
+     "created_at": "2026-09-15 06:50:45"
+    },
+    {
+     "id": 64,
+     "query": "Fitness boutique gym studio owner personal training company US",
+     "industry": "Fitness",
+     "location": "US",
+     "results_count": 10,
+     "searched_by": "Mark",
+     "created_at": "2026-09-15 06:50:46"
+    },
+    {
+     "id": 65,
+     "query": "Legal small law firm attorney practice company US",
+     "industry": "Legal",
+     "location": "US",
+     "results_count": 10,
+     "searched_by": "Mark",
+     "created_at": "2026-09-15 06:50:47"
+    },
+    {
+     "id": 66,
+     "query": "Dental dental practice dentist office company US",
+     "industry": "Dental",
+     "location": "US",
+     "results_count": 10,
+     "searched_by": "Mark",
+     "created_at": "2026-09-15 06:50:48"
+    },
+    {
+     "id": 67,
+     "query": "Real estate real estate team brokerage agents company US",
+     "industry": "Real estate",
+     "location": "US",
+     "results_count": 0,
+     "searched_by": "Mark",
+     "created_at": "2026-09-15 06:50:48"
+    },
+    {
+     "id": 68,
+     "query": "Coaching and consulting solopreneur business coach consultant freelancer company US",
+     "industry": "Coaching and consulting",
+     "location": "US",
+     "results_count": 10,
+     "searched_by": "Mark",
+     "created_at": "2026-09-15 06:52:04"
     }
    ]
   },
   "content_pieces": {
    "table": "content_pieces",
-   "count": 102,
+   "count": 103,
    "rows": [
     {
      "id": 1,
@@ -24571,12 +24745,26 @@
      "created_by": "Mark",
      "created_at": "2026-09-15 06:46:33",
      "updated_at": "2026-09-15 06:46:33"
+    },
+    {
+     "id": 103,
+     "content_type": "email_sequence",
+     "title": "Sales Sequence: Z-Dot Bizzy Bee Bots \u2014 individual dreamers",
+     "slug": "bizzy-bee-bots-dreamers-track-5-email",
+     "file_path": "",
+     "html_content": "",
+     "json_content": "[{\"subject\": \"You don't need to hire anyone yet\", \"body\": \"If you've got an idea and no business yet, here's the part nobody tells you:\\n\\nThe reason it hasn't started isn't the idea. It's the list of things you think you need first. A website. A way to track customers. Someone technical.\\n\\nThat list is why most ideas stay ideas.\\n\\n**Z-Dot Bizzy Bee Bots exists for exactly that gap.** It's a bot framework with a website builder, a CRM, and AI agents in one system \\u2014 the three things you'd otherwise hire three people for, or spend six months learning.\\n\\nYou don't need a developer. You don't need a designer. You don't need to know what a CRM is before you have one.\\n\\n**See it here: zdotllc.com**\\n\\nOr reply to this email and tell me what you're trying to build. I'll tell you honestly whether this helps.\\n\\n\\u2014 Mark\\nZ-Dot Team\\n\\n---\\nZ-Dot LLC. Reply \\\"stop\\\" or use the unsubscribe link below to be removed immediately.\"}, {\"subject\": \"What you'd normally pay three people for\", \"body\": \"Here's the honest breakdown of what it takes to start something.\\n\\n**A website.** Usually a builder subscription, or a developer. Then a separate form tool. Then something to connect the two.\\n\\n**A customer list.** Usually a spreadsheet until it breaks, then a CRM you have to learn, then the pain of moving everything over.\\n\\n**Help.** Usually a VA, or an agency, or you at 1am.\\n\\n**Bizzy Bee Bots puts those in one framework:**\\n\\n- **Website builder** \\u2014 build the site, ship it, no separate platform\\n- **CRM** \\u2014 contacts and pipeline in the same system that captured them, so a form submission becomes a record without you doing anything\\n- **AI agents** \\u2014 and this is the important one. They can see your actual customer data, because they live in the same system\\n\\nThat last part is the difference between an AI that gives generic advice and one that knows this person asked about your pricing on Tuesday and hasn't replied since.\\n\\n**What it isn't:** a shortcut to a business. Nobody can sell you that. It's the infrastructure, so you spend your time on the part that actually needs you.\\n\\n**zdotllc.com** \\u2014 or reply and ask me anything.\\n\\n\\u2014 Mark\"}, {\"subject\": \"\\\"What if I don't know what I'm doing?\\\"\", \"body\": \"That's the real question, isn't it. Not \\\"does it have features\\\" \\u2014 you can read a feature list.\\n\\nThe real question is whether you can figure it out without someone holding your hand.\\n\\nStraight answer: **you build in stages.**\\n\\n- Start with the website. Just the site. That's it.\\n- Add the CRM when you actually have customers to track.\\n- Layer the agents on later, when you know what you'd want them to handle.\\n\\nYou don't configure everything on day one. You don't need to understand the whole system to use one part of it. That's what \\\"framework\\\" means here \\u2014 it's built so you can grow into it instead of setting it all up before you're allowed to start.\\n\\nAnd the AI agents improve as they're used. They learn from which messages land, which leads go cold, where people drop off. So the system gets better at *your* specific thing over time, not just in general.\\n\\n**What I won't tell you:** that it's effortless, or that it replaces the work of figuring out what you're selling. It doesn't. It removes the technical barrier, not the thinking.\\n\\n**Curious if it fits what you're building? Reply and tell me the idea.** I'll give you a straight answer, including if the answer is \\\"not yet.\\\"\\n\\n**zdotllc.com**\\n\\n\\u2014 Mark\"}, {\"subject\": \"The three things dreamers ask me\", \"body\": \"Same three questions, every time.\\n\\n**\\\"I don't have a business yet. Is this for me?\\\"**\\nYes \\u2014 this is arguably more for you, because you don't have years of bad habits and four tools to untangle.\\n\\n**\\\"Do I need to be technical?\\\"**\\nNo. If you can use a website builder, you can use this. And there's no migration, because you're starting fresh instead of moving off something else.\\n\\n**\\\"What if I don't have a product yet?\\\"**\\nThen start with the site and the list. Collect people who are interested before you build the thing. That's not a workaround \\u2014 it's the order that works.\\n\\n**And the one people don't ask out loud:**\\n\\n**\\\"What if I fail?\\\"**\\nThen you failed with infrastructure you can reuse next time, instead of a failed idea on top of three subscriptions you're still paying for. That's a meaningfully better position to be in.\\n\\nAny of those land somewhere? **Reply and ask yours.** I answer personally, not with a template.\\n\\n**zdotllc.com**\\n\\n\\u2014 Mark\"}, {\"subject\": \"Last one from me\", \"body\": \"I'm not going to keep showing up in your inbox. Here's everything, short:\\n\\n- **One framework** instead of a website builder, a CRM, and separate AI tools that don't talk to each other\\n- **Built to start small** \\u2014 the site first, then the CRM, then agents. No setup marathon.\\n- **It improves as you use it**, so it gets better at your specific thing over time\\n\\nThe whole ask is twenty minutes and a conversation. **Reply to this email** and I'll send you more info and walk you through it. No deck, no pressure \\u2014 you look, and you decide.\\n\\nOr start at **zdotllc.com**\\n\\nIf it's not for you, that's a fine answer. Reply \\\"not now\\\" and I'll leave you alone, or unsubscribe and you're gone immediately.\\n\\nWhatever you're building \\u2014 I hope you build it. Most people don't.\\n\\n\\u2014 Mark\\nZ-Dot Team\\n\\n---\\nThis is the last email in this sequence. You'll hear nothing further unless you reply. Z-Dot LLC. Unsubscribe: [link].\"}]",
+     "status": "draft",
+     "word_count": 904,
+     "created_by": "Mark",
+     "created_at": "2026-09-15 06:51:58",
+     "updated_at": "2026-09-15 06:51:58"
     }
    ]
   },
   "browse_log": {
    "table": "browse_log",
-   "count": 727,
+   "count": 736,
    "rows": [
     {
      "id": 1,
@@ -31847,6 +32035,96 @@
      "extracted_links_count": 0,
      "browsed_by": "Mark",
      "created_at": "2026-09-15 06:46:21"
+    },
+    {
+     "id": 733,
+     "url": "https://firstcaredentaloflouisville.com",
+     "status_code": 200,
+     "extract_mode": "contacts",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Mark",
+     "created_at": "2026-09-15 06:51:20"
+    },
+    {
+     "id": 734,
+     "url": "https://remmersdental.com",
+     "status_code": 200,
+     "extract_mode": "contacts",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 1,
+     "browsed_by": "Mark",
+     "created_at": "2026-09-15 06:51:21"
+    },
+    {
+     "id": 735,
+     "url": "https://belldentalky.com",
+     "status_code": 200,
+     "extract_mode": "contacts",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 1,
+     "browsed_by": "Mark",
+     "created_at": "2026-09-15 06:51:22"
+    },
+    {
+     "id": 736,
+     "url": "https://gymboutique.net",
+     "status_code": 200,
+     "extract_mode": "contacts",
+     "extracted_emails_count": 3,
+     "extracted_links_count": 1,
+     "browsed_by": "Mark",
+     "created_at": "2026-09-15 06:51:23"
+    },
+    {
+     "id": 737,
+     "url": "https://www.leecompany.com",
+     "status_code": 200,
+     "extract_mode": "contacts",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 3,
+     "browsed_by": "Mark",
+     "created_at": "2026-09-15 06:51:24"
+    },
+    {
+     "id": 738,
+     "url": "https://solopreneurcoach.com",
+     "status_code": 200,
+     "extract_mode": "contacts",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 1,
+     "browsed_by": "Mark",
+     "created_at": "2026-09-15 06:52:14"
+    },
+    {
+     "id": 739,
+     "url": "https://www.beelinecoaching.com",
+     "status_code": 200,
+     "extract_mode": "contacts",
+     "extracted_emails_count": 1,
+     "extracted_links_count": 3,
+     "browsed_by": "Mark",
+     "created_at": "2026-09-15 06:52:15"
+    },
+    {
+     "id": 740,
+     "url": "https://www.renee-clair.com",
+     "status_code": 200,
+     "extract_mode": "contacts",
+     "extracted_emails_count": 1,
+     "extracted_links_count": 13,
+     "browsed_by": "Mark",
+     "created_at": "2026-09-15 06:52:18"
+    },
+    {
+     "id": 741,
+     "url": "https://saganmorrow.com",
+     "status_code": 200,
+     "extract_mode": "contacts",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 3,
+     "browsed_by": "Mark",
+     "created_at": "2026-09-15 06:52:22"
     }
    ]
   },
