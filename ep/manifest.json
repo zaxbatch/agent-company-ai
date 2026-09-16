@@ -1,0 +1,338 @@
+{
+  "ep": "EP-010",
+  "title": "ELECTRO EP",
+  "artist": "SnowSnakes",
+  "engine": "FastTracker II (.xm) -> ffmpeg libopenmpt",
+  "master": {
+    "target_lufs": -14.0,
+    "target_tp": -1.0,
+    "target_lra": 9.0
+  },
+  "spec": "10 tracks, each >= 120s",
+  "tracks": [
+    {
+      "no": 1,
+      "title": "Neon Voltage",
+      "slug": "neon-voltage",
+      "bpm": 168,
+      "xm": "ep/xm/neon-voltage.xm",
+      "xm_bytes": 14270,
+      "mp3": "ep/mp3/neon-voltage.mp3",
+      "mp3_bytes": 5490369,
+      "cover": "ep/art/neon-voltage.png",
+      "seconds": 137.232,
+      "lufs": -14.01,
+      "true_peak_dbtp": -8.53,
+      "lra": 0.3,
+      "sha256": "78d2679031d7265072e2bf121dfaf4e71158cb438d39e67d35a53647cbfb99d2",
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "mp3",
+            "sample_rate": "48000",
+            "channels": 2
+          }
+        ],
+        "format": {
+          "duration": "137.232000",
+          "size": "5490369",
+          "bit_rate": "320063"
+        }
+      },
+      "gate": "PASS"
+    },
+    {
+      "no": 2,
+      "title": "Circuit Breaker",
+      "slug": "circuit-breaker",
+      "bpm": 150,
+      "xm": "ep/xm/circuit-breaker.xm",
+      "xm_bytes": 12764,
+      "mp3": "ep/mp3/circuit-breaker.mp3",
+      "mp3_bytes": 5382852,
+      "cover": "ep/art/circuit-breaker.png",
+      "seconds": 134.544,
+      "lufs": -14.0,
+      "true_peak_dbtp": -8.06,
+      "lra": 0.3,
+      "sha256": "862841a72f250e73b5378b67bb5b57e20e7bad1ad6813765e977f98d07fe1f5a",
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "mp3",
+            "sample_rate": "48000",
+            "channels": 2
+          }
+        ],
+        "format": {
+          "duration": "134.544000",
+          "size": "5382852",
+          "bit_rate": "320064"
+        }
+      },
+      "gate": "PASS"
+    },
+    {
+      "no": 3,
+      "title": "Midnight Protocol",
+      "slug": "midnight-protocol",
+      "bpm": 134,
+      "xm": "ep/xm/midnight-protocol.xm",
+      "xm_bytes": 11688,
+      "mp3": "ep/mp3/midnight-protocol.mp3",
+      "mp3_bytes": 5448134,
+      "cover": "ep/art/midnight-protocol.png",
+      "seconds": 136.176,
+      "lufs": -14.0,
+      "true_peak_dbtp": -8.3,
+      "lra": 0.4,
+      "sha256": "05cf31b03f06c4ae8919fd5133843d63f3e8b6b978480edb078bce08f440e371",
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "mp3",
+            "sample_rate": "48000",
+            "channels": 2
+          }
+        ],
+        "format": {
+          "duration": "136.176000",
+          "size": "5448134",
+          "bit_rate": "320064"
+        }
+      },
+      "gate": "PASS"
+    },
+    {
+      "no": 4,
+      "title": "Chrome Hearts",
+      "slug": "chrome-hearts",
+      "bpm": 172,
+      "xm": "ep/xm/chrome-hearts.xm",
+      "xm_bytes": 14279,
+      "mp3": "ep/mp3/chrome-hearts.mp3",
+      "mp3_bytes": 5359810,
+      "cover": "ep/art/chrome-hearts.png",
+      "seconds": 133.968,
+      "lufs": -14.01,
+      "true_peak_dbtp": -8.61,
+      "lra": 0.5,
+      "sha256": "3bc67cfa80e69c46f980844b8ffff8ff5f6f9c44da0c0a07fb322960bb156bbd",
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "mp3",
+            "sample_rate": "48000",
+            "channels": 2
+          }
+        ],
+        "format": {
+          "duration": "133.968000",
+          "size": "5359810",
+          "bit_rate": "320065"
+        }
+      },
+      "gate": "PASS"
+    },
+    {
+      "no": 5,
+      "title": "Voltage Drop",
+      "slug": "voltage-drop",
+      "bpm": 128,
+      "xm": "ep/xm/voltage-drop.xm",
+      "xm_bytes": 11099,
+      "mp3": "ep/mp3/voltage-drop.mp3",
+      "mp3_bytes": 5403969,
+      "cover": "ep/art/voltage-drop.png",
+      "seconds": 135.072,
+      "lufs": -14.0,
+      "true_peak_dbtp": -8.15,
+      "lra": 0.4,
+      "sha256": "2fdece1b5d5ec41c547b83e850a4a908a7e1c6f27cea8e1cf1d464838ce4de9e",
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "mp3",
+            "sample_rate": "48000",
+            "channels": 2
+          }
+        ],
+        "format": {
+          "duration": "135.072000",
+          "size": "5403969",
+          "bit_rate": "320064"
+        }
+      },
+      "gate": "PASS"
+    },
+    {
+      "no": 6,
+      "title": "Static Bloom",
+      "slug": "static-bloom",
+      "bpm": 144,
+      "xm": "ep/xm/static-bloom.xm",
+      "xm_bytes": 12244,
+      "mp3": "ep/mp3/static-bloom.mp3",
+      "mp3_bytes": 5337729,
+      "cover": "ep/art/static-bloom.png",
+      "seconds": 133.416,
+      "lufs": -14.0,
+      "true_peak_dbtp": -8.37,
+      "lra": 0.5,
+      "sha256": "b6512a27de777a34389ad4c59a747dc02d9a125572066e93f862ade8067906ba",
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "mp3",
+            "sample_rate": "48000",
+            "channels": 2
+          }
+        ],
+        "format": {
+          "duration": "133.416000",
+          "size": "5337729",
+          "bit_rate": "320065"
+        }
+      },
+      "gate": "PASS"
+    },
+    {
+      "no": 7,
+      "title": "Pulse Reactor",
+      "slug": "pulse-reactor",
+      "bpm": 178,
+      "xm": "ep/xm/pulse-reactor.xm",
+      "xm_bytes": 14847,
+      "mp3": "ep/mp3/pulse-reactor.mp3",
+      "mp3_bytes": 5398210,
+      "cover": "ep/art/pulse-reactor.png",
+      "seconds": 134.928,
+      "lufs": -14.01,
+      "true_peak_dbtp": -8.7,
+      "lra": 0.5,
+      "sha256": "2700c200bc0a6b4e8c816b8b4443071b8508c56d357ebd6c9868a08188de00e2",
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "mp3",
+            "sample_rate": "48000",
+            "channels": 2
+          }
+        ],
+        "format": {
+          "duration": "134.928000",
+          "size": "5398210",
+          "bit_rate": "320064"
+        }
+      },
+      "gate": "PASS"
+    },
+    {
+      "no": 8,
+      "title": "Afterglow Drive",
+      "slug": "afterglow-drive",
+      "bpm": 138,
+      "xm": "ep/xm/afterglow-drive.xm",
+      "xm_bytes": 11742,
+      "mp3": "ep/mp3/afterglow-drive.mp3",
+      "mp3_bytes": 5289732,
+      "cover": "ep/art/afterglow-drive.png",
+      "seconds": 132.216,
+      "lufs": -14.0,
+      "true_peak_dbtp": -8.18,
+      "lra": 0.5,
+      "sha256": "f3b4d50be2b057834d7e9d2dab5a085d599a9a9ab17b644ec8c27f4e9d15da7f",
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "mp3",
+            "sample_rate": "48000",
+            "channels": 2
+          }
+        ],
+        "format": {
+          "duration": "132.216000",
+          "size": "5289732",
+          "bit_rate": "320066"
+        }
+      },
+      "gate": "PASS"
+    },
+    {
+      "no": 9,
+      "title": "Overdrive",
+      "slug": "overdrive",
+      "bpm": 164,
+      "xm": "ep/xm/overdrive.xm",
+      "xm_bytes": 13732,
+      "mp3": "ep/mp3/overdrive.mp3",
+      "mp3_bytes": 5386686,
+      "cover": "ep/art/overdrive.png",
+      "seconds": 134.64,
+      "lufs": -14.0,
+      "true_peak_dbtp": -8.29,
+      "lra": 0.5,
+      "sha256": "f992d5f27a41be199d230d518d05c9c6971467dd1e338cdd13b832683343c7dd",
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "mp3",
+            "sample_rate": "48000",
+            "channels": 2
+          }
+        ],
+        "format": {
+          "duration": "134.640000",
+          "size": "5386686",
+          "bit_rate": "320064"
+        }
+      },
+      "gate": "PASS"
+    },
+    {
+      "no": 10,
+      "title": "Aurora Circuit",
+      "slug": "aurora-circuit",
+      "bpm": 156,
+      "xm": "ep/xm/aurora-circuit.xm",
+      "xm_bytes": 13239,
+      "mp3": "ep/mp3/aurora-circuit.mp3",
+      "mp3_bytes": 5420291,
+      "cover": "ep/art/aurora-circuit.png",
+      "seconds": 135.48,
+      "lufs": -14.01,
+      "true_peak_dbtp": -8.82,
+      "lra": 0.6,
+      "sha256": "85ca7077d5221229120dcd04c710869cf44ef7c50b4eeced0f26bd20689b2b31",
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "mp3",
+            "sample_rate": "48000",
+            "channels": 2
+          }
+        ],
+        "format": {
+          "duration": "135.480000",
+          "size": "5420291",
+          "bit_rate": "320064"
+        }
+      },
+      "gate": "PASS"
+    }
+  ],
+  "gate": {
+    "passed": true,
+    "failed": []
+  }
+}
