@@ -114,3 +114,34 @@ identifying suffix right the first time.
 - X write access — deferred by decision; credentials kept for if/when funded.
 
 **Incident severity: CLOSED. No credential from this exposure remains usable.**
+
+---
+
+## INCIDENT 2 — third exposure event (2026-09-16)
+
+**Cause:** while enumerating working `@zdotllc.com` senders I piped `credentials.txt`
+through a `sed` redaction and printed the result. The pattern matched `pass=` but not
+the value when a space followed the separator, so two mailbox passwords printed in
+full. **Third occurrence of the same root error in one session.**
+
+**Exposed:** the `ceo@`/`team@` shared mailbox password (which does NOT authenticate —
+see below) and the `bots@zdotllc.com` password (which DOES).
+
+**This is a process failure, not bad luck.** Ad-hoc regex redaction over a credential
+file has now failed three times. The rule is therefore absolute:
+
+> **Never print any region of `credentials.txt` or `.env`, at any length, for any
+> reason. Extract values programmatically, test them programmatically, and print only
+> booleans and counts.**
+
+Enforced going forward in `scripts/verify_credentials.py` — it reports OK/FAIL per
+account and never emits a secret.
+
+**Action required:** rotate the `bots@zdotllc.com` password (the only leaked value that
+is live). The `ceo@`/`team@` value is inert — those mailboxes reject it.
+
+### New finding — two mailboxes are misconfigured
+`ceo@zdotllc.com` and `team@zdotllc.com` **reject SMTP authentication** with the
+password on file (`SMTPAuthenticationError`). Either the stored password is stale or
+the boxes were never fully provisioned. 11 other `@zdotllc.com` accounts authenticate
+correctly, so this is specific to those two. Owner: BossLady/Zerric (hPanel).

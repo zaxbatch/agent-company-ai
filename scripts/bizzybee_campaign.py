@@ -25,13 +25,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 CRED = ROOT / "communication" / "credentials.txt"
 ENV  = ROOT / ".env"
-SENDER = "ez@zerric.xyz"
+SENDER = "info@zdotllc.com"          # WORK domain (verified: SPF pass + DKIM signed)
 SENDER_NAME = "Z-Dot LLC"
 
 # --- CAN-SPAM required elements -------------------------------------------------
 PHYSICAL_ADDRESS = "Z-Dot LLC, Louisville, KY 40201"
-UNSUB_MAILTO = "ez@zerric.xyz"
-REPLY_TO = "ez@zerric.xyz"
+UNSUB_MAILTO = "info@zdotllc.com"
+REPLY_TO = "info@zdotllc.com"
 
 SUBJECT = "Quick question about {company}"
 BODY = """Hi {first},
@@ -66,17 +66,25 @@ TRADE_WORDS = {
 }
 
 
-def load_password() -> str:
-    for m in re.finditer(r"(?im)^\s*pass\s*[:=]\s*(\S+)", CRED.read_text(errors="replace")):
-        pw = m.group(1)
+def load_password(sender: str = SENDER) -> str:
+    """Find the password for `sender` in credentials.txt, verified by real login."""
+    txt = CRED.read_text(errors="replace")
+    cands = []
+    m = re.search(rf'{re.escape(sender)}[^\n]*?pass(?:word)?\s*[:=]?\s*(\S+)', txt)
+    if m:
+        cands.append(m.group(1))
+    d = re.search(r'(?i)default for new boxes\)?\s*[:=]\s*(\S+)', txt)
+    if d:
+        cands.append(d.group(1))
+    for pw in cands:
         try:
             with smtplib.SMTP_SSL("smtp.hostinger.com", 465,
                                   context=ssl.create_default_context(), timeout=15) as s:
-                s.login(SENDER, pw)
+                s.login(sender, pw)
             return pw
         except Exception:
             continue
-    sys.exit("FATAL: no authenticating password for ez@zerric.xyz")
+    sys.exit(f"FATAL: no authenticating password for {sender}")
 
 
 def contacts():
@@ -111,37 +119,37 @@ def already_sent() -> set:
         return set()
 
 
-def send_one(pw: str, to: str, subject: str, body: str, log=True) -> bool:
+def send_one(pw: str, to: str, subject: str, body: str, log=True, sender: str = SENDER) -> bool:
     msg = MIMEText(body, "plain", "utf-8")
     msg["Subject"] = subject
-    msg["From"] = f"{SENDER_NAME} <{SENDER}>"
+    msg["From"] = f"{SENDER_NAME} <{sender}>"
     msg["To"] = to
     msg["Reply-To"] = REPLY_TO
     msg["Date"] = formatdate(localtime=True)
-    msg["Message-ID"] = make_msgid(domain="zerric.xyz")
+    msg["Message-ID"] = make_msgid(domain=sender.split("@")[-1])
     msg["List-Unsubscribe"] = f"<mailto:{UNSUB_MAILTO}?subject=unsubscribe>"
     try:
         with smtplib.SMTP_SSL("smtp.hostinger.com", 465,
                               context=ssl.create_default_context(), timeout=25) as s:
-            s.login(SENDER, pw)
-            s.sendmail(SENDER, [to], msg.as_string())
+            s.login(sender, pw)
+            s.sendmail(sender, [to], msg.as_string())
     except Exception as e:
         if log:
-            _log(to, subject, body, "failed")
+            _log(to, subject, body, "failed", sender)
         print(f"  FAIL {to}: {type(e).__name__}")
         return False
     if log:
-        _log(to, subject, body, "sent")
+        _log(to, subject, body, "sent", sender)
     return True
 
 
-def _log(to: str, subject: str, body: str, status: str):
+def _log(to: str, subject: str, body: str, status: str, sender: str = SENDER):
     import sqlite3
     try:
         c = sqlite3.connect(ROOT / ".agent-company-ai/default/company.db")
         c.execute("INSERT INTO email_log (to_address, from_address, subject, body_text, "
                   "status, sent_by, created_at) VALUES (?,?,?,?,?,?,datetime('now'))",
-                  (to, SENDER, subject, body, status, "NinjaNerd"))
+                  (to, sender, subject, body, status, "NinjaNerd"))
         c.commit()
     except Exception:
         pass
@@ -154,6 +162,8 @@ def main():
     ap.add_argument("--send", action="store_true")
     ap.add_argument("--limit", type=int)
     ap.add_argument("--report", action="store_true")
+    ap.add_argument("--from", dest="sender", default=SENDER,
+                    help="sending address (must be a real @zdotllc.com mailbox)")
     a = ap.parse_args()
 
     if a.report:
@@ -174,8 +184,8 @@ def main():
 
     if a.test:
         subj, body = render(todo[0] if todo else {"name": "Test", "company": "Test Co"})
-        pw = load_password()
-        ok = send_one(pw, a.test, "[SAMPLE] " + subj, body)
+        pw = load_password(a.sender)
+        ok = send_one(pw, a.test, "[SAMPLE] " + subj, body, sender=a.sender)
         print("test send:", "OK" if ok else "FAILED")
         return 0 if ok else 1
 
@@ -191,11 +201,11 @@ def main():
         return 0
 
     if a.send:
-        pw = load_password()
+        pw = load_password(a.sender)
         ok = bad = 0
         for i, c in enumerate(todo, 1):
             subj, body = render(c)
-            if send_one(pw, c["email"], subj, body):
+            if send_one(pw, c["email"], subj, body, sender=a.sender):
                 ok += 1; print(f"  [{i}/{len(todo)}] sent -> {c['email']}")
             else:
                 bad += 1
