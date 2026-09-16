@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import asyncio
+import os
 import json
 import logging
 import time
@@ -37,7 +38,9 @@ from agent_company_ai.tools.landing_page import (
     set_landing_page_config, set_landing_page_company_dir,
     set_landing_page_company_name, set_vercel_config,
 )
-from agent_company_ai.tools.social_media import set_social_db, set_social_agent, set_twitter_config
+from agent_company_ai.tools.social_media import (
+    set_social_db, set_social_agent, set_twitter_config, set_twitter_oauth2,
+)
 from agent_company_ai.tools.gumroad_tools import set_gumroad_config, set_gumroad_db, set_gumroad_agent
 from agent_company_ai.tools.invoice_tool import (
     set_invoice_config, set_invoice_db, set_invoice_agent, set_invoice_company_dir,
@@ -144,13 +147,24 @@ class Company:
             set_stripe_db(db)
             set_stripe_rate_limits(intg.rate_limits.max_payment_amount_usd)
 
-        # Twitter
+        # Twitter / X
         if intg.twitter.enabled:
             set_twitter_config(
                 api_key=intg.twitter.api_key,
                 api_secret=intg.twitter.api_secret,
                 access_token=intg.twitter.access_token,
                 access_token_secret=intg.twitter.access_token_secret,
+            )
+
+        # X OAuth 2.0 user context (Bearer) — read from .env so secrets never
+        # live in config.yaml. Preferred over OAuth 1.0a when present.
+        _x_tok = os.getenv("X_ACCESS_TOKEN", "").strip()
+        if _x_tok:
+            set_twitter_oauth2(
+                client_id=os.getenv("X_CLIENT_ID", "").strip(),
+                client_secret=os.getenv("X_CLIENT_SECRET", "").strip(),
+                access_token=_x_tok,
+                refresh_token=os.getenv("X_REFRESH_TOKEN", "").strip(),
             )
 
         # Vercel

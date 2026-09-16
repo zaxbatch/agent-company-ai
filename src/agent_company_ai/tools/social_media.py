@@ -33,6 +33,12 @@ _twitter_access_token: str = ""
 _twitter_access_token_secret: str = ""
 _twitter_enabled: bool = False
 
+# OAuth 2.0 user-context (Bearer). X access tokens expire in 2h; refresh rotates.
+_tw_oauth2: bool = False
+_tw_client_id: str = ""
+_tw_client_secret: str = ""
+_tw_refresh_token: str = ""
+
 # Platform character limits
 PLATFORM_LIMITS: dict[str, int] = {
     "twitter": 280,
@@ -68,6 +74,67 @@ def set_twitter_config(
     _twitter_enabled = True
 
 
+def set_twitter_oauth2(
+    client_id: str,
+    client_secret: str,
+    access_token: str,
+    refresh_token: str,
+) -> None:
+    """Configure OAuth 2.0 user-context auth (Bearer). Enables posting as the user."""
+    global _tw_oauth2, _tw_client_id, _tw_client_secret
+    global _twitter_access_token, _tw_refresh_token, _twitter_enabled
+    _tw_client_id = client_id
+    _tw_client_secret = client_secret
+    _twitter_access_token = access_token
+    _tw_refresh_token = refresh_token
+    _tw_oauth2 = True
+    _twitter_enabled = True
+
+
+def _persist_refresh(token: str) -> None:
+    """Write a rotated refresh token back to .env so it survives a restart."""
+    import os, re
+    from pathlib import Path as _P
+    env = _P(__file__).resolve().parents[3] / ".env"
+    if not env.exists():
+        return
+    txt = env.read_text()
+    if re.search(r"^X_REFRESH_TOKEN=", txt, re.M):
+        txt = re.sub(r"^X_REFRESH_TOKEN=.*$", f"X_REFRESH_TOKEN={token}", txt, flags=re.M)
+    else:
+        txt += f"\nX_REFRESH_TOKEN={token}\n"
+    env.write_text(txt)
+    os.chmod(env, 0o600)
+
+
+async def _refresh_oauth2() -> bool:
+    """Exchange the refresh token for a new access token. X rotates the refresh token."""
+    global _twitter_access_token, _tw_refresh_token
+    url = "https://api.x.com/2/oauth2/token"
+    data = {
+        "grant_type": "refresh_token",
+        "refresh_token": _tw_refresh_token,
+        "client_id": _tw_client_id,
+    }
+    try:
+        async with httpx.AsyncClient(timeout=30) as client:
+            resp = await client.post(url, data=data, headers={
+                "Content-Type": "application/x-www-form-urlencoded"})
+        if resp.status_code != 200:
+            logger.error(f"X OAuth2 refresh failed {resp.status_code}: {resp.text[:200]}")
+            return False
+        j = resp.json()
+        _twitter_access_token = j["access_token"]
+        if j.get("refresh_token"):
+            _tw_refresh_token = j["refresh_token"]
+            _persist_refresh(_tw_refresh_token)
+        logger.info("X OAuth2 access token refreshed")
+        return True
+    except Exception as e:
+        logger.error(f"X OAuth2 refresh error: {e}")
+        return False
+
+
 def _require_db() -> Database:
     if _db is None:
         raise RuntimeError("Social media database not configured.")
@@ -75,6 +142,8 @@ def _require_db() -> Database:
 
 
 def _require_twitter() -> None:
+    if _tw_oauth2 and _twitter_access_token:
+        return
     if not _twitter_enabled:
         raise RuntimeError(
             "Twitter not configured. Set twitter.enabled: true and provide "
@@ -139,8 +208,27 @@ def _oauth1_header(
 
 
 async def _publish_to_twitter(text: str) -> str:
-    """POST a tweet via Twitter API v2. Returns the tweet ID."""
-    url = "https://api.twitter.com/2/tweets"
+    """POST a tweet via X API v2. OAuth 2.0 Bearer (user context) or OAuth 1.0a."""
+    url = "https://api.x.com/2/tweets"
+
+    if _tw_oauth2:
+        async def _send(tok: str):
+            async with httpx.AsyncClient(timeout=30) as client:
+                return await client.post(
+                    url,
+                    headers={"Authorization": f"Bearer {tok}",
+                             "Content-Type": "application/json"},
+                    json={"text": text})
+
+        resp = await _send(_twitter_access_token)
+        if resp.status_code == 401:            # token aged out -> refresh, retry once
+            if await _refresh_oauth2():
+                resp = await _send(_twitter_access_token)
+        if resp.status_code not in (200, 201):
+            raise RuntimeError(f"X API error {resp.status_code}: {resp.text[:300]}")
+        return resp.json()["data"]["id"]
+
+    # --- OAuth 1.0a fallback ---
     auth_header = _oauth1_header(
         method="POST",
         url=url,
