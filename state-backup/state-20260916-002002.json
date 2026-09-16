@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-15T22:40:01.473507+00:00",
+ "generated_at": "2026-09-16T00:20:01.255280+00:00",
  "note": "Sanitized continuity snapshot. Sensitive fields masked (***). Restore: this JSON documents what was in flight so work can resume after any disruption.",
  "tables": {
   "agents": {
@@ -90,7 +90,7 @@
   },
   "tasks": {
    "table": "tasks",
-   "count": 644,
+   "count": 650,
    "rows": [
     {
      "id": "1e06bda85075",
@@ -7819,12 +7819,84 @@
      "artifacts_json": "[]",
      "created_at": "2026-09-15 06:59:21",
      "updated_at": "2026-09-15 07:03:51"
+    },
+    {
+     "id": "3523f552f890",
+     "description": "go post 2 mobile friendly games on snowsakes 2songs and 3 doodles using the doodle maker. Do this from persona accounts",
+     "assignee_id": "NinjaNerd",
+     "status": "failed",
+     "priority": 0,
+     "parent_id": null,
+     "result": "Exceeded maximum iterations without completing.",
+     "artifacts_json": "[]",
+     "created_at": "2026-09-15 23:25:47",
+     "updated_at": "2026-09-15 23:28:22"
+    },
+    {
+     "id": "2e10ba7c595b",
+     "description": "CTO \u2192 Developer: build TWO mobile-first HTML5 games for SnowSnakes.\n\nDELIVERABLE: exactly two new files (do not touch any other file):\n  1. /home/zax/Biz/z-dot-team/resources/snowsnakes/games-posted/snow-cone-stack.html\n  2. /home/zax/Biz/z-dot-team/resources/snowsnakes/games-posted/flurry-dodge.html\nEach must be ONE self-contained HTML file. No external scripts, no CDNs, no network requests, no images/audio files, no build step.\n\nGAME 1 \u2014 \"SNOW CONE STACK\"\n- Vertical stacker. A snow cone scoop swings/slides horizontally above a stack; player TAPS anywhere to drop it. Overlap is measured; overhang is trimmed; perfect centre drops give a combo. Miss entirely = game over. Score = scoops stacked.\n- SnowSnakes theme (snow cones / condiment truck). Title shown in-game.\n\nGAME 2 \u2014 \"FLURRY DODGE\"\n- Player drags a finger anywhere on screen to steer a small snow snake left/right; ice blocks / snowballs fall; dodge as long as possible. Speed ramps with time. Collision = game over. Score = seconds survived + dodges.\n\nHARD MOBILE REQUIREMENTS (these are the acceptance criteria \u2014 I will test them with Playwright at mobile viewports):\n1. <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover\">\n2. Canvas fills the viewport and is devicePixelRatio-aware (canvas.width = cssW*dpr). Full-window resize handler. No fixed px canvas size.\n3. PORTRAIT-first: must be fully playable at 390x844 and 360x800 with NO horizontal scroll (document.scrollWidth <= window.innerWidth) and NO vertical scroll.\n4. TOUCH INPUT IS PRIMARY: must use Pointer Events (pointerdown/pointermove/pointerup) OR both touchstart/touchend AND mousedown \u2014 so it works on a touch device AND in a desktop browser. Must set touch-action: none on the canvas and call preventDefault on touchmove to stop page scroll/pull-to-refresh.\n5. ZERO keyboard dependence. ZERO hover-only affordances (no :hover that reveals required controls, no tooltips needed to play).\n6. Any on-screen button must be >= 44x44 CSS px and must actually work by tap.\n7. Tap/pointer anywhere on the canvas must be the game control (no tiny hit targets).\n8. Game loop must use requestAnimationFrame with a delta-time cap (dt <= 1/30) so it does not speed-run when a tab is backgrounded.\n9. Must include a start/tap-to-play state and a restart that works by touch (no page reload required).\n10. Text must be legible at 360px width (base font-size >= 14px for UI text). Use vh/vw/% or clamp() for scaling, never fixed desktop widths.\n11. Body must have margin:0; overflow:hidden; and -webkit-tap-highlight-color: transparent.\n12. Must not use alert()/confirm() for core flow. Must not depend on localStorage.\n\nQUALITY BAR: both must actually be playable games, not mockups \u2014 real collision/scoring logic, a start state, a game-over state, and a visible score. Keep code tidy with a short header comment naming the game and stating the mobile constraints it satisfies.\n\nVERIFICATION YOU MUST RUN YOURSELF BEFORE REPORTING (do not report without these):\n- Run: cd /home/zax/Biz/z-dot-team && venv/bin/python - <<'PY'\n  from playwright.sync_api import sync_playwright\n  ... load each file via file:// at viewport 390x844 and 360x800, assert no horizontal scroll, assert canvas dimensions > 0, dispatch a pointerdown/tap on the canvas, assert the game left its start state (score or state variable changed).\n  PY\n- Confirm each file is a single self-contained HTML (grep for 'src=\"http' and 'href=\"http' \u2192 must be empty).\n- Report: absolute file paths, byte sizes, the exact Playwright assertions that passed, and the first 3 lines of each file. If you cannot make a check pass, say so plainly instead of claiming success \u2014 a false \"done\" is worse than an honest \"not done\".",
+     "assignee_id": "ClickClack",
+     "status": "done",
+     "priority": 0,
+     "parent_id": "3523f552f890",
+     "result": "No result produced.",
+     "artifacts_json": "[]",
+     "created_at": "2026-09-15 23:28:22",
+     "updated_at": "2026-09-15 23:28:54"
+    },
+    {
+     "id": "51c1af640173",
+     "description": "3 unique doodles on snowsnakes. they don't have to be snow or snake related. random",
+     "assignee_id": "NinjaNerd",
+     "status": "done",
+     "priority": 0,
+     "parent_id": null,
+     "result": "No result produced.",
+     "artifacts_json": "[]",
+     "created_at": "2026-09-15 23:35:30",
+     "updated_at": "2026-09-15 23:36:36"
+    },
+    {
+     "id": "c2458cb4a5b0",
+     "description": "make a tracker beat for snowsnakes. make it unique with crazy formatting. make the main instrument a fat synth",
+     "assignee_id": "NinjaNerd",
+     "status": "done",
+     "priority": 0,
+     "parent_id": null,
+     "result": "No result produced.",
+     "artifacts_json": "[]",
+     "created_at": "2026-09-15 23:36:42",
+     "updated_at": "2026-09-15 23:37:27"
+    },
+    {
+     "id": "8d6d81cc4038",
+     "description": "make a tracker beat for snowsnakes. make it unique with crazy formatting.",
+     "assignee_id": "ClickClack",
+     "status": "done",
+     "priority": 0,
+     "parent_id": null,
+     "result": "No result produced.",
+     "artifacts_json": "[]",
+     "created_at": "2026-09-16 00:11:25",
+     "updated_at": "2026-09-16 00:12:54"
+    },
+    {
+     "id": "23f648500872",
+     "description": "post a tracker beat for snowsnakes. make it unique with crazy formatting.",
+     "assignee_id": "NinjaNerd",
+     "status": "failed",
+     "priority": 0,
+     "parent_id": null,
+     "result": "Exceeded maximum iterations without completing.",
+     "artifacts_json": "[]",
+     "created_at": "2026-09-16 00:16:35",
+     "updated_at": "2026-09-16 00:19:06"
     }
    ]
   },
   "messages": {
    "table": "messages",
-   "count": 859,
+   "count": 860,
    "rows": [
     {
      "id": "bfc26bedbffc",
@@ -15556,6 +15628,15 @@
      "topic": "task.completed",
      "metadata_json": "{}",
      "timestamp": "2026-09-15T03:46:23.909673+00:00"
+    },
+    {
+     "id": "d80fe7188c30",
+     "from_agent": "NinjaNerd",
+     "to_agent": null,
+     "content": "{\"action\": \"delegate\", \"from\": \"NinjaNerd\", \"to_role\": \"developer\", \"task_id\": \"2e10ba7c595b\", \"description\": \"CTO \\u2192 Developer: build TWO mobile-first HTML5 games for SnowSnakes.\\n\\nDELIVERABLE: exactly two new files (do not touch any other file):\\n  1. /home/zax/Biz/z-dot-team/resources/snowsnakes/games-posted/snow-cone-stack.html\\n  2. /home/zax/Biz/z-dot-team/resources/snowsnakes/games-posted/flurry-dodge.html\\nEach must be ONE self-contained HTML file. No external scripts, no CDNs, no network requests, no images/audio files, no build step.\\n\\nGAME 1 \\u2014 \\\"SNOW CONE STACK\\\"\\n- Vertical stacker. A snow cone scoop swings/slides horizontally above a stack; player TAPS anywhere to drop it. Overlap is measured; overhang is trimmed; perfect centre drops give a combo. Miss entirely = game over. Score = scoops stacked.\\n- SnowSnakes theme (snow cones / condiment truck). Title shown in-game.\\n\\nGAME 2 \\u2014 \\\"FLURRY DODGE\\\"\\n- Player drags a finger anywhere on screen to steer a small snow snake left/right; ice blocks / snowballs fall; dodge as long as possible. Speed ramps with time. Collision = game over. Score = seconds survived + dodges.\\n\\nHARD MOBILE REQUIREMENTS (these are the acceptance criteria \\u2014 I will test them with Playwright at mobile viewports):\\n1. <meta name=\\\"viewport\\\" content=\\\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover\\\">\\n2. Canvas fills the viewport and is devicePixelRatio-aware (canvas.width = cssW*dpr). Full-window resize handler. No fixed px canvas size.\\n3. PORTRAIT-first: must be fully playable at 390x844 and 360x800 with NO horizontal scroll (document.scrollWidth <= window.innerWidth) and NO vertical scroll.\\n4. TOUCH INPUT IS PRIMARY: must use Pointer Events (pointerdown/pointermove/pointerup) OR both touchstart/touchend AND mousedown \\u2014 so it works on a touch device AND in a desktop browser. Must set touch-action: none on the canvas and call preventDefault on touchmove to stop page scroll/pull-to-refresh.\\n5. ZERO keyboard dependence. ZERO hover-only affordances (no :hover that reveals required controls, no tooltips needed to play).\\n6. Any on-screen button must be >= 44x44 CSS px and must actually work by tap.\\n7. Tap/pointer anywhere on the canvas must be the game control (no tiny hit targets).\\n8. Game loop must use requestAnimationFrame with a delta-time cap (dt <= 1/30) so it does not speed-run when a tab is backgrounded.\\n9. Must include a start/tap-to-play state and a restart that works by touch (no page reload required).\\n10. Text must be legible at 360px width (base font-size >= 14px for UI text). Use vh/vw/% or clamp() for scaling, never fixed desktop widths.\\n11. Body must have margin:0; overflow:hidden; and -webkit-tap-highlight-color: transparent.\\n12. Must not use alert()/confirm() for core flow. Must not depend on localStorage.\\n\\nQUALITY BAR: both must actually be playable games, not mockups \\u2014 real collision/scoring logic, a start state, a game-over state, and a visible score. Keep code tidy with a short header comment naming the game and stating the mobile constraints it satisfies.\\n\\nVERIFICATION YOU MUST RUN YOURSELF BEFORE REPORTING (do not report without these):\\n- Run: cd /home/zax/Biz/z-dot-team && venv/bin/python - <<'PY'\\n  from playwright.sync_api import sync_playwright\\n  ... load each file via file:// at viewport 390x844 and 360x800, assert no horizontal scroll, assert canvas dimensions > 0, dispatch a pointerdown/tap on the canvas, assert the game left its start state (score or state variable changed).\\n  PY\\n- Confirm each file is a single self-contained HTML (grep for 'src=\\\"http' and 'href=\\\"http' \\u2192 must be empty).\\n- Report: absolute file paths, byte sizes, the exact Playwright assertions that passed, and the first 3 lines of each file. If you cannot make a check pass, say so plainly instead of claiming success \\u2014 a false \\\"done\\\" is worse than an honest \\\"not done\\\".\"}",
+     "topic": "task.delegate",
+     "metadata_json": "{}",
+     "timestamp": "2026-09-15T23:27:29.104562+00:00"
     }
    ]
   },
