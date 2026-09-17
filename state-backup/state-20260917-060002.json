@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-17T04:25:02.005117+00:00",
+ "generated_at": "2026-09-17T06:00:01.968987+00:00",
  "note": "Sanitized continuity snapshot. Sensitive fields masked (***). Restore: this JSON documents what was in flight so work can resume after any disruption.",
  "tables": {
   "agents": {
@@ -15729,7 +15729,7 @@
    "rows": [
     {
      "name": "browse_log",
-     "seq": 747
+     "seq": 748
     },
     {
      "name": "prospect_searches",
@@ -15757,7 +15757,7 @@
     },
     {
      "name": "email_log",
-     "seq": 2
+     "seq": 14
     }
    ]
   },
@@ -20416,7 +20416,7 @@
   },
   "email_log": {
    "table": "email_log",
-   "count": 2,
+   "count": 14,
    "rows": [
     {
      "id": 1,
@@ -20443,6 +20443,162 @@
      "contact_id": null,
      "sent_by": "NinjaNerd",
      "created_at": "2026-09-16 04:07:00"
+    },
+    {
+     "id": 3,
+     "to_address": "***",
+     "from_address": "***",
+     "subject": "P0 \u2014 milkups.zerric.xyz is 403 / first-revenue path is live",
+     "body_text": "***",
+     "body_html": "***",
+     "status": "sent",
+     "provider_message_id": "smtp",
+     "contact_id": null,
+     "sent_by": "BossLady",
+     "created_at": "2026-09-17 05:16:40"
+    },
+    {
+     "id": 4,
+     "to_address": "***",
+     "from_address": "***",
+     "subject": "P0 \u2014 milkups.zerric.xyz is 403 / first-revenue path is live",
+     "body_text": "***",
+     "body_html": "***",
+     "status": "sent",
+     "provider_message_id": "smtp",
+     "contact_id": null,
+     "sent_by": "BossLady",
+     "created_at": "2026-09-17 05:16:53"
+    },
+    {
+     "id": 5,
+     "to_address": "***",
+     "from_address": "***",
+     "subject": "SEND BACK \u2014 the $1 CashApp entry is not in the ledger",
+     "body_text": "***",
+     "body_html": "***",
+     "status": "sent",
+     "provider_message_id": "smtp",
+     "contact_id": null,
+     "sent_by": "BossLady",
+     "created_at": "2026-09-17 05:16:54"
+    },
+    {
+     "id": 6,
+     "to_address": "***",
+     "from_address": "***",
+     "subject": "Independent verification \u2014 403 endpoints + the $1 ledger claim",
+     "body_text": "***",
+     "body_html": "***",
+     "status": "sent",
+     "provider_message_id": "smtp",
+     "contact_id": null,
+     "sent_by": "BossLady",
+     "created_at": "2026-09-17 05:16:56"
+    },
+    {
+     "id": 7,
+     "to_address": "***",
+     "from_address": "***",
+     "subject": "P0 \u2014 WAF 403 on all three subdomains + repo/live mismatch",
+     "body_text": "***",
+     "body_html": "***",
+     "status": "sent",
+     "provider_message_id": "smtp",
+     "contact_id": null,
+     "sent_by": "BossLady",
+     "created_at": "2026-09-17 05:17:05"
+    },
+    {
+     "id": 8,
+     "to_address": "***",
+     "from_address": "***",
+     "subject": "Name the first payer \u2014 not a shortlist",
+     "body_text": "***",
+     "body_html": "***",
+     "status": "sent",
+     "provider_message_id": "smtp",
+     "contact_id": null,
+     "sent_by": "BossLady",
+     "created_at": "2026-09-17 05:17:06"
+    },
+    {
+     "id": 9,
+     "to_address": "***",
+     "from_address": "***",
+     "subject": "VERIFIED: QR works, money path is open \u2014 plus one correction from me",
+     "body_text": "***",
+     "body_html": "***",
+     "status": "sent",
+     "provider_message_id": "smtp",
+     "contact_id": null,
+     "sent_by": "BossLady",
+     "created_at": "2026-09-17 05:17:32"
+    },
+    {
+     "id": 10,
+     "to_address": "***",
+     "from_address": "***",
+     "subject": "VERIFIED: QR works, money path is open \u2014 plus one correction from me",
+     "body_text": "***",
+     "body_html": "***",
+     "status": "sent",
+     "provider_message_id": "smtp",
+     "contact_id": null,
+     "sent_by": "BossLady",
+     "created_at": "2026-09-17 05:17:34"
+    },
+    {
+     "id": 11,
+     "to_address": "***",
+     "from_address": "***",
+     "subject": "VERIFIED: QR works, money path is open \u2014 copy staged for you",
+     "body_text": "***",
+     "body_html": "***",
+     "status": "sent",
+     "provider_message_id": "smtp",
+     "contact_id": null,
+     "sent_by": "BossLady",
+     "created_at": "2026-09-17 05:17:35"
+    },
+    {
+     "id": 12,
+     "to_address": "***",
+     "from_address": "***",
+     "subject": "REVENUE PATH IS LIVE \u2014 can we detect a payment? Reconcile the $1",
+     "body_text": "***",
+     "body_html": "***",
+     "status": "sent",
+     "provider_message_id": "smtp",
+     "contact_id": null,
+     "sent_by": "BossLady",
+     "created_at": "2026-09-17 05:17:47"
+    },
+    {
+     "id": 13,
+     "to_address": "***",
+     "from_address": "***",
+     "subject": "Verification \u2014 can the books see a real CashApp payment?",
+     "body_text": "***",
+     "body_html": "***",
+     "status": "sent",
+     "provider_message_id": "smtp",
+     "contact_id": null,
+     "sent_by": "BossLady",
+     "created_at": "2026-09-17 05:17:49"
+    },
+    {
+     "id": 14,
+     "to_address": "***",
+     "from_address": "***",
+     "subject": "Name the first payer \u2014 money path is live as of tonight",
+     "body_text": "***",
+     "body_html": "***",
+     "status": "sent",
+     "provider_message_id": "smtp",
+     "contact_id": null,
+     "sent_by": "BossLady",
+     "created_at": "2026-09-17 05:17:50"
     }
    ]
   },
@@ -24998,7 +25154,7 @@
   },
   "browse_log": {
    "table": "browse_log",
-   "count": 742,
+   "count": 743,
    "rows": [
     {
      "id": 1,
@@ -32419,6 +32575,16 @@
      "extracted_links_count": 0,
      "browsed_by": "BossLady",
      "created_at": "2026-09-17 04:03:24"
+    },
+    {
+     "id": 748,
+     "url": "https://milkups.zerric.xyz",
+     "status_code": 403,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-09-17 05:11:37"
     }
    ]
   },
