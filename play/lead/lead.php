@@ -81,7 +81,9 @@ if ($token !== '') {
         'firstname' => $parts[0] ?? 'Play',
         'lastname'  => isset($parts[1]) ? implode(' ', array_slice($parts, 1)) : '',
         'hs_lead_status' => 'NEW',
-        'zdot_source'    => $source,
+        // NOTE: no 'zdot_source' — that custom property does not exist in HubSpot and
+        // this token lacks the scope to create it. Source attribution lives in our own
+        // data/leads.jsonl instead, which we control.
     ];
     // create; a 409 means it already exists -> treat as success
     $ch = curl_init('https://api.hubapi.com/crm/v3/objects/contacts');
