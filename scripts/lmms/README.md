@@ -70,3 +70,62 @@ FAIL  declared climax IS the loudest declared climax = CLIMAX, actually loudest 
 The earlier `verify_structure()` PASSED this same render, because it only asked
 whether *some* 5-bar window was quiet — the intro satisfied it while the real
 breakdown was the loudest part of the song. That blind spot is now closed.
+
+---
+
+## UPDATE — WORKING (2026-09-17)
+
+A full track now renders in LMMS and passes the standard:
+
+```
+GATE: PASS  lmms-track.wav  [house @ 126.0 BPM]
+  PASS duration 60.95s | level | tempo in range
+  PASS tempo claim matches audio   measured 126.0 BPM (conf 0.97)
+  PASS groove = four_on_floor      99% of 102 gaps = 1 beat (median 0.476 vs 0.476)
+```
+Plus `albumkit.verify_shape_lufs` PASS: every section within 3 dB of its declared
+level, CLIMAX the loudest, DIP the quietest in the body.
+
+### The two bugs that were breaking timing and shape
+
+1. **Ticks per bar is 96, not 192.** Calibrated empirically: a note written at
+   "bar 7" rendered at bar 14. LMMS's own tutorial ships `len="192"` for a
+   **two-bar** pattern, which is what made 192 look right.
+2. **Beats were being passed as bars.** A four-beat drum figure spanned four
+   bars. Offsets are divided by 4 (beats per bar) so positions are in bars.
+
+### What still does not work (and the design that works around it)
+
+- Several BB tracks with `<bbtco>` at different song positions do **not** render:
+  only the first section sounds, and LMMS warns
+  `Track::getTCO(3), but TCO 3 doesn't exist`. Placement is ignored headlessly.
+- A single long pattern (32 bars) truncates to ~17 bars. Neither pattern length,
+  bbtco length, nor `timeline lp1pos` (tested at 1x/2x/4x) changes this.
+
+So the reliable primitive is one section → one correct render.
+`build_from_sections.py` renders each section separately and assembles the
+arrangement by concatenation — ordinary studio practice (render sections, edit).
+
+**Stated plainly:** the synthesis, instrumentation and note sequencing are LMMS's.
+The section edit and level balance are done outside the project file. This is
+"LMMS-rendered, assembled outside", not "one LMMS project".
+
+### A bug this exposed in our own toolkit
+
+`songkit.load()` ignored `getnchannels()`, so a **stereo** file came back as
+interleaved L/R samples in a 1-D array. Every duration read 2x too long and every
+onset landed at half the real tempo — a correct four-on-the-floor render failed
+the groove check as a result. All our earlier renders were mono, which is why it
+hid until LMMS produced stereo output. Fixed in `songkit.load()`, and the same
+pattern removed from `albumkit.bar_energy` / `bar_loudness`.
+
+### Metric change: RMS → LUFS
+
+Neither RMS nor percentile-RMS could rank this correctly. A percussive section
+has a high peak but low RMS; a sustained pad has the reverse. p90-RMS called the
+quiet pad breakdown (really -23.1 LUFS) the loudest section. `albumkit.lufs()` now uses
+ffmpeg `loudnorm`, which is monotonic here:
+climax −3.6 · main −5.7 · build −9.3 · intro −14.3 · DIP −15.2 · outro −16.4.
+
+A calibration pass then adjusts each section's project master volume until the
+measured LUFS matches the declared shape (one iteration lands within ~1 dB).

@@ -133,7 +133,7 @@ def main():
 
     import math
     print("calibrating section levels (targets are perceptual, LUFS-based)")
-    for it in range(4):
+    for it in range(6):
         pieces, expect = render_all()
         rel, ref = {}, None
         L = {}
@@ -146,12 +146,12 @@ def main():
             got = L[name] - ref
             err = want - got
             worst = max(worst, abs(err))
-            if it < 3:
+            if it < 5:
                 SECTION_MASTERVOL[name] = int(max(1, min(100,
                     round(SECTION_MASTERVOL[name] * (10 ** (err / 20))))))
         print(f"  pass {it+1}: worst error {worst:.1f} dB | mv=" +
               ", ".join(f"{k}:{v}" for k, v in SECTION_MASTERVOL.items()))
-        if worst <= 1.5:
+        if worst <= 0.8:
             break
     for name, bars, got in expect:
         print(f"    {name:<7} {bars:>2} bars -> {got:4.1f} bars, {L[name]:.1f} LUFS")

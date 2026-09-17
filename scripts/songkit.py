@@ -182,9 +182,20 @@ def write_wav(buf, path):
 
 # ── groove analysis: measure the rhythm that actually got rendered ───────────
 def load(path):
+    """Read a WAV as (mono float array, sample rate).
+
+    CHANNEL BUG FIXED: the original version ignored getnchannels(), so a stereo
+    file came back as interleaved L/R samples in a 1-D array. Every duration was
+    reported 2x too long and every onset landed at half the real tempo -- it
+    made a correct four-on-the-floor LMMS render fail the groove check. All our
+    own earlier renders were mono, which is why it went unnoticed until LMMS
+    produced stereo output.
+    """
     with wave.open(str(path)) as w:
-        sr = w.getframerate()
+        sr, ch = w.getframerate(), w.getnchannels()
         a = np.frombuffer(w.readframes(w.getnframes()), dtype="<i2").astype(np.float32) / 32768.0
+    if ch > 1:
+        a = a[: (len(a) // ch) * ch].reshape(-1, ch).mean(axis=1)
     return a, sr
 
 

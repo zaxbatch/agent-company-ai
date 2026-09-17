@@ -34,7 +34,10 @@ from pathlib import Path
 import re
 
 SKELETON = Path("/usr/share/lmms/projects/tutorials/editing_note_volumes.mmp")
-TPB = 192  # ticks per bar at 4/4
+TPB = 96  # VERIFIED empirically: a note written at 7 bars rendered at bar 14 with
+          # TPB=192, so LMMS 1.2.2 uses 96 ticks per bar here. The tutorial
+          # project ships len="192" for a TWO-bar pattern, which is what misled
+          # me into 192 and doubled every position and every rendered length.
 
 # built-in instruments only -- no external samples, matching our stated scope
 INSTR = {
