@@ -45,3 +45,12 @@ content/milkups/tracker/wav/
 
 # Milkups promo: rendered PNG frame sequences are intermediates
 content/milkups/promo/frames/
+
+# ── Dropped-in analysis folders ────────────────────────────────────────────
+# Never auto-commit a folder dropped into the working tree for review.
+# The snapshot cron commits everything it finds; this stops it.
+zdot-bizzy-bee-bots-main/
+/*-main/
+/*-master/
+/analysis-*/
+/tmp-*/
