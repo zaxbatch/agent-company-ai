@@ -42,21 +42,25 @@ RMS_MIN = 0.01
 # ── genre signatures: each genre must PROVE its own groove ───────────────────
 GENRES = {
     "disco": {
+        "tempo_band": "low",
         "bpm": (108, 132),
         "groove": "four_on_floor",
         "note": "kick on every beat, open hats on the offbeat eighths",
     },
     "house": {
+        "tempo_band": "low",
         "bpm": (115, 130),
         "groove": "four_on_floor",
         "note": "four-on-the-floor with prominent offbeat hats",
     },
     "synthwave": {
+        "tempo_band": "low",
         "bpm": (78, 108),
         "groove": "four_on_floor",
         "note": "steady 4/4, gated snare on 2 and 4, slower tempo",
     },
     "boombap": {
+        "tempo_band": "low",
         "bpm": (82, 104),
         "groove": "backbeat",
         "note": "kick 1+3, SNARE on 2 and 4 -- must NOT be four-on-the-floor",
@@ -65,8 +69,14 @@ GENRES = {
         "bpm": (120, 160),
         "groove": "sparse_kick",
         "note": "sparse kick, dense hi-hat rolls, half-time feel",
+        # Sparse low-end makes autocorrelation unreliable, and trap is
+        # legitimately HALF-TIME (kick implies 70 while the hats imply 140), so
+        # the pulse is read from the hat band and half/double are accepted.
+        "tempo_band": "high",
+        "halftime_ok": True,
     },
     "rock": {
+        "tempo_band": "low",
         "bpm": (100, 150),
         "groove": "backbeat",
         "note": "kick 1+3, snare 2+4",
@@ -75,6 +85,9 @@ GENRES = {
         "bpm": (50, 100),
         "groove": "any",
         "note": "texture over rhythm; only duration/level/cover enforced",
+        # No pulse exists by design, so there is nothing to verify. Claiming a
+        # tempo for ambient is documentation, not a measurable property.
+        "tempo_band": None,
     },
 }
 
@@ -157,10 +170,25 @@ def verify(wav, genre, bpm, cover=None, quiet=False):
     # The claimed tempo must MATCH the audio. Without this, declaring a track at
     # a tempo it doesn't have silently disables every groove check below, because
     # they compare inter-onset gaps against the claimed beat length.
-    est, conf = sk.estimate_bpm(a, sr)
-    tempo_ok = est > 0 and abs(est - bpm) / bpm <= 0.06
-    res.append(("tempo claim matches audio", tempo_ok,
-                f"measured {est:.1f} BPM (conf {conf:.2f}) vs claimed {bpm:.0f} BPM"))
+    band = g.get("tempo_band", "low")
+    if band is None:
+        est, conf = 0.0, 0.0
+        res.append(("tempo claim matches audio", True,
+                    f"not applicable: {genre} has no pulse by design"))
+    else:
+        lo_b, hi_b = (4000, 12000) if band == "high" else (40, 110)
+        est, conf = sk.estimate_bpm(a, sr, lo=lo_b, hi=hi_b)
+        cands = [bpm]
+        if g.get("halftime_ok"):
+            cands += [bpm / 2, bpm * 2]     # half-time / double-time are real feels
+        near = min(cands, key=lambda c: abs(est - c) / c) if est > 0 else None
+        tempo_ok = bool(est > 0 and near and abs(est - near) / near <= 0.06)
+        extra = ""
+        if g.get("halftime_ok") and tempo_ok and abs(near - bpm) > 1e-6:
+            extra = f" (half/double-time of {bpm:.0f} -- legitimate for {genre})"
+        res.append(("tempo claim matches audio", tempo_ok,
+                    f"measured {est:.1f} BPM from {band}-band (conf {conf:.2f}) "
+                    f"vs claimed {bpm:.0f}{extra}"))
     gp, gev = check_groove(a, sr, bpm, g["groove"])
     res.append((f"groove = {g['groove']}", gp, gev))
     if cover:

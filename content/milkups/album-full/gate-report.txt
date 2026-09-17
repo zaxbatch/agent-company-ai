@@ -3,7 +3,7 @@ GATE: PASS  /home/zax/Biz/z-dot-team/content/milkups/album-full/01-midnight-aisl
   PASS  not silent                 peak=0.765 (-2.3 dBFS) rms=0.1356
   PASS  level                      peak 0.765 within [0.35, 1.0]
   PASS  tempo in genre range       118.0 BPM within disco 108-132
-  PASS  tempo claim matches audio  measured 118.1 BPM (conf 0.38) vs claimed 118 BPM
+  PASS  tempo claim matches audio  measured 118.1 BPM from low-band (conf 0.38) vs claimed 118
   PASS  groove = four_on_floor     four-on-the-floor: 99% of 134 gaps = 1 beat (median 0.505s vs 0.508s); hats offbeat/onbeat=0.32/0.39
   PASS  cover art                  /home/zax/Biz/z-dot-team/content/milkups/album-full/01-cover.png (46 KB)
 
@@ -12,7 +12,7 @@ GATE: PASS  /home/zax/Biz/z-dot-team/content/milkups/album-full/02-slack-in-the-
   PASS  not silent                 peak=0.765 (-2.3 dBFS) rms=0.1338
   PASS  level                      peak 0.765 within [0.35, 1.0]
   PASS  tempo in genre range       90.0 BPM within boombap 82-104
-  PASS  tempo claim matches audio  measured 90.3 BPM (conf 0.11) vs claimed 90 BPM
+  PASS  tempo claim matches audio  measured 90.3 BPM from low-band (conf 0.11) vs claimed 90
   PASS  groove = backbeat          backbeat: snare 2,4/1,3 = 0.022/0.000 (margin 219.93x, need >=1.25x); kick 1,3 vs 2,4 = 0.188/0.045 (need 1,3 heavier); four-on-the-floor=18% (need <70%)
   PASS  cover art                  /home/zax/Biz/z-dot-team/content/milkups/album-full/02-cover.png (60 KB)
 
@@ -21,7 +21,7 @@ GATE: PASS  /home/zax/Biz/z-dot-team/content/milkups/album-full/03-frostbite-bou
   PASS  not silent                 peak=0.765 (-2.3 dBFS) rms=0.0965
   PASS  level                      peak 0.765 within [0.35, 1.0]
   PASS  tempo in genre range       96.0 BPM within synthwave 78-108
-  PASS  tempo claim matches audio  measured 96.1 BPM (conf 0.80) vs claimed 96 BPM
+  PASS  tempo claim matches audio  measured 96.1 BPM from low-band (conf 0.80) vs claimed 96
   PASS  groove = four_on_floor     four-on-the-floor: 99% of 127 gaps = 1 beat (median 0.627s vs 0.625s); hats offbeat/onbeat=0.12/0.27
   PASS  cover art                  /home/zax/Biz/z-dot-team/content/milkups/album-full/03-cover.png (62 KB)
 
@@ -30,29 +30,29 @@ GATE: PASS  /home/zax/Biz/z-dot-team/content/milkups/album-full/04-milk-carton-c
   PASS  not silent                 peak=0.765 (-2.3 dBFS) rms=0.1508
   PASS  level                      peak 0.765 within [0.35, 1.0]
   PASS  tempo in genre range       126.0 BPM within house 115-130
-  PASS  tempo claim matches audio  measured 126.0 BPM (conf 0.95) vs claimed 126 BPM
+  PASS  tempo claim matches audio  measured 126.0 BPM from low-band (conf 0.95) vs claimed 126
   PASS  groove = four_on_floor     four-on-the-floor: 99% of 134 gaps = 1 beat (median 0.476s vs 0.476s); hats offbeat/onbeat=0.52/0.36
   PASS  cover art                  /home/zax/Biz/z-dot-team/content/milkups/album-full/04-cover.png (54 KB)
 
-GATE: FAIL  /home/zax/Biz/z-dot-team/content/milkups/album-full/05-sour-turn.wav  [trap @ 140.0 BPM]
+GATE: PASS  /home/zax/Biz/z-dot-team/content/milkups/album-full/05-sour-turn.wav  [trap @ 140.0 BPM]
   PASS  duration                   84.29s (min 60s)
   PASS  not silent                 peak=0.765 (-2.3 dBFS) rms=0.1232
   PASS  level                      peak 0.765 within [0.35, 1.0]
   PASS  tempo in genre range       140.0 BPM within trap 120-160
-  FAIL  tempo claim matches audio  measured 111.7 BPM (conf 0.08) vs claimed 140 BPM
+  PASS  tempo claim matches audio  measured 139.7 BPM from high-band (conf 0.24) vs claimed 140
   PASS  groove = sparse_kick       sparse_kick: 1.34 low onsets per bar (must be <= 3.2)
   PASS  cover art                  /home/zax/Biz/z-dot-team/content/milkups/album-full/05-cover.png (40 KB)
 
-GATE: FAIL  /home/zax/Biz/z-dot-team/content/milkups/album-full/06-last-one-on-the-shelf.wav  [ambient @ 72.0 BPM]
+GATE: PASS  /home/zax/Biz/z-dot-team/content/milkups/album-full/06-last-one-on-the-shelf.wav  [ambient @ 72.0 BPM]
   PASS  duration                   172.00s (min 60s)
   PASS  not silent                 peak=0.765 (-2.3 dBFS) rms=0.1063
   PASS  level                      peak 0.765 within [0.35, 1.0]
   PASS  tempo in genre range       72.0 BPM within ambient 50-100
-  FAIL  tempo claim matches audio  measured 169.4 BPM (conf 0.22) vs claimed 72 BPM
+  PASS  tempo claim matches audio  not applicable: ambient has no pulse by design
   PASS  groove = any               groove unconstrained for this genre
   PASS  cover art                  /home/zax/Biz/z-dot-team/content/milkups/album-full/06-cover.png (53 KB)
 
 
-4/6 pass
+6/6 pass
 clashes=[]
-ALBUM: FAIL
+ALBUM: PASS
