@@ -1,0 +1,70 @@
+{
+ "generated": "2026-09-17",
+ "albums": 7,
+ "total_tracks_renders": 47,
+ "collections": [
+  {
+   "collection": "The Shelves Raised Us \u2014 v3 (tracker cut)",
+   "path": "content/milkups/album-v3",
+   "tracks": 8,
+   "engine": "16-bit FastTracker II .XM -> libopenmpt",
+   "status": "MODEL v2 CANDIDATE \u2014 per-track voice/tempo/register, -14 LUFS, gate passed",
+   "url": "https://milkups.netlify.app/tracker/",
+   "note": "8 distinct lead voices, 8 tempos, 8 registers. Already meets the new 'no shared lead patch' requirement."
+  },
+  {
+   "collection": "The Shelves Raised Us \u2014 A/B cuts",
+   "path": "content/milkups/album",
+   "tracks": 10,
+   "engine": "LMMS project + .xm module (two cuts per title)",
+   "status": "ARCHIVE \u2014 v1 material, superseded by v3",
+   "url": null,
+   "note": "5 titles x 2 cuts; SHA256SUMS + README present"
+  },
+  {
+   "collection": "COLD CUTS",
+   "path": "content/milkups/album-full",
+   "tracks": 6,
+   "engine": "Python/numpy oscillator synthesis",
+   "status": "FINISHED \u2014 6/6 gate pass",
+   "url": "https://milkups.netlify.app/cold-cuts/",
+   "note": "6 genres, dips/climaxes verified by LUFS"
+  },
+  {
+   "collection": "COLD OPEN",
+   "path": "content/milkups/album2",
+   "tracks": 6,
+   "engine": "Python/numpy oscillator synthesis",
+   "status": "FINISHED \u2014 6/6 gate pass",
+   "url": "https://milkups.netlify.app/album2/",
+   "note": "6 new genres, dips/climaxes verified by LUFS"
+  },
+  {
+   "collection": "LMMS Cut (unnamed)",
+   "path": "content/milkups/album-lmms",
+   "tracks": 1,
+   "engine": "LMMS 1.2.2, built-in instruments",
+   "status": "FINISHED \u2014 gate pass",
+   "url": "https://milkups.netlify.app/lmms-cut/",
+   "note": "First LMMS-authored render; assembled from sections"
+  },
+  {
+   "collection": "MilkUps album set (live /album/)",
+   "path": "content/milkups/audio",
+   "tracks": 8,
+   "engine": "unknown (pre-dates this work)",
+   "status": "LIVE but undocumented \u2014 needs audit",
+   "url": "https://milkups.netlify.app/album/",
+   "note": "8 named songs"
+  },
+  {
+   "collection": "/album/v2/ banger set",
+   "path": "content/milkups/album-v2",
+   "tracks": 8,
+   "engine": "unknown (pre-dates this work)",
+   "status": "LIVE but undocumented \u2014 needs audit",
+   "url": "https://milkups.netlify.app/album/v2/",
+   "note": "same 8 song names as /album/, different cut"
+  }
+ ]
+}
