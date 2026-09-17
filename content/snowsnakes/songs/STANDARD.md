@@ -168,3 +168,53 @@ not just ones it should accept. Recording them so the reasoning survives:
 
 The general lesson, which is now the rule: **a gate that has only ever been run
 against passing inputs has not been tested.**
+
+---
+
+## Feedback loop case study: "Last One on the Shelf" (2026-09-17)
+
+Zerric's verdict on the album: *"all of em slap except for last one on the shelf.
+I guess that's a relaxing outro. Maybe we'll keep it."*
+
+**The gate had already flagged the same track.** Independent of his ear, the
+measurement said it was the weakest:
+
+| # | Track | Sustained climax | Length |
+|---|-------|-----------------|--------|
+| 1 | Midnight Aisle | 0.99 | 83s |
+| 2 | Slack in the Cooler | 0.98 | 130s |
+| 3 | Frostbite Boulevard | 0.98 | 130s |
+| 4 | Milk Carton Club | 0.99 | 78s |
+| 5 | Sour Turn | 0.89 | 84s |
+| **6** | **Last One on the Shelf** | **0.83** ← lowest | **172s** ← longest |
+
+Two problems, and the second is the real one: the weakest track was also the
+**longest**, which is backwards for an outro. A human ear and an RMS-per-bar
+measurement agreeing on the same track is the best evidence yet that the gate
+measures something real.
+
+### What changed
+
+- **New `outro` shape** in albumkit: settle → warm → swell → dissolve → coda.
+  Short by design: 29 bars instead of 51.
+- **Climax is now a distinct section**, not an even wash. 6 bars → 8 bars wide, so
+  a 5-bar measurement window fits inside it.
+- **The swell must be the unambiguous peak.** The first attempt failed: the coda's
+  ringing tonic chord out-peaked the swell (0.74 on the 5-bar window), so the
+  resolution was shouting louder than the climax. Tamed the coda, widened the
+  swell.
+- **A real harmonic resolve.** The progression now lands on a sustained A minor
+  with a rising bell figure as a sign-off, so it *ends* rather than just stopping.
+
+### Result
+
+| | before | after |
+|---|---|---|
+| Length | 172.0s | **98.7s** |
+| Sustained climax | 0.83 | **0.96** |
+| Dynamic range | 7.5× | **9.5×** |
+| Gate | pass (marginal) | **pass** |
+
+The gate's own threshold (0.86) had let 0.83 through. Worth remembering: a
+marginal pass is a signal, not a pass. The bar for a track that made it is
+0.96-0.99 — anything sitting near the threshold deserves a second look.

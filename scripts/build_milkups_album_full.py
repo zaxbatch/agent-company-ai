@@ -40,7 +40,7 @@ TRACKS = [
     {"n": 3, "title": "Frostbite Boulevard",  "genre": "synthwave", "bpm": 96,  "shape": "slowburn", },
     {"n": 4, "title": "Milk Carton Club",     "genre": "house",     "bpm": 126, "shape": "club",     },
     {"n": 5, "title": "Sour Turn",            "genre": "trap",      "bpm": 140, "shape": "song",     },
-    {"n": 6, "title": "Last One on the Shelf","genre": "ambient",   "bpm": 72,  "shape": "slowburn", },
+    {"n": 6, "title": "Last One on the Shelf","genre": "ambient",   "bpm": 72,  "shape": "outro",    },
 ]
 
 
@@ -210,23 +210,50 @@ def g_trap(buf, bar, t0, sec, e, local, rng, ctx):
 
 # ── GENRE 6: AMBIENT — no beat, texture and drift ───────────────────────────
 def g_ambient(buf, bar, t0, sec, e, local, rng, ctx):
-    BAR = ctx["BAR"]
-    root = [45, 41, 43, 40][bar % 4]
-    # Ambient has no beat by design: the climax comes from LAYERS, not a kick.
-    # (An earlier version put a heartbeat kick in the climax; it made the quiet
-    # sections read as silence, 0.013 of peak, and failed the audible-dip gate.)
-    place(buf, t0, sk.supersaw([root, root + 7, root + 12, root + 15, root + 19],
-                               BAR * 1.05, voices=9, detune=0.20, gain=0.150,
-                               a=1.4, d=0.8, s=0.75, r=1.6), e)
-    if e > 0.42:
+    """Closer. Not a beat -- a resolution.
+
+    Rebuilt after Zerric called this the one weak track. The gate agreed: its
+    sustained climax was 0.83 vs 0.98-0.99 on every other track, and it was the
+    album's LONGEST track, which is backwards for an outro. Fixes:
+      - shorter (outro shape, not slowburn)
+      - one clear warm swell instead of an even wash
+      - a real harmonic resolve: the ending lands on a sustained tonic that rings
+      - a rising bell figure as a sign-off gesture
+    """
+    SPB, BAR = ctx["SPB"], ctx["BAR"]
+    root = [45, 41, 43, 45][bar % 4]          # A - F - G - A : resolves to A
+    last = local if sec.name == "coda" else -1
+
+    # core pad: brighter and fuller in the swell so the climax is unmistakable
+    pad = [root, root + 7, root + 12, root + 15, root + 19]
+    place(buf, t0, sk.supersaw(pad, BAR * 1.05, voices=9, detune=0.20,
+                               gain=0.135 + 0.075 * e, a=1.2, d=0.8, s=0.78, r=1.6), e)
+    # upper shimmer only when the section is warm or brighter
+    if e > 0.40:
         place(buf, t0, sk.supersaw([root + 24, root + 31], BAR * 0.9, voices=5,
-                                   detune=0.24, gain=0.062, a=1.8, s=0.6, r=1.8), e)
-    if e > 0.34 and bar % 2 == 0:                 # sparse bell tones
-        for i, m in enumerate([root + 36, root + 31]):
-            place(buf, t0 + (i * 2 + 0.5) * ctx["SPB"], sk.epiano([m], 3.2, 0.078), e)
-    if e > 0.62:                                  # climax = a low swell, not a beat
+                                   detune=0.24, gain=0.045 + 0.055 * e,
+                                   a=1.6, s=0.6, r=1.8), e)
+    # low swell: the "climax" layer, low end rather than a drum
+    if e > 0.60:
         place(buf, t0, sk.supersaw([root - 12, root - 5], BAR * 1.0, voices=3,
-                                   detune=0.06, gain=0.055, a=1.0, s=0.8, r=1.4), e)
+                                   detune=0.06, gain=0.070 + 0.070 * e, a=1.0, s=0.88, r=1.4), e)
+    # bell motif: sparse when settling, quicker in the swell, then resolving
+    if sec.name == "coda":
+        # the sign-off: rising figure that lands and rings on the tonic
+        fig = [root + 12, root + 16, root + 19, root + 24, root + 28, root + 31]
+        for i, m in enumerate(fig):
+            place(buf, t0 + i * 0.5 * SPB, sk.epiano([m], 4.5, 0.070), 1.0)
+        place(buf, t0 + 3 * SPB, sk.epiano([root + 12, root + 19, root + 24, root + 28],
+                                           9.0, 0.058), 1.0)      # rings out, under the swell
+    elif local % 2 == 0:
+        n_bells = 2 if e < 0.70 else 3
+        for i, m in enumerate([root + 24, root + 19, root + 28][:n_bells]):
+            place(buf, t0 + (i * 1.6 + 0.5) * SPB, sk.epiano([m], 3.4, 0.068), e)
+    # a soft sub pulse in the swell only -- felt, not counted
+    if e > 0.88:
+        place(buf, t0, sk.kick(80, 34, 20, 5.5, 0.0, 0.34), 0.42)
+        place(buf, t0 + 2 * SPB, sk.kick(80, 34, 20, 5.5, 0.0, 0.34), 0.34)
+        place(buf, t0 + 1 * SPB, sk.epiano([root + 12, root + 31], SPB * 1.6, 0.060), 1.0)
 
 
 GENRES = {"disco": g_disco, "boombap": g_boombap, "synthwave": g_synthwave,

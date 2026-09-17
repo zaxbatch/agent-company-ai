@@ -81,6 +81,15 @@ SHAPES = {
         Section("final",      8, 1.00),
         Section("outro",      4, 0.44),
     ]),
+    # closer: settles in, ONE warm climax, then dissolves. Short by design --
+    # the weakest track should not also be the longest (Zerric: "relaxing outro")
+    "outro": Arrangement([
+        Section("settle",    4, 0.46),
+        Section("warm",      6, 0.66),
+        Section("swell",     8, 0.94),
+        Section("dissolve",  6, 0.28, ("dip", "no_kick")),
+        Section("coda",      5, 0.48),
+    ]),
     # slow burn: long quiet opening, huge late climax
     "slowburn": Arrangement([
         Section("intro",      6, 0.34, ("no_drums",)),

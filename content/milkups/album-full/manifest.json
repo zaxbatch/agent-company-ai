@@ -228,9 +228,9 @@
    "title": "Last One on the Shelf",
    "genre": "ambient",
    "bpm": 72,
-   "shape": "slowburn",
-   "bars": 51,
-   "seconds": 172.0,
+   "shape": "outro",
+   "bars": 29,
+   "seconds": 98.67,
    "wav": "content/milkups/album-full/06-last-one-on-the-shelf.wav",
    "cover": "content/milkups/album-full/06-cover.png",
    "structure_pass": true,
@@ -238,35 +238,35 @@
     [
      "has a dip",
      true,
-     "quietest 5-bar window = 0.11 of peak (need <= 0.62)"
+     "quietest 5-bar window = 0.10 of peak (need <= 0.62)"
     ],
     [
      "dip is audible (not silence)",
      true,
-     "quietest window = 0.115 (need >= 0.04; 0.000 = track stopped)"
+     "quietest window = 0.097 (need >= 0.04; 0.000 = track stopped)"
     ],
     [
      "has a climax",
      true,
-     "loudest 5-bar window = 0.87 of peak (need >= 0.86)"
+     "loudest 5-bar window = 0.92 of peak (need >= 0.86)"
     ],
     [
      "sustained climax (4 bars)",
      true,
-     "loudest 4-bar window = 0.83"
+     "loudest 4-bar window = 0.96"
     ],
     [
      "dynamic range",
      true,
-     "peak/quiet = 7.54x (need >= 1.45x)"
+     "peak/quiet = 9.46x (need >= 1.45x)"
     ],
     [
      "dip precedes climax",
      true,
-     "dip at bar ~1, peak at bar ~43 of 51"
+     "dip at bar ~19, peak at bar ~27 of 29"
     ]
    ],
-   "contour": "\u2581\u2581\u2581\u2581\u2581\u2581\u2585\u2583\u2585\u2583\u2585\u2583\u2585\u2583\u2588\u2585\u2588\u2585\u2588\u2585\u2588\u2585\u2583\u2582\u2583\u2582\u2583\u2582\u2583\u2582\u2586\u2584\u2586\u2584\u2586\u2584\u2588\u2586\u2588\u2586\u2588\u2586\u2588\u2586\u2588\u2586\u2583\u2582\u2583\u2582\u2583"
+   "contour": "\u2582\u2582\u2582\u2582\u2584\u2583\u2584\u2583\u2584\u2583\u2585\u2585\u2585\u2585\u2585\u2585\u2585\u2585\u2582\u2581\u2582\u2581\u2582\u2581\u2587\u2588\u2588\u2588\u2588"
   }
  ]
 }
