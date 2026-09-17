@@ -93,6 +93,7 @@ TARGETS = [
     ROOT / "content" / "milkups" / "album.html",
     ROOT / "content" / "milkups" / "tracker" / "index.html",
     ROOT / "content" / "milkups" / "v2-index.html",
+    ROOT / "content" / "milkups" / "album-v3" / "index.html",
 ]
 
 

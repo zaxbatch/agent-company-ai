@@ -56,3 +56,6 @@ zdot-bizzy-bee-bots-main/
 /tmp-*/
 play/lead/hubspot_token.php
 play/lead/data/
+
+# album-v3: WAV intermediates are build artifacts
+content/milkups/album-v3/wav/
