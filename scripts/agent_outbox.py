@@ -45,8 +45,11 @@ SENDER = "ez@zerric.xyz"
 
 # proven recipients only
 RECIPIENTS = {
-    "boss":     ("zdotconnect@gmail.com", None),
-    "bosslady": ("zdotconnect@gmail.com", None),
+    # NOTE: (email, sms_number). SMS silently skipped until a number was set here
+    # -- for 'boss'/'bosslady' it was None, so --sms did nothing. BossLady's SMS
+    # gateway number is the one documented in communication/EMAIL-SMS-CHANNEL.md.
+    "boss":     ("zdotconnect@gmail.com", "+15022995252"),
+    "bosslady": ("zdotconnect@gmail.com", "+15022995252"),
     "zerric":   ("zerric@zdotllc.com", "+15022995252"),
     "zerric_g": ("zdotconnect@gmail.com", "+15022995252"),
 }

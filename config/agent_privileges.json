@@ -1,0 +1,107 @@
+{
+  "_comment": "Per-agent capability grants. Zerric directive 2026-09-17: give BossLady email, shell and SMS. 'shell' means the bounded capability console (named actions + allowlist), NOT unrestricted root. Every action is audited to logs/agent_audit.log.",
+  "agents": {
+    "BossLady": {
+      "role": "CEO",
+      "email": true,
+      "sms": true,
+      "shell": true,
+      "write": [
+        "TEAM-STATE.md",
+        "souls/SOUL-BossLady.md",
+        "communication/outbox/**",
+        "content/milkups/**"
+      ],
+      "capabilities": [
+        "status",
+        "inventory",
+        "gate",
+        "verify",
+        "jobs",
+        "report",
+        "logs",
+        "queue"
+      ],
+      "granted": "2026-09-17",
+      "granted_by": "Zerric"
+    },
+    "NinjaNerd": {
+      "role": "CTO",
+      "email": true,
+      "sms": true,
+      "shell": true,
+      "write": [
+        "**"
+      ],
+      "capabilities": [
+        "*"
+      ],
+      "granted": "2026-09-17",
+      "granted_by": "Zerric"
+    },
+    "ClickClack": {
+      "role": "Developer",
+      "email": true,
+      "sms": true,
+      "shell": true,
+      "write": [
+        "**"
+      ],
+      "capabilities": [
+        "*"
+      ],
+      "granted": "2026-09-17",
+      "granted_by": "Zerric"
+    },
+    "Mark": {
+      "role": "Marketer",
+      "email": true,
+      "sms": true,
+      "shell": true,
+      "write": [
+        "marketing/**",
+        "communication/outbox/**"
+      ],
+      "capabilities": [
+        "status",
+        "inventory",
+        "report",
+        "queue",
+        "logs"
+      ],
+      "granted": "2026-09-17",
+      "granted_by": "Zerric"
+    },
+    "Meta": {
+      "role": "PM,QA",
+      "email": true,
+      "sms": true,
+      "shell": true,
+      "write": [
+        "content/**",
+        "communication/outbox/**"
+      ],
+      "capabilities": [
+        "status",
+        "inventory",
+        "gate",
+        "verify",
+        "report",
+        "queue",
+        "logs"
+      ],
+      "granted": "2026-09-17",
+      "granted_by": "Zerric"
+    }
+  },
+  "denied_always": [
+    "rm -rf",
+    "mkfs",
+    "dd if=",
+    "shutdown",
+    "reboot",
+    "passwd",
+    "chmod 777 /",
+    "git push --force"
+  ]
+}

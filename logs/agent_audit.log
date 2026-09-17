@@ -1,0 +1,12 @@
+2026-09-17T04:01:26+00:00	BossLady	whoami	{"lines": 20, "action": "list", "sub": "list"}	ok(0)	
+2026-09-17T04:01:30+00:00	BossLady	write	{"file": "credentials.txt"}	DENIED	BossLady has no write scope for credentials.txt (scopes: ['TEAM-STATE.md', 'souls/SOUL-BossLady.md', 'communication/outbox/**', 'content/milkups/**'])
+2026-09-17T04:01:30+00:00	BossLady	write	{"file": "credentials.txt", "lines": 20, "append": "leak", "action": "list", "sub": "list"}	ok(1)	
+2026-09-17T04:01:30+00:00	BossLady	write	{"file": "../../etc/passwd"}	DENIED	path traversal blocked
+2026-09-17T04:01:30+00:00	BossLady	write	{"file": "../../etc/passwd", "lines": 20, "append": "x", "action": "list", "sub": "list"}	ok(1)	
+2026-09-17T04:01:30+00:00	BossLady	write	{"file": "communication/outbox/_test.txt", "lines": 20, "append": "scoped write test", "action": "list", "sub": "list"}	ok(0)	
+2026-09-17T04:01:30+00:00	Mark	gate	{}	DENIED	gate not in Mark's capability list
+2026-09-17T04:01:35+00:00 | BossLady   | run        | status: bash -lc echo '--- git ---'; git log --oneline -5; echo; echo '--- cron ---'; crontab -l | | exit 0
+2026-09-17T04:01:35+00:00 | BossLady   | write      | communication/outbox/bosslady.md | 23 bytes
+2026-09-17T04:01:35+00:00 | BossLady   | DENIED     | write scripts/verify_song.py | blocked
+2026-09-17T04:01:35+00:00 | Mark       | DENIED     | capability gate | blocked
+2026-09-17T04:01:36+00:00 | BossLady   | run        | status: bash -lc echo '--- git ---'; git log --oneline -5; echo; echo '--- cron ---'; crontab -l | | exit 0
