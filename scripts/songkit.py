@@ -244,3 +244,59 @@ def spectral_centroid(a, sr):
 def duration(path):
     with wave.open(str(path)) as w:
         return w.getnframes() / w.getframerate()
+
+
+def band_flux(a, sr, lo, hi, win=1024, hop=128):
+    """Transient strength in a band: the POSITIVE energy increase per frame.
+
+    Why this exists: band_env measures sustained energy, so a chord pad or a
+    bass note sitting under a drum hit inflates the 'hit' reading. A backbeat
+    snare is a TRANSIENT, so it has to be measured as a jump, not a level.
+    Found the hard way: a boom-bap track's Rhodes chords contaminated the
+    150-400 Hz snare band and made beats 1/3 look louder than 2/4.
+    """
+    f = rfftfreq(win, 1 / sr)
+    m = (f >= lo) & (f <= hi)
+    e = np.array([np.abs(rfft(a[i:i + win] * np.hanning(win)))[m].sum()
+                  for i in range(0, max(0, len(a) - win), hop)], dtype=np.float64)
+    if e.size < 2:
+        return np.zeros(1), np.zeros(1)
+    flux = np.maximum(np.diff(e), 0.0)
+    if flux.max() > 0:
+        flux = flux / flux.max()
+    return flux, np.arange(len(flux)) * hop / sr
+
+
+def estimate_bpm(a, sr, lo=40, hi=110, fmin=60, fmax=180):
+    """Measure the actual tempo from the audio, via autocorrelation of the
+    low-band transient envelope. Returns (bpm, confidence).
+
+    Why this is mandatory: without it a track can be *declared* at a tempo it
+    does not have, which silently disables the groove checks (they compare
+    inter-onset gaps against the claimed beat length). Found by testing: a
+    118 BPM disco track passed the boom-bap backbeat rule when claimed at 92.
+    """
+    flux, ts = band_flux(a, sr, lo, hi, win=1024, hop=128)
+    if flux.size < 8:
+        return 0.0, 0.0
+    x = flux - flux.mean()
+    ac = np.correlate(x, x, mode="full")[len(x) - 1:]
+    if ac[0] <= 0:
+        return 0.0, 0.0
+    ac = ac / ac[0]
+    frame_dt = 128 / sr
+    lo_lag = max(1, int((60.0 / fmax) / frame_dt))
+    hi_lag = min(len(ac) - 1, int((60.0 / fmin) / frame_dt))
+    if hi_lag <= lo_lag:
+        return 0.0, 0.0
+    seg = ac[lo_lag:hi_lag + 1]
+    k = int(np.argmax(seg))
+    lag = lo_lag + k
+    bpm = 60.0 / (lag * frame_dt)
+    conf = float(seg[k])
+    # octave-correct into a musical window (avoid reporting half/double tempo)
+    while bpm < 70 and bpm * 2 <= fmax:
+        bpm *= 2
+    while bpm > 180 and bpm / 2 >= fmin:
+        bpm /= 2
+    return float(bpm), conf

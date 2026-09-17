@@ -94,8 +94,11 @@ def check_groove(a, sr, bpm, kind):
                     f"(median {med:.3f}s vs {spb:.3f}s); hats offbeat/onbeat={off:.2f}/{on:.2f}")
 
     if kind == "backbeat":
-        env2, ts = sk.band_env(a, sr, 150, 400, win=1024, hop=128)   # snare body
-        env4, _ = sk.band_env(a, sr, 40, 110, win=1024, hop=128)     # kick
+        # Use FLUX (transient jump), not sustained energy: chords/bass sitting
+        # under the drums otherwise contaminate the band and the reading is
+        # wrong. A backbeat is a transient by definition.
+        env2, ts = sk.band_flux(a, sr, 150, 400, win=1024, hop=128)   # snare snap
+        env4, _ = sk.band_flux(a, sr, 45, 105, win=1024, hop=128)     # kick thump
         spb = 60.0 / bpm
         def at(env, t):
             i = int(t * sr / 128)
@@ -151,6 +154,13 @@ def verify(wav, genre, bpm, cover=None, quiet=False):
                 f"peak {peak:.3f} within [{PEAK_MIN}, {PEAK_MAX}]"))
     res.append(("tempo in genre range", lo <= bpm <= hi,
                 f"{bpm} BPM within {genre} {lo}-{hi}"))
+    # The claimed tempo must MATCH the audio. Without this, declaring a track at
+    # a tempo it doesn't have silently disables every groove check below, because
+    # they compare inter-onset gaps against the claimed beat length.
+    est, conf = sk.estimate_bpm(a, sr)
+    tempo_ok = est > 0 and abs(est - bpm) / bpm <= 0.06
+    res.append(("tempo claim matches audio", tempo_ok,
+                f"measured {est:.1f} BPM (conf {conf:.2f}) vs claimed {bpm:.0f} BPM"))
     gp, gev = check_groove(a, sr, bpm, g["groove"])
     res.append((f"groove = {g['groove']}", gp, gev))
     if cover:
@@ -158,7 +168,7 @@ def verify(wav, genre, bpm, cover=None, quiet=False):
         res.append(("cover art", ok, f"{cover} ({Path(cover).stat().st_size//1024 if Path(cover).exists() else 0} KB)"))
     centroid = sk.spectral_centroid(a, sr)
     passed = all(ok for _, ok, _ in res)
-    meta = {"duration": round(secs, 3), "bpm": bpm, "genre": genre,
+    meta = {"duration": round(secs, 3), "bpm": bpm, "measured_bpm": round(est, 1), "genre": genre,
             "groove": g["groove"], "centroid_hz": round(centroid, 1),
             "percentile_peak": round(peak, 4), "rms": round(rms, 5)}
     return passed, res, meta

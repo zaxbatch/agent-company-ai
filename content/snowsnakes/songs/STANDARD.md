@@ -119,3 +119,52 @@ posted as id 23. `disco` genre signature: **PASS**, catalogue variety: **PASS**.
 
 It is the reference for *rigour*, not for style. The next song should look
 nothing like it.
+
+---
+
+## Gate self-test matrix (regression suite)
+
+The gate is only trustworthy if it can REJECT. Verified 2026-09-17:
+
+| Track | Claimed as | Result | Why |
+|-------|-----------|--------|-----|
+| Shelves After Dark (disco) | disco @ 118 | **PASS** | 99% of kick gaps = 1 beat |
+| Dust on the Shelf (boombap) | boombap @ 92 | **PASS** | snare 2,4 at 49.8× beats 1,3; 6% 4-on-floor |
+| Shelves After Dark | boombap @ 92 | **FAIL** | measured 118.1 BPM vs claimed 92 |
+| Dust on the Shelf | disco @ 118 | **FAIL** | only 25% of gaps = 1 beat |
+
+Both reference tracks PASS their own genre and FAIL the other's. That is the
+standard working as intended: **same bar, different music.**
+
+Their measured profiles, which the catalogue rule keeps apart:
+
+| | tempo | brightness | groove |
+|---|---|---|---|
+| Shelves After Dark | 118.1 BPM | 7,617 Hz | four-on-the-floor |
+| Dust on the Shelf | 90.3 BPM | 10,177 Hz | backbeat |
+
+---
+
+## Two real holes found by testing (both fixed)
+
+Both were found because the gate was tested against tracks it should REJECT,
+not just ones it should accept. Recording them so the reasoning survives:
+
+1. **Backbeat check accepted a four-on-the-floor track.** The original rule was
+   "snare on 2 & 4 louder than 1 & 3". Disco's 2/4 clap made those bands
+   nearly equal (1.05×) and it squeezed through. Fixed by requiring a **1.25×
+   margin**, kick heavier on 1 & 3, **and** not-four-on-the-floor.
+
+2. **Sustained energy was used to measure a transient.** Boom-bap's Rhodes
+   chords sat in the 150–400 Hz snare band and made beats 1/3 read *louder*
+   than 2/4. A backbeat is a transient, so it is now measured as energy
+   **flux** (the positive jump), not level. Margin went from a wrong 0.75× to
+   a correct 49.8×.
+
+3. **A track could dodge the groove rules by lying about its tempo.** The
+   groove checks compare onset gaps to the *claimed* beat length, so declaring
+   118 BPM disco as "92 BPM boombap" silently disabled them. The gate now
+   **measures the tempo from the audio** and fails any claim off by more than 6%.
+
+The general lesson, which is now the rule: **a gate that has only ever been run
+against passing inputs has not been tested.**
