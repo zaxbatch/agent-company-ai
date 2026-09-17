@@ -139,9 +139,12 @@ def build_pattern(b, sec, dyn, pat_idx, rng, S):
     is_break = sec == "break"
     quiet    = dyn < 0.5
 
-    lead_vol = int(max(6, min(64, 8 + 54 * b["density"] * dyn)))
-    bass_vol = int(max(8, min(64, 14 + 46 * dyn)))
-    drum_knock = 0.55 + 0.45 * dyn
+    # 0.45 floor: sections stay clearly quieter than the drop but never go silent.
+    # (An earlier 0.22 floor produced 8s of near-silence, which reads as broken.)
+    dyn_eff = 0.45 + 0.55 * dyn
+    lead_vol = int(max(14, min(64, 10 + 50 * b["density"] * dyn_eff)))
+    bass_vol = int(max(20, min(64, 18 + 40 * dyn_eff)))
+    drum_knock = 0.58 + 0.42 * dyn_eff
 
     for row in range(64):
         bar = pat_idx * 4 + (row // 16)
@@ -173,16 +176,24 @@ def build_pattern(b, sec, dyn, pat_idx, rng, S):
             n = note_for(hz(chord_root + b["reg"] + deg + oct_), LEAD_F)
             cells[(row, CH["arp"])] = (n, 3, int(10 + 26 * dyn), 0, 0)
 
-        # ---- pad: sustained chord tones, quiet sections only ----
-        if (quiet or is_break) and step == 0:
-            for i, t in enumerate(tones):
-                if row == 0:
-                    n = note_for(hz(chord_root + b["reg"] - 12 + t), LEAD_F)
-                    cells[(row, CH["pad"])] = (n, 9, int(8 + 22 * dyn), 0, 0)
+        # ---- pad bed: EVERY bar, every section. Guarantees no dead air and gives
+        #      the 16-bit headroom something to actually resolve at low level.
+        if step == 0:
+            pad_vol = int(10 + 20 * dyn_eff) if (quiet or is_break) else int(6 + 12 * dyn_eff)
+            for j, t in enumerate(tones):
+                n = note_for(hz(chord_root + b["reg"] - 12 + t), LEAD_F)
+                if 1 <= n <= 96:
+                    cells[(row, CH["pad"])] = (n, 9, pad_vol, 0x04, 0x24)   # vibrato, sustained
+                    if j == 0: break        # one voice is enough for a bed
+        
+        # ---- guaranteed bass root at each bar start (foundation, always audible)
+        if step == 0:
+            n = note_for(hz(chord_root - 12), BASS_F)
+            cells[(row, CH["bass"])] = (n, 2, bass_vol, 0, 0)
 
         # ---- lead melody: per-track density, its own register ----
         if step % 2 == 0:
-            if rng.random() < b["density"] * (0.55 + 0.45 * dyn):
+            if rng.random() < b["density"] * (0.62 + 0.38 * dyn_eff):
                 scale = b["scale"]
                 deg = scale[int(rng.integers(0, len(scale)))]
                 oct_ = 12 if rng.random() < 0.22 else 0
