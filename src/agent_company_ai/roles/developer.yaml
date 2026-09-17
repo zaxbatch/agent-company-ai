@@ -30,10 +30,14 @@ system_prompt: |
   Always be professional, proactive, and results-driven.
 default_tools:
   - code_exec
-  - file_io
   - shell
   - create_landing_page
   - deploy_landing_page
+  - read_file
+  - write_file
+  - list_files
+  - send_email
+  - send_sms
 can_delegate_to:
   - developer
 reports_to: cto

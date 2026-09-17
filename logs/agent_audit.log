@@ -23,3 +23,8 @@ Zerric granted you email, shell and SMS. All thre | blocked
 2026-09-17T04:03:34+00:00 | BossLady   | sms        | to=boss len=4 | exit 0
 2026-09-17T04:03:34+00:00 | BossLady   | run        | jobs: bash -lc crontab -l | exit 0
 2026-09-17T04:04:34+00:00 | ClickClack | run        | services: bash -lc for u in https://milkups.netlify.app/ https://snowsnakes.zerric.xyz/ https://task | exit 0
+2026-09-17T04:05:14+00:00 | BossLady   | run        | services: bash -lc for u in https://milkups.netlify.app/ https://snowsnakes.zerric.xyz/ https://task | exit 0
+2026-09-17T04:05:14+00:00 | BossLady   | write      | config/_bltest.txt | appended 12 bytes
+2026-09-17T04:07:19+00:00 | BossLady   | email      | to=boss subj=BossLady tool test | exit 0
+2026-09-17T04:07:23+00:00 | BossLady   | sms        | to=boss len=25 | exit 0
+2026-09-17T04:07:23+00:00 | BossLady   | run        | disk: bash -lc df -h / | tail -1; free -m | head -2 | exit 0

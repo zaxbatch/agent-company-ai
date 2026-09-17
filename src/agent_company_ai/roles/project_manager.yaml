@@ -32,7 +32,11 @@ system_prompt: |
   Always be professional, proactive, and results-driven.
 default_tools:
   - web_search
-  - file_io
+  - read_file
+  - write_file
+  - list_files
+  - send_email
+  - send_sms
 can_delegate_to:
   - cto
   - developer

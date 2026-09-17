@@ -7,23 +7,15 @@
       "sms": true,
       "shell": true,
       "write": [
-        "TEAM-STATE.md",
-        "souls/SOUL-BossLady.md",
-        "communication/outbox/**",
-        "content/milkups/**"
+        "**"
       ],
       "capabilities": [
-        "status",
-        "inventory",
-        "gate",
-        "verify",
-        "jobs",
-        "report",
-        "logs",
-        "queue"
+        "*"
       ],
       "granted": "2026-09-17",
-      "granted_by": "Zerric"
+      "granted_by": "Zerric",
+      "updated": "2026-09-17",
+      "updated_note": "Zerric: 'give bosslady all tools'. Full parity with NinjaNerd/ClickClack. Bounded console still applies: caps='*' means every NAMED capability, and arbitrary command execution is still not possible from a peer script."
     },
     "NinjaNerd": {
       "role": "CTO",

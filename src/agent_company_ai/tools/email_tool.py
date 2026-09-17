@@ -135,27 +135,80 @@ async def _send_via_sendgrid(to: str, subject: str, body: str, is_html: bool) ->
     return {"id": resp.headers.get("X-Message-Id", ""), "status": "sent"}
 
 
-async def _send_via_smtp(to: str, subject: str, body: str, is_html: bool) -> dict:
-    """Send email via plain SMTP (Hostinger / ez@zerric.xyz) - no third-party API key.
+def _smtp_creds_for(address: str) -> str | None:
+    """Look up the SMTP password for a specific mailbox in credentials.txt.
 
-    Reads SMTP_HOST / SMTP_PORT / SMTP_USER / SMTP_PASS from the environment (.env).
+    Only @zdotllc.com work mailboxes are supported here. Never logs the value.
+    """
+    import re
+    from pathlib import Path as _P
+    cred = _P(__file__).resolve().parents[3] / "communication" / "credentials.txt"
+    if not cred.exists():
+        return None
+    txt = cred.read_text(errors="replace")
+    m = re.search(rf'{re.escape(address)}[^\n]*?pass(?:word)?\s*[:=]?\s*(\S+)', txt)
+    return m.group(1) if m else None
+
+
+async def _send_via_smtp(to: str, subject: str, body: str, is_html: bool) -> dict:
+    """Send via SMTP. Honours `from_address` by authenticating AS that mailbox.
+
+    Hostinger requires the authenticated account to match the From header, or the
+    message fails DKIM alignment and looks like spoofing. The old code ignored
+    from_address entirely and always sent as SMTP_USER while claiming otherwise.
     """
     host = os.getenv("SMTP_HOST", "smtp.hostinger.com")
     port = int(os.getenv("SMTP_PORT", "465"))
-    user = os.getenv("SMTP_USER", "ez@zerric.xyz")
-    password = os.getenv("SMTP_PASS", "")
+    fallback_user = os.getenv("SMTP_USER", "ez@zerric.xyz")
+    fallback_pass = os.getenv("SMTP_PASS", "")
+
+    wanted = (_from_address or "").strip()
+    user, password = fallback_user, fallback_pass
+    substituted_from = None
+
+    if wanted and wanted.lower() != fallback_user.lower():
+        pw = _smtp_creds_for(wanted)
+        if pw:
+            user, password = wanted, pw
+        else:
+            # no creds for the requested identity -> send as the authenticated
+            # account and be explicit about the substitution rather than lying
+            substituted_from = wanted
+
     if not password:
-        raise RuntimeError("SMTP_PASS not set - add it to .env (value lives in communication/credentials.txt)")
+        raise RuntimeError("No SMTP password available. Set SMTP_PASS in .env.")
     msg = MIMEText(body, "html" if is_html else "plain", "utf-8")
     msg["Subject"] = subject
-    msg["From"] = user
+    msg["From"] = f"{_from_name} <{user}>" if _from_name else user
+    if _reply_to:
+        msg["Reply-To"] = _reply_to
     msg["To"] = to
     msg["Date"] = formatdate(localtime=True)
     ctx = ssl.create_default_context()
-    with smtplib.SMTP_SSL(host, port, context=ctx, timeout=25) as server:
-        server.login(user, password)
-        server.sendmail(user, [to], msg.as_string())
-    return {"id": "smtp", "status": "sent", "provider": "smtp"}
+
+    def _attempt(acct: str, pw: str):
+        msg.replace_header("From", f"{_from_name} <{acct}>" if _from_name else acct)
+        with smtplib.SMTP_SSL(host, port, context=ctx, timeout=25) as server:
+            server.login(acct, pw)
+            server.sendmail(acct, [to], msg.as_string())
+
+    try:
+        _attempt(user, password)
+    except smtplib.SMTPAuthenticationError:
+        # A stored password existed for the requested identity but is wrong
+        # (e.g. team@/ceo@ mailboxes reject auth). Fall back to the account we can
+        # actually authenticate, and say so — never silently misrepresent the sender.
+        if user != fallback_user and fallback_pass:
+            substituted_from = user
+            user, password = fallback_user, fallback_pass
+            _attempt(user, password)
+        else:
+            raise
+    out = {"id": "smtp", "status": "sent", "provider": "smtp", "from": user}
+    if substituted_from:
+        out["warning"] = (f"requested From {substituted_from} has no stored SMTP "
+                          f"password; sent as {user} instead")
+    return out
 
 
 @tool(

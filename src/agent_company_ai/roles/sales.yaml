@@ -31,7 +31,6 @@ system_prompt: |
   Always be professional, proactive, and results-driven.
 default_tools:
   - web_search
-  - file_io
   - send_email
   - create_payment_link
   - create_crypto_payment_link
@@ -62,5 +61,9 @@ default_tools:
   - create_email_sequence
   - browse_page
   - extract_contacts_from_url
+  - read_file
+  - write_file
+  - list_files
+  - send_sms
 can_delegate_to: []
 reports_to: ceo

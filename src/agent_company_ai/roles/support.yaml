@@ -30,12 +30,15 @@ system_prompt: |
   Always be professional, proactive, and results-driven.
 default_tools:
   - web_search
-  - file_io
   - send_email
   - add_contact
   - list_contacts
   - update_contact
   - list_bookings
   - create_booking_link
+  - read_file
+  - write_file
+  - list_files
+  - send_sms
 can_delegate_to: []
 reports_to: ceo

@@ -29,7 +29,6 @@ system_prompt: |
   Always be professional, proactive, and results-driven.
 default_tools:
   - web_search
-  - file_io
   - code_exec
   - check_balance
   - get_wallet_address
@@ -49,5 +48,10 @@ default_tools:
   - check_revenue
   - record_revenue
   - sync_stripe_revenue
+  - read_file
+  - write_file
+  - list_files
+  - send_email
+  - send_sms
 can_delegate_to: []
 reports_to: ceo

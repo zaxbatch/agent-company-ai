@@ -41,6 +41,7 @@ from agent_company_ai.tools.landing_page import (
 from agent_company_ai.tools.social_media import (
     set_social_db, set_social_agent, set_twitter_config, set_twitter_oauth2,
 )
+from agent_company_ai.tools.sms_tool import set_sms_config, set_sms_agent
 from agent_company_ai.tools.gumroad_tools import set_gumroad_config, set_gumroad_db, set_gumroad_agent
 from agent_company_ai.tools.invoice_tool import (
     set_invoice_config, set_invoice_db, set_invoice_agent, set_invoice_company_dir,
@@ -146,6 +147,15 @@ class Company:
             set_stripe_config(api_key=intg.stripe.api_key)
             set_stripe_db(db)
             set_stripe_rate_limits(intg.rate_limits.max_payment_amount_usd)
+
+        # SMS — real carrier only. The tmomail.net gateway is shutdown; without
+        # TWILIO_* set, send_sms refuses rather than reporting a false success.
+        set_sms_config(
+            account_sid=os.getenv("TWILIO_ACCOUNT_SID", "").strip(),
+            auth_token=os.getenv("TWILIO_AUTH_TOKEN", "").strip(),
+            from_number=os.getenv("TWILIO_FROM_NUMBER", "").strip(),
+            default_to=os.getenv("SMS_DEFAULT_TO", "").strip(),
+        )
 
         # Twitter / X
         if intg.twitter.enabled:

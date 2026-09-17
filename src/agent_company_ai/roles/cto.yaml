@@ -30,10 +30,14 @@ system_prompt: |
 default_tools:
   - web_search
   - code_exec
-  - file_io
   - shell
   - create_landing_page
   - deploy_landing_page
+  - read_file
+  - write_file
+  - list_files
+  - send_email
+  - send_sms
 can_delegate_to:
   - developer
 reports_to: ceo
