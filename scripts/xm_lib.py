@@ -24,6 +24,15 @@ def note_for(freq, base_freq=55.0):
     return max(1, min(96, NOTE_C4 + int(round(12 * math.log2(freq / base_freq)))))
 
 
+def delta_encode16(pcm_i16):
+    """XM 16-bit sample storage: signed little-endian 16-bit, delta-encoded.
+    16-bit lifts the noise floor from ~-48 dB (8-bit) to ~-96 dB."""
+    import numpy as np
+    a = np.asarray(pcm_i16, dtype=np.int64)
+    d = np.diff(np.concatenate([[0], a]))
+    return d.astype("<i2").tobytes()
+
+
 def delta_encode(pcm_bytes):
     out = bytearray(len(pcm_bytes))
     prev = 0
@@ -37,11 +46,20 @@ def delta_encode(pcm_bytes):
 
 class Sample:
     def __init__(self, pcm, loop=None, volume=64, pan=128, rel_note=REL_NOTE,
-                 finetune=0, name="sample"):
-        # pcm: float in [-1,1]
+                 finetune=0, name="sample", bits=8):
+        # pcm: float in [-1,1]. bits=8 (legacy) or 16 (full quality).
         import numpy as np
         x = np.clip(np.asarray(pcm, dtype=float), -1.0, 1.0)
-        self.data = (x * 127.0).astype(np.int8).tobytes()
+        self.bits = 16 if bits == 16 else 8
+        if self.bits == 16:
+            import numpy as np
+            self.pcm = np.rint(x * 32767.0).astype(np.int16)
+            self.data = delta_encode16(self.pcm)      # BYTES (2 per sample)
+            self.n_samples = len(self.pcm)
+        else:
+            raw = (x * 127.0).astype(np.int8).tobytes()
+            self.data = delta_encode(raw)          # 8-bit: delta at construction
+            self.n_samples = len(raw)
         self.length = len(self.data)
         self.loop = loop          # (start, end) in samples, or None
         self.volume, self.pan = volume, pan
@@ -114,13 +132,15 @@ class Module:
         assert len(h) == 263, len(h)
         for s in inst.samples:
             ls, le = s.loop if s.loop else (0, 0)
-            h += struct.pack("<III", s.length, ls, (le - ls) if s.loop else 0)
-            # volume(u8) finetune(i8) type(u8) panning(u8) relnote(i8) reserved(u8)
+            # XM stores sample length in SAMPLES, not bytes
+            h += struct.pack("<III", s.n_samples, ls, (le - ls) if s.loop else 0)
+            # type byte: bit0 = loop, bit4 (0x10) = 16-bit
+            typ = (0x01 if s.loop else 0x00) | (0x10 if getattr(s, "bits", 8) == 16 else 0x00)
             h += struct.pack("<BbBBbB", s.volume, s.finetune,
-                             0x01 if s.loop else 0x00, s.pan, s.rel_note, 0)
+                             typ, s.pan, s.rel_note, 0)
             h += s.name.encode()[:22].ljust(22, b"\x00")
         for s in inst.samples:
-            h += delta_encode(s.data)
+            h += s.data          # already encoded at construction
         return bytes(h)
 
     def tobytes(self):
