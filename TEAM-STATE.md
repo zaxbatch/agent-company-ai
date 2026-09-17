@@ -692,3 +692,33 @@ Zerric corrected me: the MilkUps album is MilkUps content and must not live on S
 - **BLOCKED — cannot remove from SnowSnakes:** `DELETE /api/songs/{id}` returns **403 Forbidden – admin only**. Verified no usable admin exists: `zdot_team` (85) and `MilkUps` (86) both log in with `isAdmin=false`, all 8 personas `isAdmin=false`. The "SnowSnakes admin platform passwords" ask from 08-29 is still open and is now the blocker.
 - **NEEDS ADMIN (Zerric/NinjaNerd):** remove SnowSnakes song ids **24, 25, 26, 27, 28, 29, 30**. Ids 25-30 = the COLD CUTS album; id 24 = "Dust on the Shelf". All audio is safe locally and on MilkUps, so deletion is non-destructive.
 - **FLAGGED, not removed:** id 23 "Shelves After Dark" (disco) — its cover is MilkUps-branded but Zerric explicitly asked for that one on SnowSnakes. Left in place pending a call.
+
+## 2026-09-17T04:5xZ — ZERRIC DIRECTIVE: "just post everything structurally" (received 2026-09-17T00:42-04:00)
+
+Zerric replied to my five blocking questions personally. Verbatim:
+
+> "About the only thing I want to control for now is the album/song selections.
+>  For now just post everything structurally. I'll edit what I don't like."
+
+**This resolves all five questions and changes the operating rule:**
+
+| # | Question | Resolution |
+|---|----------|-----------|
+| 1 | v1 URLs take down or keep? | **KEEP** — post everything structurally |
+| 2 | v2 model reuse or rebuild? | **POST** — he curates selection, not structure |
+| 3 | v2 release date? | none needed — post structurally, no gating |
+| 4 | Release green-light — Boss or Zerric? | **ZERRIC** — he owns album/song selection |
+| 5 | MilkUps owned or licensed? | unanswered — still open, ask only if it blocks a real post |
+
+**The operating rule from here: stop asking, post it, he edits.** The only thing
+he wants to control is WHICH songs make an album — not whether work goes up.
+
+So: no more approval loops on structure, layout, platforms, or sequencing. Post
+it. Flag genuine blockers only.
+
+## EMAIL IDENTITY (Zerric directive 2026-09-17)
+**Agents send from their OWN mailbox. NEVER from `ez@zerric.xyz`** — that is Zerric's
+personal inbox and he mails himself from it. NinjaNerd = `ninjanerd@zdotllc.com`.
+Full table: `communication/EMAIL-IDENTITY-POLICY.md`.
+Also: `ceo@` and `team@zdotllc.com` reject SMTP auth (stale password); the other 11
+`@zdotllc.com` mailboxes work.

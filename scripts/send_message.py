@@ -17,7 +17,7 @@ import re, sys, smtplib, ssl
 from email.mime.text import MIMEText
 from email.utils import formatdate
 
-SENDER = "ez@zerric.xyz"
+SENDER = "ninjanerd@zdotllc.com"   # our own agent mailbox. ez@zerric.xyz is Zerric's PERSONAL inbox - never send from it.
 SMTP_HOST = "smtp.hostinger.com"
 SMTP_PORT = 465
 BOSS_EMAIL = "zdotconnect@gmail.com"
