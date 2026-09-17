@@ -126,7 +126,9 @@ def g_synthwave(buf, bar, t0, sec, e, local, rng, ctx):
             place(buf, t0 + beat * SPB, d_kick(150, 52, 34, 8.0, 0.35), e)
         for beat in (1, 3):                       # gated snare on 2 and 4
             s = d_snare(rng, 9, 200, 0.5)
-            n = int(SPB * 0.42 * SR)
+            # gate length must never exceed the snare itself (blew up at 96 BPM:
+            # 0.42 of a beat was 11576 samples vs an 8820-sample snare)
+            n = min(int(SPB * 0.42 * SR), len(s))
             gate = (np.arange(n) // 512) % 2 == 0
             place(buf, t0 + beat * SPB, (s[:n] * gate), 0.9 * e)
     if e > 0.30:
@@ -210,18 +212,21 @@ def g_trap(buf, bar, t0, sec, e, local, rng, ctx):
 def g_ambient(buf, bar, t0, sec, e, local, rng, ctx):
     BAR = ctx["BAR"]
     root = [45, 41, 43, 40][bar % 4]
+    # Ambient has no beat by design: the climax comes from LAYERS, not a kick.
+    # (An earlier version put a heartbeat kick in the climax; it made the quiet
+    # sections read as silence, 0.013 of peak, and failed the audible-dip gate.)
     place(buf, t0, sk.supersaw([root, root + 7, root + 12, root + 15, root + 19],
-                               BAR * 1.05, voices=9, detune=0.20, gain=0.052,
+                               BAR * 1.05, voices=9, detune=0.20, gain=0.150,
                                a=1.4, d=0.8, s=0.75, r=1.6), e)
     if e > 0.42:
         place(buf, t0, sk.supersaw([root + 24, root + 31], BAR * 0.9, voices=5,
-                                   detune=0.24, gain=0.030, a=1.8, s=0.6, r=1.8), e)
+                                   detune=0.24, gain=0.062, a=1.8, s=0.6, r=1.8), e)
     if e > 0.34 and bar % 2 == 0:                 # sparse bell tones
         for i, m in enumerate([root + 36, root + 31]):
-            place(buf, t0 + (i * 2 + 0.5) * ctx["SPB"], sk.epiano([m], 3.2, 0.055), e)
-    if e > 0.70:                                  # heartbeat pulse in the climax
-        place(buf, t0, d_kick(90, 40, 22, 6.0, 0.0, 0.40), e * 0.7)
-        place(buf, t0 + 2.5 * ctx["SPB"], d_kick(90, 40, 22, 6.0, 0.0, 0.40), e * 0.5)
+            place(buf, t0 + (i * 2 + 0.5) * ctx["SPB"], sk.epiano([m], 3.2, 0.078), e)
+    if e > 0.62:                                  # climax = a low swell, not a beat
+        place(buf, t0, sk.supersaw([root - 12, root - 5], BAR * 1.0, voices=3,
+                                   detune=0.06, gain=0.055, a=1.0, s=0.8, r=1.4), e)
 
 
 GENRES = {"disco": g_disco, "boombap": g_boombap, "synthwave": g_synthwave,
@@ -315,11 +320,12 @@ def _font(sz, bold):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--only", type=int)
+    ap.add_argument("--from", dest="start", type=int, default=1)
     ap.add_argument("--no-structure", action="store_true")
     a = ap.parse_args()
     OUT.mkdir(parents=True, exist_ok=True)
 
-    todo = [t for t in TRACKS if not a.only or t["n"] == a.only]
+    todo = [t for t in TRACKS if (not a.only or t["n"] == a.only) and t["n"] >= a.start]
     report = []
     for spec in todo:
         print(f"\n=== {spec['n']}. {spec['title']}  [{spec['genre']} @ {spec['bpm']} BPM, shape={spec['shape']}]")

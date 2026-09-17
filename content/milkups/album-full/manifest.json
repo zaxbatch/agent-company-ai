@@ -42,6 +42,231 @@
     ]
    ],
    "contour": "\u2584\u2585\u2585\u2585\u2586\u2586\u2586\u2586\u2586\u2586\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2587\u2587\u2587\u2587\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2584\u2584\u2584\u2584"
+  },
+  {
+   "n": 2,
+   "title": "Slack in the Cooler",
+   "genre": "boombap",
+   "bpm": 90,
+   "shape": "song",
+   "bars": 48,
+   "seconds": 130.0,
+   "wav": "content/milkups/album-full/02-slack-in-the-cooler.wav",
+   "cover": "content/milkups/album-full/02-cover.png",
+   "structure_pass": true,
+   "structure": [
+    [
+     "has a dip",
+     true,
+     "quietest 5-bar window = 0.44 of peak (need <= 0.62)"
+    ],
+    [
+     "dip is audible (not silence)",
+     true,
+     "quietest window = 0.444 (need >= 0.04; 0.000 = track stopped)"
+    ],
+    [
+     "has a climax",
+     true,
+     "loudest 5-bar window = 0.98 of peak (need >= 0.86)"
+    ],
+    [
+     "sustained climax (4 bars)",
+     true,
+     "loudest 4-bar window = 0.98"
+    ],
+    [
+     "dynamic range",
+     true,
+     "peak/quiet = 2.21x (need >= 1.45x)"
+    ],
+    [
+     "dip precedes climax",
+     true,
+     "dip at bar ~27, peak at bar ~40 of 48"
+    ]
+   ],
+   "contour": "\u2584\u2585\u2585\u2585\u2586\u2586\u2586\u2586\u2586\u2586\u2586\u2586\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2586\u2586\u2586\u2586\u2586\u2586\u2584\u2584\u2584\u2584\u2584\u2584\u2587\u2587\u2587\u2587\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2584\u2584\u2584\u2584"
+  },
+  {
+   "n": 3,
+   "title": "Frostbite Boulevard",
+   "genre": "synthwave",
+   "bpm": 96,
+   "shape": "slowburn",
+   "bars": 51,
+   "seconds": 129.5,
+   "wav": "content/milkups/album-full/03-frostbite-boulevard.wav",
+   "cover": "content/milkups/album-full/03-cover.png",
+   "structure_pass": true,
+   "structure": [
+    [
+     "has a dip",
+     true,
+     "quietest 5-bar window = 0.13 of peak (need <= 0.62)"
+    ],
+    [
+     "dip is audible (not silence)",
+     true,
+     "quietest window = 0.133 (need >= 0.04; 0.000 = track stopped)"
+    ],
+    [
+     "has a climax",
+     true,
+     "loudest 5-bar window = 0.98 of peak (need >= 0.86)"
+    ],
+    [
+     "sustained climax (4 bars)",
+     true,
+     "loudest 4-bar window = 0.98"
+    ],
+    [
+     "dynamic range",
+     true,
+     "peak/quiet = 7.36x (need >= 1.45x)"
+    ],
+    [
+     "dip precedes climax",
+     true,
+     "dip at bar ~0, peak at bar ~42 of 51"
+    ]
+   ],
+   "contour": "\u2581\u2582\u2582\u2582\u2582\u2582\u2585\u2585\u2585\u2585\u2585\u2585\u2585\u2585\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2582\u2582\u2582\u2582\u2582\u2582\u2582\u2582\u2586\u2586\u2586\u2586\u2586\u2586\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2582\u2582\u2582\u2582\u2582"
+  },
+  {
+   "n": 4,
+   "title": "Milk Carton Club",
+   "genre": "house",
+   "bpm": 126,
+   "shape": "club",
+   "bars": 40,
+   "seconds": 78.19,
+   "wav": "content/milkups/album-full/04-milk-carton-club.wav",
+   "cover": "content/milkups/album-full/04-cover.png",
+   "structure_pass": true,
+   "structure": [
+    [
+     "has a dip",
+     true,
+     "quietest 5-bar window = 0.12 of peak (need <= 0.62)"
+    ],
+    [
+     "dip is audible (not silence)",
+     true,
+     "quietest window = 0.122 (need >= 0.04; 0.000 = track stopped)"
+    ],
+    [
+     "has a climax",
+     true,
+     "loudest 5-bar window = 0.99 of peak (need >= 0.86)"
+    ],
+    [
+     "sustained climax (4 bars)",
+     true,
+     "loudest 4-bar window = 0.99"
+    ],
+    [
+     "dynamic range",
+     true,
+     "peak/quiet = 8.11x (need >= 1.45x)"
+    ],
+    [
+     "dip precedes climax",
+     true,
+     "dip at bar ~19, peak at bar ~31 of 40"
+    ]
+   ],
+   "contour": "\u2585\u2585\u2585\u2585\u2586\u2586\u2586\u2586\u2586\u2586\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2587\u2587\u2587\u2587\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2584\u2584\u2584\u2584"
+  },
+  {
+   "n": 5,
+   "title": "Sour Turn",
+   "genre": "trap",
+   "bpm": 140,
+   "shape": "song",
+   "bars": 48,
+   "seconds": 84.29,
+   "wav": "content/milkups/album-full/05-sour-turn.wav",
+   "cover": "content/milkups/album-full/05-cover.png",
+   "structure_pass": true,
+   "structure": [
+    [
+     "has a dip",
+     true,
+     "quietest 5-bar window = 0.40 of peak (need <= 0.62)"
+    ],
+    [
+     "dip is audible (not silence)",
+     true,
+     "quietest window = 0.404 (need >= 0.04; 0.000 = track stopped)"
+    ],
+    [
+     "has a climax",
+     true,
+     "loudest 5-bar window = 0.91 of peak (need >= 0.86)"
+    ],
+    [
+     "sustained climax (4 bars)",
+     true,
+     "loudest 4-bar window = 0.89"
+    ],
+    [
+     "dynamic range",
+     true,
+     "peak/quiet = 2.25x (need >= 1.45x)"
+    ],
+    [
+     "dip precedes climax",
+     true,
+     "dip at bar ~26, peak at bar ~42 of 48"
+    ]
+   ],
+   "contour": "\u2583\u2585\u2584\u2585\u2585\u2586\u2585\u2586\u2585\u2586\u2585\u2586\u2586\u2588\u2587\u2588\u2586\u2588\u2587\u2588\u2585\u2586\u2585\u2586\u2585\u2586\u2584\u2584\u2583\u2584\u2584\u2584\u2585\u2587\u2586\u2587\u2587\u2588\u2587\u2588\u2587\u2588\u2587\u2588\u2583\u2584\u2584\u2584"
+  },
+  {
+   "n": 6,
+   "title": "Last One on the Shelf",
+   "genre": "ambient",
+   "bpm": 72,
+   "shape": "slowburn",
+   "bars": 51,
+   "seconds": 172.0,
+   "wav": "content/milkups/album-full/06-last-one-on-the-shelf.wav",
+   "cover": "content/milkups/album-full/06-cover.png",
+   "structure_pass": true,
+   "structure": [
+    [
+     "has a dip",
+     true,
+     "quietest 5-bar window = 0.11 of peak (need <= 0.62)"
+    ],
+    [
+     "dip is audible (not silence)",
+     true,
+     "quietest window = 0.115 (need >= 0.04; 0.000 = track stopped)"
+    ],
+    [
+     "has a climax",
+     true,
+     "loudest 5-bar window = 0.87 of peak (need >= 0.86)"
+    ],
+    [
+     "sustained climax (4 bars)",
+     true,
+     "loudest 4-bar window = 0.83"
+    ],
+    [
+     "dynamic range",
+     true,
+     "peak/quiet = 7.54x (need >= 1.45x)"
+    ],
+    [
+     "dip precedes climax",
+     true,
+     "dip at bar ~1, peak at bar ~43 of 51"
+    ]
+   ],
+   "contour": "\u2581\u2581\u2581\u2581\u2581\u2581\u2585\u2583\u2585\u2583\u2585\u2583\u2585\u2583\u2588\u2585\u2588\u2585\u2588\u2585\u2588\u2585\u2583\u2582\u2583\u2582\u2583\u2582\u2583\u2582\u2586\u2584\u2586\u2584\u2586\u2584\u2588\u2586\u2588\u2586\u2588\u2586\u2588\u2586\u2588\u2586\u2583\u2582\u2583\u2582\u2583"
   }
  ]
 }
