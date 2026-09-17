@@ -164,9 +164,18 @@ def cmd_write(a):
         raise SystemExit(f"{a.agent!r} may not write {rel} (allowed: {', '.join(g.get('write', []))})")
     _denied(a.agent, a.content)
     p.parent.mkdir(parents=True, exist_ok=True)
-    p.write_text(a.content)
-    audit(a.agent, "write", rel, f"{len(a.content)} bytes")
-    print(f"wrote {rel} ({len(a.content)} bytes)")
+    # DEFAULT IS APPEND. An earlier version overwrote, so one write to the outbox
+    # dropbox destroyed its own instructions -- caught in testing. Overwriting is
+    # now opt-in via --overwrite and never the default for an agent write.
+    if a.overwrite:
+        p.write_text(a.content)
+        mode = "overwrote"
+    else:
+        with p.open("a", encoding="utf-8") as f:
+            f.write(("\n" if p.exists() and p.stat().st_size else "") + a.content + "\n")
+        mode = "appended"
+    audit(a.agent, "write", rel, f"{mode} {len(a.content)} bytes")
+    print(f"{mode} {rel} ({len(a.content)} bytes)")
 
 
 def cmd_audit(a):
@@ -189,6 +198,8 @@ def main():
     s = sub.add_parser("sms"); s.add_argument("--to", default="boss")
     s.add_argument("body"); s.set_defaults(func=cmd_sms)
     w = sub.add_parser("write"); w.add_argument("path"); w.add_argument("content")
+    w.add_argument("--overwrite", action="store_true",
+                   help="replace the file instead of appending (opt-in)")
     w.set_defaults(func=cmd_write)
     au = sub.add_parser("audit"); au.add_argument("--tail", type=int, default=20)
     au.set_defaults(func=cmd_audit)
