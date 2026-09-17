@@ -41,7 +41,22 @@ SENT = OUTBOX / "_sent"
 AGENT_OUT = ROOT / ".agent-company-ai" / "default" / "output"
 STATE = ROOT / ".agent-company-ai" / "outbox_state.json"
 SMTP_HOST, SMTP_PORT = "smtp.hostinger.com", 465
-SENDER = "ez@zerric.xyz"
+
+# Each agent sends from ITS OWN mailbox. zerric@ told us plainly: "Don't use the
+# ez@zerric.xyz to email me because I use it. I'm sending stuff to myself. Use
+# your own email to email me. That's what it's for." ez@ is his personal account;
+# routing team outbound through it put our mail in his own inbox stream.
+FALLBACK_SENDER = "ez@zerric.xyz"
+AGENT_MAILBOX = {
+    "clickclack": "clickclack@zdotllc.com",
+    "bosslady":   "bosslady@zdotllc.com",
+    "ninjanerd":  "ninjanerd@zdotllc.com",
+    "mark":       "mark@zdotllc.com",
+    "meta":       "meta@zdotllc.com",
+    "manny":      "manny@zdotllc.com",
+    "seleena":    "seleena@zdotllc.com",
+    "bots":       "bots@zdotllc.com",
+}
 
 # proven recipients only
 RECIPIENTS = {
@@ -57,38 +72,51 @@ SMS_GATEWAY = "tmomail.net"
 MAX_SMS = 300
 
 
-def _password():
-    """First password in credentials.txt that authenticates for ez@."""
-    for m in re.finditer(r"(?im)^\s*pass\s*[:=]\s*(\S+)", CRED.read_text(encoding="utf-8", errors="replace")):
-        pw = m.group(1)
+def _password(mailbox=FALLBACK_SENDER):
+    """Password for *mailbox* from credentials.txt, verified against SMTP."""
+    txt = CRED.read_text(encoding="utf-8", errors="replace")
+    cands = []
+    for ln in txt.splitlines():
+        if mailbox in ln:
+            m = re.search(r"password\s*[:=]\s*(\S+)", ln, re.I)
+            if m:
+                cands.append(m.group(1))
+    m = re.search(r"default for new boxes\):\s*(\S+)", txt)
+    if m:
+        cands.append(m.group(1))
+    for m in re.finditer(r"(?im)^\s*pass\s*[:=]\s*(\S+)", txt):
+        cands.append(m.group(1))
+    for pw in dict.fromkeys(cands):
         try:
             with smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT,
                                   context=ssl.create_default_context(), timeout=15) as s:
-                s.login(SENDER, pw)
+                s.login(mailbox, pw)
             return pw
         except Exception:
             continue
-    raise RuntimeError("no authenticating password for ez@zerric.xyz")
+    raise RuntimeError(f"no authenticating password for {mailbox}")
 
 
-def deliver(to_key, subject, body, sms=False, dry=False):
+def deliver(to_key, subject, body, sms=False, dry=False, sender=None):
     email, num = RECIPIENTS.get(to_key, (to_key, None))
+    sender = sender or FALLBACK_SENDER
     sent = []
-    pw = None if dry else _password()
+    pw = None if dry else _password(sender)
     if email:
         if dry:
             print(f"  [dry] email -> {email} :: {subject}")
         else:
             msg = MIMEText(body, "plain", "utf-8")
             msg["Subject"] = subject
-            msg["From"] = formataddr(("Z-Dot Team", SENDER))
+            msg["From"] = formataddr(("Z-Dot Team", sender))
+            msg["Reply-To"] = sender
             msg["To"] = email
             msg["Date"] = formatdate(localtime=True)
             with smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT,
                                   context=ssl.create_default_context(), timeout=25) as s:
-                s.login(SENDER, pw)
-                s.sendmail(SENDER, [email], msg.as_string())
-            print(f"  email -> {email}")
+                s.login(sender, pw)
+                s.sendmail(sender, [email], msg.as_string())
+            print(f"  email -> {email} (from {sender})")
             sent.append(("email", email))
     if sms and (num or to_key in RECIPIENTS):
         num = num or RECIPIENTS[to_key][1]
@@ -101,13 +129,13 @@ def deliver(to_key, subject, body, sms=False, dry=False):
                 print(f"  [dry] sms -> {num}")
             else:
                 msg = MIMEText(short, "plain", "utf-8")
-                msg["From"] = SENDER
+                msg["From"] = sender
                 msg["To"] = gate
                 msg["Date"] = formatdate(localtime=True)
                 with smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT,
                                       context=ssl.create_default_context(), timeout=25) as s:
-                    s.login(SENDER, pw)
-                    s.sendmail(SENDER, [gate], msg.as_string())
+                    s.login(sender, pw)
+                    s.sendmail(sender, [gate], msg.as_string())
                 print(f"  sms -> {num} ({len(short)} chars)")
                 sent.append(("sms", num))
     return sent
@@ -136,7 +164,8 @@ def parse_messages(text):
 
 def cmd_send(a):
     subject = a.subject or a.body.splitlines()[0][:70]
-    deliver(a.to, subject, a.body, sms=a.sms, dry=a.dry_run)
+    sender = AGENT_MAILBOX.get((a.sender or "").lower(), FALLBACK_SENDER)
+    deliver(a.to, subject, a.body, sms=a.sms, dry=a.dry_run, sender=sender)
 
 
 def cmd_flush(a):
