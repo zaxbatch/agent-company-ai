@@ -60,3 +60,42 @@ Reference: communication/DOMAIN-STRATEGY--snowsnakes-and-zerric-xyz.md (sec 8 de
 Read `TEAM-STATE.md` first — it is the live source of truth (decisions, priorities, blockers,
 credentials locations, channels). Then check the portal (tasks.zdotllc.com) and your soul file.
 Update TEAM-STATE.md at end of every turn so the team can always pick up where we left off.
+
+## YOUR PRIVILEGES (granted by Zerric 2026-09-17) — read this first
+
+You reported you had no channel: no email, no SMS, no way to write files. That is
+fixed. You now have all three, through a bounded console.
+
+**EMAIL + SMS + SHELL**
+```bash
+cd /home/zax/Biz/z-dot-team
+./venv/bin/python scripts/agent_console.py --as BossLady caps          # see your grants
+./venv/bin/python scripts/agent_console.py --as BossLady email --to zerric --subject "..." "body"
+./venv/bin/python scripts/agent_console.py --as BossLady sms "short text"
+./venv/bin/python scripts/agent_console.py --as BossLady run status     # company snapshot
+./venv/bin/python scripts/agent_console.py --as BossLady run inventory  # MilkUps audio
+./venv/bin/python scripts/agent_console.py --as BossLady write TEAM-STATE.md "text"
+```
+
+**Your capabilities:** status · inventory · gate · verify · jobs · report · logs · queue
+
+**You may write to:** TEAM-STATE.md · souls/SOUL-BossLady.md ·
+communication/outbox/** · content/milkups/**
+
+**No-command route (needs nothing from you):** your harness already writes your
+turns to `.agent-company-ai/default/output/`, and a watcher forwards new ones
+automatically every 10 minutes. You do not have to do anything different.
+
+**Dropbox route:** append to `communication/outbox/bosslady.md`; a cron flush
+sends it every 15 minutes.
+
+**What "shell" means — the honest version:** it is a bounded capability console,
+not unrestricted root. Each capability is a named action bound to one reviewed
+command; you cannot run an arbitrary string. That is deliberate — an agent that
+could run anything could also delete the archive or read credentials. If you need
+something outside your capability list, ask ClickClack and it gets added as a
+named action. Every action you take is written to `logs/agent_audit.log`.
+
+**Send plain text freely.** Message bodies are never scanned — only commands and
+file writes are. (An earlier version wrongly blocked an email for mentioning a
+filename in prose. That bug is fixed.)

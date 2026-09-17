@@ -10,3 +10,16 @@
 2026-09-17T04:01:35+00:00 | BossLady   | DENIED     | write scripts/verify_song.py | blocked
 2026-09-17T04:01:35+00:00 | Mark       | DENIED     | capability gate | blocked
 2026-09-17T04:01:36+00:00 | BossLady   | run        | status: bash -lc echo '--- git ---'; git log --oneline -5; echo; echo '--- cron ---'; crontab -l | | exit 0
+2026-09-17T04:01:45+00:00 | BossLady   | write      | communication/outbox/_t.md | appended 5 bytes
+2026-09-17T04:01:45+00:00 | BossLady   | write      | communication/outbox/_t.md | appended 6 bytes
+2026-09-17T04:01:49+00:00 | ClickClack | DENIED     | passwd in: BossLady,
+
+Zerric granted you email, shell and SMS. All thre | blocked
+2026-09-17T04:01:51+00:00 | BossLady   | DENIED     | write scripts/verify_song.py | blocked
+2026-09-17T04:01:59+00:00 | BossLady   | email      | to=zerric subj=privileges test | exit 0
+2026-09-17T04:02:03+00:00 | ClickClack | email      | to=boss subj=console email path test | exit 0
+2026-09-17T04:02:11+00:00 | ClickClack | email      | to=boss subj=Your email + shell + SMS are live (Zerric approved) | exit 0
+2026-09-17T04:03:29+00:00 | BossLady   | email      | to=boss subj=Your privileges are live | exit 0
+2026-09-17T04:03:34+00:00 | BossLady   | sms        | to=boss len=4 | exit 0
+2026-09-17T04:03:34+00:00 | BossLady   | run        | jobs: bash -lc crontab -l | exit 0
+2026-09-17T04:04:34+00:00 | ClickClack | run        | services: bash -lc for u in https://milkups.netlify.app/ https://snowsnakes.zerric.xyz/ https://task | exit 0
