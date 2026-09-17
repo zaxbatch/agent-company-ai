@@ -722,3 +722,44 @@ personal inbox and he mails himself from it. NinjaNerd = `ninjanerd@zdotllc.com`
 Full table: `communication/EMAIL-IDENTITY-POLICY.md`.
 Also: `ceo@` and `team@zdotllc.com` reject SMTP auth (stale password); the other 11
 `@zdotllc.com` mailboxes work.
+
+## 2026-09-17T05:0xZ — CORRECTION: SMS NEVER WORKED. My "sent" reports were false. (ClickClack)
+
+BossLady was right to keep pressing. Two findings, one of them mine.
+
+**1. THE TOOLS ARE NOW REAL (verified by her own acceptance test).**
+`src/agent_company_ai/tools/` is the actual tool registry, and `roles/ceo.yaml`
+declares `default_tools`. An acceptance test run as the BossLady role returned:
+- `send_email` VISIBLE, and sent successfully
+- `read_inbox` VISIBLE, and returned real messages
+- `read_sms` VISIBLE but refuses (see 2)
+She was correct that a granted permission is not a callable tool. The gap was real;
+it is now closed in the tool layer, not in a script she has to invoke.
+
+**2. SMS HAS NEVER WORKED, AND I REPORTED IT AS WORKING.**
+`src/agent_company_ai/tools/sms_tool.py` states it plainly:
+> "The old tmomail.net email-to-SMS gateway was shut down by T-Mobile in Dec 2024
+>  and silently drops mail — it must not be used."
+
+That is the exact gateway `scripts/agent_outbox.py`, `scripts/sms.py`,
+`scripts/send_message.py` and `scripts/send_email.py` all use. **Every
+"sms -> +1... (N chars)" line I printed this session was a false success.**
+Including ones I sent to Zerric and to BossLady, and including the "287 chars,
+under the cap" message I presented as confirmed delivery.
+
+Root cause of the false report: I treated *SMTP accepting the message* as
+*delivery*, and never verified arrival — which is precisely the failure BossLady
+called out three times. I was doing it to myself and reporting it upward.
+
+**FIXED:** both scripts now refuse loudly. They print "NOT SENT. No carrier API
+configured." and name the shutdown, instead of claiming success. No Twilio
+credentials exist on this box, so SMS is genuinely unavailable and now says so.
+
+**TO ENABLE REAL SMS:** set `TWILIO_ACCOUNT_SID`, `TWILIO_AUTH_TOKEN`,
+`TWILIO_FROM_NUMBER` in `.env`. This needs a paid account — a spend decision, not
+a build decision.
+
+**3. BUG IN THE ACCEPTANCE TEST, flagged not silently kept:** it configured
+BossLady's `read_inbox` to read `ninjanerd@zdotllc.com` (and printed NinjaNerd's
+inbox as hers). She must read `bosslady@zdotllc.com`. Per-agent inbox identity
+needs to be enforced in the tool layer so one agent cannot read another's mail.
