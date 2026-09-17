@@ -1,0 +1,6 @@
+file '/home/zax/Biz/z-dot-team/content/milkups/album-lmms/sections/intro_t.wav'
+file '/home/zax/Biz/z-dot-team/content/milkups/album-lmms/sections/main_t.wav'
+file '/home/zax/Biz/z-dot-team/content/milkups/album-lmms/sections/DIP_t.wav'
+file '/home/zax/Biz/z-dot-team/content/milkups/album-lmms/sections/build_t.wav'
+file '/home/zax/Biz/z-dot-team/content/milkups/album-lmms/sections/CLIMAX_t.wav'
+file '/home/zax/Biz/z-dot-team/content/milkups/album-lmms/sections/outro_t.wav'

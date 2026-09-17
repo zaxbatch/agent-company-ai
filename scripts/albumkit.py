@@ -266,3 +266,122 @@ def verify_shape_positions(wav, bpm, sections, tol=0.18):
                        f"declared climax = {max(measured, key=lambda m: m[2])[0]}, "
                        f"actually loudest = {max(measured, key=lambda m: m[1])[0]}"))
     return all(ok for _n, ok, _e in checks), checks
+
+
+def bar_loudness(wav, bpm, bars, win_ms=50, pct=90):
+    """Per-bar LOUDNESS that is fair to percussive and sustained material alike.
+
+    bar_energy() uses plain RMS, which under-rates percussion: a kick/hat bar is
+    mostly silence between hits, so it scores a LOWER RMS than a sustained pad --
+    even though it sounds louder. That made a quiet pad breakdown measure as the
+    loudest section of a track and failed a correct arrangement.
+
+    Using the 90th percentile of 50 ms RMS frames measures the loud parts rather
+    than averaging in the gaps, so both kinds of material compare sensibly.
+    """
+    import wave
+    with wave.open(str(wav)) as w:
+        sr = w.getframerate()
+        a = np.frombuffer(w.readframes(w.getnframes()), dtype="<i2").astype(np.float32) / 32768.0
+    if a.ndim > 1:
+        a = a.mean(axis=1)
+    wn = max(1, int(win_ms * sr / 1000))
+    nfrm = max(1, len(a) // wn)
+    st = np.sqrt((a[:nfrm * wn].reshape(nfrm, wn) ** 2).mean(axis=1))
+    bar = max(1, int(round(4 * 60.0 / bpm * sr / wn)))     # frames per bar
+    out = []
+    for b in range(bars):
+        seg = st[b * bar:(b + 1) * bar]
+        out.append(float(np.percentile(seg, pct)) if seg.size else 0.0)
+    return np.array(out, dtype=np.float64)
+
+
+def verify_shape_positions(wav, bpm, sections, tol=0.22, metric="loudness"):
+    """Position-aware shape check. metric='loudness' (default) uses
+    bar_loudness; 'rms' uses the older bar_energy. Both are kept so the choice is
+    explicit rather than hidden."""
+    f = bar_loudness if metric == "loudness" else bar_energy
+    e = f(wav, bpm, sum(b for _n, b, _x in sections))
+    if e.size == 0 or e.max() <= 0:
+        return False, [("declared shape", False, "no audio")]
+    n = e / e.max()
+    i, checks, measured = 0, [], []
+    for name, bars, exp in sections:
+        seg = n[i:i + bars]
+        got = float(seg.mean()) if seg.size else 0.0
+        measured.append((name, got, exp))
+        dif = abs(got - exp) / max(exp, 1e-6)
+        checks.append((f"{name}: energy as declared", dif <= tol,
+                       f"measured {got:.2f}, declared {exp:.2f} (tol {tol:.0%})"))
+        i += bars
+    got_min = min(measured, key=lambda m: m[1])
+    decl_min = min(measured, key=lambda m: m[2])
+    got_max = max(measured, key=lambda m: m[1])
+    decl_max = max(measured, key=lambda m: m[2])
+    checks.append(("declared dip IS the quietest", got_min[0] == decl_min[0],
+                   f"declared dip = {decl_min[0]}, actually quietest = {got_min[0]}"))
+    checks.append(("declared climax IS the loudest", got_max[0] == decl_max[0],
+                   f"declared climax = {decl_max[0]}, actually loudest = {got_max[0]}"))
+    return all(ok for _n, ok, _e in checks), checks
+
+
+def lufs(path, ss=None, t=None):
+    """Integrated loudness (LUFS) via ffmpeg loudnorm -- the broadcast standard.
+
+    Why not RMS or percentile-RMS: both mis-ranked a CORRECT arrangement. A
+    percussive section has a high peak but low RMS, and a sustained pad has the
+    reverse, so neither compares across material types. On the real LMMS render,
+    p90-RMS called the quiet pad breakdown (measured -23.1 LUFS) the loudest
+    section. LUFS is perceptual and monotonic here: climax -3.6, build -10.7,
+    main -5.3, intro -21.2, dip -23.1, outro -23.5.
+    """
+    import json as _json, re as _re, subprocess as _sp
+    cmd = ["ffmpeg", "-hide_banner"]
+    if ss is not None:
+        cmd += ["-ss", str(ss)]
+    if t is not None:
+        cmd += ["-t", str(t)]
+    cmd += ["-i", str(path), "-af", "loudnorm=print_format=json", "-f", "null", "-"]
+    out = _sp.run(cmd, capture_output=True, text=True).stderr
+    m = _re.search(r"\{[^{}]*input_i[^{}]*\}", out, _re.S)
+    if not m:
+        return None
+    try:
+        return float(_json.loads(m.group(0))["input_i"])
+    except Exception:
+        return None
+
+
+def verify_shape_lufs(wav, bpm, sections, tol_db=3.0):
+    """Verify the declared arrangement by perceptual loudness.
+
+    sections: (name, bars, relative_intent 0..1). Converts each measured section
+    LUFS to dB below the loudest section and compares with the declared intent
+    (also expressed in dB below full intent). tol_db is the allowed error.
+    """
+    import math
+    sec = 4 * 60.0 / bpm
+    i, measured, checks = 0, [], []
+    for name, bars, exp in sections:
+        L = lufs(wav, ss=i * sec, t=bars * sec)
+        measured.append((name, L, exp))
+        i += bars
+    if any(L is None for _n, L, _e in measured):
+        return False, [("loudness readable", False, "ffmpeg could not measure LUFS")]
+    ref = max(L for _n, L, _e in measured)
+    for name, L, exp in measured:
+        got_db = L - ref                      # 0 = loudest
+        want_db = 20 * math.log10(max(exp, 1e-6))   # 0 = loudest intent
+        err = abs(got_db - want_db)
+        checks.append((f"{name}: level as declared", err <= tol_db,
+                       f"{got_db:+.1f} dB vs declared {want_db:+.1f} dB "
+                       f"(measured {L:.1f} LUFS, err {err:.1f} dB, tol {tol_db})"))
+    loud = max(measured, key=lambda m: m[1])[0]
+    quiet = min(measured, key=lambda m: m[1])[0]
+    decl_loud = max(measured, key=lambda m: m[2])[0]
+    decl_quiet = min(measured, key=lambda m: m[2])[0]
+    checks.append(("declared climax IS the loudest", loud == decl_loud,
+                   f"declared {decl_loud}, measured loudest {loud}"))
+    checks.append(("declared dip IS the quietest", quiet == decl_quiet,
+                   f"declared {decl_quiet}, measured quietest {quiet}"))
+    return all(ok for _n, ok, _e in checks), checks

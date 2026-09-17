@@ -1,0 +1,473 @@
+<?xml version="1.0"?>
+<!DOCTYPE lmms-project>
+<lmms-project type="song" version="1.0" creator="LMMS" creatorversion="1.2.0">
+  <head timesig_denominator="4" bpm="126" masterpitch="0" mastervol="100" timesig_numerator="4"/>
+  <song>
+    <trackcontainer visible="1" width="580" height="159" type="song" x="425" y="16" maximized="0" minimized="0">
+          <track type="1" muted="0" name="CLIMAX" solo="0">
+      <bbtrack>
+        <trackcontainer visible="1" width="580" height="249" type="bbtrackcontainer" x="426" y="182" maximized="0" minimized="0">
+      <track type="0" muted="0" name="kick" solo="0">
+        <instrumenttrack pitch="0" vol="70" fxch="0" pan="0" basenote="57" usemasterpitch="1" pitchrange="1">
+          <instrument name="kicker">
+            <kicker startfreq="40" endfreq="150" decay="60" noise="0" dist="1" gain="1" length="300"/>
+          </instrument>
+        <eldata fwet="1" ftype="7" fres="1.2" fcut="1754">
+          <elvol lspd="0.1" ctlenvamt="0" lpdel="0" pdel="0" amt="1" hold="0" syncmode="0" userwavefile="" latt="0" sustain="1"/>
+          <elcut lspd="0.2918" ctlenvamt="1" lpdel="0" pdel="0" amt="0.82" hold="0" syncmode="0" userwavefile="" latt="0" sustain="1"/>
+          <elres lspd="0.1" ctlenvamt="0" lpdel="0" pdel="0" amt="0" hold="0.499" syncmode="0" userwavefile="" latt="0" sustain="1"/>
+        </eldata>
+          <chordcreator chordrange="1" chord="0" chord-enabled="0"/>
+          <arpeggiator arpdir="0" arpgate="100" arptime_denominator="4" syncmode="0" arp-enabled="0" arprange="2" arptime_numerator="4" arp="0"/>
+          <midiport inputchannel="0" fixedinputvelocity="-1" outputcontroller="0" outputchannel="1" fixedoutputvelocity="-1" readonly="0"/>
+          <fxchain numofeffects="0" enabled="0"/>
+        </instrumenttrack>
+        <pattern type="1" muted="0" steps="160" name="kick" pos="0" len="1920">
+          <note key="36" vol="100" pos="0" pan="0" len="6"/>
+          <note key="36" vol="100" pos="48" pan="0" len="6"/>
+          <note key="36" vol="100" pos="96" pan="0" len="6"/>
+          <note key="36" vol="100" pos="144" pan="0" len="6"/>
+          <note key="36" vol="60" pos="132" pan="0" len="5"/>
+          <note key="36" vol="100" pos="192" pan="0" len="6"/>
+          <note key="36" vol="100" pos="240" pan="0" len="6"/>
+          <note key="36" vol="100" pos="288" pan="0" len="6"/>
+          <note key="36" vol="100" pos="336" pan="0" len="6"/>
+          <note key="36" vol="60" pos="324" pan="0" len="5"/>
+          <note key="36" vol="100" pos="384" pan="0" len="6"/>
+          <note key="36" vol="100" pos="432" pan="0" len="6"/>
+          <note key="36" vol="100" pos="480" pan="0" len="6"/>
+          <note key="36" vol="100" pos="528" pan="0" len="6"/>
+          <note key="36" vol="60" pos="516" pan="0" len="5"/>
+          <note key="36" vol="100" pos="576" pan="0" len="6"/>
+          <note key="36" vol="100" pos="624" pan="0" len="6"/>
+          <note key="36" vol="100" pos="672" pan="0" len="6"/>
+          <note key="36" vol="100" pos="720" pan="0" len="6"/>
+          <note key="36" vol="60" pos="708" pan="0" len="5"/>
+          <note key="36" vol="100" pos="768" pan="0" len="6"/>
+          <note key="36" vol="100" pos="816" pan="0" len="6"/>
+          <note key="36" vol="100" pos="864" pan="0" len="6"/>
+          <note key="36" vol="100" pos="912" pan="0" len="6"/>
+          <note key="36" vol="60" pos="900" pan="0" len="5"/>
+          <note key="36" vol="100" pos="960" pan="0" len="6"/>
+          <note key="36" vol="100" pos="1008" pan="0" len="6"/>
+          <note key="36" vol="100" pos="1056" pan="0" len="6"/>
+          <note key="36" vol="100" pos="1104" pan="0" len="6"/>
+          <note key="36" vol="60" pos="1092" pan="0" len="5"/>
+          <note key="36" vol="100" pos="1152" pan="0" len="6"/>
+          <note key="36" vol="100" pos="1200" pan="0" len="6"/>
+          <note key="36" vol="100" pos="1248" pan="0" len="6"/>
+          <note key="36" vol="100" pos="1296" pan="0" len="6"/>
+          <note key="36" vol="60" pos="1284" pan="0" len="5"/>
+          <note key="36" vol="100" pos="1344" pan="0" len="6"/>
+          <note key="36" vol="100" pos="1392" pan="0" len="6"/>
+          <note key="36" vol="100" pos="1440" pan="0" len="6"/>
+          <note key="36" vol="100" pos="1488" pan="0" len="6"/>
+          <note key="36" vol="60" pos="1476" pan="0" len="5"/>
+          <note key="36" vol="100" pos="1536" pan="0" len="6"/>
+          <note key="36" vol="100" pos="1584" pan="0" len="6"/>
+          <note key="36" vol="100" pos="1632" pan="0" len="6"/>
+          <note key="36" vol="100" pos="1680" pan="0" len="6"/>
+          <note key="36" vol="60" pos="1668" pan="0" len="5"/>
+          <note key="36" vol="100" pos="1728" pan="0" len="6"/>
+          <note key="36" vol="100" pos="1776" pan="0" len="6"/>
+          <note key="36" vol="100" pos="1824" pan="0" len="6"/>
+          <note key="36" vol="100" pos="1872" pan="0" len="6"/>
+          <note key="36" vol="60" pos="1860" pan="0" len="5"/>
+        </pattern>
+      </track>
+      <track type="0" muted="0" name="hat" solo="0">
+        <instrumenttrack pitch="0" vol="44" fxch="0" pan="0" basenote="57" usemasterpitch="1" pitchrange="1">
+          <instrument name="tripleoscillator">
+            <tripleoscillator vol1="64" vol2="0" vol3="0" wavetype0="0" wavetype1="0" wavetype2="0" coarse0="0" coarse1="0" coarse2="0" finel0="0" finel1="0" finel2="0" finer0="0" finer1="0" finer2="0" pan0="0" pan1="0" pan2="0"/>
+          </instrument>
+        <eldata fwet="1" ftype="7" fres="1.2" fcut="1754">
+          <elvol lspd="0.1" ctlenvamt="0" lpdel="0" pdel="0" amt="1" hold="0" syncmode="0" userwavefile="" latt="0" sustain="1"/>
+          <elcut lspd="0.2918" ctlenvamt="1" lpdel="0" pdel="0" amt="0.82" hold="0" syncmode="0" userwavefile="" latt="0" sustain="1"/>
+          <elres lspd="0.1" ctlenvamt="0" lpdel="0" pdel="0" amt="0" hold="0.499" syncmode="0" userwavefile="" latt="0" sustain="1"/>
+        </eldata>
+          <chordcreator chordrange="1" chord="0" chord-enabled="0"/>
+          <arpeggiator arpdir="0" arpgate="100" arptime_denominator="4" syncmode="0" arp-enabled="0" arprange="2" arptime_numerator="4" arp="0"/>
+          <midiport inputchannel="0" fixedinputvelocity="-1" outputcontroller="0" outputchannel="1" fixedoutputvelocity="-1" readonly="0"/>
+          <fxchain numofeffects="0" enabled="0"/>
+        </instrumenttrack>
+        <pattern type="1" muted="0" steps="160" name="hat" pos="0" len="1920">
+          <note key="84" vol="70" pos="0" pan="0" len="3"/>
+          <note key="84" vol="38" pos="24" pan="0" len="3"/>
+          <note key="84" vol="70" pos="48" pan="0" len="3"/>
+          <note key="84" vol="38" pos="72" pan="0" len="3"/>
+          <note key="84" vol="70" pos="96" pan="0" len="3"/>
+          <note key="84" vol="38" pos="120" pan="0" len="3"/>
+          <note key="84" vol="70" pos="144" pan="0" len="3"/>
+          <note key="84" vol="38" pos="168" pan="0" len="3"/>
+          <note key="84" vol="70" pos="192" pan="0" len="3"/>
+          <note key="84" vol="38" pos="216" pan="0" len="3"/>
+          <note key="84" vol="70" pos="240" pan="0" len="3"/>
+          <note key="84" vol="38" pos="264" pan="0" len="3"/>
+          <note key="84" vol="70" pos="288" pan="0" len="3"/>
+          <note key="84" vol="38" pos="312" pan="0" len="3"/>
+          <note key="84" vol="70" pos="336" pan="0" len="3"/>
+          <note key="84" vol="38" pos="360" pan="0" len="3"/>
+          <note key="84" vol="70" pos="384" pan="0" len="3"/>
+          <note key="84" vol="38" pos="408" pan="0" len="3"/>
+          <note key="84" vol="70" pos="432" pan="0" len="3"/>
+          <note key="84" vol="38" pos="456" pan="0" len="3"/>
+          <note key="84" vol="70" pos="480" pan="0" len="3"/>
+          <note key="84" vol="38" pos="504" pan="0" len="3"/>
+          <note key="84" vol="70" pos="528" pan="0" len="3"/>
+          <note key="84" vol="38" pos="552" pan="0" len="3"/>
+          <note key="84" vol="70" pos="576" pan="0" len="3"/>
+          <note key="84" vol="38" pos="600" pan="0" len="3"/>
+          <note key="84" vol="70" pos="624" pan="0" len="3"/>
+          <note key="84" vol="38" pos="648" pan="0" len="3"/>
+          <note key="84" vol="70" pos="672" pan="0" len="3"/>
+          <note key="84" vol="38" pos="696" pan="0" len="3"/>
+          <note key="84" vol="70" pos="720" pan="0" len="3"/>
+          <note key="84" vol="38" pos="744" pan="0" len="3"/>
+          <note key="84" vol="70" pos="768" pan="0" len="3"/>
+          <note key="84" vol="38" pos="792" pan="0" len="3"/>
+          <note key="84" vol="70" pos="816" pan="0" len="3"/>
+          <note key="84" vol="38" pos="840" pan="0" len="3"/>
+          <note key="84" vol="70" pos="864" pan="0" len="3"/>
+          <note key="84" vol="38" pos="888" pan="0" len="3"/>
+          <note key="84" vol="70" pos="912" pan="0" len="3"/>
+          <note key="84" vol="38" pos="936" pan="0" len="3"/>
+          <note key="84" vol="70" pos="960" pan="0" len="3"/>
+          <note key="84" vol="38" pos="984" pan="0" len="3"/>
+          <note key="84" vol="70" pos="1008" pan="0" len="3"/>
+          <note key="84" vol="38" pos="1032" pan="0" len="3"/>
+          <note key="84" vol="70" pos="1056" pan="0" len="3"/>
+          <note key="84" vol="38" pos="1080" pan="0" len="3"/>
+          <note key="84" vol="70" pos="1104" pan="0" len="3"/>
+          <note key="84" vol="38" pos="1128" pan="0" len="3"/>
+          <note key="84" vol="70" pos="1152" pan="0" len="3"/>
+          <note key="84" vol="38" pos="1176" pan="0" len="3"/>
+          <note key="84" vol="70" pos="1200" pan="0" len="3"/>
+          <note key="84" vol="38" pos="1224" pan="0" len="3"/>
+          <note key="84" vol="70" pos="1248" pan="0" len="3"/>
+          <note key="84" vol="38" pos="1272" pan="0" len="3"/>
+          <note key="84" vol="70" pos="1296" pan="0" len="3"/>
+          <note key="84" vol="38" pos="1320" pan="0" len="3"/>
+          <note key="84" vol="70" pos="1344" pan="0" len="3"/>
+          <note key="84" vol="38" pos="1368" pan="0" len="3"/>
+          <note key="84" vol="70" pos="1392" pan="0" len="3"/>
+          <note key="84" vol="38" pos="1416" pan="0" len="3"/>
+          <note key="84" vol="70" pos="1440" pan="0" len="3"/>
+          <note key="84" vol="38" pos="1464" pan="0" len="3"/>
+          <note key="84" vol="70" pos="1488" pan="0" len="3"/>
+          <note key="84" vol="38" pos="1512" pan="0" len="3"/>
+          <note key="84" vol="70" pos="1536" pan="0" len="3"/>
+          <note key="84" vol="38" pos="1560" pan="0" len="3"/>
+          <note key="84" vol="70" pos="1584" pan="0" len="3"/>
+          <note key="84" vol="38" pos="1608" pan="0" len="3"/>
+          <note key="84" vol="70" pos="1632" pan="0" len="3"/>
+          <note key="84" vol="38" pos="1656" pan="0" len="3"/>
+          <note key="84" vol="70" pos="1680" pan="0" len="3"/>
+          <note key="84" vol="38" pos="1704" pan="0" len="3"/>
+          <note key="84" vol="70" pos="1728" pan="0" len="3"/>
+          <note key="84" vol="38" pos="1752" pan="0" len="3"/>
+          <note key="84" vol="70" pos="1776" pan="0" len="3"/>
+          <note key="84" vol="38" pos="1800" pan="0" len="3"/>
+          <note key="84" vol="70" pos="1824" pan="0" len="3"/>
+          <note key="84" vol="38" pos="1848" pan="0" len="3"/>
+          <note key="84" vol="70" pos="1872" pan="0" len="3"/>
+          <note key="84" vol="38" pos="1896" pan="0" len="3"/>
+        </pattern>
+      </track>
+      <track type="0" muted="0" name="bass" solo="0">
+        <instrumenttrack pitch="0" vol="60" fxch="0" pan="0" basenote="57" usemasterpitch="1" pitchrange="1">
+          <instrument name="lb302">
+            <lb302 vol="40" wave="1" slide="0" shape="0" vco="1" noise="0" k="1" dist="0" cut="1"/>
+          </instrument>
+        <eldata fwet="1" ftype="7" fres="1.2" fcut="1754">
+          <elvol lspd="0.1" ctlenvamt="0" lpdel="0" pdel="0" amt="1" hold="0" syncmode="0" userwavefile="" latt="0" sustain="1"/>
+          <elcut lspd="0.2918" ctlenvamt="1" lpdel="0" pdel="0" amt="0.82" hold="0" syncmode="0" userwavefile="" latt="0" sustain="1"/>
+          <elres lspd="0.1" ctlenvamt="0" lpdel="0" pdel="0" amt="0" hold="0.499" syncmode="0" userwavefile="" latt="0" sustain="1"/>
+        </eldata>
+          <chordcreator chordrange="1" chord="0" chord-enabled="0"/>
+          <arpeggiator arpdir="0" arpgate="100" arptime_denominator="4" syncmode="0" arp-enabled="0" arprange="2" arptime_numerator="4" arp="0"/>
+          <midiport inputchannel="0" fixedinputvelocity="-1" outputcontroller="0" outputchannel="1" fixedoutputvelocity="-1" readonly="0"/>
+          <fxchain numofeffects="0" enabled="0"/>
+        </instrumenttrack>
+        <pattern type="1" muted="0" steps="160" name="bass" pos="0" len="1920">
+          <note key="45" vol="100" pos="0" pan="0" len="15"/>
+          <note key="45" vol="100" pos="36" pan="0" len="10"/>
+          <note key="43" vol="100" pos="72" pan="0" len="15"/>
+          <note key="45" vol="100" pos="96" pan="0" len="15"/>
+          <note key="48" vol="100" pos="132" pan="0" len="10"/>
+          <note key="43" vol="100" pos="156" pan="0" len="15"/>
+          <note key="45" vol="100" pos="192" pan="0" len="15"/>
+          <note key="45" vol="100" pos="228" pan="0" len="10"/>
+          <note key="43" vol="100" pos="264" pan="0" len="15"/>
+          <note key="45" vol="100" pos="288" pan="0" len="15"/>
+          <note key="48" vol="100" pos="324" pan="0" len="10"/>
+          <note key="43" vol="100" pos="348" pan="0" len="15"/>
+          <note key="45" vol="100" pos="384" pan="0" len="15"/>
+          <note key="45" vol="100" pos="420" pan="0" len="10"/>
+          <note key="43" vol="100" pos="456" pan="0" len="15"/>
+          <note key="45" vol="100" pos="480" pan="0" len="15"/>
+          <note key="48" vol="100" pos="516" pan="0" len="10"/>
+          <note key="43" vol="100" pos="540" pan="0" len="15"/>
+          <note key="45" vol="100" pos="576" pan="0" len="15"/>
+          <note key="45" vol="100" pos="612" pan="0" len="10"/>
+          <note key="43" vol="100" pos="648" pan="0" len="15"/>
+          <note key="45" vol="100" pos="672" pan="0" len="15"/>
+          <note key="48" vol="100" pos="708" pan="0" len="10"/>
+          <note key="43" vol="100" pos="732" pan="0" len="15"/>
+          <note key="45" vol="100" pos="768" pan="0" len="15"/>
+          <note key="45" vol="100" pos="804" pan="0" len="10"/>
+          <note key="43" vol="100" pos="840" pan="0" len="15"/>
+          <note key="45" vol="100" pos="864" pan="0" len="15"/>
+          <note key="48" vol="100" pos="900" pan="0" len="10"/>
+          <note key="43" vol="100" pos="924" pan="0" len="15"/>
+          <note key="45" vol="100" pos="960" pan="0" len="15"/>
+          <note key="45" vol="100" pos="996" pan="0" len="10"/>
+          <note key="43" vol="100" pos="1032" pan="0" len="15"/>
+          <note key="45" vol="100" pos="1056" pan="0" len="15"/>
+          <note key="48" vol="100" pos="1092" pan="0" len="10"/>
+          <note key="43" vol="100" pos="1116" pan="0" len="15"/>
+          <note key="45" vol="100" pos="1152" pan="0" len="15"/>
+          <note key="45" vol="100" pos="1188" pan="0" len="10"/>
+          <note key="43" vol="100" pos="1224" pan="0" len="15"/>
+          <note key="45" vol="100" pos="1248" pan="0" len="15"/>
+          <note key="48" vol="100" pos="1284" pan="0" len="10"/>
+          <note key="43" vol="100" pos="1308" pan="0" len="15"/>
+          <note key="45" vol="100" pos="1344" pan="0" len="15"/>
+          <note key="45" vol="100" pos="1380" pan="0" len="10"/>
+          <note key="43" vol="100" pos="1416" pan="0" len="15"/>
+          <note key="45" vol="100" pos="1440" pan="0" len="15"/>
+          <note key="48" vol="100" pos="1476" pan="0" len="10"/>
+          <note key="43" vol="100" pos="1500" pan="0" len="15"/>
+          <note key="45" vol="100" pos="1536" pan="0" len="15"/>
+          <note key="45" vol="100" pos="1572" pan="0" len="10"/>
+          <note key="43" vol="100" pos="1608" pan="0" len="15"/>
+          <note key="45" vol="100" pos="1632" pan="0" len="15"/>
+          <note key="48" vol="100" pos="1668" pan="0" len="10"/>
+          <note key="43" vol="100" pos="1692" pan="0" len="15"/>
+          <note key="45" vol="100" pos="1728" pan="0" len="15"/>
+          <note key="45" vol="100" pos="1764" pan="0" len="10"/>
+          <note key="43" vol="100" pos="1800" pan="0" len="15"/>
+          <note key="45" vol="100" pos="1824" pan="0" len="15"/>
+          <note key="48" vol="100" pos="1860" pan="0" len="10"/>
+          <note key="43" vol="100" pos="1884" pan="0" len="15"/>
+        </pattern>
+      </track>
+      <track type="0" muted="0" name="keys" solo="0">
+        <instrumenttrack pitch="0" vol="48" fxch="0" pan="0" basenote="57" usemasterpitch="1" pitchrange="1">
+          <instrument name="tripleoscillator">
+            <tripleoscillator vol1="42" vol2="32" vol3="0" wavetype0="0" wavetype1="0" wavetype2="0" coarse0="0" coarse1="12" coarse2="0" finel0="0" finel1="0" finel2="0" finer0="0" finer1="0" finer2="0" pan0="0" pan1="0" pan2="0"/>
+          </instrument>
+        <eldata fwet="1" ftype="7" fres="1.2" fcut="1754">
+          <elvol lspd="0.1" ctlenvamt="0" lpdel="0" pdel="0" amt="1" hold="0" syncmode="0" userwavefile="" latt="0" sustain="1"/>
+          <elcut lspd="0.2918" ctlenvamt="1" lpdel="0" pdel="0" amt="0.82" hold="0" syncmode="0" userwavefile="" latt="0" sustain="1"/>
+          <elres lspd="0.1" ctlenvamt="0" lpdel="0" pdel="0" amt="0" hold="0.499" syncmode="0" userwavefile="" latt="0" sustain="1"/>
+        </eldata>
+          <chordcreator chordrange="1" chord="0" chord-enabled="0"/>
+          <arpeggiator arpdir="0" arpgate="100" arptime_denominator="4" syncmode="0" arp-enabled="0" arprange="2" arptime_numerator="4" arp="0"/>
+          <midiport inputchannel="0" fixedinputvelocity="-1" outputcontroller="0" outputchannel="1" fixedoutputvelocity="-1" readonly="0"/>
+          <fxchain numofeffects="0" enabled="0"/>
+        </instrumenttrack>
+        <pattern type="1" muted="0" steps="160" name="keys" pos="0" len="1920">
+          <note key="57" vol="46" pos="0" pan="0" len="77"/>
+          <note key="61" vol="46" pos="0" pan="0" len="77"/>
+          <note key="64" vol="46" pos="0" pan="0" len="77"/>
+          <note key="68" vol="46" pos="0" pan="0" len="77"/>
+          <note key="57" vol="46" pos="96" pan="0" len="77"/>
+          <note key="61" vol="46" pos="96" pan="0" len="77"/>
+          <note key="64" vol="46" pos="96" pan="0" len="77"/>
+          <note key="68" vol="46" pos="96" pan="0" len="77"/>
+          <note key="57" vol="46" pos="192" pan="0" len="77"/>
+          <note key="61" vol="46" pos="192" pan="0" len="77"/>
+          <note key="64" vol="46" pos="192" pan="0" len="77"/>
+          <note key="68" vol="46" pos="192" pan="0" len="77"/>
+          <note key="57" vol="46" pos="288" pan="0" len="77"/>
+          <note key="61" vol="46" pos="288" pan="0" len="77"/>
+          <note key="64" vol="46" pos="288" pan="0" len="77"/>
+          <note key="68" vol="46" pos="288" pan="0" len="77"/>
+          <note key="57" vol="46" pos="384" pan="0" len="77"/>
+          <note key="61" vol="46" pos="384" pan="0" len="77"/>
+          <note key="64" vol="46" pos="384" pan="0" len="77"/>
+          <note key="68" vol="46" pos="384" pan="0" len="77"/>
+          <note key="57" vol="46" pos="480" pan="0" len="77"/>
+          <note key="61" vol="46" pos="480" pan="0" len="77"/>
+          <note key="64" vol="46" pos="480" pan="0" len="77"/>
+          <note key="68" vol="46" pos="480" pan="0" len="77"/>
+          <note key="57" vol="46" pos="576" pan="0" len="77"/>
+          <note key="61" vol="46" pos="576" pan="0" len="77"/>
+          <note key="64" vol="46" pos="576" pan="0" len="77"/>
+          <note key="68" vol="46" pos="576" pan="0" len="77"/>
+          <note key="57" vol="46" pos="672" pan="0" len="77"/>
+          <note key="61" vol="46" pos="672" pan="0" len="77"/>
+          <note key="64" vol="46" pos="672" pan="0" len="77"/>
+          <note key="68" vol="46" pos="672" pan="0" len="77"/>
+          <note key="57" vol="46" pos="768" pan="0" len="77"/>
+          <note key="61" vol="46" pos="768" pan="0" len="77"/>
+          <note key="64" vol="46" pos="768" pan="0" len="77"/>
+          <note key="68" vol="46" pos="768" pan="0" len="77"/>
+          <note key="57" vol="46" pos="864" pan="0" len="77"/>
+          <note key="61" vol="46" pos="864" pan="0" len="77"/>
+          <note key="64" vol="46" pos="864" pan="0" len="77"/>
+          <note key="68" vol="46" pos="864" pan="0" len="77"/>
+          <note key="57" vol="46" pos="960" pan="0" len="77"/>
+          <note key="61" vol="46" pos="960" pan="0" len="77"/>
+          <note key="64" vol="46" pos="960" pan="0" len="77"/>
+          <note key="68" vol="46" pos="960" pan="0" len="77"/>
+          <note key="57" vol="46" pos="1056" pan="0" len="77"/>
+          <note key="61" vol="46" pos="1056" pan="0" len="77"/>
+          <note key="64" vol="46" pos="1056" pan="0" len="77"/>
+          <note key="68" vol="46" pos="1056" pan="0" len="77"/>
+          <note key="57" vol="46" pos="1152" pan="0" len="77"/>
+          <note key="61" vol="46" pos="1152" pan="0" len="77"/>
+          <note key="64" vol="46" pos="1152" pan="0" len="77"/>
+          <note key="68" vol="46" pos="1152" pan="0" len="77"/>
+          <note key="57" vol="46" pos="1248" pan="0" len="77"/>
+          <note key="61" vol="46" pos="1248" pan="0" len="77"/>
+          <note key="64" vol="46" pos="1248" pan="0" len="77"/>
+          <note key="68" vol="46" pos="1248" pan="0" len="77"/>
+          <note key="57" vol="46" pos="1344" pan="0" len="77"/>
+          <note key="61" vol="46" pos="1344" pan="0" len="77"/>
+          <note key="64" vol="46" pos="1344" pan="0" len="77"/>
+          <note key="68" vol="46" pos="1344" pan="0" len="77"/>
+          <note key="57" vol="46" pos="1440" pan="0" len="77"/>
+          <note key="61" vol="46" pos="1440" pan="0" len="77"/>
+          <note key="64" vol="46" pos="1440" pan="0" len="77"/>
+          <note key="68" vol="46" pos="1440" pan="0" len="77"/>
+          <note key="57" vol="46" pos="1536" pan="0" len="77"/>
+          <note key="61" vol="46" pos="1536" pan="0" len="77"/>
+          <note key="64" vol="46" pos="1536" pan="0" len="77"/>
+          <note key="68" vol="46" pos="1536" pan="0" len="77"/>
+          <note key="57" vol="46" pos="1632" pan="0" len="77"/>
+          <note key="61" vol="46" pos="1632" pan="0" len="77"/>
+          <note key="64" vol="46" pos="1632" pan="0" len="77"/>
+          <note key="68" vol="46" pos="1632" pan="0" len="77"/>
+          <note key="57" vol="46" pos="1728" pan="0" len="77"/>
+          <note key="61" vol="46" pos="1728" pan="0" len="77"/>
+          <note key="64" vol="46" pos="1728" pan="0" len="77"/>
+          <note key="68" vol="46" pos="1728" pan="0" len="77"/>
+          <note key="57" vol="46" pos="1824" pan="0" len="77"/>
+          <note key="61" vol="46" pos="1824" pan="0" len="77"/>
+          <note key="64" vol="46" pos="1824" pan="0" len="77"/>
+          <note key="68" vol="46" pos="1824" pan="0" len="77"/>
+        </pattern>
+      </track>
+      <track type="0" muted="0" name="lead" solo="0">
+        <instrumenttrack pitch="0" vol="52" fxch="0" pan="0" basenote="57" usemasterpitch="1" pitchrange="1">
+          <instrument name="tripleoscillator">
+            <tripleoscillator vol1="96" vol2="38" vol3="0" wavetype0="0" wavetype1="0" wavetype2="0" coarse0="0" coarse1="12" coarse2="0" finel0="0" finel1="0" finel2="0" finer0="0" finer1="0" finer2="0" pan0="0" pan1="0" pan2="0"/>
+          </instrument>
+        <eldata fwet="1" ftype="7" fres="1.2" fcut="1754">
+          <elvol lspd="0.1" ctlenvamt="0" lpdel="0" pdel="0" amt="1" hold="0" syncmode="0" userwavefile="" latt="0" sustain="1"/>
+          <elcut lspd="0.2918" ctlenvamt="1" lpdel="0" pdel="0" amt="0.82" hold="0" syncmode="0" userwavefile="" latt="0" sustain="1"/>
+          <elres lspd="0.1" ctlenvamt="0" lpdel="0" pdel="0" amt="0" hold="0.499" syncmode="0" userwavefile="" latt="0" sustain="1"/>
+        </eldata>
+          <chordcreator chordrange="1" chord="0" chord-enabled="0"/>
+          <arpeggiator arpdir="0" arpgate="100" arptime_denominator="4" syncmode="0" arp-enabled="0" arprange="2" arptime_numerator="4" arp="0"/>
+          <midiport inputchannel="0" fixedinputvelocity="-1" outputcontroller="0" outputchannel="1" fixedoutputvelocity="-1" readonly="0"/>
+          <fxchain numofeffects="0" enabled="0"/>
+        </instrumenttrack>
+        <pattern type="1" muted="0" steps="160" name="lead" pos="0" len="1920">
+          <note key="81" vol="88" pos="0" pan="0" len="16"/>
+          <note key="84" vol="88" pos="36" pan="0" len="16"/>
+          <note key="88" vol="88" pos="72" pan="0" len="16"/>
+          <note key="91" vol="88" pos="96" pan="0" len="16"/>
+          <note key="88" vol="88" pos="132" pan="0" len="16"/>
+          <note key="84" vol="88" pos="168" pan="0" len="16"/>
+          <note key="81" vol="88" pos="192" pan="0" len="16"/>
+          <note key="84" vol="88" pos="228" pan="0" len="16"/>
+          <note key="88" vol="88" pos="264" pan="0" len="16"/>
+          <note key="91" vol="88" pos="288" pan="0" len="16"/>
+          <note key="88" vol="88" pos="324" pan="0" len="16"/>
+          <note key="84" vol="88" pos="360" pan="0" len="16"/>
+          <note key="81" vol="88" pos="384" pan="0" len="16"/>
+          <note key="84" vol="88" pos="420" pan="0" len="16"/>
+          <note key="88" vol="88" pos="456" pan="0" len="16"/>
+          <note key="91" vol="88" pos="480" pan="0" len="16"/>
+          <note key="88" vol="88" pos="516" pan="0" len="16"/>
+          <note key="84" vol="88" pos="552" pan="0" len="16"/>
+          <note key="81" vol="88" pos="576" pan="0" len="16"/>
+          <note key="84" vol="88" pos="612" pan="0" len="16"/>
+          <note key="88" vol="88" pos="648" pan="0" len="16"/>
+          <note key="91" vol="88" pos="672" pan="0" len="16"/>
+          <note key="88" vol="88" pos="708" pan="0" len="16"/>
+          <note key="84" vol="88" pos="744" pan="0" len="16"/>
+          <note key="81" vol="88" pos="768" pan="0" len="16"/>
+          <note key="84" vol="88" pos="804" pan="0" len="16"/>
+          <note key="88" vol="88" pos="840" pan="0" len="16"/>
+          <note key="91" vol="88" pos="864" pan="0" len="16"/>
+          <note key="88" vol="88" pos="900" pan="0" len="16"/>
+          <note key="84" vol="88" pos="936" pan="0" len="16"/>
+          <note key="81" vol="88" pos="960" pan="0" len="16"/>
+          <note key="84" vol="88" pos="996" pan="0" len="16"/>
+          <note key="88" vol="88" pos="1032" pan="0" len="16"/>
+          <note key="91" vol="88" pos="1056" pan="0" len="16"/>
+          <note key="88" vol="88" pos="1092" pan="0" len="16"/>
+          <note key="84" vol="88" pos="1128" pan="0" len="16"/>
+          <note key="81" vol="88" pos="1152" pan="0" len="16"/>
+          <note key="84" vol="88" pos="1188" pan="0" len="16"/>
+          <note key="88" vol="88" pos="1224" pan="0" len="16"/>
+          <note key="91" vol="88" pos="1248" pan="0" len="16"/>
+          <note key="88" vol="88" pos="1284" pan="0" len="16"/>
+          <note key="84" vol="88" pos="1320" pan="0" len="16"/>
+          <note key="81" vol="88" pos="1344" pan="0" len="16"/>
+          <note key="84" vol="88" pos="1380" pan="0" len="16"/>
+          <note key="88" vol="88" pos="1416" pan="0" len="16"/>
+          <note key="91" vol="88" pos="1440" pan="0" len="16"/>
+          <note key="88" vol="88" pos="1476" pan="0" len="16"/>
+          <note key="84" vol="88" pos="1512" pan="0" len="16"/>
+          <note key="81" vol="88" pos="1536" pan="0" len="16"/>
+          <note key="84" vol="88" pos="1572" pan="0" len="16"/>
+          <note key="88" vol="88" pos="1608" pan="0" len="16"/>
+          <note key="91" vol="88" pos="1632" pan="0" len="16"/>
+          <note key="88" vol="88" pos="1668" pan="0" len="16"/>
+          <note key="84" vol="88" pos="1704" pan="0" len="16"/>
+          <note key="81" vol="88" pos="1728" pan="0" len="16"/>
+          <note key="84" vol="88" pos="1764" pan="0" len="16"/>
+          <note key="88" vol="88" pos="1800" pan="0" len="16"/>
+          <note key="91" vol="88" pos="1824" pan="0" len="16"/>
+          <note key="88" vol="88" pos="1860" pan="0" len="16"/>
+          <note key="84" vol="88" pos="1896" pan="0" len="16"/>
+        </pattern>
+      </track>
+        </trackcontainer>
+      </bbtrack>
+      <bbtco usestyle="1" muted="0" name="CLIMAX" pos="0" len="1920" color="4282417407"/>
+    </track>
+</trackcontainer>
+    <track type="6" muted="0" name="Automation track" solo="0">
+      <automationtrack/>
+      <automationpattern prog="0" mute="0" name="Tempo" pos="0" tens="1" len="192">
+        <time pos="0" value="140"/>
+      </automationpattern>
+      <automationpattern prog="0" mute="0" name="Master volume" pos="0" tens="1" len="192">
+        <time pos="0" value="100"/>
+      </automationpattern>
+      <automationpattern prog="0" mute="0" name="Master pitch" pos="0" tens="1" len="192">
+        <time pos="0" value="0"/>
+      </automationpattern>
+      <automationpattern prog="0" mute="0" name="Numerator" pos="0" tens="1" len="192"/>
+      <automationpattern prog="0" mute="0" name="Denominator" pos="0" tens="1" len="192"/>
+      <automationpattern prog="0" mute="0" name="Tempo" pos="0" tens="1" len="192"/>
+      <automationpattern prog="0" mute="0" name="Master volume" pos="0" tens="1" len="192"/>
+      <automationpattern prog="0" mute="0" name="Master pitch" pos="0" tens="1" len="192"/>
+    </track>
+    <fxmixer visible="1" width="647" height="332" x="9" y="441" maximized="0" minimized="0">
+      <fxchannel num="0" muted="0" volume="1" name="Master" soloed="0">
+        <fxchain numofeffects="0" enabled="0"/>
+      </fxchannel>
+    </fxmixer>
+    <ControllerRackView visible="1" width="258" height="173" x="664" y="444" maximized="0" minimized="0"/>
+    <pianoroll visible="0" width="640" height="480" x="1" y="1" maximized="1" minimized="0"/>
+    <automationeditor visible="0" width="640" height="400" x="356" y="129" maximized="0" minimized="0"/>
+    <projectnotes visible="1" width="408" height="394" x="9" y="16" maximized="0" minimized="0"><![CDATA[<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html><head><meta name="qrichtext" content="1" /><style type="text/css">
+p, li { white-space: pre-wrap; }
+</style></head><body style=" font-family:'Verdana'; font-size:11pt; font-weight:600; font-style:normal;">
+<p style=" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Bitstream Vera Sans'; font-size:12pt; font-style:italic; color:#ffcc00;">How to edit dynamic note-volumes:</span></p>
+<p style=" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Bitstream Vera Sans'; color:#00ffff;">1.</span><span style=" font-family:'Bitstream Vera Sans'; color:#cbcbcb;"> Open the piano-roll by double-clicking the the pattern in Beat+Baseline-Editor.</span></p>
+<p style=" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Bitstream Vera Sans'; color:#00ffff;">2.</span><span style=" font-family:'Bitstream Vera Sans'; color:#cbcbcb;"> Now in the middle you can see several notes and at the bottom there's a line for each note whose length indicates the volume of the according note.</span></p>
+<p style=" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Bitstream Vera Sans'; color:#00ffff;">3.</span><span style=" font-family:'Bitstream Vera Sans'; color:#cbcbcb;"> Try to change the volume of some notes by changing the length of these lines with the mouse.</span></p>
+<p style=" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Bitstream Vera Sans'; color:#00ffff;">4.</span><span style=" font-family:'Bitstream Vera Sans'; color:#cbcbcb;"> Listen to the result by clicking on the &quot;play&quot;-button!</span></p>
+<p style=" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Bitstream Vera Sans'; color:#cbcbcb;">(</span><span style=" font-family:'Bitstream Vera Sans'; color:#00ffff;">5.</span><span style=" font-family:'Bitstream Vera Sans'; color:#cbcbcb;"> Create your own tracks with dynamic note-volumes!!)</span></p></body></html>]]></projectnotes>
+    <timeline lp0pos="0" lp1pos="1920" lpstate="0"/>
+    <controllers/>
+  </song>
+</lmms-project>
