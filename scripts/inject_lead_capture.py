@@ -50,7 +50,9 @@ BLOCK = """
 </style>
 <script>
 (function(){
-  var f = document.currentScript.previousElementSibling.querySelector('.zdlc-form');
+  var sec = document.getElementById('get-tracks');
+  if (!sec) return;
+  var f = sec.querySelector('.zdlc-form');
   if (!f) return;
   f.addEventListener('submit', function(e){
     e.preventDefault();
