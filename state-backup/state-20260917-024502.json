@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-17T01:05:01.133335+00:00",
+ "generated_at": "2026-09-17T02:45:01.842251+00:00",
  "note": "Sanitized continuity snapshot. Sensitive fields masked (***). Restore: this JSON documents what was in flight so work can resume after any disruption.",
  "tables": {
   "agents": {
@@ -90,7 +90,7 @@
   },
   "tasks": {
    "table": "tasks",
-   "count": 650,
+   "count": 655,
    "rows": [
     {
      "id": "1e06bda85075",
@@ -7891,12 +7891,72 @@
      "artifacts_json": "[]",
      "created_at": "2026-09-16 00:16:35",
      "updated_at": "2026-09-16 00:19:06"
+    },
+    {
+     "id": "f5a4ce2f6558",
+     "description": "Post a mountain climbimg game on snowsnakes. make sure it is mobile friendly.",
+     "assignee_id": "NinjaNerd",
+     "status": "done",
+     "priority": 0,
+     "parent_id": null,
+     "result": "No result produced.",
+     "artifacts_json": "[]",
+     "created_at": "2026-09-17 01:08:14",
+     "updated_at": "2026-09-17 01:09:24"
+    },
+    {
+     "id": "b1399181b474",
+     "description": "Make a disco type song with milkytracker and post it on snowsnakes. song should be about 2 mins. it needs to be formatted with a climax and breakdown. Use a phat synth",
+     "assignee_id": "ClickClack",
+     "status": "done",
+     "priority": 0,
+     "parent_id": null,
+     "result": "No result produced.",
+     "artifacts_json": "[]",
+     "created_at": "2026-09-17 01:14:01",
+     "updated_at": "2026-09-17 01:14:49"
+    },
+    {
+     "id": "592051ced8e2",
+     "description": "Where is the song? The task status says done, but I don't see it on snowsnakes",
+     "assignee_id": "ClickClack",
+     "status": "failed",
+     "priority": 0,
+     "parent_id": null,
+     "result": "Exceeded maximum iterations without completing.",
+     "artifacts_json": "[]",
+     "created_at": "2026-09-17 01:48:16",
+     "updated_at": "2026-09-17 01:50:29"
+    },
+    {
+     "id": "f064a1406828",
+     "description": "Mobile friendly mountain climbing game posted on snowsnakes",
+     "assignee_id": "NinjaNerd",
+     "status": "done",
+     "priority": 0,
+     "parent_id": null,
+     "result": "No result produced.",
+     "artifacts_json": "[]",
+     "created_at": "2026-09-17 01:51:06",
+     "updated_at": "2026-09-17 01:54:17"
+    },
+    {
+     "id": "47edd66ac565",
+     "description": "CTO \u2192 Developer. Build ONE mobile-first HTML5 MOUNTAIN CLIMBING game for SnowSnakes, then prove it works.\n\nDELIVERABLE \u2014 exactly ONE new file (do not touch any other file):\n  /home/zax/Biz/z-dot-team/content/snowsnakes/games/summit-snake.html\nONE self-contained HTML file. No external scripts, no CDNs, no network requests, no image/audio files, no build step.\n\nGAME: \"SUMMIT SNAKE\" \u2014 a vertical mountain wall-jump climber (chimneying up a mountain crevasse). Portrait-first, one-thumb, touch-primary.\n\nCORE LOOP (implement exactly):\n- The screen is a mountain chimney: a LEFT rock wall and a RIGHT rock wall. Wall thickness = 14% of canvas width each; the gap between them is the climbable channel.\n- Player = a 30x30 logical-px pixel snow-snake climber drawn with canvas rects only (no images). Collectible snowflakes appear occasionally for a small altitude bonus.\n- Gravity = 2300 px/s^2, ramping +120 px/s^2 per 100 m climbed, capped at 3300.\n- GRIP: when the player's AABB overlaps a wall AABB it grips that wall \u2014 vy=0, x snapped to the wall face, gripTimer (coyote time) = 0.12 s.\n- JUMP: pointerdown starts a charge; on pointerup launch away from the gripped wall: vy = -(560 + 320*charge) and vx = dir*(230 + 180*charge), where charge = min(holdSeconds, 0.35)/0.35 and dir = away from the gripped wall. So a quick TAP = small hop, a HOLD = a big leap. Direction is derived from which wall you're on, so tapping EITHER half of the screen while gripped always does the right thing (both halves are huge tap targets).\n- AIR CONTROL: while airborne, a pointerdown on the left half nudges vx -= 90 and the right half nudges vx += 90 (clamp |vx| <= 520). Also allow exactly ONE recovery \"scramble\" impulse per airborne phase (vy = -180) so a bad jump is survivable once.\n- CAMERA: camY follows the player so the player sits ~40% down from the top. The camera NEVER scrolls back down. If the player drops past the bottom of the camera view \u2192 GAME OVER (\"YOU FELL\").\n- GROUND: at altitude 0 there is a base-camp ground the player starts standing on. Once climbing starts, falling lower than the camera bottom is death.\n- HAZARDS (must be fair, never instant-death):\n  (a) LEDGES: rock outcrops protrude from the walls every 15-40 m above 20 m. A horizontal collision while airborne reverses vx*0.5 and pushes vy=+200 (a setback).\n  (b) ICICLES: above 120 m, icicles spawn at random x in the chimney every 0.9-2.2 s (interval shrinks with altitude) falling at 250-420 px/s. A hit sets vy=+420, vx away from centre *120, and grants 0.8 s of invulnerability flashing.\n- DIFFICULTY RAMP: the chimney gap narrows with altitude (to 55% of its base width), ledge frequency and icicle rate rise.\n- SCORE: altitude_m = floor((groundY - player.y)/10). HUD shows ALTITUDE (m) and BEST (m). Milestone banners at 100/200/300/400 m (\"CAMP 1\"..\"CAMP 4\") and at 500 m show \"SUMMIT REACHED!\" then switch the mode label to \"ENDLESS RIDGE\" while climbing continues.\n- VISUALS: sky gradient lerps from dawn at 0 m to a starry night at 500 m; two parallax mountain-silhouette layers scrolling at 0.15x and 0.35x of camY; drifting snow particles; deterministic rock texture via a seeded PRNG (no Math.random in the draw path, so frames are stable); pickaxe flash on jump.\n- STATES: 'start' \u2192 'play' \u2192 'over'. Start overlay: title \"SUMMIT SNAKE\", how-to line \"TAP to leap \u2014 HOLD for a bigger leap\", and a START button. Over overlay: \"YOU FELL\", altitude, best, and a \"TAP TO CLIMB AGAIN\" button. No alert()/confirm(). Restart must work by touch with NO page reload. Pause the loop when document.hidden.\n\nHARD MOBILE REQUIREMENTS (these ARE the acceptance criteria \u2014 I will re-test them independently):\n1. <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover\">\n2. Canvas fills the viewport and is devicePixelRatio-aware (canvas.width = cssW*dpr, ctx.setTransform(dpr,0,0,dpr,0,0)). Full resize handler. No fixed px canvas size.\n3. PORTRAIT-first: fully playable at 390x844 and 360x800 with NO horizontal scroll (document.scrollWidth <= window.innerWidth) and NO vertical scroll. Must also not break at 414x896, 768x1024 and landscape 844x390.\n4. TOUCH IS PRIMARY: use Pointer Events (pointerdown/pointerup) OR both touchstart/touchend AND mousedown. touch-action:none on the canvas and preventDefault on touchmove to stop page scroll / pull-to-refresh. On-screen buttons >= 44x44 CSS px and tappable.\n5. ZERO keyboard dependence (keyboard may be an optional extra). ZERO hover-only affordances.\n6. Game loop uses requestAnimationFrame with dt capped at 1/30 so backgrounding cannot speed-run it.\n7. Text legible at 360 px width (UI text base >= 14 px; use clamp()/vw/vh, never fixed desktop widths).\n8. body { margin:0; overflow:hidden; -webkit-tap-highlight-color:transparent }.\n9. CRITICAL \u2014 SnowSnakes renders posted game HTML inside a sandboxed iframe (srcdoc). So: NO window.top / window.parent / top.location / document.referrer; must not require allow-same-origin; and ANY localStorage use MUST be wrapped in try/catch with an in-memory fallback, because localStorage throws a SecurityError in a sandboxed srcdoc iframe. Best score must still display if storage is unavailable.\n10. Must not use eval() on remote content, fetch(), XMLHttpRequest, import, or importScripts.\n11. Single self-contained file: `grep -c 'src=\"http'` = 0 and `grep -c 'href=\"http'` = 0.\n12. QUALITY BAR: a genuinely playable game \u2014 real collision, real scoring, real start/play/over states, visible score. Short header comment at the top naming the game and listing the mobile constraints it satisfies.\n\nVERIFY BEFORE REPORTING (a false \"done\" is worse than an honest \"not done\"):\nRun this with the repo venv and report the raw output:\n  cd /home/zax/Biz/z-dot-team && venv/bin/python - <<'PY'\n  from playwright.sync_api import sync_playwright\n  ... for each viewport (390x844, 360x800, 414x896, 844x390):\n      load the file via file:// ; assert document.scrollWidth <= window.innerWidth\n      assert document.scrollHeight <= window.innerHeight + 1\n      assert canvas clientWidth>0 and clientHeight>0\n      tap the START button (mouse.click / dispatch) then assert the game left the start state\n      dispatch pointerdown + wait 400ms + pointerup on the canvas at least 3 times to simulate wall jumps\n      assert recorded altitude/state variable advanced (expose a small debug object, e.g. window.__SUMMIT = {state, altitude, best})\n      fail the test if any console error or pageerror fires\n  PY\nThen ALSO run the srcdoc-iframe test (this is the one most likely to fail): build a host page containing <iframe sandbox=\"allow-scripts\" srcdoc=\"...the game html...\">, load that host page, and assert the game renders inside the iframe AND responds to a tap. Report pass/fail plainly.\n\nREPORT BACK: absolute file path, byte size, sha256sum, the exact commands you ran, the raw pass/fail output for every assertion, the first 3 lines of the file, and the debug object's values after the simulated jumps. If any check cannot pass, say so explicitly instead of claiming success.",
+     "assignee_id": "ClickClack",
+     "status": "cancelled",
+     "priority": 0,
+     "parent_id": "f064a1406828",
+     "result": "Goal loop ended before task completed.",
+     "artifacts_json": "[]",
+     "created_at": "2026-09-17 01:54:17",
+     "updated_at": "2026-09-17 01:54:21"
     }
    ]
   },
   "messages": {
    "table": "messages",
-   "count": 860,
+   "count": 862,
    "rows": [
     {
      "id": "bfc26bedbffc",
@@ -15637,6 +15697,24 @@
      "topic": "task.delegate",
      "metadata_json": "{}",
      "timestamp": "2026-09-15T23:27:29.104562+00:00"
+    },
+    {
+     "id": "e6ce088aa83a",
+     "from_agent": "NinjaNerd",
+     "to_agent": null,
+     "content": "{\"action\": \"delegate\", \"from\": \"NinjaNerd\", \"to_role\": \"\", \"task_id\": \"d04eee212712\", \"description\": \"\"}",
+     "topic": "task.delegate",
+     "metadata_json": "{}",
+     "timestamp": "2026-09-17T01:52:23.620424+00:00"
+    },
+    {
+     "id": "7a437ae4365b",
+     "from_agent": "NinjaNerd",
+     "to_agent": null,
+     "content": "{\"action\": \"delegate\", \"from\": \"NinjaNerd\", \"to_role\": \"developer\", \"task_id\": \"47edd66ac565\", \"description\": \"CTO \\u2192 Developer. Build ONE mobile-first HTML5 MOUNTAIN CLIMBING game for SnowSnakes, then prove it works.\\n\\nDELIVERABLE \\u2014 exactly ONE new file (do not touch any other file):\\n  /home/zax/Biz/z-dot-team/content/snowsnakes/games/summit-snake.html\\nONE self-contained HTML file. No external scripts, no CDNs, no network requests, no image/audio files, no build step.\\n\\nGAME: \\\"SUMMIT SNAKE\\\" \\u2014 a vertical mountain wall-jump climber (chimneying up a mountain crevasse). Portrait-first, one-thumb, touch-primary.\\n\\nCORE LOOP (implement exactly):\\n- The screen is a mountain chimney: a LEFT rock wall and a RIGHT rock wall. Wall thickness = 14% of canvas width each; the gap between them is the climbable channel.\\n- Player = a 30x30 logical-px pixel snow-snake climber drawn with canvas rects only (no images). Collectible snowflakes appear occasionally for a small altitude bonus.\\n- Gravity = 2300 px/s^2, ramping +120 px/s^2 per 100 m climbed, capped at 3300.\\n- GRIP: when the player's AABB overlaps a wall AABB it grips that wall \\u2014 vy=0, x snapped to the wall face, gripTimer (coyote time) = 0.12 s.\\n- JUMP: pointerdown starts a charge; on pointerup launch away from the gripped wall: vy = -(560 + 320*charge) and vx = dir*(230 + 180*charge), where charge = min(holdSeconds, 0.35)/0.35 and dir = away from the gripped wall. So a quick TAP = small hop, a HOLD = a big leap. Direction is derived from which wall you're on, so tapping EITHER half of the screen while gripped always does the right thing (both halves are huge tap targets).\\n- AIR CONTROL: while airborne, a pointerdown on the left half nudges vx -= 90 and the right half nudges vx += 90 (clamp |vx| <= 520). Also allow exactly ONE recovery \\\"scramble\\\" impulse per airborne phase (vy = -180) so a bad jump is survivable once.\\n- CAMERA: camY follows the player so the player sits ~40% down from the top. The camera NEVER scrolls back down. If the player drops past the bottom of the camera view \\u2192 GAME OVER (\\\"YOU FELL\\\").\\n- GROUND: at altitude 0 there is a base-camp ground the player starts standing on. Once climbing starts, falling lower than the camera bottom is death.\\n- HAZARDS (must be fair, never instant-death):\\n  (a) LEDGES: rock outcrops protrude from the walls every 15-40 m above 20 m. A horizontal collision while airborne reverses vx*0.5 and pushes vy=+200 (a setback).\\n  (b) ICICLES: above 120 m, icicles spawn at random x in the chimney every 0.9-2.2 s (interval shrinks with altitude) falling at 250-420 px/s. A hit sets vy=+420, vx away from centre *120, and grants 0.8 s of invulnerability flashing.\\n- DIFFICULTY RAMP: the chimney gap narrows with altitude (to 55% of its base width), ledge frequency and icicle rate rise.\\n- SCORE: altitude_m = floor((groundY - player.y)/10). HUD shows ALTITUDE (m) and BEST (m). Milestone banners at 100/200/300/400 m (\\\"CAMP 1\\\"..\\\"CAMP 4\\\") and at 500 m show \\\"SUMMIT REACHED!\\\" then switch the mode label to \\\"ENDLESS RIDGE\\\" while climbing continues.\\n- VISUALS: sky gradient lerps from dawn at 0 m to a starry night at 500 m; two parallax mountain-silhouette layers scrolling at 0.15x and 0.35x of camY; drifting snow particles; deterministic rock texture via a seeded PRNG (no Math.random in the draw path, so frames are stable); pickaxe flash on jump.\\n- STATES: 'start' \\u2192 'play' \\u2192 'over'. Start overlay: title \\\"SUMMIT SNAKE\\\", how-to line \\\"TAP to leap \\u2014 HOLD for a bigger leap\\\", and a START button. Over overlay: \\\"YOU FELL\\\", altitude, best, and a \\\"TAP TO CLIMB AGAIN\\\" button. No alert()/confirm(). Restart must work by touch with NO page reload. Pause the loop when document.hidden.\\n\\nHARD MOBILE REQUIREMENTS (these ARE the acceptance criteria \\u2014 I will re-test them independently):\\n1. <meta name=\\\"viewport\\\" content=\\\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover\\\">\\n2. Canvas fills the viewport and is devicePixelRatio-aware (canvas.width = cssW*dpr, ctx.setTransform(dpr,0,0,dpr,0,0)). Full resize handler. No fixed px canvas size.\\n3. PORTRAIT-first: fully playable at 390x844 and 360x800 with NO horizontal scroll (document.scrollWidth <= window.innerWidth) and NO vertical scroll. Must also not break at 414x896, 768x1024 and landscape 844x390.\\n4. TOUCH IS PRIMARY: use Pointer Events (pointerdown/pointerup) OR both touchstart/touchend AND mousedown. touch-action:none on the canvas and preventDefault on touchmove to stop page scroll / pull-to-refresh. On-screen buttons >= 44x44 CSS px and tappable.\\n5. ZERO keyboard dependence (keyboard may be an optional extra). ZERO hover-only affordances.\\n6. Game loop uses requestAnimationFrame with dt capped at 1/30 so backgrounding cannot speed-run it.\\n7. Text legible at 360 px width (UI text base >= 14 px; use clamp()/vw/vh, never fixed desktop widths).\\n8. body { margin:0; overflow:hidden; -webkit-tap-highlight-color:transparent }.\\n9. CRITICAL \\u2014 SnowSnakes renders posted game HTML inside a sandboxed iframe (srcdoc). So: NO window.top / window.parent / top.location / document.referrer; must not require allow-same-origin; and ANY localStorage use MUST be wrapped in try/catch with an in-memory fallback, because localStorage throws a SecurityError in a sandboxed srcdoc iframe. Best score must still display if storage is unavailable.\\n10. Must not use eval() on remote content, fetch(), XMLHttpRequest, import, or importScripts.\\n11. Single self-contained file: `grep -c 'src=\\\"http'` = 0 and `grep -c 'href=\\\"http'` = 0.\\n12. QUALITY BAR: a genuinely playable game \\u2014 real collision, real scoring, real start/play/over states, visible score. Short header comment at the top naming the game and listing the mobile constraints it satisfies.\\n\\nVERIFY BEFORE REPORTING (a false \\\"done\\\" is worse than an honest \\\"not done\\\"):\\nRun this with the repo venv and report the raw output:\\n  cd /home/zax/Biz/z-dot-team && venv/bin/python - <<'PY'\\n  from playwright.sync_api import sync_playwright\\n  ... for each viewport (390x844, 360x800, 414x896, 844x390):\\n      load the file via file:// ; assert document.scrollWidth <= window.innerWidth\\n      assert document.scrollHeight <= window.innerHeight + 1\\n      assert canvas clientWidth>0 and clientHeight>0\\n      tap the START button (mouse.click / dispatch) then assert the game left the start state\\n      dispatch pointerdown + wait 400ms + pointerup on the canvas at least 3 times to simulate wall jumps\\n      assert recorded altitude/state variable advanced (expose a small debug object, e.g. window.__SUMMIT = {state, altitude, best})\\n      fail the test if any console error or pageerror fires\\n  PY\\nThen ALSO run the srcdoc-iframe test (this is the one most likely to fail): build a host page containing <iframe sandbox=\\\"allow-scripts\\\" srcdoc=\\\"...the game html...\\\">, load that host page, and assert the game renders inside the iframe AND responds to a tap. Report pass/fail plainly.\\n\\nREPORT BACK: absolute file path, byte size, sha256sum, the exact commands you ran, the raw pass/fail output for every assertion, the first 3 lines of the file, and the debug object's values after the simulated jumps. If any check cannot pass, say so explicitly instead of claiming success.\"}",
+     "topic": "task.delegate",
+     "metadata_json": "{}",
+     "timestamp": "2026-09-17T01:52:33.836667+00:00"
     }
    ]
   },
@@ -18490,7 +18568,7 @@
   },
   "goals": {
    "table": "goals",
-   "count": 81,
+   "count": 82,
    "rows": [
     {
      "id": "bf88aa5e1266",
@@ -19058,6 +19136,13 @@
      "status": "failed",
      "created_at": "2026-09-15 03:35:29",
      "completed_at": "2026-09-15 03:46:23"
+    },
+    {
+     "id": "847ec185d854",
+     "description": "proof we can make bangers. make more with this type of quality, but they should sound different. Use this as the guide for the next Milkups Album. We'll replace one of the ones I don't like. https://snowsnakes.zerric.xyz/songs?song=23",
+     "status": "failed",
+     "created_at": "2026-09-17 01:54:19",
+     "completed_at": "2026-09-17 01:54:19"
     }
    ]
   },
