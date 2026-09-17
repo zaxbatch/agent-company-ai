@@ -90,6 +90,25 @@ SHAPES = {
         Section("dissolve",  6, 0.28, ("dip", "no_kick")),
         Section("coda",      5, 0.48),
     ]),
+    # banger: short, hard, front-loaded -- two peaks and a sharp break
+    "banger": Arrangement([
+        Section("cold open",   4, 0.88),
+        Section("climax 1",    6, 1.00),
+        Section("break",       4, 0.36, ("dip", "no_kick")),
+        Section("build",       3, 0.72),
+        Section("climax 2",    7, 1.00),
+        Section("sting",       2, 0.60),
+    ]),
+    # epic: long slow build to a single huge peak, then a long decay
+    "epic": Arrangement([
+        Section("seed",        6, 0.30, ("no_drums",)),
+        Section("grow",        8, 0.50),
+        Section("rise",        8, 0.70),
+        Section("break",       5, 0.24, ("dip", "no_kick")),
+        Section("surge",       6, 0.84),
+        Section("peak",       10, 1.00),
+        Section("decay",       6, 0.42),
+    ]),
     # slow burn: long quiet opening, huge late climax
     "slowburn": Arrangement([
         Section("intro",      6, 0.34, ("no_drums",)),
@@ -189,3 +208,61 @@ def contour_summary(wav, bpm, bars):
     n = e / e.max()
     spark = "".join("▁▂▃▄▅▆▇█"[min(7, int(v * 8))] for v in n)
     return spark
+
+
+def scale_to_duration(arr, bpm, target_secs, min_bars=2):
+    """Stretch a shape so the track lands near a target length.
+
+    Why: without this the same shape produces wildly different lengths
+    ("banger" at 140 BPM = 46 s, "song" at 76 BPM = 154 s), so an album ends up
+    with tracks from 46 s to 154 s. It also silently broke the standard's 60 s
+    minimum on the fast tracks.
+    """
+    bar = 4 * 60.0 / bpm
+    want = target_secs / bar
+    cur = sum(s.bars for s in arr.sections)
+    f = want / cur
+    out = []
+    for s in arr.sections:
+        out.append(Section(s.name, max(min_bars, int(round(s.bars * f))),
+                           s.energy, s.tags))
+    return Arrangement(out)
+
+
+def verify_shape_positions(wav, bpm, sections, tol=0.18):
+    """Check the DECLARED arrangement, not just "is there any quiet part".
+
+    The blind spot this fixes was found on a real LMMS render: verify_structure()
+    passed a track whose loudest section was where its dip was declared, because
+    it only asked whether SOME 5-bar window was quiet. A window in the intro
+    satisfied it while the actual breakdown was the loudest thing in the song.
+
+    sections: list of (name, bars, expected_energy) where expected_energy is
+    0..1 relative to the loudest section (e.g. a dip 0.3, a climax 1.0).
+    """
+    e = bar_energy(wav, bpm, sum(b for _n, b, _x in sections))
+    if e.size == 0 or e.max() <= 0:
+        return False, [("declared shape", False, "no audio")]
+    n = e / e.max()
+    i, checks = 0, []
+    measured = []
+    for name, bars, exp in sections:
+        seg = n[i:i + bars]
+        got = float(seg.mean()) if seg.size else 0.0
+        measured.append((name, got, exp))
+        dif = abs(got - exp) / max(exp, 1e-6)
+        checks.append((f"{name}: energy as declared", dif <= tol,
+                       f"measured {got:.2f}, declared {exp:.2f} (tol {tol:.0%})"))
+        i += bars
+    # the declared dip must be the genuine quietest section
+    if measured:
+        worst = max(measured, key=lambda m: abs(m[1] - m[2]) / max(m[2], 1e-6))
+        got_min = min(measured, key=lambda m: m[1])
+        declared_dip = min(measured, key=lambda m: m[2])
+        checks.append(("declared dip IS the quietest", got_min[0] == declared_dip[0],
+                       f"declared dip = {declared_dip[0]}, actually quietest = {got_min[0]}"))
+        checks.append(("declared climax IS the loudest", max(measured, key=lambda m: m[1])[0]
+                       == max(measured, key=lambda m: m[2])[0],
+                       f"declared climax = {max(measured, key=lambda m: m[2])[0]}, "
+                       f"actually loudest = {max(measured, key=lambda m: m[1])[0]}"))
+    return all(ok for _n, ok, _e in checks), checks
