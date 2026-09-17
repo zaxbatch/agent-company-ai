@@ -1,0 +1,278 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>FROSTBITE DASH</title>
+  <style>
+    body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background: #1a2a3a; font-family: sans-serif; }
+    #game-container { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
+  </style>
+</head>
+<body>
+  <div id="game-container">
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#120c22">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>FROSTBITE DASH — swipe to dodge</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{height:100%;overflow:hidden;background:#120c22;
+    font-family:'Courier New',ui-monospace,monospace;touch-action:none;overscroll-behavior:none}
+  #wrap{position:fixed;inset:0;display:flex;flex-direction:column}
+  #hud{display:flex;justify-content:space-between;padding:8px 14px;color:#e6dcff;
+    font-size:13px;letter-spacing:1px;text-transform:uppercase;flex:0 0 auto}
+  #hud b{color:#96f0dc}
+  #stage{flex:1 1 auto;position:relative;min-height:0}
+  canvas{display:block;width:100%;height:100%}
+  #msg{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+    justify-content:center;gap:14px;color:#e6dcff;text-align:center;padding:24px}
+  #msg h1{font-size:22px;letter-spacing:2px;color:#96f0dc}
+  #msg p{font-size:13px;line-height:1.7;color:#a396c8;max-width:290px}
+  #msg button{background:#96f0dc;color:#0d1f1a;border:0;border-radius:10px;
+    padding:14px 30px;font:inherit;font-weight:bold;font-size:15px;letter-spacing:1px;cursor:pointer}
+  #msg button:active{transform:scale(.96)}
+  #msg .keys{display:flex;gap:18px;color:#7de0c8;font-size:11px;letter-spacing:1px}
+  .hide{display:none!important}
+</style>
+</head>
+<body>
+<div id="wrap">
+  <div id="hud">
+    <div>DIST <b id="dist">0</b></div>
+    <div>SPEED <b id="spd">1</b></div>
+    <div>BEST <b id="best">0</b></div>
+  </div>
+  <div id="stage">
+    <canvas id="c"></canvas>
+    <div id="msg">
+      <h1>FROSTBITE DASH</h1>
+      <p>Steer the sled down the gap.<br><b style="color:#96f0dc">Tap</b> left / right side of the screen<br>or <b style="color:#96f0dc">swipe</b> to change lanes.<br>Hit an icicle and it's over.</p>
+      <button id="go">TAP TO PLAY</button>
+      <div class="keys"><span>&#9664; LEFT</span><span>RIGHT &#9654;</span></div>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var cv=document.getElementById('c'), ctx=cv.getContext('2d');
+  var stage=document.getElementById('stage');
+  var distEl=document.getElementById('dist'), spdEl=document.getElementById('spd'),
+      bestEl=document.getElementById('best'), msg=document.getElementById('msg'), goBtn=document.getElementById('go');
+  var DPR=Math.min(window.devicePixelRatio||1,3);
+  var W=0,H=0;
+  var best=+(localStorage.getItem('fb_dash_best')||0); bestEl.textContent=best;
+
+  function resize(){
+    var r=stage.getBoundingClientRect();
+    W=Math.max(1,Math.floor(r.width)); H=Math.max(1,Math.floor(r.height));
+    cv.width=W*DPR; cv.height=H*DPR;
+    cv.style.width=W+'px'; cv.style.height=H+'px';
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+  }
+  window.addEventListener('resize',resize);
+  window.addEventListener('orientationchange',function(){setTimeout(resize,150)});
+
+  // ---- state
+  var LANES=3;
+  var playing=false, over=false;
+  var lane=1, laneF=1;           // target lane, smoothed lane
+  var dist=0, speed=1, obstacles=[], flakes=[], flash=0, score=0;
+  var spawnT=0, last=0, shake=0;
+
+  function laneX(i){ return W*(i+0.5)/LANES; }
+
+  function reset(){
+    playing=true; over=false; lane=1; laneF=1; dist=0; speed=1; obstacles=[]; flash=0; score=0; spawnT=0.5; shake=0;
+    distEl.textContent=0; spdEl.textContent='1';
+    msg.classList.add('hide');
+    flakes=[]; for(var i=0;i<50;i++) flakes.push({x:Math.random()*W,y:Math.random()*H,
+      s:1+Math.random()*2.2, v:30+Math.random()*70});
+  }
+
+  function endGame(){
+    playing=false; over=true; shake=0.5;
+    var sc=Math.floor(score);
+    if(sc>best){ best=sc; localStorage.setItem('fb_dash_best',best); bestEl.textContent=best; }
+    msg.classList.remove('hide');
+    msg.innerHTML='<h1>WIPEOUT</h1><p>You made it <b style="color:#96f0dc">'+sc+
+      'm</b>.<br>Best: '+best+'m</p><button id="go2">TRY AGAIN</button>';
+    document.getElementById('go2').addEventListener('click',function(e){e.stopPropagation();reset();});
+  }
+
+  // ---- input: tap halves + swipe
+  var tsx=0, tsy=0, tst=0, swiped=false;
+  function tapAt(x){
+    if(!playing) return;
+    if(x < W/2){ if(lane>0) lane--; }
+    else { if(lane<LANES-1) lane++; }
+  }
+  function onStart(e){
+    var t=(e.touches&&e.touches[0])||e;
+    tsx=t.clientX; tsy=t.clientY; tst=Date.now(); swiped=false;
+  }
+  function onMove(e){
+    if(!playing) return; e.preventDefault();
+    var t=(e.touches&&e.touches[0])||e;
+    var dx=t.clientX-tsx;
+    if(Math.abs(dx)>26 && !swiped){
+      swiped=true;
+      if(dx<0){ if(lane>0) lane--; } else { if(lane<LANES-1) lane++; }
+      tsx=t.clientX;
+    }
+  }
+  function onEnd(e){
+    if(!playing) return; e.preventDefault();
+    if(!swiped && Date.now()-tst<420){
+      var t=(e.changedTouches&&e.changedTouches[0])||e;
+      if(t&&t.clientX!=null) tapAt(t.clientX);
+    }
+  }
+  cv.addEventListener('touchstart',onStart,{passive:false});
+  cv.addEventListener('touchmove',onMove,{passive:false});
+  cv.addEventListener('touchend',onEnd,{passive:false});
+  cv.addEventListener('mousedown',function(e){onStart(e);});
+  cv.addEventListener('mouseup',function(e){onEnd(e);});
+  document.addEventListener('keydown',function(e){
+    if(!playing) return;
+    if(e.key==='ArrowLeft'&&lane>0) lane--;
+    if(e.key==='ArrowRight'&&lane<LANES-1) lane++;
+  });
+  goBtn.addEventListener('click',reset);
+
+  function spawn(){
+    var free=lane;
+    // avoid stacking all 3 lanes; leave at least one gap
+    var n = (Math.random()<0.28 && dist>60) ? 2 : 1;
+    var pick=[0,1,2];
+    for(var i=0;i<n;i++){
+      var idx=Math.floor(Math.random()*pick.length);
+      var L=pick.splice(idx,1)[0];
+      obstacles.push({lane:L, y:-90, h:52+Math.random()*40, w:W/LANES*0.62, kind:Math.random()<0.5?'icicle':'block'});
+    }
+  }
+
+  function step(dt){
+    speed = 1 + Math.min(3.2, dist/170);
+    dist += 62*speed*dt;
+    score = dist;
+    distEl.textContent=Math.floor(dist);
+    spdEl.textContent=speed.toFixed(1);
+
+    laneF += (lane-laneF)*Math.min(1,dt*13);
+
+    spawnT-=dt;
+    if(spawnT<=0){ spawn(); spawnT=Math.max(0.42, 0.92-(dist/900)); }
+
+    var sledY=H-96;
+    for(var i=obstacles.length-1;i>=0;i--){
+      var o=obstacles[i];
+      o.y += (150+speed*58)*dt;
+      if(o.y-o.h*0.5 < sledY+16 && o.y+o.h*0.5 > sledY-14){
+        if(Math.abs(laneX(o.lane)-laneX(laneF)) < o.w*0.42){
+          endGame(); return;
+        }
+      }
+      if(o.y-o.h > H+40) obstacles.splice(i,1);
+    }
+    for(var k=0;k<flakes.length;k++){ var f=flakes[k]; f.y+=f.v*dt*speed; if(f.y>H){f.y=-4;f.x=Math.random()*W;} }
+    if(flash>0) flash-=dt*3;
+    if(shake>0) shake-=dt*2;
+  }
+
+  function drawTrack(){
+    // snow road
+    var g=ctx.createLinearGradient(0,0,0,H);
+    g.addColorStop(0,'#1b1435'); g.addColorStop(1,'#241a45');
+    ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
+    // lane dividers with perspective cue
+    ctx.strokeStyle='rgba(160,150,220,0.20)'; ctx.lineWidth=2;
+    var horizon=H*0.16;
+    var flow=(dist*0.9)%60;
+    for(var L=1;L<LANES;L++){
+      var xTop=W*L/LANES, xBot=W*L/LANES;
+      ctx.beginPath(); ctx.moveTo(xTop,horizon); ctx.lineTo(xBot,H); ctx.stroke();
+    }
+    // scrolling speed dashes in each lane
+    ctx.strokeStyle='rgba(255,255,255,0.10)'; ctx.lineWidth=3;
+    for(var l=0;l<LANES;l++){
+      var cx=laneX(l);
+      for(var y=-60+flow; y<H; y+=60){
+        ctx.beginPath(); ctx.moveTo(cx,y); ctx.lineTo(cx,y+22); ctx.stroke();
+      }
+    }
+    // background snow
+    ctx.fillStyle='rgba(210,225,255,0.30)';
+    for(var k=0;k<flakes.length;k++){ var f=flakes[k]; ctx.fillRect(f.x,f.y,f.s,f.s); }
+  }
+
+  function drawObstacle(o){
+    var x=laneX(o.lane), y=o.y, w=o.w, h=o.h;
+    ctx.save(); ctx.translate(x,y);
+    if(o.kind==='icicle'){
+      ctx.fillStyle='#9fe8ff';
+      ctx.beginPath(); ctx.moveTo(-w*0.34,-h*0.5); ctx.lineTo(0,h*0.5); ctx.lineTo(w*0.34,-h*0.5); ctx.closePath(); ctx.fill();
+      ctx.fillStyle='rgba(255,255,255,0.55)';
+      ctx.beginPath(); ctx.moveTo(-w*0.34,-h*0.5); ctx.lineTo(-w*0.08,h*0.1); ctx.lineTo(-w*0.2,-h*0.5); ctx.closePath(); ctx.fill();
+      ctx.strokeStyle='#4fb8d8'; ctx.lineWidth=2; ctx.stroke();
+    } else {
+      ctx.fillStyle='#6a5fa8';
+      ctx.fillRect(-w/2,-h/2,w,h);
+      ctx.fillStyle='#8d80cc'; ctx.fillRect(-w/2,-h/2,w,h*0.28);
+      ctx.strokeStyle='#3d3564'; ctx.lineWidth=2; ctx.strokeRect(-w/2,-h/2,w,h);
+    }
+    ctx.restore();
+  }
+
+  function drawSled(){
+    var x=laneX(laneF), y=H-96;
+    ctx.save(); ctx.translate(x,y);
+    // shadow
+    ctx.fillStyle='rgba(0,0,0,0.34)'; ctx.beginPath(); ctx.ellipse(0,22,32,8,0,0,6.283); ctx.fill();
+    // rails
+    ctx.strokeStyle='#c8b6ff'; ctx.lineWidth=4; ctx.lineCap='round';
+    ctx.beginPath(); ctx.moveTo(-28,16); ctx.lineTo(30,16); ctx.stroke();
+    // body
+    ctx.fillStyle='#96f0dc';
+    ctx.beginPath(); ctx.moveTo(-22,-2); ctx.lineTo(24,-2); ctx.lineTo(16,14); ctx.lineTo(-18,14); ctx.closePath(); ctx.fill();
+    // hood / rider
+    ctx.fillStyle='#ffd166';
+    ctx.beginPath(); ctx.arc(2,-10,11,0,6.283); ctx.fill();
+    ctx.fillStyle='#e05a7a';
+    ctx.beginPath(); ctx.moveTo(-9,-14); ctx.lineTo(13,-14); ctx.lineTo(2,-30); ctx.closePath(); ctx.fill();
+    ctx.restore();
+  }
+
+  var prev=0;
+  function loop(ts){
+    if(!prev) prev=ts;
+    var dt=Math.min(0.05,(ts-prev)/1000); prev=ts;
+    if(playing) step(dt);
+    ctx.save();
+    if(shake>0){ ctx.translate((Math.random()-0.5)*10*shake,(Math.random()-0.5)*10*shake); }
+    drawTrack();
+    for(var i=0;i<obstacles.length;i++) drawObstacle(obstacles[i]);
+    drawSled();
+    ctx.restore();
+    // lane indicator
+    ctx.fillStyle='rgba(150,240,220,0.85)';
+    for(var l=0;l<LANES;l++){
+      ctx.beginPath(); ctx.arc(W*(l+0.5)/LANES, H-16, l===lane?5:3, 0, 6.283);
+      ctx.globalAlpha = l===lane?1:0.3; ctx.fill(); ctx.globalAlpha=1;
+    }
+    requestAnimationFrame(loop);
+  }
+  resize();
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
+  </div>
+</body>
+</html>
+        

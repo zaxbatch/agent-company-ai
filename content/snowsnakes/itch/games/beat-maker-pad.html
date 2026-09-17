@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Beat Maker Pad</title>
+  <style>
+    body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background: #1a2a3a; font-family: sans-serif; }
+    #game-container { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
+  </style>
+</head>
+<body>
+  <div id="game-container">
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BEAT MAKER PAD - 8-Bit Music Studio</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0b1a2a; color:#cfeeff; font-family:'Courier New',monospace; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:12px; }
+  .wrap { width:100%; max-width:640px; text-align:center; }
+  h1 { color:#ffd166; font-size:20px; letter-spacing:2px; margin-bottom:4px; }
+  .sub { font-size:12px; opacity:.75; margin-bottom:14px; }
+  .display { background:#1a2a3a; border:2px solid #ffd700; border-radius:8px; padding:10px 14px; margin-bottom:12px; font-size:14px; letter-spacing:1px; }
+  .display b { color:#7CFC00; }
+  .grid { display:grid; grid-template-columns:repeat(16,1fr); gap:3px; margin-bottom:12px; }
+  .cell { height:26px; background:#223344; border:1px solid #2f4a63; border-radius:3px; cursor:pointer; transition:background .08s; }
+  .cell.on { background:#e94560; }
+  .cell.play { background:#ffd166; }
+  .row { display:grid; grid-template-columns:52px 1fr; align-items:center; gap:6px; margin-bottom:4px; }
+  .row .label { text-align:right; font-size:11px; opacity:.85; letter-spacing:.5px; }
+  .row .grid .cell:nth-child(4n){ border-right:2px solid #4a6a8a; }
+  .controls { display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-top:10px; }
+  .btn { background:#e94560; color:#fff; border:0; font-family:inherit; font-size:13px; font-weight:bold; padding:10px 16px; border-radius:6px; cursor:pointer; letter-spacing:1px; }
+  .btn:hover { background:#ff5a75; }
+  .btn.gold { background:#ffd166; color:#111; } .btn.gold:hover{ background:#ffe08a; }
+  .btn.ghost { background:#2f4a63; } .btn.ghost:hover{ background:#3a5a78; }
+  .tempo { margin-top:10px; font-size:12px; }
+  .tempo input { width:160px; vertical-align:middle; }
+  .notes { font-size:11px; opacity:.6; margin-top:8px; line-height:1.5; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🎹 BEAT MAKER PAD</h1>
+  <div class="sub">8-Bit Music Studio · 16-step sequencer · make a beat, beat makers</div>
+  <div class="display"><span id="playing">STOPPED</span> &nbsp;·&nbsp; TEMPO <b id="tempoShow">120</b> BPM &nbsp;·&nbsp; STEP <b id="stepShow">-</b></div>
+  <div id="rows"></div>
+  <div class="controls">
+    <button class="btn gold" id="playBtn">▶ PLAY</button>
+    <button class="btn ghost" id="clearBtn">✕ Clear</button>
+    <button class="btn ghost" id="fillBtn">✦ Fill</button>
+  </div>
+  <div class="tempo">Tempo <input type="range" id="tempo" min="70" max="180" value="120"></div>
+  <div class="notes">KICK · SNARE · HAT · BASS · LEAD · CLAP<br>Click cells to build your pattern. Hit PLAY. Make something nasty.</div>
+</div>
+<script>
+(function(){
+  var TRACKS = [
+    {name:'KICK',  type:'kick'},
+    {name:'SNARE', type:'snare'},
+    {name:'HAT',   type:'hat'},
+    {name:'BASS',  type:'bass', note:55},
+    {name:'LEAD',  type:'lead', note:72},
+    {name:'CLAP',  type:'clap'}
+  ];
+  var STEPS = 16;
+  var grid = TRACKS.map(function(){ return new Array(STEPS).fill(false); });
+  var step = -1, playing = false, timer = null;
+  var AC = null;
+
+  // ---- build UI ----
+  var rowsEl = document.getElementById('rows');
+  TRACKS.forEach(function(tr, r){
+    var row = document.createElement('div'); row.className='row';
+    var label = document.createElement('div'); label.className='label'; label.textContent=tr.name;
+    var g = document.createElement('div'); g.className='grid';
+    for(var c=0;c<STEPS;c++){
+      (function(r,c){
+        var cell = document.createElement('div'); cell.className='cell';
+        cell.dataset.r=r; cell.dataset.c=c;
+        cell.addEventListener('click', function(){ grid[r][c]=!grid[r][c]; cell.classList.toggle('on', grid[r][c]); });
+        g.appendChild(cell);
+      })(r,c);
+    }
+    row.appendChild(label); row.appendChild(g); rowsEl.appendChild(row);
+  });
+  var cells = document.querySelectorAll('.cell');
+
+  // ---- audio synthesis (8-bit) ----
+  function ctx(){
+    if(!AC) AC = new (window.AudioContext||window.webkitAudioContext)();
+    if(AC.state==='suspended') AC.resume();
+    return AC;
+  }
+  function osc(type, freq, t0, dur, vol){
+    var c=ctx(), o=c.createOscillator(), g=c.createGain();
+    o.type=type; o.frequency.value=freq;
+    g.gain.setValueAtTime(vol, t0);
+    g.gain.exponentialRampToValueAtTime(0.0001, t0+dur);
+    o.connect(g); g.connect(c.destination); o.start(t0); o.stop(t0+dur);
+  }
+  function noise(t0, dur, vol){
+    var c=ctx(), buf=c.createBuffer(1, c.sampleRate*dur, c.sampleRate);
+    var d=buf.getChannelData(0);
+    for(var i=0;i<d.length;i++) d[i]=(Math.random()*2-1)*(1-i/d.length);
+    var src=c.createBufferSource(); src.buffer=buf;
+    var g=c.createGain(); g.gain.value=vol;
+    src.connect(g); g.connect(c.destination); src.start(t0);
+  }
+  function playSound(type, note){
+    var t0 = ctx().currentTime;
+    switch(type){
+      case 'kick': osc('sine', 120, t0, 0.25, 0.9); osc('sine', 55, t0, 0.3, 0.6); break;
+      case 'snare': noise(t0, 0.18, 0.5); osc('triangle', 190, t0, 0.12, 0.3); break;
+      case 'hat': noise(t0, 0.06, 0.25); break;
+      case 'clap': noise(t0, 0.15, 0.4); noise(t0+0.02, 0.12, 0.3); break;
+      case 'bass': osc('sawtooth', note, t0, 0.2, 0.35); break;
+      case 'lead': osc('square', note, t0, 0.16, 0.22); osc('square', note*1.5, t0, 0.12, 0.1); break;
+    }
+  }
+
+  // ---- transport ----
+  function setStep(n){
+    step = n;
+    cells.forEach(function(cell){
+      var r=+cell.dataset.r, c=+cell.dataset.c;
+      cell.classList.toggle('play', c===step);
+    });
+  }
+  function tick(){
+    setStep(step);
+    if(step>=0){
+      TRACKS.forEach(function(tr, r){ if(grid[r][step]) playSound(tr.type, tr.note); });
+    }
+  }
+  function play(){
+    if(playing) return;
+    playing=true; document.getElementById('playing').textContent='PLAYING';
+    document.getElementById('playBtn').textContent='⏸ STOP';
+    var bpm = +document.getElementById('tempo').value;
+    var spb = 60/bpm/4; // 16th notes
+    step=-1;
+    tick();
+    timer = setInterval(function(){ step=(step+1)%STEPS; tick(); }, spb*1000);
+  }
+  function stop(){
+    playing=false; clearInterval(timer); timer=null;
+    document.getElementById('playing').textContent='STOPPED';
+    document.getElementById('playBtn').textContent='▶ PLAY';
+    setStep(-1);
+  }
+  document.getElementById('playBtn').addEventListener('click', function(){ playing?stop():play(); });
+  document.getElementById('clearBtn').addEventListener('click', function(){
+    grid.forEach(function(row,i){ row.fill(false); });
+    cells.forEach(function(cell){ cell.classList.remove('on'); });
+  });
+  document.getElementById('fillBtn').addEventListener('click', function(){
+    grid.forEach(function(row,r){
+      for(var c=0;c<STEPS;c++){
+        var p = (r===0?0.35 : r===1?0.25 : r===2?0.4 : r===3?0.2 : r===4?0.12 : 0.18);
+        row[c] = Math.random()<p;
+      }
+    });
+    cells.forEach(function(cell){ var r=+cell.dataset.r, c=+cell.dataset.c; cell.classList.toggle('on', grid[r][c]); });
+  });
+  document.getElementById('tempo').addEventListener('input', function(){ document.getElementById('tempoShow').textContent=this.value; });
+  // stop when tab hidden
+  document.addEventListener('visibilitychange', function(){ if(document.hidden) stop(); });
+})();
+</script>
+</body>
+</html>
+  </div>
+</body>
+</html>
+        

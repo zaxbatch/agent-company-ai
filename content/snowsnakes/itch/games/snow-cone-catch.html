@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>SNOW CONE CATCH</title>
+  <style>
+    body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background: #1a2a3a; font-family: sans-serif; }
+    #game-container { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
+  </style>
+</head>
+<body>
+  <div id="game-container">
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#0b1a2a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>SNOW CONE CATCH — drag to catch</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{height:100%;overflow:hidden;background:#0b1a2a;
+    font-family:'Courier New',ui-monospace,monospace;touch-action:none;overscroll-behavior:none}
+  #wrap{position:fixed;inset:0;display:flex;flex-direction:column}
+  #hud{display:flex;justify-content:space-between;padding:8px 14px;color:#cfeeff;
+    font-size:13px;letter-spacing:1px;text-transform:uppercase;flex:0 0 auto}
+  #hud b{color:#ffd166}
+  #stage{flex:1 1 auto;position:relative;min-height:0}
+  canvas{display:block;width:100%;height:100%}
+  #msg{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+    justify-content:center;gap:14px;color:#cfeeff;text-align:center;padding:24px}
+  #msg h1{font-size:22px;letter-spacing:2px;color:#7fd1ff}
+  #msg p{font-size:13px;line-height:1.7;color:#8fb8d8;max-width:280px}
+  #msg button{background:#7fd1ff;color:#08131f;border:0;border-radius:10px;
+    padding:14px 30px;font:inherit;font-weight:bold;font-size:15px;letter-spacing:1px;cursor:pointer}
+  #msg button:active{transform:scale(.96)}
+  .hide{display:none!important}
+</style>
+</head>
+<body>
+<div id="wrap">
+  <div id="hud">
+    <div>SCORE <b id="score">0</b></div>
+    <div>COMBO <b id="combo">x1</b></div>
+    <div>BEST <b id="best">0</b></div>
+  </div>
+  <div id="stage">
+    <canvas id="c"></canvas>
+    <div id="msg">
+      <h1>SNOW CONE CATCH</h1>
+      <p>Drag your finger to move the cone.<br>Catch the snow &#10052; for points &nbsp;&middot;&nbsp; dodge the rocks &#129704;<br>3 rocks and you're out. Drops show a landing ring.</p>
+      <button id="go">TAP TO PLAY</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var cv=document.getElementById('c'), ctx=cv.getContext('2d');
+  var stage=document.getElementById('stage');
+  var scoreEl=document.getElementById('score'), comboEl=document.getElementById('combo'),
+      bestEl=document.getElementById('best'), msg=document.getElementById('msg'), goBtn=document.getElementById('go');
+  var DPR=Math.min(window.devicePixelRatio||1,3);
+  var W=0,H=0;
+  var best=+(localStorage.getItem('sc_catch_best')||0); bestEl.textContent=best;
+
+  function resize(){
+    var r=stage.getBoundingClientRect();
+    W=Math.max(1,Math.floor(r.width)); H=Math.max(1,Math.floor(r.height));
+    cv.width=W*DPR; cv.height=H*DPR;
+    cv.style.width=W+'px'; cv.style.height=H+'px';
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+  }
+  window.addEventListener('resize',resize);
+  window.addEventListener('orientationchange',function(){setTimeout(resize,150)});
+
+  // ---- state
+  var playing=false, over=false, items=[], pops=[], flakes=[];
+  var score=0, combo=1, misses=0, elapsed=0, spawnT=0, last=0;
+  var cone={x:0,w:0,h:0};
+  var targetX=null;      // finger target (px, canvas space)
+  var MAXMISS=3;   // lives — only ROCKS cost a life now
+
+  function reset(){
+    playing=true; over=false; items=[]; pops=[];
+    score=0; combo=1; misses=0; elapsed=0; spawnT=0;
+    targetX=W/2;
+    scoreEl.textContent=0; comboEl.textContent='x1';
+    msg.classList.add('hide');
+    flakes=[]; for(var i=0;i<44;i++) flakes.push({x:Math.random()*W,y:Math.random()*H,
+      s:1+Math.random()*2, v:12+Math.random()*30});
+  }
+
+  function endGame(){
+    playing=false; over=true;
+    if(score>best){ best=score; localStorage.setItem('sc_catch_best',best); bestEl.textContent=best; }
+    msg.classList.remove('hide');
+    msg.innerHTML='<h1>GAME OVER</h1><p>You caught <b style="color:#ffd166">'+score+
+      '</b> points.<br>Best: '+best+'</p><button id="go2">PLAY AGAIN</button>';
+    document.getElementById('go2').addEventListener('click',function(e){e.stopPropagation();reset();});
+  }
+
+  // ---- input: drag anywhere
+  function pos(e){
+    var t=(e.touches&&e.touches[0])||(e.changedTouches&&e.changedTouches[0])||e;
+    var r=cv.getBoundingClientRect();
+    return {x:t.clientX-r.left, y:t.clientY-r.top};
+  }
+  function onStart(e){ if(!playing)return; e.preventDefault(); var p=pos(e); targetX=p.x; }
+  function onMove(e){ if(!playing)return; e.preventDefault(); var p=pos(e); targetX=p.x; }
+  function onEnd(e){ if(!playing)return; e.preventDefault(); }
+  cv.addEventListener('touchstart',onStart,{passive:false});
+  cv.addEventListener('touchmove',onMove,{passive:false});
+  cv.addEventListener('touchend',onEnd,{passive:false});
+  cv.addEventListener('mousedown',onStart); cv.addEventListener('mousemove',function(e){if(e.buttons)onMove(e)});
+  cv.addEventListener('mouseup',onEnd);
+  goBtn.addEventListener('click',reset);
+
+  // ---- helpers
+  function snowflake(x,y,r,rot){
+    ctx.save(); ctx.translate(x,y); ctx.rotate(rot); ctx.strokeStyle='#dff6ff'; ctx.lineWidth=2;
+    for(var i=0;i<6;i++){ ctx.rotate(Math.PI/3); ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(0,-r); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(0,-r*0.55); ctx.lineTo(r*0.34,-r*0.78); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(0,-r*0.55); ctx.lineTo(-r*0.34,-r*0.78); ctx.stroke(); }
+    ctx.restore();
+  }
+  function rock(x,y,r){
+    ctx.save(); ctx.translate(x,y); ctx.fillStyle='#5a6b7d';
+    ctx.beginPath(); ctx.moveTo(-r,0); ctx.lineTo(-r*0.45,-r*0.85); ctx.lineTo(r*0.4,-r*0.7);
+    ctx.lineTo(r,0.15*r); ctx.lineTo(r*0.2,r*0.8); ctx.lineTo(-r*0.6,r*0.7); ctx.closePath(); ctx.fill();
+    ctx.fillStyle='#7d8fa3'; ctx.beginPath(); ctx.moveTo(-r*0.45,-r*0.85);
+    ctx.lineTo(r*0.4,-r*0.7); ctx.lineTo(0,-r*0.15); ctx.closePath(); ctx.fill(); ctx.restore();
+  }
+
+  function spawn(){
+    var bad=Math.random()< (0.20+Math.min(0.14, elapsed/120));
+    var r=bad? 18+Math.random()*6 : 13+Math.random()*5;
+    items.push({x:r+12+Math.random()*(W-2*r-24), y:-r-6, r:r, vy:118+Math.random()*70+elapsed*3.2,
+                bad:bad, rot:Math.random()*6.28, spin:(Math.random()-0.5)*1.6});
+  }
+
+  function step(dt){
+    elapsed+=dt;
+    // cone follows finger smoothly
+    if(cone.x===undefined) cone.x=W/2;
+    cone.w=Math.max(58,Math.min(96,W*0.17)); cone.h=cone.w*0.62;
+    var tx=(targetX==null?W/2:targetX);
+    cone.x += (tx-cone.x)*Math.min(1, dt*16);
+    cone.x = Math.max(cone.w/2, Math.min(W-cone.w/2, cone.x));
+
+    // spawn rate rises with time
+    spawnT-=dt;
+    if(spawnT<=0){ spawn(); spawnT=Math.max(0.46, 1.02-elapsed*0.006); }
+
+    var cy=H-cone.h-10;
+    for(var i=items.length-1;i>=0;i--){
+      var it=items[i]; it.y+=it.vy*dt; it.rot+=it.spin*dt;
+      // catch test vs cone mouth
+      if(it.y+it.r>cy && it.y-it.r<cy+cone.h && Math.abs(it.x-cone.x)<cone.w*0.70){
+        if(it.bad){
+          misses++; combo=1; comboEl.textContent='x1';
+          pops.push({x:it.x,y:cy,r:0,max:52,col:'#ff6b6b',t:0});
+          items.splice(i,1);
+          if(misses>=MAXMISS){ endGame(); return; }
+        } else {
+          score+=Math.round(10*combo); combo=Math.min(9,combo+1);
+          scoreEl.textContent=score; comboEl.textContent='x'+combo;
+          pops.push({x:it.x,y:cy,r:0,max:38,col:'#7fd1ff',t:0});
+          items.splice(i,1);
+        }
+        continue;
+      }
+      if(it.y-it.r>H+20){
+        // missing a snowflake only breaks the combo (rocks are the only real threat)
+        if(!it.bad){ combo=1; comboEl.textContent='x1'; }
+        items.splice(i,1);
+      }
+    }
+    for(var j=pops.length-1;j>=0;j--){ pops[j].t+=dt; if(pops[j].t>0.42) pops.splice(j,1); }
+    for(var k=0;k<flakes.length;k++){ var f=flakes[k]; f.y+=f.v*dt; if(f.y>H){f.y=-4;f.x=Math.random()*W;} }
+  }
+
+  function draw(){
+    ctx.fillStyle='#0e2233'; ctx.fillRect(0,0,W,H);
+    // background snow
+    ctx.fillStyle='rgba(200,230,255,0.35)';
+    for(var k=0;k<flakes.length;k++){ var f=flakes[k]; ctx.fillRect(f.x,f.y,f.s,f.s); }
+    // ground
+    ctx.fillStyle='#132b3f'; ctx.fillRect(0,H-8,W,8);
+
+    // landing guides — where each item will hit the catch line
+    var guideY=H-cone.h-10;
+    for(var g=0;g<items.length;g++){
+      var gi=items[g];
+      if(gi.y>guideY-70) continue;              // only while still falling
+      ctx.save();
+      ctx.globalAlpha=0.16; ctx.strokeStyle=gi.bad?'#ff6b6b':'#7fd1ff'; ctx.lineWidth=6;
+      ctx.beginPath(); ctx.ellipse(gi.x,guideY+4,gi.r*0.85,gi.r*0.34,0,0,6.283); ctx.stroke();
+      ctx.globalAlpha=0.10; ctx.beginPath();
+      ctx.moveTo(gi.x,gi.y+gi.r); ctx.lineTo(gi.x,guideY); ctx.stroke();
+      ctx.restore();
+    }
+
+    // items
+    for(var i=0;i<items.length;i++){
+      var it=items[i];
+      if(it.bad) rock(it.x,it.y,it.r);
+      else snowflake(it.x,it.y,it.r,it.rot);
+    }
+    // pops
+    for(var j=0;j<pops.length;j++){
+      var p=pops[j], rr=p.max*(p.t/0.42);
+      ctx.strokeStyle=p.col; ctx.globalAlpha=1-(p.t/0.42); ctx.lineWidth=3;
+      ctx.beginPath(); ctx.arc(p.x,p.y,rr,0,6.283); ctx.stroke(); ctx.globalAlpha=1;
+    }
+    // cone
+    var cw=cone.w, ch=cone.h, cx=cone.x, cy=H-ch-10;
+    ctx.save(); ctx.translate(cx,cy);
+    ctx.fillStyle='#e8d9b0';
+    ctx.beginPath(); ctx.moveTo(-cw/2,0); ctx.lineTo(cw/2,0); ctx.lineTo(0,ch); ctx.closePath(); ctx.fill();
+    ctx.strokeStyle='#8a7a52'; ctx.lineWidth=2; ctx.stroke();
+    // snow scoop on top
+    ctx.fillStyle='#dff6ff';
+    ctx.beginPath(); ctx.ellipse(0,0,cw*0.58,cw*0.2,0,0,6.283); ctx.fill();
+    ctx.strokeStyle='#a8cfe6'; ctx.lineWidth=2; ctx.stroke();
+    ctx.restore();
+
+    // misses pips
+    for(var m=0;m<MAXMISS;m++){
+      ctx.beginPath(); ctx.arc(14+m*16,H-18,5,0,6.283);
+      ctx.fillStyle = m<misses ? '#ff6b6b' : 'rgba(255,255,255,0.18)'; ctx.fill();
+    }
+  }
+
+  var prev=0;
+  function loop(ts){
+    if(!prev) prev=ts;
+    var dt=Math.min(0.05,(ts-prev)/1000); prev=ts;
+    if(playing) step(dt);
+    draw();
+    requestAnimationFrame(loop);
+  }
+  resize();
+  cone.x=W/2;
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
+  </div>
+</body>
+</html>
+        

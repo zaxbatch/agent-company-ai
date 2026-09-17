@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>VIN NEGAR BOTTLE FLIP</title>
+  <style>
+    body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background: #1a2a3a; font-family: sans-serif; }
+    #game-container { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
+  </style>
+</head>
+<body>
+  <div id="game-container">
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIN NEGAR BOTTLE FLIP</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#1a1a2e;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;font-family:monospace;color:#eee}
+  h1{color:#ffd166;font-size:22px;letter-spacing:3px;margin-bottom:4px;text-shadow:0 0 12px rgba(255,209,102,.3)}
+  .sub{color:#aaa;font-size:12px;margin-bottom:12px}
+  canvas{background:#0f0f1e;border:3px solid #333;border-radius:8px;box-shadow:0 0 30px rgba(255,209,102,.12);image-rendering:pixelated}
+  .hud{width:480px;display:flex;justify-content:space-between;margin-top:10px;font-size:14px;color:#ffd166}
+  .hud span{color:#fff}
+  .tip{color:#777;font-size:11px;margin-top:8px}
+</style>
+</head>
+<body>
+<h1>🍶 VIN NEGAR BOTTLE FLIP</h1>
+<div class="sub">flip the bottle · land it upright · stack the combo</div>
+<canvas id="g" width="480" height="480"></canvas>
+<div class="hud"><div>SCORE <span id="score">0</span></div><div>COMBO <span id="combo">0</span></div><div>BEST <span id="best">0</span></div><div>LIVES <span id="lives">3</span></div></div>
+<div class="tip">SPACE or click to flip · land on the counter upright · watch the rim</div>
+<script>
+var cv=document.getElementById('g'),ctx=cv.getContext('2d'),W=480,H=480;
+var score=0,best=+(localStorage.getItem('vinflip_best')||0),lives=3,combo=0,state='title';
+var bottle={x:W/2,y:0,vx:0,vy:0,rot:0,vr:0,on:false};
+var counter=380,parts=[],ac=null;
+function sfx(f,d,ty,v){try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();var o=ac.createOscillator(),g=ac.createGain();o.type=ty||'square';o.frequency.value=f;g.gain.setValueAtTime(v||.08,ac.currentTime);g.gain.exponentialRampToValueAtTime(.001,ac.currentTime+d);o.connect(g);g.connect(ac.destination);o.start();o.stop(ac.currentTime+d);}catch(e){}}
+function reset(){score=0;lives=3;combo=0;state='play';launch();}
+function launch(){var r=Math.random();bottle.x=90+r*300;bottle.y=350;bottle.vy=-(10+r*3);bottle.vx=(Math.random()-.5)*3;bottle.vr=(Math.random()<.5?1:-1)*(6+Math.random()*6);bottle.rot=0;bottle.on=false;}
+function flip(){if(state!=='play')return;if(!bottle.on){launch();return;}bottle.vy=-(10+Math.random()*3);bottle.vx=(Math.random()-.5)*3;bottle.vr=(Math.random()<.5?1:-1)*(6+Math.random()*6);bottle.on=false;sfx(500,.05,'square',.05);}
+document.addEventListener('keydown',function(e){if(e.key===' '){e.preventDefault();if(state==='title'||state==='over'){reset();}else flip();}});
+cv.addEventListener('click',function(){if(state==='title'||state==='over'){reset();}else flip();});
+function step(){
+  if(state!=='play')return;
+  if(!bottle.on){
+    bottle.vy+=.35;bottle.x+=bottle.vx;bottle.y+=bottle.vy;bottle.rot+=bottle.vr;
+    // land on counter
+    if(bottle.y>=counter-16){
+      bottle.y=counter-16;
+      var u=(Math.abs(bottle.rot%360)<12)||(Math.abs(Math.abs(bottle.rot%360)-360)<12);
+      if(u){bottle.on=true;bottle.vr=0;bottle.rot=Math.round(bottle.rot/360)*360;combo++;score+=10*combo;sfx(1200,.08,'square',.08);for(var p=0;p<10;p++)parts.push({x:bottle.x,y:bottle.y,vx:(Math.random()-.5)*4,vy:-Math.random()*5,c:'#ffd166'});if(score>best){best=score;localStorage.setItem('vinflip_best',best);}}
+      else{bottle.vr*=.4;bottle.vx*=.6;lives--;combo=0;sfx(120,.4,'sawtooth',.1);if(bottle.x<40||bottle.x>W-40||lives<=0){state='over';if(score>best){best=score;localStorage.setItem('vinflip_best',best);}}}
+    }
+    if(bottle.y>H+40){state='over';if(score>best){best=score;localStorage.setItem('vinflip_best',best);}}
+  }
+  for(var i=parts.length-1;i>=0;i--){var pt=parts[i];pt.x+=pt.vx;pt.y+=pt.vy;pt.vy+=.12;if(pt.y>H)parts.splice(i,1);}
+}
+function drawBottle(x,y,rot){
+  ctx.save();ctx.translate(x,y);ctx.rotate(rot*Math.PI/180);
+  // legs (sneakers)
+  ctx.fillStyle='#222';ctx.fillRect(-9,22,9,14);ctx.fillRect(2,22,9,14);
+  ctx.fillStyle='#fff';ctx.fillRect(-11,34,13,6);ctx.fillRect(0,34,13,6);
+  // bottle glass
+  ctx.fillStyle='#d9a066';ctx.fillRect(-13,-28,26,52);
+  ctx.fillStyle='#ecc489';ctx.fillRect(-13,-28,7,52);
+  // cap
+  ctx.fillStyle='#2b3a55';ctx.fillRect(-8,-40,16,14);
+  // label
+  ctx.fillStyle='#f5e6d0';ctx.fillRect(-11,-10,22,20);
+  ctx.fillStyle='#7a4a1e';ctx.fillRect(-9,-7,18,5);
+  // face ON the bottle
+  ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(-6,-22,3.5,0,7);ctx.fill();ctx.beginPath();ctx.arc(6,-22,3.5,0,7);ctx.fill();
+  ctx.fillStyle='#111';ctx.beginPath();ctx.arc(-5.5,-22,1.8,0,7);ctx.fill();ctx.beginPath();ctx.arc(6.5,-22,1.8,0,7);ctx.fill();
+  ctx.strokeStyle='#111';ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(-4,-13);ctx.quadraticCurveTo(0,-10,4,-13);ctx.stroke();
+  // arms
+  ctx.fillStyle='#d9a066';ctx.fillRect(-21,-16,8,22);ctx.fillRect(13,-16,8,22);
+  ctx.restore();
+}
+function draw(){
+  ctx.fillStyle='#0f0f1e';ctx.fillRect(0,0,W,H);
+  // bg wall
+  ctx.fillStyle='#151527';ctx.fillRect(0,0,W,counter);
+  ctx.fillStyle='#22223a';ctx.fillRect(0,counter,W,4);ctx.fillStyle='#33334d';ctx.fillRect(0,counter+4,W,H-counter);
+  // vinyl record decor
+  ctx.fillStyle='#111';ctx.beginPath();ctx.arc(W-60,70,26,0,7);ctx.fill();ctx.fillStyle='#333';ctx.beginPath();ctx.arc(W-60,70,6,0,7);ctx.fill();ctx.fillStyle='#ffd166';ctx.font='8px monospace';ctx.fillText('HOOD',W-73,73);
+  if(state==='play'||state==='over')drawBottle(bottle.x,bottle.y,bottle.rot);
+  for(var i=0;i<parts.length;i++){ctx.fillStyle=parts[i].c;ctx.fillRect(parts[i].x,parts[i].y,3,3);}
+  if(state==='title'){ctx.fillStyle='#ffd166';ctx.font='bold 26px monospace';ctx.textAlign='center';ctx.fillText('VIN NEGAR',W/2,H/2-50);ctx.fillStyle='#fff';ctx.font='bold 20px monospace';ctx.fillText('BOTTLE FLIP',W/2,H/2-24);ctx.fillStyle='#aaa';ctx.font='13px monospace';ctx.fillText('press SPACE or click to start',W/2,H/2+10);}
+  if(state==='over'){ctx.fillStyle='#e94560';ctx.font='bold 26px monospace';ctx.textAlign='center';ctx.fillText('SPILLED!',W/2,H/2-20);ctx.fillStyle='#ffd166';ctx.font='15px monospace';ctx.fillText('score '+score+' · best '+best,W/2,H/2+12);ctx.fillStyle='#aaa';ctx.font='12px monospace';ctx.fillText('press SPACE to pour another',W/2,H/2+34);}
+  document.getElementById('score').textContent=score;document.getElementById('combo').textContent=combo;
+  document.getElementById('best').textContent=best;document.getElementById('lives').textContent=lives;
+}
+setInterval(function(){step();draw();},1000/50);
+draw();
+</script>
+</body>
+</html>
+  </div>
+</body>
+</html>
+        

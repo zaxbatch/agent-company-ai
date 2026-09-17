@@ -1,0 +1,529 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>UFO Hunter</title>
+  <style>
+    body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background: #1a2a3a; font-family: sans-serif; }
+    #game-container { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
+  </style>
+</head>
+<body>
+  <div id="game-container">
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UFO HUNTER - 8-Bit Laser Shooter</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background:#0a0a14;
+    display:flex; justify-content:center; align-items:center;
+    min-height:100vh; font-family:monospace; overflow:hidden;
+  }
+  #wrap {
+    position:relative;
+    image-rendering:pixelated;
+    box-shadow:0 0 40px #4a6cff66, 0 0 120px #1a2a88;
+    border:4px solid #2a2a3a;
+    border-radius:8px;
+    background:#000;
+  }
+  canvas { display:block; width:100%; height:100%; image-rendering:pixelated; }
+  #overlay {
+    position:absolute; inset:0; pointer-events:none;
+    background:repeating-linear-gradient(
+      0deg, rgba(0,0,0,0.22) 0px, rgba(0,0,0,0.22) 2px,
+      transparent 2px, transparent 4px);
+    mix-blend-mode:multiply;
+    border-radius:6px;
+  }
+  #vignette {
+    position:absolute; inset:0; pointer-events:none;
+    background:radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.45) 100%);
+    border-radius:6px;
+  }
+  #hud {
+    position:absolute; top:6px; left:10px; right:10px;
+    display:flex; justify-content:space-between;
+    color:#fff; font-size:14px; letter-spacing:2px;
+    text-shadow:2px 2px 0 #000; font-weight:bold;
+    pointer-events:none;
+  }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <canvas id="game" width="640" height="480"></canvas>
+  <div id="overlay"></div>
+  <div id="vignette"></div>
+  <div id="hud"><span id="hudL">SCORE 000000</span><span id="hudR">HI 000000</span></div>
+</div>
+<script>
+"use strict";
+// ============ CANVAS ============
+const cvs = document.getElementById("game");
+const ctx = cvs.getContext("2d");
+const W = 640, H = 480;
+ctx.imageSmoothingEnabled = false;
+
+// ============ SPRITES (pixel grids) ============
+// color map: char -> rgb
+const CMAP = {
+  ".": null,              // transparent
+  "S": "#9aa3ad",         // ufo hull silver
+  "D": "#6b7280",         // ufo hull dark
+  "G": "#3ddc55",         // dome green
+  "R": "#ff3355",         // red light
+  "Y": "#ffcc33",         // yellow light
+  "L": "#88e0ff",         // glow light blue
+  "B": "#2244aa",         // sky dark blue (used for dither)
+  "P": "#33ff99",         // laser / power
+  "O": "#ff8833",         // explosion orange
+  "W": "#ffffff",         // white
+  "K": "#1a1a2a"          // cannon body
+};
+
+function drawSprite(grid, px, x, y, frame) {
+  // px = pixel size in canvas units; frame for animation swap
+  const rows = grid.length, cols = grid[0].length;
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      let ch = grid[r][c];
+      if (ch === ".") continue;
+      if (ch === "R" && frame % 2 === 1) ch = "Y";
+      if (ch === "Y" && frame % 2 === 1) ch = "R";
+      const col = CMAP[ch];
+      if (!col) continue;
+      ctx.fillStyle = col;
+      ctx.fillRect(Math.round(x + c * px), Math.round(y + r * px), px, px);
+    }
+  }
+}
+
+const UFO_SPRITE = [
+  "....GGGG....",
+  "...GGGGGG...",
+  "..GGGGGGGG..",
+  "..SSSSSSSS..",
+  ".SSSSSSSSSS.",
+  "SSSSSSSSSSSS",
+  "SRSSSSSSSSRS",
+  ".SSSSSSSSSS.",
+  "..LLLLLLLL..",
+  "...LLLLLL..."
+];
+
+const UFO_SPRITE2 = [ // alt variant (bigger boss-ish)
+  "....DDDD....",
+  "...DGGGGD...",
+  "..DGGGGGGD..",
+  ".DSSSSSSSSD.",
+  "DSSSSSSSSSSD",
+  "DSSSSSSSSSSD",
+  "DRSSSSSSSSRD",
+  "DSSSSSSSSSSD",
+  ".DLLLLLLLLD.",
+  "..DLLLLLLD.."
+];
+
+const CANNON_SPRITE = [
+  "...K...",
+  "...K...",
+  "...P...",
+  "..KKK..",
+  ".KKKKK.",
+  "KKKKKKK"
+];
+
+// ============ AUDIO (chiptune beeps) ============
+let actx = null, muted = false;
+function audio() {
+  if (!actx) {
+    try { actx = new (window.AudioContext || window.webkitAudioContext)(); }
+    catch (e) { actx = null; }
+  }
+  if (actx && actx.state === "suspended") actx.resume();
+  return actx;
+}
+function tone(freq, dur, type, vol, slideTo) {
+  if (muted) return;
+  const a = audio(); if (!a) return;
+  const o = a.createOscillator(), g = a.createGain();
+  o.type = type || "square";
+  o.frequency.setValueAtTime(freq, a.currentTime);
+  if (slideTo) o.frequency.exponentialRampToValueAtTime(slideTo, a.currentTime + dur);
+  g.gain.setValueAtTime(vol || 0.08, a.currentTime);
+  g.gain.exponentialRampToValueAtTime(0.0001, a.currentTime + dur);
+  o.connect(g); g.connect(a.destination);
+  o.start(); o.stop(a.currentTime + dur + 0.02);
+}
+function sfxLaser()  { tone(880, 0.12, "square", 0.07, 220); }
+function sfxHit()    { tone(520, 0.08, "square", 0.09, 1040); }
+function sfxExplode(){ tone(200, 0.35, "sawtooth", 0.10, 40); }
+function sfxMiss()   { tone(300, 0.25, "triangle", 0.08, 90); }
+function sfxLevel()  { [523,659,784,1047].forEach((f,i)=>setTimeout(()=>tone(f,0.12,"square",0.08), i*90)); }
+function sfxOver()   { [392,330,262,196].forEach((f,i)=>setTimeout(()=>tone(f,0.22,"triangle",0.09), i*160)); }
+
+// ============ GAME STATE ============
+const G = {
+  state: "title",          // title | playing | gameover
+  frame: 0,
+  score: 0,
+  hi: parseInt(localStorage.getItem("ufo_hi") || "0", 10),
+  lives: 3,
+  level: 1,
+  cannonX: W / 2,
+  laser: null,             // {x, y, active}
+  ufos: [],                // {x,y,vx,vy,amp,phase,type,dead,deathT}
+  expl: [],                // {x,y,px,py,vx,vy,life}
+  stars: [],
+  groundH: 60,
+  spawnTimer: 60,
+  keys: {},
+  pause: false,
+  shake: 0,
+  msg: "",
+  msgT: 0,
+  kills: 0
+};
+
+// stars
+for (let i = 0; i < 90; i++) {
+  G.stars.push({ x: Math.random() * W, y: Math.random() * (H - G.groundH), s: (Math.random() < 0.2 ? 2 : 1), tw: Math.random() * Math.PI * 2 });
+}
+
+// ============ INPUT ============
+document.addEventListener("keydown", e => {
+  G.keys[e.code] = true;
+  if (e.code === "Space" || e.code === "ArrowUp") {
+    e.preventDefault();
+    if (G.state === "title") startGame();
+    else if (G.state === "playing" && !G.pause) fireLaser();
+    else if (G.state === "gameover") startGame();
+  }
+  if (e.code === "KeyP") { if (G.state === "playing") G.pause = !G.pause; }
+  if (e.code === "KeyM") muted = !muted;
+  if (e.code === "Enter" && G.state === "gameover") startGame();
+});
+document.addEventListener("keyup", e => { G.keys[e.code] = false; });
+cvs.addEventListener("mousemove", e => {
+  const r = cvs.getBoundingClientRect();
+  G.cannonX = (e.clientX - r.left) * (W / r.width);
+});
+cvs.addEventListener("click", e => {
+  if (G.state === "title") { startGame(); return; }
+  if (G.state === "gameover") { startGame(); return; }
+  if (G.state === "playing" && !G.pause) fireLaser();
+});
+cvs.addEventListener("contextmenu", e => e.preventDefault());
+// ============ GAME LOGIC ============
+function startGame() {
+  G.state = "playing";
+  G.score = 0; G.lives = 3; G.level = 1;
+  G.ufos = []; G.expl = []; G.laser = null;
+  G.spawnTimer = 50; G.pause = false; G.shake = 0; G.kills = 0;
+  updateHUD();
+  tone(440, 0.1, "square", 0.06);
+}
+
+function spawnUFO() {
+  const lvl = G.level;
+  const types = ["small", "medium", "large"];
+  let type = types[Math.floor(Math.random() * Math.min(types.length, 1 + Math.floor(lvl / 2)))];
+  // small chance of boss variant at higher levels
+  if (lvl >= 3 && Math.random() < 0.12) type = "boss";
+  const w = type === "small" ? 34 : type === "medium" ? 48 : type === "boss" ? 64 : 44;
+  const y = 24 + Math.random() * (H * 0.35);
+  const speed = (0.6 + Math.random() * 0.8) + lvl * 0.08;
+  const dir = Math.random() < 0.5 ? 1 : -1;
+  G.ufos.push({
+    type, x: dir === 1 ? -w : W + w, y,
+    vx: speed * dir, vy: 0,
+    amp: 14 + Math.random() * 18,
+    phase: Math.random() * Math.PI * 2,
+    bobSpeed: 0.04 + Math.random() * 0.04,
+    dead: false, deathT: 0
+  });
+}
+
+function fireLaser() {
+  if (G.laser) return; // single shot like duck hunt
+  G.laser = { x: G.cannonX, y: H - G.groundH - 8 };
+  sfxLaser();
+}
+
+function update() {
+  if (G.state !== "playing" || G.pause) return;
+  G.frame++;
+  if (G.shake > 0) G.shake--;
+
+  // spawn
+  G.spawnTimer--;
+  if (G.spawnTimer <= 0) {
+    spawnUFO();
+    G.spawnTimer = Math.max(28, 70 - G.level * 6) + Math.floor(Math.random() * 30);
+    // more UFOs on screen at higher levels
+    if (G.level >= 4 && G.ufos.filter(u => !u.dead).length < 2 && Math.random() < 0.4) spawnUFO();
+  }
+
+  // move UFOs
+  for (const u of G.ufos) {
+    if (u.dead) { u.deathT--; continue; }
+    u.x += u.vx;
+    u.phase += u.bobSpeed;
+    u.y = u.y + Math.sin(u.phase) * 0.6;
+    // wrap
+    const w = u.type === "small" ? 34 : u.type === "medium" ? 48 : u.type === "boss" ? 64 : 44;
+    if (u.x > W + w) u.x = -w;
+    if (u.x < -w) u.x = W + w;
+  }
+
+  // laser
+  if (G.laser) {
+    G.laser.y -= 9;
+    // hit check
+    let hit = false;
+    for (const u of G.ufos) {
+      if (u.dead) continue;
+      const w = u.type === "small" ? 34 : u.type === "medium" ? 48 : u.type === "boss" ? 64 : 44;
+      const h = u.type === "boss" ? 20 : 16;
+      if (Math.abs(G.laser.x - u.x) < w / 2 && Math.abs(G.laser.y - u.y) < h / 2 + 4) {
+        hit = true;
+        u.dead = true; u.deathT = 20;
+        G.kills++;
+        G.score += u.type === "small" ? 100 : u.type === "medium" ? 250 : u.type === "boss" ? 1000 : 400;
+        if (G.score > G.hi) { G.hi = G.score; localStorage.setItem("ufo_hi", String(G.hi)); }
+        // explosion
+        for (let i = 0; i < 14; i++) {
+          const a = Math.random() * Math.PI * 2, sp = 1 + Math.random() * 2.5;
+          G.expl.push({ x: u.x, y: u.y, px: 0, py: 0, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp, life: 24 + Math.random() * 16 });
+        }
+        G.shake = 8;
+        sfxExplode();
+        break;
+      }
+    }
+    if (hit) { G.laser = null; }
+    else if (G.laser.y < 0) { G.laser = null; sfxMiss(); }
+  }
+
+  // explosions
+  for (const p of G.expl) {
+    p.px = p.vx; p.py = p.vy;
+    p.x += p.vx; p.y += p.vy;
+    p.vx *= 0.96; p.vy *= 0.96;
+    p.life--;
+  }
+  G.expl = G.expl.filter(p => p.life > 0);
+  G.ufos = G.ufos.filter(u => !(u.dead && u.deathT <= 0));
+
+  // level up: every 8 kills
+  const newLevel = 1 + Math.floor(G.kills / 8);
+  if (newLevel > G.level) {
+    G.level = newLevel;
+    G.msg = "LEVEL " + G.level + "!";
+    G.msgT = 90;
+    sfxLevel();
+  }
+  if (G.msgT > 0) G.msgT--;
+
+  updateHUD();
+}
+// ============ RENDER ============
+function drawSky() {
+  // gradient sky
+  const grd = ctx.createLinearGradient(0, 0, 0, H);
+  grd.addColorStop(0, "#05050f");
+  grd.addColorStop(0.6, "#0a0a2a");
+  grd.addColorStop(1, "#14143a");
+  ctx.fillStyle = grd;
+  ctx.fillRect(0, 0, W, H);
+
+  // stars
+  for (const s of G.stars) {
+    const tw = 0.4 + 0.6 * Math.abs(Math.sin(G.frame * 0.05 + s.tw));
+    ctx.fillStyle = "rgba(255,255,255," + tw.toFixed(2) + ")";
+    ctx.fillRect(s.x, s.y, s.s, s.s);
+  }
+}
+
+function drawGround() {
+  const gy = H - G.groundH;
+  // dark ground
+  ctx.fillStyle = "#0d2b12";
+  ctx.fillRect(0, gy, W, G.groundH);
+  // grass strip
+  ctx.fillStyle = "#1f7a33";
+  ctx.fillRect(0, gy, W, 6);
+  // pixel stripes
+  ctx.fillStyle = "#2ea24a";
+  for (let x = 0; x < W; x += 16) ctx.fillRect(x, gy + 8, 8, 2);
+  // dark base
+  ctx.fillStyle = "#081d0c";
+  ctx.fillRect(0, gy + 40, W, G.groundH - 40);
+}
+
+function drawCannon() {
+  const cx = G.cannonX, gy = H - G.groundH;
+  const px = 5;
+  const grid = CANNON_SPRITE;
+  for (let r = 0; r < grid.length; r++) {
+    for (let c = 0; c < grid[0].length; c++) {
+      const ch = grid[r][c];
+      if (ch === ".") continue;
+      ctx.fillStyle = CMAP[ch] || "#333";
+      ctx.fillRect(Math.round(cx - 3.5 * px + c * px), Math.round(gy - 6 * px + r * px), px, px);
+    }
+  }
+  // charge glow when laser ready
+  if (!G.laser && G.state === "playing") {
+    ctx.fillStyle = "rgba(51,255,153," + (0.4 + 0.4 * Math.sin(G.frame * 0.3)) + ")";
+    ctx.fillRect(Math.round(cx - 2), Math.round(gy - 34), 4, 6);
+  }
+}
+
+function drawUFO(u) {
+  const w = u.type === "small" ? 34 : u.type === "medium" ? 48 : u.type === "boss" ? 64 : 44;
+  const px = 2;
+  const grid = u.type === "boss" ? UFO_SPRITE2 : UFO_SPRITE;
+  // glow under ufo
+  ctx.fillStyle = "rgba(120,220,255,0.12)";
+  ctx.fillRect(Math.round(u.x - w / 2), Math.round(u.y + 8), w, 6);
+  drawSprite(grid, px, u.x - w / 2, u.y - 5, G.frame);
+  // boss HP bar
+  if (u.type === "boss") {
+    ctx.fillStyle = "#333";
+    ctx.fillRect(Math.round(u.x - w / 2), Math.round(u.y - 14), w, 4);
+    ctx.fillStyle = "#ff3355";
+    ctx.fillRect(Math.round(u.x - w / 2), Math.round(u.y - 14), Math.round(w * 0.6), 4);
+  }
+}
+
+function drawLaser() {
+  if (!G.laser) return;
+  const lx = G.laser.x, ly = G.laser.y;
+  // beam
+  ctx.fillStyle = "#33ff99";
+  ctx.fillRect(Math.round(lx - 2), Math.round(ly), 4, 14);
+  ctx.fillStyle = "#ccffee";
+  ctx.fillRect(Math.round(lx - 1), Math.round(ly), 2, 14);
+  // tip glow
+  ctx.fillStyle = "#ffffff";
+  ctx.fillRect(Math.round(lx - 1), Math.round(ly - 3), 2, 2);
+}
+
+function drawExplosions() {
+  for (const p of G.expl) {
+    const a = Math.min(1, p.life / 20);
+    ctx.fillStyle = "rgba(255,136,51," + a.toFixed(2) + ")";
+    ctx.fillRect(Math.round(p.x), Math.round(p.y), 2, 2);
+    ctx.fillStyle = "rgba(255,220,120," + (a * 0.7).toFixed(2) + ")";
+    ctx.fillRect(Math.round(p.x + 1), Math.round(p.y + 1), 2, 2);
+  }
+}
+
+function drawTitle() {
+  ctx.fillStyle = "#0a0a1a";
+  ctx.fillRect(0, 0, W, H);
+  // stars
+  for (const s of G.stars) {
+    ctx.fillStyle = "rgba(255,255,255,0.7)";
+    ctx.fillRect(s.x, s.y, s.s, s.s);
+  }
+  // big ufo
+  drawSprite(UFO_SPRITE2, 4, W / 2 - 40, 90, G.frame);
+  // title text (pixel-ish via shadow)
+  ctx.fillStyle = "#33ff99";
+  ctx.font = "bold 52px monospace";
+  ctx.textAlign = "center";
+  ctx.fillText("UFO HUNTER", W / 2, 210);
+  ctx.fillStyle = "#ffcc33";
+  ctx.font = "bold 20px monospace";
+  ctx.fillText("8-BIT LASER SHOOTER", W / 2, 242);
+  ctx.fillStyle = "#ffffff";
+  ctx.font = "16px monospace";
+  ctx.fillText("MOVE: MOUSE  /  FIRE: CLICK OR SPACE", W / 2, 300);
+  ctx.fillText("P = PAUSE   M = MUTE", W / 2, 324);
+  if (G.hi > 0) {
+    ctx.fillStyle = "#ffcc33";
+    ctx.fillText("HI-SCORE " + String(G.hi).padStart(6, "0"), W / 2, 356);
+  }
+  if (Math.floor(G.frame / 30) % 2 === 0) {
+    ctx.fillStyle = "#33ff99";
+    ctx.font = "bold 24px monospace";
+    ctx.fillText("PRESS SPACE TO START", W / 2, 400);
+  }
+}
+
+function drawGameOver() {
+  ctx.fillStyle = "rgba(0,0,0,0.6)";
+  ctx.fillRect(0, 0, W, H);
+  ctx.fillStyle = "#ff3355";
+  ctx.font = "bold 48px monospace";
+  ctx.textAlign = "center";
+  ctx.fillText("GAME OVER", W / 2, 200);
+  ctx.fillStyle = "#ffffff";
+  ctx.font = "20px monospace";
+  ctx.fillText("SCORE " + String(G.score).padStart(6, "0"), W / 2, 250);
+  if (G.score >= G.hi && G.score > 0) {
+    ctx.fillStyle = "#ffcc33";
+    ctx.fillText("NEW HI-SCORE!", W / 2, 280);
+  }
+  if (Math.floor(G.frame / 30) % 2 === 0) {
+    ctx.fillStyle = "#33ff99";
+    ctx.font = "18px monospace";
+    ctx.fillText("PRESS SPACE TO RETRY", W / 2, 330);
+  }
+}
+
+function drawMsg() {
+  if (G.msgT > 0) {
+    ctx.fillStyle = "#ffcc33";
+    ctx.font = "bold 28px monospace";
+    ctx.textAlign = "center";
+    ctx.globalAlpha = Math.min(1, G.msgT / 30);
+    ctx.fillText(G.msg, W / 2, 120);
+    ctx.globalAlpha = 1;
+  }
+}
+
+function updateHUD() {
+  document.getElementById("hudL").textContent = "SCORE " + String(G.score).padStart(6, "0");
+  document.getElementById("hudR").textContent = "HI " + String(G.hi).padStart(6, "0");
+}
+
+function render() {
+  ctx.save();
+  if (G.shake > 0) {
+    ctx.translate(Math.round((Math.random() - 0.5) * G.shake), Math.round((Math.random() - 0.5) * G.shake));
+  }
+  drawSky();
+  if (G.state === "title") { drawTitle(); ctx.restore(); return; }
+  drawGround();
+  for (const u of G.ufos) if (!u.dead) drawUFO(u);
+  drawLaser();
+  drawExplosions();
+  drawCannon();
+  if (G.state === "gameover") drawGameOver();
+  drawMsg();
+  ctx.restore();
+}
+
+// ============ MAIN LOOP ============
+function loop() {
+  update();
+  render();
+  requestAnimationFrame(loop);
+}
+loop();
+</script>
+</body>
+</html>
+  </div>
+</body>
+</html>
+        

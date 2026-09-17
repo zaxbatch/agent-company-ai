@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>⚡ DARIO: Chrono Scavenger ⚡ | Time Collector Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0f1e, #03050b);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Courier New', 'Press Start 2P', 'VT323', monospace;
+            padding: 20px;
+        }
+
+        .game-container {
+            background: #11141f;
+            border-radius: 48px;
+            padding: 20px;
+            box-shadow: 0 25px 40px rgba(0,0,0,0.6), inset 0 1px 2px rgba(255,255,255,0.1);
+            border: 2px solid #5f7f9e;
+        }
+
+        canvas {
+            display: block;
+            margin: 0 auto;
+            border-radius: 24px;
+            box-shadow: 0 10px 25px black;
+            cursor: pointer;
+        }
+
+        .info-panel {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 16px;
+            background: #0a0e18cc;
+            backdrop-filter: blur(8px);
+            padding: 12px 20px;
+            border-radius: 60px;
+            border: 1px solid #6a8fb1;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 28px;
+            font-weight: bold;
+            color: #cfecff;
+            font-size: 1.2rem;
+        }
+
+        .stats span {
+            color: #ffcd7e;
+            font-size: 1.6rem;
+            margin-right: 6px;
+        }
+
+        button {
+            background: #4f7a9e;
+            border: none;
+            font-family: inherit;
+            font-weight: bold;
+            padding: 8px 22px;
+            border-radius: 60px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.07s linear;
+            box-shadow: 0 4px 0 #1f3a52;
+            color: white;
+        }
+
+        button:active {
+            transform: translateY(2px);
+            box-shadow: 0 1px 0 #1f3a52;
+        }
+
+        .controls {
+            display: flex;
+            gap: 18px;
+            background: #01051470;
+            padding: 6px 18px;
+            border-radius: 60px;
+            font-size: 0.8rem;
+        }
+
+        .controls kbd {
+            background: #2a2f42;
+            padding: 4px 10px;
+            border-radius: 30px;
+            color: #ffd58c;
+            font-weight: bold;
+            margin: 0 2px;
+        }
+
+        @media (max-width: 780px) {
+            .stats { font-size: 0.9rem; gap: 12px; }
+            .controls { font-size: 0.65rem; }
+            .stats span { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="game-container">
+        <canvas id="gameCanvas" width="900" height="450"></canvas>
+        <div class="info-panel">
+            <div class="stats">
+                <div>⏱️ DARIO: <span id="scoreVal">0</span> relics</div>
+                <div>💥 RIFT: <span id="riftMeter">0</span>%</div>
+                <div>✨ <span id="highScore">0</span> (best)</div>
+            </div>
+            <div class="controls">
+                <span>🎮 <kbd>◀</kbd> <kbd>▶</kbd> move</span>
+                <span>⭐ <kbd>SPACE</kbd> dash</span>
+                <button id="resetBtn">🔄 RESTART TIMELINE</button>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 12px; font-size: 11px; color: #7e95b0;">
+            ⚡ DARIO the Chrono Scavenger — collect glowing time relics, avoid dark Paradoxes! Dash recharges. Don't let RIFT reach 100%! ⚡
+        </div>
+    </div>
+</div>
+
+<script>
+    (function(){
+        // ---------- DARIO: TIME RIFT COLLECTOR ----------
+        // Canvas setup
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const W = 900, H = 450;
+        const GROUND_Y = 390;     // ground level (where Dario stands)
+
+        // ---------- PLAYER ----------
+        const PLAYER_W = 32;
+        const PLAYER_H = 36;
+        let player = {
+            x: 100,
+            y: GROUND_Y - PLAYER_H,
+            vx: 0,
+            vy: 0,
+            width: PLAYER_W,
+            height: PLAYER_H,
+            grounded: true,
+            facingRight: true,
+            invincibleFrames: 0,    // after hit protection
+            dashCooldown: 0,
+            canDash: true,
+            dashReadyTimer: 0
+        };
+
+        // Game state
+        let score = 0;              // relics collected
+        let riftEnergy = 0;         // 0 to 100, if reaches 100 -> game over
+        let highScore = localStorage.getItem('darioHighScore') ? parseInt(localStorage.getItem('darioHighScore')) : 0;
+        let gameActive = true;
+        let frameRequest;
+
+        // Collectibles & Obstacles
+        let relics = [];            // time relics (blue/gold)
+        let paradoxes = [];         // dark enemies (avoid)
+
+        // Dash effect
+        let dashActive = false;
+        let dashTimer = 0;
+
+        // Floating text effects
+        let floatingTexts = [];
+
+        // Background scroll
+        let bgOffset = 0;
+
+        // ----- update UI -----
+        function updateUI() {
+            document.getElementById('scoreVal').innerText = Math.floor(score);
+            document.getElementById('riftMeter').innerText = Math.floor(riftEnergy);
+            if (score > highScore) {
+                highScore = Math.floor(score);
+                localStorage.setItem('darioHighScore', highScore);
+            }
+            document.getElementById('highScore').innerText = highScore;
+        }
+
+        // add floating word effect
+        function addFloatingText(msg, x, y, color="#ffd966") {
+            floatingTexts.push({ text: msg, x: x, y: y, life: 40, color: color });
+        }
+
+        // Spawn a time relic (collectible)
+        function spawnRelic() {
+            let x = 380 + Math.random() * 480;
+            let y = GROUND_Y - 22 + (Math.random() * -28);
+            relics.push({
+                x: x, y: y, w: 14, h: 14,
+                type: 'relic',
+                value: 5 + Math.floor(Math.random() * 8)   // 5 to 12 points
+            });
+        }
+
+        // Spawn a paradox enemy (dark orb)
+        function spawnParadox() {
+            let x = 500 + Math.random() * 380;
+            let y = GROUND_Y - 18;
+            paradoxes.push({
+                x: x, y: y, w: 24, h: 24,
+                type: 'paradox',
+                damage: 12   // adds rift energy + makes Dario flinch
+            });
+        }
+
+        // initialize world with entities
+        function initWorld() {
+            relics = [];
+            paradoxes = [];
+            for(let i = 0; i < 6; i++) spawnRelic();
+            for(let i = 0; i < 3; i++) spawnParadox();
+        }
+
+        // ----- RESET GAME -----
+        function resetGame() {
+            gameActive = true;
+            score = 0;
+            riftEnergy = 0;
+            player.x = 100;
+            player.y = GROUND_Y - PLAYER_H;
+            player.vx = 0;
+            player.vy = 0;
+            player.invincibleFrames = 0;
+            player.dashCooldown = 0;
+            player.canDash = true;
+            dashActive = false;
+            dashTimer = 0;
+            initWorld();
+            updateUI();
+            addFloatingText("⚡ DARIO RETURNS! ⚡", W/2-80, 100, "#b3ffd9");
+        }
+
+        // collision helper
+        function collide(r1, r2) {
+            return !(r2.x > r1.x + r1.w || r2.x + r2.w < r1.x ||
+                r2.y > r1.y + r1.h || r2.y + r2.h < r1.y);
+        }
+
+        // ----- Game logic update -----
+        function updateGame() {
+            if (!gameActive) return;
+
+            // ---- handle invincibility frames ----
+            if (player.invincibleFrames > 0) player.invincibleFrames--;
+
+            // ---- handle dash cooldown timer ----
+            if (player.dashCooldown > 0) {
+                player.dashCooldown--;
+                if (player.dashCooldown === 0) {
+                    player.canDash = true;
+                    addFloatingText("⚡ DASH READY", player.x, player.y-20, "#aaffdd");
+                }
+            }
+
+            // ---- dash active timer (invincible + speed boost) ----
+            if (dashActive) {
+                dashTimer--;
+                if (dashTimer <= 0) {
+                    dashActive = false;
+                    player.vx = 0;  // reset dash speed burst
+                } else {
+                    // maintain dash speed, also pass through enemies
+                }
+            }
+
+            // ----- MOVEMENT (keyboard) -----
+            let move = 0;
+            if (keys.ArrowLeft || keys.KeyA) move = -1;
+            if (keys.ArrowRight || keys.KeyD) move = 1;
+            let acc = 0.65;
+            let maxSpeed = 6.5;
+            if (dashActive) maxSpeed = 14;
+            player.vx += move * acc;
+            if (Math.abs(player.vx) > maxSpeed) player.vx = Math.sign(player.vx) * maxSpeed;
+            if (player.grounded) player.vx *= 0.92;
+            else player.vx *= 0.98;
+
+            // Jump (only if grounded and game active)
+            if ((keys.Space || keys.ArrowUp) && player.grounded && gameActive && !dashActive) {
+                player.vy = -8.2;
+                player.grounded = false;
+                addFloatingText("🏃‍♂️ JUMP", player.x, player.y-8, "#bbffff");
+            }
+
+            // DASH ability (press 'D' key or Shift? we use 'Shift' & also 'F'? For simplicity, we use "KeyD" for dash & also "Shift")
+            if ((keys.ShiftLeft || keys.ShiftRight || keys.KeyF) && gameActive && player.canDash && !dashActive && player.grounded) {
+                // activate dash
+                dashActive = true;
+                dashTimer = 8;   // dash lasts 8 frames (~0.13 sec)
+                player.canDash = false;
+                player.dashCooldown = 45;  // cooldown frames
+                player.invincibleFrames = 12; // brief invincibility during dash
+                // dash impulse
+                let dashDir = (player.facingRight ? 1 : -1);
+                player.vx = dashDir * 12;
+                addFloatingText("🌀 CHRONO DASH!", player.x, player.y-25, "#fcba6e");
+            }
+
+            // gravity
+            player.vy += 0.55;
+            if (player.vy > 12) player.vy = 12;
+            player.x += player.vx;
+            // boundaries
+            if (player.x < 18) player.x = 18;
+            if (player.x + PLAYER_W > W - 18) player.x = W - PLAYER_W - 18;
+
+            player.y += player.vy;
+            if (player.y + PLAYER_H >= GROUND_Y) {
+                player.y = GROUND_Y - PLAYER_H;
+                player.vy = 0;
+                player.grounded = true;
+            } else {
+                player.grounded = false;
+            }
+            if (player.y < 40) player.y = 40;
+
+            // set facing direction for visuals
+            if (player.vx !== 0) player.facingRight = player.vx > 0;
+
+            // ----- COLLECTIBLES: Relics -----
+            for (let i=0; i<relics.length; i++) {
+                let r = relics[i];
+                let pRect = {x: player.x, y: player.y, w: PLAYER_W, h: PLAYER_H};
+                let relicRect = {x: r.x, y: r.y, w: r.w, h: r.h};
+                if (collide(pRect, relicRect)) {
+                    score += r.value;
+                    addFloatingText(`+${r.value} ⏳`, player.x, player.y-12, "#ffe29a");
+                    relics.splice(i,1);
+                    spawnRelic();   // keep relic count steady
+                    updateUI();
+                    break;
+                }
+            }
+
+            // ----- OBSTACLES: Paradoxes (increase rift energy) -----
+            for (let i=0; i<paradoxes.length; i++) {
+                let par = paradoxes[i];
+                let pRect = {x: player.x, y: player.y, w: PLAYER_W, h: PLAYER_H};
+                let parRect = {x: par.x, y: par.y, w: par.w, h: par.h};
+                if (collide(pRect, parRect)) {
+                    if (player.invincibleFrames <= 0 && !dashActive) {
+                        // hit by paradox
+                        riftEnergy += par.damage;
+                        addFloatingText(`💢 RIFT +${par.damage}%`, player.x, player.y-10, "#ffaa88");
+                        player.invincibleFrames = 25;
+                        // knockback
+                        let dir = (player.x < par.x) ? -1 : 1;
+                        player.vx = dir * 4.5;
+                        player.vy = -5;
+                        player.grounded = false;
+                        updateUI();
+                        // remove that paradox (and spawn a new one later)
+                        paradoxes.splice(i,1);
+                        spawnParadox();
+                        break;
+                    } else if (dashActive) {
+                        // DASH destroys paradox! Dario is unstoppable while dashing
+                        addFloatingText("✨ PARADOX SHATTERED ✨", par.x, par.y-15, "#dac0ff");
+                        paradoxes.splice(i,1);
+                        spawnParadox();
+                        break;
+                    }
+                }
+            }
+
+            // Keep populations balanced
+            if (relics.length < 5) spawnRelic();
+            if (paradoxes.length < 3) spawnParadox();
+            if (paradoxes.length > 6) paradoxes = paradoxes.slice(0,5);
+
+            // RIFT ENERGY gradually increases over time (time paradox)
+            if (gameActive) {
+                riftEnergy += 0.08;
+                if (riftEnergy >= 100) {
+                    gameActive = false;
+                    addFloatingText("💀 RIFT COLLAPSE! GAME OVER 💀", W/2-120, 140, "#ff716a");
+                }
+                riftEnergy = Math.min(riftEnergy, 100);
+                updateUI();
+            }
+
+            // background effect
+            bgOffset = (bgOffset + 0.8) % 300;
+        }
+
+        // ---------- DRAW EVERYTHING (DARIO STYLE) ----------
+        function draw() {
+            ctx.clearRect(0, 0, W, H);
+            // Sky gradient (time vortex)
+            let grad = ctx.createLinearGradient(0,0,0,H);
+            grad.addColorStop(0,"#10162f");
+            grad.addColorStop(0.6,"#2a2445");
+            ctx.fillStyle = grad;
+            ctx.fillRect(0,0,W,H);
+
+            // stars / time particles
+            ctx.fillStyle = "#ffefc0";
+            for(let i=0;i<80;i++) {
+                let sx = (bgOffset + i*19) % W;
+                let sy = (i*13) % (H-100);
+                ctx.fillRect(sx, sy, 2, 2);
+            }
+
+            // Ground (time rift ground)
+            ctx.fillStyle = "#3d3460";
+            ctx.fillRect(0, GROUND_Y, W, H-GROUND_Y+8);
+            ctx.fillStyle = "#5f5285";
+            for(let i=0;i<12;i++) {
+                ctx.fillRect((bgOffset*0.5 + i*70)%W, GROUND_Y-5, 35, 6);
+            }
+
+            // draw relics (time crystals)
+            for(let r of relics) {
+                ctx.shadowBlur = 8;
+                ctx.fillStyle = "#82f2ff";
+                ctx.beginPath();
+                ctx.moveTo(r.x+7, r.y);
+                ctx.lineTo(r.x+14, r.y+7);
+                ctx.lineTo(r.x+7, r.y+14);
+                ctx.lineTo(r.x, r.y+7);
+                ctx.fill();
+                ctx.fillStyle = "#f4c542";
+                ctx.fillRect(r.x+5, r.y+3, 4, 8);
+            }
+
+            // draw paradox enemies (shadow orbs)
+            for(let p of paradoxes) {
+                ctx.fillStyle = "#9b3b6e";
+                ctx.shadowBlur = 10;
+                ctx.beginPath();
+                ctx.ellipse(p.x+12, p.y+12, 12, 14, 0, 0, Math.PI*2);
+                ctx.fill();
+                ctx.fillStyle = "#cd5d93";
+                ctx.beginPath();
+                ctx.ellipse(p.x+8, p.y+9, 4, 4, 0, 0, Math.PI*2);
+                ctx.fill();
+                ctx.fillStyle = "black";
+                ctx.fillRect(p.x+6, p.y+16, 12, 4);
+            }
+
+            // DARIO character with custom design
+            ctx.shadowBlur = 4;
+            let bodyColor = "#5aa9dd";
+            if (dashActive) bodyColor = "#f3bc6c";
+            if (player.invincibleFrames > 0 && (Math.floor(Date.now()/60)%3===0)) bodyColor = "#f0f0f0";
+            ctx.fillStyle = bodyColor;
+            ctx.fillRect(player.x, player.y, PLAYER_W, PLAYER_H);
+            // Dario's scarf
+            ctx.fillStyle = "#e0884c";
+            ctx.fillRect(player.x+5, player.y+8, 22, 8);
+            ctx.fillStyle = "#3f2b1d";
+            ctx.fillRect(player.x+8, player.y+PLAYER_H-10, 16, 8);
+            // face
+            ctx.fillStyle = "#f5e8d0";
+            ctx.fillRect(player.x+22, player.y+10, 8, 8);
+            ctx.fillStyle = "#111";
+            ctx.fillRect(player.x+24, player.y+13, 3, 3);
+            // Dario's hair
+            ctx.fillStyle = "#593c1e";
+            ctx.fillRect(player.x+8, player.y-2, 18, 8);
+            // goggles
+            ctx.fillStyle = "gold";
+            ctx.fillRect(player.x+20, player.y+8, 12, 6);
+            // dash effect aura
+            if (dashActive) {
+                ctx.beginPath();
+                ctx.ellipse(player.x+16, player.y+18, 22, 24, 0, 0, Math.PI*2);
+                ctx.fillStyle = "#ffcf8a80";
+                ctx.fill();
+            }
+
+            // floating texts
+            for(let i=0;i<floatingTexts.length;i++) {
+                let ft = floatingTexts[i];
+                ctx.font = "bold 14px 'Courier New'";
+                ctx.fillStyle = ft.color;
+                ctx.shadowBlur = 3;
+                ctx.fillText(ft.text, ft.x, ft.y - (40 - ft.life)/2);
+                ft.life--;
+            }
+            floatingTexts = floatingTexts.filter(ft => ft.life > 0);
+
+            // Rift meter visual
+            ctx.fillStyle = "#241a42";
+            ctx.fillRect(W-110, 18, 100, 12);
+            ctx.fillStyle = "#ff5e7e";
+            ctx.fillRect(W-110, 18, riftEnergy, 12);
+            ctx.fillStyle = "white";
+            ctx.font = "bold 10px monospace";
+            ctx.fillText("RIFT", W-80, 16);
+
+            // dash cooldown indicator
+            if (!player.canDash && player.dashCooldown > 0) {
+                ctx.fillStyle = "#ffaa55aa";
+                ctx.fillRect(player.x-5, player.y-8, 36, 5);
+                let cdPercent = (player.dashCooldown / 45);
+                ctx.fillStyle = "#ffe28a";
+                ctx.fillRect(player.x-5, player.y-8, 36 * (1-cdPercent), 5);
+            }
+
+            // game over message
+            if (!gameActive) {
+                ctx.font = "bold 28 monospace";
+                ctx.fillStyle = "#ffab7b";
+                ctx.shadowBlur = 0;
+                ctx.fillText("⌛ TIME RIFT CLOSED ⌛", W/2-190, H/2);
+                ctx.font = "bold 16px monospace";
+                ctx.fillStyle = "#c1b1e6";
+                ctx.fillText("Press RESTART to play as DARIO again", W/2-170, H/2+55);
+            }
+
+            // show dash hint if ready
+            if (player.canDash && gameActive && player.grounded) {
+                ctx.font = "bold 10px monospace";
+                ctx.fillStyle = "#fceb98";
+                ctx.fillText("⚡ DASH READY (SHIFT/F)", player.x-15, player.y-15);
+            }
+        }
+
+        // ----- GAME LOOP -----
+        function gameLoop() {
+            if(gameActive) updateGame();
+            draw();
+            requestAnimationFrame(gameLoop);
+        }
+
+        // ----- KEYBOARD CONTROLS -----
+        let keys = {
+            ArrowLeft: false, ArrowRight: false, ArrowUp: false, Space: false,
+            KeyA: false, KeyD: false, ShiftLeft: false, ShiftRight: false, KeyF: false
+        };
+
+        function handleKeyDown(e) {
+            let code = e.code;
+            if (keys.hasOwnProperty(code)) {
+                keys[code] = true;
+                if (code === 'Space' || code === 'ArrowUp') e.preventDefault();
+                if (code === 'ShiftLeft' || code === 'ShiftRight' || code === 'KeyF') e.preventDefault();
+            }
+            if (code === 'KeyR') {
+                resetGame();
+                e.preventDefault();
+            }
+        }
+
+        function handleKeyUp(e) {
+            let code = e.code;
+            if (keys.hasOwnProperty(code)) {
+                keys[code] = false;
+                e.preventDefault();
+            }
+        }
+
+        window.addEventListener('keydown', handleKeyDown);
+        window.addEventListener('keyup', handleKeyUp);
+
+        // reset button
+        document.getElementById('resetBtn').addEventListener('click', () => resetGame());
+
+        // initial setup
+        resetGame();
+        updateUI();
+        gameLoop();
+
+        // small intro message
+        setTimeout(() => {
+            addFloatingText("⭐ DARIO enters the rift!", 70, 120, "#b8f2ff");
+        }, 500);
+    })();
+</script>
+</body>
+</html>

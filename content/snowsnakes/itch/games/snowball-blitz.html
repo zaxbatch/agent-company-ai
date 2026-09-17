@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>SNOWBALL BLITZ</title>
+  <style>
+    body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background: #1a2a3a; font-family: sans-serif; }
+    #game-container { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
+  </style>
+</head>
+<body>
+  <div id="game-container">
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SNOWBALL BLITZ</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#0a1220;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;font-family:monospace;color:#cfe8ff}
+  h1{color:#9bd1ff;font-size:22px;letter-spacing:3px;text-shadow:0 0 12px #4a6cff88;margin-bottom:4px}
+  .sub{color:#6ea8d8;font-size:12px;margin-bottom:12px}
+  canvas{background:#0e1a2e;border:3px solid #3d5a80;border-radius:8px;box-shadow:0 0 30px #4a6cff44;image-rendering:pixelated}
+  .hud{width:560px;display:flex;justify-content:space-between;margin-top:10px;font-size:14px;color:#9bd1ff}
+  .hud span{color:#ffd166}
+  .tip{color:#5f7fa0;font-size:11px;margin-top:8px}
+</style>
+</head>
+<body>
+<h1>❄️ SNOWBALL BLITZ ❄️</h1>
+<div class="sub">you're the snow snake · dodge the ice · fire back</div>
+<canvas id="g" width="560" height="480"></canvas>
+<div class="hud"><div>SCORE <span id="score">0</span></div><div>BEST <span id="best">0</span></div><div>LIVES <span id="lives">3</span></div><div>LEVEL <span id="level">1</span></div></div>
+<div class="tip">← → / A D move · SPACE or click throw snowball · don't let ice hit you</div>
+<script>
+var cv=document.getElementById('g'),ctx=cv.getContext('2d'),W=560,H=480;
+var score=0,best=+(localStorage.getItem('blitz_best')||0),lives=3,level=1,state='title';
+var snake={x:W/2-22,w:44}, ice=[], balls=[], parts=[], stars=[], t=0, fireCd=0;
+var keys={},ac=null;
+function sfx(freq,dur,type,vol){try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();var o=ac.createOscillator(),g=ac.createGain();o.type=type||'square';o.frequency.value=freq;g.gain.setValueAtTime(vol||.08,ac.currentTime);g.gain.exponentialRampToValueAtTime(.001,ac.currentTime+dur);o.connect(g);g.connect(ac.destination);o.start();o.stop(ac.currentTime+dur);}catch(e){}}
+for(var i=0;i<60;i++){stars.push({x:Math.random()*W,y:Math.random()*H,s:Math.random()*2+1});}
+function reset(){score=0;lives=3;level=1;ice=[];balls=[];parts=[];snake.x=W/2-22;state='play';}
+function spawnIce(){var n=2+level;for(var i=0;i<n;i++){ice.push({x:Math.random()*(W-24)+12,y:-30-Math.random()*80,s:14+Math.random()*8+level*2,v:.8+level*.25,r:Math.random()*6});}}
+function fire(){if(fireCd>0)return;fireCd=12;balls.push({x:snake.x+22,y:H-60,v:7});sfx(880,.08,'square',.06);}
+document.addEventListener('keydown',function(e){
+  if(e.key===' '){e.preventDefault();if(state==='title'||state==='over'){reset();spawnIce();}else fire();}
+  if(e.key==='ArrowLeft'||e.key==='a')keys.l=true;
+  if(e.key==='ArrowRight'||e.key==='d')keys.r=true;
+});
+document.addEventListener('keyup',function(e){if(e.key==='ArrowLeft'||e.key==='a')keys.l=false;if(e.key==='ArrowRight'||e.key==='d')keys.r=false;});
+cv.addEventListener('click',function(){if(state==='title'||state==='over'){reset();spawnIce();}else fire();});
+function step(){
+  if(state!=='play')return;
+  t++;fireCd--;
+  if(keys.l)snake.x-=4;if(keys.r)snake.x+=4;snake.x=Math.max(0,Math.min(W-44,snake.x));
+  // spawn waves
+  if(ice.length===0)spawnIce();
+  // move ice
+  for(var i=ice.length-1;i>=0;i--){var it=ice[i];it.y+=it.v;it.r+=.05;
+    if(it.y>H+20){ice.splice(i,1);lives--;sfx(120,.3,'sawtooth',.1);if(lives<=0){state='over';if(score>best){best=score;localStorage.setItem('blitz_best',best);}}}
+    else if(it.x>snake.x-14&&it.x<snake.x+58&&it.y>H-70&&it.y<H-10){ice.splice(i,1);lives--;sfx(120,.3,'sawtooth',.1);for(var p=0;p<8;p++)parts.push({x:it.x,y:it.y,vx:(Math.random()-.5)*4,vy:-Math.random()*4,c:'#e94560'});if(lives<=0){state='over';if(score>best){best=score;localStorage.setItem('blitz_best',best);}}}}
+  // move balls
+  for(var i=balls.length-1;i>=0;i--){var b=balls[i];b.y-=b.v;
+    if(b.y<0){balls.splice(i,1);continue;}
+    var hit=-1;for(var j=ice.length-1;j>=0;j--){var it=ice[j];if(Math.abs(it.x-b.x)<16&&Math.abs(it.y-b.y)<16){hit=j;break;}}
+    if(hit>=0){ice.splice(hit,1);balls.splice(i,1);score+=10*level;sfx(1400,.06,'square',.06);for(var p=0;p<10;p++)parts.push({x:b.x,y:b.y,vx:(Math.random()-.5)*5,vy:(Math.random()-.5)*5,c:'#fff'});}}
+  // particles
+  for(var i=parts.length-1;i>=0;i--){var pt=parts[i];pt.x+=pt.vx;pt.y+=pt.vy;pt.vy+=.1;if(pt.y>H){parts.splice(i,1);}}
+  // level up
+  if(score>0&&score%(50*level)===0&&level<10){level++;sfx(600,.2,'triangle',.1);}
+}
+function draw(){
+  ctx.fillStyle='#0e1a2e';ctx.fillRect(0,0,W,H);
+  for(var i=0;i<stars.length;i++){ctx.fillStyle='rgba(255,255,255,'+(0.2+stars[i].s*.15)+')';ctx.fillRect(stars[i].x,stars[i].y,stars[i].s,stars[i].s);}
+  // ground
+  ctx.fillStyle='#12233f';ctx.fillRect(0,H-24,W,24);ctx.fillStyle='#3d5a80';ctx.fillRect(0,H-24,W,3);
+  // snake
+  ctx.fillStyle='#9bd1ff';ctx.fillRect(snake.x,H-58,44,34);
+  ctx.fillStyle='#e94560';ctx.fillRect(snake.x+8,H-64,28,10);
+  ctx.fillStyle='#fff';ctx.fillRect(snake.x+6,H-46,6,6);ctx.fillRect(snake.x+32,H-46,6,6);
+  // ice blocks
+  for(var i=0;i<ice.length;i++){var it=ice[i];ctx.save();ctx.translate(it.x,it.y);ctx.rotate(it.r);ctx.fillStyle='#aee0ff';ctx.fillRect(-it.s/2,-it.s/2,it.s,it.s);ctx.fillStyle='#7fc4f0';ctx.fillRect(-it.s/2,-it.s/2,it.s,4);ctx.restore();}
+  // balls
+  for(var i=0;i<balls.length;i++){ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(balls[i].x,balls[i].y,5,0,7);ctx.fill();ctx.fillStyle='#9bd1ff';ctx.beginPath();ctx.arc(balls[i].x,balls[i].y,2.5,0,7);ctx.fill();}
+  // particles
+  for(var i=0;i<parts.length;i++){ctx.fillStyle=parts[i].c;ctx.fillRect(parts[i].x,parts[i].y,3,3);}
+  if(state==='title'){ctx.fillStyle='#9bd1ff';ctx.font='bold 28px monospace';ctx.textAlign='center';ctx.fillText('SNOWBALL BLITZ',W/2,H/2-30);ctx.fillStyle='#6ea8d8';ctx.font='14px monospace';ctx.fillText('press SPACE or click to start',W/2,H/2+6);}
+  if(state==='over'){ctx.fillStyle='#e94560';ctx.font='bold 26px monospace';ctx.textAlign='center';ctx.fillText('GAME OVER',W/2,H/2-20);ctx.fillStyle='#9bd1ff';ctx.font='14px monospace';ctx.fillText('score '+score+' · best '+best, W/2,H/2+12);ctx.fillText('press SPACE to slither again',W/2,H/2+34);}
+  document.getElementById('score').textContent=score;document.getElementById('best').textContent=best;
+  document.getElementById('lives').textContent=lives;document.getElementById('level').textContent=level;
+}
+setInterval(function(){step();draw();},1000/50);
+draw();
+</script>
+</body>
+</html>
+  </div>
+</body>
+</html>
+        

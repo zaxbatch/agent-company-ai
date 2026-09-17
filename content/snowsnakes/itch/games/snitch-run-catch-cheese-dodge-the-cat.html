@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>SNITCH RUN — Catch Cheese, Dodge the Cat</title>
+  <style>
+    body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background: #1a2a3a; font-family: sans-serif; }
+    #game-container { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
+  </style>
+</head>
+<body>
+  <div id="game-container">
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SNITCH RUN — Catch Cheese, Dodge the Cat</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0b1a2a; color:#dff3ff; font-family:'Courier New',monospace; display:flex; justify-content:center; align-items:center; min-height:100vh; padding:12px; user-select:none; }
+  .wrap { text-align:center; max-width:520px; width:100%; }
+  h1 { color:#ffd166; font-size:22px; letter-spacing:3px; text-shadow:0 0 12px #ffd16666; margin-bottom:4px; }
+  .sub { color:#7fd1ff; font-size:11px; letter-spacing:2px; margin-bottom:10px; }
+  canvas { background:#0e2233; border:3px solid #3d5a80; border-radius:10px; box-shadow:0 0 30px #4a6cff33; display:block; margin:0 auto; touch-action:none; }
+  .hud { display:flex; justify-content:space-between; align-items:center; margin-top:10px; font-size:14px; }
+  .hud span { color:#ffd166; }
+  .btns { display:flex; gap:10px; justify-content:center; margin-top:12px; flex-wrap:wrap; }
+  .btn { background:#3d5a80; color:#cfe8ff; border:none; border-radius:8px; padding:10px 18px; font-family:inherit; font-size:14px; cursor:pointer; }
+  .btn:hover { background:#4a6cff; }
+  .btn.gold { background:#b8860b; }
+  .tip { color:#5f7fa0; font-size:11px; margin-top:12px; line-height:1.6; }
+  #msg { min-height:20px; font-size:13px; margin-top:8px; color:#7ee2a8; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🐀 SNITCH RUN</h1>
+  <div class="sub">CATCH THE CHEESE · DODGE THE CAT</div>
+  <canvas id="g" width="480" height="360"></canvas>
+  <div class="hud"><span>CHEESE <b id="cheese">0</b></span><span>TRUST <b id="trust">3</b></span><span>BEST <b id="best">0</b></span></div>
+  <div id="msg"></div>
+  <div class="btns">
+    <button class="btn gold" id="startBtn">▶ Start</button>
+  </div>
+  <div class="tip">🐭 Arrow keys / WASD / swipe to move the rat · 🧀 catch cheese (+1, +score) · 🐱 dodge the cat (lose a Trust) · 3 Trust = 3 lives · 🐍 the Snow Snake may appear…</div>
+</div>
+<script>
+(function(){
+  var cv = document.getElementById('g'), ctx = cv.getContext('2d');
+  var W = 480, H = 360, CELL = 24;
+  var best = +(localStorage.getItem('snitch_run_best')||0);
+  document.getElementById('best').textContent = best;
+
+  var rat, cheeses, cat, snowSnake, score, trust, running, over, frames, key, speed, catTimer;
+
+  function reset(){
+    rat = {x: Math.floor(W/CELL/2), y: Math.floor(H/CELL)-2};
+    cheeses = [];
+    for(var i=0;i<5;i++) spawnCheese();
+    cat = {x: 0, y: 0, dir: 1, speed: 2.2, active: false};
+    snowSnake = null;
+    score = 0; trust = 3; running = false; over = false; frames = 0; key = null;
+    catTimer = 0;
+    document.getElementById('cheese').textContent = score;
+    document.getElementById('trust').textContent = trust;
+    document.getElementById('msg').textContent = '';
+    draw();
+  }
+  function spawnCheese(){
+    var cx, cy, ok;
+    do {
+      cx = Math.floor(Math.random()*(W/CELL));
+      cy = Math.floor(Math.random()*(H/CELL));
+      ok = !(cx===rat.x && cy===rat.y);
+      for(var i=0;i<cheeses.length;i++) if(cheeses[i].x===cx && cheeses[i].y===cy) ok=false;
+    } while(!ok);
+    cheeses.push({x:cx, y:cy, t:0});
+  }
+
+  function start(){
+    reset();
+    running = true;
+    requestAnimationFrame(loop);
+  }
+
+  function loop(){
+    if(!running && !over){ draw(); return; }
+    frames++;
+    // move rat
+    if(key){
+      var nx = rat.x, ny = rat.y;
+      if(key==='left'||key==='a') nx--;
+      if(key==='right'||key==='d') nx++;
+      if(key==='up'||key==='w') ny--;
+      if(key==='down'||key==='s') ny++;
+      nx = Math.max(0, Math.min(W/CELL-1, nx));
+      ny = Math.max(0, Math.min(H/CELL-1, ny));
+      rat.x = nx; rat.y = ny;
+    }
+    // cat appears after 8 seconds
+    if(!cat.active && frames > 8*60) { cat.active = true; cat.x = 0; cat.y = Math.floor(H/CELL/2); }
+    if(cat.active){
+      catTimer++;
+      if(catTimer % 30 === 0) cat.dir = Math.random()<0.5?-1:1;
+      cat.x += cat.dir * cat.speed;
+      if(cat.x < 0) { cat.x = 0; cat.dir = 1; }
+      if(cat.x > W/CELL-1) { cat.x = W/CELL-1; cat.dir = -1; }
+      // cat also drifts vertically toward rat
+      if(cat.y < rat.y) cat.y += 0.4; else if(cat.y > rat.y) cat.y -= 0.4;
+      cat.y = Math.max(0, Math.min(H/CELL-1, cat.y));
+      // collision with rat
+      if(Math.abs(cat.x - rat.x) < 0.8 && Math.abs(cat.y - rat.y) < 0.8){
+        trust--;
+        document.getElementById('trust').textContent = trust;
+        document.getElementById('msg').textContent = '🐱 The cat caught you! −1 Trust';
+        if(trust <= 0){ gameOver(); return; }
+        cat.active = false; catTimer = 0;
+      }
+    }
+    // cheeses
+    for(var i=cheeses.length-1;i>=0;i--){
+      var c = cheeses[i];
+      if(c.x===rat.x && c.y===rat.y){
+        cheeses.splice(i,1);
+        score++;
+        document.getElementById('cheese').textContent = score;
+        document.getElementById('msg').textContent = '🧀 Cheese! +1';
+        spawnCheese();
+      }
+    }
+    // snow snake easter egg (rare)
+    if(!snowSnake && Math.random()<0.003){
+      snowSnake = {x: Math.floor(W/CELL/2), y: 0, dir: 1};
+      document.getElementById('msg').textContent = '🐍 The Snow Snake appears… always watching.';
+    }
+    if(snowSnake){
+      snowSnake.y += 0.5;
+      snowSnake.x += snowSnake.dir;
+      if(snowSnake.x<0||snowSnake.x>W/CELL-1) snowSnake.dir*=-1;
+      if(snowSnake.y > H/CELL){ snowSnake = null; }
+    }
+    draw();
+    if(running) requestAnimationFrame(loop);
+  }
+
+  function gameOver(){
+    running = false; over = true;
+    if(score > best){ best = score; localStorage.setItem('snitch_run_best', best); document.getElementById('best').textContent = best; }
+    document.getElementById('msg').textContent = '🏁 GAME OVER — You snitched ' + score + ' cheeses! Play again?';
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    // grid
+    ctx.strokeStyle = '#16263f'; ctx.lineWidth = 1;
+    for(var x=0;x<W;x+=CELL){ ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,H); ctx.stroke(); }
+    for(var y=0;y<H;y+=CELL){ ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke(); }
+    // rat
+    ctx.fillStyle = '#9b6a8f';
+    ctx.fillRect(rat.x*CELL+3, rat.y*CELL+3, CELL-6, CELL-6);
+    ctx.fillStyle = '#ffd166';
+    ctx.font = '14px monospace';
+    ctx.fillText('🐀', rat.x*CELL+4, rat.y*CELL+17);
+    // cheeses
+    cheeses.forEach(function(c){
+      ctx.fillStyle = '#ffd43b';
+      ctx.font = '14px monospace';
+      ctx.fillText('🧀', c.x*CELL+4, c.y*CELL+17);
+    });
+    // cat
+    if(cat.active){
+      ctx.font = '18px monospace';
+      ctx.fillText('🐱', Math.round(cat.x*CELL), Math.round(cat.y*CELL)+16);
+    }
+    // snow snake
+    if(snowSnake){
+      ctx.font = '18px monospace';
+      ctx.fillText('🐍', Math.round(snowSnake.x*CELL), Math.round(snowSnake.y*CELL)+16);
+    }
+    if(over){
+      ctx.fillStyle = 'rgba(0,0,0,.6)';
+      ctx.fillRect(0, H/2-30, W, 60);
+      ctx.fillStyle = '#ffd166';
+      ctx.font = 'bold 20px monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText('GAME OVER · ' + score + ' cheese', W/2, H/2+8);
+      ctx.textAlign = 'left';
+    }
+  }
+
+  document.addEventListener('keydown', function(e){
+    var k = e.key.toLowerCase();
+    if(['arrowleft','arrowright','arrowup','arrowdown','a','d','w','s'].indexOf(k)>=0){ e.preventDefault(); key = k.replace('arrow',''); }
+    if(k===' '){ start(); }
+  });
+  document.addEventListener('keyup', function(){ key = null; });
+  document.getElementById('startBtn').onclick = start;
+  reset();
+})();
+</script>
+</body>
+</html>
+  </div>
+</body>
+</html>
+        

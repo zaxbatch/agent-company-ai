@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>SNOW SNAKE RUSH</title>
+  <style>
+    body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background: #1a2a3a; font-family: sans-serif; }
+    #game-container { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
+  </style>
+</head>
+<body>
+  <div id="game-container">
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SNOW SNAKE RUSH</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#0a1220;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;font-family:monospace;color:#cfe8ff}
+  h1{color:#9bd1ff;font-size:22px;letter-spacing:3px;text-shadow:0 0 12px #4a6cff88;margin-bottom:4px}
+  .sub{color:#6ea8d8;font-size:12px;margin-bottom:12px}
+  canvas{background:#0e1a2e;border:3px solid #3d5a80;border-radius:8px;box-shadow:0 0 30px #4a6cff44;image-rendering:pixelated}
+  .hud{width:560px;display:flex;justify-content:space-between;margin-top:10px;font-size:14px;color:#9bd1ff}
+  .hud span{color:#ffd166}
+  .tip{color:#5f7fa0;font-size:11px;margin-top:8px}
+</style>
+</head>
+<body>
+<h1>🐍 SNOW SNAKE RUSH ❄️</h1>
+<div class="sub">endless runner · dodge · collect · don't get iced</div>
+<canvas id="g" width="560" height="480"></canvas>
+<div class="hud"><div>SCORE <span id="score">0</span></div><div>BEST <span id="best">0</span></div><div>DIST <span id="dist">0</span>m</div><div>SPD <span id="spd">1</span></div></div>
+<div class="tip">SPACE / ↑ / W jump · ↓ / S duck · ←→ move · collect snowflakes, dodge ice chunks</div>
+<script>
+var cv=document.getElementById('g'),ctx=cv.getContext('2d'),W=560,H=480;
+var score=0,best=+(localStorage.getItem('rush_best')||0),dist=0,state='title',spd=1;
+var snake={x:120,y:H-70,w:52,h:34,vy:0,onGround:true,ducking:false};
+var obs=[],flakes=[],stars=[],parts=[],t=0,groundX=0,ac=null;
+var GRAV=0.55,JUMP=-11;
+for(var i=0;i<50;i++)stars.push({x:Math.random()*W,y:Math.random()*H,s:Math.random()*2+1});
+function sfx(f,d,ty,v){try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();var o=ac.createOscillator(),g=ac.createGain();o.type=ty||'square';o.frequency.value=f;g.gain.setValueAtTime(v||.07,ac.currentTime);g.gain.exponentialRampToValueAtTime(.001,ac.currentTime+d);o.connect(g);g.connect(ac.destination);o.start();o.stop(ac.currentTime+d);}catch(e){}}
+function reset(){score=0;dist=0;spd=1;obs=[];flakes=[];snake.x=120;snake.y=H-70;snake.vy=0;snake.onGround=true;snake.ducking=false;state='play';}
+function jump(){if(state!=='play')return;if(snake.onGround){snake.vy=JUMP;snake.onGround=false;sfx(700,.08,'square',.05);}}
+function duck(on){snake.ducking=on;}
+document.addEventListener('keydown',function(e){
+  if(e.key===' '||e.key==='ArrowUp'||e.key==='w'){e.preventDefault();if(state==='title'||state==='over'){reset();}else jump();}
+  if(e.key==='ArrowDown'||e.key==='s')duck(true);
+  if(e.key==='ArrowLeft'||e.key==='a')snake.x-=4;
+  if(e.key==='ArrowRight'||e.key==='d')snake.x+=4;
+});
+document.addEventListener('keyup',function(e){if(e.key==='ArrowDown'||e.key==='s')duck(false);});
+cv.addEventListener('click',function(){if(state==='title'||state==='over'){reset();}});
+function spawn(){
+  if(Math.random()<0.02+spd*0.004){
+    var hgt=(snake.ducking?60:40)+Math.random()*50;
+    obs.push({x:W+30,y:H-24-hgt,w:26,h:hgt,type:'ice',passed:false});
+  }
+  if(Math.random()<0.03){flakes.push({x:W+30,y:80+Math.random()*260,r:7});}
+}
+function step(){
+  if(state!=='play')return;
+  t++;spd=1+Math.floor(dist/150);if(spd>8)spd=8;
+  // snake physics
+  if(!snake.onGround){snake.vy+=GRAV;snake.y+=snake.vy;if(snake.y>=H-70){snake.y=H-70;snake.onGround=true;snake.vy=0;}}
+  snake.x=Math.max(40,Math.min(W-80,snake.x));
+  // spawn + move obstacles (speed-based)
+  spawn();
+  for(var i=obs.length-1;i>=0;i--){var o=obs[i];o.x-=(4+spd*0.8);
+    if(o.x<-30){obs.splice(i,1);continue;}
+    if(!o.passed&&o.x+o.w<snake.x){o.passed=true;score+=5;sfx(900,.05,'square',.04);}
+    // collision
+    var sx=snake.x,sy=snake.y+(snake.ducking?10:0),sw=snake.w,sh=snake.h-(snake.ducking?10:0);
+    if(o.x<sx+sw&&o.x+o.w>sx&&o.y<sy+sh&&o.y+o.h>sy){state='over';if(score>best){best=score;localStorage.setItem('rush_best',best);}sfx(120,.4,'sawtooth',.1);for(var p=0;p<14;p++)parts.push({x:o.x+13,y:o.y+o.h/2,vx:(Math.random()-.5)*6,vy:-Math.random()*6,c:'#e94560'});}
+  }
+  // snowflakes
+  for(var i=flakes.length-1;i>=0;i--){var f=flakes[i];f.x-=(4+spd*0.8);f.y+=Math.sin(t*0.05+i)*0.5;
+    if(f.x<-20){flakes.splice(i,1);continue;}
+    if(Math.abs(f.x-snake.x)<40&&Math.abs(f.y-(snake.y+10))<40){score+=20;sfx(1400,.08,'triangle',.08);for(var p=0;p<8;p++)parts.push({x:f.x,y:f.y,vx:(Math.random()-.5)*4,vy:(Math.random()-.5)*4,c:'#fff'});flakes.splice(i,1);}}
+  // distance
+  dist+=0.5+spd*0.3;score+=Math.floor(dist*0.1);
+  groundX=(groundX+4+spd*0.8)%40;
+  // particles
+  for(var i=parts.length-1;i>=0;i--){var pt=parts[i];pt.x+=pt.vx;pt.y+=pt.vy;pt.vy+=.1;if(pt.y>H)parts.splice(i,1);}
+  if(score>best){best=score;localStorage.setItem('rush_best',best);}
+}
+function drawSnake(){
+  ctx.fillStyle='#9bd1ff';ctx.fillRect(snake.x,snake.y,snake.w,snake.h);
+  ctx.fillStyle='#e94560';ctx.fillRect(snake.x+8,snake.y-6,snake.w-16,8);
+  ctx.fillStyle='#fff';ctx.fillRect(snake.x+4,snake.y+6,7,7);ctx.fillRect(snake.x+snake.w-12,snake.y+6,7,7);
+  ctx.fillStyle='#111';ctx.fillRect(snake.x+6,snake.y+8,3,3);ctx.fillRect(snake.x+snake.w-10,snake.y+8,3,3);
+  // scarf tail
+  ctx.fillStyle='#e94560';ctx.fillRect(snake.x+snake.w+2,snake.y+12,10,4);
+}
+function draw(){
+  ctx.fillStyle='#0e1a2e';ctx.fillRect(0,0,W,H);
+  for(var i=0;i<stars.length;i++){ctx.fillStyle='rgba(255,255,255,'+(0.15+stars[i].s*.12)+')';ctx.fillRect(stars[i].x,stars[i].y,stars[i].s,stars[i].s);}
+  // ground
+  ctx.fillStyle='#12233f';ctx.fillRect(0,H-24,W,24);
+  ctx.fillStyle='#3d5a80';for(var gx=-40;gx<W;gx+=40){ctx.fillRect(gx+groundX,H-12,20,3);}
+  // obstacles (ice chunks)
+  for(var i=0;i<obs.length;i++){var o=obs[i];ctx.fillStyle='#aee0ff';ctx.fillRect(o.x,o.y,o.w,o.h);ctx.fillStyle='#7fc4f0';ctx.fillRect(o.x,o.y,o.w,4);ctx.fillStyle='rgba(255,255,255,.35)';ctx.fillRect(o.x+4,o.y+4,4,o.h-8);}
+  // snowflakes
+  for(var i=0;i<flakes.length;i++){var f=flakes[i];ctx.fillStyle='#e9f7ff';ctx.beginPath();ctx.arc(f.x,f.y,f.r,0,7);ctx.fill();ctx.fillStyle='#9bd1ff';ctx.beginPath();ctx.arc(f.x,f.y,f.r-3,0,7);ctx.fill();}
+  if(state==='play'||state==='over')drawSnake();
+  // particles
+  for(var i=0;i<parts.length;i++){ctx.fillStyle=parts[i].c;ctx.fillRect(parts[i].x,parts[i].y,3,3);}
+  if(state==='title'){ctx.fillStyle='#9bd1ff';ctx.font='bold 28px monospace';ctx.textAlign='center';ctx.fillText('SNOW SNAKE RUSH',W/2,H/2-30);ctx.fillStyle='#6ea8d8';ctx.font='14px monospace';ctx.fillText('press SPACE or click to slither',W/2,H/2+6);}
+  if(state==='over'){ctx.fillStyle='#e94560';ctx.font='bold 26px monospace';ctx.textAlign='center';ctx.fillText('ICED!',W/2,H/2-20);ctx.fillStyle='#9bd1ff';ctx.font='14px monospace';ctx.fillText('score '+score+' · best '+best,W/2,H/2+12);ctx.fillStyle='#aaa';ctx.font='12px monospace';ctx.fillText('press SPACE to try again',W/2,H/2+34);}
+  document.getElementById('score').textContent=score;document.getElementById('best').textContent=best;
+  document.getElementById('dist').textContent=Math.floor(dist);document.getElementById('spd').textContent=spd;
+}
+setInterval(function(){step();draw();},1000/50);
+draw();
+</script>
+</body>
+</html>
+  </div>
+</body>
+</html>
+        
