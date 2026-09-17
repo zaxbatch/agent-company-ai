@@ -5,7 +5,7 @@ import json, subprocess, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-ALBUM = ROOT / "content" / "milkups" / "album-full"
+ALBUM = ROOT / "content" / "milkups" / "album2"
 man = json.loads((ALBUM / "manifest.json").read_text())
 
 def _groove_of(genre):

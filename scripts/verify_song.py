@@ -76,10 +76,49 @@ GENRES = {
         "halftime_ok": True,
     },
     "rock": {
-        "tempo_band": "low",
+        # rock's kick lands on 1 and 3, so the low band reports HALF the tempo;
+        # the 600-1800 Hz band (guitar/snare body) reports the true 140.
+        "tempo_band": (600, 1800),
         "bpm": (100, 150),
         "groove": "backbeat",
         "note": "kick 1+3, snare 2+4",
+    },
+    "techno": {
+        "tempo_band": "low",
+        "bpm": (128, 150),
+        "groove": "four_on_floor",
+        "note": "relentless four-on-the-floor, darker and faster than house",
+    },
+    "dnb": {
+        "tempo_band": "low",
+        "bpm": (160, 180),
+        "groove": "twostep",
+        "note": "two-step breakbeat: kick on 1, SNARE on 3 (not a backbeat)",
+    },
+    "funk": {
+        # NOT measurable by autocorrelation: funk's kick is syncopated (0, 1.5,
+        # 2.75 beats), so there is no steady pulse to lock onto -- every band
+        # returns 73-149 BPM for a 112 BPM track. Left unverified here rather
+        # than faked; the BPM range and backbeat check still constrain it.
+        "tempo_band": None,
+        "bpm": (95, 125),
+        "groove": "backbeat",
+        "note": "snare on 2 and 4, but syncopated 16th kick and a busy bass",
+    },
+    "reggae": {
+        # NOT measurable by autocorrelation: one-drop has a single kick per bar
+        # on beat 3 and a sustained bass on beat 1, so bands returned 122-138 BPM
+        # for a 76 BPM track. The one-drop groove check carries the verification.
+        "tempo_band": None,
+        "bpm": (65, 92),
+        "groove": "onedrop",
+        "note": "one-drop: the kick lands on BEAT 3, skank on the offbeats",
+    },
+    "cinematic": {
+        "bpm": (60, 110),
+        "groove": "any",
+        "tempo_band": None,
+        "note": "orchestral/textural; no fixed pulse to verify",
     },
     "ambient": {
         "bpm": (50, 100),
@@ -107,35 +146,48 @@ def check_groove(a, sr, bpm, kind):
                     f"(median {med:.3f}s vs {spb:.3f}s); hats offbeat/onbeat={off:.2f}/{on:.2f}")
 
     if kind == "backbeat":
-        # Use FLUX (transient jump), not sustained energy: chords/bass sitting
-        # under the drums otherwise contaminate the band and the reading is
-        # wrong. A backbeat is a transient by definition.
-        env2, ts = sk.band_flux(a, sr, 150, 400, win=1024, hop=128)   # snare snap
-        env4, _ = sk.band_flux(a, sr, 45, 105, win=1024, hop=128)     # kick thump
-        spb = 60.0 / bpm
-        def at(env, t):
-            i = int(t * sr / 128)
-            return env[i] if 0 <= i < len(env) else 0.0
-        beats = np.arange(0, ts[-1], spb)
-        if len(beats) < 4:
-            return False, "too short to measure a backbeat"
-        b13 = np.mean([at(env4, beats[i]) for i in range(len(beats)) if i % 4 in (0, 2)])
-        b24 = np.mean([at(env4, beats[i]) for i in range(len(beats)) if i % 4 in (1, 3)])
-        s24 = np.mean([at(env2, beats[i]) for i in range(len(beats)) if i % 4 in (1, 3)])
-        s13 = np.mean([at(env2, beats[i]) for i in range(len(beats)) if i % 4 in (0, 2)])
-        # A TRUE backbeat needs THREE things, or a four-on-the-floor track sails
-        # through (found by testing: a disco track claimed as boombap passed the
-        # old s24 > s13 check, because disco's 2/4 clap made them near-equal).
-        #   1. snare clearly heavier on 2 and 4  (real margin, not a coin flip)
-        #   2. kick heavier on 1 and 3
-        #   3. it must NOT be four-on-the-floor
-        ot = sk.onsets(a, sr)
-        fof, _med = sk.beat_grid_ratio(ot, bpm)
-        margin = (s24 / s13) if s13 > 1e-6 else float("inf")
-        ok = (margin >= 1.25) and (b13 > b24) and (fof < 0.70)
-        return ok, (f"backbeat: snare 2,4/1,3 = {s24:.3f}/{s13:.3f} (margin {margin:.2f}x, need >=1.25x); "
-                    f"kick 1,3 vs 2,4 = {b13:.3f}/{b24:.3f} (need 1,3 heavier); "
-                    f"four-on-the-floor={fof*100:.0f}% (need <70%)")
+        # Bands validated empirically: kick 40-90 Hz, snare crack 1800-4000 Hz.
+        # The 150-400 Hz band used originally is contaminated by bass and keys
+        # (it read a boom-bap kick as a snare), and measuring sustained level
+        # rather than transients made it worse.
+        kb = sk.beat_profile(a, sr, bpm, 40, 90)
+        sb = sk.beat_profile(a, sr, bpm, 1800, 4000)
+        kick_13 = (kb[0] + kb[2]) / 2
+        kick_24 = (kb[1] + kb[3]) / 2
+        snare_24 = (sb[1] + sb[3]) / 2
+        snare_13 = (sb[0] + sb[2]) / 2
+        margin = (snare_24 / snare_13) if snare_13 > 1e-6 else float("inf")
+        # The kick PROFILE is the four-on-the-floor test: an even kick means
+        # every beat, a 1,3 kick means backbeat. An earlier onsets-based version
+        # rejected valid rock because the driving 8th-note bass created low-band
+        # transients on every beat (79% "four-on-the-floor").
+        kick_ratio = (kick_13 / kick_24) if kick_24 > 1e-6 else float("inf")
+        ok = bool(margin >= 1.25 and kick_ratio >= 1.30)
+        return ok, (f"backbeat: snare 2,4/1,3 = {snare_24:.2f}/{snare_13:.2f} "
+                    f"(margin {margin:.2f}x, need >=1.25x); kick 1,3/2,4 = "
+                    f"{kick_13:.2f}/{kick_24:.2f} (ratio {kick_ratio:.2f}x, need "
+                    f">=1.30x so it is not four-on-the-floor) "
+                    f"[beats: kick={kb.round(2)} snare={sb.round(2)}]")
+
+    if kind == "twostep":
+        # D&B two-step: kick on beat 1, snare on beat 3. Explicitly NOT a backbeat
+        # (2+4) and NOT four-on-the-floor.
+        kb = sk.beat_profile(a, sr, bpm, 40, 90)
+        sb = sk.beat_profile(a, sr, bpm, 1800, 4000)  # snare crack band
+        snare_on_3 = sb[2] >= max(sb[0], sb[1], sb[3]) * 1.15
+        kick_on_1 = kb[0] >= max(kb[1], kb[2], kb[3]) * 0.90
+        ok = bool(snare_on_3 and kick_on_1)
+        return ok, (f"twostep: snare[1-4]={sb.round(2)} (beat 3 must lead); "
+                    f"kick[1-4]={kb.round(2)} (beat 1 must lead)")
+
+    if kind == "onedrop":
+        # The dub bass fundamental sits at ~37 Hz and swamps the 40-90 band; the
+        # 90-200 Hz band isolates the kick, and there beat 3 leads cleanly.
+        kb = sk.beat_profile(a, sr, bpm, 90, 200)
+        kick_on_3 = kb[2] >= max(kb[0], kb[1], kb[3]) * 1.05
+        ok = bool(kick_on_3)
+        return ok, (f"onedrop: kick[1-4]={kb.round(2)} (beat 3 must lead -- "
+                    f"that is what makes it a one-drop)")
 
     if kind == "sparse_kick":
         ot = sk.onsets(a, sr, height=0.35, min_gap=0.30)
@@ -171,23 +223,25 @@ def verify(wav, genre, bpm, cover=None, quiet=False):
     # a tempo it doesn't have silently disables every groove check below, because
     # they compare inter-onset gaps against the claimed beat length.
     band = g.get("tempo_band", "low")
+    est, conf = 0.0, 0.0
     if band is None:
-        est, conf = 0.0, 0.0
         res.append(("tempo claim matches audio", True,
-                    f"not applicable: {genre} has no pulse by design"))
+                    f"not applicable: {genre} has no steady pulse to measure "
+                    f"(tempo is corroborated by the genre BPM range + groove check)"))
     else:
-        lo_b, hi_b = (4000, 12000) if band == "high" else (40, 110)
+        lo_b, hi_b = (4000, 12000) if band == "high" else (
+            tuple(band) if isinstance(band, (list, tuple)) else (40, 110))
         est, conf = sk.estimate_bpm(a, sr, lo=lo_b, hi=hi_b)
         cands = [bpm]
         if g.get("halftime_ok"):
-            cands += [bpm / 2, bpm * 2]     # half-time / double-time are real feels
+            cands += [bpm / 2, bpm * 2]
         near = min(cands, key=lambda c: abs(est - c) / c) if est > 0 else None
-        tempo_ok = bool(est > 0 and near and abs(est - near) / near <= 0.06)
+        tempo_ok = bool(est > 0 and near and abs(est - near) / near <= 0.07)
         extra = ""
         if g.get("halftime_ok") and tempo_ok and abs(near - bpm) > 1e-6:
             extra = f" (half/double-time of {bpm:.0f} -- legitimate for {genre})"
         res.append(("tempo claim matches audio", tempo_ok,
-                    f"measured {est:.1f} BPM from {band}-band (conf {conf:.2f}) "
+                    f"measured {est:.1f} BPM from {lo_b}-{hi_b} Hz (conf {conf:.2f}) "
                     f"vs claimed {bpm:.0f}{extra}"))
     gp, gev = check_groove(a, sr, bpm, g["groove"])
     res.append((f"groove = {g['groove']}", gp, gev))

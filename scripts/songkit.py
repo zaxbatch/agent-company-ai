@@ -327,3 +327,181 @@ def supersaw(midis, dur, voices=7, detune=0.14, gain=0.10, a=0.6, d=0.4, s=0.7, 
             off = (v - voices / 2) / max(voices - 1, 1) * detune * 2
             out += saw(2 * np.pi * f * (1 + off) * t).astype(np.float32) / (len(midis) * voices)
     return (out * adsr(n, a, d, s, r) * gain).astype(np.float32)
+
+
+def beat_profile(a, sr, bpm, lo, hi, win=1024, hop=128):
+    """Mean transient flux at each of the 4 beat positions in a bar.
+
+    Returns a 4-element array (beats 1-4). This is what lets the gate verify
+    non-four-on-the-floor feels: two-step has its snare on beat 3, one-drop has
+    its kick on beat 3, a backbeat puts the snare on 2 and 4. Without this the
+    only measurable feels were 'every beat' or 'not every beat'.
+    """
+    flux, ts = band_flux(a, sr, lo, hi, win, hop)
+    spb = 60.0 / bpm
+    if flux.size < 8:
+        return np.zeros(4)
+    # Take the PEAK in a +/-45 ms window around each beat, not the single sample
+    # at the exact beat. Flux is a derivative, so its peak lags the transient by
+    # a frame or two; sampling the exact index read disco's even pulse as
+    # [1, 0.35, 0.98, 0.03] and missed the snare on beat 4 entirely.
+    half = int(0.045 * sr / hop)
+    beats = np.arange(0, ts[-1], spb)
+    out = []
+    for b in range(4):
+        vals = []
+        for i, t in enumerate(beats):
+            if i % 4 != b:
+                continue
+            j = int(t * sr / hop)
+            lo_i, hi_i = max(0, j - half), min(len(flux), j + half + 1)
+            if hi_i > lo_i:
+                vals.append(float(flux[lo_i:hi_i].max()))
+        out.append(float(np.mean(vals)) if vals else 0.0)
+    arr = np.array(out)
+    m = arr.max()
+    return arr / m if m > 0 else arr
+
+
+TEMPO_BANDS = [(40, 90), (90, 200), (200, 600), (600, 1800),
+               (1800, 4000), (4000, 12000)]
+
+
+def estimate_bpm_multi(a, sr, fmin=60, fmax=190):
+    """Tempo estimate from SEVERAL bands, not just the low end.
+
+    A single low-band estimate fails on real genres: rock's kick on 1 and 3
+    implies half the true tempo, funk's syncopated kick breaks autocorrelation
+    entirely (89.5 measured vs 112 actual), and a dub bass on beat 1 swamps the
+    kick band. If ANY band reveals the claimed tempo (or its half/double), the
+    claim is true to the audio. A wrong claim still matches nothing.
+    """
+    out = []
+    for lo, hi in TEMPO_BANDS:
+        try:
+            b, c = estimate_bpm(a, sr, lo=lo, hi=hi, fmin=fmin, fmax=fmax)
+        except Exception:
+            continue
+        if b > 0:
+            out.append((lo, hi, round(b, 1), round(c, 2)))
+    return out
+
+
+def tempo_candidates_match(claim, estimates, tol=0.06):
+    """True if any band estimate matches the claim, half, or double."""
+    want = [claim, claim / 2, claim * 2]
+    for _lo, _hi, b, _c in estimates:
+        for w in want:
+            if w > 0 and abs(b - w) / w <= tol:
+                return True, b, w
+    best = max(estimates, key=lambda e: e[3]) if estimates else None
+    return False, (best[2] if best else 0.0), None
+
+
+def grid_alignment(a, sr, bpm, lo, hi, subdiv=4, tol_ms=30, win=2048, hop=256):
+    """Fraction of transients in a band that land on the BPM's subdivision grid.
+
+    This is the honest test for syncopated music. Autocorrelation assumes a
+    steady pulse; funk and dub do not have one (funk's kick is syncopated, dub's
+    bass lands on beat 1 and swamps the kick band). Grid alignment asks a weaker
+    but still falsifiable question: do the hits actually sit on this tempo's grid?
+    """
+    from scipy.signal import find_peaks
+    flux, ts = band_flux(a, sr, lo, hi, win=win, hop=hop)
+    if flux.size < 16:
+        return 0.0, 0
+    pk, _ = find_peaks(flux, distance=2, height=0.15)
+    if len(pk) < 8:
+        return 0.0, 0
+    ons = ts[pk]
+    step = 60.0 / bpm / subdiv
+    ph = np.mod(ons, step)
+    err = np.minimum(ph, step - ph)
+    return float((err < tol_ms / 1000.0).mean()), len(ons)
+
+
+def best_alignment(a, sr, bpm, bands=None):
+    """Best grid alignment for *bpm* across bands."""
+    bands = bands or [(40, 90), (90, 200), (200, 600), (1800, 4000), (4000, 12000)]
+    best, n_best = 0.0, 0
+    for lo, hi in bands:
+        f, n = grid_alignment(a, sr, bpm, lo, hi)
+        if n > 10 and f > best:
+            best, n_best = f, n
+    return best, n_best
+
+
+def onsets_per_band(a, sr, bands=None, win=2048, hop=256):
+    """Detect transients once per band, then reuse for every candidate tempo.
+
+    Doing the FFTs inside the tempo loop was unusably slow (tens of seconds per
+    track). Onsets do not change with the tempo guess, so they are computed once.
+    """
+    from scipy.signal import find_peaks
+    bands = bands or [(40, 90), (90, 200), (200, 600), (1800, 4000), (4000, 12000)]
+    out = []
+    for lo, hi in bands:
+        flux, ts = band_flux(a, sr, lo, hi, win=win, hop=hop)
+        if flux.size < 16:
+            continue
+        pk, _ = find_peaks(flux, distance=2, height=0.15)
+        if len(pk) >= 8:
+            out.append((lo, hi, ts[pk]))
+    return out
+
+
+def align_onsets(ons, bpm, subdiv=4, tol_frac=0.22):
+    """Alignment from onsets, with tolerance a FRACTION of the grid step.
+
+    A fixed millisecond tolerance makes fast tempos score best for free: a 16th
+    grid at 189 BPM is 79 ms wide, so a 30 ms window absorbs a quarter of the
+    grid and nearly any hit "aligns". Scaling the window with the step removes
+    that bias -- found because every track's scan converged on ~185 BPM.
+    """
+    step = 60.0 / bpm / subdiv
+    tol = tol_frac * step
+    ph = np.mod(ons, step)
+    err = np.minimum(ph, step - ph)
+    return float((err < tol).mean()), len(ons)
+
+
+def tempo_scan(a, sr, claim, slice_s=14.0, subdiv=4):
+    """Verify the claimed tempo by requiring it to be a LOCAL OPTIMUM.
+
+    Returns (ok, claim_score, best_neighbour, reason).
+
+    Two earlier designs failed and both are worth remembering:
+      1. A global scan picks the highest alignment -- but denser grids fit more
+         onsets, so every track converged on ~185 BPM.
+      2. A fixed millisecond tolerance had the same bias, at ~180 BPM.
+    The fix is to compare the claim only against COMPARABLE tempos (0.75x, 1x,
+    1.25x, 1.5x, 0.667x). The true tempo must be a peak in its own
+    neighbourhood; a false claim is beaten by the real tempo sitting next to it.
+    """
+    a = a[:int(slice_s * sr)]
+    ob = onsets_per_band(a, sr)
+    if not ob:
+        return False, 0.0, 0.0, "no transients detected"
+
+    def score(bpm):
+        best, n = 0.0, 0
+        for _lo, _hi, ons in ob:
+            f, m = align_onsets(ons, bpm, subdiv=subdiv)
+            if m > 10 and f > best:
+                best, n = f, m
+        return best, n
+
+    claim_score, n = score(claim)
+    # neighbours at comparable density -- deliberately NOT exact octaves, since
+    # half/double-time are legitimate feels rather than errors
+    wrongs = [0.75 * claim, 1.25 * claim, 1.5 * claim, 0.667 * claim]
+    worst_best, worst_at = 0.0, 0.0
+    for w in wrongs:
+        f, _m = score(w)
+        if f > worst_best:
+            worst_best, worst_at = f, w
+    ok = bool(n > 10 and claim_score >= 0.45 and claim_score >= 0.9 * worst_best)
+    why = (f"claim {claim:.0f} aligns {claim_score*100:.0f}% ({n} hits); "
+           f"best comparable tempo = {worst_at:.0f} @ {worst_best*100:.0f}%"
+           + ("" if ok else "  <-- a comparable tempo fits better, claim unsupported"))
+    return ok, claim_score, worst_best, why

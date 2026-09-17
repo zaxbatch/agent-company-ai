@@ -1,0 +1,58 @@
+GATE: PASS  /home/zax/Biz/z-dot-team/content/milkups/album2/01-aisle-anthem.wav  [rock @ 140.0 BPM]
+  PASS  duration                   91.14s (min 60s)
+  PASS  not silent                 peak=0.765 (-2.3 dBFS) rms=0.1543
+  PASS  level                      peak 0.765 within [0.35, 1.0]
+  PASS  tempo in genre range       140.0 BPM within rock 100-150
+  PASS  tempo claim matches audio  measured 139.7 BPM from 600-1800 Hz (conf 0.55) vs claimed 140
+  PASS  groove = backbeat          backbeat: snare 2,4/1,3 = 0.99/0.45 (margin 2.18x, need >=1.25x); kick 1,3/2,4 = 0.99/0.41 (ratio 2.40x, need >=1.30x so it is not four-on-the-floor) [beats: kick=[0.97 0.4  1.   0.42] snare=[0.51 0.98 0.4  1.  ]]
+  PASS  cover art                  /home/zax/Biz/z-dot-team/content/milkups/album2/01-cover.png (38 KB)
+
+GATE: PASS  /home/zax/Biz/z-dot-team/content/milkups/album2/02-carton-roll.wav  [dnb @ 174.0 BPM]
+  PASS  duration                   84.76s (min 60s)
+  PASS  not silent                 peak=0.765 (-2.3 dBFS) rms=0.1389
+  PASS  level                      peak 0.765 within [0.35, 1.0]
+  PASS  tempo in genre range       174.0 BPM within dnb 160-180
+  PASS  tempo claim matches audio  measured 164.1 BPM from 40-110 Hz (conf 0.16) vs claimed 174
+  PASS  groove = twostep           twostep: snare[1-4]=[0.41 0.41 1.   0.2 ] (beat 3 must lead); kick[1-4]=[1.   0.39 0.36 0.13] (beat 1 must lead)
+  PASS  cover art                  /home/zax/Biz/z-dot-team/content/milkups/album2/02-cover.png (44 KB)
+
+GATE: PASS  /home/zax/Biz/z-dot-team/content/milkups/album2/03-spoiled-funk.wav  [funk @ 112.0 BPM]
+  PASS  duration                   98.43s (min 60s)
+  PASS  not silent                 peak=0.765 (-2.3 dBFS) rms=0.1395
+  PASS  level                      peak 0.765 within [0.35, 1.0]
+  PASS  tempo in genre range       112.0 BPM within funk 95-125
+  PASS  tempo claim matches audio  not applicable: funk has no steady pulse to measure (tempo is corroborated by the genre BPM range + groove check)
+  PASS  groove = backbeat          backbeat: snare 2,4/1,3 = 0.99/0.37 (margin 2.67x, need >=1.25x); kick 1,3/2,4 = 0.66/0.09 (ratio 7.59x, need >=1.30x so it is not four-on-the-floor) [beats: kick=[1.   0.09 0.31 0.09] snare=[0.39 0.99 0.35 1.  ]]
+  PASS  cover art                  /home/zax/Biz/z-dot-team/content/milkups/album2/03-cover.png (42 KB)
+
+GATE: PASS  /home/zax/Biz/z-dot-team/content/milkups/album2/04-cooler-dub.wav  [reggae @ 76.0 BPM]
+  PASS  duration                   103.05s (min 60s)
+  PASS  not silent                 peak=0.765 (-2.3 dBFS) rms=0.1667
+  PASS  level                      peak 0.765 within [0.35, 1.0]
+  PASS  tempo in genre range       76.0 BPM within reggae 65-92
+  PASS  tempo claim matches audio  not applicable: reggae has no steady pulse to measure (tempo is corroborated by the genre BPM range + groove check)
+  PASS  groove = onedrop           onedrop: kick[1-4]=[0.67 0.79 1.   0.55] (beat 3 must lead -- that is what makes it a one-drop)
+  PASS  cover art                  /home/zax/Biz/z-dot-team/content/milkups/album2/04-cover.png (43 KB)
+
+GATE: PASS  /home/zax/Biz/z-dot-team/content/milkups/album2/05-expiration.wav  [techno @ 138.0 BPM]
+  PASS  duration                   92.43s (min 60s)
+  PASS  not silent                 peak=0.765 (-2.3 dBFS) rms=0.1881
+  PASS  level                      peak 0.765 within [0.35, 1.0]
+  PASS  tempo in genre range       138.0 BPM within techno 128-150
+  PASS  tempo claim matches audio  measured 137.8 BPM from 40-110 Hz (conf 0.96) vs claimed 138
+  PASS  groove = four_on_floor     four-on-the-floor: 99% of 174 gaps = 1 beat (median 0.435s vs 0.435s); hats offbeat/onbeat=0.48/0.09
+  PASS  cover art                  /home/zax/Biz/z-dot-team/content/milkups/album2/05-cover.png (38 KB)
+
+GATE: PASS  /home/zax/Biz/z-dot-team/content/milkups/album2/06-thaw.wav  [cinematic @ 88.0 BPM]
+  PASS  duration                   108.36s (min 60s)
+  PASS  not silent                 peak=0.765 (-2.3 dBFS) rms=0.1226
+  PASS  level                      peak 0.765 within [0.35, 1.0]
+  PASS  tempo in genre range       88.0 BPM within cinematic 60-110
+  PASS  tempo claim matches audio  not applicable: cinematic has no steady pulse to measure (tempo is corroborated by the genre BPM range + groove check)
+  PASS  groove = any               groove unconstrained for this genre
+  PASS  cover art                  /home/zax/Biz/z-dot-team/content/milkups/album2/06-cover.png (34 KB)
+
+
+6/6 pass
+clashes=[]
+ALBUM: PASS

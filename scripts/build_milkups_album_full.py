@@ -263,6 +263,11 @@ GENRES = {"disco": g_disco, "boombap": g_boombap, "synthwave": g_synthwave,
 # ── render one track ─────────────────────────────────────────────────────────
 def render_track(spec):
     arr = ak.SHAPES[spec["shape"]]
+    # Every track aims for a consistent album length unless the spec says
+    # otherwise. Keeps a 140 BPM banger from coming out at 46 s while a 76 BPM
+    # dub track runs 154 s, and stops fast tracks failing the 60 s minimum.
+    target = spec.get("target", 84.0)
+    arr = ak.scale_to_duration(arr, spec["bpm"], target)
     bars = arr.bars
     SPB = 60.0 / spec["bpm"]
     BAR = 4 * SPB
