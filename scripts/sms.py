@@ -1,5 +1,16 @@
 #!/usr/bin/env python3
-"""sms.py — send a real text message to a team member's phone.
+"""sms.py — DISABLED. DO NOT USE. This channel does not deliver.
+
+T-Mobile shut down the email-to-SMS gateway (tmomail.net) in December 2024. It now
+silently drops mail: SMTP accepts, no bounce, nothing arrives. Everything this
+script reported as "sent" before 2026-09-17 was a false success.
+
+Real SMS needs a carrier API (Twilio). Set in .env:
+  TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_FROM_NUMBER
+
+Original docstring follows.
+
+sms.py — send a real text message to a team member's phone.
 
 How it works: mobile carriers expose an email-to-SMS gateway. Sending a short
 plain-text email to <number>@<carrier-gateway> arrives as a genuine SMS. No
@@ -60,7 +71,19 @@ def resolve(who):
     return f"{digits}@{gw}", num
 
 
+SMS_AVAILABLE = False   # see module docstring: the gateway is dead
+
+
 def send(who, body, dry=False):
+    if not SMS_AVAILABLE and not dry:
+        gate, num = resolve(who)
+        raise SystemExit(
+            f"NOT SENT. SMS is unavailable.\n"
+            f"  target would have been: {num}\n"
+            f"  reason: tmomail.net was shut down by T-Mobile in Dec 2024 and\n"
+            f"          silently drops mail. This script previously reported\n"
+            f"          'sent' here, which was false.\n"
+            f"  to enable: TWILIO_ACCOUNT_SID / TWILIO_AUTH_TOKEN / TWILIO_FROM_NUMBER")
     gate, num = resolve(who)
     body = body.strip()
     if len(body) > MAX:

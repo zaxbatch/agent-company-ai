@@ -49,6 +49,8 @@ default_tools:
   - list_files
   - send_email
   - send_sms
+  - read_inbox
+  - read_email
 can_delegate_to:
   - cto
   - marketer

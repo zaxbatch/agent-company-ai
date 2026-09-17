@@ -40,5 +40,7 @@ default_tools:
   - write_file
   - list_files
   - send_sms
+  - read_inbox
+  - read_email
 can_delegate_to: []
 reports_to: ceo

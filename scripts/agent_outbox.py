@@ -19,7 +19,7 @@ dropbox (she can't), this gives her three routes, in order of reliability:
 
 Delivery uses the two rails already proven to work on this box:
   email: ez@zerric.xyz via Hostinger SMTP  (proven: reached zdotconnect@gmail.com)
-  sms:   <number>@tmomail.net              (proven: reached 5022995252)
+  sms:   NOT AVAILABLE -- see the SMS note below
 
 Usage:
   python3 scripts/agent_outbox.py send --as BossLady --to boss "Directive text"
@@ -75,7 +75,27 @@ RECIPIENTS = {
     "zerric_g": ("zdotconnect@gmail.com", "+15022995252"),
     "zerric_work": ("zerric@zdotllc.com", "+15022995252"),   # known unreliable
 }
-SMS_GATEWAY = "tmomail.net"
+# ============================================================================
+# SMS IS NOT AVAILABLE. READ THIS BEFORE TRUSTING ANY SMS OUTPUT.
+# ----------------------------------------------------------------------------
+# This module used to send SMS via <number>@tmomail.net, the T-Mobile
+# email-to-SMS gateway, and report "sms -> <number>". That report was WRONG.
+# T-Mobile shut the gateway down in December 2024 and it now SILENTLY DROPS
+# mail: SMTP accepts the message, no bounce is returned, and nothing arrives.
+# src/agent_company_ai/tools/sms_tool.py documents the same shutdown and
+# correctly refuses to use it.
+#
+# Every "sms -> ..." line this module printed before 2026-09-17 was a false
+# success, including ones reported to Zerric and BossLady. There is no way to
+# verify SMS arrival from this box (no phone), so the honest state is
+# UNVERIFIED AT BEST, and on a shutdown gateway: NOT DELIVERED.
+#
+# To send real SMS, set a carrier API (Twilio) in .env:
+#   TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_FROM_NUMBER
+# Until then SMS_AVAILABLE is False and every SMS call fails loudly.
+# ============================================================================
+SMS_GATEWAY = "tmomail.net"          # dead; kept only to name it in the error
+SMS_AVAILABLE = False
 MAX_SMS = 300
 
 
@@ -125,6 +145,14 @@ def deliver(to_key, subject, body, sms=False, dry=False, sender=None):
                 s.sendmail(sender, [email], msg.as_string())
             print(f"  email -> {email} (from {sender})")
             sent.append(("email", email))
+    if sms and not SMS_AVAILABLE:
+        print("  sms  -> NOT SENT. No carrier API configured.")
+        print("          The tmomail.net gateway was shut down by T-Mobile in Dec 2024")
+        print("          and silently drops mail. Anything that reported 'sent' via it")
+        print("          (including earlier runs of this script) never arrived.")
+        print("          To enable real SMS set TWILIO_ACCOUNT_SID / TWILIO_AUTH_TOKEN")
+        print("          / TWILIO_FROM_NUMBER in .env.")
+        return sent
     if sms and (num or to_key in RECIPIENTS):
         num = num or RECIPIENTS[to_key][1]
         if num:

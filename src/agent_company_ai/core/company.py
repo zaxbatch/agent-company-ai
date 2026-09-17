@@ -42,6 +42,7 @@ from agent_company_ai.tools.social_media import (
     set_social_db, set_social_agent, set_twitter_config, set_twitter_oauth2,
 )
 from agent_company_ai.tools.sms_tool import set_sms_config, set_sms_agent
+from agent_company_ai.tools.inbox_tool import set_inbox_config, set_inbox_agent
 from agent_company_ai.tools.gumroad_tools import set_gumroad_config, set_gumroad_db, set_gumroad_agent
 from agent_company_ai.tools.invoice_tool import (
     set_invoice_config, set_invoice_db, set_invoice_agent, set_invoice_company_dir,
@@ -155,6 +156,14 @@ class Company:
             auth_token=os.getenv("TWILIO_AUTH_TOKEN", "").strip(),
             from_number=os.getenv("TWILIO_FROM_NUMBER", "").strip(),
             default_to=os.getenv("SMS_DEFAULT_TO", "").strip(),
+        )
+
+        # Inbox (IMAP) — so an agent can READ replies, not just send.
+        set_inbox_config(
+            account=os.getenv("INBOX_ACCOUNT", "ninjanerd@zdotllc.com").strip(),
+            password=os.getenv("INBOX_PASSWORD", "").strip(),
+            host=os.getenv("IMAP_HOST", "imap.hostinger.com").strip(),
+            port=int(os.getenv("IMAP_PORT", "993")),
         )
 
         # Twitter / X
