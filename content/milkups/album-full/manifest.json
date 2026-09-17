@@ -1,0 +1,47 @@
+{
+ "album": "COLD CUTS",
+ "artist": "MilkUps",
+ "standard": "content/snowsnakes/songs/STANDARD.md",
+ "tracks": [
+  {
+   "n": 1,
+   "title": "Midnight Aisle",
+   "genre": "disco",
+   "bpm": 118,
+   "shape": "club",
+   "bars": 40,
+   "seconds": 83.36,
+   "wav": "content/milkups/album-full/01-midnight-aisle.wav",
+   "cover": "content/milkups/album-full/01-cover.png",
+   "structure_pass": true,
+   "structure": [
+    [
+     "has a dip",
+     true,
+     "quietest 5-bar window = 0.11 of peak (need <= 0.62)"
+    ],
+    [
+     "has a climax",
+     true,
+     "loudest 5-bar window = 0.99 of peak (need >= 0.86)"
+    ],
+    [
+     "sustained climax (4 bars)",
+     true,
+     "loudest 4-bar window = 0.99"
+    ],
+    [
+     "dynamic range",
+     true,
+     "peak/quiet = 9.32x (need >= 1.45x)"
+    ],
+    [
+     "dip precedes climax",
+     true,
+     "dip at bar ~19, peak at bar ~16 of 40"
+    ]
+   ],
+   "contour": "\u2584\u2585\u2585\u2585\u2586\u2586\u2586\u2586\u2586\u2586\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2587\u2587\u2587\u2587\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2584\u2584\u2584\u2584"
+  }
+ ]
+}

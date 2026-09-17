@@ -300,3 +300,30 @@ def estimate_bpm(a, sr, lo=40, hi=110, fmin=60, fmax=180):
     while bpm > 180 and bpm / 2 >= fmin:
         bpm /= 2
     return float(bpm), conf
+
+
+def epiano(midis, dur, gain=0.115):
+    """Electric-piano voice: sine + soft odd partials, long decay. Used by
+    boom-bap/jazz-leaning tracks."""
+    n = int(dur * SR)
+    t = np.arange(n) / SR
+    out = np.zeros(n, dtype=np.float32)
+    for m in midis:
+        f = hz(m)
+        v = (sine(2 * np.pi * f * t) + 0.28 * sine(2 * np.pi * f * 2.01 * t)
+             + 0.12 * sine(2 * np.pi * f * 3.02 * t) + 0.06 * tri(2 * np.pi * f * 0.5 * t))
+        out += (v * adsr(n, 0.008, 0.30, 0.34, 0.60) / len(midis)).astype(np.float32)
+    return (out * gain).astype(np.float32)
+
+
+def supersaw(midis, dur, voices=7, detune=0.14, gain=0.10, a=0.6, d=0.4, s=0.7, r=0.9):
+    """Wide detuned-saw pad/lead -- the synthwave/house workhorse."""
+    n = int(dur * SR)
+    t = np.arange(n) / SR
+    out = np.zeros(n, dtype=np.float32)
+    for m in midis:
+        f = hz(m)
+        for v in range(voices):
+            off = (v - voices / 2) / max(voices - 1, 1) * detune * 2
+            out += saw(2 * np.pi * f * (1 + off) * t).astype(np.float32) / (len(midis) * voices)
+    return (out * adsr(n, a, d, s, r) * gain).astype(np.float32)
