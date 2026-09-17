@@ -60,13 +60,20 @@ AGENT_MAILBOX = {
 
 # proven recipients only
 RECIPIENTS = {
-    # NOTE: (email, sms_number). SMS silently skipped until a number was set here
-    # -- for 'boss'/'bosslady' it was None, so --sms did nothing. BossLady's SMS
-    # gateway number is the one documented in communication/EMAIL-SMS-CHANNEL.md.
+    # (email, sms_number).
+    #
+    # DELIVERY LESSON: do NOT default 'zerric' to zerric@zdotllc.com. A self-test
+    # (clickclack@ -> clickclack@, same domain) was ACCEPTED by SMTP with no
+    # bounce and then never arrived in INBOX or Junk -- local delivery between
+    # @zdotllc.com mailboxes is broken. External delivery from @zdotllc.com works
+    # fine. So mail sent to an @zdotllc.com recipient appears to vanish.
+    # zerric replies from zdotconnect@gmail.com, which is externally hosted and
+    # proven to deliver, so that is the primary address.
     "boss":     ("zdotconnect@gmail.com", "+15022995252"),
     "bosslady": ("zdotconnect@gmail.com", "+15022995252"),
-    "zerric":   ("zerric@zdotllc.com", "+15022995252"),
+    "zerric":   ("zdotconnect@gmail.com", "+15022995252"),
     "zerric_g": ("zdotconnect@gmail.com", "+15022995252"),
+    "zerric_work": ("zerric@zdotllc.com", "+15022995252"),   # known unreliable
 }
 SMS_GATEWAY = "tmomail.net"
 MAX_SMS = 300
