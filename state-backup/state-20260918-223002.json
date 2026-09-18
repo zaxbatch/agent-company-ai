@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-18T20:50:01.229935+00:00",
+ "generated_at": "2026-09-18T22:30:02.043510+00:00",
  "note": "Sanitized continuity snapshot. Sensitive fields masked (***). Restore: this JSON documents what was in flight so work can resume after any disruption.",
  "tables": {
   "agents": {
@@ -90,7 +90,7 @@
   },
   "tasks": {
    "table": "tasks",
-   "count": 658,
+   "count": 660,
    "rows": [
     {
      "id": "1e06bda85075",
@@ -7980,13 +7980,37 @@
      "id": "7babd91a6d4d",
      "description": "***",
      "assignee_id": "NinjaNerd",
+     "status": "failed",
+     "priority": 0,
+     "parent_id": "167e627594dc",
+     "result": "Exceeded maximum iterations without completing.",
+     "artifacts_json": "[{\"id\": \"d81494353b0e\", \"task_id\": \"7babd91a6d4d\", \"agent_id\": \"NinjaNerd\", \"name\": \"content/milkups/_live-archive/2026-09-18/README.md\", \"artifact_type\": \"file\", \"content\": \"/home/zax/Biz/z-dot-team/.agent-company-ai/default/output/task-7babd91a6d4d/README.md\"}]",
+     "created_at": "2026-09-18 20:49:48",
+     "updated_at": "2026-09-18 20:52:34"
+    },
+    {
+     "id": "549db02e4bdc",
+     "description": "***",
+     "assignee_id": "NinjaNerd",
+     "status": "done",
+     "priority": 0,
+     "parent_id": "167e627594dc",
+     "result": "No result produced.",
+     "artifacts_json": "[]",
+     "created_at": "2026-09-18 20:52:34",
+     "updated_at": "2026-09-18 20:53:49"
+    },
+    {
+     "id": "b6442c06a24c",
+     "description": "MARK (MARKETER) \u2014 SEVEN ITEMS. Nothing publishes without my sign-off. MilkUps decisions come through me; I hold creative direction and the green-light gate. Zerric is editor.\n\nITEM 1 \u2014 50 DRAFTS ARE STUCK: AUDIT DESTINATIONS FIRST (P1). I confirmed the count myself: 50 drafts, 0 published (ids #146 down to #96 in my listing). For EVERY destination URL in ALL 50 drafts, report the raw HTTP status per link: 200 / 403 / 404. Table format: draft id, platform, URL, status. Reported numbers only \u2014 no interpretation, no \"should be fine.\" I already know part of your answer, so match or correct it: our own hosts 403 non-browser fetches. I reproduced that today (milkups.zerric.xyz 403, snowsnakes.zerric.xyz 403, zerric.xyz 403, tasks.zdotllc.com 403 \u2014 all Cloudflare \"Checking your browser\" interstitials). Consequence you must state per draft: which posts would ship with a DEAD OR BLANK PREVIEW CARD. That list is the deliverable. Manny spot-checks your numbers, so report what you measured, not what you expect.\n\nITEM 2 \u2014 DEDUPE (P1). Confirmed pairs: #62/#92, #63/#93, #64/#94 \u2192 resolve each pair to ONE canonical draft. Tell me which id you keep per pair and why. Do not delete until you have named the survivor.\n\nITEM 3 \u2014 DELETE #140. I verified it is a parameter test, not content: \"Test \u2014 confirming my tool calls are passing parameters correctly. #test\". Delete it. Do not publish it.\n\nITEM 4 \u2014 #113\u2013116 ARE MARKED \"HOLD \u2014 DO NOT PUBLISH.\" I verified all four carry the hold marker and each supersedes an older draft (#112/#107/#106, #108, #109, #110). LEAVE THEM HELD. Do not touch them, do not resolve them, do not queue them. The superseded originals (#106/#107/#108/#109/#110/#112) are a separate question \u2014 report what should happen to them, do not act.\n\nITEM 5 \u2014 J-CARD COPY FOR THE CASSETTE SHELF. MilkUps consolidates five scattered pages into one: a shelf of cassettes, one per album, each with its own J-card. Spec: content/milkups/SITE-STRUCTURE--cassette-shelf.md. For each album give: title, year, track count, and a ONE-LINE \"what it is\" \u2014 in BAND VOICE, not catalogue voice. (\"Ten songs about staying out too late,\" not \"Debut studio album, 10 tracks, 2024.\") REUSE THE LINES THAT ALREADY WORK \u2014 do not rewrite the good ones. Specifically preserve: the mistake on track six (\"There's a mistake on track six that we kept because we couldn't play it right again\"), and \"tell one person\" (\"Tell one person. That's the entire marketing plan.\"), and the Side A / Side B lore (\"Side A is for the room. Side B is for the walk home.\"). Both-cuts releases are ONE cassette with Sides A/B \u2014 Zerric closed that fork, Option A. Confirm your J-cards reflect one tape, two sides.\n\nITEM 6 \u2014 REMOVE EVERY APOLOGY FOR RUNTIME. Tracker and chiptune listeners grew up on 90-second loops. Short is the genre, not a weakness. Apologizing creates the problem it is trying to avoid. Sweep every draft and every MilkUps page for runtime apologies \u2014 \"only 5 minutes,\" \"short but,\" \"just an EP,\" \"not much,\" any hedging about length. Report each one you remove with the before/after line. Pricing stance is already set and does NOT apologize: flat $5 across the discography, bundle don't discount (content/milkups/PRICING--album-length-and-price.md).\n\nITEM 7 \u2014 DAILY GAME POSTS. One social post per game, band voice, naming the game and stating its CORE VERB in one line. Coordinate with NinjaNerd's index \u2014 the host URL and the game's canonical name come from him; the game and its core verb come from ClickClack. You do not invent names. Note the hard gate: a game is only \"posted\" when live URL + index entry + social post all exist. Until Zerric's Cloudflare WAF skip rule lands, all four hosts 403 non-browser clients, so preview cards will be blank \u2014 flag that, do not publish around it.\n\nBOUNDARIES: nothing publishes without my sign-off. No LPT/real-estate content, ever \u2014 that protects Zerric's license. Z-Dot and LPT unmixed. No guaranteed results, no overpromised timelines.",
+     "assignee_id": "Mark",
      "status": "assigned",
      "priority": 0,
      "parent_id": "167e627594dc",
      "result": null,
      "artifacts_json": "[]",
-     "created_at": "2026-09-18 20:49:48",
-     "updated_at": "2026-09-18 20:49:48"
+     "created_at": "2026-09-18 20:53:49",
+     "updated_at": "2026-09-18 20:53:49"
     }
    ]
   },
@@ -15864,7 +15888,7 @@
    "rows": [
     {
      "name": "browse_log",
-     "seq": 753
+     "seq": 761
     },
     {
      "name": "prospect_searches",
@@ -15898,7 +15922,7 @@
   },
   "artifacts": {
    "table": "artifacts",
-   "count": 313,
+   "count": 314,
    "rows": [
     {
      "id": "bd30561548dc",
@@ -18716,6 +18740,15 @@
      "content": "***",
      "artifact_type": "text",
      "created_at": "2026-09-18 20:46:28"
+    },
+    {
+     "id": "d81494353b0e",
+     "task_id": "7babd91a6d4d",
+     "agent_id": "NinjaNerd",
+     "name": "content/milkups/_live-archive/2026-09-18/README.md",
+     "content": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/output/task-7babd91a6d4d/README.md",
+     "artifact_type": "file",
+     "created_at": "2026-09-18 20:52:05"
     }
    ]
   },
@@ -25314,7 +25347,7 @@
   },
   "browse_log": {
    "table": "browse_log",
-   "count": 748,
+   "count": 756,
    "rows": [
     {
      "id": 1,
@@ -32795,6 +32828,86 @@
      "extracted_links_count": 0,
      "browsed_by": "BossLady",
      "created_at": "2026-09-18 20:44:59"
+    },
+    {
+     "id": 754,
+     "url": "https://milkups.zerric.xyz",
+     "status_code": 403,
+     "extract_mode": "meta",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Mark",
+     "created_at": "2026-09-18 20:54:12"
+    },
+    {
+     "id": 755,
+     "url": "https://snowsnakes.zerric.xyz",
+     "status_code": 403,
+     "extract_mode": "meta",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Mark",
+     "created_at": "2026-09-18 20:54:12"
+    },
+    {
+     "id": 756,
+     "url": "https://zerric.xyz",
+     "status_code": 403,
+     "extract_mode": "meta",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Mark",
+     "created_at": "2026-09-18 20:54:12"
+    },
+    {
+     "id": 757,
+     "url": "https://tasks.zdotllc.com",
+     "status_code": 403,
+     "extract_mode": "meta",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Mark",
+     "created_at": "2026-09-18 20:54:12"
+    },
+    {
+     "id": 758,
+     "url": "http://127.0.0.1:8420/",
+     "status_code": 200,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Mark",
+     "created_at": "2026-09-18 20:54:19"
+    },
+    {
+     "id": 759,
+     "url": "http://127.0.0.1:8420/api/social/drafts",
+     "status_code": 401,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Mark",
+     "created_at": "2026-09-18 20:54:19"
+    },
+    {
+     "id": 760,
+     "url": "http://127.0.0.1:8420/api/drafts",
+     "status_code": 401,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Mark",
+     "created_at": "2026-09-18 20:54:31"
+    },
+    {
+     "id": 761,
+     "url": "http://127.0.0.1:8420/api/social_drafts",
+     "status_code": 401,
+     "extract_mode": "all",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "Mark",
+     "created_at": "2026-09-18 20:54:51"
     }
    ]
   },
