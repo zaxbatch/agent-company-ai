@@ -14,7 +14,7 @@ except ImportError:
     Web3 = None  # type: ignore[assignment, misc]
     ExtraDataToPOAMiddleware = None  # type: ignore[assignment, misc]
 
-from agent_company_ai.wallet.chains import CHAINS, get_chain
+from agent_company_ai.wallet.chains import CHAINS, endpoints_for, get_chain
 
 logger = logging.getLogger("agent_company_ai.wallet.provider")
 
@@ -44,14 +44,40 @@ class Web3Provider:
             return self._instances[chain_name]
 
         chain = get_chain(chain_name)
-        w3 = Web3(Web3.HTTPProvider(chain.rpc_url))
 
-        # Inject POA middleware for non-mainnet chains (Base, Arbitrum, Polygon)
-        if chain.chain_id != 1:
-            w3.middleware_onion.inject(ExtraDataToPOAMiddleware, layer=0)
+        # 2026-09-18 (P1): this used to bind ONLY chain.rpc_url, so one dead
+        # endpoint (525 TLS / 401 tenant-disabled) took the whole chain offline
+        # even though chains.py already declared ordered fallbacks. `wallet/rpc.py`
+        # had a failover client, but nothing imported it -> dead code. We now walk
+        # the ordered endpoint list here, so the balance path actually fails over.
+        errors: list[str] = []
+        for url in endpoints_for(chain_name):
+            candidate = Web3(Web3.HTTPProvider(url, request_kwargs={"timeout": 12}))
+            if chain.chain_id != 1:
+                candidate.middleware_onion.inject(ExtraDataToPOAMiddleware, layer=0)
+            try:
+                if not candidate.is_connected():
+                    errors.append(f"{url}: not connected")
+                    continue
+                actual = int(candidate.eth.chain_id)
+                if actual != chain.chain_id:
+                    errors.append(f"{url}: chain_id {actual} != expected {chain.chain_id}")
+                    continue
+            except Exception as exc:  # transport error on this endpoint
+                errors.append(f"{url}: {type(exc).__name__}: {exc}")
+                continue
+            if errors:
+                logger.warning(
+                    "rpc %s: recovered via failover endpoint %s (after %d failed)",
+                    chain_name, url, len(errors),
+                )
+            self._instances[chain_name] = candidate
+            return candidate
 
-        self._instances[chain_name] = w3
-        return w3
+        raise RuntimeError(
+            f"no healthy RPC endpoint for {chain_name}; tried {len(errors)}: "
+            + "; ".join(errors)
+        )
 
     def get_native_balance(self, address: str, chain_name: str) -> Decimal:
         """Get the native token balance in human-readable units (e.g. ETH)."""

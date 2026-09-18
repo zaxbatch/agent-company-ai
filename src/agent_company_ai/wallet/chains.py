@@ -21,8 +21,10 @@ CHAINS: dict[str, Chain] = {
     "ethereum": Chain(
         name="ethereum",
         chain_id=1,
-        rpc_url="https://eth.llamarpc.com",
-        rpc_urls=('https://ethereum-rpc.publicnode.com', 'https://eth.drpc.org', 'https://1rpc.io/eth'),
+        # 2026-09-18: primary swapped OFF https://eth.llamarpc.com -> HTTP 525
+        # (Cloudflare "SSL handshake failed", edge->origin TLS). Their outage, not ours.
+        rpc_url="https://ethereum-rpc.publicnode.com",
+        rpc_urls=('https://eth.drpc.org', 'https://1rpc.io/eth', 'https://cloudflare-eth.com'),
         native_symbol="ETH",
         explorer_url="https://etherscan.io",
     ),
@@ -45,8 +47,12 @@ CHAINS: dict[str, Chain] = {
     "polygon": Chain(
         name="polygon",
         chain_id=137,
-        rpc_url="https://polygon-rpc.com",
-        rpc_urls=('https://polygon-bor-rpc.publicnode.com', 'https://polygon.drpc.org', 'https://1rpc.io/matic'),
+        # 2026-09-18: primary swapped OFF https://polygon-rpc.com -> HTTP 401
+        # "API key disabled, reason: tenant disabled" (-32051). Polygon retired its
+        # keyless public mainnet endpoint (cutoff 31 Jul); this is PERMANENT, and
+        # failover on AUTH is wrong by design (see wallet/rpc.py).
+        rpc_url="https://polygon-bor-rpc.publicnode.com",
+        rpc_urls=('https://polygon.drpc.org', 'https://1rpc.io/matic'),
         native_symbol="POL",
         explorer_url="https://polygonscan.com",
     ),
