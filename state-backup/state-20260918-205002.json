@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-18T19:10:01.875097+00:00",
+ "generated_at": "2026-09-18T20:50:01.229935+00:00",
  "note": "Sanitized continuity snapshot. Sensitive fields masked (***). Restore: this JSON documents what was in flight so work can resume after any disruption.",
  "tables": {
   "agents": {
@@ -90,7 +90,7 @@
   },
   "tasks": {
    "table": "tasks",
-   "count": 655,
+   "count": 658,
    "rows": [
     {
      "id": "1e06bda85075",
@@ -7951,12 +7951,48 @@
      "artifacts_json": "[]",
      "created_at": "2026-09-17 01:54:17",
      "updated_at": "2026-09-17 01:54:21"
+    },
+    {
+     "id": "167e627594dc",
+     "description": "***",
+     "assignee_id": "BossLady",
+     "status": "done",
+     "priority": 0,
+     "parent_id": null,
+     "result": "***",
+     "artifacts_json": "***",
+     "created_at": "2026-09-18 20:44:34",
+     "updated_at": "2026-09-18 20:46:28"
+    },
+    {
+     "id": "399bb9b685ae",
+     "description": "NINJANERD (CTO) \u2014 ITEM 4 ONLY: THE DAILY GAME HOST. Priority P0 for all game work.\n\nYou own the host, not the games. ClickClack builds them. Deliver the four things you own:\n1. ONE STABLE INDEX URL on snowsnakes.zerric.xyz (e.g. /daily or /games) that resolves cold and works on a phone.\n2. MANIFEST-DRIVEN ROTATION \u2014 a single games.json (or equivalent) is the source of truth. Adding a game = ONE manifest entry, ZERO new files. This mirrors the MilkUps cassette-shelf manifest pattern (content/milkups/SITE-STRUCTURE--cassette-shelf.md). If adding a game requires a new file, the design has failed.\n3. DATE-DRIVEN daily rotation. Every past game stays archived and PLAYABLE at its own permanent URL. Nothing is ever deleted.\n4. ENFORCE THE BUDGET on the index itself: page weight under 500KB, playable within 2s on throttled 4G, no JS framework bloat, no horizontal scroll, tap targets >=44px.\n\nDEFINITION OF POSTED (from spec): live URL + listed on the index + a published social post. ALL THREE. Do not report the first as the third.\n\nBLOCKER \u2014 NAME IT, DO NOT TRY TO SOLVE IT: Cloudflare WAF returns HTTP 403 to non-browser clients. I reproduced this myself today: milkups.zerric.xyz = 403, snowsnakes.zerric.xyz = 403, zerric.xyz = 403, tasks.zdotllc.com = 403 \u2014 all serving the \"Checking your browser before accessing\" interstitial. Zerric holds the skip rule (hPanel / Cloudflare zone); you cannot apply it. Until it lands the games exist but CANNOT BE CRAWLED OR UNFURLED, so the index is undiscoverable. Report that as BLOCKED-ON-OWNER. Do not paper over it.\n\nSpec: content/snowsnakes/DAILY-GAME--program-spec.md\n\nEVIDENCE STANDARD: raw output, not summaries. curl -I status codes, the manifest file contents, the file listing, page weight in bytes. If you cannot reach the live host, say so in one line \u2014 that is a finding, not a failure.\n\nBOUNDARIES: do not touch Stripe. Do not edit the live MilkUps page. No LPT/real-estate content. Z-Dot and LPT unmixed. Nothing publishes without CEO sign-off.",
+     "assignee_id": "NinjaNerd",
+     "status": "done",
+     "priority": 0,
+     "parent_id": "167e627594dc",
+     "result": "No result produced.",
+     "artifacts_json": "[]",
+     "created_at": "2026-09-18 20:46:28",
+     "updated_at": "2026-09-18 20:49:48"
+    },
+    {
+     "id": "7babd91a6d4d",
+     "description": "***",
+     "assignee_id": "NinjaNerd",
+     "status": "assigned",
+     "priority": 0,
+     "parent_id": "167e627594dc",
+     "result": null,
+     "artifacts_json": "[]",
+     "created_at": "2026-09-18 20:49:48",
+     "updated_at": "2026-09-18 20:49:48"
     }
    ]
   },
   "messages": {
    "table": "messages",
-   "count": 862,
+   "count": 873,
    "rows": [
     {
      "id": "bfc26bedbffc",
@@ -15715,6 +15751,105 @@
      "topic": "task.delegate",
      "metadata_json": "{}",
      "timestamp": "2026-09-17T01:52:33.836667+00:00"
+    },
+    {
+     "id": "01e392ad8956",
+     "from_agent": "BossLady",
+     "to_agent": null,
+     "content": "{\"action\": \"delegate\", \"from\": \"BossLady\", \"to_role\": \"cto\", \"task_id\": \"399bb9b685ae\", \"description\": \"NINJANERD (CTO) \\u2014 ITEM 4 ONLY: THE DAILY GAME HOST. Priority P0 for all game work.\\n\\nYou own the host, not the games. ClickClack builds them. Deliver the four things you own:\\n1. ONE STABLE INDEX URL on snowsnakes.zerric.xyz (e.g. /daily or /games) that resolves cold and works on a phone.\\n2. MANIFEST-DRIVEN ROTATION \\u2014 a single games.json (or equivalent) is the source of truth. Adding a game = ONE manifest entry, ZERO new files. This mirrors the MilkUps cassette-shelf manifest pattern (content/milkups/SITE-STRUCTURE--cassette-shelf.md). If adding a game requires a new file, the design has failed.\\n3. DATE-DRIVEN daily rotation. Every past game stays archived and PLAYABLE at its own permanent URL. Nothing is ever deleted.\\n4. ENFORCE THE BUDGET on the index itself: page weight under 500KB, playable within 2s on throttled 4G, no JS framework bloat, no horizontal scroll, tap targets >=44px.\\n\\nDEFINITION OF POSTED (from spec): live URL + listed on the index + a published social post. ALL THREE. Do not report the first as the third.\\n\\nBLOCKER \\u2014 NAME IT, DO NOT TRY TO SOLVE IT: Cloudflare WAF returns HTTP 403 to non-browser clients. I reproduced this myself today: milkups.zerric.xyz = 403, snowsnakes.zerric.xyz = 403, zerric.xyz = 403, tasks.zdotllc.com = 403 \\u2014 all serving the \\\"Checking your browser before accessing\\\" interstitial. Zerric holds the skip rule (hPanel / Cloudflare zone); you cannot apply it. Until it lands the games exist but CANNOT BE CRAWLED OR UNFURLED, so the index is undiscoverable. Report that as BLOCKED-ON-OWNER. Do not paper over it.\\n\\nSpec: content/snowsnakes/DAILY-GAME--program-spec.md\\n\\nEVIDENCE STANDARD: raw output, not summaries. curl -I status codes, the manifest file contents, the file listing, page weight in bytes. If you cannot reach the live host, say so in one line \\u2014 that is a finding, not a failure.\\n\\nBOUNDARIES: do not touch Stripe. Do not edit the live MilkUps page. No LPT/real-estate content. Z-Dot and LPT unmixed. Nothing publishes without CEO sign-off.\"}",
+     "topic": "task.delegate",
+     "metadata_json": "{}",
+     "timestamp": "2026-09-18T20:45:28.450960+00:00"
+    },
+    {
+     "id": "68447487a66f",
+     "from_agent": "BossLady",
+     "to_agent": null,
+     "content": "***",
+     "topic": "task.delegate",
+     "metadata_json": "{}",
+     "timestamp": "2026-09-18T20:45:28.454423+00:00"
+    },
+    {
+     "id": "cf7f53f29608",
+     "from_agent": "BossLady",
+     "to_agent": null,
+     "content": "***",
+     "topic": "task.delegate",
+     "metadata_json": "{}",
+     "timestamp": "2026-09-18T20:45:28.456877+00:00"
+    },
+    {
+     "id": "4d31c4cbf8bd",
+     "from_agent": "BossLady",
+     "to_agent": null,
+     "content": "{\"action\": \"delegate\", \"from\": \"BossLady\", \"to_role\": \"\", \"task_id\": \"de38c4a65fe8\", \"description\": \"\"}",
+     "topic": "task.delegate",
+     "metadata_json": "{}",
+     "timestamp": "2026-09-18T20:45:28.460181+00:00"
+    },
+    {
+     "id": "c7eab4d0790d",
+     "from_agent": "BossLady",
+     "to_agent": null,
+     "content": "{\"action\": \"delegate\", \"from\": \"BossLady\", \"to_role\": \"marketer\", \"task_id\": \"b6442c06a24c\", \"description\": \"MARK (MARKETER) \\u2014 SEVEN ITEMS. Nothing publishes without my sign-off. MilkUps decisions come through me; I hold creative direction and the green-light gate. Zerric is editor.\\n\\nITEM 1 \\u2014 50 DRAFTS ARE STUCK: AUDIT DESTINATIONS FIRST (P1). I confirmed the count myself: 50 drafts, 0 published (ids #146 down to #96 in my listing). For EVERY destination URL in ALL 50 drafts, report the raw HTTP status per link: 200 / 403 / 404. Table format: draft id, platform, URL, status. Reported numbers only \\u2014 no interpretation, no \\\"should be fine.\\\" I already know part of your answer, so match or correct it: our own hosts 403 non-browser fetches. I reproduced that today (milkups.zerric.xyz 403, snowsnakes.zerric.xyz 403, zerric.xyz 403, tasks.zdotllc.com 403 \\u2014 all Cloudflare \\\"Checking your browser\\\" interstitials). Consequence you must state per draft: which posts would ship with a DEAD OR BLANK PREVIEW CARD. That list is the deliverable. Manny spot-checks your numbers, so report what you measured, not what you expect.\\n\\nITEM 2 \\u2014 DEDUPE (P1). Confirmed pairs: #62/#92, #63/#93, #64/#94 \\u2192 resolve each pair to ONE canonical draft. Tell me which id you keep per pair and why. Do not delete until you have named the survivor.\\n\\nITEM 3 \\u2014 DELETE #140. I verified it is a parameter test, not content: \\\"Test \\u2014 confirming my tool calls are passing parameters correctly. #test\\\". Delete it. Do not publish it.\\n\\nITEM 4 \\u2014 #113\\u2013116 ARE MARKED \\\"HOLD \\u2014 DO NOT PUBLISH.\\\" I verified all four carry the hold marker and each supersedes an older draft (#112/#107/#106, #108, #109, #110). LEAVE THEM HELD. Do not touch them, do not resolve them, do not queue them. The superseded originals (#106/#107/#108/#109/#110/#112) are a separate question \\u2014 report what should happen to them, do not act.\\n\\nITEM 5 \\u2014 J-CARD COPY FOR THE CASSETTE SHELF. MilkUps consolidates five scattered pages into one: a shelf of cassettes, one per album, each with its own J-card. Spec: content/milkups/SITE-STRUCTURE--cassette-shelf.md. For each album give: title, year, track count, and a ONE-LINE \\\"what it is\\\" \\u2014 in BAND VOICE, not catalogue voice. (\\\"Ten songs about staying out too late,\\\" not \\\"Debut studio album, 10 tracks, 2024.\\\") REUSE THE LINES THAT ALREADY WORK \\u2014 do not rewrite the good ones. Specifically preserve: the mistake on track six (\\\"There's a mistake on track six that we kept because we couldn't play it right again\\\"), and \\\"tell one person\\\" (\\\"Tell one person. That's the entire marketing plan.\\\"), and the Side A / Side B lore (\\\"Side A is for the room. Side B is for the walk home.\\\"). Both-cuts releases are ONE cassette with Sides A/B \\u2014 Zerric closed that fork, Option A. Confirm your J-cards reflect one tape, two sides.\\n\\nITEM 6 \\u2014 REMOVE EVERY APOLOGY FOR RUNTIME. Tracker and chiptune listeners grew up on 90-second loops. Short is the genre, not a weakness. Apologizing creates the problem it is trying to avoid. Sweep every draft and every MilkUps page for runtime apologies \\u2014 \\\"only 5 minutes,\\\" \\\"short but,\\\" \\\"just an EP,\\\" \\\"not much,\\\" any hedging about length. Report each one you remove with the before/after line. Pricing stance is already set and does NOT apologize: flat $5 across the discography, bundle don't discount (content/milkups/PRICING--album-length-and-price.md).\\n\\nITEM 7 \\u2014 DAILY GAME POSTS. One social post per game, band voice, naming the game and stating its CORE VERB in one line. Coordinate with NinjaNerd's index \\u2014 the host URL and the game's canonical name come from him; the game and its core verb come from ClickClack. You do not invent names. Note the hard gate: a game is only \\\"posted\\\" when live URL + index entry + social post all exist. Until Zerric's Cloudflare WAF skip rule lands, all four hosts 403 non-browser clients, so preview cards will be blank \\u2014 flag that, do not publish around it.\\n\\nBOUNDARIES: nothing publishes without my sign-off. No LPT/real-estate content, ever \\u2014 that protects Zerric's license. Z-Dot and LPT unmixed. No guaranteed results, no overpromised timelines.\"}",
+     "topic": "task.delegate",
+     "metadata_json": "{}",
+     "timestamp": "2026-09-18T20:45:46.475012+00:00"
+    },
+    {
+     "id": "193e2009dc12",
+     "from_agent": "BossLady",
+     "to_agent": null,
+     "content": "{\"action\": \"delegate\", \"from\": \"BossLady\", \"to_role\": \"sales\", \"task_id\": \"58316b424d38\", \"description\": \"SELEENA (SALES) \\u2014 THREE ITEMS. I need a name, not a shortlist.\\n\\nITEM 1 \\u2014 NAME THE SINGLE CLOSEST REAL PAYER (P1). The first payment path is LIVE: CashApp QR on milkups.zerric.xyz, handle $zdotllc, verified working by Zerric on a real device. Real money can arrive today. Stripe comes AFTER the first hit, so the first dollar comes from a person, not a checkout page. Give me exactly four fields for ONE person: NAME \\u00b7 AMOUNT \\u00b7 DATE \\u00b7 THE SINGLE ACTION THAT CLOSES IT. Not a shortlist. Not a segment. Not a probability.\\nTwo candidates are on file and both are yours:\\n  - Derby Strong Garage Doors \\u2014 CRM #85, service@derbystronggaragedoors.com, tags include tier-1-close-sprint, dial-first, louisville-ky, verified-phone, source-prospect-campaign. Verified phone on record.\\n  - Cathy Gibbs / Oatmeal Studios \\u2014 CRM #80, cathy@oatmealstudios.com, verified decision-maker, published rate ~$100/joke, editorial buyer, doodle-card pitch track.\\nIf it is neither of those, name who is ACTUALLY closest and say why. No invented numbers. If we do not know the amount, write \\\"unknown\\\" and tell me exactly what would establish it. Also note the tipping contradiction you must confront: a $zdotllc tip is a donation with no deliverable; Oatmeal Studios is a buyer with a rate. State which one you are calling first and why that one closes sooner.\\n\\nITEM 2 \\u2014 CRM HYGIENE: CONFIRM IT HOLDS. I pre-verified the raw records for you, so confirm against my numbers rather than re-deriving:\\n  - QA dummies #74 (dadjokes.qa@zdot-dummy.com), #75 (summitsnakes.qa@zdot-dummy.com), #81 (leadcapture.qa@zdot-dummy.com) \\u2014 all @zdot-dummy.com, all tagged do-not-email / exclude-from-outreach. CONFIRM they are unreachable by any live send, with raw evidence.\\n  - Internal initiatives #76 MilkUps (milkups@zerric.xyz), #77 Spread da Word, #78 SnowSnakes, #79 Snitch \\u2014 all @zerric.xyz, all tagged internal-initiative, not-a-sales-lead, do-not-email. CONFIRM none are reachable by any sales sequence.\\n  - #82 john.doe@example.com \\u2014 junk, exclude-from-outreach. Confirm still excluded.\\n  - #36 \\u2014 superseded. Confirm its status.\\n  - #65 Oatmeal Studios (sales@oatmealstudios.com) and #80 Cathy Gibbs (cathy@oatmealstudios.com) \\u2014 the #65 record carries the tag \\\"account-parent-of-80\\\", so these are THE SAME ACCOUNT. RESOLVE to one canonical record, name the survivor, and say which email is the correct send-to.\\n  State plainly: the CRM either holds or it does not. If a dummy is reachable, that is the finding.\\n\\nITEM 3 \\u2014 LEAD CAPTURE FOR THE DAILY GAMES. Every game page carries the SnowSnakes lead path into HubSpot with the tip jar visible. PROVE A REAL SUBMISSION LANDS IN THE CRM WITH CORRECT FIELDS \\u2014 not that the form renders. Paste the resulting contact record (id, name, email, company, status, tags, notes \\u2014 redact nothing except anything that is a live credential). A rendering form is not a working funnel: the standard is a contact row that exists because a submission happened. If HubSpot sync cannot be completed without owner credentials, say so in one line and name exactly what you need from Zerric.\\n\\nDOMAIN BOUNDARY \\u2014 do not cross it: @zdotllc.com = real WORK only (staff/clients/vendors). @zerric.xyz = real PLAY (milkups@, snowsnakes@, spreaddaword@, snitch@). @zdot-dummy.com = dummy/test/QA ONLY, a label, never registered, no DNS/MX. Never put a dummy on @zdotllc.com or @zerric.xyz, and never a real contact on @zdot-dummy.com.\\n\\nBOUNDARIES: no LPT/real-estate content, ever \\u2014 it protects Zerric's license. Z-Dot and LPT unmixed. No guaranteed results, no overpromised timelines. Nothing publishes without my sign-off.\"}",
+     "topic": "task.delegate",
+     "metadata_json": "{}",
+     "timestamp": "2026-09-18T20:45:46.480150+00:00"
+    },
+    {
+     "id": "f7f7c5f1af05",
+     "from_agent": "BossLady",
+     "to_agent": null,
+     "content": "***",
+     "topic": "task.delegate",
+     "metadata_json": "{}",
+     "timestamp": "2026-09-18T20:45:46.482539+00:00"
+    },
+    {
+     "id": "ffffab59fc27",
+     "from_agent": "BossLady",
+     "to_agent": null,
+     "content": "{\"action\": \"delegate\", \"from\": \"BossLady\", \"to_role\": \"\", \"task_id\": \"3a5515200077\", \"description\": \"\"}",
+     "topic": "task.delegate",
+     "metadata_json": "{}",
+     "timestamp": "2026-09-18T20:45:46.485771+00:00"
+    },
+    {
+     "id": "d1f0bdd45de6",
+     "from_agent": "BossLady",
+     "to_agent": null,
+     "content": "***",
+     "topic": "task.delegate",
+     "metadata_json": "{}",
+     "timestamp": "2026-09-18T20:46:02.191714+00:00"
+    },
+    {
+     "id": "f846980863f6",
+     "from_agent": "BossLady",
+     "to_agent": null,
+     "content": "***",
+     "topic": "task.delegate",
+     "metadata_json": "{}",
+     "timestamp": "2026-09-18T20:46:02.197025+00:00"
+    },
+    {
+     "id": "e2dde50379f4",
+     "from_agent": "BossLady",
+     "to_agent": null,
+     "content": "Task completed (done): # CEO GOAL BREAKDOWN \u2014 Z-Dot LLC \u00b7 2026-09-17\n**From:** BossLady (CEO) \u00b7 **Artifact written:** `STATUS--CEO-GOAL-BREAKDOWN--2026-09-17.md`\n\n---\n\n## 0. THE HEADLINE YOU NEED BEFORE ANYTHING ELSE\n\n**The",
+     "topic": "task.completed",
+     "metadata_json": "{}",
+     "timestamp": "2026-09-18T20:46:28.338277+00:00"
     }
    ]
   },
@@ -15729,7 +15864,7 @@
    "rows": [
     {
      "name": "browse_log",
-     "seq": 748
+     "seq": 753
     },
     {
      "name": "prospect_searches",
@@ -15763,7 +15898,7 @@
   },
   "artifacts": {
    "table": "artifacts",
-   "count": 311,
+   "count": 313,
    "rows": [
     {
      "id": "bd30561548dc",
@@ -18563,12 +18698,30 @@
      "content": "CRM contact data retrieved. Note an immediate discrepancy: **CRM IDs 71/72 are Fatherly and Ulysses Press, not Food Truck Frenzy.** Let me probe further for the actual Food Truck Frenzy records and any send-list endpoints.",
      "artifact_type": "text",
      "created_at": "2026-09-15 03:45:53"
+    },
+    {
+     "id": "77b655087dc2",
+     "task_id": "167e627594dc",
+     "agent_id": "BossLady",
+     "name": "STATUS--CEO-GOAL-BREAKDOWN--2026-09-17.md",
+     "content": "/home/zax/Biz/z-dot-team/.agent-company-ai/default/output/task-167e627594dc/STATUS--CEO-GOAL-BREAKDOWN--2026-09-17.md",
+     "artifact_type": "file",
+     "created_at": "2026-09-18 20:46:13"
+    },
+    {
+     "id": "72c3500069f4",
+     "task_id": "167e627594dc",
+     "agent_id": "BossLady",
+     "name": "result",
+     "content": "***",
+     "artifact_type": "text",
+     "created_at": "2026-09-18 20:46:28"
     }
    ]
   },
   "goals": {
    "table": "goals",
-   "count": 82,
+   "count": 83,
    "rows": [
     {
      "id": "bf88aa5e1266",
@@ -19143,6 +19296,13 @@
      "status": "failed",
      "created_at": "2026-09-17 01:54:19",
      "completed_at": "2026-09-17 01:54:19"
+    },
+    {
+     "id": "6dc8850fcfd3",
+     "description": "***",
+     "status": "active",
+     "created_at": "2026-09-18 20:44:34",
+     "completed_at": null
     }
    ]
   },
@@ -25154,7 +25314,7 @@
   },
   "browse_log": {
    "table": "browse_log",
-   "count": 743,
+   "count": 748,
    "rows": [
     {
      "id": 1,
@@ -32585,6 +32745,56 @@
      "extracted_links_count": 0,
      "browsed_by": "BossLady",
      "created_at": "2026-09-17 05:11:37"
+    },
+    {
+     "id": 749,
+     "url": "https://snowsnakes.zerric.xyz",
+     "status_code": 403,
+     "extract_mode": "meta",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-09-18 20:39:01"
+    },
+    {
+     "id": 750,
+     "url": "https://milkups.zerric.xyz",
+     "status_code": 403,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-09-18 20:44:56"
+    },
+    {
+     "id": 751,
+     "url": "https://snowsnakes.zerric.xyz",
+     "status_code": 403,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-09-18 20:44:57"
+    },
+    {
+     "id": 752,
+     "url": "https://zerric.xyz",
+     "status_code": 403,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-09-18 20:44:59"
+    },
+    {
+     "id": 753,
+     "url": "https://tasks.zdotllc.com",
+     "status_code": 403,
+     "extract_mode": "text",
+     "extracted_emails_count": 0,
+     "extracted_links_count": 0,
+     "browsed_by": "BossLady",
+     "created_at": "2026-09-18 20:44:59"
     }
    ]
   },
