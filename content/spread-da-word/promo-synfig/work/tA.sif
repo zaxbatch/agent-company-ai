@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<canvas version="1.0" width="320" height="180" xres="1" yres="1" view-box="-1.777778 1.000000 1.777778 -1.000000" antialias="1" fps="24" begin-time="0f" end-time="24f" bgcolor="0.05 0.05 0.08 1">
+  <name>tA</name>
+  <layer type="rectangle" active="true" exclude_from_rendering="false" version="0.1" desc="">
+    <param name="z_depth"><real value="0.0"/></param>
+    <param name="amount"><real value="1.0"/></param>
+    <param name="blend_method"><integer value="0"/></param>
+    <param name="color"><color r="1.0" g="0.5" b="0.0" a="1.0"/></param>
+    <param name="invert_negative"><bool value="false"/></param>
+    <param name="origin"><vector><x>0.0</x><y>0.0</y></vector></param>
+    <param name="transformation"><transformation type="composite"><transformation type="translate"><offset><vector><x>0.0</x><y>0.0</y></vector></offset></transformation><transformation type="scale"><scale><vector><x>1.0</x><y>1.0</y></vector></scale></transformation><transformation type="rotate"><angle><angle value="0.0"/></angle></transformation></transformation></param>
+    <param name="point1"><vector><x>-0.4</x><y>0.3</y></vector></param>
+    <param name="point2"><vector><x>0.4</x><y>-0.3</y></vector></param>
+    <param name="expand"><real value="0.0"/></param>
+  </layer>
+</canvas>

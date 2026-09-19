@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<canvas version="1.0" width="320" height="180" xres="1" yres="1" view-box="-1.777778 1.000000 1.777778 -1.000000" antialias="1" fps="24" begin-time="0f" end-time="24f" bgcolor="0.05 0.05 0.08 1">
+  <name>t2</name>
+  <layer type="rectangle" active="true" exclude_from_rendering="false" version="0.2" desc="">
+    <param name="z_depth"><real value="0.0"/></param>
+    <param name="amount"><real value="1.0"/></param>
+    <param name="blend_method"><integer value="0"/></param>
+    <param name="color"><color r="0.2" g="0.25" b="0.35" a="1.0"/></param>
+    <param name="point1"><vector><x>-1.7</x><y>-0.9</y></vector></param>
+    <param name="point2"><vector><x>1.7</x><y>-0.4</y></vector></param>
+    <param name="expand"><real value="0.0"/></param>
+  </layer>
+  <layer type="group" active="true" exclude_from_rendering="false" version="0.3" desc="">
+    <param name="z_depth"><real value="0.1"/></param>
+    <param name="amount"><real value="1.0"/></param>
+    <param name="blend_method"><integer value="0"/></param>
+    <param name="origin"><vector><x>0.0</x><y>0.0</y></vector></param>
+    <param name="canvas">
+      <canvas>
+        <layer type="rotate" active="true" exclude_from_rendering="false" version="0.1" desc="">
+          <param name="origin"><vector><x>-0.8</x><y>0.0</y></vector></param>
+          <param name="amount"><angle><animated type="angle"><waypoint time="0f" value="0.0" before="linear" after="linear"/><waypoint time="24f" value="90.0" before="linear" after="linear"/></animated></angle></param>
+        </layer>
+        <layer type="circle" active="true" exclude_from_rendering="false" version="0.2" desc="">
+          <param name="z_depth"><real value="0.0"/></param>
+          <param name="amount"><real value="1.0"/></param>
+          <param name="blend_method"><integer value="0"/></param>
+          <param name="color"><color r="1.0" g="0.4" b="0.1" a="1.0"/></param>
+          <param name="radius"><real value="0.15"/></param>
+          <param name="feather"><real value="0.0"/></param>
+          <param name="origin"><vector><x>-0.8</x><y>-0.5</y></vector></param>
+          <param name="invert"><bool value="false"/></param>
+        </layer>
+      </canvas>
+    </param>
+  </layer>
+  <layer type="region" active="true" exclude_from_rendering="false" version="0.1" desc="">
+    <param name="z_depth"><real value="0.2"/></param>
+    <param name="amount"><real value="1.0"/></param>
+    <param name="blend_method"><integer value="0"/></param>
+    <param name="color"><color r="0.4" g="1.0" b="0.5" a="1.0"/></param>
+    <param name="origin"><vector><x>0.0</x><y>0.0</y></vector></param>
+    <param name="invert"><bool value="false"/></param>
+    <param name="antialias"><bool value="true"/></param>
+    <param name="feather"><real value="0.0"/></param>
+    <param name="blurtype"><integer value="1"/></param>
+    <param name="winding_style"><integer value="0"/></param>
+    <param name="bline">
+      <bline type="bline_point" loop="false">
+        <entry><composite type="bline_point">
+          <point><vector><x>0.2</x><y>0.6</y></vector></point>
+          <width><real value="1.0"/></width>
+          <origin><real value="0.0"/></origin>
+          <split><bool value="false"/></split>
+          <tangent1><vector><x>0.1</x><y>0.0</y></vector></tangent1>
+          <tangent2><vector><x>0.1</x><y>0.0</y></vector></tangent2>
+          <type><integer value="0"/></type>
+          <invert_radius><bool value="false"/></invert_radius>
+          <local_thickness><real value="1.0"/></local_thickness>
+        </composite></entry>
+        <entry><composite type="bline_point">
+          <point><vector><x>1.0</x><y>0.2</y></vector></point>
+          <width><real value="1.0"/></width>
+          <origin><real value="0.0"/></origin>
+          <split><bool value="false"/></split>
+          <tangent1><vector><x>0.1</x><y>0.0</y></vector></tangent1>
+          <tangent2><vector><x>0.1</x><y>0.0</y></vector></tangent2>
+          <type><integer value="0"/></type>
+          <invert_radius><bool value="false"/></invert_radius>
+          <local_thickness><real value="1.0"/></local_thickness>
+        </composite></entry>
+        <entry><composite type="bline_point">
+          <point><vector><x>1.6</x><y>0.7</y></vector></point>
+          <width><real value="1.0"/></width>
+          <origin><real value="0.0"/></origin>
+          <split><bool value="false"/></split>
+          <tangent1><vector><x>0.1</x><y>0.0</y></vector></tangent1>
+          <tangent2><vector><x>0.1</x><y>0.0</y></vector></tangent2>
+          <type><integer value="0"/></type>
+          <invert_radius><bool value="false"/></invert_radius>
+          <local_thickness><real value="1.0"/></local_thickness>
+        </composite></entry>
+      </bline>
+    </param>
+  </layer>
+  <layer type="text" active="true" exclude_from_rendering="false" version="0.5" desc="">
+    <param name="z_depth"><real value="0.3"/></param>
+    <param name="amount"><real value="1.0"/></param>
+    <param name="blend_method"><integer value="0"/></param>
+    <param name="text"><string>HELLO</string></param>
+    <param name="color"><color r="1" g="1" b="1" a="1"/></param>
+    <param name="family"><string>Sans</string></param>
+    <param name="style"><integer value="0"/></param>
+    <param name="weight"><integer value="700"/></param>
+    <param name="direction"><integer value="0"/></param>
+    <param name="compress"><real value="1.0"/></param>
+    <param name="vcompress"><real value="1.0"/></param>
+    <param name="size"><vector><x>0.3</x><y>0.3</y></vector></param>
+    <param name="orient"><vector><x>0.0</x><y>0.0</y></vector></param>
+    <param name="origin"><vector><x>-1.2</x><y>0.5</y></vector></param>
+    <param name="use_kerning"><bool value="true"/></param>
+    <param name="grid_fit"><bool value="true"/></param>
+    <param name="invert"><bool value="false"/></param>
+  </layer>
+</canvas>
