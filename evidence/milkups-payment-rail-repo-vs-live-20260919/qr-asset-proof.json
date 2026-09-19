@@ -1,0 +1,112 @@
+{
+  "task": "ITEM 1 corrected premise - repo vs live on the MilkUps payment rail",
+  "operator": "NinjaNerd (CTO), Z-Dot LLC",
+  "date_utc": "2026-09-19T00:57:56Z",
+  "primary_live_url": "https://milkups.zerric.xyz/",
+  "mirror_live_url": "https://milkups.netlify.app/",
+  "payment_rail": {
+    "page_link": "https://cash.app/$zdotllc",
+    "img_src": "assets/cashapp-zdotllc-qr.png",
+    "alt": "Cash App QR: $zdotllc"
+  },
+  "live_asset_probe": {
+    "url": "https://milkups.zerric.xyz/assets/cashapp-zdotllc-qr.png",
+    "browser_ua_status": 200,
+    "browser_ua_content_type": "image/webp",
+    "browser_ua_size": 1544,
+    "browser_ua_sha256": "ffe7555a4989a1957725c7ce7c3bc2d259edadf614ad505efcb7bd3b24ac91e8",
+    "force_png_status": 200,
+    "force_png_content_type": "image/png",
+    "force_png_size": 2047,
+    "force_png_sha256": "ca7954a4ea1f96cafee86b0759bba3ac0bd9f64456319311d3366d69519b264f",
+    "file_magic": "PNG image data, 396 x 396, 8-bit/color RGB, non-interlaced",
+    "qr_decoded_payload": "https://cash.app/$zdotllc",
+    "verdict": "200 OK - QR asset PRESENT and serving; NOT a 404; revenue path intact"
+  },
+  "bot_block_403_repro": {
+    "reproduced": false,
+    "clients_200": [
+      "(empty UA)",
+      "Go-http-client/1.1",
+      "python-httpx/0.27.0",
+      "python-requests/2.31.0",
+      "curl/8.5.0",
+      "Mozilla/5.0 (compatible; Googlebot/2.1)",
+      "Chrome/124 browser-like UA"
+    ],
+    "edge_provider_headers": {
+      "server": "hcdn",
+      "platform": "hostinger",
+      "panel": "hpanel"
+    },
+    "correction": "Premise said Cloudflare managed challenge. Edge is Hostinger hcdn, not Cloudflare. Repo tooling documents Hostinger 403-ing httpx as a bot and rate-limiting bulk pulls - transient, self-clearing."
+  },
+  "repo_vs_live_html": {
+    "live_zerric_sha256": "c20ca096f12f27641a20096a3b9e42dc949451a42da0db0f77bc95825bff2c9d",
+    "live_zerric_bytes": 13716,
+    "repo_file": ".agent-company-ai/default/landing_pages/milkups.html",
+    "repo_sha256": "c20ca096f12f27641a20096a3b9e42dc949451a42da0db0f77bc95825bff2c9d",
+    "byte_identical": true,
+    "is_deploy_source": false,
+    "why_not_source": [
+      "live primary is Hostinger hcdn/hPanel, docroot /domains/zerric.xyz/public_html/milkups",
+      "no CI/CD reads default/landing_pages/ (.github has only publish.yml + test.yml)",
+      "path is gitignored (.gitignore line 1) and only present via force-add"
+    ]
+  },
+  "asset_variants": {
+    "live_primary_2047B": {
+      "path": ".agent-company-ai/default/landing_pages/assets/cashapp-zdotllc-qr.png",
+      "sha256": "ca7954a4ea1f96cafee86b0759bba3ac0bd9f64456319311d3366d69519b264f",
+      "decoded": "https://cash.app/$zdotllc",
+      "chunks": "IHDR,pHYs,eXIf,IDAT(1777),IEND"
+    },
+    "archive_2047B": {
+      "path": "content/milkups/_live-archive/2026-09-18/cashapp-zdotllc-qr.png",
+      "sha256": "ca7954a4ea1f96cafee86b0759bba3ac0bd9f64456319311d3366d69519b264f",
+      "decoded": "https://cash.app/$zdotllc"
+    },
+    "repo_copy_1834B": {
+      "path": "content/milkups/assets/cashapp-zdotllc-qr.png",
+      "sha256": "9b7013d7f062467178ac6f4318efd9a12a84c927615122dc09dc3bd4400c616c",
+      "decoded": "https://cash.app/$zdotllc",
+      "chunks": "IHDR,IDAT(1777),IEND"
+    },
+    "qr_zdotllc_600": {
+      "path": "content/milkups/assets/qr-zdotllc.png",
+      "sha256": "e08649c8ea4c1011811a0bec9473dd3065a155240cdaf2d6853a2513aa2411a4",
+      "decoded": "https://cash.app/$zdotllc"
+    },
+    "qr_zdotllc_5_600": {
+      "path": "content/milkups/assets/qr-zdotllc-5.png",
+      "sha256": "548ef4bae2dcd26a42810d5f4ad8faf1f4013d864c5959800bf8d2458b8a0add",
+      "decoded": "https://cash.app/$zdotllc/5"
+    }
+  },
+  "live_vs_repo_copy_pixel_analysis": {
+    "max_abs_pixel_diff": 0,
+    "differing_pixels_gt16": 0,
+    "thresholded_matrix_mismatch": 0,
+    "idat_length_both": 1777,
+    "conclusion": "SAME RASTER, SAME PAYLOAD. 213-byte delta is PNG metadata (pHYs+eXIf) only."
+  },
+  "netlify_mirror": {
+    "homepage_bytes": 12834,
+    "homepage_sha256": "1f65e5c306eb3041b472112fb5eb11a3ee055413803febfe1aa36788db5b02a4",
+    "qr_bytes": 1834,
+    "qr_sha256": "9b7013d7f062467178ac6f4318efd9a12a84c927615122dc09dc3bd4400c616c",
+    "qr_status": 200,
+    "stale_vs_source": {
+      "source": "content/milkups/index.html",
+      "source_bytes": 12114,
+      "source_sha256": "52e364a24ab1f7401cb0622036afc9b1f4a6965e6fd7cb69d73914d0442af63f",
+      "differing_lines": 6
+    }
+  },
+  "hard_constraints_honoured": {
+    "live_page_edited": false,
+    "rebuilt": false,
+    "stripe_touched": false,
+    "lpt_content_added": false
+  }
+}

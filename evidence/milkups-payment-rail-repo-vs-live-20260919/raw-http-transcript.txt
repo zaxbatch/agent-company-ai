@@ -1,0 +1,95 @@
+RAW HTTP TRANSCRIPT — MilkUps payment rail, repo vs live
+Generated: 2026-09-19T00:56:39Z  (host: raspberrypi)
+Operator: NinjaNerd (CTO), Z-Dot LLC
+============================================================
+
+### 1. LIVE QR ASSET — browser-like UA (Accept: image/*)
+$ curl -sS -D - -A '<Chrome124 UA>' -H 'Accept: image/avif,image/webp,image/apng,image/*,*/*;q=0.8' -H 'Referer: https://milkups.zerric.xyz/' https://milkups.zerric.xyz/assets/cashapp-zdotllc-qr.png
+HTTP/2 200 
+date: Sat, 19 Sep 2026 00:56:39 GMT
+content-type: image/webp
+content-length: 1544
+access-control-allow-methods: GET, OPTIONS
+access-control-allow-origin: *
+cache-control: public, max-age=3600
+server: hcdn
+alt-svc: h3=":443"; ma=86400
+x-hcdn-request-id: a03420e0c3f954a6bb07eefae6a5d192-bos-edge7
+x-hcdn-cache-status: MISS
+x-hcdn-upstream-rt: 0.032
+accept-ranges: bytes
+
+
+[CURL] HTTP_CODE=200 CONTENT_TYPE=image/webp SIZE=1544 REMOTE_IP=2a02:4780:4a:83dd:894b:1852:a56e:8a17
+
+### 2. LIVE QR ASSET — force original PNG (Accept: image/png)
+$ curl -sS -D - -A '<Chrome124 UA>' -H 'Accept: image/png' https://milkups.zerric.xyz/assets/cashapp-zdotllc-qr.png
+HTTP/2 200 
+date: Sat, 19 Sep 2026 00:56:39 GMT
+content-type: image/png
+content-length: 2047
+access-control-allow-methods: GET, OPTIONS
+access-control-allow-origin: *
+cache-control: public, max-age=3600
+age: 43
+server: hcdn
+alt-svc: h3=":443"; ma=86400
+x-hcdn-request-id: 4030dfec8f858de8b36e9711b26bf088-bos-edge2
+x-hcdn-cache-status: HIT
+accept-ranges: bytes
+
+
+[CURL] HTTP_CODE=200 CONTENT_TYPE=image/png SIZE=2047
+
+### 3. LIVE HOMEPAGE — browser-like UA
+$ curl -sS -D - -A '<Chrome124 UA>' https://milkups.zerric.xyz/
+HTTP/2 200 
+date: Sat, 19 Sep 2026 00:56:39 GMT
+content-type: text/html
+vary: Accept-Encoding
+last-modified: Thu, 17 Sep 2026 01:37:59 GMT
+etag: W/"3594-6aab4477-60686a6fb6ae5f59;gz"
+platform: hostinger
+panel: hpanel
+content-security-policy: upgrade-insecure-requests
+cache-control: no-cache, no-store, must-revalidate
+pragma: no-cache
+expires: 0
+server: hcdn
+alt-svc: h3=":443"; ma=86400
+x-hcdn-request-id: 3b2dd6b41f560d7942a0575947cb32fe-bos-edge1
+x-hcdn-cache-status: DYNAMIC
+x-hcdn-upstream-rt: 0.026
+
+
+[CURL] HTTP_CODE=200 CONTENT_TYPE=text/html SIZE=13716 REMOTE_IP=2a02:4780:4c:32d3:9808:fe31:dd42:3cb4
+
+### 4. 403 / bot-block repro attempts (all clients)
+UA=(empty UA)                                 HTTP=200
+UA=Go-http-client/1.1                         HTTP=200
+UA=python-httpx/0.27.0                        HTTP=200
+UA=curl/8.5.0                                 HTTP=200
+UA=python-requests/2.31.0                     HTTP=200
+UA=Mozilla/5.0 (compatible; Googlebot/2.1)    HTTP=200
+
+### 5. Netlify mirror front door
+$ curl -sS -D - -A '<Chrome124 UA>' https://milkups.netlify.app/
+HTTP/2 200 
+accept-ranges: bytes
+age: 0
+cache-control: public,max-age=0,must-revalidate
+cache-status: "Netlify Edge"; fwd=miss; fwd-status=200; stored
+content-type: text/html; charset=UTF-8
+date: Sat, 19 Sep 2026 00:56:41 GMT
+etag: "641836585825811455df1d4a8df595a0-ssl"
+netlify-hosting: provider=Netlify; deploy="https://netlify.new/?utm_campaign=ai-legible&utm_source=header&utm_medium=referral&utm_id=4a780cec-282e-4d35-aa43-f77c70080554"
+server: Netlify
+strict-transport-security: max-age=31536000; includeSubDomains; preload
+vary: Accept-Encoding
+x-nf-request-id: 01M2VJMPCBN8CNAWKRD8JXH95K
+
+
+[CURL] HTTP_CODE=200 SIZE=12834
+
+$ curl -sS -H 'Accept: image/png' https://milkups.netlify.app/assets/cashapp-zdotllc-qr.png
+[CURL] HTTP_CODE=200 TYPE=image/png SIZE=1834
