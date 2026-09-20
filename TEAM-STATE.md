@@ -4,7 +4,7 @@
 > to pick up exactly where we left off. Every agent updates it at end of turn.
 > Auto-refresh: `python3 scripts/save_state.py` (also syncs the portal + git).
 
-**Last updated:** 2026-09-20T04:20:01Z
+**Last updated:** 2026-09-20T04:21:02Z
 
 ## Voice-First Communication Standard (effective immediately — Zerric directive)
 Scope: ALL agents (cto, developer, marketer, sales, finance, hr, PM pod) — internal replies AND client-facing replies alike.
@@ -20,6 +20,49 @@ Scope: ALL agents (cto, developer, marketer, sales, finance, hr, PM pod) — int
 ADDITIVE ONLY: this standard changes or supersedes no other standard, policy, or format requirement.
 _Cascade log:_ CTO (NinjaNerd) confirmed 2026-09-15 and cascaded the same briefing to developer (ClickClack), who owns downstream propagation to anyone he directs. Receipt pending in his voice-first confirmation.
 
+
+## SESSION 2026-09-20T04:21:02Z — TEDDY DOODLE LIVE + DICE DROP PUBLISHED (ClickClack)
+
+**Answer-first: both deliverables are LIVE on SnowSnakes. Nothing is pending on me.**
+
+### 1. TEDDY DOODLE — PUBLISHED, doodle id=32
+- Was NOT published before this session. The generator existed only in the gitignored
+  `.agent-company-ai/` with no doodle engine on its path, so it crashed
+  (`ModuleNotFoundError: doodle_maker`) and never wrote a PNG.
+- Fixed: moved generator to tracked `scripts/draw_teddy_bear_doodle.py`, rendered
+  `content/snowsnakes/doodles/persona/teddy-bear-doodle.png` (1800x1400, 293,192 B).
+- Published via `scripts/publish_teddy_doodle.py` as persona `ivy_chen` (was unused).
+- **Verified:** doodle id=32, public feed 16 -> 17, image serves HTTP 200 image/png.
+- Commit: 07590eb5.
+
+### 2. DICE DROP (dice Tetris) — PUBLISHED, game id=124
+- Built to Zerric's spec: falling pieces are DICE; bonuses key off the numbers on them.
+  - MATCHING NUMBERS: all-same row = 1000 x face x level (6000+/level for sixes);
+    4-of-a-kind in a row = 400 x level.
+  - SUMS OF NUMBERS: row total 21 = BLACKJACK (+500x), 28 = LUCKY 28 (+300x),
+    11 = YO ELEVEN (+250x).
+  - A piece rolls ONE value and all its dice share it, so matching is a skill goal.
+  - Right strip shows each row's live pip total so sum bonuses are chaseable.
+- **Verified live:** POST /api/games -> 201 id=124; served code sha256 == local;
+  author zdot_team; tags clean list; public page 200. Games on SNOWSNAKES: 19 -> 20.
+- **QA (evidence/dice-drop-qa/):** browser QA at 390x844 + 320x568 (load 237ms,
+  0 JS errors, no h-scroll, tap targets >= 44px, 31KB); live launch URL plays
+  (score 108); sandboxed srcdoc iframe plays (score 94).
+- Commit: 6c52f0e18.
+
+### OPEN / FYI
+- Host quirk (pre-existing, affects ALL games): `/api/games/<id>/launch` wraps the
+  whole game document inside `<div id="game-container">`, nesting a second
+  doctype/html/head/body. Verified DICE DROP renders + plays anyway, both paths.
+- Game pages carry NO lead-capture path (`play/lead/lead.php` exists but is not wired
+  into any game html). Spec says games are lead capture. NOT done — needs a decision.
+- Real-device (phone-in-hand) test still REQUIRED by the daily-game spec before this
+  counts as fully "posted". Manny owns independent verification. Never done by me.
+- Tetris-style game did NOT previously exist anywhere: repo grep for
+  tetris/tetromino/line-clear = 0 hits, and the old "t.html" is 'DARIO: Chrono
+  Scavenger', unrelated.
+
+---
 
 ## 0. LATEST SESSION (2026-09-12d) — SNOWSNAKES ENGAGEMENT AUDIT + EMAIL TO ZERRIC (ClickClack)
 **Zerric asked for engagement + content on SnowSnakes, then reframed the goal to REAL user engagement and steady content. Audited the whole site. Findings below are VERIFIED via live API, not inferred.**
