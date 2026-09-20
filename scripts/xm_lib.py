@@ -132,8 +132,16 @@ class Module:
         assert len(h) == 263, len(h)
         for s in inst.samples:
             ls, le = s.loop if s.loop else (0, 0)
-            # XM stores sample length in SAMPLES, not bytes
-            h += struct.pack("<III", s.n_samples, ls, (le - ls) if s.loop else 0)
+            # XM sample length is the number of BYTES of sample data. libopenmpt
+            # (and MilkyTracker) advance the file pointer by exactly this value,
+            # so writing the SAMPLE COUNT here desynchronises the reader: it
+            # finds the next instrument header *inside* the previous sample's
+            # PCM, sanitises it to an empty instrument, and every instrument
+            # after the first becomes silent. Measured: a 2-instrument probe
+            # rendered 440 Hz and nothing at 880 Hz; with bytes it renders both.
+            bps = 2 if getattr(s, "bits", 8) == 16 else 1
+            h += struct.pack("<III", s.n_samples * bps, ls * bps,
+                             ((le - ls) * bps) if s.loop else 0)
             # type byte: bit0 = loop, bit4 (0x10) = 16-bit
             typ = (0x01 if s.loop else 0x00) | (0x10 if getattr(s, "bits", 8) == 16 else 0x00)
             h += struct.pack("<BbBBbB", s.volume, s.finetune,
