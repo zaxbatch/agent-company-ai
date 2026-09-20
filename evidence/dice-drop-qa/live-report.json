@@ -1,0 +1,13 @@
+{
+  "url": "https://snowsnakes.zerric.xyz/games/124",
+  "shell": {
+    "title": "SnowSnakes",
+    "frames": [],
+    "canvases": 0,
+    "bodyLen": 503
+  },
+  "js_errors": [],
+  "problems": [
+    "live: could not drive the game (Page.wait_for_selector: Timeout 20000ms exceeded.\nCall log:\n  - waiting for locator(\"#ovBtn\") to be visible\n)"
+  ]
+}

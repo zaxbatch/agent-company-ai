@@ -1,0 +1,95 @@
+{
+  "file": "content/snowsnakes/games/dice-drop.html",
+  "bytes": 31002,
+  "load_ms": 237,
+  "mobile_metrics": {
+    "scrollW": 390,
+    "clientW": 390,
+    "scrollH": 844,
+    "clientH": 844,
+    "docH": 844,
+    "buttons": [
+      {
+        "label": "TAP TO PLAY",
+        "w": 300,
+        "h": 48
+      },
+      {
+        "label": "\u25c0",
+        "w": 108,
+        "h": 56
+      },
+      {
+        "label": "\u21bb",
+        "w": 145,
+        "h": 56
+      },
+      {
+        "label": "\u25b6",
+        "w": 108,
+        "h": 56
+      },
+      {
+        "label": "\u25bc",
+        "w": 157,
+        "h": 56
+      },
+      {
+        "label": "DROP",
+        "w": 211,
+        "h": 56
+      },
+      {
+        "label": "PAUSE",
+        "w": 121,
+        "h": 44
+      },
+      {
+        "label": "SOUND: ON",
+        "w": 121,
+        "h": 44
+      },
+      {
+        "label": "HOW TO PLAY",
+        "w": 121,
+        "h": 44
+      }
+    ],
+    "canvas": {
+      "w": 302,
+      "h": 528,
+      "top": 75,
+      "bottom": 603,
+      "right": 346
+    },
+    "innerW": 390,
+    "innerH": 844,
+    "overlayVisible": true
+  },
+  "state_after_play": {
+    "score": "78",
+    "rows": "0",
+    "level": "1",
+    "best": "78"
+  },
+  "distinct_sampled_colours": 158,
+  "small_phone": {
+    "scrollW": 320,
+    "clientW": 320,
+    "boardBottom": 350,
+    "innerH": 568,
+    "w": 165,
+    "h": 288
+  },
+  "js_errors": [],
+  "console_errors": [],
+  "failed_requests": [],
+  "problems": [],
+  "screenshots": [
+    "01-start-overlay.png",
+    "02-playing.png",
+    "03-after-moves.png",
+    "04-landscape.png",
+    "05-small-phone-320.png"
+  ]
+}

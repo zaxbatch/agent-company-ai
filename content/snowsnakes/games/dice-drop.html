@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>DICE DROP — stack the dice, chase the 21</title>
+<meta name="description" content="Dice Tetris. Stack falling dice, clear rows, chase the sum-21 jackpot and all-same match bonus. One thumb, portrait, plays offline.">
+<meta name="theme-color" content="#001d4d">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23003399'/><circle cx='16' cy='16' r='4' fill='white'/></svg>">
+<style>
+  :root{
+    --navy:#003399; --deep:#001d4d; --cyan:#00ccff; --white:#fff;
+    --gold:#ffcc00; --red:#e63946; --green:#2ecc71;
+    --bg:#04102b; --panel:#0a1c3f; --line:#1b3f7a;
+  }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent}
+  html,body{margin:0; padding:0; height:100%}
+  body{
+    background:linear-gradient(180deg,#04102b 0%,#001d4d 100%);
+    color:#fff;
+    font-family:'Trebuchet MS',Verdana,system-ui,-apple-system,sans-serif;
+    display:flex; justify-content:center; align-items:stretch;
+    overflow:hidden; touch-action:manipulation;
+    padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+  #wrap{
+    width:100%; max-width:460px; height:100dvh;
+    display:flex; flex-direction:column; gap:6px; padding:6px 8px 8px;
+  }
+
+  /* ── HUD ───────────────────────────────────────────── */
+  #hud{display:flex; align-items:center; gap:6px; flex:0 0 auto}
+  #hud .cell{
+    background:var(--panel); border:2px solid #17417f; border-radius:8px;
+    padding:3px 7px; min-width:0; flex:1;
+  }
+  #hud .k{font-size:8px; letter-spacing:.14em; color:#7fb2e8; text-transform:uppercase}
+  #hud .v{font-size:16px; font-weight:bold; line-height:1.15; font-variant-numeric:tabular-nums}
+  #hud .v.gold{color:var(--gold)}
+  #title{
+    font-size:13px; font-weight:bold; letter-spacing:.1em; color:var(--cyan);
+    text-align:center; flex:0 0 auto; padding-right:2px;
+  }
+
+  /* ── board ─────────────────────────────────────────── */
+  #boardWrap{position:relative; flex:1 1 auto; min-height:0; display:flex; justify-content:center}
+  #board{display:block; border-radius:10px; box-shadow:0 0 0 2px #17417f, 0 6px 18px rgba(0,0,0,.5); touch-action:none}
+
+  /* ── next + legend ─────────────────────────────────── */
+  #strip{display:flex; gap:6px; align-items:stretch; flex:0 0 auto}
+  #nextBox{
+    background:var(--panel); border:2px solid #17417f; border-radius:8px;
+    display:flex; align-items:center; gap:6px; padding:3px 7px;
+  }
+  #nextBox .k{font-size:8px; letter-spacing:.14em; color:#7fb2e8; text-transform:uppercase}
+  #next{display:block; width:52px; height:34px}
+  #hint{
+    flex:1; background:var(--panel); border:2px solid #17417f; border-radius:8px;
+    padding:3px 7px; font-size:9.5px; line-height:1.35; color:#a9cdf3;
+  }
+  #hint b{color:var(--gold)}
+
+  /* ── controls ──────────────────────────────────────── */
+  #pad{display:flex; gap:6px; flex:0 0 auto}
+  button.btn{
+    flex:1; min-height:56px; /* tap target >= 44px */
+    background:linear-gradient(180deg,#12448f,#0a2a5e);
+    border:2px solid #2f6fc4; border-radius:10px; color:#fff;
+    font-size:22px; font-weight:bold; font-family:inherit;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer; user-select:none; padding:0;
+  }
+  button.btn:active{background:linear-gradient(180deg,#1a5cc0,#0d3570)}
+  button.btn:active{transform:translateY(1px)}
+  button.btn.wide{flex:1.35}
+  button.btn.drop{background:linear-gradient(180deg,#b8860b,#7a5a00); border-color:var(--gold)}
+  #pad2{display:flex; gap:6px; flex:0 0 auto}
+  button.small{
+    flex:1; min-height:44px; font-size:11px; letter-spacing:.08em;
+    background:#0a1c3f; border:2px solid #17417f; border-radius:8px; color:#a9cdf3;
+    font-family:inherit; font-weight:bold; cursor:pointer;
+  }
+
+  /* ── overlays ──────────────────────────────────────── */
+  #ov{
+    position:absolute; inset:0; display:none; align-items:center; justify-content:center;
+    background:rgba(2,10,26,.88); border-radius:10px; text-align:center; padding:14px;
+  }
+  #ov.on{display:flex}
+  #ov .card{max-width:300px}
+  #ov h1{font-size:22px; margin:0 0 4px; color:var(--cyan); letter-spacing:.06em}
+  #ov h2{font-size:30px; margin:6px 0 2px; color:var(--gold); font-variant-numeric:tabular-nums}
+  #ov p{font-size:11.5px; line-height:1.5; color:#bcd8f5; margin:6px 0 12px}
+  #ov .stat{font-size:12px; color:#fff; margin:2px 0}
+  #ov .stat span{color:var(--gold); font-weight:bold}
+  #ov button{
+    min-height:48px; width:100%; font-size:15px; font-weight:bold; font-family:inherit;
+    background:linear-gradient(180deg,#0f9ad6,#0b6fa0); border:none; border-radius:10px;
+    color:#fff; cursor:pointer; letter-spacing:.06em;
+  }
+  .rules{text-align:left; font-size:11px; line-height:1.6; color:#bcd8f5; margin:0 0 12px}
+  .rules b{color:var(--gold)}
+  .rules i{color:var(--cyan); font-style:normal}
+
+  /* ── bonus toast ───────────────────────────────────── */
+  #toasts{
+    position:absolute; left:50%; top:38%; transform:translateX(-50%);
+    pointer-events:none; display:flex; flex-direction:column; gap:4px; align-items:center; z-index:5;
+  }
+  .toast{
+    font-size:17px; font-weight:bold; letter-spacing:.05em; white-space:nowrap;
+    text-shadow:0 2px 0 #000, 0 0 12px rgba(0,0,0,.9);
+    animation:pop 1.05s ease-out forwards;
+  }
+  @keyframes pop{
+    0%{opacity:0; transform:translateY(10px) scale(.7)}
+    22%{opacity:1; transform:translateY(0) scale(1.12)}
+    70%{opacity:1; transform:translateY(-6px) scale(1)}
+    100%{opacity:0; transform:translateY(-26px) scale(.98)}
+  }
+  /* short phones (e.g. 320x568): compact the chrome so the board gets the height */
+  @media (max-height: 700px){
+    #wrap{gap:4px; padding:4px 6px 6px}
+    #title{font-size:11px}
+    #hud .cell{padding:2px 5px}
+    #hud .v{font-size:14px}
+    #hint{display:none}
+    button.btn{min-height:52px}
+    button.small{min-height:44px; font-size:10px}
+    #nextBox{padding:2px 5px}
+  }
+  @media (max-height: 560px){
+    #title{display:none}
+    #nextBox{display:none}
+    button.btn{min-height:46px}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .toast{animation:fadeonly 1.05s linear forwards}
+    @keyframes fadeonly{0%{opacity:0}25%{opacity:1}75%{opacity:1}100%{opacity:0}}
+    button.btn:active{transform:none}
+  }
+</style>
+</head>
+<body>
+<div id="wrap">
+
+  <div id="title">DICE&nbsp;DROP</div>
+
+  <div id="hud">
+    <div class="cell"><div class="k">Score</div><div class="v" id="score">0</div></div>
+    <div class="cell"><div class="k">Best</div><div class="v gold" id="best">0</div></div>
+    <div class="cell"><div class="k">Level</div><div class="v" id="level">1</div></div>
+    <div class="cell"><div class="k">Rows</div><div class="v" id="rows">0</div></div>
+  </div>
+
+  <div id="boardWrap">
+    <canvas id="board" aria-label="Dice Drop playfield"></canvas>
+    <div id="toasts" aria-live="polite"></div>
+    <div id="ov" class="on"><div class="card" id="ovCard"></div></div>
+  </div>
+
+  <div id="strip">
+    <div id="nextBox">
+      <div class="k">Next</div>
+      <canvas id="next" width="104" height="68"></canvas>
+    </div>
+    <div id="hint">
+      Right strip shows each row's <b>pip sum</b>.<br>
+      <b>21</b> = BLACKJACK · <b>28</b> = LUCKY · all same = <b>JACKPOT</b>
+    </div>
+  </div>
+
+  <div id="pad">
+    <button class="btn" id="bL" aria-label="Move left">&#9664;</button>
+    <button class="btn wide" id="bR" aria-label="Rotate">&#8635;</button>
+    <button class="btn" id="bRt" aria-label="Move right">&#9654;</button>
+  </div>
+  <div id="pad">
+    <button class="btn" id="bD" aria-label="Soft drop">&#9660;</button>
+    <button class="btn drop wide" id="bHD" aria-label="Drop fast">DROP</button>
+  </div>
+  <div id="pad2">
+    <button class="small" id="bPause">PAUSE</button>
+    <button class="small" id="bSound">SOUND: ON</button>
+    <button class="small" id="bHelp">HOW TO PLAY</button>
+  </div>
+
+</div>
+<script>
+(function(){
+"use strict";
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   DICE DROP — dice Tetris.
+   Spec: falling pieces are DICE (not plain blocks). Bonus features key off
+   MATCHING NUMBERS (all dice in a cleared row show the same value) and
+   SUMS OF NUMBERS (a cleared row's pip total hits a lucky target: 21 / 11).
+
+   Design choice that makes "matching" a skill goal instead of a lottery:
+   every piece rolls ONE value and all of its dice show that value. So a player
+   can deliberately stack same-value dice to earn the match jackpot.
+   ───────────────────────────────────────────────────────────────────────────── */
+
+var COLS = 8, ROWS = 16;
+var STRIP = 1.15;              // right-hand column width, in cells (live pip-sum readout)
+
+// dice face colours (match-readability: each value is its own colour)
+var FACE = {1:"#00ccff",2:"#2ecc71",3:"#ffcc00",4:"#ff7f11",5:"#e63946",6:"#a855f7"};
+var PIPS = {
+  1:[[.5,.5]],
+  2:[[.28,.28],[.72,.72]],
+  3:[[.28,.28],[.5,.5],[.72,.72]],
+  4:[[.28,.28],[.72,.28],[.28,.72],[.72,.72]],
+  5:[[.28,.28],[.72,.28],[.5,.5],[.28,.72],[.72,.72]],
+  6:[[.28,.24],[.72,.24],[.28,.5],[.72,.5],[.28,.76],[.72,.76]]
+};
+
+// the 7 tetromino shapes — every filled cell becomes a die
+var SHAPES = [
+  [[1,1,1,1]],                 // I
+  [[1,1],[1,1]],               // O
+  [[0,1,0],[1,1,1]],           // T
+  [[0,1,1],[1,1,0]],           // S
+  [[1,1,0],[0,1,1]],           // Z
+  [[1,0,0],[1,1,1]],           // J
+  [[0,0,1],[1,1,1]]            // L
+];
+
+// bonus targets — the "sums of numbers" feature
+var LUCKY = [
+  {sum:21, label:"BLACKJACK!",      pts:500,  col:"#ffcc00", snd:"jack"},
+  {sum:28, label:"LUCKY 28!",       pts:300,  col:"#ffcc00", snd:"lucky"},
+  {sum:11, label:"YO ELEVEN!",      pts:250,  col:"#00ccff", snd:"lucky"}
+];
+// NB: 8 cells means the lowest possible row total is 8, so a "7" target could
+// never fire. And because a piece's dice all share one value, a clean 4+4 row
+// only produces multiples of 4 — 28 is the reachable headline, 21 the long shot.
+var ALLSAME_MULT = 1000;       // match jackpot: 1000 x face x level
+var QUAD_MULT    = 400;        // 4+ dice of one value in a row: reachable tier
+
+var board = [];
+var piece = null, next = null;
+var score = 0, rowsCleared = 0, level = 1;
+var best = 0;
+var running = false, paused = false, over = false;
+var dropInt = 800, dropAcc = 0, lastT = 0;
+var flash = 0, flashRows = [];
+var reduced = false;
+
+var $ = function(id){ return document.getElementById(id); };
+var cvs = $("board"), ctx = cvs.getContext("2d");
+var ncvs = $("next"), nctx = ncvs.getContext("2d");
+var cell = 20, DPR = 1;
+
+try{ best = parseInt(localStorage.getItem("dicedrop_best")||"0",10)||0; }catch(e){ best = 0; }
+try{ reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches; }catch(e){}
+
+/* ── sound: created lazily on first user gesture (nothing auto-plays) ──────── */
+var soundOn = true, actx = null;
+function beep(freq, dur, type, vol){
+  if(!soundOn) return;
+  try{
+    if(!actx) actx = new (window.AudioContext||window.webkitAudioContext)();
+    var o = actx.createOscillator(), g = actx.createGain();
+    o.type = type||"square"; o.frequency.value = freq;
+    g.gain.value = vol==null?0.05:vol;
+    o.connect(g); g.connect(actx.destination);
+    var t = actx.currentTime;
+    g.gain.setValueAtTime(g.gain.value, t);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + dur/1000);
+    o.start(t); o.stop(t + dur/1000 + .02);
+  }catch(e){}
+}
+function sfx(kind){
+  if(kind==="move")  beep(180, 40, "square", .035);
+  else if(kind==="rot") beep(300, 45, "square", .035);
+  else if(kind==="lock") beep(120, 70, "triangle", .05);
+  else if(kind==="clear") beep(520, 110, "square", .05);
+  else if(kind==="lucky") beep(760, 150, "square", .06);
+  else if(kind==="jack"){ beep(880,110,"square",.07); setTimeout(function(){beep(1180,180,"square",.07);},110); }
+  else if(kind==="over"){ beep(220,180,"sawtooth",.06); setTimeout(function(){beep(140,320,"sawtooth",.06);},180); }
+}
+
+/* ── dice drawing ─────────────────────────────────────────────────────────── */
+function roundRect(g,x,y,w,h,r){
+  if(r > w/2) r = w/2;
+  if(r > h/2) r = h/2;
+  g.beginPath();
+  g.moveTo(x+r,y);
+  g.arcTo(x+w,y,x+w,y+h,r);
+  g.arcTo(x+w,y+h,x,y+h,r);
+  g.arcTo(x,y+h,x,y,r);
+  g.arcTo(x,y,x+w,y,r);
+  g.closePath();
+}
+function drawDie(g, cx, cy, size, v, alpha, ghost){
+  var s = size*0.88, x = cx-s/2, y = cy-s/2, r = s*0.22;
+  g.save();
+  if(alpha != null) g.globalAlpha = alpha;
+  if(ghost){
+    g.strokeStyle = "#4f86c6"; g.lineWidth = 2; g.setLineDash([4,3]);
+    roundRect(g,x,y,s,s,r); g.stroke(); g.setLineDash([]);
+  } else {
+    g.fillStyle = FACE[v] || "#888";
+    roundRect(g,x,y,s,s,r); g.fill();
+    g.strokeStyle = "rgba(0,0,0,.45)"; g.lineWidth = Math.max(1,size*0.055); g.stroke();
+    // pips
+    var pr = Math.max(1.15, size*0.093);
+    g.fillStyle = "#00122e";
+    var pts = PIPS[v] || PIPS[1];
+    for(var i=0;i<pts.length;i++){
+      g.beginPath();
+      g.arc(x + pts[i][0]*s, y + pts[i][1]*s, pr, 0, 6.2832);
+      g.fill();
+    }
+  }
+  g.restore();
+}
+
+/* ── board helpers ────────────────────────────────────────────────────────── */
+function newBoard(){
+  board = [];
+  for(var y=0;y<ROWS;y++){
+    var row = [];
+    for(var x=0;x<COLS;x++) row.push(null);
+    board.push(row);
+  }
+}
+function rotCW(m){
+  var h=m.length, w=m[0].length, out=[];
+  for(var y=0;y<w;y++){ out.push([]);
+    for(var x=0;x<h;x++) out[y].push(m[h-1-x][y]);
+  }
+  return out;
+}
+function rollValue(){ return 1 + Math.floor(Math.random()*6); }
+function makePiece(){
+  var m = SHAPES[Math.floor(Math.random()*SHAPES.length)];
+  // deep copy so rotation never mutates the template
+  var c = m.map(function(r){ return r.slice(); });
+  return { m:c, v:rollValue(), x:Math.floor((COLS-c[0].length)/2), y:0 };
+}
+function cellsOf(p, ox, oy, om){
+  var m = om || p.m, out = [];
+  for(var y=0;y<m.length;y++)
+    for(var x=0;x<m[y].length;x++)
+      if(m[y][x]) out.push([p.x+x+(ox||0), p.y+y+(oy||0)]);
+  return out;
+}
+function collides(p, ox, oy, om){
+  var cs = cellsOf(p, ox, oy, om);
+  for(var i=0;i<cs.length;i++){
+    var x=cs[i][0], y=cs[i][1];
+    if(x<0 || x>=COLS || y>=ROWS) return true;
+    if(y>=0 && board[y][x]) return true;
+  }
+  return false;
+}
+function tryMove(dx){
+  if(collides(piece, dx, 0)) return false;
+  piece.x += dx; return true;
+}
+function tryRotate(){
+  var r = rotCW(piece.m);
+  var kicks = [0,-1,1,-2,2];
+  for(var i=0;i<kicks.length;i++){
+    if(!collides(piece, kicks[i], 0, r)){
+      piece.m = r; piece.x += kicks[i]; return true;
+    }
+  }
+  return false;
+}
+function ghostY(){
+  var d = 0;
+  while(!collides(piece, 0, d+1)) d++;
+  return piece.y + d;
+}
+/* ── locking, row clears, bonuses (the spec's two bonus families) ─────────── */
+function rowSum(y){
+  var s = 0, n = 0, vals = [];
+  for(var x=0;x<COLS;x++){
+    if(board[y][x]){ s += board[y][x].v; n++; vals.push(board[y][x].v); }
+  }
+  return { sum:s, n:n, vals:vals };
+}
+function rowMostCommon(y){
+  var r = rowSum(y), tally = {}, bestV = 0, bestN = 0;
+  for(var i=0;i<r.vals.length;i++){
+    var v = r.vals[i];
+    tally[v] = (tally[v]||0)+1;
+    if(tally[v] > bestN){ bestN = tally[v]; bestV = v; }
+  }
+  return { v:bestV, n:bestN };
+}
+function rowAllSame(y){
+  var r = rowSum(y);
+  if(r.n !== COLS) return 0;
+  for(var i=1;i<r.vals.length;i++) if(r.vals[i] !== r.vals[0]) return 0;
+  return r.vals[0];
+}
+
+function lockPiece(){
+  var cs = cellsOf(piece);
+  for(var i=0;i<cs.length;i++){
+    var x = cs[i][0], y = cs[i][1];
+    if(y >= 0 && y < ROWS && x >= 0 && x < COLS) board[y][x] = { v: piece.v };
+  }
+  sfx("lock");
+
+  // find full rows
+  var full = [];
+  for(var y=0;y<ROWS;y++){
+    var complete = true;
+    for(var x=0;x<COLS;x++) if(!board[y][x]){ complete = false; break; }
+    if(complete) full.push(y);
+  }
+
+  if(full.length){
+    var n = full.length;
+    var base = [0,100,250,450,700][Math.min(n,4)] * level;
+    var gained = base, bonuses = [], jackpot = false, bump = 0;
+
+    for(var k=0;k<full.length;k++){
+      var y2 = full[k];
+      var r = rowSum(y2);
+      // (a) MATCHING NUMBERS — every die in the row shows the same face
+      var sameV = rowAllSame(y2);
+      if(sameV){
+        var mb = ALLSAME_MULT * sameV * level;
+        gained += mb; jackpot = true; bump = 1;
+        bonuses.push({ t:"ALL " + sameV + "s  x" + sameV + "  +" + mb, c:"#a855f7" });
+      }
+      else {
+        // (a2) MATCHING NUMBERS, smaller tier — 4+ dice of one value in the row.
+        // Reachable: a single I-piece lays 4 matching dice into one row.
+        var mc = rowMostCommon(y2);
+        if(mc.n >= 4){
+          var qb = QUAD_MULT * level;
+          gained += qb;
+          if(!bump) bump = 1;
+          bonuses.push({ t:mc.n + "x " + mc.v + "s  +" + qb, c:"#c084fc" });
+        }
+      }
+      // (b) SUMS OF NUMBERS — the row's pip total hits a lucky target
+      for(var L=0;L<LUCKY.length;L++){
+        if(r.sum === LUCKY[L].sum){
+          gained += LUCKY[L].pts * level;
+          if(!bump) bump = 2;
+          bonuses.push({ t:LUCKY[L].label + "  +" + (LUCKY[L].pts*level), c:LUCKY[L].col });
+        }
+      }
+    }
+
+    score += gained;
+    rowsCleared += n;
+
+    // remove cleared rows, then pad the top
+    full.sort(function(a,b){ return a-b; });
+    for(var i2=full.length-1;i2>=0;i2--) board.splice(full[i2],1);
+    for(var p2=0;p2<n;p2++){
+      var nr = [];
+      for(var x2=0;x2<COLS;x2++) nr.push(null);
+      board.unshift(nr);
+    }
+
+    flash = reduced ? 0 : 0.34;
+    flashCol = jackpot ? "#a855f7" : (bump===2 ? "#ffcc00" : "#00ccff");
+    sfx(jackpot ? "jack" : (bump===2 ? "lucky" : "clear"));
+    for(var b2=0;b2<bonuses.length;b2++) toast(bonuses[b2].t, bonuses[b2].c);
+    if(!bonuses.length && n>1) toast(n + " ROWS  +" + base, "#00ccff");
+
+    // level curve
+    level = 1 + Math.floor(rowsCleared/8);
+    dropInt = Math.max(120, 800 - (level-1)*65);
+  }
+
+  // spawn next
+  piece = next || makePiece();
+  next = makePiece();
+  if(collides(piece, 0, 0)){ gameOver(); return; }
+  updateHUD();
+  drawPreview();
+}
+
+function hardDrop(){
+  if(!running || paused || over) return;
+  var gy = ghostY();
+  score += Math.max(0, gy - piece.y) * 2;   // reward the drop
+  piece.y = gy;
+  lockPiece();
+}
+
+function softDrop(){
+  if(!running || paused || over) return;
+  if(!collides(piece, 0, 1)){ piece.y++; score += 1; updateHUD(); }
+  else lockPiece();
+}
+/* ── rendering ────────────────────────────────────────────────────────────── */
+var flashCol = "#00ccff";
+function draw(){
+  var W = Math.round((COLS+STRIP)*cell), H = ROWS*cell;
+  ctx.clearRect(0,0,W,H);
+
+  // playfield background
+  ctx.fillStyle = "#061531";
+  ctx.fillRect(0,0,COLS*cell,H);
+
+  // grid
+  ctx.strokeStyle = "rgba(80,140,210,.16)";
+  ctx.lineWidth = 1;
+  for(var x=1;x<COLS;x++){
+    ctx.beginPath(); ctx.moveTo(x*cell,0); ctx.lineTo(x*cell,H); ctx.stroke();
+  }
+  for(var y=1;y<ROWS;y++){
+    ctx.beginPath(); ctx.moveTo(0,y*cell); ctx.lineTo(COLS*cell,y*cell); ctx.stroke();
+  }
+
+  // settled dice
+  for(var y3=0;y3<ROWS;y3++){
+    for(var x3=0;x3<COLS;x3++){
+      var c3 = board[y3][x3];
+      if(c3) drawDie(ctx, x3*cell+cell/2, y3*cell+cell/2, cell, c3.v, null, false);
+    }
+  }
+
+  // ghost + active piece
+  if(piece && running && !over){
+    var gy = ghostY(), i, cs;
+    if(gy > piece.y){
+      cs = cellsOf(piece, 0, gy-piece.y);
+      for(i=0;i<cs.length;i++) drawDie(ctx, cs[i][0]*cell+cell/2, cs[i][1]*cell+cell/2, cell, piece.v, .5, true);
+    }
+    cs = cellsOf(piece);
+    for(i=0;i<cs.length;i++) drawDie(ctx, cs[i][0]*cell+cell/2, cs[i][1]*cell+cell/2, cell, piece.v, null, false);
+  }
+
+  // ── right strip: live pip-sum readout (makes the sum bonuses chaseable) ──
+  var sx = COLS*cell;
+  ctx.fillStyle = "#0a1c3f";
+  ctx.fillRect(sx, 0, STRIP*cell, H);
+  ctx.strokeStyle = "#17417f"; ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(sx+1,0); ctx.lineTo(sx+1,H); ctx.stroke();
+
+  ctx.textAlign = "center"; ctx.textBaseline = "middle";
+  for(var y4=0;y4<ROWS;y4++){
+    var r4 = rowSum(y4);
+    if(!r4.n) continue;
+    var col = "#5c86b8", allSame = (r4.n>=2);
+    for(var i4=1;i4<r4.vals.length;i4++) if(r4.vals[i4] !== r4.vals[0]){ allSame = false; break; }
+    if(allSame) col = "#c084fc";
+    else if(r4.sum === 21 || r4.sum === 28) col = "#ffcc00";
+    else if(r4.sum === 11) col = "#00ccff";
+    ctx.fillStyle = col;
+    var fs = r4.sum >= 10 ? cell*0.46 : cell*0.56;
+    ctx.font = "bold " + Math.round(fs) + "px Verdana, sans-serif";
+    ctx.fillText(String(r4.sum), sx + STRIP*cell/2, y4*cell + cell/2);
+  }
+
+  // clear flash
+  if(flash > 0){
+    ctx.globalAlpha = Math.min(.42, flash*1.1);
+    ctx.fillStyle = flashCol;
+    ctx.fillRect(0,0,COLS*cell,H);
+    ctx.globalAlpha = 1;
+  }
+}
+
+function drawPreview(){
+  var w = ncvs.width, h = ncvs.height;
+  nctx.clearRect(0,0,w,h);
+  if(!next) return;
+  var m = next.m, s = Math.min(w/(m[0].length+0.6), h/(m.length+0.6));
+  var ox = (w - m[0].length*s)/2, oy = (h - m.length*s)/2;
+  for(var y=0;y<m.length;y++)
+    for(var x=0;x<m[y].length;x++)
+      if(m[y][x]) drawDie(nctx, ox+x*s+s/2, oy+y*s+s/2, s, next.v, null, false);
+}
+
+function updateHUD(){
+  $("score").textContent = score.toLocaleString();
+  $("level").textContent = level;
+  $("rows").textContent = rowsCleared;
+  if(score > best){
+    best = score;
+    try{ localStorage.setItem("dicedrop_best", String(best)); }catch(e){}
+  }
+  $("best").textContent = best.toLocaleString();
+}
+
+/* ── bonus toast ──────────────────────────────────────────────────────────── */
+function toast(text, color){
+  var host = $("toasts");
+  var d = document.createElement("div");
+  d.className = "toast";
+  d.style.color = color || "#ffcc00";
+  d.textContent = text;
+  host.appendChild(d);
+  setTimeout(function(){ if(d.parentNode) d.parentNode.removeChild(d); }, 1150);
+}
+/* ── overlays ─────────────────────────────────────────────────────────────── */
+function ovShow(html){ $("ovCard").innerHTML = html; $("ov").classList.add("on"); }
+function ovHide(){ $("ov").classList.remove("on"); }
+
+var RULES =
+  '<p class="rules">' +
+  'Stack the falling dice. Fill a full row and it clears.<br><br>' +
+  '<b>MATCH BONUS</b> — a cleared row where <i>every die shows the same number</i> ' +
+  'pays <b>1000 &#215; that number &#215; level</b> (all sixes = 6,000+ per level). ' +
+  'Land <b>4 of a kind</b> in a row for +400&#215;level.<br><br>' +
+  '<b>SUM BONUS</b> — a cleared row whose pips total <b>21</b> pays BLACKJACK (+500&#215;level), ' +
+  '<b>28</b> pays LUCKY 28 (+300&#215;level), <b>11</b> pays YO ELEVEN (+250&#215;level).<br><br>' +
+  'The <b>right strip</b> shows every row\'s live pip total as you build it &#8212; ' +
+  'purple means that row is all the same number, gold means it already totals 21.<br><br>' +
+  'Each piece rolls one number and all its dice match it, so stacking a colour is a ' +
+  'real strategy, not luck.' +
+  '</p>';
+
+function showStart(){
+  ovShow('<h1>DICE DROP</h1>' +
+    '<p>Dice Tetris. Clear rows, chase the sums, hit the match jackpot.</p>' +
+    RULES +
+    '<button id="ovBtn">TAP TO PLAY</button>');
+  $("ovBtn").onclick = startGame;
+}
+
+function showHelp(){
+  ovShow('<h1>HOW TO PLAY</h1>' + RULES +
+    '<button id="ovBtn">BACK TO GAME</button>');
+  var wasPaused = paused;
+  if(running && !over){ paused = true; }
+  $("ovBtn").onclick = function(){
+    ovHide();
+    if(running && !over){ paused = wasPaused; if(!paused) lastT = 0; }
+    else showStart();
+  };
+}
+
+function togglePause(){
+  if(over || !running) return;
+  paused = !paused;
+  if(paused){
+    ovShow('<h1>PAUSED</h1><p>Take your time.</p><button id="ovBtn">RESUME</button>');
+    $("ovBtn").onclick = togglePause;
+  } else { ovHide(); lastT = 0; }
+  $("bPause").textContent = paused ? "RESUME" : "PAUSE";
+}
+
+function gameOver(){
+  over = true; running = false;
+  sfx("over");
+  var isBest = score >= prevBest && score > 0;
+  ovShow('<h1>GAME OVER</h1>' +
+    '<h2>' + score.toLocaleString() + '</h2>' +
+    '<div class="stat">Best: <span>' + best.toLocaleString() + '</span></div>' +
+    '<div class="stat">Rows: <span>' + rowsCleared + '</span> &nbsp;&#183;&nbsp; Level: <span>' + level + '</span></div>' +
+    '<p>' + (isBest ? 'NEW BEST &#8212; beat it again.' :
+      'You are ' + (best + 1 - score).toLocaleString() + ' short of your best. The all-sixes jackpot pays ' +
+      (6000*level).toLocaleString() + ' this level.') + '</p>' +
+    '<button id="ovBtn">ONE MORE RUN</button>');
+  $("ovBtn").onclick = startGame;
+  $("bPause").textContent = "PAUSE";
+}
+
+/* ── lifecycle ────────────────────────────────────────────────────────────── */
+var prevBest = 0;
+function startGame(){
+  newBoard();
+  score = 0; rowsCleared = 0; level = 1;
+  dropInt = 800; dropAcc = 0; lastT = 0;
+  over = false; paused = false; running = true;
+  flash = 0;
+  prevBest = best;
+  $("toasts").innerHTML = "";
+  ovHide();
+  $("bPause").textContent = "PAUSE";
+  piece = makePiece();
+  next = makePiece();
+  updateHUD(); drawPreview(); draw();
+}
+
+/* ── input ────────────────────────────────────────────────────────────────── */
+$("bL").onclick  = function(){ if(running&&!paused&&!over&&tryMove(-1)){ sfx("move"); draw(); } };
+$("bRt").onclick = function(){ if(running&&!paused&&!over&&tryMove(1)){ sfx("move"); draw(); } };
+$("bR").onclick  = function(){ if(running&&!paused&&!over&&tryRotate()){ sfx("rot"); draw(); } };
+$("bD").onclick  = function(){ softDrop(); draw(); };
+$("bHD").onclick = function(){ hardDrop(); draw(); };
+$("bPause").onclick = togglePause;
+$("bHelp").onclick  = showHelp;
+$("bSound").onclick = function(){
+  soundOn = !soundOn;
+  $("bSound").textContent = "SOUND: " + (soundOn ? "ON" : "OFF");
+  if(soundOn) sfx("rot");
+};
+
+// swipe / drag on the board
+var drag = null;
+cvs.addEventListener("pointerdown", function(e){
+  if(!running || paused || over) return;
+  e.preventDefault();
+  if(cvs.setPointerCapture) try{ cvs.setPointerCapture(e.pointerId); }catch(err){}
+  drag = { x:e.clientX, y:e.clientY, acc:0, moved:false, dropped:false };
+}, {passive:false});
+
+cvs.addEventListener("pointermove", function(e){
+  if(!drag || !running || paused || over) return;
+  e.preventDefault();
+  var th = Math.max(14, cell*0.75);
+  var dx = e.clientX - drag.x;
+  drag.acc += dx;
+  drag.x = e.clientX;
+  while(drag.acc >= th){ if(tryMove(1)){ sfx("move"); drag.moved = true; } drag.acc -= th; }
+  while(drag.acc <= -th){ if(tryMove(-1)){ sfx("move"); drag.moved = true; } drag.acc += th; }
+  // swipe down = fast drop
+  if(!drag.dropped && (e.clientY - drag.y) > Math.max(28, cell*1.9)){
+    drag.dropped = true; hardDrop();
+  }
+  draw();
+}, {passive:false});
+
+cvs.addEventListener("pointerup", function(e){
+  if(!drag) return;
+  // a clean tap rotates
+  if(!drag.moved && !drag.dropped && Math.abs(e.clientY - drag.y) < 10){
+    if(tryRotate()){ sfx("rot"); }
+  }
+  drag = null; draw();
+}, {passive:false});
+cvs.addEventListener("pointercancel", function(){ drag = null; });
+
+document.addEventListener("keydown", function(e){
+  var k = e.key;
+  if(k === "ArrowLeft"){ if(running&&!paused&&!over&&tryMove(-1)) draw(); e.preventDefault(); }
+  else if(k === "ArrowRight"){ if(running&&!paused&&!over&&tryMove(1)) draw(); e.preventDefault(); }
+  else if(k === "ArrowUp"){ if(running&&!paused&&!over&&tryRotate()) draw(); e.preventDefault(); }
+  else if(k === "ArrowDown"){ softDrop(); draw(); e.preventDefault(); }
+  else if(k === " "){ hardDrop(); draw(); e.preventDefault(); }
+  else if(k === "p" || k === "P"){ togglePause(); }
+});
+
+/* ── main loop ────────────────────────────────────────────────────────────── */
+function loop(t){
+  requestAnimationFrame(loop);
+  if(lastT === 0){ lastT = t; return; }
+  var dt = t - lastT; lastT = t;
+  if(dt > 250) dt = 250;
+
+  if(flash > 0){ flash -= dt/1000; if(flash < 0) flash = 0; }
+
+  if(running && !paused && !over){
+    dropAcc += dt;
+    while(dropAcc >= dropInt){
+      dropAcc -= dropInt;
+      if(!collides(piece, 0, 1)) piece.y++;
+      else lockPiece();
+    }
+  }
+  draw();
+}
+
+/* ── resize + boot ────────────────────────────────────────────────────────── */
+function resize(){
+  var wrap = $("boardWrap");
+  var availW = wrap.clientWidth, availH = wrap.clientHeight;
+  if(!availW || !availH) return;
+  var c = Math.floor(Math.min(availW/(COLS+STRIP), availH/ROWS));
+  if(c < 8) c = 8;
+  cell = c;
+  var w = Math.round((COLS+STRIP)*cell), h = ROWS*cell;
+  DPR = Math.min(window.devicePixelRatio || 1, 2);
+  cvs.width = Math.round(w*DPR); cvs.height = Math.round(h*DPR);
+  cvs.style.width = w + "px"; cvs.style.height = h + "px";
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  draw();
+}
+window.addEventListener("resize", resize);
+window.addEventListener("orientationchange", function(){ setTimeout(resize, 120); });
+
+newBoard();
+$("best").textContent = best.toLocaleString();
+resize();
+showStart();
+requestAnimationFrame(loop);
+
+})();
+</script>
+</body>
+</html>

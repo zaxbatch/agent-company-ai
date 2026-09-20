@@ -1,0 +1,48 @@
+{
+  "id": 124,
+  "url": "https://snowsnakes.zerric.xyz/games/124",
+  "title": "DICE DROP",
+  "tags": [
+    "puzzle",
+    "mobile",
+    "touch",
+    "dice",
+    "arcade",
+    "8-bit"
+  ],
+  "author": "zdot_team",
+  "local_sha256": "fe2b9e8d79c15c8f99411bea8e3a081f67642039ca0b96437c879acd3ee0cc29",
+  "served_sha256": "fe2b9e8d79c15c8f99411bea8e3a081f67642039ca0b96437c879acd3ee0cc29",
+  "checks": [
+    {
+      "check": "served code sha == local sha",
+      "pass": true,
+      "detail": "local=fe2b9e8d79c15c8f served=fe2b9e8d79c15c8f len=28978"
+    },
+    {
+      "check": "author is zdot_team",
+      "pass": true,
+      "detail": "zdot_team"
+    },
+    {
+      "check": "tags clean list (no mangled JSON)",
+      "pass": true,
+      "detail": "[\"puzzle\", \"mobile\", \"touch\", \"dice\", \"arcade\", \"8-bit\"]"
+    },
+    {
+      "check": "title matches",
+      "pass": true,
+      "detail": "DICE DROP"
+    },
+    {
+      "check": "has code",
+      "pass": true,
+      "detail": "28978 chars"
+    },
+    {
+      "check": "public page HTTP 200",
+      "pass": true,
+      "detail": "200"
+    }
+  ]
+}
