@@ -1,0 +1,616 @@
+{
+ "applied_at": "2026-09-21T20:14:51Z",
+ "jokes_before": 327,
+ "jokes_after": 241,
+ "stats_jokes_after": 260,
+ "attempted": 86,
+ "deleted_ok": 86,
+ "failed": [],
+ "still_present_after": [],
+ "keepers_all_present": true,
+ "keepers_missing": [],
+ "per_id": [
+  {
+   "id": 238,
+   "http": 200,
+   "ok": true,
+   "author": 76,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 237,
+   "http": 200,
+   "ok": true,
+   "author": 75,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 384,
+   "http": 200,
+   "ok": true,
+   "author": 76,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 400,
+   "http": 200,
+   "ok": true,
+   "author": 78,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 318,
+   "http": 200,
+   "ok": true,
+   "author": 79,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 381,
+   "http": 200,
+   "ok": true,
+   "author": 73,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 363,
+   "http": 200,
+   "ok": true,
+   "author": 77,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 287,
+   "http": 200,
+   "ok": true,
+   "author": 79,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 352,
+   "http": 200,
+   "ok": true,
+   "author": 72,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 200,
+   "http": 200,
+   "ok": true,
+   "author": 76,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 212,
+   "http": 200,
+   "ok": true,
+   "author": 76,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 156,
+   "http": 200,
+   "ok": true,
+   "author": 76,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 247,
+   "http": 200,
+   "ok": true,
+   "author": 76,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 263,
+   "http": 200,
+   "ok": true,
+   "author": 76,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 151,
+   "http": 200,
+   "ok": true,
+   "author": 77,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 267,
+   "http": 200,
+   "ok": true,
+   "author": 76,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 158,
+   "http": 200,
+   "ok": true,
+   "author": 76,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 397,
+   "http": 200,
+   "ok": true,
+   "author": 72,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 354,
+   "http": 200,
+   "ok": true,
+   "author": 77,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 253,
+   "http": 200,
+   "ok": true,
+   "author": 74,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 197,
+   "http": 200,
+   "ok": true,
+   "author": 73,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 390,
+   "http": 200,
+   "ok": true,
+   "author": 75,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 246,
+   "http": 200,
+   "ok": true,
+   "author": 77,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 376,
+   "http": 200,
+   "ok": true,
+   "author": 77,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 123,
+   "http": 200,
+   "ok": true,
+   "author": 77,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 299,
+   "http": 200,
+   "ok": true,
+   "author": 77,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 205,
+   "http": 200,
+   "ok": true,
+   "author": 77,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 155,
+   "http": 200,
+   "ok": true,
+   "author": 75,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 339,
+   "http": 200,
+   "ok": true,
+   "author": 79,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 395,
+   "http": 200,
+   "ok": true,
+   "author": 78,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 391,
+   "http": 200,
+   "ok": true,
+   "author": 74,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 332,
+   "http": 200,
+   "ok": true,
+   "author": 77,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 191,
+   "http": 200,
+   "ok": true,
+   "author": 77,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 207,
+   "http": 200,
+   "ok": true,
+   "author": 73,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 260,
+   "http": 200,
+   "ok": true,
+   "author": 73,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 416,
+   "http": 200,
+   "ok": true,
+   "author": 79,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 341,
+   "http": 200,
+   "ok": true,
+   "author": 79,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 369,
+   "http": 200,
+   "ok": true,
+   "author": 72,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 251,
+   "http": 200,
+   "ok": true,
+   "author": 75,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 392,
+   "http": 200,
+   "ok": true,
+   "author": 75,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 320,
+   "http": 200,
+   "ok": true,
+   "author": 76,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 396,
+   "http": 200,
+   "ok": true,
+   "author": 75,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 202,
+   "http": 200,
+   "ok": true,
+   "author": 76,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 331,
+   "http": 200,
+   "ok": true,
+   "author": 74,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 402,
+   "http": 200,
+   "ok": true,
+   "author": 76,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 379,
+   "http": 200,
+   "ok": true,
+   "author": 73,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 139,
+   "http": 200,
+   "ok": true,
+   "author": 75,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 209,
+   "http": 200,
+   "ok": true,
+   "author": 75,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 152,
+   "http": 200,
+   "ok": true,
+   "author": 72,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 258,
+   "http": 200,
+   "ok": true,
+   "author": 72,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 128,
+   "http": 200,
+   "ok": true,
+   "author": 74,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 330,
+   "http": 200,
+   "ok": true,
+   "author": 74,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 146,
+   "http": 200,
+   "ok": true,
+   "author": 75,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 194,
+   "http": 200,
+   "ok": true,
+   "author": 75,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 346,
+   "http": 200,
+   "ok": true,
+   "author": 75,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 383,
+   "http": 200,
+   "ok": true,
+   "author": 72,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 257,
+   "http": 200,
+   "ok": true,
+   "author": 79,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 321,
+   "http": 200,
+   "ok": true,
+   "author": 79,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 250,
+   "http": 200,
+   "ok": true,
+   "author": 78,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 136,
+   "http": 200,
+   "ok": true,
+   "author": 74,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 417,
+   "http": 200,
+   "ok": true,
+   "author": 78,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 198,
+   "http": 200,
+   "ok": true,
+   "author": 79,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 254,
+   "http": 200,
+   "ok": true,
+   "author": 79,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 365,
+   "http": 200,
+   "ok": true,
+   "author": 79,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 188,
+   "http": 200,
+   "ok": true,
+   "author": 74,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 199,
+   "http": 200,
+   "ok": true,
+   "author": 74,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 145,
+   "http": 200,
+   "ok": true,
+   "author": 73,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 252,
+   "http": 200,
+   "ok": true,
+   "author": 78,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 196,
+   "http": 200,
+   "ok": true,
+   "author": 73,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 248,
+   "http": 200,
+   "ok": true,
+   "author": 75,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 135,
+   "http": 200,
+   "ok": true,
+   "author": 73,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 154,
+   "http": 200,
+   "ok": true,
+   "author": 74,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 262,
+   "http": 200,
+   "ok": true,
+   "author": 74,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 356,
+   "http": 200,
+   "ok": true,
+   "author": 77,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 141,
+   "http": 200,
+   "ok": true,
+   "author": 75,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 340,
+   "http": 200,
+   "ok": true,
+   "author": 73,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 410,
+   "http": 200,
+   "ok": true,
+   "author": 77,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 374,
+   "http": 200,
+   "ok": true,
+   "author": 77,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 380,
+   "http": 200,
+   "ok": true,
+   "author": 73,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 364,
+   "http": 200,
+   "ok": true,
+   "author": 79,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 386,
+   "http": 200,
+   "ok": true,
+   "author": 75,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 378,
+   "http": 200,
+   "ok": true,
+   "author": 72,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 405,
+   "http": 200,
+   "ok": true,
+   "author": 75,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 249,
+   "http": 200,
+   "ok": true,
+   "author": 75,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 204,
+   "http": 200,
+   "ok": true,
+   "author": 75,
+   "response": "{'success': True}"
+  },
+  {
+   "id": 411,
+   "http": 200,
+   "ok": true,
+   "author": 74,
+   "response": "{'success': True}"
+  }
+ ]
+}

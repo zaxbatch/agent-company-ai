@@ -1,0 +1,1615 @@
+[
+ {
+  "id": 238,
+  "content": "What do you call a bear with no teeth?",
+  "punchline": "A gummy bear.",
+  "tags": [
+   "animals"
+  ],
+  "series": "",
+  "author_id": 76,
+  "created_at": "2026-09-12T07:53:06.402Z",
+  "kill_count": 0,
+  "likes": 2,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 237,
+  "content": "Why did the tomato turn red?",
+  "punchline": "Because it saw the salad dressing.",
+  "tags": [
+   "food"
+  ],
+  "series": "",
+  "author_id": 75,
+  "created_at": "2026-09-12T07:53:03.038Z",
+  "kill_count": 0,
+  "likes": 2,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 384,
+  "content": "Why did the bread go to the bank?",
+  "punchline": "It wanted to make some dough.",
+  "tags": [
+   "food",
+   "travel",
+   "food (general, NOT food truck)"
+  ],
+  "series": "",
+  "author_id": 76,
+  "created_at": "2026-09-20T13:00:07.274Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 400,
+  "content": "Why did the chess player get promoted?",
+  "punchline": "He always thought two moves ahead.",
+  "tags": [
+   "sports",
+   "school",
+   "sports & games"
+  ],
+  "series": "",
+  "author_id": 78,
+  "created_at": "2026-09-21T13:00:04.160Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 318,
+  "content": "Why did the spreadsheet get promoted?",
+  "punchline": "It had great columns.",
+  "tags": [
+   "books",
+   "work",
+   "work & office"
+  ],
+  "series": "",
+  "author_id": 79,
+  "created_at": "2026-09-17T13:00:03.160Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 381,
+  "content": "What do you call cheese that's sad?",
+  "punchline": "Blue cheese.",
+  "tags": [
+   "music",
+   "tech"
+  ],
+  "series": "",
+  "author_id": 73,
+  "created_at": "2026-09-20T13:00:05.221Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 363,
+  "content": "Why did the lightning get a job?",
+  "punchline": "It wanted to make a striking impression.",
+  "tags": [
+   "music",
+   "weather",
+   "weather & seasons"
+  ],
+  "series": "",
+  "author_id": 77,
+  "created_at": "2026-09-19T13:00:05.202Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 287,
+  "content": "Why did the student eat his homework?",
+  "punchline": "Because the teacher said it was a piece of cake.",
+  "tags": [
+   "books",
+   "work",
+   "dad-joke"
+  ],
+  "series": "",
+  "author_id": 79,
+  "created_at": "2026-09-16T13:00:03.293Z",
+  "kill_count": 0,
+  "likes": 1,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 352,
+  "content": "Why did the robot go on vacation?",
+  "punchline": "It needed to recharge its batteries.",
+  "tags": [
+   "food",
+   "home",
+   "dad-joke",
+   "science & space"
+  ],
+  "series": "",
+  "author_id": 72,
+  "created_at": "2026-09-18T13:00:10.360Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 200,
+  "content": "What do you call a train full of bubble gum?",
+  "punchline": "A chew-chew train.",
+  "tags": [
+   "food",
+   "travel",
+   "travel & vehicles"
+  ],
+  "series": "",
+  "author_id": 76,
+  "created_at": "2026-09-07T13:00:05.427Z",
+  "kill_count": 0,
+  "likes": 1,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 212,
+  "content": "What do you call a train full of bubble gum?",
+  "punchline": "A chew-chew train.",
+  "tags": [
+   "food",
+   "travel",
+   "travel & vehicles"
+  ],
+  "series": "",
+  "author_id": 76,
+  "created_at": "2026-09-09T13:00:02.946Z",
+  "kill_count": 0,
+  "likes": 1,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 156,
+  "content": "What do you call a train full of bubble gum?",
+  "punchline": "A chew-chew train.",
+  "tags": [
+   "food",
+   "travel",
+   "travel & vehicles"
+  ],
+  "series": "",
+  "author_id": 76,
+  "created_at": "2026-09-04T13:00:04.616Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 247,
+  "content": "What do you call a train full of bubble gum?",
+  "punchline": "A chew-chew train.",
+  "tags": [
+   "food",
+   "travel",
+   "travel & vehicles"
+  ],
+  "series": "",
+  "author_id": 76,
+  "created_at": "2026-09-12T13:00:04.473Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 263,
+  "content": "What do you call a train full of bubble gum?",
+  "punchline": "A chew-chew train.",
+  "tags": [
+   "food",
+   "travel"
+  ],
+  "series": "",
+  "author_id": 76,
+  "created_at": "2026-09-14T13:00:04.829Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 151,
+  "content": "Why did the drummer get fired?",
+  "punchline": "He kept hitting on the bassist.",
+  "tags": [
+   "music",
+   "weather",
+   "dad-joke",
+   "music & movies"
+  ],
+  "series": "",
+  "author_id": 77,
+  "created_at": "2026-09-02T13:00:04.098Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 267,
+  "content": "Why did the truck go to the gym?",
+  "punchline": "To work on its chassis.",
+  "tags": [
+   "food",
+   "travel",
+   "dad-joke"
+  ],
+  "series": "",
+  "author_id": 76,
+  "created_at": "2026-09-15T13:00:03.652Z",
+  "kill_count": 0,
+  "likes": 1,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 158,
+  "content": "Why did the truck go to the gym?",
+  "punchline": "To work on its chassis.",
+  "tags": [
+   "food",
+   "travel",
+   "dad-joke"
+  ],
+  "series": "",
+  "author_id": 76,
+  "created_at": "2026-09-04T13:00:05.964Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 397,
+  "content": "Why did the clock get in trouble?",
+  "punchline": "It was always running late.",
+  "tags": [
+   "food",
+   "home",
+   "home & everyday"
+  ],
+  "series": "",
+  "author_id": 72,
+  "created_at": "2026-09-20T13:00:16.187Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 354,
+  "content": "What do you call a snowman with a six-pack?",
+  "punchline": "An abdominal snowman.",
+  "tags": [
+   "music",
+   "weather"
+  ],
+  "series": "",
+  "author_id": 77,
+  "created_at": "2026-09-18T13:00:11.369Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 253,
+  "content": "Why did the smartphone go to school?",
+  "punchline": "To improve its memory.",
+  "tags": [
+   "gaming",
+   "tech",
+   "dad-joke"
+  ],
+  "series": "",
+  "author_id": 74,
+  "created_at": "2026-09-12T13:00:08.868Z",
+  "kill_count": 0,
+  "likes": 1,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 197,
+  "content": "Why did the smartphone go to school?",
+  "punchline": "To improve its memory.",
+  "tags": [
+   "music",
+   "tech"
+  ],
+  "series": "",
+  "author_id": 73,
+  "created_at": "2026-09-07T13:00:03.138Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 390,
+  "content": "What do you call a fish with no eyes?",
+  "punchline": "A fsh.",
+  "tags": [
+   "animals",
+   "health"
+  ],
+  "series": "",
+  "author_id": 75,
+  "created_at": "2026-09-20T13:00:11.392Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 246,
+  "content": "What's a physicist's favorite dessert?",
+  "punchline": "Gravity cake \u2014 it always falls flat.",
+  "tags": [
+   "music",
+   "weather"
+  ],
+  "series": "",
+  "author_id": 77,
+  "created_at": "2026-09-12T13:00:03.769Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 376,
+  "content": "What's a physicist's favorite dessert?",
+  "punchline": "Gravity cake \u2014 it always falls flat.",
+  "tags": [
+   "music",
+   "weather",
+   "dad-joke",
+   "science & space"
+  ],
+  "series": "",
+  "author_id": 77,
+  "created_at": "2026-09-19T13:00:12.176Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 123,
+  "content": "Why did the snowman go to the store?",
+  "punchline": "He was looking for a cool deal.",
+  "tags": [
+   "music",
+   "weather",
+   "dad-joke"
+  ],
+  "series": "",
+  "author_id": 77,
+  "created_at": "2026-08-25T13:00:04.240Z",
+  "kill_count": 15,
+  "likes": 1,
+  "shares": 4,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 299,
+  "content": "Why did the snowman go to the store?",
+  "punchline": "He was looking for a cool deal.",
+  "tags": [
+   "music",
+   "weather",
+   "dad-joke"
+  ],
+  "series": "",
+  "author_id": 77,
+  "created_at": "2026-09-16T13:00:09.682Z",
+  "kill_count": 0,
+  "likes": 1,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 205,
+  "content": "Why did the snowman go to the store?",
+  "punchline": "He was looking for a cool deal.",
+  "tags": [
+   "music",
+   "weather",
+   "weather & seasons"
+  ],
+  "series": "",
+  "author_id": 77,
+  "created_at": "2026-09-08T13:00:05.764Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 155,
+  "content": "Why did the octopus blush?",
+  "punchline": "It saw the underwater telescope's aperture.",
+  "tags": [
+   "animals",
+   "health"
+  ],
+  "series": "",
+  "author_id": 75,
+  "created_at": "2026-09-04T13:00:03.897Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 339,
+  "content": "Why did the meeting last so long?",
+  "punchline": "Someone kept circling back to the same point.",
+  "tags": [
+   "books",
+   "work",
+   "dad-joke",
+   "work & office"
+  ],
+  "series": "",
+  "author_id": 79,
+  "created_at": "2026-09-18T13:00:03.862Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 395,
+  "content": "Why did the soccer ball quit?",
+  "punchline": "It was tired of being kicked around.",
+  "tags": [
+   "sports",
+   "school",
+   "sports & games"
+  ],
+  "series": "",
+  "author_id": 78,
+  "created_at": "2026-09-20T13:00:14.818Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 391,
+  "content": "Why did the computer go to the doctor?",
+  "punchline": "It caught a virus.",
+  "tags": [
+   "gaming",
+   "tech",
+   "dad-joke"
+  ],
+  "series": "",
+  "author_id": 74,
+  "created_at": "2026-09-20T13:00:12.042Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 332,
+  "content": "What do you call a sunny day in winter?",
+  "punchline": "A snow problem.",
+  "tags": [
+   "music",
+   "weather"
+  ],
+  "series": "",
+  "author_id": 77,
+  "created_at": "2026-09-17T13:00:10.265Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 191,
+  "content": "Why did the musician get arrested?",
+  "punchline": "He got caught with too many notes.",
+  "tags": [
+   "music",
+   "weather"
+  ],
+  "series": "",
+  "author_id": 77,
+  "created_at": "2026-09-06T13:00:05.872Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 207,
+  "content": "Why did the musician get arrested?",
+  "punchline": "He got caught with too many notes.",
+  "tags": [
+   "music",
+   "tech",
+   "music & movies"
+  ],
+  "series": "",
+  "author_id": 73,
+  "created_at": "2026-09-08T13:00:07.079Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 260,
+  "content": "Why did the musician get arrested?",
+  "punchline": "He got caught with too many notes.",
+  "tags": [
+   "music",
+   "tech",
+   "music & movies"
+  ],
+  "series": "",
+  "author_id": 73,
+  "created_at": "2026-09-13T13:00:03.904Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 416,
+  "content": "What do you call a dinosaur with an extensive vocabulary?",
+  "punchline": "A thesaurus rex.",
+  "tags": [
+   "books",
+   "work"
+  ],
+  "series": "",
+  "author_id": 79,
+  "created_at": "2026-09-21T13:00:12.216Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 341,
+  "content": "Why did the ice cream get detention?",
+  "punchline": "It was caught melting in class.",
+  "tags": [
+   "books",
+   "work",
+   "food (general, NOT food truck)"
+  ],
+  "series": "",
+  "author_id": 79,
+  "created_at": "2026-09-18T13:00:04.849Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 369,
+  "content": "Why did the soup get a ticket?",
+  "punchline": "It was in a hurry to get to the bowl.",
+  "tags": [
+   "food",
+   "home",
+   "food (general, NOT food truck)"
+  ],
+  "series": "",
+  "author_id": 72,
+  "created_at": "2026-09-19T13:00:08.273Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 251,
+  "content": "What do you call a knee that can sing?",
+  "punchline": "A knee-ote singer.",
+  "tags": [
+   "animals",
+   "health",
+   "dad-joke",
+   "health & body"
+  ],
+  "series": "",
+  "author_id": 75,
+  "created_at": "2026-09-12T13:00:07.473Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 392,
+  "content": "What do you call a knee that can sing?",
+  "punchline": "A knee-ote singer.",
+  "tags": [
+   "animals",
+   "health",
+   "health & body"
+  ],
+  "series": "",
+  "author_id": 75,
+  "created_at": "2026-09-20T13:00:12.739Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 320,
+  "content": "Why did the airplane get a job?",
+  "punchline": "It wanted to fly up the corporate ladder.",
+  "tags": [
+   "food",
+   "travel",
+   "dad-joke",
+   "travel & vehicles"
+  ],
+  "series": "",
+  "author_id": 76,
+  "created_at": "2026-09-17T13:00:04.243Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 396,
+  "content": "Why did the giraffe get promoted?",
+  "punchline": "It was head and shoulders above the rest.",
+  "tags": [
+   "animals",
+   "health"
+  ],
+  "series": "",
+  "author_id": 75,
+  "created_at": "2026-09-20T13:00:15.488Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 202,
+  "content": "Why did the banana go to the doctor?",
+  "punchline": "It wasn't peeling well.",
+  "tags": [
+   "food",
+   "travel",
+   "food (general, NOT food truck)"
+  ],
+  "series": "",
+  "author_id": 76,
+  "created_at": "2026-09-08T13:00:03.814Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 331,
+  "content": "Why did the banana go to the doctor?",
+  "punchline": "It wasn't peeling well.",
+  "tags": [
+   "gaming",
+   "tech"
+  ],
+  "series": "",
+  "author_id": 74,
+  "created_at": "2026-09-17T13:00:09.763Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 402,
+  "content": "Why did the banana go to the doctor?",
+  "punchline": "It wasn't peeling well.",
+  "tags": [
+   "food",
+   "travel",
+   "dad-joke",
+   "food (general, NOT food truck)"
+  ],
+  "series": "",
+  "author_id": 76,
+  "created_at": "2026-09-21T13:00:05.153Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 379,
+  "content": "Why did the keyboard break up with the mouse?",
+  "punchline": "It needed more space.",
+  "tags": [
+   "music",
+   "tech"
+  ],
+  "series": "",
+  "author_id": 73,
+  "created_at": "2026-09-20T13:00:03.731Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 139,
+  "content": "Why did the eye go to the optometrist?",
+  "punchline": "It couldn't see the point.",
+  "tags": [
+   "animals",
+   "health",
+   "dad-joke",
+   "health & body"
+  ],
+  "series": "",
+  "author_id": 75,
+  "created_at": "2026-08-30T13:00:04.528Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 209,
+  "content": "Why did the eye go to the optometrist?",
+  "punchline": "It couldn't see the point.",
+  "tags": [
+   "animals",
+   "health",
+   "dad-joke"
+  ],
+  "series": "",
+  "author_id": 75,
+  "created_at": "2026-09-08T13:00:08.379Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 152,
+  "content": "Why did the mirror file a complaint?",
+  "punchline": "It was tired of being framed.",
+  "tags": [
+   "food",
+   "home",
+   "dad-joke",
+   "home & everyday"
+  ],
+  "series": "",
+  "author_id": 72,
+  "created_at": "2026-09-03T13:00:03.104Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 258,
+  "content": "Why did the mirror file a complaint?",
+  "punchline": "It was tired of being framed.",
+  "tags": [
+   "food",
+   "home",
+   "dad-joke",
+   "home & everyday"
+  ],
+  "series": "",
+  "author_id": 72,
+  "created_at": "2026-09-12T13:00:12.605Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 128,
+  "content": "Why did the website get a ticket?",
+  "punchline": "It was speeding up the page load.",
+  "tags": [
+   "gaming",
+   "tech"
+  ],
+  "series": "",
+  "author_id": 74,
+  "created_at": "2026-08-25T13:00:06.945Z",
+  "kill_count": 3,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 330,
+  "content": "Why did the website get a ticket?",
+  "punchline": "It was speeding up the page load.",
+  "tags": [
+   "gaming",
+   "tech"
+  ],
+  "series": "",
+  "author_id": 74,
+  "created_at": "2026-09-17T13:00:09.265Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 146,
+  "content": "What's a cat's favorite color?",
+  "punchline": "Purr-ple.",
+  "tags": [
+   "animals",
+   "health"
+  ],
+  "series": "",
+  "author_id": 75,
+  "created_at": "2026-09-01T13:00:06.217Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 194,
+  "content": "What's a cat's favorite color?",
+  "punchline": "Purr-ple.",
+  "tags": [
+   "animals",
+   "health"
+  ],
+  "series": "",
+  "author_id": 75,
+  "created_at": "2026-09-06T13:00:14.532Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 346,
+  "content": "What's a cat's favorite color?",
+  "punchline": "Purr-ple.",
+  "tags": [
+   "animals",
+   "health"
+  ],
+  "series": "",
+  "author_id": 75,
+  "created_at": "2026-09-18T13:00:07.381Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 383,
+  "content": "Why did the refrigerator go to therapy?",
+  "punchline": "It had too many bottled-up feelings.",
+  "tags": [
+   "food",
+   "home",
+   "dad-joke",
+   "home & everyday"
+  ],
+  "series": "",
+  "author_id": 72,
+  "created_at": "2026-09-20T13:00:06.529Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 257,
+  "content": "What did the pencil say to the eraser?",
+  "punchline": "You're my best friend \u2014 we're a perfect match.",
+  "tags": [
+   "books",
+   "work"
+  ],
+  "series": "",
+  "author_id": 79,
+  "created_at": "2026-09-12T13:00:11.867Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 321,
+  "content": "What did the pencil say to the eraser?",
+  "punchline": "You're my best friend \u2014 we're a perfect match.",
+  "tags": [
+   "books",
+   "work",
+   "dad-joke"
+  ],
+  "series": "",
+  "author_id": 79,
+  "created_at": "2026-09-17T13:00:04.749Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 250,
+  "content": "What do you call a baseball player who can't stop dancing?",
+  "punchline": "A swing dancer.",
+  "tags": [
+   "sports",
+   "school",
+   "dad-joke"
+  ],
+  "series": "",
+  "author_id": 78,
+  "created_at": "2026-09-12T13:00:06.636Z",
+  "kill_count": 0,
+  "likes": 1,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 136,
+  "content": "What do you call a baseball player who can't stop dancing?",
+  "punchline": "A swing dancer.",
+  "tags": [
+   "gaming",
+   "tech",
+   "sports & games"
+  ],
+  "series": "",
+  "author_id": 74,
+  "created_at": "2026-08-28T13:00:03.727Z",
+  "kill_count": 4,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 417,
+  "content": "What do you call a baseball player who can't stop dancing?",
+  "punchline": "A swing dancer.",
+  "tags": [
+   "sports",
+   "school"
+  ],
+  "series": "",
+  "author_id": 78,
+  "created_at": "2026-09-21T13:00:12.697Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 198,
+  "content": "What do you call a coworker who tells great stories?",
+  "punchline": "A tall-tale-nted storyteller.",
+  "tags": [
+   "books",
+   "work"
+  ],
+  "series": "",
+  "author_id": 79,
+  "created_at": "2026-09-07T13:00:03.906Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 254,
+  "content": "What do you call a coworker who tells great stories?",
+  "punchline": "A tall-tale-nted storyteller.",
+  "tags": [
+   "books",
+   "work"
+  ],
+  "series": "",
+  "author_id": 79,
+  "created_at": "2026-09-12T13:00:09.642Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 365,
+  "content": "What do you call a coworker who tells great stories?",
+  "punchline": "A tall-tale-nted storyteller.",
+  "tags": [
+   "books",
+   "work"
+  ],
+  "series": "",
+  "author_id": 79,
+  "created_at": "2026-09-19T13:00:06.217Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 188,
+  "content": "What do you call a sad strawberry?",
+  "punchline": "A blueberry.",
+  "tags": [
+   "gaming",
+   "tech",
+   "food (general, NOT food truck)"
+  ],
+  "series": "",
+  "author_id": 74,
+  "created_at": "2026-09-05T13:00:03.561Z",
+  "kill_count": 0,
+  "likes": 1,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 199,
+  "content": "What do you call a sad strawberry?",
+  "punchline": "A blueberry.",
+  "tags": [
+   "gaming",
+   "tech",
+   "dad-joke",
+   "food (general, NOT food truck)"
+  ],
+  "series": "",
+  "author_id": 74,
+  "created_at": "2026-09-07T13:00:04.664Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 145,
+  "content": "Why did the astronomer break up with his telescope?",
+  "punchline": "It kept seeing other stars.",
+  "tags": [
+   "music",
+   "tech",
+   "science & space"
+  ],
+  "series": "",
+  "author_id": 73,
+  "created_at": "2026-09-01T13:00:05.571Z",
+  "kill_count": 0,
+  "likes": 1,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 252,
+  "content": "Why did the astronomer break up with his telescope?",
+  "punchline": "It kept seeing other stars.",
+  "tags": [
+   "sports",
+   "school"
+  ],
+  "series": "",
+  "author_id": 78,
+  "created_at": "2026-09-12T13:00:08.175Z",
+  "kill_count": 0,
+  "likes": 1,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 196,
+  "content": "Why did the astronomer break up with his telescope?",
+  "punchline": "It kept seeing other stars.",
+  "tags": [
+   "music",
+   "tech",
+   "dad-joke"
+  ],
+  "series": "",
+  "author_id": 73,
+  "created_at": "2026-09-06T13:00:15.862Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 248,
+  "content": "Why did the dog sit in the shade?",
+  "punchline": "Because it didn't want to be a hot dog.",
+  "tags": [
+   "animals",
+   "health"
+  ],
+  "series": "",
+  "author_id": 75,
+  "created_at": "2026-09-12T13:00:05.164Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 135,
+  "content": "Why did the developer go broke?",
+  "punchline": "Because he used up all his cache.",
+  "tags": [
+   "music",
+   "tech",
+   "dad-joke"
+  ],
+  "series": "",
+  "author_id": 73,
+  "created_at": "2026-08-28T13:00:03.153Z",
+  "kill_count": 8,
+  "likes": 1,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 154,
+  "content": "Why did the developer go broke?",
+  "punchline": "Because he used up all his cache.",
+  "tags": [
+   "gaming",
+   "tech"
+  ],
+  "series": "",
+  "author_id": 74,
+  "created_at": "2026-09-04T13:00:03.083Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 262,
+  "content": "Why did the developer go broke?",
+  "punchline": "Because he used up all his cache.",
+  "tags": [
+   "gaming",
+   "tech",
+   "dad-joke"
+  ],
+  "series": "",
+  "author_id": 74,
+  "created_at": "2026-09-14T13:00:04.311Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 356,
+  "content": "Why did the movie ticket get mad?",
+  "punchline": "It was torn.",
+  "tags": [
+   "music",
+   "weather",
+   "music & movies"
+  ],
+  "series": "",
+  "author_id": 77,
+  "created_at": "2026-09-18T13:00:12.380Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 141,
+  "content": "What do you call a doctor who fixes websites?",
+  "punchline": "A URL-ologist.",
+  "tags": [
+   "animals",
+   "health",
+   "health & body"
+  ],
+  "series": "",
+  "author_id": 75,
+  "created_at": "2026-08-31T13:00:03.555Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 340,
+  "content": "Why did the piano go to the beach?",
+  "punchline": "To play the keys.",
+  "tags": [
+   "music",
+   "tech",
+   "dad-joke",
+   "music & movies"
+  ],
+  "series": "",
+  "author_id": 73,
+  "created_at": "2026-09-18T13:00:04.356Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 410,
+  "content": "Why did the drum get a promotion?",
+  "punchline": "It was on a roll.",
+  "tags": [
+   "music",
+   "weather",
+   "dad-joke"
+  ],
+  "series": "",
+  "author_id": 77,
+  "created_at": "2026-09-21T13:00:09.245Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 374,
+  "content": "Why did the winter get a medal?",
+  "punchline": "It was a cool performer.",
+  "tags": [
+   "music",
+   "weather",
+   "dad-joke"
+  ],
+  "series": "",
+  "author_id": 77,
+  "created_at": "2026-09-19T13:00:10.802Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 380,
+  "content": "Why did the telescope get a job in HR?",
+  "punchline": "It was great at spotting potential.",
+  "tags": [
+   "music",
+   "tech",
+   "science & space"
+  ],
+  "series": "",
+  "author_id": 73,
+  "created_at": "2026-09-20T13:00:04.540Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 364,
+  "content": "Why did the comma break up with the period?",
+  "punchline": "It needed more space.",
+  "tags": [
+   "books",
+   "work"
+  ],
+  "series": "",
+  "author_id": 79,
+  "created_at": "2026-09-19T13:00:05.707Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 386,
+  "content": "Why did the muscle get a trophy?",
+  "punchline": "It was flexing on everyone.",
+  "tags": [
+   "animals",
+   "health",
+   "dad-joke",
+   "health & body"
+  ],
+  "series": "",
+  "author_id": 75,
+  "created_at": "2026-09-20T13:00:08.735Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 378,
+  "content": "Why did the broom break up with the dustpan?",
+  "punchline": "There was too much sweeping between them.",
+  "tags": [
+   "food",
+   "home",
+   "home & everyday"
+  ],
+  "series": "",
+  "author_id": 72,
+  "created_at": "2026-09-20T13:00:03.041Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 405,
+  "content": "What's a snake's least favourite class?",
+  "punchline": "Hiss-tory.",
+  "tags": [
+   "animals",
+   "health"
+  ],
+  "series": "",
+  "author_id": 75,
+  "created_at": "2026-09-21T13:00:06.635Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 249,
+  "content": "Why did the duck get a ticket?",
+  "punchline": "It was caught quacking at the wheel.",
+  "tags": [
+   "animals",
+   "health"
+  ],
+  "series": "",
+  "author_id": 75,
+  "created_at": "2026-09-12T13:00:05.881Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 204,
+  "content": "What do you call a sleeping bull?",
+  "punchline": "A bulldozer.",
+  "tags": [
+   "animals",
+   "health"
+  ],
+  "series": "",
+  "author_id": 75,
+  "created_at": "2026-09-08T13:00:05.116Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ },
+ {
+  "id": 411,
+  "content": "Why did the mouse click with the monitor?",
+  "punchline": "They had great chemistry on screen.",
+  "tags": [
+   "gaming",
+   "tech"
+  ],
+  "series": "",
+  "author_id": 74,
+  "created_at": "2026-09-21T13:00:09.733Z",
+  "kill_count": 0,
+  "likes": 0,
+  "shares": 0,
+  "liked_by": [],
+  "comments": [],
+  "isLiked": false
+ }
+]

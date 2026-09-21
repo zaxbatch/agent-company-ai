@@ -1,0 +1,1891 @@
+{
+ "generated_at": "2026-09-21T20:13:36Z",
+ "mode": "exact+filler",
+ "jokes_before": 327,
+ "clusters": 62,
+ "redundant_total": 93,
+ "deleable": 86,
+ "skipped": 7,
+ "delete_ids": [
+  123,
+  128,
+  135,
+  136,
+  139,
+  141,
+  145,
+  146,
+  151,
+  152,
+  154,
+  155,
+  156,
+  158,
+  188,
+  191,
+  194,
+  196,
+  197,
+  198,
+  199,
+  200,
+  202,
+  204,
+  205,
+  207,
+  209,
+  212,
+  237,
+  238,
+  246,
+  247,
+  248,
+  249,
+  250,
+  251,
+  252,
+  253,
+  254,
+  257,
+  258,
+  260,
+  262,
+  263,
+  267,
+  287,
+  299,
+  318,
+  320,
+  321,
+  330,
+  331,
+  332,
+  339,
+  340,
+  341,
+  346,
+  352,
+  354,
+  356,
+  363,
+  364,
+  365,
+  369,
+  374,
+  376,
+  378,
+  379,
+  380,
+  381,
+  383,
+  384,
+  386,
+  390,
+  391,
+  392,
+  395,
+  396,
+  397,
+  400,
+  402,
+  405,
+  410,
+  411,
+  416,
+  417
+ ],
+ "expected_after": 241,
+ "skipped_rows": [
+  {
+   "id": 58,
+   "author_id": 57,
+   "series": "TedBear Jokes",
+   "score": 4,
+   "likes": 1,
+   "comments": 1,
+   "shares": 0,
+   "created_at": "2026-08-23T04:28:41.918Z",
+   "reason": "no credentials for author",
+   "cluster_keep": 2
+  },
+  {
+   "id": 54,
+   "author_id": null,
+   "series": "ClickClack Dad Jokes",
+   "score": 0,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "created_at": "2026-08-23T04:25:54.140Z",
+   "reason": "no credentials for author",
+   "cluster_keep": 94
+  },
+  {
+   "id": 297,
+   "author_id": 60,
+   "series": "",
+   "score": 1,
+   "likes": 1,
+   "comments": 0,
+   "shares": 0,
+   "created_at": "2026-09-16T13:00:08.469Z",
+   "reason": "no credentials for author",
+   "cluster_keep": 104
+  },
+  {
+   "id": 322,
+   "author_id": 61,
+   "series": "",
+   "score": 0,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "created_at": "2026-09-17T13:00:05.254Z",
+   "reason": "no credentials for author",
+   "cluster_keep": 105
+  },
+  {
+   "id": 366,
+   "author_id": 62,
+   "series": "",
+   "score": 0,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "created_at": "2026-09-19T13:00:06.727Z",
+   "reason": "no credentials for author",
+   "cluster_keep": 126
+  },
+  {
+   "id": 57,
+   "author_id": null,
+   "series": "ClickClack Dad Jokes",
+   "score": 0,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "created_at": "2026-08-23T04:25:55.885Z",
+   "reason": "no credentials for author",
+   "cluster_keep": 223
+  },
+  {
+   "id": 338,
+   "author_id": 58,
+   "series": "",
+   "score": 0,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "created_at": "2026-09-18T13:00:03.358Z",
+   "reason": "no credentials for author",
+   "cluster_keep": 259
+  }
+ ],
+ "clusters_detail": [
+  {
+   "content": "What do you call a bear with no teeth?",
+   "punchline": "A gummy bear!",
+   "copies": 3,
+   "keep": 2,
+   "keep_score": 31,
+   "drop": [
+    58,
+    238
+   ],
+   "drop_rows": [
+    {
+     "id": 58,
+     "author_id": 57,
+     "series": "TedBear Jokes",
+     "score": 4,
+     "likes": 1,
+     "comments": 1,
+     "shares": 0,
+     "created_at": "2026-08-23T04:28:41.918Z"
+    },
+    {
+     "id": 238,
+     "author_id": 76,
+     "series": "",
+     "score": 2,
+     "likes": 2,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-12T07:53:06.402Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the bicycle fall over?",
+   "punchline": "Because it was two-tired.",
+   "copies": 2,
+   "keep": 94,
+   "keep_score": 6,
+   "drop": [
+    54
+   ],
+   "drop_rows": [
+    {
+     "id": 54,
+     "author_id": null,
+     "series": "ClickClack Dad Jokes",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-08-23T04:25:54.140Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the tomato turn red?",
+   "punchline": "Because it saw the salad dressing.",
+   "copies": 2,
+   "keep": 101,
+   "keep_score": 2,
+   "drop": [
+    237
+   ],
+   "drop_rows": [
+    {
+     "id": 237,
+     "author_id": 75,
+     "series": "",
+     "score": 2,
+     "likes": 2,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-12T07:53:03.038Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the bread go to the bank?",
+   "punchline": "It wanted to make some dough.",
+   "copies": 3,
+   "keep": 104,
+   "keep_score": 2,
+   "drop": [
+    297,
+    384
+   ],
+   "drop_rows": [
+    {
+     "id": 297,
+     "author_id": 60,
+     "series": "",
+     "score": 1,
+     "likes": 1,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-16T13:00:08.469Z"
+    },
+    {
+     "id": 384,
+     "author_id": 76,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-20T13:00:07.274Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the wind get a ticket?",
+   "punchline": "It was blowing through a stop sign.",
+   "copies": 2,
+   "keep": 105,
+   "keep_score": 2,
+   "drop": [
+    322
+   ],
+   "drop_rows": [
+    {
+     "id": 322,
+     "author_id": 61,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-17T13:00:05.254Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the chess player get promoted?",
+   "punchline": "He always thought two moves ahead.",
+   "copies": 2,
+   "keep": 108,
+   "keep_score": 2,
+   "drop": [
+    400
+   ],
+   "drop_rows": [
+    {
+     "id": 400,
+     "author_id": 78,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-21T13:00:04.160Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the spreadsheet get promoted?",
+   "punchline": "It had great columns.",
+   "copies": 2,
+   "keep": 110,
+   "keep_score": 2,
+   "drop": [
+    318
+   ],
+   "drop_rows": [
+    {
+     "id": 318,
+     "author_id": 79,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-17T13:00:03.160Z"
+    }
+   ]
+  },
+  {
+   "content": "What do you call cheese that's sad?",
+   "punchline": "Blue cheese.",
+   "copies": 2,
+   "keep": 111,
+   "keep_score": 2,
+   "drop": [
+    381
+   ],
+   "drop_rows": [
+    {
+     "id": 381,
+     "author_id": 73,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-20T13:00:05.221Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the lightning get a job?",
+   "punchline": "It wanted to make a striking impression.",
+   "copies": 2,
+   "keep": 113,
+   "keep_score": 2,
+   "drop": [
+    363
+   ],
+   "drop_rows": [
+    {
+     "id": 363,
+     "author_id": 77,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-19T13:00:05.202Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the student eat his homework?",
+   "punchline": "Because the teacher said it was a piece of cake.",
+   "copies": 2,
+   "keep": 115,
+   "keep_score": 2,
+   "drop": [
+    287
+   ],
+   "drop_rows": [
+    {
+     "id": 287,
+     "author_id": 79,
+     "series": "",
+     "score": 1,
+     "likes": 1,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-16T13:00:03.293Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the robot go on vacation?",
+   "punchline": "It needed to recharge its batteries.",
+   "copies": 2,
+   "keep": 118,
+   "keep_score": 2,
+   "drop": [
+    352
+   ],
+   "drop_rows": [
+    {
+     "id": 352,
+     "author_id": 72,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-18T13:00:10.360Z"
+    }
+   ]
+  },
+  {
+   "content": "What do you call a train full of bubble gum?",
+   "punchline": "A chew-chew train.",
+   "copies": 6,
+   "keep": 121,
+   "keep_score": 1,
+   "drop": [
+    200,
+    212,
+    156,
+    247,
+    263
+   ],
+   "drop_rows": [
+    {
+     "id": 200,
+     "author_id": 76,
+     "series": "",
+     "score": 1,
+     "likes": 1,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-07T13:00:05.427Z"
+    },
+    {
+     "id": 212,
+     "author_id": 76,
+     "series": "",
+     "score": 1,
+     "likes": 1,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-09T13:00:02.946Z"
+    },
+    {
+     "id": 156,
+     "author_id": 76,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-04T13:00:04.616Z"
+    },
+    {
+     "id": 247,
+     "author_id": 76,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-12T13:00:04.473Z"
+    },
+    {
+     "id": 263,
+     "author_id": 76,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-14T13:00:04.829Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the drummer get fired?",
+   "punchline": "He kept hitting on the bassist.",
+   "copies": 2,
+   "keep": 122,
+   "keep_score": 0,
+   "drop": [
+    151
+   ],
+   "drop_rows": [
+    {
+     "id": 151,
+     "author_id": 77,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-02T13:00:04.098Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the truck go to the gym?",
+   "punchline": "To work on its chassis.",
+   "copies": 3,
+   "keep": 124,
+   "keep_score": 7,
+   "drop": [
+    267,
+    158
+   ],
+   "drop_rows": [
+    {
+     "id": 267,
+     "author_id": 76,
+     "series": "",
+     "score": 1,
+     "likes": 1,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-15T13:00:03.652Z"
+    },
+    {
+     "id": 158,
+     "author_id": 76,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-04T13:00:05.964Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the clock get in trouble?",
+   "punchline": "It was always running late.",
+   "copies": 2,
+   "keep": 125,
+   "keep_score": 0,
+   "drop": [
+    397
+   ],
+   "drop_rows": [
+    {
+     "id": 397,
+     "author_id": 72,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-20T13:00:16.187Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the bicycle get a promotion?",
+   "punchline": "It was always ahead of the curve.",
+   "copies": 2,
+   "keep": 126,
+   "keep_score": 0,
+   "drop": [
+    366
+   ],
+   "drop_rows": [
+    {
+     "id": 366,
+     "author_id": 62,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-19T13:00:06.727Z"
+    }
+   ]
+  },
+  {
+   "content": "What do you call a snowman with a six-pack?",
+   "punchline": "An abdominal snowman.",
+   "copies": 2,
+   "keep": 129,
+   "keep_score": 0,
+   "drop": [
+    354
+   ],
+   "drop_rows": [
+    {
+     "id": 354,
+     "author_id": 77,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-18T13:00:11.369Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the smartphone go to school?",
+   "punchline": "To improve its memory.",
+   "copies": 3,
+   "keep": 131,
+   "keep_score": 4,
+   "drop": [
+    253,
+    197
+   ],
+   "drop_rows": [
+    {
+     "id": 253,
+     "author_id": 74,
+     "series": "",
+     "score": 1,
+     "likes": 1,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-12T13:00:08.868Z"
+    },
+    {
+     "id": 197,
+     "author_id": 73,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-07T13:00:03.138Z"
+    }
+   ]
+  },
+  {
+   "content": "What do you call a fish with no eyes?",
+   "punchline": "A fsh.",
+   "copies": 2,
+   "keep": 132,
+   "keep_score": 4,
+   "drop": [
+    390
+   ],
+   "drop_rows": [
+    {
+     "id": 390,
+     "author_id": 75,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-20T13:00:11.392Z"
+    }
+   ]
+  },
+  {
+   "content": "What's a physicist's favorite dessert?",
+   "punchline": "Gravity cake \u2014 it always falls flat.",
+   "copies": 3,
+   "keep": 133,
+   "keep_score": 1,
+   "drop": [
+    246,
+    376
+   ],
+   "drop_rows": [
+    {
+     "id": 246,
+     "author_id": 77,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-12T13:00:03.769Z"
+    },
+    {
+     "id": 376,
+     "author_id": 77,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-19T13:00:12.176Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the snowman go to the store?",
+   "punchline": "He was looking for a cool deal.",
+   "copies": 4,
+   "keep": 134,
+   "keep_score": 16,
+   "drop": [
+    123,
+    299,
+    205
+   ],
+   "drop_rows": [
+    {
+     "id": 123,
+     "author_id": 77,
+     "series": "",
+     "score": 13,
+     "likes": 1,
+     "comments": 0,
+     "shares": 4,
+     "created_at": "2026-08-25T13:00:04.240Z"
+    },
+    {
+     "id": 299,
+     "author_id": 77,
+     "series": "",
+     "score": 1,
+     "likes": 1,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-16T13:00:09.682Z"
+    },
+    {
+     "id": 205,
+     "author_id": 77,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-08T13:00:05.764Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the octopus blush?",
+   "punchline": "It saw the underwater telescope's aperture.",
+   "copies": 2,
+   "keep": 138,
+   "keep_score": 0,
+   "drop": [
+    155
+   ],
+   "drop_rows": [
+    {
+     "id": 155,
+     "author_id": 75,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-04T13:00:03.897Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the meeting last so long?",
+   "punchline": "Someone kept circling back to the same point.",
+   "copies": 2,
+   "keep": 140,
+   "keep_score": 0,
+   "drop": [
+    339
+   ],
+   "drop_rows": [
+    {
+     "id": 339,
+     "author_id": 79,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-18T13:00:03.862Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the soccer ball quit?",
+   "punchline": "It was tired of being kicked around.",
+   "copies": 2,
+   "keep": 142,
+   "keep_score": 0,
+   "drop": [
+    395
+   ],
+   "drop_rows": [
+    {
+     "id": 395,
+     "author_id": 78,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-20T13:00:14.818Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the computer go to the doctor?",
+   "punchline": "It caught a virus.",
+   "copies": 2,
+   "keep": 144,
+   "keep_score": 1,
+   "drop": [
+    391
+   ],
+   "drop_rows": [
+    {
+     "id": 391,
+     "author_id": 74,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-20T13:00:12.042Z"
+    }
+   ]
+  },
+  {
+   "content": "What do you call a sunny day in winter?",
+   "punchline": "A snow problem.",
+   "copies": 2,
+   "keep": 147,
+   "keep_score": 0,
+   "drop": [
+    332
+   ],
+   "drop_rows": [
+    {
+     "id": 332,
+     "author_id": 77,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-17T13:00:10.265Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the musician get arrested?",
+   "punchline": "He got caught with too many notes.",
+   "copies": 4,
+   "keep": 148,
+   "keep_score": 0,
+   "drop": [
+    191,
+    207,
+    260
+   ],
+   "drop_rows": [
+    {
+     "id": 191,
+     "author_id": 77,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-06T13:00:05.872Z"
+    },
+    {
+     "id": 207,
+     "author_id": 73,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-08T13:00:07.079Z"
+    },
+    {
+     "id": 260,
+     "author_id": 73,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-13T13:00:03.904Z"
+    }
+   ]
+  },
+  {
+   "content": "What do you call a dinosaur with an extensive vocabulary?",
+   "punchline": "A thesaurus rex.",
+   "copies": 2,
+   "keep": 149,
+   "keep_score": 4,
+   "drop": [
+    416
+   ],
+   "drop_rows": [
+    {
+     "id": 416,
+     "author_id": 79,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-21T13:00:12.216Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the ice cream get detention?",
+   "punchline": "It was caught melting in class.",
+   "copies": 2,
+   "keep": 150,
+   "keep_score": 0,
+   "drop": [
+    341
+   ],
+   "drop_rows": [
+    {
+     "id": 341,
+     "author_id": 79,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-18T13:00:04.849Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the soup get a ticket?",
+   "punchline": "It was in a hurry to get to the bowl.",
+   "copies": 2,
+   "keep": 153,
+   "keep_score": 0,
+   "drop": [
+    369
+   ],
+   "drop_rows": [
+    {
+     "id": 369,
+     "author_id": 72,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-19T13:00:08.273Z"
+    }
+   ]
+  },
+  {
+   "content": "What do you call a knee that can sing?",
+   "punchline": "A knee-ote singer.",
+   "copies": 3,
+   "keep": 157,
+   "keep_score": 0,
+   "drop": [
+    251,
+    392
+   ],
+   "drop_rows": [
+    {
+     "id": 251,
+     "author_id": 75,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-12T13:00:07.473Z"
+    },
+    {
+     "id": 392,
+     "author_id": 75,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-20T13:00:12.739Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the airplane get a job?",
+   "punchline": "It wanted to fly up the corporate ladder.",
+   "copies": 2,
+   "keep": 187,
+   "keep_score": 0,
+   "drop": [
+    320
+   ],
+   "drop_rows": [
+    {
+     "id": 320,
+     "author_id": 76,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-17T13:00:04.243Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the giraffe get promoted?",
+   "punchline": "It was head and shoulders above the rest.",
+   "copies": 2,
+   "keep": 189,
+   "keep_score": 4,
+   "drop": [
+    396
+   ],
+   "drop_rows": [
+    {
+     "id": 396,
+     "author_id": 75,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-20T13:00:15.488Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the banana go to the doctor?",
+   "punchline": "It wasn't peeling well.",
+   "copies": 4,
+   "keep": 190,
+   "keep_score": 4,
+   "drop": [
+    202,
+    331,
+    402
+   ],
+   "drop_rows": [
+    {
+     "id": 202,
+     "author_id": 76,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-08T13:00:03.814Z"
+    },
+    {
+     "id": 331,
+     "author_id": 74,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-17T13:00:09.763Z"
+    },
+    {
+     "id": 402,
+     "author_id": 76,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-21T13:00:05.153Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the keyboard break up with the mouse?",
+   "punchline": "It needed more space.",
+   "copies": 2,
+   "keep": 192,
+   "keep_score": 0,
+   "drop": [
+    379
+   ],
+   "drop_rows": [
+    {
+     "id": 379,
+     "author_id": 73,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-20T13:00:03.731Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the eye go to the optometrist?",
+   "punchline": "It couldn't see the point.",
+   "copies": 3,
+   "keep": 193,
+   "keep_score": 4,
+   "drop": [
+    139,
+    209
+   ],
+   "drop_rows": [
+    {
+     "id": 139,
+     "author_id": 75,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-08-30T13:00:04.528Z"
+    },
+    {
+     "id": 209,
+     "author_id": 75,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-08T13:00:08.379Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the mirror file a complaint?",
+   "punchline": "It was tired of being framed.",
+   "copies": 3,
+   "keep": 195,
+   "keep_score": 1,
+   "drop": [
+    152,
+    258
+   ],
+   "drop_rows": [
+    {
+     "id": 152,
+     "author_id": 72,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-03T13:00:03.104Z"
+    },
+    {
+     "id": 258,
+     "author_id": 72,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-12T13:00:12.605Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the website get a ticket?",
+   "punchline": "It was speeding up the page load.",
+   "copies": 3,
+   "keep": 203,
+   "keep_score": 1,
+   "drop": [
+    128,
+    330
+   ],
+   "drop_rows": [
+    {
+     "id": 128,
+     "author_id": 74,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-08-25T13:00:06.945Z"
+    },
+    {
+     "id": 330,
+     "author_id": 74,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-17T13:00:09.265Z"
+    }
+   ]
+  },
+  {
+   "content": "What's a cat's favorite color?",
+   "punchline": "Purr-ple.",
+   "copies": 4,
+   "keep": 208,
+   "keep_score": 1,
+   "drop": [
+    146,
+    194,
+    346
+   ],
+   "drop_rows": [
+    {
+     "id": 146,
+     "author_id": 75,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-01T13:00:06.217Z"
+    },
+    {
+     "id": 194,
+     "author_id": 75,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-06T13:00:14.532Z"
+    },
+    {
+     "id": 346,
+     "author_id": 75,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-18T13:00:07.381Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the refrigerator go to therapy?",
+   "punchline": "It had too many bottled-up feelings.",
+   "copies": 2,
+   "keep": 210,
+   "keep_score": 0,
+   "drop": [
+    383
+   ],
+   "drop_rows": [
+    {
+     "id": 383,
+     "author_id": 72,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-20T13:00:06.529Z"
+    }
+   ]
+  },
+  {
+   "content": "What did the pencil say to the eraser?",
+   "punchline": "You're my best friend \u2014 we're a perfect match.",
+   "copies": 3,
+   "keep": 211,
+   "keep_score": 1,
+   "drop": [
+    257,
+    321
+   ],
+   "drop_rows": [
+    {
+     "id": 257,
+     "author_id": 79,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-12T13:00:11.867Z"
+    },
+    {
+     "id": 321,
+     "author_id": 79,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-17T13:00:04.749Z"
+    }
+   ]
+  },
+  {
+   "content": "What do you call a baseball player who can't stop dancing?",
+   "punchline": "A swing dancer.",
+   "copies": 4,
+   "keep": 213,
+   "keep_score": 1,
+   "drop": [
+    250,
+    136,
+    417
+   ],
+   "drop_rows": [
+    {
+     "id": 250,
+     "author_id": 78,
+     "series": "",
+     "score": 1,
+     "likes": 1,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-12T13:00:06.636Z"
+    },
+    {
+     "id": 136,
+     "author_id": 74,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-08-28T13:00:03.727Z"
+    },
+    {
+     "id": 417,
+     "author_id": 78,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-21T13:00:12.697Z"
+    }
+   ]
+  },
+  {
+   "content": "What do you call a coworker who tells great stories?",
+   "punchline": "A tall-tale-nted storyteller.",
+   "copies": 4,
+   "keep": 215,
+   "keep_score": 1,
+   "drop": [
+    198,
+    254,
+    365
+   ],
+   "drop_rows": [
+    {
+     "id": 198,
+     "author_id": 79,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-07T13:00:03.906Z"
+    },
+    {
+     "id": 254,
+     "author_id": 79,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-12T13:00:09.642Z"
+    },
+    {
+     "id": 365,
+     "author_id": 79,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-19T13:00:06.217Z"
+    }
+   ]
+  },
+  {
+   "content": "What do you call a sad strawberry?",
+   "punchline": "A blueberry.",
+   "copies": 3,
+   "keep": 216,
+   "keep_score": 6,
+   "drop": [
+    188,
+    199
+   ],
+   "drop_rows": [
+    {
+     "id": 188,
+     "author_id": 74,
+     "series": "",
+     "score": 1,
+     "likes": 1,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-05T13:00:03.561Z"
+    },
+    {
+     "id": 199,
+     "author_id": 74,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-07T13:00:04.664Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the astronomer break up with his telescope?",
+   "punchline": "It kept seeing other stars.",
+   "copies": 4,
+   "keep": 217,
+   "keep_score": 3,
+   "drop": [
+    145,
+    252,
+    196
+   ],
+   "drop_rows": [
+    {
+     "id": 145,
+     "author_id": 73,
+     "series": "",
+     "score": 1,
+     "likes": 1,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-01T13:00:05.571Z"
+    },
+    {
+     "id": 252,
+     "author_id": 78,
+     "series": "",
+     "score": 1,
+     "likes": 1,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-12T13:00:08.175Z"
+    },
+    {
+     "id": 196,
+     "author_id": 73,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-06T13:00:15.862Z"
+    }
+   ]
+  },
+  {
+   "content": "Why don't eggs tell jokes?",
+   "punchline": "They'd crack each other up.",
+   "copies": 2,
+   "keep": 223,
+   "keep_score": 2,
+   "drop": [
+    57
+   ],
+   "drop_rows": [
+    {
+     "id": 57,
+     "author_id": null,
+     "series": "ClickClack Dad Jokes",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-08-23T04:25:55.885Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the dog sit in the shade?",
+   "punchline": "He didn't want to become a hot dog.",
+   "copies": 2,
+   "keep": 227,
+   "keep_score": 2,
+   "drop": [
+    248
+   ],
+   "drop_rows": [
+    {
+     "id": 248,
+     "author_id": 75,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-12T13:00:05.164Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the developer go broke?",
+   "punchline": "He used up all his cache.",
+   "copies": 4,
+   "keep": 229,
+   "keep_score": 2,
+   "drop": [
+    135,
+    154,
+    262
+   ],
+   "drop_rows": [
+    {
+     "id": 135,
+     "author_id": 73,
+     "series": "",
+     "score": 1,
+     "likes": 1,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-08-28T13:00:03.153Z"
+    },
+    {
+     "id": 154,
+     "author_id": 74,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-04T13:00:03.083Z"
+    },
+    {
+     "id": 262,
+     "author_id": 74,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-14T13:00:04.311Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the movie ticket get mad?",
+   "punchline": "It was torn.",
+   "copies": 2,
+   "keep": 255,
+   "keep_score": 1,
+   "drop": [
+    356
+   ],
+   "drop_rows": [
+    {
+     "id": 356,
+     "author_id": 77,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-18T13:00:12.380Z"
+    }
+   ]
+  },
+  {
+   "content": "What do you call a doctor who fixes websites?",
+   "punchline": "A URL-ologist.",
+   "copies": 2,
+   "keep": 256,
+   "keep_score": 1,
+   "drop": [
+    141
+   ],
+   "drop_rows": [
+    {
+     "id": 141,
+     "author_id": 75,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-08-31T13:00:03.555Z"
+    }
+   ]
+  },
+  {
+   "content": "What do you call a cow with two legs?",
+   "punchline": "Lean beef.",
+   "copies": 2,
+   "keep": 259,
+   "keep_score": 0,
+   "drop": [
+    338
+   ],
+   "drop_rows": [
+    {
+     "id": 338,
+     "author_id": 58,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-18T13:00:03.358Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the piano go to the beach?",
+   "punchline": "To play the keys.",
+   "copies": 2,
+   "keep": 261,
+   "keep_score": 0,
+   "drop": [
+    340
+   ],
+   "drop_rows": [
+    {
+     "id": 340,
+     "author_id": 73,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-18T13:00:04.356Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the drum get a promotion?",
+   "punchline": "It was on a roll.",
+   "copies": 2,
+   "keep": 268,
+   "keep_score": 1,
+   "drop": [
+    410
+   ],
+   "drop_rows": [
+    {
+     "id": 410,
+     "author_id": 77,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-21T13:00:09.245Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the winter get a medal?",
+   "punchline": "It was a cool performer.",
+   "copies": 2,
+   "keep": 272,
+   "keep_score": 0,
+   "drop": [
+    374
+   ],
+   "drop_rows": [
+    {
+     "id": 374,
+     "author_id": 77,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-19T13:00:10.802Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the telescope get a job in HR?",
+   "punchline": "It was great at spotting potential.",
+   "copies": 2,
+   "keep": 276,
+   "keep_score": 0,
+   "drop": [
+    380
+   ],
+   "drop_rows": [
+    {
+     "id": 380,
+     "author_id": 73,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-20T13:00:04.540Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the comma break up with the period?",
+   "punchline": "It needed more space.",
+   "copies": 2,
+   "keep": 277,
+   "keep_score": 0,
+   "drop": [
+    364
+   ],
+   "drop_rows": [
+    {
+     "id": 364,
+     "author_id": 79,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-19T13:00:05.707Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the muscle get a trophy?",
+   "punchline": "It was flexing on everyone.",
+   "copies": 2,
+   "keep": 278,
+   "keep_score": 0,
+   "drop": [
+    386
+   ],
+   "drop_rows": [
+    {
+     "id": 386,
+     "author_id": 75,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-20T13:00:08.735Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the broom break up with the dustpan?",
+   "punchline": "There was too much sweeping between them.",
+   "copies": 2,
+   "keep": 281,
+   "keep_score": 0,
+   "drop": [
+    378
+   ],
+   "drop_rows": [
+    {
+     "id": 378,
+     "author_id": 72,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-20T13:00:03.041Z"
+    }
+   ]
+  },
+  {
+   "content": "What's a snake's least favourite class?",
+   "punchline": "Hiss-tory.",
+   "copies": 2,
+   "keep": 289,
+   "keep_score": 1,
+   "drop": [
+    405
+   ],
+   "drop_rows": [
+    {
+     "id": 405,
+     "author_id": 75,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-21T13:00:06.635Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the duck get a ticket?",
+   "punchline": "It was caught quacking at the wheel.",
+   "copies": 2,
+   "keep": 290,
+   "keep_score": 1,
+   "drop": [
+    249
+   ],
+   "drop_rows": [
+    {
+     "id": 249,
+     "author_id": 75,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-12T13:00:05.881Z"
+    }
+   ]
+  },
+  {
+   "content": "What do you call a sleeping bull?",
+   "punchline": "A bulldozer.",
+   "copies": 2,
+   "keep": 298,
+   "keep_score": 1,
+   "drop": [
+    204
+   ],
+   "drop_rows": [
+    {
+     "id": 204,
+     "author_id": 75,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-08T13:00:05.116Z"
+    }
+   ]
+  },
+  {
+   "content": "Why did the mouse click with the monitor?",
+   "punchline": "They had great chemistry on screen.",
+   "copies": 2,
+   "keep": 304,
+   "keep_score": 1,
+   "drop": [
+    411
+   ],
+   "drop_rows": [
+    {
+     "id": 411,
+     "author_id": 74,
+     "series": "",
+     "score": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "created_at": "2026-09-21T13:00:09.733Z"
+    }
+   ]
+  }
+ ]
+}
