@@ -1,0 +1,1100 @@
+{
+ "tierA": [
+  {
+   "tier": "A_exact",
+   "content": "what do you call a baseball player who can t stop dancing",
+   "punchline": "a swing dancer",
+   "keep": 213,
+   "keep_score": 1,
+   "delete": [
+    [
+     250,
+     1,
+     78,
+     "2026-09-12T13:00:06.636Z"
+    ],
+    [
+     136,
+     0,
+     74,
+     "2026-08-28T13:00:03.727Z"
+    ],
+    [
+     417,
+     0,
+     78,
+     "2026-09-21T13:00:12.697Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "what do you call a dinosaur with an extensive vocabulary",
+   "punchline": "a thesaurus rex",
+   "keep": 149,
+   "keep_score": 4,
+   "delete": [
+    [
+     416,
+     0,
+     79,
+     "2026-09-21T13:00:12.216Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the mouse click with the monitor",
+   "punchline": "they had great chemistry on screen",
+   "keep": 304,
+   "keep_score": 1,
+   "delete": [
+    [
+     411,
+     0,
+     74,
+     "2026-09-21T13:00:09.733Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the drum get a promotion",
+   "punchline": "it was on a roll",
+   "keep": 268,
+   "keep_score": 1,
+   "delete": [
+    [
+     410,
+     0,
+     77,
+     "2026-09-21T13:00:09.245Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "what s a snake s least favourite class",
+   "punchline": "hiss tory",
+   "keep": 289,
+   "keep_score": 1,
+   "delete": [
+    [
+     405,
+     0,
+     75,
+     "2026-09-21T13:00:06.635Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the banana go to the doctor",
+   "punchline": "it wasn t peeling well",
+   "keep": 190,
+   "keep_score": 4,
+   "delete": [
+    [
+     202,
+     0,
+     76,
+     "2026-09-08T13:00:03.814Z"
+    ],
+    [
+     331,
+     0,
+     74,
+     "2026-09-17T13:00:09.763Z"
+    ],
+    [
+     402,
+     0,
+     76,
+     "2026-09-21T13:00:05.153Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the chess player get promoted",
+   "punchline": "he always thought two moves ahead",
+   "keep": 108,
+   "keep_score": 2,
+   "delete": [
+    [
+     400,
+     0,
+     78,
+     "2026-09-21T13:00:04.160Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the clock get in trouble",
+   "punchline": "it was always running late",
+   "keep": 125,
+   "keep_score": 0,
+   "delete": [
+    [
+     397,
+     0,
+     72,
+     "2026-09-20T13:00:16.187Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the giraffe get promoted",
+   "punchline": "it was head and shoulders above the rest",
+   "keep": 189,
+   "keep_score": 4,
+   "delete": [
+    [
+     396,
+     0,
+     75,
+     "2026-09-20T13:00:15.488Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the soccer ball quit",
+   "punchline": "it was tired of being kicked around",
+   "keep": 142,
+   "keep_score": 0,
+   "delete": [
+    [
+     395,
+     0,
+     78,
+     "2026-09-20T13:00:14.818Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "what do you call a knee that can sing",
+   "punchline": "a knee ote singer",
+   "keep": 157,
+   "keep_score": 0,
+   "delete": [
+    [
+     251,
+     0,
+     75,
+     "2026-09-12T13:00:07.473Z"
+    ],
+    [
+     392,
+     0,
+     75,
+     "2026-09-20T13:00:12.739Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the computer go to the doctor",
+   "punchline": "it caught a virus",
+   "keep": 144,
+   "keep_score": 1,
+   "delete": [
+    [
+     391,
+     0,
+     74,
+     "2026-09-20T13:00:12.042Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "what do you call a fish with no eyes",
+   "punchline": "a fsh",
+   "keep": 132,
+   "keep_score": 4,
+   "delete": [
+    [
+     390,
+     0,
+     75,
+     "2026-09-20T13:00:11.392Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the muscle get a trophy",
+   "punchline": "it was flexing on everyone",
+   "keep": 278,
+   "keep_score": 0,
+   "delete": [
+    [
+     386,
+     0,
+     75,
+     "2026-09-20T13:00:08.735Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the bread go to the bank",
+   "punchline": "it wanted to make some dough",
+   "keep": 104,
+   "keep_score": 2,
+   "delete": [
+    [
+     297,
+     1,
+     60,
+     "2026-09-16T13:00:08.469Z"
+    ],
+    [
+     384,
+     0,
+     76,
+     "2026-09-20T13:00:07.274Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the refrigerator go to therapy",
+   "punchline": "it had too many bottled up feelings",
+   "keep": 210,
+   "keep_score": 0,
+   "delete": [
+    [
+     383,
+     0,
+     72,
+     "2026-09-20T13:00:06.529Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "what do you call cheese that s sad",
+   "punchline": "blue cheese",
+   "keep": 111,
+   "keep_score": 2,
+   "delete": [
+    [
+     381,
+     0,
+     73,
+     "2026-09-20T13:00:05.221Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the telescope get a job in hr",
+   "punchline": "it was great at spotting potential",
+   "keep": 276,
+   "keep_score": 0,
+   "delete": [
+    [
+     380,
+     0,
+     73,
+     "2026-09-20T13:00:04.540Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the keyboard break up with the mouse",
+   "punchline": "it needed more space",
+   "keep": 192,
+   "keep_score": 0,
+   "delete": [
+    [
+     379,
+     0,
+     73,
+     "2026-09-20T13:00:03.731Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the broom break up with the dustpan",
+   "punchline": "there was too much sweeping between them",
+   "keep": 281,
+   "keep_score": 0,
+   "delete": [
+    [
+     378,
+     0,
+     72,
+     "2026-09-20T13:00:03.041Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "what s a physicist s favorite dessert",
+   "punchline": "gravity cake it always falls flat",
+   "keep": 133,
+   "keep_score": 1,
+   "delete": [
+    [
+     246,
+     0,
+     77,
+     "2026-09-12T13:00:03.769Z"
+    ],
+    [
+     376,
+     0,
+     77,
+     "2026-09-19T13:00:12.176Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the winter get a medal",
+   "punchline": "it was a cool performer",
+   "keep": 272,
+   "keep_score": 0,
+   "delete": [
+    [
+     374,
+     0,
+     77,
+     "2026-09-19T13:00:10.802Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the soup get a ticket",
+   "punchline": "it was in a hurry to get to the bowl",
+   "keep": 153,
+   "keep_score": 0,
+   "delete": [
+    [
+     369,
+     0,
+     72,
+     "2026-09-19T13:00:08.273Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the bicycle get a promotion",
+   "punchline": "it was always ahead of the curve",
+   "keep": 126,
+   "keep_score": 0,
+   "delete": [
+    [
+     366,
+     0,
+     62,
+     "2026-09-19T13:00:06.727Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "what do you call a coworker who tells great stories",
+   "punchline": "a tall tale nted storyteller",
+   "keep": 215,
+   "keep_score": 1,
+   "delete": [
+    [
+     198,
+     0,
+     79,
+     "2026-09-07T13:00:03.906Z"
+    ],
+    [
+     254,
+     0,
+     79,
+     "2026-09-12T13:00:09.642Z"
+    ],
+    [
+     365,
+     0,
+     79,
+     "2026-09-19T13:00:06.217Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the comma break up with the period",
+   "punchline": "it needed more space",
+   "keep": 277,
+   "keep_score": 0,
+   "delete": [
+    [
+     364,
+     0,
+     79,
+     "2026-09-19T13:00:05.707Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the lightning get a job",
+   "punchline": "it wanted to make a striking impression",
+   "keep": 113,
+   "keep_score": 2,
+   "delete": [
+    [
+     363,
+     0,
+     77,
+     "2026-09-19T13:00:05.202Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the movie ticket get mad",
+   "punchline": "it was torn",
+   "keep": 255,
+   "keep_score": 1,
+   "delete": [
+    [
+     356,
+     0,
+     77,
+     "2026-09-18T13:00:12.380Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "what do you call a snowman with a six pack",
+   "punchline": "an abdominal snowman",
+   "keep": 129,
+   "keep_score": 0,
+   "delete": [
+    [
+     354,
+     0,
+     77,
+     "2026-09-18T13:00:11.369Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the robot go on vacation",
+   "punchline": "it needed to recharge its batteries",
+   "keep": 118,
+   "keep_score": 2,
+   "delete": [
+    [
+     352,
+     0,
+     72,
+     "2026-09-18T13:00:10.360Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "what s a cat s favorite color",
+   "punchline": "purr ple",
+   "keep": 208,
+   "keep_score": 1,
+   "delete": [
+    [
+     146,
+     0,
+     75,
+     "2026-09-01T13:00:06.217Z"
+    ],
+    [
+     194,
+     0,
+     75,
+     "2026-09-06T13:00:14.532Z"
+    ],
+    [
+     346,
+     0,
+     75,
+     "2026-09-18T13:00:07.381Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the ice cream get detention",
+   "punchline": "it was caught melting in class",
+   "keep": 150,
+   "keep_score": 0,
+   "delete": [
+    [
+     341,
+     0,
+     79,
+     "2026-09-18T13:00:04.849Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the piano go to the beach",
+   "punchline": "to play the keys",
+   "keep": 261,
+   "keep_score": 0,
+   "delete": [
+    [
+     340,
+     0,
+     73,
+     "2026-09-18T13:00:04.356Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the meeting last so long",
+   "punchline": "someone kept circling back to the same point",
+   "keep": 140,
+   "keep_score": 0,
+   "delete": [
+    [
+     339,
+     0,
+     79,
+     "2026-09-18T13:00:03.862Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "what do you call a cow with two legs",
+   "punchline": "lean beef",
+   "keep": 259,
+   "keep_score": 0,
+   "delete": [
+    [
+     338,
+     0,
+     58,
+     "2026-09-18T13:00:03.358Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "what do you call a sunny day in winter",
+   "punchline": "a snow problem",
+   "keep": 147,
+   "keep_score": 0,
+   "delete": [
+    [
+     332,
+     0,
+     77,
+     "2026-09-17T13:00:10.265Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the website get a ticket",
+   "punchline": "it was speeding up the page load",
+   "keep": 203,
+   "keep_score": 1,
+   "delete": [
+    [
+     128,
+     0,
+     74,
+     "2026-08-25T13:00:06.945Z"
+    ],
+    [
+     330,
+     0,
+     74,
+     "2026-09-17T13:00:09.265Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the wind get a ticket",
+   "punchline": "it was blowing through a stop sign",
+   "keep": 105,
+   "keep_score": 2,
+   "delete": [
+    [
+     322,
+     0,
+     61,
+     "2026-09-17T13:00:05.254Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "what did the pencil say to the eraser",
+   "punchline": "you re my best friend we re a perfect match",
+   "keep": 211,
+   "keep_score": 1,
+   "delete": [
+    [
+     257,
+     0,
+     79,
+     "2026-09-12T13:00:11.867Z"
+    ],
+    [
+     321,
+     0,
+     79,
+     "2026-09-17T13:00:04.749Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the airplane get a job",
+   "punchline": "it wanted to fly up the corporate ladder",
+   "keep": 187,
+   "keep_score": 0,
+   "delete": [
+    [
+     320,
+     0,
+     76,
+     "2026-09-17T13:00:04.243Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the spreadsheet get promoted",
+   "punchline": "it had great columns",
+   "keep": 110,
+   "keep_score": 2,
+   "delete": [
+    [
+     318,
+     0,
+     79,
+     "2026-09-17T13:00:03.160Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the snowman go to the store",
+   "punchline": "he was looking for a cool deal",
+   "keep": 134,
+   "keep_score": 16,
+   "delete": [
+    [
+     123,
+     13,
+     77,
+     "2026-08-25T13:00:04.240Z"
+    ],
+    [
+     299,
+     1,
+     77,
+     "2026-09-16T13:00:09.682Z"
+    ],
+    [
+     205,
+     0,
+     77,
+     "2026-09-08T13:00:05.764Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "what do you call a sleeping bull",
+   "punchline": "a bulldozer",
+   "keep": 298,
+   "keep_score": 1,
+   "delete": [
+    [
+     204,
+     0,
+     75,
+     "2026-09-08T13:00:05.116Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the duck get a ticket",
+   "punchline": "it was caught quacking at the wheel",
+   "keep": 290,
+   "keep_score": 1,
+   "delete": [
+    [
+     249,
+     0,
+     75,
+     "2026-09-12T13:00:05.881Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the student eat his homework",
+   "punchline": "because the teacher said it was a piece of cake",
+   "keep": 115,
+   "keep_score": 2,
+   "delete": [
+    [
+     287,
+     1,
+     79,
+     "2026-09-16T13:00:03.293Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the truck go to the gym",
+   "punchline": "to work on its chassis",
+   "keep": 124,
+   "keep_score": 7,
+   "delete": [
+    [
+     267,
+     1,
+     76,
+     "2026-09-15T13:00:03.652Z"
+    ],
+    [
+     158,
+     0,
+     76,
+     "2026-09-04T13:00:05.964Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "what do you call a train full of bubble gum",
+   "punchline": "a chew chew train",
+   "keep": 121,
+   "keep_score": 1,
+   "delete": [
+    [
+     200,
+     1,
+     76,
+     "2026-09-07T13:00:05.427Z"
+    ],
+    [
+     212,
+     1,
+     76,
+     "2026-09-09T13:00:02.946Z"
+    ],
+    [
+     156,
+     0,
+     76,
+     "2026-09-04T13:00:04.616Z"
+    ],
+    [
+     247,
+     0,
+     76,
+     "2026-09-12T13:00:04.473Z"
+    ],
+    [
+     263,
+     0,
+     76,
+     "2026-09-14T13:00:04.829Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the developer go broke",
+   "punchline": "because he used up all his cache",
+   "keep": 135,
+   "keep_score": 1,
+   "delete": [
+    [
+     154,
+     0,
+     74,
+     "2026-09-04T13:00:03.083Z"
+    ],
+    [
+     262,
+     0,
+     74,
+     "2026-09-14T13:00:04.311Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the musician get arrested",
+   "punchline": "he got caught with too many notes",
+   "keep": 148,
+   "keep_score": 0,
+   "delete": [
+    [
+     191,
+     0,
+     77,
+     "2026-09-06T13:00:05.872Z"
+    ],
+    [
+     207,
+     0,
+     73,
+     "2026-09-08T13:00:07.079Z"
+    ],
+    [
+     260,
+     0,
+     73,
+     "2026-09-13T13:00:03.904Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the mirror file a complaint",
+   "punchline": "it was tired of being framed",
+   "keep": 195,
+   "keep_score": 1,
+   "delete": [
+    [
+     152,
+     0,
+     72,
+     "2026-09-03T13:00:03.104Z"
+    ],
+    [
+     258,
+     0,
+     72,
+     "2026-09-12T13:00:12.605Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "what do you call a doctor who fixes websites",
+   "punchline": "a url ologist",
+   "keep": 256,
+   "keep_score": 1,
+   "delete": [
+    [
+     141,
+     0,
+     75,
+     "2026-08-31T13:00:03.555Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the smartphone go to school",
+   "punchline": "to improve its memory",
+   "keep": 131,
+   "keep_score": 4,
+   "delete": [
+    [
+     253,
+     1,
+     74,
+     "2026-09-12T13:00:08.868Z"
+    ],
+    [
+     197,
+     0,
+     73,
+     "2026-09-07T13:00:03.138Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the astronomer break up with his telescope",
+   "punchline": "it kept seeing other stars",
+   "keep": 217,
+   "keep_score": 3,
+   "delete": [
+    [
+     145,
+     1,
+     73,
+     "2026-09-01T13:00:05.571Z"
+    ],
+    [
+     252,
+     1,
+     78,
+     "2026-09-12T13:00:08.175Z"
+    ],
+    [
+     196,
+     0,
+     73,
+     "2026-09-06T13:00:15.862Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "what do you call a bear with no teeth",
+   "punchline": "a gummy bear",
+   "keep": 2,
+   "keep_score": 31,
+   "delete": [
+    [
+     58,
+     4,
+     57,
+     "2026-08-23T04:28:41.918Z"
+    ],
+    [
+     238,
+     2,
+     76,
+     "2026-09-12T07:53:06.402Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the tomato turn red",
+   "punchline": "because it saw the salad dressing",
+   "keep": 101,
+   "keep_score": 2,
+   "delete": [
+    [
+     237,
+     2,
+     75,
+     "2026-09-12T07:53:03.038Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why don t eggs tell jokes",
+   "punchline": "they d crack each other up",
+   "keep": 223,
+   "keep_score": 2,
+   "delete": [
+    [
+     57,
+     0,
+     null,
+     "2026-08-23T04:25:55.885Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "what do you call a sad strawberry",
+   "punchline": "a blueberry",
+   "keep": 216,
+   "keep_score": 6,
+   "delete": [
+    [
+     188,
+     1,
+     74,
+     "2026-09-05T13:00:03.561Z"
+    ],
+    [
+     199,
+     0,
+     74,
+     "2026-09-07T13:00:04.664Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the eye go to the optometrist",
+   "punchline": "it couldn t see the point",
+   "keep": 193,
+   "keep_score": 4,
+   "delete": [
+    [
+     139,
+     0,
+     75,
+     "2026-08-30T13:00:04.528Z"
+    ],
+    [
+     209,
+     0,
+     75,
+     "2026-09-08T13:00:08.379Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the octopus blush",
+   "punchline": "it saw the underwater telescope s aperture",
+   "keep": 138,
+   "keep_score": 0,
+   "delete": [
+    [
+     155,
+     0,
+     75,
+     "2026-09-04T13:00:03.897Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the drummer get fired",
+   "punchline": "he kept hitting on the bassist",
+   "keep": 122,
+   "keep_score": 0,
+   "delete": [
+    [
+     151,
+     0,
+     77,
+     "2026-09-02T13:00:04.098Z"
+    ]
+   ]
+  },
+  {
+   "tier": "A_exact",
+   "content": "why did the bicycle fall over",
+   "punchline": "because it was two tired",
+   "keep": 94,
+   "keep_score": 6,
+   "delete": [
+    [
+     54,
+     0,
+     null,
+     "2026-08-23T04:25:54.140Z"
+    ]
+   ]
+  }
+ ],
+ "tierB": []
+}
