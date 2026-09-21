@@ -4,7 +4,7 @@
 > to pick up exactly where we left off. Every agent updates it at end of turn.
 > Auto-refresh: `python3 scripts/save_state.py` (also syncs the portal + git).
 
-**Last updated:** 2026-09-21T20:15:01Z
+**Last updated:** 2026-09-21T20:20:01Z
 
 ## Voice-First Communication Standard (effective immediately — Zerric directive)
 Scope: ALL agents (cto, developer, marketer, sales, finance, hr, PM pod) — internal replies AND client-facing replies alike.
@@ -806,3 +806,61 @@ a build decision.
 BossLady's `read_inbox` to read `ninjanerd@zdotllc.com` (and printed NinjaNerd's
 inbox as hers). She must read `bosslady@zdotllc.com`. Per-agent inbox identity
 needs to be enforced in the tool layer so one agent cannot read another's mail.
+
+---
+
+## 2026-09-21 — SnowSnakes duplicate joke cleanup (NinjaNerd, CTO)
+
+**ASK:** "remove duplicate jokes from snowsnakes"
+
+**DONE — 86 duplicates removed, verified live.**
+- Before: 327 jokes. After: **241** (`/api/jokes` and `/api/stats` both agree — the
+  earlier 260 reading was short-lived cache lag, not a counter bug).
+- 62 clusters / 93 redundant rows found. Deleted **86**. 0 failed, 0 keepers lost.
+- Method: `scripts/dedupe_snowsnakes_jokes.py` (repo copy of the
+  `.agent-company-ai/scripts/` version, patched + corrected). Dry-run first, then
+  `--apply`. Keeper rule: highest engagement (likes + 3·comments + 3·shares), tie →
+  lowest id (oldest = the original). Guard: rows in a curated `series` are never deleted.
+- Engagement lost across all 86 rows: 16 likes, **0 comments**, 4 shares. No user
+  content destroyed. Backup of every deleted row:
+  `evidence/joke-dedup-2026-09-21/deleted_rows_restore.json`.
+- Evidence: `evidence/joke-dedup-2026-09-21/` (before-snapshot, plan, result, restore file).
+
+**CORRECTION — the old script could never have run.**
+`.agent-company-ai/scripts/dedupe_snowsnakes_jokes.py` logged in as a "SnowSnakes
+ADMIN account" read from `communication/credentials.txt`. **No such entry exists**
+(`grep -i admin communication/credentials.txt` → zero hits). `DELETE /api/jokes/{id}`
+is **AUTHOR-ONLY** — verified twice via HTTP 403, including a control test. The
+rewritten script logs in per-author using the 8 sanctioned personas (ids 72–79).
+
+**NO ADMIN ACCOUNT EXISTS (verified, do not repeat the claim).**
+- Only documented platform accounts: `zdot_team` (85) and `MilkUps` (86).
+  `zdot_team` JWT claims `isAdmin: false`; its delete of another author's joke → 403.
+- `/admin`, `/api/admin`, `/api/admin/jokes`, `/api/users/me` all return the React
+  SPA `index.html` — there is no admin API surface exposed.
+- `state/CHAT-LOG.md` 2026-08-25 decided "make NinjaNerd + ClickClack fresh accounts,
+  Zerric flips admin" — the promotion was never confirmed and no password was ever filed.
+
+**BLOCKED — 7 duplicate rows we cannot delete (wrong-account ownership):**
+| row | author_id | who | why stuck |
+|---|---|---|---|
+| 366 | 62 | jasmine | no credentials |
+| 338 | 58 | mark | no credentials |
+| 322 | 61 | meta | no credentials |
+| 297 | 60 | manny | no credentials |
+| 58 | 57 | TedBear | no credentials; also in series "TedBear Jokes" |
+| 57 | — | (orphan) | author deleted; legacy "ClickClack Dad Jokes" |
+| 54 | — | (orphan) | author deleted; legacy "ClickClack Dad Jokes" |
+
+**TWO WAYS TO FINISH (pick one):**
+1. **Zerric (owner, user_id 3) promotes an account to admin** — then one pass clears
+   all 7. Cheapest, unblocks every future cleanup.
+2. **File the passwords for accounts 57–62** (mark/meta/manny/jasmine/TedBear) — re-run
+   `python3 scripts/dedupe_snowsnakes_jokes.py --apply`; it is idempotent and will pick
+   up exactly those rows.
+Row 57/54 orphans need path 1 (or a DB-level delete) — no credential can fix them.
+
+**COUNTERMEASURE TO DELEGATE:** the duplicates came from repeated daily joke batches
+(13:00 UTC cron) reusing the same setup+punchline under different personas. Add a
+pre-insert duplicate check on the `/jokes` POST route (normalised setup + punchline)
+so the board can't re-pollute itself.
