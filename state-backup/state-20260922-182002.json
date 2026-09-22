@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-22T16:40:01.750551+00:00",
+ "generated_at": "2026-09-22T18:20:01.229198+00:00",
  "note": "Sanitized continuity snapshot. Sensitive fields masked (***). Restore: this JSON documents what was in flight so work can resume after any disruption.",
  "tables": {
   "agents": {
