@@ -4,6 +4,6 @@
   "characters": 3,
   "comics": "err:Expecting value: line 1 column 1 (char 0)",
   "doodles": 17,
-  "episodes": "err:<urlopen error _ssl.c:975: The handshake operation timed out>",
-  "snapshot_at": "2026-09-22T18:55:01Z"
+  "episodes": 3,
+  "snapshot_at": "2026-09-22T19:00:01Z"
 }
