@@ -1,0 +1,34 @@
+{
+  "title": "Front Porch Frost",
+  "genre": "country",
+  "bpm": 117,
+  "speed": 6,
+  "channels": 12,
+  "module": "front-porch-frost.xm",
+  "module_bytes": 194418,
+  "patterns": 11,
+  "rows": 704,
+  "expected_seconds": 90.26,
+  "measured_seconds": 90.33,
+  "master": {
+    "in_i": -26.51,
+    "in_tp": -9.49,
+    "out_i": -14.39,
+    "out_tp": -0.83,
+    "out_lra": 1.4
+  },
+  "sections": [
+    "intro",
+    "verse1",
+    "verse2",
+    "chor1",
+    "chor2",
+    "break",
+    "verse3",
+    "chor3",
+    "solo",
+    "chor4",
+    "outro"
+  ],
+  "chain": "numpy samples -> .XM (FastTracker II) -> libopenmpt -> WAV -> loudnorm -> MP3 320k"
+}

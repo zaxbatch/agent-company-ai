@@ -400,7 +400,8 @@ def master(raw: Path, wav: Path, mp3: Path) -> dict:
           f":measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}"
           f":offset={m['target_offset']}:linear=true")
     res = run(["ffmpeg", "-hide_banner", "-nostats", "-y", "-i", str(raw),
-               "-af", af, "-c:a", "pcm_s16le", str(wav)])
+               "-af", af, "-ac", "2", "-ar", "44100",
+               "-c:a", "pcm_s16le", str(wav)])
     if res.returncode != 0:
         raise RuntimeError(f"master failed: {res.stderr[:400]}")
 

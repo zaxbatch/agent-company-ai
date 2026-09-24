@@ -131,17 +131,6 @@ GENRES = {
         "groove": "backbeat",
         "note": "kick 1+3, SNARE 2+4, alternating root/fifth bass (boom-chick)",
     },
-    "country": {
-        # Country train beat / two-step. The kick lands on 1 and 3 only, so the
-        # 40-110 Hz band reports HALF the tempo (58.5 for a 117 BPM track) --
-        # exactly the problem rock had. The 600-1800 Hz band carries the acoustic
-        # guitar body and the snare shell, which both mark every beat, so the true
-        # tempo is readable there.
-        "tempo_band": (600, 1800),
-        "bpm": (100, 150),
-        "groove": "backbeat",
-        "note": "kick 1+3, SNARE 2+4, alternating root/fifth boom-chick bass",
-    },
     "ambient": {
         "bpm": (50, 100),
         "groove": "any",
