@@ -30,5 +30,8 @@
     "chor4",
     "outro"
   ],
-  "chain": "numpy samples -> .XM (FastTracker II) -> libopenmpt -> WAV -> loudnorm -> MP3 320k"
+  "chain": "numpy samples -> .XM (FastTracker II) -> libopenmpt -> WAV -> loudnorm -> MP3 320k",
+  "song_id": 32,
+  "audio_url": "https://res.cloudinary.com/r6natkse/video/upload/v1790222175/snowsnakes/mubahokdfkarjeoz3vw2.mp3",
+  "cover_url": "https://res.cloudinary.com/r6natkse/image/upload/v1790222176/snowsnakes/x8zx6xzhqqutwayiuhcm.png"
 }
