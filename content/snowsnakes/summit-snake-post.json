@@ -1,23 +1,23 @@
 {
-  "id": 124,
-  "url": "https://snowsnakes.zerric.xyz/games/124",
-  "title": "DICE DROP",
+  "id": 125,
+  "url": "https://snowsnakes.zerric.xyz/games/125",
+  "title": "THAW",
   "tags": [
     "puzzle",
     "mobile",
     "touch",
-    "dice",
-    "arcade",
+    "route",
+    "daily",
     "8-bit"
   ],
   "author": "zdot_team",
-  "local_sha256": "fe2b9e8d79c15c8f99411bea8e3a081f67642039ca0b96437c879acd3ee0cc29",
-  "served_sha256": "fe2b9e8d79c15c8f99411bea8e3a081f67642039ca0b96437c879acd3ee0cc29",
+  "local_sha256": "6403feb429c9a4114d98794322ff556dab09a1f9b453c865e1032c2d6d6d5ffa",
+  "served_sha256": "6403feb429c9a4114d98794322ff556dab09a1f9b453c865e1032c2d6d6d5ffa",
   "checks": [
     {
       "check": "served code sha == local sha",
       "pass": true,
-      "detail": "local=fe2b9e8d79c15c8f served=fe2b9e8d79c15c8f len=28978"
+      "detail": "local=6403feb429c9a411 served=6403feb429c9a411 len=25697"
     },
     {
       "check": "author is zdot_team",
@@ -27,17 +27,17 @@
     {
       "check": "tags clean list (no mangled JSON)",
       "pass": true,
-      "detail": "[\"puzzle\", \"mobile\", \"touch\", \"dice\", \"arcade\", \"8-bit\"]"
+      "detail": "[\"puzzle\", \"mobile\", \"touch\", \"route\", \"daily\", \"8-bit\"]"
     },
     {
       "check": "title matches",
       "pass": true,
-      "detail": "DICE DROP"
+      "detail": "THAW"
     },
     {
       "check": "has code",
       "pass": true,
-      "detail": "28978 chars"
+      "detail": "25697 chars"
     },
     {
       "check": "public page HTTP 200",

@@ -1,0 +1,41 @@
+{
+  "game_id": "125",
+  "launch_bytes": 26134,
+  "mode_a": {
+    "taps": "6",
+    "par": "8",
+    "level": "1",
+    "over": false,
+    "overlayText": "THAWRoute the meltwater from the summit spring to the valley",
+    "canvas": {
+      "w": 374,
+      "h": 374
+    },
+    "scrollW": 390,
+    "clientW": 390,
+    "taps_before": "11",
+    "taps_after": "6",
+    "taps_tried": 5,
+    "colours": 111
+  },
+  "mode_b": {
+    "taps": "6",
+    "par": "8",
+    "level": "1",
+    "over": false,
+    "overlayText": "THAWRoute the meltwater from the summit spring to the valley",
+    "canvas": {
+      "w": 374,
+      "h": 374
+    },
+    "scrollW": 390,
+    "clientW": 390,
+    "taps_before": "11",
+    "taps_after": "6",
+    "taps_tried": 5,
+    "colours": 111
+  },
+  "js_errors_a": [],
+  "js_errors_b": [],
+  "problems": []
+}

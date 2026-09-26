@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>THAW — route the meltwater from the summit spring to the valley gate</title>
+<meta name="description" content="THAW: tap a tile to rotate it 90 degrees and route one continuous stream from the summit spring to the valley gate before your taps run out. One thumb, portrait, no downloads.">
+<meta name="theme-color" content="#062033">
+<style>
+  :root{
+    --ice:#7fe3ff; --ice2:#2fa8d8; --deep:#062033; --panel:#0d3350;
+    --line:#1d5f8a; --gold:#ffcc00; --snow:#eaf7ff; --rock:#3a4a57;
+    --good:#2ecc71; --bad:#ff6b6b;
+  }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0;height:100%}
+  body{
+    background:linear-gradient(180deg,#04121f 0%,#062033 55%,#0a3a55 100%);
+    color:#fff; touch-action:manipulation; overflow:hidden;
+    font-family:'Trebuchet MS',Verdana,system-ui,-apple-system,sans-serif;
+    display:flex; justify-content:center;
+    padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+  #wrap{
+    width:100%; max-width:460px; height:100dvh;
+    display:flex; flex-direction:column; gap:5px; padding:6px 8px 8px;
+  }
+  #top{display:flex; align-items:center; gap:6px; flex:0 0 auto}
+  h1{
+    font-size:15px; margin:0; letter-spacing:.22em; font-weight:bold;
+    color:var(--ice); flex:1;
+  }
+  #seedTag{font-size:8px; color:#5f93b8; letter-spacing:.1em; text-transform:uppercase}
+  #hud{display:flex; gap:5px; flex:0 0 auto}
+  .cell{
+    flex:1; background:var(--panel); border:2px solid var(--line);
+    border-radius:8px; padding:3px 6px; min-width:0;
+  }
+  .k{font-size:7.5px; letter-spacing:.14em; color:#7fb6d8; text-transform:uppercase}
+  .v{font-size:16px; font-weight:bold; line-height:1.15; font-variant-numeric:tabular-nums}
+  .v.warn{color:var(--bad)} .v.gold{color:var(--gold)}
+  #boardWrap{position:relative; flex:1 1 auto; min-height:0; display:flex; align-items:center; justify-content:center}
+  #board{display:block; border-radius:12px; touch-action:none;
+         box-shadow:0 0 0 2px #17486b, 0 8px 22px rgba(0,0,0,.55)}
+  #toasts{position:absolute; left:50%; top:34%; transform:translateX(-50%);
+          pointer-events:none; display:flex; flex-direction:column; gap:4px; align-items:center; z-index:5}
+  .toast{font-size:17px; font-weight:bold; white-space:nowrap;
+         text-shadow:0 2px 0 #000,0 0 12px rgba(0,0,0,.9); animation:pop 1.1s ease-out forwards}
+  @keyframes pop{
+    0%{opacity:0;transform:translateY(10px) scale(.7)}
+    22%{opacity:1;transform:translateY(0) scale(1.12)}
+    70%{opacity:1;transform:translateY(-6px) scale(1)}
+    100%{opacity:0;transform:translateY(-26px) scale(.98)}
+  }
+  #hint{
+    background:var(--panel); border:2px solid var(--line); border-radius:8px;
+    padding:4px 8px; font-size:9.5px; line-height:1.4; color:#a9d3ea; flex:0 0 auto;
+  }
+  #hint b{color:var(--ice)}
+  #pad{display:flex; gap:5px; flex:0 0 auto}
+  button.btn{
+    flex:1; min-height:54px; border-radius:10px; cursor:pointer;
+    background:linear-gradient(180deg,#125a86,#0a3550); border:2px solid #2b7fb0;
+    color:#fff; font-size:14px; font-weight:bold; font-family:inherit;
+    letter-spacing:.06em; display:flex; align-items:center; justify-content:center;
+  }
+  button.btn:active{transform:translateY(1px); filter:brightness(1.15)}
+  button.btn.ice{background:linear-gradient(180deg,#0f8fb8,#0a6484); border-color:var(--ice)}
+  #ov{position:absolute; inset:0; display:none; align-items:center; justify-content:center;
+      background:rgba(3,14,24,.9); border-radius:12px; text-align:center; padding:14px; z-index:9}
+  #ov.on{display:flex}
+  #ov .card{max-width:310px}
+  #ov h2{font-size:24px; margin:0 0 4px; color:var(--ice); letter-spacing:.1em}
+  #ov h3{font-size:30px; margin:6px 0 2px; color:var(--gold); font-variant-numeric:tabular-nums}
+  #ov p{font-size:11.5px; line-height:1.5; color:#bcdcf0; margin:6px 0 11px}
+  #ov .stat{font-size:12px; margin:2px 0}
+  #ov .stat span{color:var(--gold); font-weight:bold}
+  #ov button{
+    width:100%; min-height:48px; border:none; border-radius:10px; cursor:pointer;
+    font-size:15px; font-weight:bold; font-family:inherit; letter-spacing:.06em; color:#fff;
+    background:linear-gradient(180deg,#0f9ad6,#0b6fa0);
+  }
+  .rules{text-align:left; font-size:11px; line-height:1.6; color:#bcdcf0; margin:0 0 11px}
+  .rules b{color:var(--ice)} .rules i{color:var(--gold); font-style:normal}
+  @media (prefers-reduced-motion: reduce){
+    .toast{animation:fadeonly 1.1s linear forwards}
+    @keyframes fadeonly{0%{opacity:0}25%{opacity:1}75%{opacity:1}100%{opacity:0}}
+    button.btn:active{transform:none}
+  }
+  @media (max-height:700px){ #wrap{gap:4px;padding:4px 6px 6px} #hint{display:none} h1{font-size:13px} }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <div id="top">
+    <h1>THAW</h1>
+    <div id="seedTag"></div>
+  </div>
+  <div id="hud">
+    <div class="cell"><div class="k">Taps left</div><div class="v" id="taps">0</div></div>
+    <div class="cell"><div class="k">Par</div><div class="v gold" id="par">0</div></div>
+    <div class="cell"><div class="k">Level</div><div class="v" id="level">1</div></div>
+    <div class="cell"><div class="k">Score</div><div class="v" id="score">0</div></div>
+  </div>
+  <div id="boardWrap">
+    <canvas id="board" aria-label="THAW pipe grid"></canvas>
+    <div id="toasts" aria-live="polite"></div>
+    <div id="ov" class="on"><div class="card" id="ovCard"></div></div>
+  </div>
+  <div id="hint"><b>Tap a tile</b> to rotate it 90&#176;. Route the melt from the
+    <b>spring</b> (top-left) to the <b>gate</b> (bottom-right).</div>
+  <div id="pad">
+    <button class="btn" id="bRestart">RESTART</button>
+    <button class="btn ice" id="bNew">NEW BOARD</button>
+    <button class="btn" id="bHelp">HOW</button>
+  </div>
+</div>
+<script>
+(function(){
+"use strict";
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   THAW — tap a tile to rotate it 90 degrees; route one continuous stream from
+   the summit spring (top-left) to the valley gate (bottom-right) before your
+   taps run out.
+
+   Core verb: ROUTE.
+
+   Solvable by construction: we BUILD a solved board (a random spanning path from
+   spring to gate), then scramble it by rotating tiles. Par is the exact minimum
+   number of taps that restores the solved orientation, and we verify that
+   applying those rotations really does connect spring to gate.
+
+   Zero images, zero network requests. Everything is drawn on canvas.
+   ───────────────────────────────────────────────────────────────────────────── */
+
+// openings bitmask
+var N = 1, E = 2, S = 4, W = 8;
+
+var SHAPES = {
+  straight: N | S,      // 5
+  elbow:    N | E,      // 3
+  tee:      N | E | S,  // 7
+  cross:    N | E | S | W
+};
+
+function rotCW(mask){ return ((mask << 1) | (mask >> 3)) & 15; }
+
+function opposite(bit){
+  if (bit === N) return S;
+  if (bit === E) return W;
+  if (bit === S) return N;
+  return E;
+}
+function dxOf(bit){ return bit === E ? 1 : (bit === W ? -1 : 0); }
+function dyOf(bit){ return bit === S ? 1 : (bit === N ? -1 : 0); }
+
+// ── deterministic PRNG (mulberry32) so the daily board is reproducible ───────
+function mulberry32(a){
+  return function(){
+    a |= 0; a = (a + 0x6D2B79F5) | 0;
+    var t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+// ── state ────────────────────────────────────────────────────────────────────
+var grid = [];          // grid[y][x] = {mask, fixed}
+var G = 4;              // current grid size
+var tapsLeft = 0, par = 0, level = 1, score = 0, totalSaved = 0;
+var solved = false, dead = false, running = false;
+var pathCells = [];     // cells on the generating path (spring -> gate)
+var spring, gate;
+var rng = Math.random;
+var seedLabel = "";
+
+// ── board generation ─────────────────────────────────────────────────────────
+function buildSolved(n, rand){
+  // 1. random spanning path from (0,0) to (n-1,n-1) (randomised DFS)
+  var visited = [];
+  for (var y = 0; y < n; y++){
+    visited.push([]);
+    for (var x = 0; x < n; x++) visited[y].push(false);
+  }
+  var path = null;
+
+  function walk(cx, cy, acc){
+    if (path) return;
+    if (cx === n - 1 && cy === n - 1){ path = acc.slice(); return; }
+    visited[cy][cx] = true;
+    var dirs = [[1,0],[0,1],[-1,0],[0,-1]];
+    // shuffle
+    for (var i = dirs.length - 1; i > 0; i--){
+      var j = Math.floor(rand() * (i + 1));
+      var t = dirs[i]; dirs[i] = dirs[j]; dirs[j] = t;
+    }
+    for (var k = 0; k < dirs.length; k++){
+      var nx = cx + dirs[k][0], ny = cy + dirs[k][1];
+      if (nx < 0 || ny < 0 || nx >= n || ny >= n) continue;
+      if (visited[ny][nx]) continue;
+      acc.push([nx, ny]);
+      walk(nx, ny, acc);
+      if (path) return;
+      acc.pop();
+    }
+  }
+  walk(0, 0, [[0, 0]]);
+  if (!path) path = [[0,0]];               // cannot happen on a square grid
+
+  // 2. lay tiles: every path cell opens toward its path neighbours
+  var cells = [];
+  for (var y2 = 0; y2 < n; y2++){
+    var row = [];
+    for (var x2 = 0; x2 < n; x2++) row.push({ mask: 0, onPath: false, fixed: false });
+    cells.push(row);
+  }
+  for (var p = 0; p < path.length; p++){
+    var px = path[p][0], py = path[p][1];
+    var mask = 0;
+    if (p > 0){
+      var ox = path[p-1][0] - px, oy = path[p-1][1] - py;
+      if (ox === 1) mask |= E; else if (ox === -1) mask |= W;
+      else if (oy === 1) mask |= S; else if (oy === -1) mask |= N;
+    }
+    if (p < path.length - 1){
+      var qx = path[p+1][0] - px, qy = path[p+1][1] - py;
+      if (qx === 1) mask |= E; else if (qx === -1) mask |= W;
+      else if (qy === 1) mask |= S; else if (qy === -1) mask |= N;
+    }
+    cells[py][px].mask = mask;
+    cells[py][px].onPath = true;
+  }
+
+  // 3. off-path cells get a random shape (they may create harmless extra routes)
+  var pool = [SHAPES.straight, SHAPES.elbow, SHAPES.tee, SHAPES.cross];
+  for (var y3 = 0; y3 < n; y3++){
+    for (var x3 = 0; x3 < n; x3++){
+      if (cells[y3][x3].onPath) continue;
+      cells[y3][x3].mask = pool[Math.floor(rand() * pool.length)];
+    }
+  }
+  // spring and gate are pinned: the player never has to rotate the endpoints
+  cells[0][0].fixed = true;
+  cells[n-1][n-1].fixed = true;
+
+  return { cells: cells, path: path };
+}
+
+function scramble(cells, n, rand){
+  // rotate each rotatable tile 0..3 times; remember how far it moved so par is exact
+  var moves = [];
+  for (var y = 0; y < n; y++){
+    moves.push([]);
+    for (var x = 0; x < n; x++) moves[y].push(0);
+  }
+  var total = 0;
+  for (var y2 = 0; y2 < n; y2++){
+    for (var x2 = 0; x2 < n; x2++){
+      var t = cells[y2][x2];
+      if (t.fixed) continue;
+      // bias toward small scrambles early so level 1 is friendly
+      var r;
+      var roll = rand();
+      if (roll < 0.28) r = 0;
+      else r = 1 + Math.floor(rand() * 3);
+      for (var i = 0; i < r; i++) t.mask = rotCW(t.mask);
+      moves[y2][x2] = r;
+      var cheap = Math.min(r, 4 - r);
+      total += cheap;
+    }
+  }
+  return { moves: moves, par: total };
+}
+
+// par = the cost of the KNOWN solution, in taps: undo the scramble on the
+// generating path. Off-path tiles never need turning, so counting them would
+// inflate par and make "beating par" impossible. Because taps only rotate
+// CLOCKWISE, undoing r turns costs (4-r)%4 taps. This is an upper bound on the
+// true minimum, so shortcuts are allowed and rewarded.
+function parFromMoves(moves){
+  var total = 0;
+  for (var i = 0; i < pathCells.length; i++){
+    var p = pathCells[i];
+    if (grid[p[1]][p[0]].fixed) continue;
+    var r = moves[p[1]][p[0]] || 0;
+    // taps are CLOCKWISE ONLY, so undoing r scrambled turns costs (4 - r) % 4
+    total += (4 - (r % 4)) % 4;
+  }
+  return total;
+}
+
+// ── flow: which tiles does the stream actually reach? ────────────────────────
+function flowSet(){
+  var seen = [];
+  for (var y = 0; y < G; y++){
+    seen.push([]);
+    for (var x = 0; x < G; x++) seen[y].push(false);
+  }
+  var q = [[0, 0]];
+  seen[0][0] = true;
+  while (q.length){
+    var c = q.shift(), cx = c[0], cy = c[1];
+    var m = grid[cy][cx].mask;
+    var bits = [N, E, S, W];
+    for (var i = 0; i < bits.length; i++){
+      var b = bits[i];
+      if (!(m & b)) continue;
+      var nx = cx + dxOf(b), ny = cy + dyOf(b);
+      if (nx < 0 || ny < 0 || nx >= G || ny >= G) continue;
+      if (seen[ny][nx]) continue;
+      if (!(grid[ny][nx].mask & opposite(b))) continue;   // both sides must agree
+      seen[ny][nx] = true;
+      q.push([nx, ny]);
+    }
+  }
+  return seen;
+}
+
+function isConnected(){ return flowSet()[G-1][G-1]; }
+
+// par must be genuinely achievable: rotate back along the generating path only,
+// then confirm the stream reaches the gate. If not, we fail loudly rather than
+// ship a board the player cannot win.
+function parIsAchievable(moves){
+  var save = [];
+  for (var y = 0; y < G; y++){
+    save.push([]);
+    for (var x = 0; x < G; x++) save[y].push(grid[y][x].mask);
+  }
+  for (var i = 0; i < pathCells.length; i++){
+    var p = pathCells[i], r = moves[p[1]][p[0]];
+    var need = (4 - (r % 4)) % 4;
+    for (var k = 0; k < need; k++) grid[p[1]][p[0]].mask = rotCW(grid[p[1]][p[0]].mask);
+  }
+  var ok = isConnected();
+  for (var y2 = 0; y2 < G; y2++){
+    for (var x2 = 0; x2 < G; x2++) grid[y2][x2].mask = save[y2][x2];
+  }
+  return ok;
+}
+
+// ── level setup ──────────────────────────────────────────────────────────────
+function sizeForLevel(lv){
+  if (lv <= 1) return 4;
+  if (lv === 2) return 5;
+  if (lv === 3) return 6;
+  return 7;
+}
+
+function newBoard(useLevel, rand){
+  rng = rand || Math.random;
+  G = sizeForLevel(useLevel);
+  var built = buildSolved(G, rng);
+  grid = built.cells;
+  pathCells = built.path;
+
+  var sc = scramble(grid, G, rng);
+  // a scramble can land already-connected, which would be a trivial board.
+  // Re-scramble until the puzzle actually starts unsolved (bounded attempts).
+  var tries = 0;
+  while (isConnected() && tries < 24){
+    sc = scramble(grid, G, rng);
+    tries++;
+  }
+  par = parFromMoves(sc.moves);
+
+  // tap budget: par plus a little slack, tightened as levels rise
+  var slack = Math.max(2, Math.round(G * G * 0.18) - Math.floor(useLevel / 2));
+  tapsLeft = par + slack;
+
+  solved = false; dead = false; running = true;
+  return { par: par, taps: tapsLeft, moves: sc.moves };
+}
+
+var startMasks = [], startPar = 0, startSlack = 0, startMoves = [];
+
+function snapshotStart(){
+  startMasks = [];
+  for (var y = 0; y < G; y++){
+    startMasks.push([]);
+    for (var x = 0; x < G; x++) startMasks[y].push(grid[y][x].mask);
+  }
+  startPar = par;
+  startSlack = tapsLeft - par;
+  startMoves = [];
+}
+
+// ── rendering ────────────────────────────────────────────────────────────────
+var cvs = document.getElementById("board");
+var ctx = cvs.getContext("2d");
+var cell = 40, pad = 0, DPR = 1, reduced = false;
+try { reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch(e){}
+
+function drawPipe(g, cx, cy, s, mask, wet){
+  var half = s / 2, lw = Math.max(3, s * 0.17), r = lw / 2;
+
+  // pipe bed
+  g.lineCap = "round";
+  g.lineWidth = lw;
+  g.strokeStyle = wet ? "#1f7fa8" : "#2b3f4d";
+  var bits = [N, E, S, W];
+  for (var i = 0; i < bits.length; i++){
+    var b = bits[i];
+    if (!(mask & b)) continue;
+    g.beginPath();
+    g.moveTo(cx, cy);
+    g.lineTo(cx + dxOf(b) * half, cy + dyOf(b) * half);
+    g.stroke();
+  }
+
+  // water
+  if (wet){
+    g.lineWidth = Math.max(2, lw * 0.5);
+    g.strokeStyle = "#7fe3ff";
+    for (var k = 0; k < bits.length; k++){
+      var wb = bits[k];
+      if (!(mask & wb)) continue;
+      g.beginPath();
+      g.moveTo(cx, cy);
+      g.lineTo(cx + dxOf(wb) * half, cy + dyOf(wb) * half);
+      g.stroke();
+    }
+    g.fillStyle = "#9fe9ff";
+    g.beginPath();
+    g.arc(cx, cy, Math.max(2, lw * 0.34), 0, 6.2832);
+    g.fill();
+  } else {
+    g.fillStyle = "#23323d";
+    g.beginPath();
+    g.arc(cx, cy, Math.max(2, lw * 0.30), 0, 6.2832);
+    g.fill();
+  }
+}
+
+function draw(){
+  var W = cvs.width / DPR, H = cvs.height / DPR;
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  ctx.clearRect(0, 0, W, H);
+
+  // ice field background
+  var bg = ctx.createLinearGradient(0, 0, 0, H);
+  bg.addColorStop(0, "#0b2b40");
+  bg.addColorStop(1, "#08202f");
+  ctx.fillStyle = bg;
+  ctx.fillRect(0, 0, W, H);
+
+  var flow = flowSet();
+  var s = cell;
+
+  for (var y = 0; y < G; y++){
+    for (var x = 0; x < G; x++){
+      var cx = pad + x * s + s / 2, cy = pad + y * s + s / 2;
+      var wet = flow[y][x];
+      // tile plate
+      ctx.fillStyle = wet ? "#0f3d55" : "#132a38";
+      ctx.strokeStyle = wet ? "#2b8fb8" : "#1d3a4a";
+      ctx.lineWidth = 2;
+      var rr = 7;
+      var tx = pad + x * s + 1.5, ty = pad + y * s + 1.5, tw = s - 3, th = s - 3;
+      ctx.beginPath();
+      ctx.moveTo(tx + rr, ty);
+      ctx.arcTo(tx + tw, ty, tx + tw, ty + th, rr);
+      ctx.arcTo(tx + tw, ty + th, tx, ty + th, rr);
+      ctx.arcTo(tx, ty + th, tx, ty, rr);
+      ctx.arcTo(tx, ty, tx + tw, ty, rr);
+      ctx.closePath();
+      ctx.fill(); ctx.stroke();
+
+      drawPipe(ctx, cx, cy, s, grid[y][x].mask, wet);
+
+      // markers
+      if (x === 0 && y === 0){
+        ctx.fillStyle = "#ffcc00";
+        ctx.font = "bold " + Math.round(s * 0.40) + "px Verdana, sans-serif";
+        ctx.textAlign = "center"; ctx.textBaseline = "middle";
+        ctx.fillText("S", cx, cy + 1);
+      } else if (x === G - 1 && y === G - 1){
+        ctx.fillStyle = solved ? "#2ecc71" : "#ff8a5c";
+        ctx.font = "bold " + Math.round(s * 0.40) + "px Verdana, sans-serif";
+        ctx.textAlign = "center"; ctx.textBaseline = "middle";
+        ctx.fillText("G", cx, cy + 1);
+      }
+    }
+  }
+}
+
+function drawToastsText(t, c){
+  var host = document.getElementById("toasts");
+  var d = document.createElement("div");
+  d.className = "toast";
+  d.style.color = c || "#ffcc00";
+  d.textContent = t;
+  host.appendChild(d);
+  setTimeout(function(){ if (d.parentNode) d.parentNode.removeChild(d); }, 1200);
+}
+
+function hud(){
+  document.getElementById("taps").textContent = tapsLeft;
+  document.getElementById("taps").className = "v" + (tapsLeft <= 2 ? " warn" : "");
+  document.getElementById("par").textContent = par;
+  document.getElementById("level").textContent = level;
+  document.getElementById("score").textContent = score;
+}
+
+// ── interaction ──────────────────────────────────────────────────────────────
+function tapCell(x, y){
+  if (!running || solved || dead) return;
+  if (x < 0 || y < 0 || x >= G || y >= G) return;
+  if (grid[y][x].fixed) return;                 // spring and gate are pinned
+  grid[y][x].mask = rotCW(grid[y][x].mask);
+  tapsLeft--;
+  if (tapsLeft < 0) tapsLeft = 0;
+
+  if (isConnected()){
+    win();
+  } else if (tapsLeft <= 0){
+    lose();
+  }
+  hud(); draw();
+}
+
+function win(){
+  solved = true; running = false;
+  var saved = tapsLeft;
+  var bonus = saved * 25 + level * 50;
+  totalSaved += saved;
+  score += bonus;
+  drawToastsText(saved > 0 ? "THAWED  +" + bonus : "ROUTED  +" + bonus, "#2ecc71");
+  showOverlay(
+    '<h2>THAWED</h2>' +
+    '<h3>+' + bonus + '</h3>' +
+    '<div class="stat">Taps saved: <span>' + saved + '</span> of ' + par + ' par</div>' +
+    '<div class="stat">Level <span>' + level + '</span> &nbsp;&#183;&nbsp; Score <span>' + score + '</span></div>' +
+    '<p>' + (saved > 0 ? "Under par. The stream runs clear."
+                       : "Exactly on par &#8212; nothing wasted, nothing spare.") + '</p>' +
+    '<button id="ovBtn">NEXT GRID</button>');
+  document.getElementById("ovBtn").onclick = function(){
+    level++;
+    hideOverlay();
+    var r = newBoard(level);
+    snapshotStart();
+    hud(); resize(); draw();
+  };
+  hud(); draw();
+}
+
+function lose(){
+  dead = true; running = false;
+  showOverlay(
+    '<h2>FROZEN</h2>' +
+    '<h3>' + score + '</h3>' +
+    '<div class="stat">Par was <span>' + par + '</span> &#183; grid ' + G + '&#215;' + G + '</div>' +
+    '<div class="stat">Level <span>' + level + '</span></div>' +
+    '<p>Out of taps before the stream reached the gate. The board is still solvable from here &#8212; try it again.</p>' +
+    '<button id="ovBtn">RETRY THIS BOARD</button>');
+  document.getElementById("ovBtn").onclick = function(){
+    hideOverlay();
+    var m = startMasks;
+    for (var y = 0; y < G; y++)
+      for (var x = 0; x < G; x++) grid[y][x].mask = m[y][x];
+    tapsLeft = startPar + startSlack;
+    solved = false; dead = false; running = true;
+    hud(); draw();
+  };
+  hud(); draw();
+}
+
+// ── overlays ─────────────────────────────────────────────────────────────────
+function showOverlay(html){
+  document.getElementById("ovCard").innerHTML = html;
+  document.getElementById("ov").classList.add("on");
+}
+function hideOverlay(){ document.getElementById("ov").classList.remove("on"); }
+
+var RULES =
+  '<p class="rules">' +
+  'The <b>spring S</b> (top-left) is already flowing. The <b>gate G</b> (bottom-right) is shut.<br><br>' +
+  '<b>Tap any tile</b> to rotate it a quarter turn. Water only flows where two ' +
+  'neighbouring tiles <i>open into each other</i> &#8212; a pipe pointing at a wall stops the stream.<br><br>' +
+  'Reach the gate before your <b>taps run out</b>. <b>Par</b> is the exact minimum number ' +
+  'of turns, worked out when the board is made, so beating par is always possible.<br><br>' +
+  'Every board is <i>built solved, then scrambled</i> &#8212; a solution always exists.<br><br>' +
+  'The spring and the gate never rotate. Grids grow 4&#215;4 &#8594; 7&#215;7.' +
+  '</p>';
+
+function dailySeed(){
+  var d = new Date();
+  return d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
+}
+
+function startDaily(){
+  var sd = dailySeed();
+  seedLabel = "daily seed " + sd;
+  document.getElementById("seedTag").textContent = seedLabel;
+  level = 1; score = 0; totalSaved = 0;
+  newBoard(1, mulberry32(sd));
+  snapshotStart();
+  hideOverlay();
+  hud(); resize(); draw();
+}
+
+function startRandom(){
+  var sd = (Math.random() * 1e9) | 0;
+  seedLabel = "random board";
+  document.getElementById("seedTag").textContent = seedLabel;
+  level = 1; score = 0; totalSaved = 0;
+  newBoard(1, mulberry32(sd));
+  snapshotStart();
+  hideOverlay();
+  hud(); resize(); draw();
+}
+
+function showStart(){
+  showOverlay(
+    '<h2>THAW</h2>' +
+    '<p>Route the meltwater from the summit spring to the valley gate before your taps run out.</p>' +
+    RULES +
+    '<button id="ovBtn">TAP TO PLAY</button>');
+  document.getElementById("ovBtn").onclick = startDaily;
+}
+
+function showHelp(){
+  var wasRunning = running && !solved && !dead;
+  if (wasRunning) running = false;
+  showOverlay(
+    '<h2>HOW TO PLAY</h2>' + RULES +
+    '<button id="ovBtn">BACK</button>');
+  document.getElementById("ovBtn").onclick = function(){
+    hideOverlay();
+    if (wasRunning) running = true;
+    else showStart();
+  };
+}
+
+// ── resize ───────────────────────────────────────────────────────────────────
+function resize(){
+  var wrap = document.getElementById("boardWrap");
+  var aw = wrap.clientWidth, ah = wrap.clientHeight;
+  if (!aw || !ah) return;
+  var avail = Math.min(aw, ah);
+  cell = Math.floor((avail - 10) / G);
+  if (cell < 16) cell = 16;
+  var side = cell * G + 10;
+  pad = 5;
+  DPR = Math.min(window.devicePixelRatio || 1, 2);
+  cvs.width = Math.round(side * DPR);
+  cvs.height = Math.round(side * DPR);
+  cvs.style.width = side + "px";
+  cvs.style.height = side + "px";
+  draw();
+}
+
+// ── input: tap a tile to rotate it ───────────────────────────────────────────
+cvs.addEventListener("pointerdown", function(e){
+  if (!running || solved || dead) return;
+  e.preventDefault();
+  var r = cvs.getBoundingClientRect();
+  var lx = e.clientX - r.left - pad;
+  var ly = e.clientY - r.top - pad;
+  var x = Math.floor(lx / cell), y = Math.floor(ly / cell);
+  tapCell(x, y);
+}, {passive:false});
+
+// keyboard: arrows move a cursor-free fallback so it is playable without touch
+document.addEventListener("keydown", function(e){
+  if (e.key === "r" || e.key === "R"){ startDaily(); }
+  else if (e.key === "n" || e.key === "N"){ startRandom(); }
+  else if (e.key === "h" || e.key === "H"){ showHelp(); }
+});
+
+document.getElementById("bRestart").onclick = function(){
+  if (!startMasks.length) return;
+  hideOverlay();
+  for (var y = 0; y < G; y++)
+    for (var x = 0; x < G; x++) grid[y][x].mask = startMasks[y][x];
+  tapsLeft = startPar + startSlack;
+  solved = false; dead = false; running = true;
+  hud(); draw();
+};
+document.getElementById("bNew").onclick = startRandom;
+document.getElementById("bHelp").onclick = showHelp;
+
+window.addEventListener("resize", resize);
+window.addEventListener("orientationchange", function(){ setTimeout(resize, 120); });
+
+// ── boot ─────────────────────────────────────────────────────────────────────
+newBoard(1, mulberry32(dailySeed()));
+snapshotStart();
+hud();
+resize();
+showStart();
+
+// test seam: exposes internals ONLY when window.__THAW_TEST__ was set before load.
+if (typeof window !== "undefined" && window.__THAW_TEST__){
+  window.__THAW_TEST__.api = {
+    newBoard: newBoard, isConnected: isConnected, flowSet: flowSet,
+    rotCW: rotCW, mulberry32: mulberry32, tapCell: tapCell, parIsAchievable: parIsAchievable,
+    state: function(){ return {G:G, par:par, taps:tapsLeft, level:level, score:score,
+                              solved:solved, dead:dead, pathLen:pathCells.length}; },
+    grid: function(){ return grid; },
+    path: function(){ return pathCells; },
+    setMask: function(x,y,m){ grid[y][x].mask = m; },
+    sizeForLevel: sizeForLevel,
+    parFromMoves: parFromMoves
+  };
+}
+
+})();
+</script>
+</body>
+</html>

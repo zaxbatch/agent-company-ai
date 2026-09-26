@@ -1,0 +1,51 @@
+{
+  "file": "content/snowsnakes/games/thaw.html",
+  "bytes": 27229,
+  "load_ms": 163,
+  "metrics": {
+    "scrollW": 390,
+    "clientW": 390,
+    "innerW": 390,
+    "innerH": 844,
+    "canvas": {
+      "w": 374,
+      "h": 374,
+      "bottom": 591,
+      "right": 382
+    },
+    "buttons": [
+      {
+        "t": "TAP TO PLAY",
+        "w": 310,
+        "h": 48
+      },
+      {
+        "t": "RESTART",
+        "w": 121,
+        "h": 54
+      },
+      {
+        "t": "NEW BOARD",
+        "w": 121,
+        "h": 54
+      },
+      {
+        "t": "HOW",
+        "w": 121,
+        "h": 54
+      }
+    ]
+  },
+  "small_phone": {
+    "scrollW": 320,
+    "clientW": 320,
+    "w": 306,
+    "bottom": 439,
+    "innerH": 568
+  },
+  "canvas_colours": 113,
+  "external_refs": [],
+  "js_errors": [],
+  "failed_requests": [],
+  "problems": []
+}
