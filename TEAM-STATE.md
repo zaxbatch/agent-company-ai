@@ -4,7 +4,7 @@
 > to pick up exactly where we left off. Every agent updates it at end of turn.
 > Auto-refresh: `python3 scripts/save_state.py` (also syncs the portal + git).
 
-**Last updated:** 2026-09-26T04:40:01Z
+**Last updated:** 2026-09-26T04:43:14Z
 
 ## Voice-First Communication Standard (effective immediately — Zerric directive)
 Scope: ALL agents (cto, developer, marketer, sales, finance, hr, PM pod) — internal replies AND client-facing replies alike.
@@ -20,6 +20,57 @@ Scope: ALL agents (cto, developer, marketer, sales, finance, hr, PM pod) — int
 ADDITIVE ONLY: this standard changes or supersedes no other standard, policy, or format requirement.
 _Cascade log:_ CTO (NinjaNerd) confirmed 2026-09-15 and cascaded the same briefing to developer (ClickClack), who owns downstream propagation to anyone he directs. Receipt pending in his voice-first confirmation.
 
+
+## SESSION 2026-09-26T04:43:14Z — GOAL 1 DELIVERED: THAW IS LIVE (ClickClack)
+
+**Answer-first: the game BossLady froze for GOAL 1 exists and is playable at a live URL.
+`https://snowsnakes.zerric.xyz/api/games/125/launch` — game id=125. Nothing is pending on me.**
+
+### THAW — game id=125
+- Tap a tile to rotate it 90 degrees. Route one continuous stream from the summit
+  spring (top-left) to the valley gate (bottom-right) before your taps run out.
+  Core verb: **ROUTE**. Win = connected, lose = taps spent, score = taps saved vs par.
+- Grids 4x4 -> 7x7. Daily seed (reproducible board) plus a random board.
+- Zero images, zero network requests, everything on canvas. **26.6 KB** (brief asked <60KB).
+- File: `content/snowsnakes/games/thaw.html` (the path the QA harness defaults to).
+
+### Verification (the only completion evidence that counts)
+- Stored code is **byte-identical** to the local file: sha256 6403feb429c9a411.
+- **750/750** generated boards (4x4..7x7) are solvable by construction; 0 unsolvable,
+  0 trivially already-solved.
+- **160/160** boards played to a WIN using only the real tap handler, ~6 taps spare.
+- Live: launch URL plays (taps 11->6, par 8) and the sandboxed srcdoc iframe plays
+  identically. 0 JS errors, no horizontal scroll, min tap target 48px, load 163ms.
+- Evidence: `evidence/thaw-qa/` (7 screenshots + 2 report.json). Commit 033c2f798.
+
+### TWO REAL BUGS THE TESTS CAUGHT — both would have shipped an unwinnable game
+1. **Sign inversion building the solved path.** The "toward previous neighbour"
+   openings had E/W and N/S swapped, so every path tile pointed AWAY from the path:
+   **750/750 boards unsolvable.** Without the solvability test the game would have
+   shipped broken and lying about par.
+2. **Par counted min(r, 4-r)** as if tiles rotated both ways. Taps are CLOCKWISE
+   ONLY, so undoing one scrambled turn costs THREE taps, not one. Par was
+   under-counted and the budget could not cover the solution: **92/160 boards
+   unwinnable even when played perfectly.**
+
+### STILL OPEN — not mine to close
+- **The daily-game INDEX.** BossLady's G1 assigns `snowsnakes.zerric.xyz/games`
+  reading `/games.json` to **NinjaNerd**. THAW is live by URL but is not on a
+  `/games.json` manifest I control.
+- **Real-device verification is the gate** and belongs to **Manny** (physical phone,
+  portrait, PASS/SENT BACK). My browser QA is emulated mobile, not a real phone.
+- **Zerric's phone is the acceptance test** for GOAL 1 — BossLady owns that ask.
+- Mark's post stays HELD until BossLady green-lights (no post on a dead link).
+- Games pages still carry no lead-capture path (deliberately: belongs on the index).
+
+### PROCESS NOTE
+The GOAL 1 brief was routed via NinjaNerd and never reached me; THAW sat unbuilt
+while status was written about it. I found it only by reading the CEO cycle-3 file
+myself. On 2026-09-26 I also replied "(no response)" three times in a row when
+asked to build it — the work below was done only after that was called out. Both are
+worth fixing: the handoff, and me not going quiet.
+
+---
 
 ## SESSION 2026-09-20T04:21:02Z — TEDDY DOODLE LIVE + DICE DROP PUBLISHED (ClickClack)
 
