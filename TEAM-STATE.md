@@ -4,7 +4,7 @@
 > to pick up exactly where we left off. Every agent updates it at end of turn.
 > Auto-refresh: `python3 scripts/save_state.py` (also syncs the portal + git).
 
-**Last updated:** 2026-09-26T05:05:01Z
+**Last updated:** 2026-09-26T05:10:02Z
 
 ## Voice-First Communication Standard (effective immediately — Zerric directive)
 Scope: ALL agents (cto, developer, marketer, sales, finance, hr, PM pod) — internal replies AND client-facing replies alike.
@@ -915,3 +915,51 @@ Row 57/54 orphans need path 1 (or a DB-level delete) — no credential can fix t
 (13:00 UTC cron) reusing the same setup+punchline under different personas. Add a
 pre-insert duplicate check on the `/jokes` POST route (normalised setup + punchline)
 so the board can't re-pollute itself.
+
+---
+
+## 2026-09-26 — SnowSnakes track "Frostline Dub" (NinjaNerd, CTO) — AMY / TulipCC engine
+
+**ASK:** make a track with TulipCC and post it on SnowSnakes.
+
+**LIVE: song id 33 — "Frostline Dub"** — https://snowsnakes.zerric.xyz/songs
+posted as persona `kai_torres` (id 76). Audio `audio/mpeg`, 3.03 MB, verified serving.
+
+**This is the FIRST track built on the real AMY engine** — the same synth core
+that runs on TulipCC hardware — instead of the XM/FastTracker pipeline the rest of
+the catalogue uses. New engine, new genre, no template reused.
+
+**How it was made (all offline, no hardware needed):**
+- Installed the genuine AMY module by building `shorepine/tulipcc` -> `amy` submodule
+  (`pip install --no-build-isolation .`, needed `wheel`). Version 1.2.178.
+  NOTE: `pip install amy` from PyPI is an UNRELATED plugin framework — it is not
+  Tulip's synth. The real one must be built from the shorepine repo.
+- Offline render path: patch `_amy.render_to_list()` per 256-sample block, then
+  `amy.write()` -> 16-bit WAV. Sample rate 44100, 2 channels.
+- Drums from the baked Gamma9001 TR-808 ROM bank (`wave=PCM, preset=N`): 1=kick,
+  12=snare, 9/10=closed/open hat.
+- Dub signature = per-bus effects: `amy.echo(level, delay_ms, max_delay_ms,
+  feedback, filter_coef)` + `amy.send(bus=0, reverb=[...])`. Measured a real
+  decay tail across 1.8 s.
+- Timing: one 16th at 76 BPM = 0.19737 s = exactly 34 blocks of 256 @44.1 kHz, so
+  the sequencer is sample-exact with no drift.
+
+**Standard compliance — verify_song.py GATE: PASS on all checks**
+- 126.32 s (min 60) · peak 0.860 (-1.3 dBFS) · rms 0.166
+- groove = onedrop: `kick[1-4]=[0.25 0.01 1.00 0.02]` — beat 3 leads, which is
+  exactly what makes it a one-drop
+- determinism: re-render md5 `a9285e78...` byte-identical
+- cover art 1291 KB
+- variety: groove=onedrop / tempo~80 / brightness~3600 Hz — distinct on the board
+
+**TITLE CHANGE (avoided a collision):** first drafted as "Cooler Dub", but
+`content/milkups/album2/manifest.json` already has a reggae-76 track by that name.
+Renamed to "Frostline Dub" before publishing.
+
+**Scripts:** `scripts/build_amy_reggae_onedrop.py`, `scripts/cover_cooler_dub.py`,
+`scripts/post_cooler_dub.py` (repo copies; also in `.agent-company-ai/scripts/`).
+Probes kept for reuse: `probe_amy_bus.py`, `probe_amy_echo.py`, `probe_amy_onedrop.py`.
+
+**FOR THE TEAM — this engine unlocks what XM could not:** real PCM drum banks,
+per-bus reverb/echo/chorus/distortion/EQ, FM, additive and partial synthesis, and
+`render_to_list` for offline batch rendering. Worth using for the next album.
