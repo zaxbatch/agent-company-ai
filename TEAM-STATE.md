@@ -4,7 +4,7 @@
 > to pick up exactly where we left off. Every agent updates it at end of turn.
 > Auto-refresh: `python3 scripts/save_state.py` (also syncs the portal + git).
 
-**Last updated:** 2026-09-26T05:10:02Z
+**Last updated:** 2026-09-26T05:15:01Z
 
 ## Voice-First Communication Standard (effective immediately — Zerric directive)
 Scope: ALL agents (cto, developer, marketer, sales, finance, hr, PM pod) — internal replies AND client-facing replies alike.
@@ -963,3 +963,56 @@ Probes kept for reuse: `probe_amy_bus.py`, `probe_amy_echo.py`, `probe_amy_onedr
 **FOR THE TEAM — this engine unlocks what XM could not:** real PCM drum banks,
 per-bus reverb/echo/chorus/distortion/EQ, FM, additive and partial synthesis, and
 `render_to_list` for offline batch rendering. Worth using for the next album.
+
+---
+
+## 2026-09-26 — SnowSnakes house track "Basement Frost" (NinjaNerd, CTO) — AMY engine
+
+**ASK:** make a house-type beat with it and post it on SnowSnakes.
+
+**LIVE: song id 34 — "Basement Frost"** — https://snowsnakes.zerric.xyz/songs
+posted as persona `ivy_chen` (id 79). Audio `audio/mpeg`, 4.39 MB, verified serving.
+Second track on the AMY engine (the TulipCC synth core), after "Frostline Dub" (33).
+
+**SPEC:** house @ 123.046875 BPM, four-on-the-floor, 187.25 s (96 bars).
+
+**The tempo is exact, and that is deliberate.** At 44.1 kHz a 16th note must be a
+whole number of 256-sample blocks or the sequencer drifts. One 16th =
+2583.984375/BPM blocks, so 21 blocks per 16th gives BPM = 2583.984375/21 =
+123.046875. Everything lands on an exact sample grid; nothing is resampled.
+
+**VARIETY — checked against the REAL board, not just the local folder.**
+fingerprint = `(groove, round(bpm/10)*10, centroid//250)`. I downloaded all 12
+published tracks and measured their fingerprints
+(`scripts/audit_board_fingerprints.py` -> `/tmp/board_fingerprints.json`):
+- The 120 tempo bucket already holds "Shelves After Dark" (disco 118) at brightness
+  bucket 8, so this track had to avoid bucket 8. It lands at bucket 10.
+- No other four-on-the-floor track sits in the 120 bucket at bucket 10
+  (16-Bar Instrumental is 128 -> 130 bucket; Front Porch Frost is country/backbeat).
+- Result: `(four_on_floor, 120, 10)` — distinct on the board.
+
+**Standard compliance — verify_song.py GATE: PASS on all checks**
+- 187.25 s · peak 0.846 (-1.4 dBFS) · rms 0.240
+- groove = four_on_floor: 94% of 353 low-band onset gaps = exactly 1 beat,
+  median 0.488 s vs 0.488 s beat length; offbeat/onbeat hat energy 0.37/0.13
+- tempo claim matches audio: measured 123.8 BPM from the 40-110 Hz band
+- determinism: re-render md5 `d65471d8...` byte-identical
+- cover art 1381 KB
+- variety: PASS
+
+**Techniques worth reusing (new in this track):**
+- Per-bus `eq=[3.0, 0.0, -5.0]` to warm the low end and tame the top — this is how
+  the brightness bucket was controlled rather than left to chance.
+- `chorus=[0.18, 400, 0.28, 0.4]` for the keys, `echo` on the clap for club space.
+- `filter_type=1, filter_freq=380` on the bass. The offbeat bass is a classic house
+  move, but a bass transient between kicks adds low-band onsets and breaks the
+  four-on-the-floor measurement — a soft 12 ms attack plus the filter keeps the
+  kick as the only low-band onset. Probed before committing
+  (`scripts/probe_house_groove.py`).
+
+**Drum map confirmed (TR-808 ROM bank, `wave=PCM preset=N`):**
+1 = kick long, 2 = kick punchy (used), 3 = clap, 9 = closed hat, 10 = open hat,
+12 = snare.
+
+**Scripts:** `scripts/build_amy_house.py`, `scripts/cover_basement_frost.py`,
+`scripts/post_basement_frost.py`, `scripts/audit_board_fingerprints.py`.
