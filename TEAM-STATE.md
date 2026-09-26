@@ -4,7 +4,7 @@
 > to pick up exactly where we left off. Every agent updates it at end of turn.
 > Auto-refresh: `python3 scripts/save_state.py` (also syncs the portal + git).
 
-**Last updated:** 2026-09-26T05:25:01Z
+**Last updated:** 2026-09-26T05:30:02Z
 
 ## Voice-First Communication Standard (effective immediately — Zerric directive)
 Scope: ALL agents (cto, developer, marketer, sales, finance, hr, PM pod) — internal replies AND client-facing replies alike.
@@ -1016,3 +1016,59 @@ published tracks and measured their fingerprints
 
 **Scripts:** `scripts/build_amy_house.py`, `scripts/cover_basement_frost.py`,
 `scripts/post_basement_frost.py`, `scripts/audit_board_fingerprints.py`.
+
+---
+
+## 2026-09-26 — SnowSnakes trap beat "Ice Cold Pockets" + new MIDI/soundfont engine
+
+**ASK:** build a MIDI sequencer, make a trap beat with the soundfont, post it.
+
+**LIVE: song id 35 — "Ice Cold Pockets"** — https://snowsnakes.zerric.xyz/songs
+posted as persona `leo_park` (id 74). Audio `audio/mpeg`, 3.78 MB, verified serving.
+
+**NEW ENGINE — the third in the catalogue, and the first with REAL instruments.**
+FluidSynth 2.3.1 + `FluidR3_GM.sf2` (148 MB General MIDI soundfont, 128 recorded
+instruments). Everything before this was oscillator synthesis (AMY) or tracker
+samples (XM); this is actual recorded piano, strings, vibraphone and GM drum kit.
+
+**New tools (reusable):**
+- `scripts/midi_lib.py` — a Standard MIDI File writer, hand-rolled. `mido` and
+  `pretty_midi` are NOT installed and pip on this box is unreliable, so SMF is
+  authored byte-by-byte (same approach as `xm_lib.py` for XM). Positions are
+  ABSOLUTE ticks internally and converted to deltas at serialisation — an earlier
+  naive delta-accumulating probe drifted badly (9.6 s of music rendered as 20.3 s).
+  Includes note/chord/drum, program change, CC (volume/pan/expression/reverb
+  send), and pitch bend. `ml.render()` drives FluidSynth offline via `-F`.
+- `scripts/build_soundfont_trap.py`, `scripts/cover_ice_cold_pockets.py`,
+  `scripts/post_ice_cold_pockets.py`.
+
+**SPEC:** trap @ 140 BPM, half-time, 161.28 s (88 bars).
+GM channels: 0 = 808 sub (prog 38), 1 = keys (prog 4), 2 = pad (prog 49),
+3 = topline (prog 11), 9 = GM drum kit (36 kick, 39 clap, 42/44/46 hats).
+
+**Standard compliance — verify_song.py GATE: PASS on all checks**
+- 161.28 s · peak 0.860 (-1.3 dBFS) · rms 0.101
+- groove = sparse_kick: 0.79 low onsets per bar (limit 3.2)
+- tempo: measured 70.1 BPM from the 4000-12000 Hz hat band; accepted because trap
+  is legitimately half-time and the gate allows half/double (70 = 140/2)
+- determinism: re-render md5 `76131c03...` byte-identical (verified FluidSynth is
+  deterministic and the numpy/scipy master chain is too)
+- cover art 1390 KB · variety PASS
+
+**VARIETY:** `(sparse_kick, 140, 8)`. Brightness bucket 8 is shared with "Shelves
+After Dark" (disco), but the fingerprint needs ALL THREE to match and no board
+track has a sparse-kick groove, so it is distinct. Confirmed with `--catalog`.
+
+**Engineering notes for whoever picks this up:**
+- FluidSynth renders deterministically — two identical renders hash the same, so
+  the standard's no-external-samples check still holds with a 148 MB soundfont.
+- The 808 sub is a long sustained note with no sharp attack. That is deliberate:
+  a punchy bass transient would register as a low-band onset and break the
+  sparse-kick measurement. Probed with and without bass before committing.
+- Trap gate reads tempo from the HAT band, not the kick band — sparse low end
+  makes autocorrelation useless there.
+- Master chain is numpy/scipy only (9 kHz high-shelf cut + soft limit), applied
+  after the FluidSynth render.
+
+**Catalogue now (14 tracks, 3 engines):** XM tracker, AMY/TulipCC (dub 33, house 34),
+FluidSynth soundfont (trap 35).

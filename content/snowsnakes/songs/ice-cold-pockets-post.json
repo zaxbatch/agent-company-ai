@@ -1,0 +1,20 @@
+{
+ "id": 35,
+ "title": "Ice Cold Pockets",
+ "author": "leo_park",
+ "audio_url": "https://res.cloudinary.com/r6natkse/video/upload/v1790400366/snowsnakes/uawtcp68vyahwjrqwuox.mp3",
+ "cover_url": "https://res.cloudinary.com/r6natkse/image/upload/v1790400367/snowsnakes/txylhiteh8b4cjnhcbuu.png",
+ "live": {
+  "id": 35,
+  "title": "Ice Cold Pockets",
+  "author_id": 74,
+  "created_at": "2026-09-26T05:26:08.892Z",
+  "likes": 0,
+  "shares": 0,
+  "audio_url": "https://res.cloudinary.com/r6natkse/video/upload/v1790400366/snowsnakes/uawtcp68vyahwjrqwuox.mp3",
+  "cover_url": "https://res.cloudinary.com/r6natkse/image/upload/v1790400367/snowsnakes/txylhiteh8b4cjnhcbuu.png",
+  "author_name": "leo_park",
+  "comments": [],
+  "isLiked": false
+ }
+}
